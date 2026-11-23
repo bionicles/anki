@@ -2,6 +2,12 @@
 
 Build flashcards for Anki from a JSON manifest or use the exam workflow to link cards to an exam outline. The repository includes ready-to-import ACSM-CPT and Series 65 packages, editable text exports, and coverage maps.
 
+From the repository root, give your agent this prompt. Replace `$TEST` with the exam name.
+
+```text
+/goal use the ./deck-builder skill and build me an anki deck for $TEST
+```
+
 ## Tutorial
 
 ### Build and import your first card
