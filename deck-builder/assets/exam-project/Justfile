@@ -1,0 +1,12 @@
+# Set these once for the project. Preserve the namespace across releases.
+export EXAM_DECK := "Sample Exam"
+export EXAM_NAMESPACE := "Sample-Exam"
+
+build:
+    #!/usr/bin/env sh
+    set -eu
+    release="releases/release-$(python3 -c 'import time; print(time.time_ns())')"
+    uv run --no-project --with genanki==0.13.1 python scripts/build_exam.py cards.tsv components.csv "$release" --namespace "$EXAM_NAMESPACE" --deck "$EXAM_DECK"
+
+test:
+    uv run --no-project --with genanki==0.13.1 --with anki==26.9.4 python scripts/verify_exam.py cards.tsv components.csv releases --latest --namespace "$EXAM_NAMESPACE" --deck "$EXAM_DECK"

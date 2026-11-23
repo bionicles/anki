@@ -1,0 +1,5 @@
+Build a complete, importable Anki deck for the **Series 65 exam as updated for early 2027**. Use NASAA’s May 2026 investment adviser advertising amendments for all affected cards, including scenarios about advertising, unethical business practices, and recordkeeping. When an amendment changes the correct answer, teach the updated answer and cite the amended provision. Use the [official NASAA Series 65 outline and update notice](https://www.nasaa.org/exams/general-exam-information/series-65-exam-content-outline/).
+
+Cover all four exam domains. Aim for about 1,200 original cards, using concise recall questions, worked calculations, and client scenarios. Give each card one clear question, a defensible answer, a brief explanation, and a verifiable source.
+
+Deliver `Series-65.apkg`, an editable `Series-65.tsv`, and a `coverage.csv` mapping outline topics to card IDs. Verify that the package imports, check the calculations, and review every card affected by the amendments for outdated answers.

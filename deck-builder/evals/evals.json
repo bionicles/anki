@@ -1,0 +1,38 @@
+{
+  "skill_name": "anki-deck-builder",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Make me an Anki package called Café::Week 1 from these pairs: le thé = tea, le lait = milk, le café = coffee. I need French to English for all three and English to French for just tea and milk. Tag every note week1. Give me the editable build input too so I can correct a translation next week without doubling my deck.",
+      "expected_output": "Importable package with the specified five review directions, tags, and reusable build input.",
+      "files": [],
+      "expectations": [
+        "Collection contains precisely the five requested French/English directions.",
+        "Every note is tagged week1 and every card is in Café::Week 1.",
+        "Editable build input has durable identity independent of the translated wording."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I want an editable UTF-8 Anki TSV for Optics::Lab, tag lab1. My handout p. 4 says: A converging lens has positive focal length. A diverging lens has negative focal length. In our ray diagram, rays parallel to the principal axis converge at the focal point after passing through a converging lens. Make the first two facts ONE cloze note with two independently reviewed blanks; make the last fact a question on a Basic note. Keep p. 4 only on the answer side.",
+      "expected_output": "A two-note, three-card TSV with separate cloze ordinals, Basic question, source locators, deck and tag.",
+      "files": [],
+      "expectations": [
+        "Import generates two cloze cards from one note and one Basic card.",
+        "Each sign and the focal-point answer match the handout.",
+        "All cards are in Optics::Lab, have lab1, and reveal p. 4 only on the answer side."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Build a tiny Dock Signals exam deck for the November sitting. Official outline v2 §1 lists two domains: SIG objective S1 identifying amber and violet flags, and FEE objective F1 calculating launch fees. The v2 handbook §3 says amber means hold position; §6 says the fee is $8 plus $3 per crate (formerly $2 per crate). No supplied reference explains violet. Make one original question per verifiable component, include a worked fee problem for four crates, and deliver an Anki package, matching editable TSV, and coverage.csv. Preserve the gap. Verify package + text import, counts, edits and effective-version references. Leave the authoring inputs too.",
+      "expected_output": "Two cards with versioned answer citations, matching package and editable TSV, documented uncovered component and authoring inputs.",
+      "files": [],
+      "expectations": [
+        "Only amber and the four-crate fee are tested, with the current $20 calculation and v2 answer locators.",
+        "The package and TSV reconcile to the same two notes and cards after reimport.",
+        "Coverage and authoring inputs record the supported components and the violet gap."
+      ]
+    }
+  ]
+}
