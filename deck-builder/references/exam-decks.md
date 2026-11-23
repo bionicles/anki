@@ -22,6 +22,16 @@ Adapt this short brief as `goal.md` when the user asks for a prompt or project s
 
 Use plain Unicode text in both inputs. `Source` holds the citation locator and a URL when available. Give each card a `type::recall`, `type::calculation`, `type::scenario`, or similarly meaningful tag. Use compact IDs for domain and objective. List linked card IDs separated by spaces. Mark a component `covered` only if the linked questions actually require the learner to retrieve it. Use `partial` for mapped but incomplete evidence and `gap` for a component with no card. State what is missing in `coverage_note`. One card can support several rows when its question genuinely tests each.
 
+## Overlearning a numbered skill
+
+Map the published skill IDs before allocating extra depth by domain weight. For each skill, identify a decision a learner should make, a nearby alternative they could confuse with it, and evidence that would change the decision. A useful sequence starts with recall, applies the rule in a new setting, then asks the learner to diagnose a failure or recognize an exception. Split broad skills into their component decisions and revisit difficult ones from several angles. Follow an explicit sample size or one-card-per-component request when given.
+
+For example, after asking which credential a client needs, give the client a valid credential with the wrong scope and ask what fails. Then change the failure to expiry and ask which credential must be renewed. Each card should still work when encountered alone. A new company name or a reversed question adds little if the same keyword gives away every answer.
+
+Publicly released older practice questions can identify durable distinctions or realistic distractors. Write original scenarios, change the evidence that determines the answer, and verify each rule against the current syllabus and primary source. Cite the current source on the answer side. Discard retired capabilities or identify their eligibility restrictions.
+
+Audit the exported cards grouped by published skill ID. Count distinct cards and inspect the actual retrievals in each group for breadth, decisions, and near-duplicates. Check the weakest skill in each domain before adding depth to the strongest. Report the per-skill range, domain counts, uncovered components, and the source of any limits. A card count measures available practice. Demonstrated mastery requires learner performance on fresh prompts.
+
 ## Build and audit
 
 ```sh

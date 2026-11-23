@@ -7,7 +7,7 @@ description: Build, revise, or audit study flashcards for Anki. Use for turning 
 
 Deliver the requested deck and enough information to import and review it. Default to a downloadable `.apkg` for an unspecified deck file, UTF-8 TSV for an editable text import, and a small inline sample when the user asks for a preview. Honor any supplied schema, language, deck hierarchy, and learning direction.
 
-For an exam or curriculum deck with coverage requirements, use the [exam workflow and reusable project brief](references/exam-decks.md). It builds the package, editable TSV, and coverage map together. For a rebuildable project, deliver its authoring tables, scripts, and working `just build` and `just test` recipes.
+For an exam or curriculum deck with coverage requirements, use the [exam workflow and reusable project brief](references/exam-decks.md). For exam preparation, plan several independent retrieval opportunities for each numbered skill. Revisit the same decision with changed evidence, constraints, and plausible alternatives. Respect explicit card limits and narrow requests. The exam workflow builds the package, editable TSV, and coverage map together. For a rebuildable project, deliver its authoring tables, scripts, and working `just build` and `just test` recipes.
 
 ## Decide what belongs on a card
 
