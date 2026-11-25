@@ -10,7 +10,20 @@ import tempfile
 import unicodedata
 from pathlib import Path
 
-MODELS = {"basic": "Basic", "reversed": "Basic (and reversed card)", "cloze": "Cloze"}
+MODELS = {"basic": "Basic", "reversed": "Basic (and reversed card)", "cloze": "Cloze",
+          "varied": "Deck Builder · Varied prompt"}
+VARIED_FRONT = """<div id="adb-prompt">{{Front}}</div>
+<div hidden id="adb-alternatives">{{Alternatives}}</div>
+{{PromptMedia}}
+<script>
+(function () {
+    var alternatives = document.getElementById("adb-alternatives").children;
+    var choice = Math.floor(Math.random() * (1 + alternatives.length));
+    if (choice > 0) {
+        document.getElementById("adb-prompt").innerHTML = alternatives[choice - 1].innerHTML;
+    }
+})();
+</script>"""
 CLOZE = re.compile(r"\{\{c([1-9]\d*)::([^{}]+?)\}\}")
 IMAGE = {".png", ".jpg", ".jpeg", ".gif", ".webp"}
 AUDIO = {".mp3", ".ogg", ".wav", ".m4a"}
@@ -80,7 +93,10 @@ def parse_note(note, base, stage):
     if kind not in MODELS:
         raise ValueError(f"unknown note type {kind!r}")
     a, b = ("text", "extra") if kind == "cloze" else ("front", "back")
-    check_keys(note, ["id", "type", a, b, "tags", "front_media", "back_media"], key)
+    allowed = ["id", "type", a, b, "tags", "front_media", "back_media"]
+    if kind == "varied":
+        allowed.append("variants")
+    check_keys(note, allowed, key)
     first = require_text(note.get(a), a)
     second = note.get(b, "")
     if kind != "cloze" or second != "":
@@ -90,18 +106,47 @@ def parse_note(note, base, stage):
     if any(re.search(r"\s", tag) for tag in tags):
         raise ValueError("each tag must be one token")
     fields = [rendered(first), rendered(second)]
-    for idx, side in enumerate(("front_media", "back_media")):
+    if kind == "varied":
+        variants = strings(note.get("variants"), "variants")
+        if not variants:
+            raise ValueError("varied notes need at least one alternate prompt")
+        cues = [unicodedata.normalize("NFC", " ".join(c.split())).casefold() for c in [first, *variants]]
+        if len(set(cues)) != len(cues):
+            raise ValueError("each alternate prompt must be distinct")
+        fields.extend(["".join(f"<div>{rendered(v)}</div>" for v in variants), ""])
+    front_index = 3 if kind == "varied" else 0
+    for idx, side in [(front_index, "front_media"), (1, "back_media")]:
         for name in strings(note.get(side, []), side):
             fields[idx] += "<br>" + attachment(name, base, stage)
     return key, kind, fields, tags, count
 
 
-def write_tsv(path, deck, rows):
+def package_guid(namespace, key):
+    try:
+        import genanki
+    except ImportError as exc:
+        raise ValueError("package-compatible export requires genanki==0.13.1") from exc
+    return genanki.guid_for(json.dumps([namespace, key], ensure_ascii=False))
+
+
+def write_tsv(path, deck, namespace, rows):
     with path.open("w", encoding="utf-8", newline="") as out:
-        out.write("#separator:Tab\n#html:true\n#notetype column:1\n#deck column:2\n#tags column:5\n")
+        uses_custom_model = any(kind == "varied" for _, kind, _, _, _ in rows)
+        width = max(len(fields) for _, _, fields, _, _ in rows)
+        out.write(f"#separator:Tab\n#html:true\n#notetype column:1\n#deck column:2\n#tags column:{width + 3}\n")
+        if uses_custom_model:
+            out.write(f"#guid column:{width + 4}\n")
         writer = csv.writer(out, delimiter="\t", lineterminator="\n")
-        for _, kind, fields, tags, _ in rows:
-            writer.writerow([MODELS[kind], deck, *fields, " ".join(tags)])
+        for key, kind, fields, tags, _ in rows:
+            model_name = MODELS[kind]
+            if uses_custom_model and kind != "varied":
+                # Mixed exports accompany a package that installs genanki's named models.
+                model_name += " (genanki)"
+            padding = [""] * (width - len(fields))
+            columns = [model_name, deck, *fields, *padding, " ".join(tags)]
+            if uses_custom_model:
+                columns.append(package_guid(namespace, key))
+            writer.writerow(columns)
 
 
 def write_package(path, deck_name, namespace, rows, media):
@@ -111,10 +156,17 @@ def write_package(path, deck_name, namespace, rows, media):
         raise ValueError("package export requires genanki==0.13.1 (see SKILL.md)") from exc
     models = {"basic": genanki.BASIC_MODEL, "reversed": genanki.BASIC_AND_REVERSED_CARD_MODEL,
               "cloze": genanki.CLOZE_MODEL}
+    if any(kind == "varied" for _, kind, _, _, _ in rows):
+        models["varied"] = genanki.Model(
+            1743920214, MODELS["varied"],
+            fields=[{"name": name} for name in ("Front", "Back", "Alternatives", "PromptMedia")],
+            templates=[{"name": "Recall", "qfmt": VARIED_FRONT, "afmt": "{{Back}}"}],
+            css=".card { font: 20px/1.5 sans-serif; text-align: left; } [hidden] { display: none; }",
+        )
     digest = hashlib.sha256(("anki-deck-builder/" + namespace).encode()).digest()
     deck = genanki.Deck(1_000_000_000 + int.from_bytes(digest[:6], "big"), deck_name)
     for pos, (key, kind, fields, tags, _) in enumerate(rows, start=1):
-        guid = genanki.guid_for(json.dumps([namespace, key], ensure_ascii=False))
+        guid = package_guid(namespace, key)
         deck.add_note(genanki.Note(model=models[kind], fields=fields, tags=tags, guid=guid, due=pos))
     # genanki creates an intermediate SQLite database via tempfile.mkstemp().
     previous = tempfile.tempdir
@@ -160,7 +212,7 @@ def build(source, destination):
         if suffix == ".apkg":
             write_package(pending, deck, namespace, rows, media)
         else:
-            write_tsv(pending, deck, rows)
+            write_tsv(pending, deck, namespace, rows)
         pending.replace(destination)
     print(f"{destination}: {len(rows)} notes, {sum(row[-1] for row in rows)} cards")
 

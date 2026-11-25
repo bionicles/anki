@@ -3,9 +3,11 @@
 import argparse
 import csv
 import hashlib
+import html
 import json
 import re
 import tempfile
+import unicodedata
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -98,7 +100,23 @@ def check(cards, coverage):
             for key, parts in status.items()}
 
 
-def publish(args):
+def card_fields(row, figures, answer_figures=None):
+    fields = [rendered(row[name]) for name in FIELDS]
+    for field, mapping in [("Question", figures), ("Explanation", answer_figures or {})]:
+        if row["CardID"] not in mapping:
+            continue
+        path, description = mapping[row["CardID"]]
+        filename = html.escape(path.name, quote=True)
+        alt = html.escape(unicodedata.normalize("NFC", description), quote=True)
+        fields[FIELDS.index(field)] += (
+            f'<div><img src="{filename}" alt="{alt}" style="max-width:100%;height:auto"></div>'
+        )
+    return fields
+
+
+def publish(args, figures=None, answer_figures=None):
+    figures = figures or {}
+    answer_figures = answer_figures or {}
     if args.output.exists():
         raise ValueError("choose a new output directory for this build")
     deck_name = require_text(args.deck, "deck")
@@ -108,6 +126,11 @@ def publish(args):
     cards = table(args.cards, CARD_COLUMNS, "\t")
     coverage = table(args.coverage, MAP_COLUMNS, ",")
     status = check(cards, coverage)
+    if (figures.keys() | answer_figures.keys()) - {r["CardID"] for r in cards}:
+        raise ValueError("a figure refers to an unknown card")
+    media = {path for mapping in (figures, answer_figures) for path, _ in mapping.values()}
+    if len({path.name for path in media}) != len(media):
+        raise ValueError("figure filenames must be unique within a package")
     digest = hashlib.sha256(("anki-exam/" + namespace).encode()).digest()
     deck = genanki.Deck(1_000_000_000 + int.from_bytes(digest[:6], "big"), deck_name)
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -121,7 +144,7 @@ def publish(args):
             fh.write("#columns:" + "\t".join(["GUID", "Deck", *CARD_COLUMNS]) + "\n")
             writer = csv.writer(fh, delimiter="\t", quoting=csv.QUOTE_ALL, lineterminator="\n")
             for n, row in enumerate(cards, 1):
-                fields = [rendered(row[name]) for name in FIELDS]
+                fields = card_fields(row, figures, answer_figures)
                 guid = genanki.guid_for(json.dumps(["anki-exam", namespace, row["CardID"]]))
                 deck.add_note(genanki.Note(model=MODEL, fields=fields, tags=row["Tags"].split(),
                                            guid=guid, due=n))
@@ -134,7 +157,7 @@ def publish(args):
         previous = tempfile.tempdir
         try:
             tempfile.tempdir = str(work)
-            genanki.Package(deck).write_to_file(out / f"{namespace}.apkg")
+            genanki.Package(deck, media_files=[str(p) for p in sorted(media)]).write_to_file(out / f"{namespace}.apkg")
         finally:
             tempfile.tempdir = previous
         out.rename(args.output)

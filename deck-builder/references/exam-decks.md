@@ -28,6 +28,8 @@ Map the published skill IDs before allocating extra depth by domain weight. For 
 
 For example, after asking which credential a client needs, give the client a valid credential with the wrong scope and ask what fails. Then change the failure to expiry and ask which credential must be renewed. Each card should still work when encountered alone. A new company name or a reversed question adds little if the same keyword gives away every answer.
 
+Use the objective’s verb to decide how much detail to retain. If it asks for an attribution, test the relevant contributor. If it asks for interpretation of a historical case, supply the historical numbers and ask for the inference. Equivalent wordings on a single card count once in the map. A reverse or extra variant earns separate coverage only when its graded retrieval exercises the skill independently.
+
 Publicly released older practice questions can identify durable distinctions or realistic distractors. Write original scenarios, change the evidence that determines the answer, and verify each rule against the current syllabus and primary source. Cite the current source on the answer side. Discard retired capabilities or identify their eligibility restrictions.
 
 Audit the exported cards grouped by published skill ID. Count distinct cards and inspect the actual retrievals in each group for breadth, decisions, and near-duplicates. Check the weakest skill in each domain before adding depth to the strongest. Report the per-skill range, domain counts, uncovered components, and the source of any limits. A card count measures available practice. Demonstrated mastery requires learner performance on fresh prompts.

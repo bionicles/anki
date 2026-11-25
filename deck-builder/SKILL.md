@@ -12,10 +12,10 @@ For an exam or curriculum deck with coverage requirements, use the [exam workflo
 ## Decide what belongs on a card
 
 1. Inspect the source first. For paginated material, retain page, slide, or section locators as you extract facts. Check diagrams, table headers, footnotes, and OCR symbols against the original. When the source is missing and fidelity to it matters, ask for it. For a topic-only request, use reliable references appropriate to the subject and identify the basis for the deck.
-2. Map the learning goals to distinct facts, discriminations, or decisions. Prioritize those the learner will need to recall. Merge paraphrases and skip trivia. Keep an explicit limit in **generated cards** if the user asked for cards. If the evidence supports fewer, deliver what it supports and explain the gap.
+2. Map the learning goals to distinct facts, discriminations, or decisions. Prioritize those the learner will need to recall. For an exam, keep details the outline asks the learner to recall or that would change a tested decision. Put incidental dates, credits and anecdotes on the back when they help. A fixed card target alone gives a detail no study value. Keep an explicit limit in **generated cards** if the user asked for cards. If the evidence supports fewer, deliver what it supports and explain the gap.
 3. Draft a cue that works when shuffled. Name the subject, direction, units, or conditions that distinguish the answer. Keep the graded answer short. Put examples, exceptions, and source locators after the answer. Preserve qualifiers and flag conflicting claims separately. Never invent a locator.
-4. Pick the note type by what the learner must retrieve. Use Basic for a question, applied decision, or contrast. Use reversed notes only when both sides uniquely cue the other. If the reverse needs a hint or a citation would become visible on its front, write two separately worded Basic notes. Use Cloze for completing a relationship in context. Reuse an index to hide parts together, and give independent targets different indices. Preview each resulting card for hints that reveal the answer.
-5. For longer sources, work by section, compare the finished set against the learning goals, and remove overlaps across batches. Read [card patterns](references/card-patterns.md) for examples of repairs, language cards, math, and diagrams.
+4. Pick the note type by what the learner must retrieve. Use Basic for a question, applied decision, or contrast. Use reversed notes only when both sides uniquely cue the other. Practice both directions when the learner needs both. If one direction needs a sense hint, a different audio placement or its own grading rule, write separately cued Basic notes. Use Cloze for completing a relationship in context. Reuse an index to hide parts together, and give independent targets different indices. Preview each resulting card for hints that reveal the answer.
+5. For longer sources, work by section, compare the finished set against the learning goals, and remove overlaps across batches. Use the [card patterns](references/card-patterns.md) to choose between a reverse, a separately graded example and an optional offline wording variant. Audit existing decks for duplicate targets, answer leakage and incidental detail before adding reviews.
 
 ## Build the artifact
 
@@ -26,7 +26,7 @@ python3 "$SKILL_DIR/scripts/build_deck.py" notes.json deck.tsv
 uv run --no-project --with genanki==0.13.1 python "$SKILL_DIR/scripts/build_deck.py" notes.json deck.apkg
 ```
 
-Use an existing Python with genanki when available. Keep the manifest with a revisable package so future edits can reuse note identities. If a requested package dependency is unavailable, try an isolated environment. Clearly label any fallback TSV and give import steps. For custom models, existing exports, or native image occlusion, follow the user's actual schema and inspect original field mappings first. The bundled exporter covers new Basic, reversed, and Cloze notes.
+Use an existing Python with genanki when available. Keep the manifest with a revisable package so future edits can reuse note identities. If a requested package dependency is unavailable, try an isolated environment. Clearly label any fallback TSV and give import steps. For custom models, existing exports, or native image occlusion, follow the user's actual schema and inspect original field mappings first. The bundled exporter covers Basic, reversed, Cloze and optional varied-prompt notes.
 
 ## Verify and hand off
 

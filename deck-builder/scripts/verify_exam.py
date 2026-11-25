@@ -8,11 +8,10 @@ from pathlib import Path
 from anki.collection import Collection
 from anki.import_export_pb2 import ImportAnkiPackageRequest, ImportCsvRequest
 
-from build_exam import CARD_COLUMNS, FIELDS, MAP_COLUMNS, MODEL, check, table
-from build_deck import rendered
+from build_exam import CARD_COLUMNS, FIELDS, MAP_COLUMNS, MODEL, card_fields, check, table
 
 
-def snapshot(col, expected, deck_name):
+def snapshot(col, expected, deck_name, figures, answer_figures):
     notes = col.find_notes("")
     cards = col.find_cards("")
     if len(notes) != len(expected) or len(cards) != len(expected):
@@ -27,17 +26,23 @@ def snapshot(col, expected, deck_name):
         row = expected[key]
         if list(note.keys()) != FIELDS or note.note_type()["name"] != MODEL.name:
             raise ValueError(f"{key}: incorrect field schema or model")
-        if note.fields != [rendered(row[field]) for field in FIELDS]:
+        if note.fields != card_fields(row, figures, answer_figures):
             raise ValueError(f"{key}: imported fields differ from authoring input")
         if set(note.tags) != set(row["Tags"].split()):
             raise ValueError(f"{key}: imported tags differ")
         if note["Question"] not in card.question() or note["Answer"] not in card.answer():
             raise ValueError(f"{key}: review template failed to render the question or answer")
+        if key in answer_figures:
+            filename = answer_figures[key][0].name
+            if filename in card.question() or filename not in card.answer():
+                raise ValueError(f"{key}: worked figure must be visible only after reveal")
         ids[key] = (note.guid, note.id, cid)
     return ids
 
 
-def verify(args):
+def verify(args, figures=None, answer_figures=None):
+    figures = figures or {}
+    answer_figures = answer_figures or {}
     release = args.release.resolve()
     if args.latest:
         candidates = sorted(p for p in release.glob("release-*") if p.is_dir())
@@ -58,10 +63,12 @@ def verify(args):
         col = Collection(str(Path(temp) / "test.anki2"))
         try:
             col.import_anki_package(ImportAnkiPackageRequest(package_path=str(package)))
-            before = snapshot(col, expected, args.deck)
+            for path, _ in set(figures.values()) | set(answer_figures.values()):
+                assert (Path(col.media.dir()) / path.name).read_bytes() == path.read_bytes()
+            before = snapshot(col, expected, args.deck, figures, answer_figures)
             with tsv.open(encoding="utf-8", newline="") as file:
                 rows = csv.reader((line for line in file if not line.startswith("#")), delimiter="\t")
-                expected_rows = [[before[key][0], args.deck, *[rendered(row[f]) for f in FIELDS],
+                expected_rows = [[before[key][0], args.deck, *card_fields(row, figures, answer_figures),
                                   row["Tags"]] for key, row in expected.items()]
                 if list(rows) != expected_rows:
                     raise ValueError("TSV identities, deck, field values, tags or row order differ")
@@ -72,7 +79,7 @@ def verify(args):
                 col.update_note(note)
             meta = col.get_csv_metadata(str(tsv), None)
             result = col.import_csv(ImportCsvRequest(path=str(tsv), metadata=meta))
-            if snapshot(col, expected, args.deck) != before:
+            if snapshot(col, expected, args.deck, figures, answer_figures) != before:
                 raise ValueError("TSV import changed note or card identities")
             if len(result.log.updated) != len(expected):
                 raise ValueError("TSV did not update every note")

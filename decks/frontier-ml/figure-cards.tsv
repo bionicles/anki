@@ -1,0 +1,23 @@
+CardID	Filename	Description
+FML-geometry-2	fml_geometry-2.png	A vector from the origin ends at (3, 4). The target subspace is the horizontal axis.
+FML-svd-2	fml_svd-2.png	The bars at components 1, 2 and 3 have heights 5, 3 and 1.
+FML-pca-4	fml_pca-4.png	Two long horizontal bands have the same x coordinates. Class A lies just above zero on feature 2 and B just below it.
+FML-curvature-3	fml_curvature-3.png	Contours are elongated along parameter 1. Successive steps cross the valley floor along parameter 2.
+FML-roc-3	fml_roc-3.png	At FPR 0.02, detectors A and B reach recall 0.45 and 0.54 respectively. A leads at higher false-positive rates.
+FML-imbalance-2	fml_imbalance-2.png	The top 4 operating point has recall 0.75 and precision 0.75. The top 6 point has the same recall and precision 0.50.
+FML-calibration-4	fml_calibration-4.png	At forecast 0.50, group A has observed frequency 0.62 and group B has 0.38. The groups have equal size in each bin.
+FML-lr-2	fml_lr-2.png	The gradient arrow ends at (3, 4). A dashed circle marks the norm limit 2.
+FML-attention-4	fml_attention-4.png	Rows and columns are zero-indexed. Nonzero weights by row are [1], [0.2, 0.8], [0.1, 0.2, 0.45, 0.25], and [0.1, 0.2, 0.3, 0.4], all starting in column 0.
+FML-sampling-2	fml_sampling-2.png	Tokens A, B, C and D have probabilities 0.55, 0.25, 0.15 and 0.05.
+FML-roof-2	fml_roof-2.png	The roof rises at 2 TFLOP/s per FLOP/byte until reaching a flat ceiling of 200 TFLOP/s.
+FML-nonconvex-1	fml_nonconvex-1.png	Through the same stationary point, the loss rises in both directions along line A and falls in both directions along line B.
+FML-robustloss-3	fml_robustloss-3.png	For targets 0, 0 and 9, the squared-error curve has its minimum at prediction 3 and the absolute-error curve at 0.
+FML-shift-3	fml_shift-3.png	Training and deployment both occupy A, B and C. Region D has positive deployment mass and zero training mass.
+FML-bradley-1	fml_bradley-1.png	Within each of the triples ABC and DEF every pair has been compared. No edge connects the two triples.
+FML-variance-2	fml_variance-2.png	With unit population standard deviation, standard error falls from 0.25 at 16 independent observations to 0.125 at 64.
+FML-kernel-3	fml_kernel-3.png	Both RBF curves start at similarity 1. Curve B drops more steeply with distance than curve A.
+FML-position-2	fml_position-2.png	Solid unit vectors q and k are 60 degrees apart. Both dashed vectors are rotated a further 90 degrees.
+FML-diffusion-1	fml_diffusion-1.png	Two lines show a clean sinusoid and its corruption. The noisy signal equals 0.8 times the clean signal plus 0.6 times standard Gaussian noise.
+FML-scaling-2	fml_scaling-2.png	The constant-compute curve goes through 2 billion parameters with 20 billion tokens and 4 billion parameters with 10 billion tokens.
+FML-bellman-2	fml_bellman-2.png	A transition yields reward 1. At the nonterminal next state, the two available actions have Q estimates of 4 and 2.
+FML-launch-atom7	fml_launch-atom7.png	Model A has cost 2 and quality 0.78, B has cost 4 and quality 0.85, and C has cost 5 and quality 0.80. All meet the latency limit.

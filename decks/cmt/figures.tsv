@@ -1,0 +1,233 @@
+CardID	Side	Filename	Description	Cue
+CMT-bars-1	back	cmt_fig_bars-1.png	Open 52 (left tick), high 57, low 49, close 54 (right tick). The vertical stroke spans the session's range.	
+CMT-bars-2	back	cmt_fig_bars-1.png	Open 52 (left tick), high 57, low 49, close 54 (right tick). The vertical stroke spans the session's range.	
+CMT-los-I-bars-4-2	back	cmt_fig_bars-1.png	Open 52 (left tick), high 57, low 49, close 54 (right tick). The vertical stroke spans the session's range.	
+CMT-los-I-bars-1-1	back	cmt_fig_bars-1.png	Open 52 (left tick), high 57, low 49, close 54 (right tick). The vertical stroke spans the session's range.	
+CMT-bars-3	front	cmt_fig_bars-3.png	The bar spans 49 to 57, opens at 52 and closes at 54.	What is the high–low range of the illustrated session, in dollars?
+CMT-candles-1	back	cmt_fig_candles-1.png	Open 40 and close 44 bound the hollow body. High 47 and low 38 mark the wick ends.	
+CMT-los-I-bars-4-3	back	cmt_fig_candles-1.png	Open 40 and close 44 bound the hollow body. High 47 and low 38 mark the wick ends.	
+CMT-los-I-bars-5-2	back	cmt_fig_candles-1.png	Open 40 and close 44 bound the hollow body. High 47 and low 38 mark the wick ends.	
+CMT-candles-2	front	cmt_fig_candles-2.png	The candle opens at 40, closes at 44, and trades from 38 to 47.	How many dollars long is the upper shadow?
+CMT-candles-3	back	cmt_fig_candles-3.png	The session opens at 52 and closes at 49. The upper body edge is the open.	
+CMT-candlepatterns-1	back	cmt_fig_candlepatterns-1.png	The horizontal body marks an open and close at 50 despite trades between 46 and 54.	
+CMT-los-I-bars-6-2	back	cmt_fig_candlepatterns-1.png	The horizontal body marks an open and close at 50 despite trades between 46 and 54.	
+CMT-candlepatterns-2	front	cmt_fig_candlepatterns-2.png	The last candle opens at 44, reaches 39, and closes near its high at 45 after a decline.	What classic single-candle pattern appears at the end of this decline?
+CMT-candlepatterns-3	back	cmt_fig_candlepatterns-3.png	After rising prices, the small real body near the top and long lower shadow form a hanging man.	
+CMT-trend-1	front	cmt_fig_trend-1.png	Swing lows are 41 and 46. Swing highs are 50 and 55.	What trend do the successive highs and lows establish?
+CMT-trend-2	back	cmt_fig_trend-2.png	The old ceiling at 50 becomes a potential support area when price returns from 54 and rebounds.	
+CMT-phases-3	back	cmt_fig_trend-2.png	The old ceiling at 50 becomes a potential support area when price returns from 54 and rebounds.	
+CMT-trend-3	back	cmt_fig_trend-3.png	Each major low is higher, although prices fall between sessions 4 and 6. Trend depends on the observation window.	
+CMT-dow-3	back	cmt_fig_trend-3.png	Each major low is higher, although prices fall between sessions 4 and 6. Trend depends on the observation window.	
+CMT-los-I-dow-6-2	back	cmt_fig_trend-3.png	Each major low is higher, although prices fall between sessions 4 and 6. Trend depends on the observation window.	
+CMT-los-I-dow-6-3	back	cmt_fig_trend-3.png	Each major low is higher, although prices fall between sessions 4 and 6. Trend depends on the observation window.	
+CMT-los-I-interval-1-2	back	cmt_fig_trend-3.png	Each major low is higher, although prices fall between sessions 4 and 6. Trend depends on the observation window.	
+CMT-pattern-1	back	cmt_fig_pattern-1.png	The head peaks at 64. Joining the two reaction lows of 48 produces the neckline.	
+CMT-pattern-4	back	cmt_fig_pattern-4.png	Two highs reach 60. The close through the intervening 50 low completes this example.	
+CMT-pattern-3	front	cmt_fig_pattern-3.png	The first session peaks at 45. Every trade in the second takes place at 46 or above.	What directional price gap separates the two sessions?
+CMT-phases-1	back	cmt_fig_phases-1.png	A base precedes markup. A high range can represent distribution before markdown. Phase labels describe the schematic example.	
+CMT-phases-2	back	cmt_fig_phases-1.png	A base precedes markup. A high range can represent distribution before markdown. Phase labels describe the schematic example.	
+CMT-phases-5	back	cmt_fig_phases-1.png	A base precedes markup. A high range can represent distribution before markdown. Phase labels describe the schematic example.	
+CMT-phases-6	back	cmt_fig_phases-1.png	A base precedes markup. A high range can represent distribution before markdown. Phase labels describe the schematic example.	
+CMT-dow-2	back	cmt_fig_dow-2.png	Both indexes first peak at 110. Industrials reach 114 on the next advance while transports stop at 108.	
+CMT-los-I-dow-1-3	back	cmt_fig_dow-2.png	Both indexes first peak at 110. Industrials reach 114 on the next advance while transports stop at 108.	
+CMT-los-I-dow-3-2	back	cmt_fig_dow-2.png	Both indexes first peak at 110. Industrials reach 114 on the next advance while transports stop at 108.	
+CMT-following-2	back	cmt_fig_following-2.png	With resistance at 80, trading at 82 intraday and closing at 79 fails the close-only rule.	
+CMT-los-I-dow-4-1	back	cmt_fig_following-2.png	With resistance at 80, trading at 82 intraday and closing at 79 fails the close-only rule.	
+CMT-fib-3	back	cmt_fig_fib-3.png	The rally spans 20 points from 40 to 60. Giving back 38.2% subtracts 7.64 from 60.	
+CMT-averages-5	back	cmt_fig_averages-5.png	The 3-session average catches the rebound before the 6-session average and crosses above it.	
+CMT-following-3	back	cmt_fig_averages-5.png	The 3-session average catches the rebound before the 6-session average and crosses above it.	
+CMT-averages-1	front	cmt_fig_averages-1.png	Prices are 8, 10 and 12, with equal weight.	What is the three-session simple moving average?
+CMT-averages-2	back	cmt_fig_averages-2.png	The prior average contributes 75% × 20 = 15. The new close contributes 25% × 24 = 6. Their sum is 21.	
+CMT-averages-4	back	cmt_fig_averages-4.png	The weight total is 6. The newest price accounts for 3/6.	
+CMT-breadth-2	front	cmt_fig_breadth-2.png	310 stocks advance and 270 decline.	What is today's net number of advancing issues?
+CMT-internals-1	back	cmt_fig_internals-1.png	Net advances are 170 minus 200. Add −30 to the prior A/D line of 1,000.	
+CMT-health-2	front	cmt_fig_health-2.png	80 stocks make new highs and 25 make new lows.	What is the net number of new highs?
+CMT-surveys-2	back	cmt_fig_surveys-2.png	Subtracting the bear share from the bull share gives a 20-percentage-point spread.	
+CMT-positioning-2	front	cmt_fig_positioning-2.png	600 put contracts and 400 calls trade.	What is the put/call volume ratio?
+CMT-cycle-1	back	cmt_fig_cycle-1.png	A fluctuates 3 units around zero and repeats every 10 sessions. B has the same period but reaches each peak two sessions later.	
+CMT-cycle-2	back	cmt_fig_cycle-1.png	A fluctuates 3 units around zero and repeats every 10 sessions. B has the same period but reaches each peak two sessions later.	
+CMT-cycle-3	back	cmt_fig_cycle-1.png	A fluctuates 3 units around zero and repeats every 10 sessions. B has the same period but reaches each peak two sessions later.	
+CMT-spectrum-3	back	cmt_fig_cycle-1.png	A fluctuates 3 units around zero and repeats every 10 sessions. B has the same period but reaches each peak two sessions later.	
+CMT-cycletrend-1	back	cmt_fig_cycletrend-1.png	Troughs occur at sessions 0 and 20. The peak is six sessions after the first trough.	
+CMT-los-II-cycletrend-4-2	back	cmt_fig_cycletrend-1.png	Troughs occur at sessions 0 and 20. The peak is six sessions after the first trough.	
+CMT-spectrum-1	back	cmt_fig_spectrum-1.png	Power is greatest at 0.05 cycles per trading day, corresponding to 1/0.05 = 20 days.	
+CMT-bands-1	back	cmt_fig_bands-1.png	The center is 60. With a two-standard-deviation multiplier, increasing SD from 1 to 3 widens the channel from 58–62 to 54–66.	
+CMT-bands-2	back	cmt_fig_bands-1.png	The center is 60. With a two-standard-deviation multiplier, increasing SD from 1 to 3 widens the channel from 58–62 to 54–66.	
+CMT-bands-3	back	cmt_fig_bands-1.png	The center is 60. With a two-standard-deviation multiplier, increasing SD from 1 to 3 widens the channel from 58–62 to 54–66.	
+CMT-bandwidth-1	back	cmt_fig_bandwidth-1.png	The width is 20. Price 105 is 15 above the lower band, or three quarters of the width.	
+CMT-bandwidth-2	back	cmt_fig_bandwidth-1.png	The width is 20. Price 105 is 15 above the lower band, or three quarters of the width.	
+CMT-signals-5	back	cmt_fig_signals-5.png	Price rises by 4 and then by 2 over equal intervals. Both gains are positive, but the slope flattens.	
+CMT-divergence-3	back	cmt_fig_signals-5.png	Price rises by 4 and then by 2 over equal intervals. Both gains are positive, but the slope flattens.	
+CMT-divergence-1	back	cmt_fig_divergence-1.png	The first two highs show a higher price high and lower RSI high. The last two lows show a lower price low and higher RSI low.	
+CMT-divergence-2	back	cmt_fig_divergence-1.png	The first two highs show a higher price high and lower RSI high. The last two lows show a lower price low and higher RSI low.	
+CMT-signals-2	back	cmt_fig_signals-2.png	Fast EMA 52 minus slow EMA 49 yields MACD 3. Subtract its signal line 4 for a histogram value of −1.	
+CMT-signals-3	back	cmt_fig_signals-2.png	Fast EMA 52 minus slow EMA 49 yields MACD 3. Subtract its signal line 4 for a histogram value of −1.	
+CMT-vwap-1	back	cmt_fig_vwap-1.png	Three quarters of the 400 shares trade at 12, one quarter at 10. The weighted price is 11.50.	
+CMT-vwap-3	back	cmt_fig_vwap-1.png	Three quarters of the 400 shares trade at 12, one quarter at 10. The weighted price is 11.50.	
+CMT-avwap-1	back	cmt_fig_avwap-1.png	With one equal-size trade per session, the full-window average uses every dot. The second average begins at the day-3 event.	
+CMT-anchors-3	back	cmt_fig_avwap-1.png	With one equal-size trade per session, the full-window average uses every dot. The second average begins at the day-3 event.	
+CMT-avwap-3	back	cmt_fig_avwap-1.png	With one equal-size trade per session, the full-window average uses every dot. The second average begins at the day-3 event.	
+CMT-targets-1	back	cmt_fig_targets-1.png	Range boundaries 44 and 50 are 6 apart. Adding 6 to the breakout level gives a conventional target of 56.	
+CMT-targets-2	back	cmt_fig_targets-2.png	A head at 72 is 8 above a neckline at 64. Projecting 8 below the neckline gives 56.	
+CMT-range-1	back	cmt_fig_range-1.png	Yesterday closed at 100. Today trades only between 90 and 94. The previous close to today's low spans 10.	
+CMT-relative-1	back	cmt_fig_relative-1.png	Both start at 100. The stock ends at 95 and the benchmark at 90. The price ratio rises from 1 to about 1.056.	
+CMT-relative-2	back	cmt_fig_relative-1.png	Both start at 100. The stock ends at 95 and the benchmark at 90. The price ratio rises from 1 to about 1.056.	
+CMT-term-1	back	cmt_fig_term-1.png	Curve A rises from 18 to 20. Curve B falls from 30 to 25. Read left to right across expiries.	
+CMT-term-2	back	cmt_fig_term-1.png	Curve A rises from 18 to 20. Curve B falls from 30 to 25. Read left to right across expiries.	
+CMT-debt-2	front	cmt_fig_debt-2.png	The corporate yield is 5.1% and Treasury yield is 3.9%.	What is the corporate yield spread in basis points?
+CMT-premium-1	back	cmt_fig_premium-1.png	Implied volatility of 22% exceeds subsequently realized volatility of 16% by six percentage points.	
+CMT-prob-1	back	cmt_fig_prob-1.png	The shaded middle from −2 to +2 standard deviations covers about 95.45%; the remaining area splits equally between the tails.	
+CMT-los-I-prob-4-1	back	cmt_fig_prob-1.png	The shaded middle from −2 to +2 standard deviations covers about 95.45%; the remaining area splits equally between the tails.	
+CMT-los-I-prob-4-2	back	cmt_fig_prob-1.png	The shaded middle from −2 to +2 standard deviations covers about 95.45%; the remaining area splits equally between the tails.	
+CMT-los-I-prob-5-2	back	cmt_fig_prob-1.png	The shaded middle from −2 to +2 standard deviations covers about 95.45%; the remaining area splits equally between the tails.	
+CMT-los-I-prob-5-3	back	cmt_fig_prob-1.png	The shaded middle from −2 to +2 standard deviations covers about 95.45%; the remaining area splits equally between the tails.	
+CMT-regress-3	back	cmt_fig_regress-3.png	The points lie on y=x². Symmetry makes their linear correlation zero despite the exact relationship.	
+CMT-regress-2	back	cmt_fig_regress-2.png	The line has intercept 1 and slope 0.5. At x=4 its fitted y is 3.	
+CMT-los-I-regress-7-1	back	cmt_fig_regress-2.png	The line has intercept 1 and slope 0.5. At x=4 its fitted y is 3.	
+CMT-los-I-regress-8-1	back	cmt_fig_regress-2.png	The line has intercept 1 and slope 0.5. At x=4 its fitted y is 3.	
+CMT-stats-3	back	cmt_fig_stats-3.png	A 25% gain lifts 100 to 125. A 20% decline then takes 125 back to 100.	
+CMT-stats-5	back	cmt_fig_stats-3.png	A 25% gain lifts 100 to 125. A 20% decline then takes 125 back to 100.	
+CMT-los-I-stats-6-2	back	cmt_fig_stats-3.png	A 25% gain lifts 100 to 125. A 20% decline then takes 125 back to 100.	
+CMT-expectancy-1	back	cmt_fig_expectancy-1.png	A 40% chance of +3R contributes +1.2R; a 60% chance of −1R contributes −0.6R. Gross expectancy is +0.6R.	
+CMT-expectancy-2	back	cmt_fig_expectancy-2.png	An 80% chance of +1R contributes +0.8R. A 20% chance of −5R contributes −1R. Net of the two outcomes, expectancy is −0.2R before costs.	
+CMT-implementation-1	back	cmt_fig_implementation-1.png	Costs of 0.22R consume more than a gross edge of 0.18R, leaving −0.04R per trade.	
+CMT-backtest-6	back	cmt_fig_implementation-1.png	Costs of 0.22R consume more than a gross edge of 0.18R, leaving −0.04R per trade.	
+CMT-counter-2	back	cmt_fig_counter-2.png	Under a $300 risk budget, doubling risk per share from $1.50 to $3 halves the share count from 200 to 100.	
+CMT-pfplan-3	back	cmt_fig_counter-2.png	Under a $300 risk budget, doubling risk per share from $1.50 to $3 halves the share count from 200 to 100.	
+CMT-tactical-3	back	cmt_fig_tactical-3.png	At fixed total value, sell ten percentage points of equities and buy bonds to return to a 60/40 target.	
+CMT-rank-4	front	cmt_fig_rank-4.png	The sector is 14% of the portfolio versus 10% of the benchmark.	What is this sector's active weight in percentage points?
+CMT-pfplan-1	back	cmt_fig_pfplan-1.png	The stop is 3 below entry and the target is 9 above. The planned reward/risk ratio is 9/3.	
+CMT-portfolio-1	back	cmt_fig_portfolio-1.png	Volatilities of 10% and 20% imply inverse weights in a 2:1 ratio. The first asset receives two thirds.	
+CMT-premium-3	back	cmt_fig_premium-3.png	Selling a call and put struck at 100 for total premium 10 yields 10 minus the absolute distance from 100. Large moves in either direction create losses.	
+CMT-pf-1	back	cmt_fig_pf-1.png	Each box is $2. X marks rising prices; O marks falling prices. The three-box reversal from 52 reaches 46. The final X exceeds the previous X high.	
+CMT-pf-2	back	cmt_fig_pf-1.png	Each box is $2. X marks rising prices; O marks falling prices. The three-box reversal from 52 reaches 46. The final X exceeds the previous X high.	
+CMT-pftarget-1	back	cmt_fig_pf-1.png	Each box is $2. X marks rising prices; O marks falling prices. The three-box reversal from 52 reaches 46. The final X exceeds the previous X high.	
+CMT-rrg-1	back	cmt_fig_rrg-1.png	The trail crosses above 100 vertically before crossing 100 horizontally, moving from lagging to improving to leading.	
+CMT-rrg-2	back	cmt_fig_rrg-1.png	The trail crosses above 100 vertically before crossing 100 horizontally, moving from lagging to improving to leading.	
+CMT-rrg-3	back	cmt_fig_rrg-1.png	The trail crosses above 100 vertically before crossing 100 horizontally, moving from lagging to improving to leading.	
+CMT-rrg-4	back	cmt_fig_rrg-1.png	The trail crosses above 100 vertically before crossing 100 horizontally, moving from lagging to improving to leading.	
+CMT-rotation-3	back	cmt_fig_rrg-1.png	The trail crosses above 100 vertically before crossing 100 horizontally, moving from lagging to improving to leading.	
+CMT-rotation-4	back	cmt_fig_rrg-1.png	The trail crosses above 100 vertically before crossing 100 horizontally, moving from lagging to improving to leading.	
+CMT-profile-1	back	cmt_fig_profile-1.png	Each row counts time brackets visiting that price. The $50 row has five, more than any other row. It is the TPO point of control.	
+CMT-profile-2	back	cmt_fig_profile-1.png	Each row counts time brackets visiting that price. The $50 row has five, more than any other row. It is the TPO point of control.	
+CMT-profile-4	back	cmt_fig_profile-1.png	Each row counts time brackets visiting that price. The $50 row has five, more than any other row. It is the TPO point of control.	
+CMT-reversal-1	back	cmt_fig_reversal-1.png	The last session opens below the prior down body's close, then closes above its open. The second body engulfs the first.	
+CMT-reversal-2	back	cmt_fig_reversal-1.png	The last session opens below the prior down body's close, then closes above its open. The second body engulfs the first.	
+CMT-reversal-3	front	cmt_fig_reversal-3.png	Open and close both sit at 49. The high reaches 55, leaving a long upper shadow.	What type of doji has this arrangement of body and shadow?
+CMT-confirm-1	back	cmt_fig_confirm-1.png	A long down body is followed by a small star and an up body that closes deep inside the first. The formation is a morning star.	
+CMT-confirm-3	back	cmt_fig_confirm-3.png	After the hammer, the next high clears 52 but the close at 51 remains below the hammer high of 52.	
+CMT-options-4	back	cmt_fig_options-4.png	At expiry a put struck at 50 pays max(50 − stock price, 0). A finish at 43 pays 7 per share before the premium.	
+CMT-options-7	back	cmt_fig_options-4.png	At expiry a put struck at 50 pays max(50 − stock price, 0). A finish at 43 pays 7 per share before the premium.	
+CMT-term-3	back	cmt_fig_options-4.png	At expiry a put struck at 50 pays max(50 − stock price, 0). A finish at 43 pays 7 per share before the premium.	
+CMT-scale-1	back	cmt_fig_scale-1.png	A log axis gives 10→20, 20→40 and 40→80 equal height because all have the same percentage gain.	
+CMT-scale-3	back	cmt_fig_scale-1.png	A log axis gives 10→20, 20→40 and 40→80 equal height because all have the same percentage gain.	
+CMT-los-I-scale-2-1	back	cmt_fig_scale-1.png	A log axis gives 10→20, 20→40 and 40→80 equal height because all have the same percentage gain.	
+CMT-los-I-scale-2-2	back	cmt_fig_scale-1.png	A log axis gives 10→20, 20→40 and 40→80 equal height because all have the same percentage gain.	
+CMT-scale-2	back	cmt_fig_scale-2.png	A $2 increase from $10 to $12 has the same height as $16 to $18 on a linear chart.	
+CMT-los-I-scale-2-3	back	cmt_fig_scale-2.png	A $2 increase from $10 to $12 has the same height as $16 to $18 on a linear chart.	
+CMT-momentum-5	back	cmt_fig_momentum-5.png	Low 40, high 60, close 55. The close is 15 of the 20 range points above the low, or 75%.	
+CMT-momentum-4	back	cmt_fig_momentum-4.png	In sessions 5 and 10 the close is unchanged, so the running total stays flat; an up close adds that day's volume.	
+CMT-momentum-6	back	cmt_fig_momentum-4.png	In sessions 5 and 10 the close is unchanged, so the running total stays flat; an up close adds that day's volume.	
+CMT-debt-3	back	cmt_fig_debt-3.png	Each observation is for comparable credit quality on the same date. The horizontal axis changes maturity.	
+CMT-debt-1	back	cmt_fig_debt-1.png	A five-year zero repays 100. Higher required yields discount that fixed payment to a lower current price.	
+CMT-metrics-2	front	cmt_fig_metrics-2.png	The equity curve reaches 125 and then falls to 100.	What is the magnitude of the illustrated peak-to-trough drawdown as a percentage of the peak?
+CMT-risk-7	back	cmt_fig_risk-7.png	Falling from 100 to 75 loses 25%. Recovering the 25 points from 75 requires a gain of one third.	
+CMT-trade-1	front	cmt_fig_trade-1.png	Long entry 51, protective exit 49, target 59. No costs or gaps.	For this long trade, what is planned reward divided by planned risk?
+CMT-trade-3	back	cmt_fig_trade-3.png	For example, short at 78, cover at 70 for a gain of 8, or stop at 82 for a loss of 4. Reward/risk is 2.	
+CMT-los-III-trade-1-3	back	cmt_fig_trade-3.png	For example, short at 78, cover at 70 for a gain of 8, or stop at 82 for a loss of 4. Reward/risk is 2.	
+CMT-los-III-trade-2-1	back	cmt_fig_trade-3.png	For example, short at 78, cover at 70 for a gain of 8, or stop at 82 for a loss of 4. Reward/risk is 2.	
+CMT-metrics-1	back	cmt_fig_metrics-1.png	Winning trades generate 900, losing trades cost 600. Profit factor divides the first magnitude by the second.	
+CMT-risk-5	back	cmt_fig_risk-5.png	With fixed debt and before costs, 1.5× and 2× gross long exposure scale the equity response proportionally.	
+CMT-los-III-risk-6-1	back	cmt_fig_risk-5.png	With fixed debt and before costs, 1.5× and 2× gross long exposure scale the equity response proportionally.	
+CMT-los-III-risk-6-2	back	cmt_fig_risk-5.png	With fixed debt and before costs, 1.5× and 2× gross long exposure scale the equity response proportionally.	
+CMT-los-III-risk-1-1	back	cmt_fig_los-iii-risk-1-1.png	A log utility curve rises throughout, but equal additional dollars produce smaller gains in utility at higher wealth.	
+CMT-los-III-risk-2-1	back	cmt_fig_los-iii-risk-1-1.png	A log utility curve rises throughout, but equal additional dollars produce smaller gains in utility at higher wealth.	
+CMT-los-III-risk-2-2	back	cmt_fig_los-iii-risk-1-1.png	A log utility curve rises throughout, but equal additional dollars produce smaller gains in utility at higher wealth.	
+CMT-risk-1	back	cmt_fig_risk-1.png	In an exponential loss model the last 5% lies beyond the VaR line. Expected shortfall is the mean within that tail and lies farther right.	
+CMT-risk-2	back	cmt_fig_risk-1.png	In an exponential loss model the last 5% lies beyond the VaR line. Expected shortfall is the mean within that tail and lies farther right.	
+CMT-los-III-risk-5-1	back	cmt_fig_risk-1.png	In an exponential loss model the last 5% lies beyond the VaR line. Expected shortfall is the mean within that tail and lies farther right.	
+CMT-risk-6	back	cmt_fig_risk-6.png	A 50/50 portfolio of two assets with 10% volatility has zero volatility at correlation −1 in this idealized model and 10% at +1.	
+CMT-tactical-2	back	cmt_fig_risk-6.png	A 50/50 portfolio of two assets with 10% volatility has zero volatility at correlation −1 in this idealized model and 10% at +1.	
+CMT-los-III-risk-9-2	back	cmt_fig_risk-6.png	A 50/50 portfolio of two assets with 10% volatility has zero volatility at correlation −1 in this idealized model and 10% at +1.	
+CMT-los-III-risk-10-3	back	cmt_fig_risk-6.png	A 50/50 portfolio of two assets with 10% volatility has zero volatility at correlation −1 in this idealized model and 10% at +1.	
+CMT-los-III-portfolio-4-3	back	cmt_fig_risk-6.png	A 50/50 portfolio of two assets with 10% volatility has zero volatility at correlation −1 in this idealized model and 10% at +1.	
+CMT-portfolio-2	back	cmt_fig_portfolio-2.png	For an 8% risk target, annualized estimates of 8%, 16% and 32% imply exposures of 100%, 50% and 25% under linear scaling.	
+CMT-los-III-tactical-3-1	back	cmt_fig_portfolio-2.png	For an 8% risk target, annualized estimates of 8%, 16% and 32% imply exposures of 100%, 50% and 25% under linear scaling.	
+CMT-los-III-risk-7-1	back	cmt_fig_portfolio-2.png	For an 8% risk target, annualized estimates of 8%, 16% and 32% imply exposures of 100%, 50% and 25% under linear scaling.	
+CMT-los-III-tactical-2-2	back	cmt_fig_los-iii-tactical-2-2.png	At a fixed 20% annualized slope, multiplying by R² of 0.80 and 0.40 gives scores of 16% and 8%. A noisy trend can score much lower.	
+CMT-los-III-tactical-2-4	back	cmt_fig_los-iii-tactical-2-2.png	At a fixed 20% annualized slope, multiplying by R² of 0.80 and 0.40 gives scores of 16% and 8%. A noisy trend can score much lower.	
+CMT-backtest-7	back	cmt_fig_backtest-7.png	Window A uses days 1–10. Window B uses days 2–11. Nine of the ten daily return intervals are counted twice.	
+CMT-los-III-backtest-1-1	back	cmt_fig_backtest-7.png	Window A uses days 1–10. Window B uses days 2–11. Nine of the ten daily return intervals are counted twice.	
+CMT-backtest-4	back	cmt_fig_backtest-4.png	Successive log returns of +0.08 and −0.03 move cumulative log return from 0 to 0.08 to 0.05.	
+CMT-los-III-backtest-3-1	back	cmt_fig_backtest-4.png	Successive log returns of +0.08 and −0.03 move cumulative log return from 0 to 0.08 to 0.05.	
+CMT-los-III-backtest-3-2	back	cmt_fig_backtest-4.png	Successive log returns of +0.08 and −0.03 move cumulative log return from 0 to 0.08 to 0.05.	
+CMT-backtest-3	back	cmt_fig_backtest-3.png	Fit on early observations, select the rule in a later window, then assess it on an untouched final period.	
+CMT-seasontest-3	back	cmt_fig_backtest-3.png	Fit on early observations, select the rule in a later window, then assess it on an untouched final period.	
+CMT-los-III-tactical-3-3	back	cmt_fig_backtest-3.png	Fit on early observations, select the rule in a later window, then assess it on an untouched final period.	
+CMT-tail-5	back	cmt_fig_tail-5.png	With independent equal-variance increments, doubling horizon multiplies volatility by √2. A quarter-year at 16% annual volatility gives 8%.	
+CMT-iv-5	back	cmt_fig_tail-5.png	With independent equal-variance increments, doubling horizon multiplies volatility by √2. A quarter-year at 16% annual volatility gives 8%.	
+CMT-los-I-trend-1-2	front	cmt_fig_los-i-trend-1-2.png	Swing highs fall from 75 to 70 while lows fall from 66 to 60.	Which trend do these successive swing highs and lows show?
+CMT-los-I-trend-1-3	back	cmt_fig_los-i-trend-1-3.png	Price repeatedly turns near 40 and 50. A sustained break below the floor would undermine the range-fading premise.	
+CMT-counter-1	back	cmt_fig_los-i-trend-1-3.png	Price repeatedly turns near 40 and 50. A sustained break below the floor would undermine the range-fading premise.	
+CMT-los-I-pattern-1-2	back	cmt_fig_los-i-pattern-1-2.png	Two troughs form around 40. A later move above the intervening peak at 48 confirms this textbook pattern.	
+CMT-los-II-waves-3-2	back	cmt_fig_los-ii-waves-3-2.png	Counting from the starting low, legs 2 and 4 are pullbacks. Leg 3 is longer than either 1 or 5 in this example. The idealized next phase is corrective.	
+CMT-waves-1	back	cmt_fig_los-ii-waves-3-2.png	Counting from the starting low, legs 2 and 4 are pullbacks. Leg 3 is longer than either 1 or 5 in this example. The idealized next phase is corrective.	
+CMT-los-II-waves-1-3	back	cmt_fig_los-ii-waves-3-2.png	Counting from the starting low, legs 2 and 4 are pullbacks. Leg 3 is longer than either 1 or 5 in this example. The idealized next phase is corrective.	
+CMT-waves-2	back	cmt_fig_waves-2.png	An initial move from 40 to 50 followed by a decline to 38 passes below the origin of wave 1. The proposed upward impulse count fails.	
+CMT-waves-3	back	cmt_fig_waves-3.png	The first leg reaches 50. The fourth leg falls to 48, entering wave 1 territory and invalidating this standard impulse interpretation.	
+CMT-correction-1	back	cmt_fig_correction-1.png	In this schematic downward correction, A falls in five small legs, B rises in three, and C falls in five. The major turns are at sessions 6 and 9.	
+CMT-los-II-waves-5-3	back	cmt_fig_correction-1.png	In this schematic downward correction, A falls in five small legs, B rises in three, and C falls in five. The major turns are at sessions 6 and 9.	
+CMT-los-II-waves-5-2	back	cmt_fig_los-ii-waves-5-2.png	Five alternating legs shrink into a narrower range. Elliott labels these corrective triangle legs A through E.	
+CMT-pv-1	back	cmt_fig_pv-1.png	Rising price legs attract more volume than the intervening pullbacks.	
+CMT-participation-1	back	cmt_fig_pv-1.png	Rising price legs attract more volume than the intervening pullbacks.	
+CMT-los-II-pv-1-1	back	cmt_fig_pv-1.png	Rising price legs attract more volume than the intervening pullbacks.	
+CMT-pv-2	back	cmt_fig_pv-2.png	The close rises while volume contracts, a weak-demand reading in the four-phase framework.	
+CMT-los-II-pv-1-3	back	cmt_fig_pv-2.png	The close rises while volume contracts, a weak-demand reading in the four-phase framework.	
+CMT-pv-3	back	cmt_fig_pv-3.png	Falling price and expanding volume are consistent with the strong-supply phase.	
+CMT-los-II-pv-1-4	back	cmt_fig_pv-3.png	Falling price and expanding volume are consistent with the strong-supply phase.	
+CMT-los-II-pv-1-2	back	cmt_fig_los-ii-pv-1-2.png	Price falls with diminishing volume, the weak-supply phase in this framework.	
+CMT-breadth-1	back	cmt_fig_breadth-1.png	Both series are rebased to 100. A cap-weighted index makes a second higher high but the breadth line's second high is lower, indicating narrowing participation.	
+CMT-breadth-3	back	cmt_fig_breadth-1.png	Both series are rebased to 100. A cap-weighted index makes a second higher high but the breadth line's second high is lower, indicating narrowing participation.	
+CMT-health-1	back	cmt_fig_breadth-1.png	Both series are rebased to 100. A cap-weighted index makes a second higher high but the breadth line's second high is lower, indicating narrowing participation.	
+CMT-internals-3	back	cmt_fig_breadth-1.png	Both series are rebased to 100. A cap-weighted index makes a second higher high but the breadth line's second high is lower, indicating narrowing participation.	
+CMT-los-III-portfolio-3-2	back	cmt_fig_breadth-1.png	Both series are rebased to 100. A cap-weighted index makes a second higher high but the breadth line's second high is lower, indicating narrowing participation.	
+CMT-rank-5	back	cmt_fig_rank-5.png	Among three falling sectors, −2% ranks first because the other losses are larger. Rank compares peers; absolute return retains its sign.	
+CMT-multiple-2	back	cmt_fig_multiple-2.png	Rebasing both assets to 100 isolates cumulative percentage change. A ends at 92 versus 85 for B, so A outperforms despite a loss.	
+CMT-los-III-crypto-8-2	back	cmt_fig_multiple-2.png	Rebasing both assets to 100 isolates cumulative percentage change. A ends at 92 versus 85 for B, so A outperforms despite a loss.	
+CMT-bandplan-1	back	cmt_fig_bandplan-1.png	A rising close stays near its rising upper band for several sessions. A band touch by itself provides little evidence that the advance has ended.	
+CMT-bandwidth-3	back	cmt_fig_bandwidth-3.png	As the upper and lower bands converge toward the middle, BandWidth contracts. The direction of the next move is still unknown.	
+CMT-los-III-bandplan-4-1	back	cmt_fig_los-iii-bandplan-4-1.png	Example signals A and B classify all four sessions identically. Counting both votes as independent overstates the amount of evidence.	
+CMT-bandplan-3	back	cmt_fig_los-iii-bandplan-4-1.png	Example signals A and B classify all four sessions identically. Counting both votes as independent overstates the amount of evidence.	
+CMT-cycletrend-2	back	cmt_fig_cycletrend-2.png	A Wednesday-centered five-session average uses Monday through Friday. Wednesday's value cannot be computed until Friday's close.	
+CMT-cycletrend-3	back	cmt_fig_cycletrend-2.png	A Wednesday-centered five-session average uses Monday through Friday. Wednesday's value cannot be computed until Friday's close.	
+CMT-los-III-tactical-1-2	back	cmt_fig_los-iii-tactical-1-2.png	The stated static example allocates 15% to intermediate Treasuries and 40% to long Treasuries. These are separate parts of total portfolio capital.	
+CMT-portfolio-3	back	cmt_fig_portfolio-3.png	A 22% signal exceeds a 15% cap. The maximum permitted sector weight is 15%.	
+CMT-following-1	back	cmt_study_01.png	Read the sequence of swing lows under the rising price. Successively higher reaction lows can anchor an uptrend support line.	
+CMT-los-I-trend-1-1	back	cmt_study_01.png	Read the sequence of swing lows under the rising price. Successively higher reaction lows can anchor an uptrend support line.	
+CMT-targets-5	back	cmt_study_03.png	In this rectangle example, measure the height first and project it from the breakout in its direction. The triangle in the question uses its widest span and a downside projection.	
+CMT-trade-2	back	cmt_study_06.png	The price breaks above resistance and then closes back inside. Under this particular exit rule the return inside invalidates the breakout.	
+CMT-rank-1	back	cmt_study_11.png	Both series begin at 100, so the higher endpoint has the higher cumulative return. Here asset B leads. Apply the same comparison to the assets in the question.	
+CMT-los-I-bands-2-1	back	cmt_study_12.png	Price repeatedly closes near its rising upper band. This band walk illustrates why touching an outer band can persist; in a decline look for an actual change in the swing structure.	
+CMT-los-III-bandplan-2-3	back	cmt_study_12.png	Price repeatedly closes near its rising upper band. This band walk illustrates why touching an outer band can persist; in a decline look for an actual change in the swing structure.	
+CMT-los-I-volume-2-1	back	cmt_study_13.png	Price reaches new highs while volume shrinks. Fewer shares change hands on the later highs.	
+CMT-los-II-vwap-7-1	back	cmt_study_25.png	The volume profile is high near the open and close and lower around midday. A volume-proportional schedule would allocate more trading to busier intervals.	
+CMT-bandplan-2	back	cmt_study_28.png	The second trough is lower in price but higher on the %b panel. Relative to its bands, price held up better at the second low.	
+CMT-targets-3	back	cmt_study_39.png	The dotted threshold is 3% above resistance. Compare closing prices with that threshold, rather than treating any move over resistance as sufficient.	
+CMT-targets-4	back	cmt_study_40.png	This downside example subtracts an ATR buffer from support. For an upside rule, add the specified multiple of ATR to resistance.	
+CMT-trade-4	back	cmt_study_40.png	This downside example subtracts an ATR buffer from support. For an upside rule, add the specified multiple of ATR to resistance.	
+CMT-relative-3	back	cmt_study_43.png	Compare both rebased series through the selloff. Asset A loses less and therefore shows relative resilience even as its own price falls.	
+CMT-los-I-screening-3-1	back	cmt_study_43.png	Compare both rebased series through the selloff. Asset A loses less and therefore shows relative resilience even as its own price falls.	
+CMT-los-I-screening-3-2	back	cmt_study_43.png	Compare both rebased series through the selloff. Asset A loses less and therefore shows relative resilience even as its own price falls.	
+CMT-los-III-portfolio-2-4	back	cmt_study_43.png	Compare both rebased series through the selloff. Asset A loses less and therefore shows relative resilience even as its own price falls.	
+CMT-rotation-1	back	cmt_study_45.png	Both sector-to-market ratios use the same market benchmark. The higher final ratio after rebasing indicates stronger relative performance over the window.	
+CMT-cycle-4	back	cmt_study_46.png	Between two consecutive troughs, compare the peak date with the midpoint. This chart peaks early (left translation); a late peak reverses that timing.	
+CMT-los-II-cycletrend-4-1	back	cmt_study_46.png	Between two consecutive troughs, compare the peak date with the midpoint. This chart peaks early (left translation); a late peak reverses that timing.	
+CMT-los-II-cycletrend-4-3	back	cmt_study_46.png	Between two consecutive troughs, compare the peak date with the midpoint. This chart peaks early (left translation); a late peak reverses that timing.	
+CMT-vol-1	back	cmt_study_51.png	The late observations swing farther from zero and large moves cluster. A constant-variance model obscures the change in the size of returns.	
+CMT-vol-3	back	cmt_study_51.png	The late observations swing farther from zero and large moves cluster. A constant-variance model obscures the change in the size of returns.	
+CMT-los-III-backtest-2-3	back	cmt_study_51.png	The late observations swing farther from zero and large moves cluster. A constant-variance model obscures the change in the size of returns.	
+CMT-spectrum-2	back	cmt_study_54.png	The strongest spectral band moves from a four-session to a sixteen-session period. A spectrogram retains when the dominant period changes.	
+CMT-los-II-waves-1-2	back	cmt_study_63.png	The extended third wave contains smaller marked swings. Wave degree distinguishes that internal sequence from the larger impulse.	
+CMT-los-II-waves-4-1	back	cmt_study_63.png	The extended third wave contains smaller marked swings. Wave degree distinguishes that internal sequence from the larger impulse.	
+CMT-cycle-6	back	cmt_study_64.png	The schematic cycles share a trough again after 40 sessions. When one period is a whole-number multiple of the other, recurring phase alignments become possible.	
+CMT-timing-2	back	cmt_study_64.png	The schematic cycles share a trough again after 40 sessions. When one period is a whole-number multiple of the other, recurring phase alignments become possible.	

@@ -1,0 +1,26 @@
+{
+  "deck_id": 1652027021,
+  "deck_name": "Series 65 • Early 2027",
+  "model_id": 1652027011,
+  "model_name": "Series 65 • Recall and application",
+  "fields": [
+    "CardID",
+    "Question",
+    "Answer",
+    "Explanation",
+    "Scope",
+    "Citation",
+    "URL",
+    "RelatedCitation",
+    "RelatedURL",
+    "Outline"
+  ],
+  "templates": [
+    {
+      "name": "Recall",
+      "qfmt": "<main>{{#Scope}}<div class=\"scope\">{{Scope}}</div>{{/Scope}}<div class=\"q\">{{Question}}</div></main>",
+      "afmt": "<main>{{#Scope}}<div class=\"scope\">{{Scope}}</div>{{/Scope}}<div class=\"q\">{{Question}}</div><hr id=\"answer\"><div class=\"a\">{{Answer}}</div><p>{{Explanation}}</p><div class=\"meta\"><a href=\"{{URL}}\">{{Citation}}</a>{{#RelatedURL}}<br><a href=\"{{RelatedURL}}\">{{RelatedCitation}}</a>{{/RelatedURL}}<p>{{CardID}} · {{Outline}}</p></div></main>"
+    }
+  ],
+  "css": "\n.card { font: 18px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; color:#172b38; background:#f6f8f8; text-align:left; margin:0; }\nmain { max-width:40em; margin:1.6em auto; padding:1em 1.35em; }\n.scope,.meta { color:#48616a; font-size:.79em; } .q {font-size:1.25em;font-weight:600;margin:.45em 0;}\n.a {font-size:1.15em;font-weight:650;color:#085d4f;} hr {border:0;border-top:1px solid #afc2c5;margin:1em 0;}\np {margin:.6em 0;} .meta {margin-top:1.4em;} a {color:#16596b;} .nightMode .a {color:#8adac7;} .nightMode .meta,.nightMode .scope {color:#afc2c5;} .nightMode a {color:#a2d3e0;}\n"
+}

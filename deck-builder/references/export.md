@@ -25,3 +25,24 @@ This builds three notes and five cards. Choose a unique, durable namespace per p
 **Existing decks.** Preserve original GUIDs, model IDs, ordered fields, and templates when updating someone else's export. A fresh manifest cannot recreate those identities. Start from the caller's exported notes or a disposable collection imported from their package, apply targeted edits, and export again. Use a supplied CSV dialect or custom note schema when requested.
 
 [Anki text import](https://docs.ankiweb.net/importing/text-files.html) · [Anki note types and cloze editing](https://docs.ankiweb.net/editing.html) · [genanki package writer](https://github.com/kerrickstaley/genanki)
+
+## One card with alternative prompts
+
+Add a `varied` note to a manifest when the same short answer and feedback fit every front. For example:
+
+```json
+{
+  "id": "relative-price",
+  "type": "varied",
+  "front": "A stock/benchmark price ratio rises over a week. How did the stock perform relative to the benchmark?",
+  "variants": [
+    "One share buys more units of the benchmark on Friday than on Monday. Which asset had the higher price return?",
+    "Over the same interval, the stock lost 2% and its benchmark lost 6%. Which one outperformed on price?"
+  ],
+  "back": "The stock outperformed the benchmark on price."
+}
+```
+
+The package installs the custom note type. The front chooses at random from the canonical prompt and the saved alternatives, so a wording can repeat. With scripting disabled, the canonical prompt stays visible. The answer side shows the shared answer and any back media. Front media applies to every wording. The prompts work offline without an AI account or API key. The single scheduled card has one review history. Give a substantially harder version its own card if its performance matters independently.
+
+For a manifest containing varied notes, use the same pinned genanki environment for both the package and TSV. The TSV includes package note GUIDs and packaged model names. Import the package first to install **Deck Builder · Varied prompt**. In a mixed-model export, preview the field mappings for each note type. Anki documents client differences in template scripting, so preview the intended study client. [Anki template scripting](https://docs.ankiweb.net/templates/styling.html#javascript) · [Anki card generation](https://docs.ankiweb.net/templates/generation.html)

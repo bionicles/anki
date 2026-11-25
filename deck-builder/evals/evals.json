@@ -33,6 +33,17 @@
         "The package and TSV reconcile to the same two notes and cards after reimport.",
         "Coverage and authoring inputs record the supported components and the violet gap."
       ]
+    },
+    {
+      "id": 4,
+      "prompt": "Make a tiny study package. I need to recognize and produce 北京 / Beijing. I also want one card that varies how it asks which asset outperformed when a stock-to-benchmark price ratio rises. Give the latter two reviewed alternate prompts with the same answer, one schedule, and an editable update file. My notes also mention the chart author's birthday.",
+      "expected_output": "Three scheduled cards from two notes, with a safe offline variation on the relative-return prompt and a working text update.",
+      "files": [],
+      "expectations": [
+        "The two unambiguous language directions have separate card identities. The market question has one card regardless of which prompt appears.",
+        "Every alternate preserves the price-return convention and has the same answer. The answer stays hidden on the front and usable with scripting disabled.",
+        "Importing the editable text after the package updates the packaged notes in place. No birthday question is added."
+      ]
     }
   ]
 }

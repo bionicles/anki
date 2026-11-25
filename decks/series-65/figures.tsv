@@ -1,0 +1,160 @@
+CardID	Side	Filename	Description	Cue
+S65-I-001	back	s65_fig_i-001.png	Activity peaks at 108, falls to 97, then rises to 102. Expansion resumes at the trough before output regains its old peak.	
+S65-I-004	back	s65_fig_i-001.png	Activity peaks at 108, falls to 97, then rises to 102. Expansion resumes at the trough before output regains its old peak.	
+S65-I-023	front	s65_fig_i-023.png	The annual yields on 1-, 5- and 10-year maturities are 5%, 4% and 3%.	What relationship between the short and long maturities makes this yield curve inverted?
+S65-I-024	back	s65_fig_i-024.png	In this example the corporate yield rises and the comparable Treasury yield falls. The spread widens from 1 to 2.5 percentage points.	
+S65-II-071	back	s65_fig_i-024.png	In this example the corporate yield rises and the comparable Treasury yield falls. The spread widens from 1 to 2.5 percentage points.	
+S65-II-072	back	s65_fig_i-024.png	In this example the corporate yield rises and the comparable Treasury yield falls. The spread widens from 1 to 2.5 percentage points.	
+S65-I-101	back	s65_fig_i-101.png	With short yields fixed, a rise in long yields increases the long-minus-short spread.	
+S65-I-131	front	s65_fig_i-131.png	The 10-year corporate moves 6.35% to 6.65%. The 10-year Treasury moves 4.15% to 4.25%.	By how many basis points does the corporate spread widen?
+S65-I-132	back	s65_fig_i-132.png	Add the first four categories and subtract imports. 620 + 170 + 220 + 90 − 140 = 960.	
+S65-I-060	back	s65_fig_i-060.png	An outlay of 100 followed by 110 in one year has NPV 110/(1+r) − 100. It crosses zero at 10%.	
+S65-I-059	back	s65_fig_i-059.png	Cash flows −100, +230, −132 at years 0, 1, 2 give NPV zero at both 10% and 20%.	
+S65-I-150	back	s65_fig_i-150.png	The outlay occurs now. The two inflows are each discounted to today before comparing them with the outlay.	
+S65-I-151	back	s65_fig_i-150.png	The outlay occurs now. The two inflows are each discounted to today before comparing them with the outlay.	
+S65-I-062	back	s65_fig_i-062.png	Starting with $12,000 at 4%, compounding for three years gives $13,498.37. Simple interest gives $13,440.	
+S65-I-153	back	s65_fig_i-062.png	Starting with $12,000 at 4%, compounding for three years gives $13,498.37. Simple interest gives $13,440.	
+S65-I-154	back	s65_fig_i-062.png	Starting with $12,000 at 4%, compounding for three years gives $13,498.37. Simple interest gives $13,440.	
+S65-I-063	back	s65_fig_i-063.png	At year three, deposits made at each year's start have grown for 3, 2 and 1 years. Year-end deposits grow for 2, 1 and 0.	
+S65-I-157	back	s65_fig_i-063.png	At year three, deposits made at each year's start have grown for 3, 2 and 1 years. Year-end deposits grow for 2, 1 and 0.	
+S65-I-158	back	s65_fig_i-063.png	At year three, deposits made at each year's start have grown for 3, 2 and 1 years. Year-end deposits grow for 2, 1 and 0.	
+S65-I-065	back	s65_fig_i-065.png	The five observations are −6%, 2%, 4%, 4% and 11%. The repeated value is 4%; the extremes are 17 points apart.	
+S65-I-159	back	s65_fig_i-065.png	The five observations are −6%, 2%, 4%, 4% and 11%. The repeated value is 4%; the extremes are 17 points apart.	
+S65-I-066	back	s65_fig_i-066.png	Equal probabilities at 2% and 10% put the mean at 6%. Both outcomes are four percentage points from it.	
+S65-I-161	back	s65_fig_i-066.png	Equal probabilities at 2% and 10% put the mean at 6%. Both outcomes are four percentage points from it.	
+S65-I-067	back	s65_fig_i-067.png	At x = −2, −1, 0, 1, 2 the plotted y values are 4, 1, 0, 1, 4. The quadratic relationship has zero linear correlation.	
+S65-I-070	back	s65_fig_i-070.png	An example firm has 30 in quick assets and 90 in inventory against 80 of current liabilities. Current ratio = 120/80; quick ratio = 30/80.	
+S65-I-071	back	s65_fig_i-070.png	An example firm has 30 in quick assets and 90 in inventory against 80 of current liabilities. Current ratio = 120/80; quick ratio = 30/80.	
+S65-I-072	back	s65_fig_i-070.png	An example firm has 30 in quick assets and 90 in inventory against 80 of current liabilities. Current ratio = 120/80; quick ratio = 30/80.	
+S65-I-073	back	s65_fig_i-070.png	An example firm has 30 in quick assets and 90 in inventory against 80 of current liabilities. Current ratio = 120/80; quick ratio = 30/80.	
+S65-I-077	back	s65_fig_i-077.png	At a $40 price, EPS of $2 means 20 times earnings. At $4 EPS the multiple falls to 10.	
+S65-I-080	back	s65_fig_i-080.png	Toy model: independent company shocks have 20% volatility and all holdings share a 12% market shock. Equal weighting diversifies the independent part. The shared risk persists.	
+S65-II-140	back	s65_fig_i-080.png	Toy model: independent company shocks have 20% volatility and all holdings share a 12% market shock. Equal weighting diversifies the independent part. The shared risk persists.	
+S65-I-081	back	s65_fig_i-081.png	A 5-year $1,000 bond pays $50 annually. Discounting the same payments more steeply gives a lower price. At 5% the bond is at par.	
+S65-II-051	back	s65_fig_i-081.png	A 5-year $1,000 bond pays $50 annually. Discounting the same payments more steeply gives a lower price. At 5% the bond is at par.	
+S65-II-069	back	s65_fig_i-081.png	A 5-year $1,000 bond pays $50 annually. Discounting the same payments more steeply gives a lower price. At 5% the bond is at par.	
+S65-II-047	back	s65_fig_ii-047.png	This eight-year zero pays no interim coupons. Its entire redemption occurs in year eight, so its Macaulay duration is eight years.	
+S65-II-050	back	s65_fig_ii-047.png	This eight-year zero pays no interim coupons. Its entire redemption occurs in year eight, so its Macaulay duration is eight years.	
+S65-II-049	back	s65_fig_ii-049.png	Year one accounts for $50 of $1,000 total present value. Year two accounts for $950. Weighted time is 0.05×1 + 0.95×2 = 1.95 years.	
+S65-II-246	back	s65_fig_ii-049.png	Year one accounts for $50 of $1,000 total present value. Year two accounts for $950. Weighted time is 0.05×1 + 0.95×2 = 1.95 years.	
+S65-II-052	back	s65_fig_ii-052.png	At a fixed 4% rate, $5,000 discounted over three remaining years increases in price as the redemption date draws nearer.	
+S65-II-244	back	s65_fig_ii-052.png	At a fixed 4% rate, $5,000 discounted over three remaining years increases in price as the redemption date draws nearer.	
+S65-II-245	back	s65_fig_ii-052.png	At a fixed 4% rate, $5,000 discounted over three remaining years increases in price as the redemption date draws nearer.	
+S65-II-057	back	s65_fig_ii-057.png	Each curve starts at 100 at a 4% yield. At 5% the 10-year zero loses about 9.13% and the two-year loses 1.90%.	
+S65-II-059	back	s65_fig_ii-057.png	Each curve starts at 100 at a 4% yield. At 5% the 10-year zero loses about 9.13% and the two-year loses 1.90%.	
+S65-II-254	back	s65_fig_ii-057.png	Each curve starts at 100 at a 4% yield. At 5% the 10-year zero loses about 9.13% and the two-year loses 1.90%.	
+S65-II-255	back	s65_fig_ii-057.png	Each curve starts at 100 at a 4% yield. At 5% the 10-year zero loses about 9.13% and the two-year loses 1.90%.	
+S65-II-251	back	s65_fig_ii-251.png	At duration 5.2 a rise of 0.40 percentage points implies approximately −2.08%. On $70,000 the approximate loss is $1,456.	
+S65-II-252	back	s65_fig_ii-251.png	At duration 5.2 a rise of 0.40 percentage points implies approximately −2.08%. On $70,000 the approximate loss is $1,456.	
+S65-II-063	back	s65_fig_ii-063.png	A two-year $1,000 bond pays $50 in year one and $1,050 in year two. Their present values at 6% sum to $981.67.	
+S65-II-073	back	s65_fig_ii-063.png	A two-year $1,000 bond pays $50 in year one and $1,050 in year two. Their present values at 6% sum to $981.67.	
+S65-II-266	back	s65_fig_ii-063.png	A two-year $1,000 bond pays $50 in year one and $1,050 in year two. Their present values at 6% sum to $981.67.	
+S65-II-267	back	s65_fig_ii-063.png	A two-year $1,000 bond pays $50 in year one and $1,050 in year two. Their present values at 6% sum to $981.67.	
+S65-II-055	back	s65_fig_ii-055.png	Annual coupon is $45. Dividing by $1,000 face gives 4.5%; dividing by a $900 purchase price gives 5%.	
+S65-II-065	back	s65_fig_ii-055.png	Annual coupon is $45. Dividing by $1,000 face gives 4.5%; dividing by a $900 purchase price gives 5%.	
+S65-II-249	back	s65_fig_ii-055.png	Annual coupon is $45. Dividing by $1,000 face gives 4.5%; dividing by a $900 purchase price gives 5%.	
+S65-II-250	back	s65_fig_ii-055.png	Annual coupon is $45. Dividing by $1,000 face gives 4.5%; dividing by a $900 purchase price gives 5%.	
+S65-II-259	back	s65_fig_ii-259.png	Four years of semiannual coupons produce eight payments of $145. The last payment adds the $5,000 face amount.	
+S65-II-260	back	s65_fig_ii-259.png	Four years of semiannual coupons produce eight payments of $145. The last payment adds the $5,000 face amount.	
+S65-II-067	back	s65_fig_ii-067.png	Each bond converts to 25 shares. At $42 per share the stock package is worth $1,050. It matches the $1,100 market price at $44.	
+S65-II-261	back	s65_fig_ii-067.png	Each bond converts to 25 shares. At $42 per share the stock package is worth $1,050. It matches the $1,100 market price at $44.	
+S65-II-262	back	s65_fig_ii-067.png	Each bond converts to 25 shares. At $42 per share the stock package is worth $1,050. It matches the $1,100 market price at $44.	
+S65-II-263	back	s65_fig_ii-067.png	Each bond converts to 25 shares. At $42 per share the stock package is worth $1,050. It matches the $1,100 market price at $44.	
+S65-II-264	back	s65_fig_ii-067.png	Each bond converts to 25 shares. At $42 per share the stock package is worth $1,050. It matches the $1,100 market price at $44.	
+S65-II-285	back	s65_fig_ii-285.png	Securities 22 plus cash 1 less liabilities 3 leaves $20 million. Divide by 2.5 million shares for $8 per share.	
+S65-II-286	back	s65_fig_ii-286.png	NAV holds at $16. A 10% discount gives $14.40; a 5% discount gives $15.20.	
+S65-II-287	back	s65_fig_ii-286.png	NAV holds at $16. A 10% discount gives $14.40; a 5% discount gives $15.20.	
+S65-II-151	back	s65_fig_ii-151.png	Strike $52, premium $7. The buyer loses at most the premium and breaks even when the stock reaches $59.	
+S65-II-146	back	s65_fig_ii-146.png	Strike $45 and premium $2. At $38 the profit is $5 per share. At or above $45 the loss is the $2 premium.	
+S65-II-291	back	s65_fig_ii-146.png	Strike $45 and premium $2. At $38 the profit is $5 per share. At or above $45 the loss is the $2 premium.	
+S65-II-292	back	s65_fig_ii-292.png	For a $30 strike and $1.80 premium, the best result is +$1.80 a share. At a stock price of zero the loss is $28.20 a share.	
+S65-II-293	back	s65_fig_ii-292.png	For a $30 strike and $1.80 premium, the best result is +$1.80 a share. At a stock price of zero the loss is $28.20 a share.	
+S65-II-152	back	s65_fig_ii-152.png	For a $40 strike and $2 premium, profit stays at $2 at or below $40. Each additional dollar above $40 takes another dollar from the writer.	
+S65-II-154	back	s65_fig_ii-154.png	Stock costs $40. Selling a $45 call for $2 caps profit at $7 and shifts break-even to $38. Stock declines below $38 still produce losses.	
+S65-III-310	back	s65_fig_ii-154.png	Stock costs $40. Selling a $45 call for $2 caps profit at $7 and shifts break-even to $38. Stock declines below $38 still produce losses.	
+S65-III-308	back	s65_fig_iii-308.png	Buying stock at $52 and a $48 put for $2 limits the loss to $6. At $61 the combined position earns $7.	
+S65-II-294	back	s65_fig_ii-294.png	After +10% then −10%, the index grows from 100 to 99. A daily 2× fund grows from 100 to 120 then falls to 96.	
+S65-II-295	back	s65_fig_ii-294.png	After +10% then −10%, the index grows from 100 to 99. A daily 2× fund grows from 100 to 120 then falls to 96.	
+S65-II-296	back	s65_fig_ii-296.png	After −5% and +4% the index ends at 98.8. A daily −1× fund gains 5% then loses 4%, ending at 100.8.	
+S65-II-297	back	s65_fig_ii-297.png	For this example only, principal is repaid assuming issuer solvency. The credited return is 70% of positive index gains, capped at 8%.	
+S65-III-039	back	s65_fig_iii-039.png	With a 3% risk-free rate and 6-point market premium, expected return is 3% + beta × 6%. At beta 1.25 it is 10.5%.	
+S65-III-293	back	s65_fig_iii-039.png	With a 3% risk-free rate and 6-point market premium, expected return is 3% + beta × 6%. At beta 1.25 it is 10.5%.	
+S65-III-294	back	s65_fig_iii-039.png	With a 3% risk-free rate and 6-point market premium, expected return is 3% + beta × 6%. At beta 1.25 it is 10.5%.	
+S65-I-069	back	s65_fig_i-069.png	A 2% risk-free rate, 8% market return and 1.2 beta give a 9.2% benchmark. An 11% realized return is 1.8 points higher.	
+S65-I-164	back	s65_fig_i-069.png	A 2% risk-free rate, 8% market return and 1.2 beta give a 9.2% benchmark. An 11% realized return is 1.8 points higher.	
+S65-III-043	back	s65_fig_iii-043.png	A half-and-half mix of 10% and 20% volatility has risk 11.18% at zero correlation and 15% at +1. At −1 the equal-weight mix still has 5% risk; canceling both exposures requires different weights.	
+S65-III-044	back	s65_fig_iii-043.png	A half-and-half mix of 10% and 20% volatility has risk 11.18% at zero correlation and 15% at +1. At −1 the equal-weight mix still has 5% risk; canceling both exposures requires different weights.	
+S65-III-296	back	s65_fig_iii-043.png	A half-and-half mix of 10% and 20% volatility has risk 11.18% at zero correlation and 15% at +1. At −1 the equal-weight mix still has 5% risk; canceling both exposures requires different weights.	
+S65-III-042	back	s65_fig_iii-042.png	Two hypothetical assets have 10% and 20% volatility, 4% and 10% expected returns, and zero correlation. The upper branch from the minimum-risk point offers the best return at each attainable risk.	
+S65-III-215	back	s65_fig_iii-042.png	Two hypothetical assets have 10% and 20% volatility, 4% and 10% expected returns, and zero correlation. The upper branch from the minimum-risk point offers the best return at each attainable risk.	
+S65-III-048	back	s65_fig_iii-048.png	A $150,000 account holds $96,000 equities against a $90,000 target. Reallocating $6,000 to bonds restores the fixed 60/40 policy.	
+S65-III-049	back	s65_fig_iii-048.png	A $150,000 account holds $96,000 equities against a $90,000 target. Reallocating $6,000 to bonds restores the fixed 60/40 policy.	
+S65-III-299	back	s65_fig_iii-048.png	A $150,000 account holds $96,000 equities against a $90,000 target. Reallocating $6,000 to bonds restores the fixed 60/40 policy.	
+S65-III-300	back	s65_fig_iii-048.png	A $150,000 account holds $96,000 equities against a $90,000 target. Reallocating $6,000 to bonds restores the fixed 60/40 policy.	
+S65-III-305	back	s65_fig_iii-305.png	Each month invests $600. Prices of $30, $20 and $24 buy 20, 30 and 25 shares. Total cost divided by total shares is $24.	
+S65-III-306	back	s65_fig_iii-305.png	Each month invests $600. Prices of $30, $20 and $24 buy 20, 30 and 25 shares. Total cost divided by total shares is $24.	
+S65-III-307	back	s65_fig_iii-305.png	Each month invests $600. Prices of $30, $20 and $24 buy 20, 30 and 25 shares. Total cost divided by total shares is $24.	
+S65-III-314	back	s65_fig_iii-314.png	With no return, a $36,000 reserve falls by $2,400 each month. It reaches zero in 15 months.	
+S65-III-153	back	s65_fig_iii-153.png	A seller can fill 200 shares at $18.10. The next 150 sell at $18.00. Average proceeds per share use filled size as the weight.	
+S65-III-154	back	s65_fig_iii-153.png	A seller can fill 200 shares at $18.10. The next 150 sell at $18.00. Average proceeds per share use filled size as the weight.	
+S65-III-335	back	s65_fig_iii-153.png	A seller can fill 200 shares at $18.10. The next 150 sell at $18.00. Average proceeds per share use filled size as the weight.	
+S65-III-155	back	s65_fig_iii-155.png	100 shares are offered at $24.10 and 200 at $24.20. Buying all 300 costs $7,250.	
+S65-III-156	back	s65_fig_iii-155.png	100 shares are offered at $24.10 and 200 at $24.20. Buying all 300 costs $7,250.	
+S65-III-336	back	s65_fig_iii-155.png	100 shares are offered at $24.10 and 200 at $24.20. Buying all 300 costs $7,250.	
+S65-III-161	back	s65_fig_iii-161.png	For 150 shares sold at $40, lower cover prices raise profit. Deducting $120 of costs leaves $780 at a $34 cover price.	
+S65-III-337	back	s65_fig_iii-161.png	For 150 shares sold at $40, lower cover prices raise profit. Deducting $120 of costs leaves $780 at a $34 cover price.	
+S65-III-165	back	s65_fig_iii-165.png	With $24,000 borrowed, the equity fraction is (value − 24,000)/value. It reaches 30% at about $34,286.	
+S65-III-338	back	s65_fig_iii-165.png	With $24,000 borrowed, the equity fraction is (value − 24,000)/value. It reaches 30% at about $34,286.	
+S65-III-339	back	s65_fig_iii-165.png	With $24,000 borrowed, the equity fraction is (value − 24,000)/value. It reaches 30% at about $34,286.	
+S65-III-275	back	s65_fig_iii-275.png	The account rises from 100 to 110 before a deposit of 90, then falls from 200 to 190. The two investment returns are +10% and −5%.	
+S65-III-345	back	s65_fig_iii-275.png	The account rises from 100 to 110 before a deposit of 90, then falls from 200 to 190. The two investment returns are +10% and −5%.	
+S65-III-346	back	s65_fig_iii-275.png	The account rises from 100 to 110 before a deposit of 90, then falls from 200 to 190. The two investment returns are +10% and −5%.	
+S65-III-353	back	s65_fig_iii-353.png	Returns −10%, 6% and 18% have probabilities ¼, ½ and ¼. Their contributions sum to 5%.	
+S65-III-354	back	s65_fig_iii-353.png	Returns −10%, 6% and 18% have probabilities ¼, ½ and ¼. Their contributions sum to 5%.	
+S65-III-355	back	s65_fig_iii-355.png	$100 grows to $107.10. A basket costing $100 now costs $102. Relative purchasing power rises by 107.1/102 − 1 = 5%.	
+S65-III-281	back	s65_fig_iii-355.png	$100 grows to $107.10. A basket costing $100 now costs $102. Relative purchasing power rises by 107.1/102 − 1 = 5%.	
+S65-I-128	front	s65_fig_i-128.png	The same quantities cost $250 in the first year and $265 in the second.	What inflation rate does this basket imply?
+S65-I-130	front	s65_fig_i-130.png	The corporate yields 6.35% and the comparable Treasury yields 4.15%.	What is the ten-year corporate spread in basis points?
+S65-I-133	front	s65_fig_i-133.png	Exports are 90 billion dollars; imports are 140 billion.	What are net exports, including the sign?
+S65-I-135	front	s65_fig_i-135.png	There are 9,200 employed people, 800 unemployed active jobseekers and 2,500 other adults.	Using the groups shown, what is the unemployment rate?
+S65-I-136	back	s65_fig_i-136.png	Initially 9,200 employed plus 800 active jobseekers make a labor force of 10,000 among 12,500 adults. If 200 stop looking, the new rate is 600/9,800.	
+S65-I-137	back	s65_fig_i-136.png	Initially 9,200 employed plus 800 active jobseekers make a labor force of 10,000 among 12,500 adults. If 200 stop looking, the new rate is 600/9,800.	
+S65-I-031	back	s65_fig_i-136.png	Initially 9,200 employed plus 800 active jobseekers make a labor force of 10,000 among 12,500 adults. If 200 stop looking, the new rate is 600/9,800.	
+S65-I-138	front	s65_fig_i-138.png	The country imports 420 billion dollars and exports 355 billion.	What is the magnitude of the country's trade deficit?
+S65-I-139	back	s65_fig_i-139.png	The index rises from 125 to 130, a factor of 1.04. At unchanged purchasing power, $60,000 scales to $62,400.	
+S65-I-140	back	s65_fig_i-139.png	The index rises from 125 to 130, a factor of 1.04. At unchanged purchasing power, $60,000 scales to $62,400.	
+S65-I-141	back	s65_fig_i-141.png	Sales of 500 less costs of 320 and operating expenses of 90 leave 90 in operating income. Subtract 10 of interest and 16 of taxes to reach net income of 64.	
+S65-I-142	back	s65_fig_i-141.png	Sales of 500 less costs of 320 and operating expenses of 90 leave 90 in operating income. Subtract 10 of interest and 16 of taxes to reach net income of 64.	
+S65-I-143	back	s65_fig_i-143.png	Assets total 780. Liabilities claim 280, preferred equity 100 and common equity the remaining 400. Total equity includes both equity classes.	
+S65-I-144	back	s65_fig_i-143.png	Assets total 780. Liabilities claim 280, preferred equity 100 and common equity the remaining 400. Total equity includes both equity classes.	
+S65-I-124	back	s65_fig_i-124.png	An €80,000 payable costs $88,000 at $1.10/€ and $92,000 at $1.15/€.	
+S65-I-125	back	s65_fig_i-124.png	An €80,000 payable costs $88,000 at $1.10/€ and $92,000 at $1.15/€.	
+S65-II-242	front	s65_fig_ii-242.png	Per bond, par is $1,000, purchase cost was $1,065, and the contractual call quote is 102% of par. No accrued coupon remains.	The bond is called at 102% of the illustrated par just after a coupon payment. How much principal does the investor receive?
+S65-II-243	back	s65_fig_ii-243.png	An investor paid $1,065. Redemption at 102% of $1,000 par returns $1,020. The principal loss is $45.	
+S65-II-247	back	s65_fig_ii-247.png	A clean quote of 96.75 on $10,000 face gives $9,675. Add $85 accrued for an invoice of $9,760.	
+S65-II-248	back	s65_fig_ii-247.png	A clean quote of 96.75 on $10,000 face gives $9,675. Add $85 accrued for an invoice of $9,760.	
+S65-II-272	back	s65_fig_ii-272.png	120 shares at $75 and 180 shares at $50 both represent $9,000. A three-for-two split increases share count without creating value.	
+S65-II-273	back	s65_fig_ii-272.png	120 shares at $75 and 180 shares at $50 both represent $9,000. A three-for-two split increases share count without creating value.	
+S65-II-280	back	s65_fig_ii-280.png	Two million newly issued shares and one million existing shares sell for $15 each. The issuer receives only proceeds from the new shares.	
+S65-II-281	back	s65_fig_ii-280.png	Two million newly issued shares and one million existing shares sell for $15 each. The issuer receives only proceeds from the new shares.	
+S65-II-282	back	s65_fig_ii-282.png	A 4.5% load on $8,000 consumes $360. Only $7,640 buys shares; at $20 each it buys 382 shares.	
+S65-II-283	back	s65_fig_ii-282.png	A 4.5% load on $8,000 consumes $360. Only $7,640 buys shares; at $20 each it buys 382 shares.	
+S65-III-287	front	s65_fig_iii-287.png	Take-home income is $7,400; living costs are $4,850, debt service $750, and separate insurance $400.	How much of this household's monthly income remains after the three outflows?
+S65-III-289	back	s65_fig_iii-289.png	Assets total $500,000 and debts total $252,000. The $360,000 home has a $240,000 mortgage. Household net worth and home equity use different boundaries.	
+S65-III-290	back	s65_fig_iii-289.png	Assets total $500,000 and debts total $252,000. The $360,000 home has a $240,000 mortgage. Household net worth and home equity use different boundaries.	
+S65-III-291	back	s65_fig_iii-291.png	The $120,000 fund contains $12,000 of employer stock. Add the direct $48,000 position to see $60,000 employer exposure in the $168,000 portfolio.	
+S65-III-292	back	s65_fig_iii-292.png	60% of $2,500 a month is $1,500, or $18,000 a year. Against $24,000 of spending the survivor has an annual $6,000 gap.	
+S65-III-342	front	s65_fig_iii-342.png	The bid is $25.10 and the offer is $25.18 for sufficient size. Buy at the offer and sell at the bid.	At the displayed quotes, what is the immediate round-trip spread cost on 400 shares, ignoring commissions?
+S65-IV-356	back	s65_fig_iv-356.png	The first $500,000 accrues 1% annually and the next $300,000 accrues 0.6%. Annual fees are $5,000 and $1,800. Quarterly fees total $1,700 at a constant balance.	
+S65-IV-357	front	s65_fig_iv-357.png	The $1,200 fee covers 90 days, with daily proration. Service stops after 30 days.	Under this contract's daily proration, how much of the $1,200 prepaid fee is unearned?
+S65-IV-358	back	s65_fig_iv-358.png	A $900 advisory fee and 2% of $15,000 in trades generate $900 plus $300.	
+S65-IV-359	back	s65_fig_iv-359.png	This $10,000 service is 65% qualifying research and 35% administrative. The administrative portion is $3,500 under the case assumptions.	
+S65-II-289	front	s65_fig_ii-289.png	Strike $52, premium $7. The plotted profit is negative $7 at $52 and positive $7 at $66, rising a dollar per dollar between them.	At what stock price does the call buyer break even at expiration?
+S65-II-290	front	s65_fig_ii-290.png	The strike is $45, premium $2, and each contract covers 100 shares. At a $38 stock price the line is at +$5 per share.	At a $38 stock price, what net profit does one 100-share put contract earn?
+S65-III-311	front	s65_fig_iii-311.png	Stock cost $40. The call strike is $45 and premium received is $2. Below $45, a $1 rise in the stock adds $1 to the position's per-share profit.	At which stock price does this covered call break even at expiration?
+S65-III-309	front	s65_fig_iii-309.png	The stock costs $52, the put strike is $48 and its premium is $2. Above the strike, each extra dollar in stock price adds a dollar of profit.	If the stock finishes at $61, what is the protected position's net profit per share?
+S65-III-041	front	s65_fig_iii-041.png	The fitted security market line starts at 3% when beta is zero and reaches 9% when beta is one.	Which economic rate does the vertical intercept of this security market line represent?
+S65-III-297	front	s65_fig_iii-297.png	The two assets have standard deviations 10% and 20%. Their weights are equal. The line shows how the portfolio's risk changes with their correlation.	When return correlation reaches +1, what is this portfolio's standard deviation?
+S65-I-058	front	s65_fig_i-058.png	An outlay of $100 today pays $110 in one year. The horizontal axis varies the required return; NPV crosses zero at 10%.	What is the name of the discount rate where this project's curve crosses zero?
+S65-I-160	front	s65_fig_i-160.png	The sample values are −6, 2, 4, 4 and 11 percent.	What is the range of the five returns, in percentage points?
+S65-I-064	back	s65_fig_i-064.png	Samples [1,2,3,4,5] and [1,2,3,4,50] both have median 3, but the mean rises from 3 to 12.	

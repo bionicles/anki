@@ -1,0 +1,10 @@
+build out:
+    uv run --no-project --with genanki==0.13.1 python -B deck.py build "{{out}}"
+
+test out="release":
+    uv run --no-project --with genanki==0.13.1 --with anki==26.9.4 python -B deck.py verify "{{out}}"
+    python3 -B practice/check.py practice/solutions.py
+
+figures:
+    uv run --no-project --with matplotlib==3.10.8 python -B plots.py
+    uv run --no-project --with matplotlib==3.10.8 python -B visual_examples.py
