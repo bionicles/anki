@@ -158,3 +158,22 @@ S65-III-297	front	s65_fig_iii-297.png	The two assets have standard deviations 10
 S65-I-058	front	s65_fig_i-058.png	An outlay of $100 today pays $110 in one year. The horizontal axis varies the required return; NPV crosses zero at 10%.	What is the name of the discount rate where this project's curve crosses zero?
 S65-I-160	front	s65_fig_i-160.png	The sample values are −6, 2, 4, 4 and 11 percent.	What is the range of the five returns, in percentage points?
 S65-I-064	back	s65_fig_i-064.png	Samples [1,2,3,4,5] and [1,2,3,4,50] both have median 3, but the mean rises from 3 to 12.	
+S65-I-019	front	s65_fig_i-019.png	The index starts at 100, then reaches 106 and 108.12 in successive years.	Annual inflation falls from 6% to 2%. What happens to the price level over the second year?
+S65-I-100	front	s65_fig_i-100.png	Yields at 1, 5 and 10 years change from 3%, 3.5% and 4% to 4%, 4.5% and 5%.	What change at each maturity makes this a parallel upward shift?
+S65-II-060	front	s65_fig_ii-060.png	Equal principal amounts come due in years 1, 2, 3 and 4.	Which feature of the bonds is the investor staggering in this ladder?
+S65-II-009	front	s65_fig_ii-009.png	The buyer pays $970 now and receives $1,000 at maturity, with no interim coupon.	How does the bill deliver a return to this investor at maturity?
+S65-II-053	front	s65_fig_ii-053.png	Over three years one bond pays $80 annually and the other pays no interim interest. They mature together.	Assuming both bonds are held to maturity, which holder has greater coupon reinvestment risk?
+S65-II-257	front	s65_fig_ii-257.png	The initial outflow is $975. One year later the investor receives $1,000 of principal plus the last $40 coupon.	Use the purchase outflow and both year-end receipts. What is the bond's one-year yield to maturity?
+S65-II-288	front	s65_fig_ii-288.png	The stock is $57, the strike is $52 and the quoted call premium is $7 per share.	How much of the quoted call premium is time value per share?
+S65-III-295	front	s65_fig_iii-295.png	At betas 0, 0.4, 0.8 and 1.2 the model returns are 3%, 5%, 7% and 9%.	A portfolio lies on the plotted line with an expected return of 7%. What is its implied beta?
+S65-III-218	front	s65_fig_iii-218.png	The policy weight is 50%, with boundaries at 45% and 55%. After starting at 50%, the sleeve closes at 56%.	A policy trades when the actual weight crosses one of the boundaries. What rebalancing method is this?
+S65-III-349	front	s65_fig_iii-349.png	Beginning NAV is $20, ending ex-distribution NAV is $20.80 and the end-of-period cash distribution is $1.20 per share.	Including the cash distribution and ignoring taxes and fees, what one-period total return did the shareholder earn?
+S65-III-212	front	s65_fig_iii-212.png	At beta 1.0, the forecast is 10% and the line passes through 8%.	What does the diamond's position imply about the forecast return relative to the return required for its beta?
+S65-II-265	front	s65_fig_ii-265.png	The maturity-matched Treasury yields 385 basis points. The desk requires 180 basis points of additional spread.	Express the corporate yield meeting this spread target as an annual percentage.
+S65-I-099	back	s65_fig_i-099.png	With annual inflation of 4%, the same $1,000 payment buys about $676 of today's goods in ten years.	
+S65-I-020	back	s65_fig_i-099.png	With annual inflation of 4%, the same $1,000 payment buys about $676 of today's goods in ten years.	
+S65-II-019	back	s65_fig_ii-019.png	The slower repayment path leaves more principal outstanding later. The example isolates the timing effect of slower refinancing.	
+S65-II-135	back	s65_fig_ii-135.png	Of a $1,000 contribution, a 5% front-end charge takes $50 at purchase, leaving $950 to invest.	
+S65-III-071	back	s65_fig_iii-071.png	The shares cost $40. Writing a $50 call for $3 gives $3 of premium but caps the combined expiry profit at $13 per share, ignoring fees.	
+S65-III-177	back	s65_fig_iii-177.png	An immediate buyer pays $20.05 and an immediate seller receives $19.95. The round-trip cost before fees is ten cents per share.	
+S65-III-279	back	s65_fig_iii-279.png	A contribution on day 0, another on day 20 and a withdrawal on day 365 are separated by unequal intervals.	

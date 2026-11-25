@@ -1,6 +1,6 @@
 # Anki deck builder and study decks
 
-Build flashcards for Anki from a JSON manifest or use the exam workflow to link cards to an exam outline. The repository includes five ready-to-import decks with editable text exports and coverage maps.
+Build flashcards for Anki from a JSON manifest or use the exam workflow to link cards to an exam outline. The repository includes six ready-to-import decks with editable text exports and coverage maps.
 
 From the repository root, give your agent this prompt. Replace `$TEST` with the exam name.
 
@@ -8,7 +8,9 @@ From the repository root, give your agent this prompt. Replace `$TEST` with the 
 /goal use the ./deck-builder skill and build me an anki deck for $TEST
 ```
 
-The [deck-by-deck design review](decks/card-design-review.md) maps recall, reversals, cue variation and visual practice to the five decks. Try a candle-pattern question in the [CMT guide](decks/cmt/README.md#practice-reading-charts) or an option payoff in the [Series 65 guide](decks/series-65/README.md).
+The [deck-by-deck design review](decks/card-design-review.md) maps recall, reversals, cue variation and visual practice to the six decks. Try a candle-pattern question in the [CMT guide](decks/cmt/README.md#practice-reading-charts) or an option payoff in the [Series 65 guide](decks/series-65/README.md).
+
+**Quantitative and Systematic Trading** covers 138 objectives in 16 domains, from point-in-time data through portfolio risk and execution. Try the order-queue question and browse the curriculum in the [course guide](decks/quant-systematic-trading/README.md), or [download the Anki package](decks/quant-systematic-trading/release/Quant-Systematic-Trading.apkg).
 
 ## Tutorial
 
@@ -81,6 +83,7 @@ Use a new output directory for each build. For a standalone project with `just b
 | AWS Security Specialty | [Package](decks/aws-security-specialty/release/AWS-Security-SCS-C03.apkg) | [TSV](decks/aws-security-specialty/release/AWS-Security-SCS-C03.tsv) | [Coverage](decks/aws-security-specialty/release/coverage.csv) | [Deck guide](decks/aws-security-specialty/README.md) |
 | Chartered Market Technician | [Package](decks/cmt/release/CMT.apkg) | [TSV](decks/cmt/release/CMT.tsv) | [Coverage](decks/cmt/release/coverage.csv) | [Deck guide](decks/cmt/README.md) |
 | Frontier ML | [Package](decks/frontier-ml/release/Frontier-ML.apkg) | [TSV](decks/frontier-ml/release/Frontier-ML.tsv) | [Coverage](decks/frontier-ml/release/coverage.csv) | [Deck guide](decks/frontier-ml/README.md) |
+| Quantitative and Systematic Trading | [Package](decks/quant-systematic-trading/release/Quant-Systematic-Trading.apkg) | [TSV](decks/quant-systematic-trading/release/Quant-Systematic-Trading.tsv) | [Coverage](decks/quant-systematic-trading/release/coverage.csv) | [Course guide](decks/quant-systematic-trading/README.md) |
 
 | Entry point | Inputs and outputs |
 | --- | --- |

@@ -1,0 +1,3548 @@
+{
+  "compound": {
+    "objective": "compound",
+    "kind": "line",
+    "title": "A two-period wealth path",
+    "xlabel": "Close",
+    "ylabel": "Wealth ($)",
+    "labels": [
+      "Start",
+      "First",
+      "Second"
+    ],
+    "series": [
+      {
+        "label": "Wealth",
+        "values": [
+          100,
+          125,
+          100
+        ]
+      }
+    ]
+  },
+  "ledger": {
+    "objective": "ledger",
+    "kind": "bars",
+    "title": "Components after a trade",
+    "xlabel": "Account component",
+    "ylabel": "Market value ($)",
+    "labels": [
+      "Cash",
+      "Stock"
+    ],
+    "series": [
+      {
+        "label": "Amount",
+        "values": [
+          480,
+          520
+        ]
+      }
+    ]
+  },
+  "short": {
+    "objective": "short",
+    "kind": "line",
+    "title": "Marking a short position",
+    "xlabel": "Stock price ($)",
+    "ylabel": "Short P&L before costs ($)",
+    "labels": [
+      "18",
+      "20",
+      "22",
+      "24"
+    ],
+    "series": [
+      {
+        "label": "P&L",
+        "values": [
+          100,
+          0,
+          -100,
+          -200
+        ]
+      }
+    ]
+  },
+  "futures": {
+    "objective": "futures",
+    "kind": "bars",
+    "title": "Two futures positions",
+    "xlabel": "Position",
+    "ylabel": "Contracts",
+    "labels": [
+      "Index A",
+      "Index B"
+    ],
+    "series": [
+      {
+        "label": "Count",
+        "values": [
+          2,
+          3
+        ]
+      }
+    ]
+  },
+  "fx": {
+    "objective": "fx",
+    "kind": "line",
+    "title": "One foreign unit in dollars",
+    "xlabel": "Date",
+    "ylabel": "USD per foreign unit",
+    "labels": [
+      "Entry",
+      "Exit"
+    ],
+    "series": [
+      {
+        "label": "FX",
+        "values": [
+          1.25,
+          1.1
+        ]
+      }
+    ]
+  },
+  "bonds": {
+    "objective": "bonds",
+    "kind": "line",
+    "title": "An option-free zero at three yields",
+    "xlabel": "Yield (%)",
+    "ylabel": "Price per 100 face",
+    "labels": [
+      "2",
+      "4",
+      "6"
+    ],
+    "series": [
+      {
+        "label": "Five-year zero",
+        "values": [
+          90.57,
+          82.19,
+          74.73
+        ]
+      }
+    ]
+  },
+  "options": {
+    "objective": "options",
+    "kind": "line",
+    "title": "Bought call at expiry",
+    "xlabel": "Underlying ($)",
+    "ylabel": "P&L per share ($)",
+    "labels": [
+      "40",
+      "45",
+      "50",
+      "55",
+      "60"
+    ],
+    "series": [
+      {
+        "label": "Call",
+        "values": [
+          -3,
+          -3,
+          -3,
+          2,
+          7
+        ]
+      }
+    ]
+  },
+  "etf": {
+    "objective": "etf",
+    "kind": "bars",
+    "title": "Creation economics per share",
+    "xlabel": "Component",
+    "ylabel": "Dollars",
+    "labels": [
+      "ETF bid",
+      "Basket ask",
+      "All-in basket cost"
+    ],
+    "series": [
+      {
+        "label": "Value",
+        "values": [
+          50.3,
+          50.1,
+          50.35
+        ]
+      }
+    ]
+  },
+  "perp": {
+    "objective": "perp",
+    "kind": "bars",
+    "title": "Funding at three settlements",
+    "xlabel": "Interval",
+    "ylabel": "Rate paid by longs (bp)",
+    "labels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "series": [
+      {
+        "label": "Funding",
+        "values": [
+          2,
+          -1,
+          3
+        ]
+      }
+    ]
+  },
+  "vintage": {
+    "objective": "vintage",
+    "kind": "bars",
+    "title": "Releases of one observation",
+    "xlabel": "Publication date",
+    "ylabel": "Reported growth (%)",
+    "labels": [
+      "Apr 5",
+      "May 3",
+      "Jun 7"
+    ],
+    "series": [
+      {
+        "label": "Vintage",
+        "values": [
+          1.2,
+          1.8,
+          1.5
+        ]
+      }
+    ]
+  },
+  "universe": {
+    "objective": "universe",
+    "kind": "matrix",
+    "title": "Recorded index memberships",
+    "xlabel": "Year",
+    "ylabel": "Name",
+    "labels": [
+      "2020",
+      "2021",
+      "2022"
+    ],
+    "series": [
+      {
+        "label": "A",
+        "values": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "label": "B",
+        "values": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "label": "C",
+        "values": [
+          0,
+          1,
+          1
+        ]
+      }
+    ]
+  },
+  "actions": {
+    "objective": "actions",
+    "kind": "line",
+    "title": "Unadjusted close around a split",
+    "xlabel": "Session",
+    "ylabel": "Price ($)",
+    "labels": [
+      "Prior",
+      "Ex date"
+    ],
+    "series": [
+      {
+        "label": "Close",
+        "values": [
+          80,
+          40
+        ]
+      }
+    ]
+  },
+  "rollclock": {
+    "objective": "rollclock",
+    "kind": "line",
+    "title": "Quotes across a roll date",
+    "xlabel": "Session",
+    "ylabel": "Contract price ($)",
+    "labels": [
+      "Mon",
+      "Tue"
+    ],
+    "series": [
+      {
+        "label": "Near",
+        "values": [
+          98,
+          98
+        ]
+      },
+      {
+        "label": "Deferred",
+        "values": [
+          101,
+          101
+        ]
+      }
+    ]
+  },
+  "clocks": {
+    "objective": "clocks",
+    "kind": "bars",
+    "title": "Market data and decision clock",
+    "xlabel": "Event",
+    "ylabel": "Milliseconds past 10:00 UTC",
+    "labels": [
+      "Exchange trade",
+      "Decision",
+      "Feed arrival"
+    ],
+    "series": [
+      {
+        "label": "Time",
+        "values": [
+          15,
+          20,
+          28
+        ]
+      }
+    ]
+  },
+  "stale": {
+    "objective": "stale",
+    "kind": "bars",
+    "title": "Time since last eligible quote",
+    "xlabel": "Symbol",
+    "ylabel": "Age (seconds)",
+    "labels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "series": [
+      {
+        "label": "Age",
+        "values": [
+          2,
+          80,
+          6
+        ]
+      }
+    ]
+  },
+  "bars": {
+    "objective": "bars",
+    "kind": "line",
+    "title": "Two possible intrabar trade paths",
+    "xlabel": "Trade sequence",
+    "ylabel": "Price ($)",
+    "labels": [
+      "Open",
+      "Trade 2",
+      "Trade 3",
+      "Close"
+    ],
+    "series": [
+      {
+        "label": "Path A",
+        "values": [
+          10,
+          12,
+          8,
+          11
+        ]
+      },
+      {
+        "label": "Path B",
+        "values": [
+          10,
+          8,
+          12,
+          11
+        ]
+      }
+    ]
+  },
+  "lineage": {
+    "objective": "lineage",
+    "kind": "matrix",
+    "title": "Active listing by permanent ID",
+    "xlabel": "Year",
+    "ylabel": "Listing active (1=yes)",
+    "labels": [
+      "2018",
+      "2019",
+      "2020",
+      "2021"
+    ],
+    "series": [
+      {
+        "label": "ID 12",
+        "values": [
+          1,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "label": "ID 87",
+        "values": [
+          0,
+          0,
+          1,
+          1
+        ]
+      }
+    ]
+  },
+  "expect": {
+    "objective": "expect",
+    "kind": "bars",
+    "title": "Outcomes of 100 equal-size trades",
+    "xlabel": "Outcome ($)",
+    "ylabel": "Number of trades",
+    "labels": [
+      "−2",
+      "+1",
+      "+5"
+    ],
+    "series": [
+      {
+        "label": "Count",
+        "values": [
+          50,
+          30,
+          20
+        ]
+      }
+    ]
+  },
+  "sampling": {
+    "objective": "sampling",
+    "kind": "line",
+    "title": "Independent sample means",
+    "xlabel": "Number of observations",
+    "ylabel": "Standard error (bp)",
+    "labels": [
+      "25",
+      "100",
+      "400"
+    ],
+    "series": [
+      {
+        "label": "SE",
+        "values": [
+          8,
+          4,
+          2
+        ]
+      }
+    ]
+  },
+  "beta": {
+    "objective": "beta",
+    "kind": "line",
+    "title": "A fitted market model",
+    "xlabel": "Market excess return (%)",
+    "ylabel": "Fitted excess return (%)",
+    "labels": [
+      "−2",
+      "0",
+      "2"
+    ],
+    "series": [
+      {
+        "label": "Fit",
+        "values": [
+          -2.5,
+          0.5,
+          3.5
+        ]
+      }
+    ]
+  },
+  "covariance": {
+    "objective": "covariance",
+    "kind": "matrix",
+    "title": "Estimated covariance matrix",
+    "xlabel": "Asset",
+    "ylabel": "Asset",
+    "labels": [
+      "A",
+      "B"
+    ],
+    "series": [
+      {
+        "label": "A",
+        "values": [
+          0.04,
+          0.01
+        ]
+      },
+      {
+        "label": "B",
+        "values": [
+          0.01,
+          0.01
+        ]
+      }
+    ]
+  },
+  "stationary": {
+    "objective": "stationary",
+    "kind": "line",
+    "title": "A level series",
+    "xlabel": "Date",
+    "ylabel": "Index level",
+    "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "series": [
+      {
+        "label": "Level",
+        "values": [
+          100,
+          102,
+          101,
+          104,
+          103
+        ]
+      }
+    ]
+  },
+  "ar": {
+    "objective": "ar",
+    "kind": "line",
+    "title": "Conditional deviation after a shock",
+    "xlabel": "Steps ahead",
+    "ylabel": "Deviation (units)",
+    "labels": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "series": [
+      {
+        "label": "Forecast",
+        "values": [
+          16,
+          8,
+          4,
+          2
+        ]
+      }
+    ]
+  },
+  "cointegration": {
+    "objective": "cointegration",
+    "kind": "line",
+    "title": "Two price paths",
+    "xlabel": "Observation",
+    "ylabel": "Price ($)",
+    "labels": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "series": [
+      {
+        "label": "A",
+        "values": [
+          21,
+          23,
+          25,
+          27
+        ]
+      },
+      {
+        "label": "B",
+        "values": [
+          10,
+          11,
+          12,
+          13
+        ]
+      }
+    ]
+  },
+  "garch": {
+    "objective": "garch",
+    "kind": "line",
+    "title": "Four residuals",
+    "xlabel": "Day",
+    "ylabel": "Residual (return units)",
+    "labels": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "series": [
+      {
+        "label": "Residual",
+        "values": [
+          1,
+          -4,
+          2,
+          -1
+        ]
+      }
+    ]
+  },
+  "bootstrap": {
+    "objective": "bootstrap",
+    "kind": "matrix",
+    "title": "Two candidate resampling schemes",
+    "xlabel": "Output position",
+    "ylabel": "Original day index",
+    "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "series": [
+      {
+        "label": "A",
+        "values": [
+          4,
+          5,
+          6,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "label": "B",
+        "values": [
+          4,
+          1,
+          6,
+          2,
+          5,
+          3
+        ]
+      }
+    ]
+  },
+  "hypothesis": {
+    "objective": "hypothesis",
+    "kind": "bars",
+    "title": "Returns after forced sales in two held-out groups",
+    "xlabel": "Group",
+    "ylabel": "Next-week residual return (bp)",
+    "labels": [
+      "High pressure",
+      "Matched control"
+    ],
+    "series": [
+      {
+        "label": "Return",
+        "values": [
+          -8,
+          2
+        ]
+      }
+    ]
+  },
+  "labels": {
+    "objective": "labels",
+    "kind": "line",
+    "title": "Event prices around a decision",
+    "xlabel": "Event",
+    "ylabel": "Price ($)",
+    "labels": [
+      "Decision close",
+      "Next open",
+      "Exit"
+    ],
+    "series": [
+      {
+        "label": "Price",
+        "values": [
+          100,
+          110,
+          121
+        ]
+      }
+    ]
+  },
+  "normalize": {
+    "objective": "normalize",
+    "kind": "bars",
+    "title": "One day's cross-sectional scores",
+    "xlabel": "Security",
+    "ylabel": "Raw score",
+    "labels": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "series": [
+      {
+        "label": "Score",
+        "values": [
+          -12,
+          -1,
+          2,
+          15
+        ]
+      }
+    ]
+  },
+  "ic": {
+    "objective": "ic",
+    "kind": "bars",
+    "title": "Forecast and subsequent outcome rankings",
+    "xlabel": "Stock",
+    "ylabel": "Rank (higher is better)",
+    "labels": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "series": [
+      {
+        "label": "Forecast",
+        "values": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "label": "Realized",
+        "values": [
+          1,
+          2,
+          4,
+          3
+        ]
+      }
+    ]
+  },
+  "decay": {
+    "objective": "decay",
+    "kind": "line",
+    "title": "Expected edge left at order arrival",
+    "xlabel": "Delay (seconds)",
+    "ylabel": "Expected gross edge (bp)",
+    "labels": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "series": [
+      {
+        "label": "Edge",
+        "values": [
+          8,
+          5,
+          3,
+          1
+        ]
+      }
+    ]
+  },
+  "residual": {
+    "objective": "residual",
+    "kind": "matrix",
+    "title": "Scores by industry",
+    "xlabel": "Stock within sector",
+    "ylabel": "Raw score",
+    "labels": [
+      "First",
+      "Second"
+    ],
+    "series": [
+      {
+        "label": "Banks",
+        "values": [
+          8,
+          4
+        ]
+      },
+      {
+        "label": "Utilities",
+        "values": [
+          3,
+          1
+        ]
+      }
+    ]
+  },
+  "combine": {
+    "objective": "combine",
+    "kind": "matrix",
+    "title": "Forecast similarities",
+    "xlabel": "Signal",
+    "ylabel": "Correlation",
+    "labels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "series": [
+      {
+        "label": "A",
+        "values": [
+          1,
+          0.98,
+          0.12
+        ]
+      },
+      {
+        "label": "B",
+        "values": [
+          0.98,
+          1,
+          0.14
+        ]
+      },
+      {
+        "label": "C",
+        "values": [
+          0.12,
+          0.14,
+          1
+        ]
+      }
+    ]
+  },
+  "breadth": {
+    "objective": "breadth",
+    "kind": "matrix",
+    "title": "Exposure to two shocks",
+    "xlabel": "Position",
+    "ylabel": "Exposure",
+    "labels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "series": [
+      {
+        "label": "Oil",
+        "values": [
+          1,
+          1,
+          0
+        ]
+      },
+      {
+        "label": "Rates",
+        "values": [
+          0,
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "xmom": {
+    "objective": "xmom",
+    "kind": "bars",
+    "title": "Past returns across eligible names",
+    "xlabel": "Security",
+    "ylabel": "Formation return (%)",
+    "labels": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "series": [
+      {
+        "label": "Return",
+        "values": [
+          -8,
+          -2,
+          -5,
+          -11
+        ]
+      }
+    ]
+  },
+  "trend": {
+    "objective": "trend",
+    "kind": "line",
+    "title": "Price at three consecutive closes",
+    "xlabel": "Observation",
+    "ylabel": "Price ($)",
+    "labels": [
+      "0",
+      "1",
+      "2"
+    ],
+    "series": [
+      {
+        "label": "Close",
+        "values": [
+          100,
+          112,
+          105
+        ]
+      }
+    ]
+  },
+  "value": {
+    "objective": "value",
+    "kind": "bars",
+    "title": "Companies with identical market values",
+    "xlabel": "Company",
+    "ylabel": "Book equity ($m)",
+    "labels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "series": [
+      {
+        "label": "Book",
+        "values": [
+          25,
+          60,
+          45
+        ]
+      }
+    ]
+  },
+  "quality": {
+    "objective": "quality",
+    "kind": "bars",
+    "title": "Scores already oriented so higher is better",
+    "xlabel": "Company",
+    "ylabel": "Standardized score",
+    "labels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "series": [
+      {
+        "label": "Profit",
+        "values": [
+          2,
+          1,
+          0
+        ]
+      },
+      {
+        "label": "Safety",
+        "values": [
+          -2,
+          1,
+          0
+        ]
+      }
+    ]
+  },
+  "carry": {
+    "objective": "carry",
+    "kind": "bars",
+    "title": "Components of an illustrative futures return",
+    "xlabel": "Component",
+    "ylabel": "Return contribution (bp)",
+    "labels": [
+      "Curve carry",
+      "Spot repricing",
+      "Costs"
+    ],
+    "series": [
+      {
+        "label": "Effect",
+        "values": [
+          25,
+          -40,
+          -3
+        ]
+      }
+    ]
+  },
+  "reversion": {
+    "objective": "reversion",
+    "kind": "line",
+    "title": "A quiet quoted market",
+    "xlabel": "Time",
+    "ylabel": "Price ($)",
+    "labels": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "series": [
+      {
+        "label": "Trade",
+        "values": [
+          99,
+          101,
+          99,
+          101
+        ]
+      },
+      {
+        "label": "Mid",
+        "values": [
+          100,
+          100,
+          100,
+          100
+        ]
+      }
+    ]
+  },
+  "pairs": {
+    "objective": "pairs",
+    "kind": "line",
+    "title": "Spread after fitting on an earlier window",
+    "xlabel": "Session",
+    "ylabel": "Residual z-score",
+    "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "series": [
+      {
+        "label": "Residual",
+        "values": [
+          0.2,
+          1.4,
+          2.2,
+          1.1,
+          0.1
+        ]
+      }
+    ]
+  },
+  "events": {
+    "objective": "events",
+    "kind": "bars",
+    "title": "Returns around an announcement",
+    "xlabel": "Relative day",
+    "ylabel": "Return (%)",
+    "labels": [
+      "−1",
+      "0",
+      "+1"
+    ],
+    "series": [
+      {
+        "label": "Stock",
+        "values": [
+          1,
+          6,
+          2
+        ]
+      },
+      {
+        "label": "Expected",
+        "values": [
+          1,
+          2,
+          1
+        ]
+      }
+    ]
+  },
+  "seasonal": {
+    "objective": "seasonal",
+    "kind": "bars",
+    "title": "Mean daily returns by period",
+    "xlabel": "Calendar group",
+    "ylabel": "Mean return (bp)",
+    "labels": [
+      "Month-end",
+      "Other days"
+    ],
+    "series": [
+      {
+        "label": "Discovery",
+        "values": [
+          8,
+          1
+        ]
+      },
+      {
+        "label": "Holdout",
+        "values": [
+          0,
+          2
+        ]
+      }
+    ]
+  },
+  "maker": {
+    "objective": "maker",
+    "kind": "line",
+    "title": "Dealer's indifference price at fixed midpoint",
+    "xlabel": "Inventory (units)",
+    "ylabel": "Reservation price ($)",
+    "labels": [
+      "−2",
+      "−1",
+      "0",
+      "1",
+      "2"
+    ],
+    "series": [
+      {
+        "label": "Quote center",
+        "values": [
+          100.4,
+          100.2,
+          100,
+          99.8,
+          99.6
+        ]
+      }
+    ]
+  },
+  "volpremium": {
+    "objective": "volpremium",
+    "kind": "bars",
+    "title": "One variance-swap settlement",
+    "xlabel": "Measure",
+    "ylabel": "Annual variance (vol points squared)",
+    "labels": [
+      "Strike",
+      "Realized"
+    ],
+    "series": [
+      {
+        "label": "Variance",
+        "values": [
+          400,
+          225
+        ]
+      }
+    ]
+  },
+  "baseline": {
+    "objective": "baseline",
+    "kind": "bars",
+    "title": "Forecast errors in the same test set",
+    "xlabel": "Test day",
+    "ylabel": "Absolute error (bp)",
+    "labels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "series": [
+      {
+        "label": "Naïve",
+        "values": [
+          3,
+          5,
+          4
+        ]
+      },
+      {
+        "label": "Model",
+        "values": [
+          2,
+          7,
+          3
+        ]
+      }
+    ]
+  },
+  "ridge": {
+    "objective": "ridge",
+    "kind": "line",
+    "title": "Validation loss along a ridge path",
+    "xlabel": "Penalty setting",
+    "ylabel": "Mean squared error",
+    "labels": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "series": [
+      {
+        "label": "Validation",
+        "values": [
+          8,
+          5,
+          4,
+          7
+        ]
+      }
+    ]
+  },
+  "trees": {
+    "objective": "trees",
+    "kind": "line",
+    "title": "Tree complexity experiment",
+    "xlabel": "Maximum depth",
+    "ylabel": "Mean squared error",
+    "labels": [
+      "2",
+      "4",
+      "8",
+      "16"
+    ],
+    "series": [
+      {
+        "label": "Train",
+        "values": [
+          9,
+          6,
+          3,
+          1
+        ]
+      },
+      {
+        "label": "Later validation",
+        "values": [
+          10,
+          7,
+          9,
+          15
+        ]
+      }
+    ]
+  },
+  "calibration": {
+    "objective": "calibration",
+    "kind": "line",
+    "title": "Reliability bins with equal counts",
+    "xlabel": "Forecast probability (low to high)",
+    "ylabel": "Fraction",
+    "labels": [
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "series": [
+      {
+        "label": "Observed up",
+        "values": [
+          0.3,
+          0.5,
+          0.6
+        ]
+      },
+      {
+        "label": "Perfect calibration",
+        "values": [
+          0.2,
+          0.5,
+          0.8
+        ]
+      }
+    ]
+  },
+  "utility": {
+    "objective": "utility",
+    "kind": "bars",
+    "title": "Two actions at the same forecast",
+    "xlabel": "Action",
+    "ylabel": "Expected net P&L ($)",
+    "labels": [
+      "Long",
+      "Flat",
+      "Short"
+    ],
+    "series": [
+      {
+        "label": "Value",
+        "values": [
+          -3,
+          0,
+          -8
+        ]
+      }
+    ]
+  },
+  "walkforward": {
+    "objective": "walkforward",
+    "kind": "matrix",
+    "title": "Calendar blocks in three candidate folds",
+    "xlabel": "Block",
+    "ylabel": "Role (1=train; 2=test; 0=unused)",
+    "labels": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr"
+    ],
+    "series": [
+      {
+        "label": "A",
+        "values": [
+          1,
+          1,
+          2,
+          0
+        ]
+      },
+      {
+        "label": "B",
+        "values": [
+          0,
+          2,
+          1,
+          1
+        ]
+      },
+      {
+        "label": "C",
+        "values": [
+          1,
+          2,
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  "regimes": {
+    "objective": "regimes",
+    "kind": "matrix",
+    "title": "Two state estimates for one date",
+    "xlabel": "Regime",
+    "ylabel": "Probability",
+    "labels": [
+      "Quiet",
+      "Stress"
+    ],
+    "series": [
+      {
+        "label": "At close",
+        "values": [
+          0.7,
+          0.3
+        ]
+      },
+      {
+        "label": "After month-end",
+        "values": [
+          0.1,
+          0.9
+        ]
+      }
+    ]
+  },
+  "reinforcement": {
+    "objective": "reinforcement",
+    "kind": "matrix",
+    "title": "Action values conditional on holdings",
+    "xlabel": "Proposed target",
+    "ylabel": "Expected reward units",
+    "labels": [
+      "Short",
+      "Flat",
+      "Long"
+    ],
+    "series": [
+      {
+        "label": "Currently flat",
+        "values": [
+          -2,
+          0,
+          3
+        ]
+      },
+      {
+        "label": "Currently long",
+        "values": [
+          -5,
+          1,
+          4
+        ]
+      }
+    ]
+  },
+  "causality": {
+    "objective": "causality",
+    "kind": "bars",
+    "title": "Events near the closing auction",
+    "xlabel": "Event",
+    "ylabel": "Seconds after 15:55",
+    "labels": [
+      "Order cutoff",
+      "Price published",
+      "Signal ready"
+    ],
+    "series": [
+      {
+        "label": "Time",
+        "values": [
+          0,
+          300,
+          301
+        ]
+      }
+    ]
+  },
+  "purge": {
+    "objective": "purge",
+    "kind": "matrix",
+    "title": "Days used by training labels and test outcomes",
+    "xlabel": "Day",
+    "ylabel": "Used (1=yes)",
+    "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "series": [
+      {
+        "label": "Label A",
+        "values": [
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "label": "Label B",
+        "values": [
+          0,
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      {
+        "label": "Test",
+        "values": [
+          0,
+          0,
+          0,
+          1,
+          1
+        ]
+      }
+    ]
+  },
+  "trials": {
+    "objective": "trials",
+    "kind": "bars",
+    "title": "Three variants across two windows",
+    "xlabel": "Variant",
+    "ylabel": "Sharpe ratio",
+    "labels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "series": [
+      {
+        "label": "Selection",
+        "values": [
+          1.2,
+          2.1,
+          0.8
+        ]
+      },
+      {
+        "label": "Untouched",
+        "values": [
+          0.6,
+          -0.4,
+          0.7
+        ]
+      }
+    ]
+  },
+  "fills": {
+    "objective": "fills",
+    "kind": "bars",
+    "title": "Sell liquidity at successive offers",
+    "xlabel": "Offer ($)",
+    "ylabel": "Shares",
+    "labels": [
+      "10.00",
+      "10.01",
+      "10.02"
+    ],
+    "series": [
+      {
+        "label": "Size",
+        "values": [
+          100,
+          150,
+          400
+        ]
+      }
+    ]
+  },
+  "selfFinance": {
+    "objective": "selfFinance",
+    "kind": "bars",
+    "title": "Cash ledger for one rebalance",
+    "xlabel": "Entry",
+    "ylabel": "Dollars",
+    "labels": [
+      "Start",
+      "Sales",
+      "Purchases",
+      "Fees"
+    ],
+    "series": [
+      {
+        "label": "Flow",
+        "values": [
+          500,
+          400,
+          -750,
+          -20
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "objective": "costs",
+    "kind": "bars",
+    "title": "Attribution per round trip",
+    "xlabel": "Component",
+    "ylabel": "Basis points",
+    "labels": [
+      "Gross edge",
+      "Fees",
+      "Spread",
+      "Impact",
+      "Borrow"
+    ],
+    "series": [
+      {
+        "label": "Contribution",
+        "values": [
+          18,
+          -2,
+          -4,
+          -7,
+          -3
+        ]
+      }
+    ]
+  },
+  "stability": {
+    "objective": "stability",
+    "kind": "matrix",
+    "title": "Net return over nearby parameter choices",
+    "xlabel": "Exit setting",
+    "ylabel": "Entry setting",
+    "labels": [
+      "5",
+      "6",
+      "7"
+    ],
+    "series": [
+      {
+        "label": "A",
+        "values": [
+          1,
+          1.1,
+          1
+        ]
+      },
+      {
+        "label": "B",
+        "values": [
+          0,
+          4,
+          -1
+        ]
+      },
+      {
+        "label": "C",
+        "values": [
+          1,
+          0.9,
+          1
+        ]
+      }
+    ]
+  },
+  "capacitytest": {
+    "objective": "capacitytest",
+    "kind": "line",
+    "title": "Capacity sweep under a fixed signal",
+    "xlabel": "Capital ($m)",
+    "ylabel": "Expected net edge (bp)",
+    "labels": [
+      "1",
+      "5",
+      "10",
+      "20"
+    ],
+    "series": [
+      {
+        "label": "Net",
+        "values": [
+          12,
+          8,
+          3,
+          -4
+        ]
+      }
+    ]
+  },
+  "frontier": {
+    "objective": "frontier",
+    "kind": "riskreturn",
+    "title": "Three feasible portfolios",
+    "xlabel": "Portfolio",
+    "ylabel": "Annual percentage",
+    "labels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "series": [
+      {
+        "label": "Volatility",
+        "values": [
+          8,
+          8,
+          11
+        ]
+      },
+      {
+        "label": "Expected return",
+        "values": [
+          4,
+          5,
+          7
+        ]
+      }
+    ]
+  },
+  "shrink": {
+    "objective": "shrink",
+    "kind": "bars",
+    "title": "A covariance estimate under two inputs",
+    "xlabel": "Input",
+    "ylabel": "Covariance units",
+    "labels": [
+      "Sample",
+      "Target"
+    ],
+    "series": [
+      {
+        "label": "Estimate",
+        "values": [
+          8,
+          2
+        ]
+      }
+    ]
+  },
+  "constraints": {
+    "objective": "constraints",
+    "kind": "bars",
+    "title": "Fully invested long-only portfolio",
+    "xlabel": "Name",
+    "ylabel": "Weight (%)",
+    "labels": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "series": [
+      {
+        "label": "Weight",
+        "values": [
+          40,
+          30,
+          20,
+          10
+        ]
+      }
+    ]
+  },
+  "exposures": {
+    "objective": "exposures",
+    "kind": "bars",
+    "title": "Signed positions as a share of NAV",
+    "xlabel": "Sleeve",
+    "ylabel": "Weight (%)",
+    "labels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "series": [
+      {
+        "label": "Weight",
+        "values": [
+          60,
+          40,
+          -70
+        ]
+      }
+    ]
+  },
+  "riskbudget": {
+    "objective": "riskbudget",
+    "kind": "bars",
+    "title": "Contributions to annual portfolio volatility",
+    "xlabel": "Sleeve",
+    "ylabel": "Volatility contribution (points)",
+    "labels": [
+      "Rates",
+      "Equity",
+      "FX"
+    ],
+    "series": [
+      {
+        "label": "Component",
+        "values": [
+          2,
+          6,
+          2
+        ]
+      }
+    ]
+  },
+  "voltarget": {
+    "objective": "voltarget",
+    "kind": "line",
+    "title": "Risk estimator at successive rebalances",
+    "xlabel": "Rebalance",
+    "ylabel": "Annualized forecast vol (%)",
+    "labels": [
+      "1",
+      "2",
+      "3"
+    ],
+    "series": [
+      {
+        "label": "Forecast",
+        "values": [
+          8,
+          12,
+          24
+        ]
+      }
+    ]
+  },
+  "kelly": {
+    "objective": "kelly",
+    "kind": "bars",
+    "title": "Candidate fractions under a specified model",
+    "xlabel": "Wealth fraction (%)",
+    "ylabel": "Expected log growth (bp)",
+    "labels": [
+      "0",
+      "10",
+      "20",
+      "30"
+    ],
+    "series": [
+      {
+        "label": "Growth",
+        "values": [
+          0,
+          15,
+          20,
+          14
+        ]
+      }
+    ]
+  },
+  "rebalance": {
+    "objective": "rebalance",
+    "kind": "line",
+    "title": "Pretrade equity weights",
+    "xlabel": "Rebalance",
+    "ylabel": "Weight (%)",
+    "labels": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu"
+    ],
+    "series": [
+      {
+        "label": "Weight",
+        "values": [
+          50,
+          52,
+          54,
+          51
+        ]
+      }
+    ]
+  },
+  "multiperiod": {
+    "objective": "multiperiod",
+    "kind": "matrix",
+    "title": "Two complete trading plans",
+    "xlabel": "Period",
+    "ylabel": "Expected net contribution (bp)",
+    "labels": [
+      "Today",
+      "Tomorrow"
+    ],
+    "series": [
+      {
+        "label": "Fast",
+        "values": [
+          7,
+          -6
+        ]
+      },
+      {
+        "label": "Gradual",
+        "values": [
+          4,
+          2
+        ]
+      }
+    ]
+  },
+  "var": {
+    "objective": "var",
+    "kind": "bars",
+    "title": "Five equally likely ordered losses",
+    "xlabel": "Scenario",
+    "ylabel": "Loss ($000)",
+    "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "series": [
+      {
+        "label": "Loss",
+        "values": [
+          0,
+          1,
+          2,
+          4,
+          20
+        ]
+      }
+    ]
+  },
+  "es": {
+    "objective": "es",
+    "kind": "bars",
+    "title": "Ten equally likely losses",
+    "xlabel": "Scenario ordered by loss",
+    "ylabel": "Loss ($m)",
+    "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "series": [
+      {
+        "label": "Loss",
+        "values": [
+          0,
+          0,
+          1,
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          13
+        ]
+      }
+    ]
+  },
+  "drawdown": {
+    "objective": "drawdown",
+    "kind": "line",
+    "title": "Equity with no external flows",
+    "xlabel": "Month",
+    "ylabel": "Equity ($)",
+    "labels": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "series": [
+      {
+        "label": "Value",
+        "values": [
+          100,
+          120,
+          108,
+          96,
+          110,
+          123
+        ]
+      }
+    ]
+  },
+  "stress": {
+    "objective": "stress",
+    "kind": "matrix",
+    "title": "Joint scenario revaluation",
+    "xlabel": "Scenario",
+    "ylabel": "Sleeve P&L ($m)",
+    "labels": [
+      "Calm",
+      "Stress"
+    ],
+    "series": [
+      {
+        "label": "Equity",
+        "values": [
+          1,
+          -6
+        ]
+      },
+      {
+        "label": "Credit",
+        "values": [
+          0,
+          -3
+        ]
+      },
+      {
+        "label": "Hedge",
+        "values": [
+          -1,
+          4
+        ]
+      }
+    ]
+  },
+  "greeks": {
+    "objective": "greeks",
+    "kind": "line",
+    "title": "Option delta across underlying levels",
+    "xlabel": "Underlying ($)",
+    "ylabel": "Delta (shares per option unit)",
+    "labels": [
+      "98",
+      "100",
+      "102"
+    ],
+    "series": [
+      {
+        "label": "Delta",
+        "values": [
+          0.35,
+          0.45,
+          0.55
+        ]
+      }
+    ]
+  },
+  "dv01": {
+    "objective": "dv01",
+    "kind": "bars",
+    "title": "Signed key-rate DV01",
+    "xlabel": "Maturity",
+    "ylabel": "Loss for +1 bp ($)",
+    "labels": [
+      "2-year",
+      "10-year"
+    ],
+    "series": [
+      {
+        "label": "DV01",
+        "values": [
+          -400,
+          400
+        ]
+      }
+    ]
+  },
+  "margin": {
+    "objective": "margin",
+    "kind": "bars",
+    "title": "One clearing account at settlement",
+    "xlabel": "Measure",
+    "ylabel": "Dollars (thousands)",
+    "labels": [
+      "Equity",
+      "Maintenance",
+      "Initial"
+    ],
+    "series": [
+      {
+        "label": "Balance",
+        "values": [
+          7,
+          8,
+          10
+        ]
+      }
+    ]
+  },
+  "liquidity": {
+    "objective": "liquidity",
+    "kind": "bars",
+    "title": "Available sell capacity under the participation cap",
+    "xlabel": "Day",
+    "ylabel": "Shares (thousands)",
+    "labels": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "series": [
+      {
+        "label": "Capacity",
+        "values": [
+          10,
+          15,
+          5,
+          20
+        ]
+      }
+    ]
+  },
+  "hedge": {
+    "objective": "hedge",
+    "kind": "line",
+    "title": "Residual results for tested hedge sizes",
+    "xlabel": "Hedge ratio",
+    "ylabel": "Residual volatility",
+    "labels": [
+      "0",
+      "0.5",
+      "1",
+      "1.5"
+    ],
+    "series": [
+      {
+        "label": "Residual volatility",
+        "values": [
+          12,
+          8,
+          6,
+          9
+        ]
+      }
+    ]
+  },
+  "book": {
+    "objective": "book",
+    "kind": "bars",
+    "title": "Resting sell orders",
+    "xlabel": "Offer price ($)",
+    "ylabel": "Shares available",
+    "labels": [
+      "20.00",
+      "20.05",
+      "20.10"
+    ],
+    "series": [
+      {
+        "label": "Size",
+        "values": [
+          100,
+          200,
+          300
+        ]
+      }
+    ]
+  },
+  "queue": {
+    "objective": "queue",
+    "kind": "queue",
+    "title": "FIFO queue at the bid",
+    "xlabel": "Queue segment",
+    "ylabel": "Shares",
+    "labels": [
+      "Ahead",
+      "Yours",
+      "Behind"
+    ],
+    "series": [
+      {
+        "label": "Size",
+        "values": [
+          120,
+          80,
+          300
+        ]
+      }
+    ]
+  },
+  "ordertypes": {
+    "objective": "ordertypes",
+    "kind": "bars",
+    "title": "Offers visible to an IOC buyer",
+    "xlabel": "Price ($)",
+    "ylabel": "Available shares",
+    "labels": [
+      "15.00",
+      "15.10",
+      "15.20"
+    ],
+    "series": [
+      {
+        "label": "Shares",
+        "values": [
+          40,
+          30,
+          90
+        ]
+      }
+    ]
+  },
+  "adverse": {
+    "objective": "adverse",
+    "kind": "line",
+    "title": "Midpoint after a passive dealer sale at 50",
+    "xlabel": "Seconds after fill",
+    "ylabel": "Midpoint ($)",
+    "labels": [
+      "0",
+      "1",
+      "5",
+      "10"
+    ],
+    "series": [
+      {
+        "label": "Mid",
+        "values": [
+          49.99,
+          50.01,
+          50.03,
+          50.05
+        ]
+      }
+    ]
+  },
+  "impact": {
+    "objective": "impact",
+    "kind": "line",
+    "title": "Midpoint during and after a buy program",
+    "xlabel": "Observation",
+    "ylabel": "Midpoint ($)",
+    "labels": [
+      "Before",
+      "Last fill",
+      "Later"
+    ],
+    "series": [
+      {
+        "label": "Mid",
+        "values": [
+          100,
+          100.12,
+          100.04
+        ]
+      }
+    ]
+  },
+  "scheduling": {
+    "objective": "scheduling",
+    "kind": "bars",
+    "title": "Expected intraday volume profile",
+    "xlabel": "Interval",
+    "ylabel": "Fraction of daily volume (%)",
+    "labels": [
+      "Open",
+      "Midday",
+      "Close"
+    ],
+    "series": [
+      {
+        "label": "Volume",
+        "values": [
+          40,
+          20,
+          40
+        ]
+      }
+    ]
+  },
+  "shortfall": {
+    "objective": "shortfall",
+    "kind": "bars",
+    "title": "Buy order quantities",
+    "xlabel": "Status",
+    "ylabel": "Shares",
+    "labels": [
+      "Filled",
+      "Unfilled"
+    ],
+    "series": [
+      {
+        "label": "Quantity",
+        "values": [
+          60,
+          40
+        ]
+      }
+    ]
+  },
+  "auction": {
+    "objective": "auction",
+    "kind": "line",
+    "title": "Eligible cumulative interest at candidate prices",
+    "xlabel": "Candidate price ($)",
+    "ylabel": "Shares",
+    "labels": [
+      "99",
+      "100",
+      "101"
+    ],
+    "series": [
+      {
+        "label": "Buy",
+        "values": [
+          800,
+          650,
+          500
+        ]
+      },
+      {
+        "label": "Sell",
+        "values": [
+          400,
+          620,
+          700
+        ]
+      }
+    ]
+  },
+  "routing": {
+    "objective": "routing",
+    "kind": "bars",
+    "title": "Expected execution components for a buy",
+    "xlabel": "Venue",
+    "ylabel": "Cost (bp; negative is a credit)",
+    "labels": [
+      "A",
+      "B"
+    ],
+    "series": [
+      {
+        "label": "Spread and impact",
+        "values": [
+          5,
+          3
+        ]
+      },
+      {
+        "label": "Fees and rebates",
+        "values": [
+          -1,
+          0.5
+        ]
+      }
+    ]
+  },
+  "geometric": {
+    "objective": "geometric",
+    "kind": "line",
+    "title": "Portfolio valued around an external deposit",
+    "xlabel": "Valuation",
+    "ylabel": "Equity ($000)",
+    "labels": [
+      "Start",
+      "Before flow",
+      "After flow",
+      "End"
+    ],
+    "series": [
+      {
+        "label": "Equity",
+        "values": [
+          100,
+          110,
+          200,
+          210
+        ]
+      }
+    ]
+  },
+  "sharpe": {
+    "objective": "sharpe",
+    "kind": "bars",
+    "title": "Monthly excess-return estimates",
+    "xlabel": "Strategy",
+    "ylabel": "Mean / volatility inputs (%)",
+    "labels": [
+      "A",
+      "B"
+    ],
+    "series": [
+      {
+        "label": "Mean",
+        "values": [
+          1,
+          1.2
+        ]
+      },
+      {
+        "label": "Volatility",
+        "values": [
+          2,
+          3
+        ]
+      }
+    ]
+  },
+  "information": {
+    "objective": "information",
+    "kind": "matrix",
+    "title": "Fund and benchmark returns",
+    "xlabel": "Month",
+    "ylabel": "Return (%)",
+    "labels": [
+      "1",
+      "2",
+      "3"
+    ],
+    "series": [
+      {
+        "label": "Fund",
+        "values": [
+          2,
+          0,
+          4
+        ]
+      },
+      {
+        "label": "Benchmark",
+        "values": [
+          1,
+          -1,
+          3
+        ]
+      }
+    ]
+  },
+  "attribution": {
+    "objective": "attribution",
+    "kind": "matrix",
+    "title": "Sector weights and relative sector returns",
+    "xlabel": "Sector",
+    "ylabel": "Percent or percentage points",
+    "labels": [
+      "Tech",
+      "Energy"
+    ],
+    "series": [
+      {
+        "label": "Active weight",
+        "values": [
+          10,
+          -10
+        ]
+      },
+      {
+        "label": "Benchmark sector minus overall return",
+        "values": [
+          4,
+          -4
+        ]
+      }
+    ]
+  },
+  "turnover": {
+    "objective": "turnover",
+    "kind": "bars",
+    "title": "Trades at one rebalance",
+    "xlabel": "Name",
+    "ylabel": "Trade as % of NAV",
+    "labels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "series": [
+      {
+        "label": "Trade",
+        "values": [
+          -15,
+          5,
+          10
+        ]
+      }
+    ]
+  },
+  "uncertainty": {
+    "objective": "uncertainty",
+    "kind": "interval",
+    "title": "Intervals for a paired mean difference",
+    "xlabel": "Method",
+    "ylabel": "Return difference (bp)",
+    "labels": [
+      "IID",
+      "Time blocks"
+    ],
+    "series": [
+      {
+        "label": "Lower",
+        "values": [
+          1,
+          -2
+        ]
+      },
+      {
+        "label": "Upper",
+        "values": [
+          5,
+          8
+        ]
+      }
+    ]
+  },
+  "benchmark": {
+    "objective": "benchmark",
+    "kind": "bars",
+    "title": "Three annual total returns",
+    "xlabel": "Portfolio or index",
+    "ylabel": "Return (%)",
+    "labels": [
+      "Strategy",
+      "Broad index",
+      "Matched style"
+    ],
+    "series": [
+      {
+        "label": "Return",
+        "values": [
+          8,
+          4,
+          9
+        ]
+      }
+    ]
+  },
+  "selection": {
+    "objective": "selection",
+    "kind": "bars",
+    "title": "Successive portfolio simulations",
+    "xlabel": "Simulation",
+    "ylabel": "Net return (bp)",
+    "labels": [
+      "Frictionless signals",
+      "Constrained targets",
+      "Actual fills"
+    ],
+    "series": [
+      {
+        "label": "Return",
+        "values": [
+          30,
+          22,
+          9
+        ]
+      }
+    ]
+  },
+  "idempotency": {
+    "objective": "idempotency",
+    "kind": "matrix",
+    "title": "Received execution reports for one order",
+    "xlabel": "Report sequence",
+    "ylabel": "Identifier or shares",
+    "labels": [
+      "1",
+      "2",
+      "3"
+    ],
+    "series": [
+      {
+        "label": "Execution ID",
+        "values": [
+          71,
+          71,
+          72
+        ]
+      },
+      {
+        "label": "Last quantity",
+        "values": [
+          20,
+          20,
+          15
+        ]
+      }
+    ]
+  },
+  "reconcile": {
+    "objective": "reconcile",
+    "kind": "bars",
+    "title": "Position snapshots after reconnect",
+    "xlabel": "Ticker",
+    "ylabel": "Shares",
+    "labels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "series": [
+      {
+        "label": "Internal",
+        "values": [
+          50,
+          100,
+          -20
+        ]
+      },
+      {
+        "label": "Broker",
+        "values": [
+          50,
+          80,
+          -20
+        ]
+      }
+    ]
+  },
+  "limits": {
+    "objective": "limits",
+    "kind": "bars",
+    "title": "Worst-case position ingredients",
+    "xlabel": "Item",
+    "ylabel": "Shares",
+    "labels": [
+      "Held",
+      "Working buy",
+      "Proposed buy"
+    ],
+    "series": [
+      {
+        "label": "Size",
+        "values": [
+          500,
+          200,
+          400
+        ]
+      }
+    ]
+  },
+  "staleguard": {
+    "objective": "staleguard",
+    "kind": "line",
+    "title": "Age of latest market data",
+    "xlabel": "Check",
+    "ylabel": "Quote age (s)",
+    "labels": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "series": [
+      {
+        "label": "Age",
+        "values": [
+          1,
+          2,
+          6,
+          9
+        ]
+      }
+    ]
+  },
+  "rollout": {
+    "objective": "rollout",
+    "kind": "line",
+    "title": "Staged release checks",
+    "xlabel": "Stage",
+    "ylabel": "Observed value",
+    "labels": [
+      "Shadow",
+      "Small live",
+      "Expanded"
+    ],
+    "series": [
+      {
+        "label": "Reject rate (%)",
+        "values": [
+          0,
+          1,
+          8
+        ]
+      },
+      {
+        "label": "Limit (%)",
+        "values": [
+          2,
+          2,
+          2
+        ]
+      }
+    ]
+  },
+  "drift": {
+    "objective": "drift",
+    "kind": "matrix",
+    "title": "Matched live monitoring windows",
+    "xlabel": "Window",
+    "ylabel": "Metric in stated units",
+    "labels": [
+      "Early",
+      "Late"
+    ],
+    "series": [
+      {
+        "label": "Rank IC",
+        "values": [
+          0.08,
+          0.08
+        ]
+      },
+      {
+        "label": "Spread (bp)",
+        "values": [
+          2,
+          8
+        ]
+      }
+    ]
+  },
+  "replay": {
+    "objective": "replay",
+    "kind": "matrix",
+    "title": "Replay identifiers",
+    "xlabel": "Run",
+    "ylabel": "Artifact version",
+    "labels": [
+      "Data",
+      "Model",
+      "Config"
+    ],
+    "series": [
+      {
+        "label": "Original",
+        "values": [
+          3,
+          8,
+          2
+        ]
+      },
+      {
+        "label": "Replay A",
+        "values": [
+          3,
+          7,
+          2
+        ]
+      },
+      {
+        "label": "Replay B",
+        "values": [
+          3,
+          8,
+          2
+        ]
+      }
+    ]
+  },
+  "conduct": {
+    "objective": "conduct",
+    "kind": "bars",
+    "title": "Orders from two desks under common control",
+    "xlabel": "Desk and side",
+    "ylabel": "Limit price ($)",
+    "labels": [
+      "Desk A buy",
+      "Desk B sell"
+    ],
+    "series": [
+      {
+        "label": "Limit",
+        "values": [
+          50.05,
+          50.02
+        ]
+      }
+    ]
+  },
+  "tests": {
+    "objective": "tests",
+    "kind": "interval",
+    "title": "Intervals for average gross edge",
+    "xlabel": "Estimate",
+    "ylabel": "Basis points",
+    "labels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "series": [
+      {
+        "label": "Low",
+        "values": [
+          -1,
+          1,
+          -4
+        ]
+      },
+      {
+        "label": "High",
+        "values": [
+          3,
+          2,
+          -1
+        ]
+      }
+    ]
+  },
+  "hac": {
+    "objective": "hac",
+    "kind": "bars",
+    "title": "Standard errors of one mean estimate",
+    "xlabel": "Method",
+    "ylabel": "Standard error (bp)",
+    "labels": [
+      "IID",
+      "HAC"
+    ],
+    "series": [
+      {
+        "label": "SE",
+        "values": [
+          2,
+          4
+        ]
+      }
+    ]
+  },
+  "pca": {
+    "objective": "pca",
+    "kind": "bars",
+    "title": "Eigenvalues of a covariance estimate",
+    "xlabel": "Principal component",
+    "ylabel": "Variance units",
+    "labels": [
+      "PC1",
+      "PC2",
+      "PC3"
+    ],
+    "series": [
+      {
+        "label": "Eigenvalue",
+        "values": [
+          6,
+          3,
+          1
+        ]
+      }
+    ]
+  },
+  "kalman": {
+    "objective": "kalman",
+    "kind": "bars",
+    "title": "A single latent-price update",
+    "xlabel": "Value",
+    "ylabel": "Price ($)",
+    "labels": [
+      "Prior",
+      "Observation",
+      "Posterior"
+    ],
+    "series": [
+      {
+        "label": "Estimate",
+        "values": [
+          100,
+          106,
+          102
+        ]
+      }
+    ]
+  },
+  "montecarlo": {
+    "objective": "montecarlo",
+    "kind": "bars",
+    "title": "Equally weighted terminal scenarios",
+    "xlabel": "Scenario",
+    "ylabel": "Terminal price ($)",
+    "labels": [
+      "Down",
+      "Flat",
+      "Up"
+    ],
+    "series": [
+      {
+        "label": "Price",
+        "values": [
+          80,
+          100,
+          120
+        ]
+      }
+    ]
+  },
+  "neighbors": {
+    "objective": "neighbors",
+    "kind": "matrix",
+    "title": "Eligible historic analogues",
+    "xlabel": "Example",
+    "ylabel": "Feature distance or next return",
+    "labels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "series": [
+      {
+        "label": "Distance",
+        "values": [
+          0.1,
+          0.8,
+          0.2
+        ]
+      },
+      {
+        "label": "Return (bp)",
+        "values": [
+          8,
+          -5,
+          2
+        ]
+      }
+    ]
+  },
+  "ensemble": {
+    "objective": "ensemble",
+    "kind": "bars",
+    "title": "One held-out return forecast",
+    "xlabel": "Learner",
+    "ylabel": "Forecast (bp)",
+    "labels": [
+      "Tree A",
+      "Tree B",
+      "Tree C"
+    ],
+    "series": [
+      {
+        "label": "Forecast",
+        "values": [
+          9,
+          -3,
+          6
+        ]
+      }
+    ]
+  },
+  "qlearning": {
+    "objective": "qlearning",
+    "kind": "bars",
+    "title": "Next-state Q estimates",
+    "xlabel": "Action",
+    "ylabel": "Estimated value",
+    "labels": [
+      "Sell",
+      "Hold",
+      "Buy"
+    ],
+    "series": [
+      {
+        "label": "Q",
+        "values": [
+          -2,
+          1,
+          4
+        ]
+      }
+    ]
+  },
+  "control": {
+    "objective": "control",
+    "kind": "matrix",
+    "title": "Costs under two feasible execution paths",
+    "xlabel": "Path",
+    "ylabel": "Expected cost ($)",
+    "labels": [
+      "Fast",
+      "Slow"
+    ],
+    "series": [
+      {
+        "label": "Now",
+        "values": [
+          7,
+          2
+        ]
+      },
+      {
+        "label": "Remaining optimal cost",
+        "values": [
+          1,
+          9
+        ]
+      }
+    ]
+  },
+  "brownian": {
+    "objective": "brownian",
+    "kind": "line",
+    "title": "A diffusion's cumulative variance",
+    "xlabel": "Elapsed days",
+    "ylabel": "Variance (squared percentage points)",
+    "labels": [
+      "1",
+      "4",
+      "9"
+    ],
+    "series": [
+      {
+        "label": "Variance",
+        "values": [
+          4,
+          16,
+          36
+        ]
+      }
+    ]
+  },
+  "fxforward": {
+    "objective": "fxforward",
+    "kind": "bars",
+    "title": "One-year money-market growth factors",
+    "xlabel": "Currency",
+    "ylabel": "Gross factor",
+    "labels": [
+      "Home",
+      "Foreign"
+    ],
+    "series": [
+      {
+        "label": "Factor",
+        "values": [
+          1.04,
+          1
+        ]
+      }
+    ]
+  },
+  "curve": {
+    "objective": "curve",
+    "kind": "line",
+    "title": "Two points on a government curve",
+    "xlabel": "Maturity",
+    "ylabel": "Yield (%)",
+    "labels": [
+      "2 yr",
+      "10 yr"
+    ],
+    "series": [
+      {
+        "label": "Before",
+        "values": [
+          3,
+          3.5
+        ]
+      },
+      {
+        "label": "After",
+        "values": [
+          3.1,
+          3.8
+        ]
+      }
+    ]
+  },
+  "commodity": {
+    "objective": "commodity",
+    "kind": "bars",
+    "title": "One-period cash-and-carry inputs per unit",
+    "xlabel": "Input",
+    "ylabel": "Dollars",
+    "labels": [
+      "Spot",
+      "Financing",
+      "Storage",
+      "Convenience benefit"
+    ],
+    "series": [
+      {
+        "label": "Amount",
+        "values": [
+          50,
+          2,
+          3,
+          4
+        ]
+      }
+    ]
+  },
+  "carryroll": {
+    "objective": "carryroll",
+    "kind": "matrix",
+    "title": "Marks of the contract actually held",
+    "xlabel": "Day",
+    "ylabel": "Price ($)",
+    "labels": [
+      "Entry",
+      "Exit"
+    ],
+    "series": [
+      {
+        "label": "Held future",
+        "values": [
+          97,
+          100
+        ]
+      },
+      {
+        "label": "Spot",
+        "values": [
+          100,
+          100
+        ]
+      }
+    ]
+  },
+  "parity": {
+    "objective": "parity",
+    "kind": "bars",
+    "title": "European parity inputs, no dividends",
+    "xlabel": "Instrument",
+    "ylabel": "Price ($)",
+    "labels": [
+      "Stock",
+      "PV of strike",
+      "Call"
+    ],
+    "series": [
+      {
+        "label": "Price",
+        "values": [
+          52,
+          50,
+          5
+        ]
+      }
+    ]
+  },
+  "optiontree": {
+    "objective": "optiontree",
+    "kind": "state-tree",
+    "title": "One-step terminal states",
+    "xlabel": "State",
+    "ylabel": "Dollars",
+    "labels": [
+      "Down",
+      "Up"
+    ],
+    "series": [
+      {
+        "label": "Stock",
+        "values": [
+          80,
+          120
+        ]
+      },
+      {
+        "label": "Call payoff",
+        "values": [
+          0,
+          20
+        ]
+      }
+    ]
+  },
+  "skew": {
+    "objective": "skew",
+    "kind": "line",
+    "title": "Implied volatility surface (%)",
+    "xlabel": "Strike / spot",
+    "ylabel": "Implied volatility (%)",
+    "labels": [
+      "0.9",
+      "1.0",
+      "1.1"
+    ],
+    "series": [
+      {
+        "label": "One month",
+        "values": [
+          32,
+          24,
+          22
+        ]
+      },
+      {
+        "label": "Three months",
+        "values": [
+          29,
+          25,
+          24
+        ]
+      }
+    ]
+  },
+  "gammahedge": {
+    "objective": "gammahedge",
+    "kind": "line",
+    "title": "Long option aggregate delta",
+    "xlabel": "Underlying ($)",
+    "ylabel": "Shares of delta",
+    "labels": [
+      "98",
+      "100",
+      "102"
+    ],
+    "series": [
+      {
+        "label": "Delta",
+        "values": [
+          30,
+          40,
+          50
+        ]
+      }
+    ]
+  },
+  "merger": {
+    "objective": "merger",
+    "kind": "bars",
+    "title": "Target values in a cash deal",
+    "xlabel": "State",
+    "ylabel": "Price ($)",
+    "labels": [
+      "Today",
+      "Completion",
+      "Break"
+    ],
+    "series": [
+      {
+        "label": "Price",
+        "values": [
+          48,
+          50,
+          40
+        ]
+      }
+    ]
+  },
+  "valuation": {
+    "objective": "valuation",
+    "kind": "matrix",
+    "title": "Positive fundamentals per share",
+    "xlabel": "Stock",
+    "ylabel": "Dollars per share",
+    "labels": [
+      "A",
+      "B"
+    ],
+    "series": [
+      {
+        "label": "Price",
+        "values": [
+          40,
+          30
+        ]
+      },
+      {
+        "label": "Earnings",
+        "values": [
+          4,
+          2
+        ]
+      },
+      {
+        "label": "Book value",
+        "values": [
+          10,
+          15
+        ]
+      }
+    ]
+  },
+  "imbalance": {
+    "objective": "imbalance",
+    "kind": "bars",
+    "title": "Top-of-book displayed size",
+    "xlabel": "Side",
+    "ylabel": "Shares",
+    "labels": [
+      "Bid",
+      "Ask"
+    ],
+    "series": [
+      {
+        "label": "Depth",
+        "values": [
+          300,
+          100
+        ]
+      }
+    ]
+  },
+  "clocksampling": {
+    "objective": "clocksampling",
+    "kind": "bars",
+    "title": "Elapsed times for equal-volume bars",
+    "xlabel": "Bar",
+    "ylabel": "Elapsed seconds",
+    "labels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "series": [
+      {
+        "label": "Time",
+        "values": [
+          5,
+          25,
+          10
+        ]
+      }
+    ]
+  },
+  "markout": {
+    "objective": "markout",
+    "kind": "line",
+    "title": "Midpoints around an aggressive buy at 30.05",
+    "xlabel": "Time",
+    "ylabel": "Midpoint ($)",
+    "labels": [
+      "Arrival",
+      "Later"
+    ],
+    "series": [
+      {
+        "label": "Mid",
+        "values": [
+          30,
+          30.04
+        ]
+      }
+    ]
+  },
+  "riskyturnover": {
+    "objective": "riskyturnover",
+    "kind": "bars",
+    "title": "Desired sleeve trades in one stock",
+    "xlabel": "Sleeve",
+    "ylabel": "Signed shares",
+    "labels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "series": [
+      {
+        "label": "Demand",
+        "values": [
+          600,
+          -450,
+          50
+        ]
+      }
+    ]
+  },
+  "sourcedata": {
+    "objective": "sourcedata",
+    "kind": "matrix",
+    "title": "Dataset review evidence (1 = verified)",
+    "xlabel": "Dataset",
+    "ylabel": "Review item",
+    "labels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "series": [
+      {
+        "label": "Provenance",
+        "values": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "label": "Use rights",
+        "values": [
+          1,
+          0,
+          1
+        ]
+      },
+      {
+        "label": "Point-in-time history",
+        "values": [
+          0,
+          1,
+          1
+        ]
+      }
+    ]
+  },
+  "capacityallocation": {
+    "objective": "capacityallocation",
+    "kind": "line",
+    "title": "Expected annual net P&L ($000)",
+    "xlabel": "Capital in sleeve ($m)",
+    "ylabel": "Expected annual net P&L ($000)",
+    "labels": [
+      "1",
+      "2",
+      "3"
+    ],
+    "series": [
+      {
+        "label": "A",
+        "values": [
+          100,
+          150,
+          160
+        ]
+      },
+      {
+        "label": "B",
+        "values": [
+          60,
+          100,
+          130
+        ]
+      }
+    ]
+  },
+  "attributioncase": {
+    "objective": "attributioncase",
+    "kind": "bars",
+    "title": "Paired fixed-order replay",
+    "xlabel": "Run",
+    "ylabel": "Basis points",
+    "labels": [
+      "Sim fills",
+      "Actual fills"
+    ],
+    "series": [
+      {
+        "label": "Gross at common marks",
+        "values": [
+          18,
+          10
+        ]
+      },
+      {
+        "label": "Fees",
+        "values": [
+          -2,
+          -2
+        ]
+      }
+    ]
+  },
+  "changepoint": {
+    "objective": "changepoint",
+    "kind": "line",
+    "title": "Online probability of a recent break",
+    "xlabel": "Monitoring date",
+    "ylabel": "Probability",
+    "labels": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "series": [
+      {
+        "label": "Posterior",
+        "values": [
+          0.12,
+          0.28,
+          0.83,
+          0.65
+        ]
+      }
+    ]
+  },
+  "indexflow": {
+    "objective": "indexflow",
+    "kind": "bars",
+    "title": "Weights either side of the effective close",
+    "xlabel": "Stock",
+    "ylabel": "Benchmark weight (%)",
+    "labels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "series": [
+      {
+        "label": "Old",
+        "values": [
+          3,
+          2,
+          1
+        ]
+      },
+      {
+        "label": "New",
+        "values": [
+          2,
+          2.5,
+          1.5
+        ]
+      }
+    ]
+  },
+  "closingorders": {
+    "objective": "closingorders",
+    "kind": "bars",
+    "title": "Two closing scenarios for a buy LOC",
+    "xlabel": "Scenario",
+    "ylabel": "Closing auction price ($)",
+    "labels": [
+      "A",
+      "B"
+    ],
+    "series": [
+      {
+        "label": "Price",
+        "values": [
+          30.1,
+          30.4
+        ]
+      }
+    ]
+  },
+  "reserve": {
+    "objective": "reserve",
+    "kind": "line",
+    "title": "Displayed ask following three trade reports",
+    "xlabel": "Observation",
+    "ylabel": "Displayed shares",
+    "labels": [
+      "Start",
+      "After first",
+      "After second",
+      "After third"
+    ],
+    "series": [
+      {
+        "label": "Observed size",
+        "values": [
+          100,
+          100,
+          100,
+          100
+        ]
+      }
+    ]
+  },
+  "baskethedge": {
+    "objective": "baskethedge",
+    "kind": "bars",
+    "title": "Executable ETF sale and basket purchase",
+    "xlabel": "Quote or cost",
+    "ylabel": "Cents per equivalent ETF share",
+    "labels": [
+      "ETF bid",
+      "Basket ask"
+    ],
+    "series": [
+      {
+        "label": "Price",
+        "values": [
+          2508,
+          2503
+        ]
+      }
+    ]
+  },
+  "tickgrid": {
+    "objective": "tickgrid",
+    "kind": "bars",
+    "title": "Bid and ask relative to a reference price",
+    "xlabel": "Quote",
+    "ylabel": "Cents above reference",
+    "labels": [
+      "Bid",
+      "Ask"
+    ],
+    "series": [
+      {
+        "label": "Offset",
+        "values": [
+          2,
+          8
+        ]
+      }
+    ]
+  },
+  "rebates": {
+    "objective": "rebates",
+    "kind": "bars",
+    "title": "Matched passive fills on two venues",
+    "xlabel": "Venue",
+    "ylabel": "Cents per filled share",
+    "labels": [
+      "A",
+      "B"
+    ],
+    "series": [
+      {
+        "label": "Rebate",
+        "values": [
+          0.3,
+          0.1
+        ]
+      },
+      {
+        "label": "Adverse price move",
+        "values": [
+          0.6,
+          0.2
+        ]
+      }
+    ]
+  }
+}

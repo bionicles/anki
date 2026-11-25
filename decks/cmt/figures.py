@@ -198,6 +198,67 @@ def register(add):
 
 
 # Each previously shipped market chart illustrates the named cards on reveal.
+    # Readings progress from recognizing a shape to applying a trading rule.
+    add("multiple-1","Prices during the current trading week",
+        "Monday, Tuesday and Wednesday close at 47, 49 and 51. Resistance is 50. Thursday and Friday have yet to trade.",
+        curves([1,2,3,4,5],{"Close":[47,49,51,np.nan,np.nan],"Resistance":[50]*5},"Weekday (1 = Monday, 5 = Friday)","Price ($)"),
+        cue="It is Wednesday. This breakout rule uses weekly closes. When can this week's move through resistance first be confirmed?")
+    line("los-I-phases-4-2","A move through an old ceiling",
+         "The previous peak is 60. Price closes at 64, returns to 60, then rises to 65.",
+         [55,60,56,59,57,64,60,65],cue="What is the upward-breakout-specific term for the return to the old ceiling?")
+    line("los-I-phases-4-1","A move through an old floor",
+         "The price twice touches 40, falls to 36, then returns to 40 from below.",
+         [45,40,43,40,42,36,40],cue="What is the classical downside-breakout term for the final move back to former support?")
+    add("los-I-screening-4-2","Stock and index from a common starting value",
+        "Both start at 100. The stock ends at 95 and the index at 85.",
+        curves([1,2,3],{"Stock":[100,97,95],"Index":[100,91,85]},"Session","Rebased price"),
+        cue="Both prices fell. Can this stock's price relative rise before an absolute breakout? Explain from the paths.")
+    add("los-III-rotation-4-3","Three holdings and their common benchmark",
+        "The benchmark falls from 100 to 80. Holdings A, B and C finish at 96, 92 and 88.",
+        curves([1,2,3],{"Benchmark":[100,90,80],"A":[100,98,96],"B":[100,97,92],"C":[100,94,88]},"Session","Rebased price"),
+        cue="Every holding beats the benchmark. What portfolio risk does their relative strength leave in place?")
+    add("los-I-following-4-2","Price and two trailing averages",
+        "The latest price is 52. The fast average has risen to 49 and the slow average is 50.",
+        curves([1,2,3],{"Price":[46,49,52],"Fast":[47,48,49],"Slow":[51,50.5,50]},"Session","Price ($)"),
+        cue="Price finishes above both averages. What further event would trigger a bullish two-average crossover?")
+    line("los-I-range-3-2","Width of the envelope before the next trade",
+         "BandWidth falls from 18% to 4%. No subsequent prices are shown.",
+         [18,15,13,10,7,4],"BandWidth (%)",cue="The bands have compressed. What about the next breakout remains unknown?")
+    line("los-II-bandwidth-5-1","A history of BandWidth readings",
+         "Width rises from its recent range near 8% to a 26% peak, then falls back.",
+         [8,9,7,8,14,26,16,10],"BandWidth (%)",cue="In Bollinger's terminology, what is the prominent peak in this series called?")
+    add("los-II-signals-4-1","Two indicator lines at successive closes",
+        "Yesterday MACD was 0.6 and its signal was 1.0. Today MACD is 1.2 and its signal is 1.1.",
+        curves([1,2],{"MACD":[.6,1.2],"Signal":[1,1.1]},"Close (1 = yesterday)","Indicator value"),
+        cue="The rule buys on the first MACD cross above its signal. Which signal fires at the second close?")
+    bar("los-III-crypto-8-1","One token index closes higher","Of 100 constituents, 25 advance and 75 decline.",
+        ["Advances","Declines"],[25,75],"Constituents",cue="The capitalization-weighted index rose. What does the constituent breadth say about the advance?")
+    bar("los-III-rank-5-2","Equal-weight sector ranks before a rebalance",
+        "A is rank one both months. B falls from rank two to three and C rises from three to two.",
+        ["A before","A now","B before","B now","C before","C now"],[1,1,2,3,3,2],"Sector rank (1 = best)",
+        cue="Hold the top two equally. With unchanged prices before this rebalance, what fraction of portfolio value is sold?")
+    add("los-III-tactical-1-3","Two sleeves drift from their policy weights",
+        "The fixed target is 50% per sleeve. After market moves, A is 60% and B is 40%.",
+        curves([0,1],{"A":[50,60],"B":[50,40],"Target per sleeve":[50,50]},"Observation","Portfolio weight (%)"),
+        cue="A fixed-weight policy is rebalanced now. What trade does it require in sleeve B?")
+    add("los-I-debt-6-1","Treasuries observed on one date","Two-year yield is 5% and ten-year yield is 4%.",
+        curves([2,10],{"Yield":[5,4]},"Years to maturity","Annual yield (%)"),
+        cue="How would you describe the slope of this Treasury curve segment?")
+    line("los-II-signals-2-2","Successive oscillator peaks","Peaks decline from 72 to 66 to 60, then rise to 67.",
+         [72,66,60,67],"Peak reading",cue="What feature of momentum changes at the fourth peak?")
+    add("los-III-rotation-3-3 rotation-2","One stock relative to two benchmarks",
+        "With all starting at 100, the stock ends at 108, its sector at 115 and the market at 103. It leads the market while trailing its sector.",
+        curves([1,2,3],{"Stock":[100,104,108],"Sector":[100,108,115],"Market":[100,101,103]},"Observation","Rebased price"))
+    line("los-II-divergence-5-3","Price can continue up after momentum slows",
+         "The sequence still makes higher highs. Gains per interval shrink from 8 to 6 to 4 to 2, without a price reversal.",
+         [100,108,114,118,120])
+    line("los-I-bands-1-1 los-III-bandplan-1-1","Changing width around a moving reference",
+         "The distance from the average to a volatility-based band can increase as observed variation rises.",
+         [1,1.2,1.1,2.4,3.6,3.1],"Band half-width ($)")
+    add("los-I-momentum-2-2","A trailing average after a price turn",
+        "After a flat period, price rises. The four-close average responds gradually as the older prices leave its window.",
+        curves(range(1,9),{"Price":[10,10,10,10,12,14,16,18],"4-close SMA":[np.nan]*3+[10,10.5,11.5,13,15]},"Session","Price ($)"))
+
 WORKED_CHARTS = [
     ("cmt_study_01.png","following-1 los-I-trend-1-1","Read the sequence of swing lows under the rising price. Successively higher reaction lows can anchor an uptrend support line."),
     ("cmt_study_03.png","targets-5","In this rectangle example, measure the height first and project it from the breakout in its direction. The triangle in the question uses its widest span and a downside projection."),

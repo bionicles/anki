@@ -1,0 +1,17 @@
+Domain	Name	Objectives
+01	Market instruments and portfolio accounting	compound ledger short futures fx bonds options etf perp
+02	Point-in-time data engineering	vintage universe actions rollclock clocks stale bars lineage
+03	Statistical inference and time series	expect sampling beta covariance stationary ar cointegration garch bootstrap
+04	Signal research and feature design	hypothesis labels normalize ic decay residual combine breadth
+05	Systematic strategy families	xmom trend value quality carry reversion pairs events seasonal maker volpremium
+06	Forecasting and machine learning	baseline ridge trees calibration utility walkforward regimes reinforcement
+07	Backtesting and experimental validity	causality purge trials fills selfFinance costs stability capacitytest
+08	Portfolio construction and sizing	frontier shrink constraints exposures riskbudget voltarget kelly rebalance multiperiod
+09	Market, funding and tail risk	var es drawdown stress greeks dv01 margin liquidity hedge
+10	Microstructure, orders and execution	book queue ordertypes adverse impact scheduling shortfall auction routing
+11	Performance measurement and attribution	geometric sharpe information attribution turnover uncertainty benchmark selection
+12	Production, controls and research governance	idempotency reconcile limits staleguard rollout drift replay conduct
+13	Advanced statistical and computational methods	tests hac pca kalman montecarlo neighbors ensemble qlearning control brownian
+14	Cross-asset relative value and derivatives	fxforward curve commodity carryroll parity optiontree skew gammahedge merger valuation
+15	Market design and integrated strategy reviews	imbalance clocksampling markout riskyturnover sourcedata capacityallocation attributioncase changepoint
+16	Index, ETF and electronic venue mechanics	indexflow closingorders reserve baskethedge tickgrid rebates

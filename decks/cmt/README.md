@@ -4,7 +4,9 @@ In Anki Desktop, choose **File → Import** and select `release/CMT.apkg`. The c
 
 ## Practice reading charts
 
-**300 cards use 175 distinct figures.** The 83 visual questions ask you to read evidence on the front. The other 217 place a worked diagram on the back after you have answered. In the Anki Browser, select the CMT deck and search `tag:visual::question`, `tag:visual::worked`, or `tag:medium::figure` for both. Combine with `tag:level::III` to focus on applied cases. By level, 155 illustrated cards appear in I, 149 in II and 97 in III. Shared cards count in each applicable level.
+**320 cards use 193 distinct figures.** The 97 visual questions ask you to read evidence on the front. The other 223 place a worked diagram on the back after you have answered. In the Anki Browser, select the CMT deck and search `tag:visual::question`, `tag:visual::worked`, or `tag:medium::figure` for both. Combine with `tag:level::III` to focus on applied cases. By level, 165 illustrated cards appear in I, 157 in II and 104 in III. Shared cards count in each applicable level.
+
+For a chart-only session, enter `deck:"Chartered Market Technician" tag:visual::question` in Browse. Add `tag:level::I` for 41 questions, `tag:level::II` for 60 or `tag:level::III` for 28. Examples include a breakout retest in I, a MACD crossover in II and a sector portfolio rebalance in III.
 
 **Try one.** What single-candle pattern appears at the end of this decline?
 

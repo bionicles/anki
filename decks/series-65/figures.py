@@ -134,3 +134,87 @@ def register(add):
          cue="What is the name of the discount rate where this project's curve crosses zero?")
     bar("I-160","Five annual returns","The sample values are −6, 2, 4, 4 and 11 percent.",list("ABCDE"),[-6,2,4,4,11],"Annual return (%)",cue="What is the range of the five returns, in percentage points?")
     bar("I-064","One outlier moves the mean","Samples [1,2,3,4,5] and [1,2,3,4,50] both have median 3, but the mean rises from 3 to 12.",["Original mean","New mean","Original median","New median"],[3,12,3,3],"Sample value")
+
+    plot("I-019","An index that tracks the general price level",
+         "The index starts at 100, then reaches 106 and 108.12 in successive years.",
+         [0,1,2],{"Price level":[100,106,108.12]},"Year","Price index",
+         cue="Annual inflation falls from 6% to 2%. What happens to the price level over the second year?")
+    plot("I-100","Same Treasury maturities on two dates",
+         "Yields at 1, 5 and 10 years change from 3%, 3.5% and 4% to 4%, 4.5% and 5%.",
+         [1,5,10],{"Before":[3,3.5,4],"After":[4,4.5,5]},"Years to maturity","Yield (%)",
+         cue="What change at each maturity makes this a parallel upward shift?")
+    bar("II-060","Principal repayments from a four-bond portfolio",
+        "Equal principal amounts come due in years 1, 2, 3 and 4.",
+        ["Year 1","Year 2","Year 3","Year 4"],[1000]*4,"Principal repaid ($)",
+        cue="Which feature of the bonds is the investor staggering in this ladder?")
+    bar("II-009","Two cash flows of a Treasury bill",
+        "The buyer pays $970 now and receives $1,000 at maturity, with no interim coupon.",
+        ["Purchase","Maturity"],[-970,1000],"Investor cash flow ($)",
+        cue="How does the bill deliver a return to this investor at maturity?")
+    bar("II-053","Coupons before principal is repaid",
+        "Over three years one bond pays $80 annually and the other pays no interim interest. They mature together.",
+        ["Coupon bond Y1","Y2","Y3","Zero Y1","Y2","Y3"],[80,80,80,0,0,0],"Interest payment ($)",
+        cue="Assuming both bonds are held to maturity, which holder has greater coupon reinvestment risk?")
+    bar("II-257","One year from purchase to redemption",
+        "The initial outflow is $975. One year later the investor receives $1,000 of principal plus the last $40 coupon.",
+        ["Purchase now","Principal in 1 yr","Coupon in 1 yr"],[-975,1000,40],"Investor cash flow ($)",
+        cue="Use the purchase outflow and both year-end receipts. What is the bond's one-year yield to maturity?")
+    bar("II-288","Terms of one equity call",
+        "The stock is $57, the strike is $52 and the quoted call premium is $7 per share.",
+        ["Stock","Strike","Call premium"],[57,52,7],"Dollars per share",
+        cue="How much of the quoted call premium is time value per share?")
+    beta=np.array([0,.4,.8,1.2])
+    plot("III-295","Expected returns on the security market line",
+         "At betas 0, 0.4, 0.8 and 1.2 the model returns are 3%, 5%, 7% and 9%.",
+         beta,{"Model return":3+5*beta},"Beta","Expected return (%)",
+         cue="A portfolio lies on the plotted line with an expected return of 7%. What is its implied beta?")
+    plot("III-218","Policy weight and trading boundaries",
+         "The policy weight is 50%, with boundaries at 45% and 55%. After starting at 50%, the sleeve closes at 56%.",
+         [1,2,3,4],{"Actual":[50,52,54,56],"Upper":[55]*4,"Lower":[45]*4},"Month","Portfolio weight (%)",
+         cue="A policy trades when the actual weight crosses one of the boundaries. What rebalancing method is this?")
+    bar("III-349","Initial value and two period-end amounts",
+        "Beginning NAV is $20, ending ex-distribution NAV is $20.80 and the end-of-period cash distribution is $1.20 per share.",
+        ["Initial NAV","Ending NAV","Cash received"],[20,20.8,1.2],"Dollars per share",
+        cue="Including the cash distribution and ignoring taxes and fees, what one-period total return did the shareholder earn?")
+    def market_line(ax):
+        x=np.array([0,.5,1,1.5])
+        curves(x,{"CAPM":3+5*x},"Beta","Expected return (%)")(ax)
+        ax.scatter([1],[10],s=85,marker="D",color="#aa461c",label="Security forecast")
+        ax.legend()
+    add("III-212","A forecast and the security market line",
+        "At beta 1.0, the forecast is 10% and the line passes through 8%.",
+        market_line,cue="What does the diamond's position imply about the forecast return relative to the return required for its beta?")
+    bar("II-265","Two pieces of a corporate yield quotation",
+        "The maturity-matched Treasury yields 385 basis points. The desk requires 180 basis points of additional spread.",
+        ["Treasury","Required spread"],[385,180],"Basis points",
+        cue="Express the corporate yield meeting this spread target as an annual percentage.")
+    x=np.arange(0,11)
+    plot("I-099 I-020","Purchasing power of a fixed nominal payment",
+         "With annual inflation of 4%, the same $1,000 payment buys about $676 of today's goods in ten years.",
+         x,{"Nominal dollars":np.repeat(1000,len(x)),"Today's dollars":1000/1.04**x},"Years","Value of payment ($)")
+    plot("II-019","Mortgage principal under two repayment speeds",
+         "The slower repayment path leaves more principal outstanding later. The example isolates the timing effect of slower refinancing.",
+         [0,1,2,3,4],{"Faster prepayment":[100,62,31,12,0],"Slower prepayment":[100,83,65,43,0]},"Year","Principal outstanding ($000)")
+    bar("II-135","When a sales charge leaves the account",
+        "Of a $1,000 contribution, a 5% front-end charge takes $50 at purchase, leaving $950 to invest.",
+        ["Contribution","Sales charge","Invested"],[1000,50,950],"Amount ($)")
+    x=np.arange(25,66)
+    plot("III-071","Shareholding with a written call",
+         "The shares cost $40. Writing a $50 call for $3 gives $3 of premium but caps the combined expiry profit at $13 per share, ignoring fees.",
+         x,{"Shares only":x-40,"Shares + short call":x-40+3-np.maximum(x-50,0)},"Stock price at expiry ($)","Net profit per share ($)")
+    add("III-177","Immediate executions at an unchanged quote",
+        "An immediate buyer pays $20.05 and an immediate seller receives $19.95. The round-trip cost before fees is ten cents per share.",
+        points([19.95,20.05],[1,2],"Execution price ($)","1 = sell at bid, 2 = buy at ask"))
+    def dated_flows(ax):
+        days=[0,20,365]
+        payments=[-1000,-500,1700]
+        ax.vlines(days,0,payments,lw=3,color="#135f76")
+        ax.scatter(days,payments,color="#135f76")
+        ax.axhline(0,color="#52636a",lw=.8)
+        ax.set(xticks=[0,90,180,270,365],xlabel="Days since first investment",ylabel="Investor cash flow ($)")
+        for x,y in zip(days,payments):
+            ax.annotate(f"Day {x}",(x,y),xytext=(5,2),textcoords="offset points",fontsize=9)
+        ax.margins(x=.14,y=.18)
+    add("III-279","Irregularly dated investor cash flows",
+        "A contribution on day 0, another on day 20 and a withdrawal on day 365 are separated by unequal intervals.",
+        dated_flows)

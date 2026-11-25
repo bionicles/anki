@@ -1,0 +1,8 @@
+build output="release-next":
+    uv run --no-project --with genanki==0.13.1 python -B deck.py build {{output}}
+
+test output="release":
+    uv run --no-project --with genanki==0.13.1 --with anki==26.9.4 python -B deck.py verify {{output}}
+
+figures:
+    uv run --no-project --with matplotlib==3.10.8 python -B plots.py

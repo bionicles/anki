@@ -202,6 +202,26 @@ CMT-cycletrend-2	back	cmt_fig_cycletrend-2.png	A Wednesday-centered five-session
 CMT-cycletrend-3	back	cmt_fig_cycletrend-2.png	A Wednesday-centered five-session average uses Monday through Friday. Wednesday's value cannot be computed until Friday's close.	
 CMT-los-III-tactical-1-2	back	cmt_fig_los-iii-tactical-1-2.png	The stated static example allocates 15% to intermediate Treasuries and 40% to long Treasuries. These are separate parts of total portfolio capital.	
 CMT-portfolio-3	back	cmt_fig_portfolio-3.png	A 22% signal exceeds a 15% cap. The maximum permitted sector weight is 15%.	
+CMT-multiple-1	front	cmt_fig_multiple-1.png	Monday, Tuesday and Wednesday close at 47, 49 and 51. Resistance is 50. Thursday and Friday have yet to trade.	It is Wednesday. This breakout rule uses weekly closes. When can this week's move through resistance first be confirmed?
+CMT-los-I-phases-4-2	front	cmt_fig_los-i-phases-4-2.png	The previous peak is 60. Price closes at 64, returns to 60, then rises to 65.	What is the upward-breakout-specific term for the return to the old ceiling?
+CMT-los-I-phases-4-1	front	cmt_fig_los-i-phases-4-1.png	The price twice touches 40, falls to 36, then returns to 40 from below.	What is the classical downside-breakout term for the final move back to former support?
+CMT-los-I-screening-4-2	front	cmt_fig_los-i-screening-4-2.png	Both start at 100. The stock ends at 95 and the index at 85.	Both prices fell. Can this stock's price relative rise before an absolute breakout? Explain from the paths.
+CMT-los-III-rotation-4-3	front	cmt_fig_los-iii-rotation-4-3.png	The benchmark falls from 100 to 80. Holdings A, B and C finish at 96, 92 and 88.	Every holding beats the benchmark. What portfolio risk does their relative strength leave in place?
+CMT-los-I-following-4-2	front	cmt_fig_los-i-following-4-2.png	The latest price is 52. The fast average has risen to 49 and the slow average is 50.	Price finishes above both averages. What further event would trigger a bullish two-average crossover?
+CMT-los-I-range-3-2	front	cmt_fig_los-i-range-3-2.png	BandWidth falls from 18% to 4%. No subsequent prices are shown.	The bands have compressed. What about the next breakout remains unknown?
+CMT-los-II-bandwidth-5-1	front	cmt_fig_los-ii-bandwidth-5-1.png	Width rises from its recent range near 8% to a 26% peak, then falls back.	In Bollinger's terminology, what is the prominent peak in this series called?
+CMT-los-II-signals-4-1	front	cmt_fig_los-ii-signals-4-1.png	Yesterday MACD was 0.6 and its signal was 1.0. Today MACD is 1.2 and its signal is 1.1.	The rule buys on the first MACD cross above its signal. Which signal fires at the second close?
+CMT-los-III-crypto-8-1	front	cmt_fig_los-iii-crypto-8-1.png	Of 100 constituents, 25 advance and 75 decline.	The capitalization-weighted index rose. What does the constituent breadth say about the advance?
+CMT-los-III-rank-5-2	front	cmt_fig_los-iii-rank-5-2.png	A is rank one both months. B falls from rank two to three and C rises from three to two.	Hold the top two equally. With unchanged prices before this rebalance, what fraction of portfolio value is sold?
+CMT-los-III-tactical-1-3	front	cmt_fig_los-iii-tactical-1-3.png	The fixed target is 50% per sleeve. After market moves, A is 60% and B is 40%.	A fixed-weight policy is rebalanced now. What trade does it require in sleeve B?
+CMT-los-I-debt-6-1	front	cmt_fig_los-i-debt-6-1.png	Two-year yield is 5% and ten-year yield is 4%.	How would you describe the slope of this Treasury curve segment?
+CMT-los-II-signals-2-2	front	cmt_fig_los-ii-signals-2-2.png	Peaks decline from 72 to 66 to 60, then rise to 67.	What feature of momentum changes at the fourth peak?
+CMT-los-III-rotation-3-3	back	cmt_fig_los-iii-rotation-3-3.png	With all starting at 100, the stock ends at 108, its sector at 115 and the market at 103. It leads the market while trailing its sector.	
+CMT-rotation-2	back	cmt_fig_los-iii-rotation-3-3.png	With all starting at 100, the stock ends at 108, its sector at 115 and the market at 103. It leads the market while trailing its sector.	
+CMT-los-II-divergence-5-3	back	cmt_fig_los-ii-divergence-5-3.png	The sequence still makes higher highs. Gains per interval shrink from 8 to 6 to 4 to 2, without a price reversal.	
+CMT-los-I-bands-1-1	back	cmt_fig_los-i-bands-1-1.png	The distance from the average to a volatility-based band can increase as observed variation rises.	
+CMT-los-III-bandplan-1-1	back	cmt_fig_los-i-bands-1-1.png	The distance from the average to a volatility-based band can increase as observed variation rises.	
+CMT-los-I-momentum-2-2	back	cmt_fig_los-i-momentum-2-2.png	After a flat period, price rises. The four-close average responds gradually as the older prices leave its window.	
 CMT-following-1	back	cmt_study_01.png	Read the sequence of swing lows under the rising price. Successively higher reaction lows can anchor an uptrend support line.	
 CMT-los-I-trend-1-1	back	cmt_study_01.png	Read the sequence of swing lows under the rising price. Successively higher reaction lows can anchor an uptrend support line.	
 CMT-targets-5	back	cmt_study_03.png	In this rectangle example, measure the height first and project it from the breakout in its direction. The triangle in the question uses its widest span and a downside projection.	
