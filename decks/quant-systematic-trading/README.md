@@ -1,6 +1,6 @@
 # Quantitative and Systematic Trading
 
-Import **Quant-Systematic-Trading.apkg** into Anki. The course has 552 short-answer cards across 138 objectives. Each objective has four independently scheduled questions. All 183 code-generated figures work offline. [Anki package](release/Quant-Systematic-Trading.apkg) · [Editable Anki export](release/Quant-Systematic-Trading.tsv) · [Objective-by-objective coverage](release/coverage.csv)
+Import **Quant-Systematic-Trading.apkg** into Anki. The course has 678 short-answer cards across 138 objectives. Thirty harder objectives have eight to ten independently scheduled questions each. The other 108 have four. All 253 code-generated figures work offline. [Anki package](release/Quant-Systematic-Trading.apkg) · [Editable Anki export](release/Quant-Systematic-Trading.tsv) · [Objective-by-objective coverage](release/coverage.csv)
 
 **Try an execution question.** You have a bid resting in this FIFO queue. A market order sells 170 shares into the bid. With no cancellations or other changes, how many shares of your order remain?
 
@@ -18,13 +18,29 @@ Start with domain 01 if returns and position accounting are new to you. Each obj
 
 | In Anki Browse, combine the deck name with a tag | What it selects |
 | --- | --- |
-| `deck:"Quantitative and Systematic Trading" tag:visual::question` | 138 chart questions. Infer the answer before turning the card. |
-| `deck:"Quantitative and Systematic Trading" tag:visual::worked` | 183 text questions with an illustrated example on the back. |
-| `deck:"Quantitative and Systematic Trading" tag:domain::09` | The 36 market, funding and tail-risk cards. |
-| `deck:"Quantitative and Systematic Trading" tag:objective::optiontree` | Four ways to practice one-period replication, including a two-state payoff tree. |
+| `deck:"Quantitative and Systematic Trading" tag:visual::question` | 198 chart questions. Infer the answer before turning the card. |
+| `deck:"Quantitative and Systematic Trading" tag:visual::worked` | 193 text questions with an illustrated example on the back. |
+| `deck:"Quantitative and Systematic Trading" tag:domain::09` | The 44 market, funding and tail-risk cards. |
+| `deck:"Quantitative and Systematic Trading" tag:objective::optiontree` | Eight questions on one-period replication, from a single terminal payoff to a new two-state tree. |
+| `deck:"Quantitative and Systematic Trading" tag:practice::step` | 96 short questions on individual operations and decisions within harder objectives. |
+| `deck:"Quantitative and Systematic Trading" tag:practice::transfer` | 30 questions with a chart and dataset unique to that card. Use this search for mixed practice after a delay. |
 | `deck:"Quantitative and Systematic Trading" tag:type::calculation` | Numerical exercises across the domains. |
 
-Each objective uses one small synthetic dataset both as a worked example and as a chart question. Another 45 worked diagrams illustrate particular applications and common mistakes, including PCA directions, option hedges, uncertainty, and simulated price paths. The other two prompts for each objective change the evidence, operation or decision. [Figure-to-card map](figures.tsv)
+### Working through a hard objective
+
+For a scalar Kalman filter, one card asks for the signed difference between the observation and prediction. A chart card asks how much of that difference enters the update at a stated gain. Another gives the correction and asks for the new estimate. Finally, a fresh chart shows two filters responding to the same price and asks which one trusted the observation more. Search `tag:objective::kalman` within the deck to see all eight.
+
+To check retention after a delay, try an example outside the review queue. Your predicted price is $90, the observation is $84 and the gain is one-third. Where does the updated estimate land?
+
+<details><summary>Check your reasoning</summary>
+
+**$88.** The observation is $6 below the prediction, so the innovation is −$6. The filter takes one-third of that change, a correction of −$2. An estimate of $92 points to a sign error. An estimate of $84 would use a gain of one.
+
+</details>
+
+The expanded practice covers covariance, beta, cointegration, GARCH, block bootstrap, rank IC, variance swaps, walk-forward validation, purging, shrinkage, risk contributions, Kelly sizing, expected shortfall, DV01, implementation shortfall, time-weighted return, attribution, duplicate fills, HAC errors, PCA, Kalman filters, Q-learning, Brownian scaling, FX forwards, put–call parity, binomial replication, gamma hedging, markouts, marginal capacity and ETF basket hedges.
+
+Each objective still has a core chart shown on both a worked answer and an interpretation question. The 30 expanded objectives each have two further chart questions with fresh data. Another 55 diagrams appear only on worked answers. [Figure-to-card map](figures.tsv)
 
 ## Curriculum
 
@@ -57,7 +73,7 @@ Coverage refers to the 138 objectives in this course. The curriculum draws on th
 | NYU 7 · Real-world risks and constraints | 09–12, 15. Read stress losses, capacity curves and control failures. |
 | Georgia Tech · Financial data, computational investing, and learning algorithms | 01–03 cover data and returns, 07–11 cover investment decisions and simulation, and 06 and 13 cover regression, trees, nearest neighbors and reinforcement learning. |
 
-Each card includes its source. The coverage map links every objective to its four card IDs and source. More detailed references include Palomar on portfolios, Boyd and coauthors on multi-period trading, and Hyndman and Athanasopoulos on forecasting. [Portfolio Optimization](https://portfoliooptimizationbook.com/book/) · [Multi-Period Trading via Convex Optimization](https://web.stanford.edu/~boyd/papers/cvx_portfolio.html) · [Forecasting: Principles and Practice](https://otexts.com/fpp3/)
+Each card includes its source. The coverage map links every objective to its card IDs and source. More detailed references include Palomar on portfolios, Boyd and coauthors on multi-period trading, and Hyndman and Athanasopoulos on forecasting. [Portfolio Optimization](https://portfoliooptimizationbook.com/book/) · [Multi-Period Trading via Convex Optimization](https://web.stanford.edu/~boyd/papers/cvx_portfolio.html) · [Forecasting: Principles and Practice](https://otexts.com/fpp3/)
 
 ## Rebuild and verify
 

@@ -10,7 +10,7 @@ From the repository root, give your agent this prompt. Replace `$TEST` with the 
 
 The [deck-by-deck design review](decks/card-design-review.md) maps recall, reversals, cue variation and visual practice to the six decks. Try a candle-pattern question in the [CMT guide](decks/cmt/README.md#practice-reading-charts) or an option payoff in the [Series 65 guide](decks/series-65/README.md).
 
-**Quantitative and Systematic Trading** covers 138 objectives in 16 domains, from point-in-time data through portfolio risk and execution. Try the order-queue question and browse the curriculum in the [course guide](decks/quant-systematic-trading/README.md), or [download the Anki package](decks/quant-systematic-trading/release/Quant-Systematic-Trading.apkg).
+**Quantitative and Systematic Trading** covers 138 objectives in 16 domains, from point-in-time data through portfolio risk and execution. The 678 cards include 96 short subskill questions and 30 independent chart cases for the harder topics. Try the order-queue question and browse the curriculum in the [course guide](decks/quant-systematic-trading/README.md), or [download the Anki package](decks/quant-systematic-trading/release/Quant-Systematic-Trading.apkg).
 
 ## Tutorial
 

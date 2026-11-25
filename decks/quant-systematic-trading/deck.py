@@ -43,6 +43,17 @@ def load_inputs():
         ids = row["card_ids"].split()
         assigned.update(ids)
         types = {t for k in ids for t in flags[k] if t.startswith("type::")}
+        steps = [key for key in ids if "practice::step" in flags[key]]
+        transfers = [key for key in ids if "practice::transfer" in flags[key]]
+        if steps or transfers:
+            if len(steps) < 3 or len(transfers) != 1 or not any(key in media["front"] for key in steps):
+                raise ValueError(f"Incomplete step and transfer practice for {row['objective']}")
+            transfer = transfers[0]
+            if transfer not in media["front"]:
+                raise ValueError(f"Missing transfer chart for {transfer}")
+            chart = media["front"][transfer][0]
+            if sum(path == chart for mapping in media.values() for path, _ in mapping.values()) != 1:
+                raise ValueError(f"{transfer} must have an independent example")
         if (len(set(ids)) < 4 or not required_types.issubset(types) or row["component_status"] != "covered"
                 or not any(k in media["front"] for k in ids)
                 or not any(k in media["back"] for k in ids)):

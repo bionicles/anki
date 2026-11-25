@@ -275,6 +275,66 @@ QT-tickgrid-1	back	qt_tickgrid_observations.png	Bid and ask relative to a refere
 QT-tickgrid-4	front	qt_tickgrid_observations.png	Bid and ask relative to a reference price. Quote. Cents above reference. Offset (Bid: 2, Ask: 8).
 QT-rebates-1	back	qt_rebates_observations.png	Matched passive fills on two venues. Venue. Cents per filled share. Rebate (A: 0.3, B: 0.1); Adverse price move (A: 0.6, B: 0.2).
 QT-rebates-4	front	qt_rebates_observations.png	Matched passive fills on two venues. Venue. Cents per filled share. Rebate (A: 0.3, B: 0.1); Adverse price move (A: 0.6, B: 0.2).
+QT-covariance-6	front	qt_covariance-step_observations.png	Paired daily deviations. Asset A deviation (percentage points). Asset B deviation (percentage points). B (-3: 2, -1: 1, 1: -1, 3: -2).
+QT-covariance-8	front	qt_covariance-transfer_observations.png	Covariance of decimal returns. Asset. Asset. A (A: 0.09, B: -0.012); B (A: -0.012, B: 0.04).
+QT-beta-6	front	qt_beta-step_observations.png	Excess returns at three closes. Close. Excess return (%). Observed (1: 0, 2: 2, 3: 2); Fitted (1: 1, 2: 2, 3: 3).
+QT-beta-8	front	qt_beta-transfer_observations.png	Fitted stock responses. Market excess return (%). Fitted stock excess return (%). A (0: 2, 1: 2.5, 2: 3); B (0: 0, 1: 2, 2: 4).
+QT-cointegration-6	front	qt_cointegration-step_observations.png	Two asset closes. Date. Price ($). A (1: 52, 2: 54, 3: 58, 4: 57); B (1: 50, 2: 52, 3: 53, 4: 55).
+QT-cointegration-8	front	qt_cointegration-transfer_observations.png	Residuals under two fitted hedges. Date. Spread ($). A (1: 0, 2: 1, 3: -1, 4: 0, 5: 1, 6: 0, 7: -1); B (1: 0, 2: 1, 3: 0, 4: 6, 5: 7, 6: 6, 7: 7).
+QT-garch-6	front	qt_garch-step_observations.png	Innovations by trading session. Session. Shock (return units). Innovation (A: 1, B: -2, C: 3).
+QT-garch-8	front	qt_garch-transfer_observations.png	Next-session variance forecasts. Session. Variance (squared percentage points). Forecast (A: 4, B: 6.25, C: 9, D: 6.25).
+QT-bootstrap-6	front	qt_bootstrap-step_observations.png	Source day used at each resampled position. Output position. Original day number. Source day (1: 4, 2: 5, 3: 6, 4: 2, 5: 3, 6: 4).
+QT-bootstrap-8	front	qt_bootstrap-transfer_observations.png	Bootstrap intervals for mean return. Resampling method. Mean return (bp). Lower (IID: 1, Blocks: -2); Upper (IID: 5, Blocks: 8).
+QT-ic-6	front	qt_ic-step_observations.png	Three stocks on one formation date. Stock. Input series. Forecast score (A: 8, B: 5, C: 1); Future return (%) (A: 3, B: 1, C: 6).
+QT-ic-8	front	qt_ic-transfer_observations.png	Rank IC by formation date. Date. Spearman rank IC. IC (Mon: 1, Tue: 0, Wed: -1).
+QT-purge-6	front	qt_purge-step_observations.png	Outcome days used by three labels. Outcome day. Label. Start (A: 2, Test: 5, B: 9); End (A: 5, Test: 7, B: 10).
+QT-purge-8	front	qt_purge-transfer_observations.png	Outcome windows around a held-out fold. Outcome day. Label. Start (Test: 6, C: 8, D: 9); End (Test: 7, C: 9, D: 11).
+QT-shrink-6	front	qt_shrink-step_observations.png	Inputs for one covariance entry. Estimate. Covariance (decimal returns squared). Value (Sample: -0.02, Target: 0.01).
+QT-shrink-8	front	qt_shrink-transfer_observations.png	Eigenvalues of two positive-definite fits. Eigenvalue. Variance units. A (Smallest: 0.01, Largest: 1); B (Smallest: 0.25, Largest: 1).
+QT-riskbudget-6	front	qt_riskbudget-step_observations.png	Contributions to annual volatility. Sleeve. Component (percentage points). Contribution (Equity: 6, Credit: 3, Hedge: -1).
+QT-riskbudget-8	front	qt_riskbudget-transfer_observations.png	Budgeted and estimated risk shares. Sleeve. Share of portfolio volatility (%). Target (Rates: 50, Equity: 50); Estimated (Rates: 60, Equity: 40).
+QT-kelly-6	front	qt_kelly-step_observations.png	One even-money win followed by one loss. Observation. Wealth ($). 0% stake (Start: 100, After win: 100, After loss: 100); 20% stake (Start: 100, After win: 120, After loss: 96); 50% stake (Start: 100, After win: 150, After loss: 75).
+QT-kelly-8	front	qt_kelly-transfer_observations.png	Growth estimates for candidate stakes. Stake (% of wealth). Expected log growth (bp). Growth (0: 0, 10: 7, 20: 9, 30: 6).
+QT-es-6	front	qt_es-step_observations.png	Probabilities of three possible losses. Loss ($m). Probability (%). Mass (0: 90, 4: 7, 9: 3).
+QT-es-8	front	qt_es-transfer_observations.png	Sorted losses in two scenario sets. Loss rank (smallest first). Loss ($m). A (1: 0, 2: 1, 3: 2, 4: 3, 5: 8); B (1: 0, 2: 1, 3: 2, 4: 3, 5: 15).
+QT-dv01-6	front	qt_dv01-step_observations.png	Positions before a parallel rate move. Position. Signed DV01 ($/bp). DV01 (Cash bond: 500, Futures: -350).
+QT-dv01-8	front	qt_dv01-transfer_observations.png	Key-rate exposure after hedging. Maturity. Signed DV01 ($/bp). Book A (2 years: 120, 10 years: -120); Book B (2 years: -80, 10 years: 80).
+QT-shortfall-6	front	qt_shortfall-step_observations.png	Executions on one buy order. Execution. Shares filled. Quantity (First: 100, Second: 120).
+QT-shortfall-8	front	qt_shortfall-transfer_observations.png	Prices along a sell order. Event. Price ($/share). Price (Decision: 20, Fill: 19.85, Final mark: 19.9).
+QT-geometric-6	front	qt_geometric-step_observations.png	Account value around a cash contribution. Valuation. Account value ($). Value (Start: 100, Before: 110, After: 160, End: 152).
+QT-geometric-8	front	qt_geometric-transfer_observations.png	Two paths from the same starting capital. Period end. Account value ($). A (0: 100, 1: 125, 2: 100); B (0: 100, 1: 100, 2: 100).
+QT-attribution-6	front	qt_attribution-step_observations.png	Returns used for sector allocation attribution. Benchmark series. Period return (%). Return (Tech: 4, Energy: 8, Total: 5).
+QT-attribution-8	front	qt_attribution-transfer_observations.png	Two returns over the same period. Benchmark series. Period return (%). Return (Sector: -4, Total: 1).
+QT-hac-6	front	qt_hac-step_observations.png	Terms in a long-run variance estimate. Term. Contribution (squared bp). Value (Lag zero: 9, Weighted lag one: 3).
+QT-hac-8	front	qt_hac-transfer_observations.png	Uncertainty of two fits to the same nonzero mean. Fit. HAC standard error (bp). SE (A: 5, B: 2).
+QT-pca-6	front	qt_pca-step_observations.png	Paired centered returns. Asset A (percentage points). Asset B (percentage points). B (-3: 3, -2: 1.8, -1: 1.1, 0: 0, 1: -0.9, 2: -2.1, 3: -3).
+QT-pca-8	front	qt_pca-transfer_observations.png	Shares explained by four orthogonal components. Component. Explained variance (%). Share (PC1: 45, PC2: 25, PC3: 20, PC4: 10).
+QT-kalman-6	front	qt_kalman-step_observations.png	Inputs to one direct state observation. Input. Price ($). Price (Prediction: 12, Observed: 16).
+QT-kalman-8	front	qt_kalman-transfer_observations.png	Two updates on the same observed price. Point in update. Price ($). Filter A (Prior: 20, Posterior: 18); Filter B (Prior: 20, Posterior: 14); Observation (Prior: 12, Posterior: 12).
+QT-qlearning-6	front	qt_qlearning-step_observations.png	Feasible actions in the next state. Action. Estimated Q (reward units). Q (Buy: -4, Hold: -1, Sell: -3).
+QT-qlearning-8	front	qt_qlearning-transfer_observations.png	One state-action update. Quantity. Reward units. Value (Current Q: 6, Target: 2).
+QT-brownian-6	front	qt_brownian-step_observations.png	Two proposed time-scaling curves. Elapsed days. Relative to day-one value. A (1: 1, 4: 4, 9: 9); B (1: 1, 4: 2, 9: 3).
+QT-brownian-8	front	qt_brownian-transfer_observations.png	Modeled dispersion for a constant-volatility diffusion. Days. Return standard deviation (percentage points). SD (1: 1.5, 4: 3, 9: 4.5, 16: 6).
+QT-fxforward-6	front	qt_fxforward-step_observations.png	Foreign deposit over one year. Years. Euro balance. Deposit (0: 1, 1: 1.02).
+QT-fxforward-8	front	qt_fxforward-transfer_observations.png	Growth of one unit in each money market. Currency. One-year gross growth factor. Factor (Home: 1.02, Foreign: 1.06).
+QT-parity-6	front	qt_parity-step_observations.png	Terminal values of two holdings. Stock at expiry ($). Holding value ($). One share (40: 40, 50: 50, 60: 60); Put (40: 10, 50: 0, 60: 0).
+QT-parity-8	front	qt_parity-transfer_observations.png	Current cost of two payoff-matched portfolios. Portfolio. Purchase cost ($). Cost (Call + bond: 105, Stock + put: 103).
+QT-optiontree-6	front	qt_optiontree-step_observations.png	Two terminal states of a call. State. Dollars. Stock (Down: 35, Up: 65); Call payoff (Down: 0, Up: 15).
+QT-optiontree-8	front	qt_optiontree-transfer_observations.png	Terminal values under a second scenario. State. Dollars. Stock (Down: 70, Up: 110); Call payoff (Down: 0, Up: 20).
+QT-gammahedge-6	front	qt_gammahedge-step_observations.png	Two positions in one option book. Position. Delta (share equivalents). Delta (Option: 25, Stock: -40).
+QT-gammahedge-8	front	qt_gammahedge-transfer_observations.png	Signed option-book delta across spot levels. Underlying price ($). Option delta (share equivalents). Delta (48: -18, 50: -30, 52: -42).
+QT-markout-6	front	qt_markout-step_observations.png	Midpoint following a passive buy. Seconds after fill. Midpoint ($). Midpoint (0: 10.01, 1: 10, 5: 9.98).
+QT-markout-8	front	qt_markout-transfer_observations.png	Post-trade midpoints for one fill. Seconds after fill. Midpoint ($). Midpoint (0: 30, 1: 30.02, 5: 30.06, 10: 30.04).
+QT-capacityallocation-6	front	qt_capacityallocation-step_observations.png	Expected annual profit by deployed capital. Capital ($m). Annual net P&L ($000). Profit (1: 70, 2: 108, 3: 116).
+QT-capacityallocation-8	front	qt_capacityallocation-transfer_observations.png	Two sleeves with different remaining capacity. Capital per sleeve ($m). Expected annual net P&L ($000). Sleeve A (1: 100, 2: 105); Sleeve B (1: 60, 2: 90).
+QT-walkforward-6	front	qt_walkforward-step_observations.png	Training windows at two forecast origins. Month number. Training fit. Start (Fit A: 1, Fit B: 1); End (Fit A: 3, Fit B: 4).
+QT-walkforward-8	front	qt_walkforward-transfer_observations.png	Candidate training windows before month 6. Month number. Candidate fit. Start (A: 4, B: 3); End (A: 6, B: 5).
+QT-volpremium-6	front	qt_volpremium-step_observations.png	Variance swap observations. Period. Variance points. Realized (A: 450, B: 350); Strike (A: 400, B: 400).
+QT-volpremium-8	front	qt_volpremium-transfer_observations.png	Two outcomes for a short variance position. Outcome. Variance points. Realized (A: 500, B: 900); Strike (A: 400, B: 400).
+QT-idempotency-6	front	qt_idempotency-step_observations.png	Execution reports in arrival order. Report number. Reported field. Execution ID (1: 11, 2: 11, 3: 12); Shares (1: 20, 2: 20, 3: 20).
+QT-idempotency-8	front	qt_idempotency-transfer_observations.png	Cumulative filled quantity for one order. Report number. Cumulative shares. Shares (1: 20, 2: 20, 3: 35, 4: 50).
+QT-baskethedge-6	front	qt_baskethedge-step_observations.png	Executable prices per ETF-equivalent share. Transaction. Dollars per share. Price (ETF bid: 24.04, Basket ask: 24).
+QT-baskethedge-8	front	qt_baskethedge-transfer_observations.png	Two creation routes for the same fund. Route. Cents per equivalent share. Gross spread (A: 5, B: 4); Total costs (A: 6, B: 2).
 QT-compound-2	back	qt_compound-2_worked.png	From $100, a 20% gain makes $120. A 20% loss on $120 ends at $96.
 QT-short-2	back	qt_short-2_worked.png	Selling then buying back 100 shares at a $3 difference yields $300 gross. Fees leave $260.
 QT-futures-2	back	qt_futures-2_worked.png	Three $50-per-point contracts gain or lose $150 for each point. A two-point fall costs $300.
@@ -320,3 +380,13 @@ QT-shrink-3	back	qt_shrink-3_worked.png	A sample eigenvalue of 0.001 is blended 
 QT-calibration-3	back	qt_calibration-3_worked.png	At 90% forecast probability, only 75% of this illustrative group goes up. Use separate earlier validation forecasts to learn a correction.
 QT-scheduling-2	back	qt_scheduling-2_worked.png	TWAP allocates the same quantity to each equal interval. A 40/15/10/35 volume profile executes more near the open and close.
 QT-reversion-2	back	qt_reversion-2_worked.png	When a persistent value change shifts price to a new level, a model anchored to the old reference can repeatedly forecast a rebound that fails to arrive.
+QT-es-7	back	qt_es-7_worked.png	Out of five percentage points in the tail, three are at the larger loss. Their conditional weight is 3/5.
+QT-pca-7	back	qt_pca-7_worked.png	The short segments project observations onto the dashed principal axis. The variance of those projected scores is the component eigenvalue.
+QT-cointegration-7	back	qt_cointegration-7_worked.png	The example spread fluctuates around a fitted reference of $4. A nonzero intercept can be part of the spread model.
+QT-kalman-7	back	qt_kalman-7_worked.png	For a prediction of 10, every observed value from 6 to 14 maps to a posterior of 10 when gain is zero.
+QT-optiontree-7	back	qt_optiontree-7_worked.png	At $80, the stock leg is worth $32. A $32 debt repayment offsets it and reproduces the call’s zero down-state payoff.
+QT-qlearning-7	back	qt_qlearning-7_worked.png	The arrow goes from the old Q of 3 to the target of 7. Its signed length is +4.
+QT-brownian-7	back	qt_brownian-7_worked.png	Under zero drift and independent normal increments, the standard deviation is 1 point on day one and 2 points on day four.
+QT-riskbudget-7	back	qt_riskbudget-7_worked.png	In this example a hedge offsets a shared risk, while independent risk remains. Near zero hedge, an added unit reduces portfolio volatility.
+QT-gammahedge-7	back	qt_gammahedge-7_worked.png	In this illustrative curve the signed delta of a short call becomes more negative as spot rises. Its local slope is negative gamma.
+QT-hac-5	back	qt_hac-5_worked.png	Two example pairs link observation 1 to 3 and 3 to 5. The lag counts time steps, not the number of intervening points.

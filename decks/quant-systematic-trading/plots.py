@@ -46,7 +46,21 @@ def draw(ax, s):
     series = s["series"]
     xs = np.arange(len(labels))
     values = np.array([r["values"] for r in series])
-    if kind == "matrix":
+    if kind == "scatter":
+        xs = numbers(labels)
+        ax.scatter(xs, values[0], s=65, color=PALETTE[0], zorder=3)
+        ax.axhline(0, color="#66777e", lw=.8)
+        ax.axvline(0, color="#66777e", lw=.8)
+        ax.margins(.14)
+    elif kind == "window":
+        for i, (start, end) in enumerate(zip(*values)):
+            ax.hlines(i, start, end, color=PALETTE[i % len(PALETTE)], lw=4)
+            ax.scatter([start, end], [i, i], color=PALETTE[i % len(PALETTE)], s=55)
+        ax.set_yticks(xs, labels)
+        ax.invert_yaxis()
+        ax.set_xticks(range(int(values.min()), int(values.max()) + 1))
+        ax.margins(x=.08, y=.25)
+    elif kind == "matrix":
         # Distinct measurement units may share a table. The printed values, not a
         # cross-row color scale, carry meaning in those cases.
         if s["objective"] in {"idempotency", "drift", "neighbors", "attribution", "replay"}:
@@ -117,7 +131,7 @@ def draw(ax, s):
     if kind != "matrix":
         ax.grid(axis="y",alpha=.17)
         ax.set_axisbelow(True)
-        if len(series)>1:
+        if len(series)>1 and kind != "window":
             ax.legend(fontsize=9, framealpha=.85)
 
 
@@ -138,8 +152,9 @@ def main():
     for slug, spec in charts.items():
         filename=f"qt_{slug}_observations.png"
         save_chart(filename,spec["title"],lambda ax: draw(ax,spec))
-        for n,side in [(1,"back"),(4,"front")]:
-            mappings.append([f"QT-{slug}-{n}",side,filename,evidence(spec)])
+        uses = spec.get("cards", {f"QT-{slug}-1": "back", f"QT-{slug}-4": "front"})
+        for card_id, side in uses.items():
+            mappings.append([card_id, side, filename, evidence(spec)])
     for key, title, description, painter in worked_examples():
         filename="qt_"+key.removeprefix("QT-")+"_worked.png"
         save_chart(filename,title,painter)

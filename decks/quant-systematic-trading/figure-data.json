@@ -3544,5 +3544,1719 @@
         ]
       }
     ]
+  },
+  "covariance-step": {
+    "objective": "covariance",
+    "kind": "scatter",
+    "title": "Paired daily deviations",
+    "xlabel": "Asset A deviation (percentage points)",
+    "ylabel": "Asset B deviation (percentage points)",
+    "labels": [
+      "-3",
+      "-1",
+      "1",
+      "3"
+    ],
+    "series": [
+      {
+        "label": "B",
+        "values": [
+          2,
+          1,
+          -1,
+          -2
+        ]
+      }
+    ],
+    "cards": {
+      "QT-covariance-6": "front"
+    }
+  },
+  "covariance-transfer": {
+    "objective": "covariance",
+    "kind": "matrix",
+    "title": "Covariance of decimal returns",
+    "xlabel": "Asset",
+    "ylabel": "Asset",
+    "labels": [
+      "A",
+      "B"
+    ],
+    "series": [
+      {
+        "label": "A",
+        "values": [
+          0.09,
+          -0.012
+        ]
+      },
+      {
+        "label": "B",
+        "values": [
+          -0.012,
+          0.04
+        ]
+      }
+    ],
+    "cards": {
+      "QT-covariance-8": "front"
+    }
+  },
+  "beta-step": {
+    "objective": "beta",
+    "kind": "line",
+    "title": "Excess returns at three closes",
+    "xlabel": "Close",
+    "ylabel": "Excess return (%)",
+    "labels": [
+      "1",
+      "2",
+      "3"
+    ],
+    "series": [
+      {
+        "label": "Observed",
+        "values": [
+          0,
+          2,
+          2
+        ]
+      },
+      {
+        "label": "Fitted",
+        "values": [
+          1,
+          2,
+          3
+        ]
+      }
+    ],
+    "cards": {
+      "QT-beta-6": "front"
+    }
+  },
+  "beta-transfer": {
+    "objective": "beta",
+    "kind": "line",
+    "title": "Fitted stock responses",
+    "xlabel": "Market excess return (%)",
+    "ylabel": "Fitted stock excess return (%)",
+    "labels": [
+      "0",
+      "1",
+      "2"
+    ],
+    "series": [
+      {
+        "label": "A",
+        "values": [
+          2,
+          2.5,
+          3
+        ]
+      },
+      {
+        "label": "B",
+        "values": [
+          0,
+          2,
+          4
+        ]
+      }
+    ],
+    "cards": {
+      "QT-beta-8": "front"
+    }
+  },
+  "cointegration-step": {
+    "objective": "cointegration",
+    "kind": "line",
+    "title": "Two asset closes",
+    "xlabel": "Date",
+    "ylabel": "Price ($)",
+    "labels": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "series": [
+      {
+        "label": "A",
+        "values": [
+          52,
+          54,
+          58,
+          57
+        ]
+      },
+      {
+        "label": "B",
+        "values": [
+          50,
+          52,
+          53,
+          55
+        ]
+      }
+    ],
+    "cards": {
+      "QT-cointegration-6": "front"
+    }
+  },
+  "cointegration-transfer": {
+    "objective": "cointegration",
+    "kind": "line",
+    "title": "Residuals under two fitted hedges",
+    "xlabel": "Date",
+    "ylabel": "Spread ($)",
+    "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "series": [
+      {
+        "label": "A",
+        "values": [
+          0,
+          1,
+          -1,
+          0,
+          1,
+          0,
+          -1
+        ]
+      },
+      {
+        "label": "B",
+        "values": [
+          0,
+          1,
+          0,
+          6,
+          7,
+          6,
+          7
+        ]
+      }
+    ],
+    "cards": {
+      "QT-cointegration-8": "front"
+    }
+  },
+  "garch-step": {
+    "objective": "garch",
+    "kind": "bars",
+    "title": "Innovations by trading session",
+    "xlabel": "Session",
+    "ylabel": "Shock (return units)",
+    "labels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "series": [
+      {
+        "label": "Innovation",
+        "values": [
+          1,
+          -2,
+          3
+        ]
+      }
+    ],
+    "cards": {
+      "QT-garch-6": "front"
+    }
+  },
+  "garch-transfer": {
+    "objective": "garch",
+    "kind": "line",
+    "title": "Next-session variance forecasts",
+    "xlabel": "Session",
+    "ylabel": "Variance (squared percentage points)",
+    "labels": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "series": [
+      {
+        "label": "Forecast",
+        "values": [
+          4,
+          6.25,
+          9,
+          6.25
+        ]
+      }
+    ],
+    "cards": {
+      "QT-garch-8": "front"
+    }
+  },
+  "bootstrap-step": {
+    "objective": "bootstrap",
+    "kind": "line",
+    "title": "Source day used at each resampled position",
+    "xlabel": "Output position",
+    "ylabel": "Original day number",
+    "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "series": [
+      {
+        "label": "Source day",
+        "values": [
+          4,
+          5,
+          6,
+          2,
+          3,
+          4
+        ]
+      }
+    ],
+    "cards": {
+      "QT-bootstrap-6": "front"
+    }
+  },
+  "bootstrap-transfer": {
+    "objective": "bootstrap",
+    "kind": "interval",
+    "title": "Bootstrap intervals for mean return",
+    "xlabel": "Resampling method",
+    "ylabel": "Mean return (bp)",
+    "labels": [
+      "IID",
+      "Blocks"
+    ],
+    "series": [
+      {
+        "label": "Lower",
+        "values": [
+          1,
+          -2
+        ]
+      },
+      {
+        "label": "Upper",
+        "values": [
+          5,
+          8
+        ]
+      }
+    ],
+    "cards": {
+      "QT-bootstrap-8": "front"
+    }
+  },
+  "ic-step": {
+    "objective": "ic",
+    "kind": "matrix",
+    "title": "Three stocks on one formation date",
+    "xlabel": "Stock",
+    "ylabel": "Input series",
+    "labels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "series": [
+      {
+        "label": "Forecast score",
+        "values": [
+          8,
+          5,
+          1
+        ]
+      },
+      {
+        "label": "Future return (%)",
+        "values": [
+          3,
+          1,
+          6
+        ]
+      }
+    ],
+    "cards": {
+      "QT-ic-6": "front"
+    }
+  },
+  "ic-transfer": {
+    "objective": "ic",
+    "kind": "bars",
+    "title": "Rank IC by formation date",
+    "xlabel": "Date",
+    "ylabel": "Spearman rank IC",
+    "labels": [
+      "Mon",
+      "Tue",
+      "Wed"
+    ],
+    "series": [
+      {
+        "label": "IC",
+        "values": [
+          1,
+          0,
+          -1
+        ]
+      }
+    ],
+    "cards": {
+      "QT-ic-8": "front"
+    }
+  },
+  "purge-step": {
+    "objective": "purge",
+    "kind": "window",
+    "title": "Outcome days used by three labels",
+    "xlabel": "Outcome day",
+    "ylabel": "Label",
+    "labels": [
+      "A",
+      "Test",
+      "B"
+    ],
+    "series": [
+      {
+        "label": "Start",
+        "values": [
+          2,
+          5,
+          9
+        ]
+      },
+      {
+        "label": "End",
+        "values": [
+          5,
+          7,
+          10
+        ]
+      }
+    ],
+    "cards": {
+      "QT-purge-6": "front"
+    }
+  },
+  "purge-transfer": {
+    "objective": "purge",
+    "kind": "window",
+    "title": "Outcome windows around a held-out fold",
+    "xlabel": "Outcome day",
+    "ylabel": "Label",
+    "labels": [
+      "Test",
+      "C",
+      "D"
+    ],
+    "series": [
+      {
+        "label": "Start",
+        "values": [
+          6,
+          8,
+          9
+        ]
+      },
+      {
+        "label": "End",
+        "values": [
+          7,
+          9,
+          11
+        ]
+      }
+    ],
+    "cards": {
+      "QT-purge-8": "front"
+    }
+  },
+  "shrink-step": {
+    "objective": "shrink",
+    "kind": "bars",
+    "title": "Inputs for one covariance entry",
+    "xlabel": "Estimate",
+    "ylabel": "Covariance (decimal returns squared)",
+    "labels": [
+      "Sample",
+      "Target"
+    ],
+    "series": [
+      {
+        "label": "Value",
+        "values": [
+          -0.02,
+          0.01
+        ]
+      }
+    ],
+    "cards": {
+      "QT-shrink-6": "front"
+    }
+  },
+  "shrink-transfer": {
+    "objective": "shrink",
+    "kind": "bars",
+    "title": "Eigenvalues of two positive-definite fits",
+    "xlabel": "Eigenvalue",
+    "ylabel": "Variance units",
+    "labels": [
+      "Smallest",
+      "Largest"
+    ],
+    "series": [
+      {
+        "label": "A",
+        "values": [
+          0.01,
+          1
+        ]
+      },
+      {
+        "label": "B",
+        "values": [
+          0.25,
+          1
+        ]
+      }
+    ],
+    "cards": {
+      "QT-shrink-8": "front"
+    }
+  },
+  "riskbudget-step": {
+    "objective": "riskbudget",
+    "kind": "bars",
+    "title": "Contributions to annual volatility",
+    "xlabel": "Sleeve",
+    "ylabel": "Component (percentage points)",
+    "labels": [
+      "Equity",
+      "Credit",
+      "Hedge"
+    ],
+    "series": [
+      {
+        "label": "Contribution",
+        "values": [
+          6,
+          3,
+          -1
+        ]
+      }
+    ],
+    "cards": {
+      "QT-riskbudget-6": "front"
+    }
+  },
+  "riskbudget-transfer": {
+    "objective": "riskbudget",
+    "kind": "bars",
+    "title": "Budgeted and estimated risk shares",
+    "xlabel": "Sleeve",
+    "ylabel": "Share of portfolio volatility (%)",
+    "labels": [
+      "Rates",
+      "Equity"
+    ],
+    "series": [
+      {
+        "label": "Target",
+        "values": [
+          50,
+          50
+        ]
+      },
+      {
+        "label": "Estimated",
+        "values": [
+          60,
+          40
+        ]
+      }
+    ],
+    "cards": {
+      "QT-riskbudget-8": "front"
+    }
+  },
+  "kelly-step": {
+    "objective": "kelly",
+    "kind": "line",
+    "title": "One even-money win followed by one loss",
+    "xlabel": "Observation",
+    "ylabel": "Wealth ($)",
+    "labels": [
+      "Start",
+      "After win",
+      "After loss"
+    ],
+    "series": [
+      {
+        "label": "0% stake",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      {
+        "label": "20% stake",
+        "values": [
+          100,
+          120,
+          96
+        ]
+      },
+      {
+        "label": "50% stake",
+        "values": [
+          100,
+          150,
+          75
+        ]
+      }
+    ],
+    "cards": {
+      "QT-kelly-6": "front"
+    }
+  },
+  "kelly-transfer": {
+    "objective": "kelly",
+    "kind": "line",
+    "title": "Growth estimates for candidate stakes",
+    "xlabel": "Stake (% of wealth)",
+    "ylabel": "Expected log growth (bp)",
+    "labels": [
+      "0",
+      "10",
+      "20",
+      "30"
+    ],
+    "series": [
+      {
+        "label": "Growth",
+        "values": [
+          0,
+          7,
+          9,
+          6
+        ]
+      }
+    ],
+    "cards": {
+      "QT-kelly-8": "front"
+    }
+  },
+  "es-step": {
+    "objective": "es",
+    "kind": "bars",
+    "title": "Probabilities of three possible losses",
+    "xlabel": "Loss ($m)",
+    "ylabel": "Probability (%)",
+    "labels": [
+      "0",
+      "4",
+      "9"
+    ],
+    "series": [
+      {
+        "label": "Mass",
+        "values": [
+          90,
+          7,
+          3
+        ]
+      }
+    ],
+    "cards": {
+      "QT-es-6": "front"
+    }
+  },
+  "es-transfer": {
+    "objective": "es",
+    "kind": "line",
+    "title": "Sorted losses in two scenario sets",
+    "xlabel": "Loss rank (smallest first)",
+    "ylabel": "Loss ($m)",
+    "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "series": [
+      {
+        "label": "A",
+        "values": [
+          0,
+          1,
+          2,
+          3,
+          8
+        ]
+      },
+      {
+        "label": "B",
+        "values": [
+          0,
+          1,
+          2,
+          3,
+          15
+        ]
+      }
+    ],
+    "cards": {
+      "QT-es-8": "front"
+    }
+  },
+  "dv01-step": {
+    "objective": "dv01",
+    "kind": "bars",
+    "title": "Positions before a parallel rate move",
+    "xlabel": "Position",
+    "ylabel": "Signed DV01 ($/bp)",
+    "labels": [
+      "Cash bond",
+      "Futures"
+    ],
+    "series": [
+      {
+        "label": "DV01",
+        "values": [
+          500,
+          -350
+        ]
+      }
+    ],
+    "cards": {
+      "QT-dv01-6": "front"
+    }
+  },
+  "dv01-transfer": {
+    "objective": "dv01",
+    "kind": "bars",
+    "title": "Key-rate exposure after hedging",
+    "xlabel": "Maturity",
+    "ylabel": "Signed DV01 ($/bp)",
+    "labels": [
+      "2 years",
+      "10 years"
+    ],
+    "series": [
+      {
+        "label": "Book A",
+        "values": [
+          120,
+          -120
+        ]
+      },
+      {
+        "label": "Book B",
+        "values": [
+          -80,
+          80
+        ]
+      }
+    ],
+    "cards": {
+      "QT-dv01-8": "front"
+    }
+  },
+  "shortfall-step": {
+    "objective": "shortfall",
+    "kind": "bars",
+    "title": "Executions on one buy order",
+    "xlabel": "Execution",
+    "ylabel": "Shares filled",
+    "labels": [
+      "First",
+      "Second"
+    ],
+    "series": [
+      {
+        "label": "Quantity",
+        "values": [
+          100,
+          120
+        ]
+      }
+    ],
+    "cards": {
+      "QT-shortfall-6": "front"
+    }
+  },
+  "shortfall-transfer": {
+    "objective": "shortfall",
+    "kind": "line",
+    "title": "Prices along a sell order",
+    "xlabel": "Event",
+    "ylabel": "Price ($/share)",
+    "labels": [
+      "Decision",
+      "Fill",
+      "Final mark"
+    ],
+    "series": [
+      {
+        "label": "Price",
+        "values": [
+          20,
+          19.85,
+          19.9
+        ]
+      }
+    ],
+    "cards": {
+      "QT-shortfall-8": "front"
+    }
+  },
+  "geometric-step": {
+    "objective": "geometric",
+    "kind": "line",
+    "title": "Account value around a cash contribution",
+    "xlabel": "Valuation",
+    "ylabel": "Account value ($)",
+    "labels": [
+      "Start",
+      "Before",
+      "After",
+      "End"
+    ],
+    "series": [
+      {
+        "label": "Value",
+        "values": [
+          100,
+          110,
+          160,
+          152
+        ]
+      }
+    ],
+    "cards": {
+      "QT-geometric-6": "front"
+    }
+  },
+  "geometric-transfer": {
+    "objective": "geometric",
+    "kind": "line",
+    "title": "Two paths from the same starting capital",
+    "xlabel": "Period end",
+    "ylabel": "Account value ($)",
+    "labels": [
+      "0",
+      "1",
+      "2"
+    ],
+    "series": [
+      {
+        "label": "A",
+        "values": [
+          100,
+          125,
+          100
+        ]
+      },
+      {
+        "label": "B",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      }
+    ],
+    "cards": {
+      "QT-geometric-8": "front"
+    }
+  },
+  "attribution-step": {
+    "objective": "attribution",
+    "kind": "bars",
+    "title": "Returns used for sector allocation attribution",
+    "xlabel": "Benchmark series",
+    "ylabel": "Period return (%)",
+    "labels": [
+      "Tech",
+      "Energy",
+      "Total"
+    ],
+    "series": [
+      {
+        "label": "Return",
+        "values": [
+          4,
+          8,
+          5
+        ]
+      }
+    ],
+    "cards": {
+      "QT-attribution-6": "front"
+    }
+  },
+  "attribution-transfer": {
+    "objective": "attribution",
+    "kind": "bars",
+    "title": "Two returns over the same period",
+    "xlabel": "Benchmark series",
+    "ylabel": "Period return (%)",
+    "labels": [
+      "Sector",
+      "Total"
+    ],
+    "series": [
+      {
+        "label": "Return",
+        "values": [
+          -4,
+          1
+        ]
+      }
+    ],
+    "cards": {
+      "QT-attribution-8": "front"
+    }
+  },
+  "hac-step": {
+    "objective": "hac",
+    "kind": "bars",
+    "title": "Terms in a long-run variance estimate",
+    "xlabel": "Term",
+    "ylabel": "Contribution (squared bp)",
+    "labels": [
+      "Lag zero",
+      "Weighted lag one"
+    ],
+    "series": [
+      {
+        "label": "Value",
+        "values": [
+          9,
+          3
+        ]
+      }
+    ],
+    "cards": {
+      "QT-hac-6": "front"
+    }
+  },
+  "hac-transfer": {
+    "objective": "hac",
+    "kind": "bars",
+    "title": "Uncertainty of two fits to the same nonzero mean",
+    "xlabel": "Fit",
+    "ylabel": "HAC standard error (bp)",
+    "labels": [
+      "A",
+      "B"
+    ],
+    "series": [
+      {
+        "label": "SE",
+        "values": [
+          5,
+          2
+        ]
+      }
+    ],
+    "cards": {
+      "QT-hac-8": "front"
+    }
+  },
+  "pca-step": {
+    "objective": "pca",
+    "kind": "scatter",
+    "title": "Paired centered returns",
+    "xlabel": "Asset A (percentage points)",
+    "ylabel": "Asset B (percentage points)",
+    "labels": [
+      "-3",
+      "-2",
+      "-1",
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "series": [
+      {
+        "label": "B",
+        "values": [
+          3,
+          1.8,
+          1.1,
+          0,
+          -0.9,
+          -2.1,
+          -3
+        ]
+      }
+    ],
+    "cards": {
+      "QT-pca-6": "front"
+    }
+  },
+  "pca-transfer": {
+    "objective": "pca",
+    "kind": "bars",
+    "title": "Shares explained by four orthogonal components",
+    "xlabel": "Component",
+    "ylabel": "Explained variance (%)",
+    "labels": [
+      "PC1",
+      "PC2",
+      "PC3",
+      "PC4"
+    ],
+    "series": [
+      {
+        "label": "Share",
+        "values": [
+          45,
+          25,
+          20,
+          10
+        ]
+      }
+    ],
+    "cards": {
+      "QT-pca-8": "front"
+    }
+  },
+  "kalman-step": {
+    "objective": "kalman",
+    "kind": "bars",
+    "title": "Inputs to one direct state observation",
+    "xlabel": "Input",
+    "ylabel": "Price ($)",
+    "labels": [
+      "Prediction",
+      "Observed"
+    ],
+    "series": [
+      {
+        "label": "Price",
+        "values": [
+          12,
+          16
+        ]
+      }
+    ],
+    "cards": {
+      "QT-kalman-6": "front"
+    }
+  },
+  "kalman-transfer": {
+    "objective": "kalman",
+    "kind": "line",
+    "title": "Two updates on the same observed price",
+    "xlabel": "Point in update",
+    "ylabel": "Price ($)",
+    "labels": [
+      "Prior",
+      "Posterior"
+    ],
+    "series": [
+      {
+        "label": "Filter A",
+        "values": [
+          20,
+          18
+        ]
+      },
+      {
+        "label": "Filter B",
+        "values": [
+          20,
+          14
+        ]
+      },
+      {
+        "label": "Observation",
+        "values": [
+          12,
+          12
+        ]
+      }
+    ],
+    "cards": {
+      "QT-kalman-8": "front"
+    }
+  },
+  "qlearning-step": {
+    "objective": "qlearning",
+    "kind": "bars",
+    "title": "Feasible actions in the next state",
+    "xlabel": "Action",
+    "ylabel": "Estimated Q (reward units)",
+    "labels": [
+      "Buy",
+      "Hold",
+      "Sell"
+    ],
+    "series": [
+      {
+        "label": "Q",
+        "values": [
+          -4,
+          -1,
+          -3
+        ]
+      }
+    ],
+    "cards": {
+      "QT-qlearning-6": "front"
+    }
+  },
+  "qlearning-transfer": {
+    "objective": "qlearning",
+    "kind": "bars",
+    "title": "One state-action update",
+    "xlabel": "Quantity",
+    "ylabel": "Reward units",
+    "labels": [
+      "Current Q",
+      "Target"
+    ],
+    "series": [
+      {
+        "label": "Value",
+        "values": [
+          6,
+          2
+        ]
+      }
+    ],
+    "cards": {
+      "QT-qlearning-8": "front"
+    }
+  },
+  "brownian-step": {
+    "objective": "brownian",
+    "kind": "line",
+    "title": "Two proposed time-scaling curves",
+    "xlabel": "Elapsed days",
+    "ylabel": "Relative to day-one value",
+    "labels": [
+      "1",
+      "4",
+      "9"
+    ],
+    "series": [
+      {
+        "label": "A",
+        "values": [
+          1,
+          4,
+          9
+        ]
+      },
+      {
+        "label": "B",
+        "values": [
+          1,
+          2,
+          3
+        ]
+      }
+    ],
+    "cards": {
+      "QT-brownian-6": "front"
+    }
+  },
+  "brownian-transfer": {
+    "objective": "brownian",
+    "kind": "line",
+    "title": "Modeled dispersion for a constant-volatility diffusion",
+    "xlabel": "Days",
+    "ylabel": "Return standard deviation (percentage points)",
+    "labels": [
+      "1",
+      "4",
+      "9",
+      "16"
+    ],
+    "series": [
+      {
+        "label": "SD",
+        "values": [
+          1.5,
+          3,
+          4.5,
+          6
+        ]
+      }
+    ],
+    "cards": {
+      "QT-brownian-8": "front"
+    }
+  },
+  "fxforward-step": {
+    "objective": "fxforward",
+    "kind": "line",
+    "title": "Foreign deposit over one year",
+    "xlabel": "Years",
+    "ylabel": "Euro balance",
+    "labels": [
+      "0",
+      "1"
+    ],
+    "series": [
+      {
+        "label": "Deposit",
+        "values": [
+          1,
+          1.02
+        ]
+      }
+    ],
+    "cards": {
+      "QT-fxforward-6": "front"
+    }
+  },
+  "fxforward-transfer": {
+    "objective": "fxforward",
+    "kind": "bars",
+    "title": "Growth of one unit in each money market",
+    "xlabel": "Currency",
+    "ylabel": "One-year gross growth factor",
+    "labels": [
+      "Home",
+      "Foreign"
+    ],
+    "series": [
+      {
+        "label": "Factor",
+        "values": [
+          1.02,
+          1.06
+        ]
+      }
+    ],
+    "cards": {
+      "QT-fxforward-8": "front"
+    }
+  },
+  "parity-step": {
+    "objective": "parity",
+    "kind": "line",
+    "title": "Terminal values of two holdings",
+    "xlabel": "Stock at expiry ($)",
+    "ylabel": "Holding value ($)",
+    "labels": [
+      "40",
+      "50",
+      "60"
+    ],
+    "series": [
+      {
+        "label": "One share",
+        "values": [
+          40,
+          50,
+          60
+        ]
+      },
+      {
+        "label": "Put",
+        "values": [
+          10,
+          0,
+          0
+        ]
+      }
+    ],
+    "cards": {
+      "QT-parity-6": "front"
+    }
+  },
+  "parity-transfer": {
+    "objective": "parity",
+    "kind": "bars",
+    "title": "Current cost of two payoff-matched portfolios",
+    "xlabel": "Portfolio",
+    "ylabel": "Purchase cost ($)",
+    "labels": [
+      "Call + bond",
+      "Stock + put"
+    ],
+    "series": [
+      {
+        "label": "Cost",
+        "values": [
+          105,
+          103
+        ]
+      }
+    ],
+    "cards": {
+      "QT-parity-8": "front"
+    }
+  },
+  "optiontree-step": {
+    "objective": "optiontree",
+    "kind": "state-tree",
+    "title": "Two terminal states of a call",
+    "xlabel": "State",
+    "ylabel": "Dollars",
+    "labels": [
+      "Down",
+      "Up"
+    ],
+    "series": [
+      {
+        "label": "Stock",
+        "values": [
+          35,
+          65
+        ]
+      },
+      {
+        "label": "Call payoff",
+        "values": [
+          0,
+          15
+        ]
+      }
+    ],
+    "cards": {
+      "QT-optiontree-6": "front"
+    }
+  },
+  "optiontree-transfer": {
+    "objective": "optiontree",
+    "kind": "state-tree",
+    "title": "Terminal values under a second scenario",
+    "xlabel": "State",
+    "ylabel": "Dollars",
+    "labels": [
+      "Down",
+      "Up"
+    ],
+    "series": [
+      {
+        "label": "Stock",
+        "values": [
+          70,
+          110
+        ]
+      },
+      {
+        "label": "Call payoff",
+        "values": [
+          0,
+          20
+        ]
+      }
+    ],
+    "cards": {
+      "QT-optiontree-8": "front"
+    }
+  },
+  "gammahedge-step": {
+    "objective": "gammahedge",
+    "kind": "bars",
+    "title": "Two positions in one option book",
+    "xlabel": "Position",
+    "ylabel": "Delta (share equivalents)",
+    "labels": [
+      "Option",
+      "Stock"
+    ],
+    "series": [
+      {
+        "label": "Delta",
+        "values": [
+          25,
+          -40
+        ]
+      }
+    ],
+    "cards": {
+      "QT-gammahedge-6": "front"
+    }
+  },
+  "gammahedge-transfer": {
+    "objective": "gammahedge",
+    "kind": "line",
+    "title": "Signed option-book delta across spot levels",
+    "xlabel": "Underlying price ($)",
+    "ylabel": "Option delta (share equivalents)",
+    "labels": [
+      "48",
+      "50",
+      "52"
+    ],
+    "series": [
+      {
+        "label": "Delta",
+        "values": [
+          -18,
+          -30,
+          -42
+        ]
+      }
+    ],
+    "cards": {
+      "QT-gammahedge-8": "front"
+    }
+  },
+  "markout-step": {
+    "objective": "markout",
+    "kind": "line",
+    "title": "Midpoint following a passive buy",
+    "xlabel": "Seconds after fill",
+    "ylabel": "Midpoint ($)",
+    "labels": [
+      "0",
+      "1",
+      "5"
+    ],
+    "series": [
+      {
+        "label": "Midpoint",
+        "values": [
+          10.01,
+          10,
+          9.98
+        ]
+      }
+    ],
+    "cards": {
+      "QT-markout-6": "front"
+    }
+  },
+  "markout-transfer": {
+    "objective": "markout",
+    "kind": "line",
+    "title": "Post-trade midpoints for one fill",
+    "xlabel": "Seconds after fill",
+    "ylabel": "Midpoint ($)",
+    "labels": [
+      "0",
+      "1",
+      "5",
+      "10"
+    ],
+    "series": [
+      {
+        "label": "Midpoint",
+        "values": [
+          30,
+          30.02,
+          30.06,
+          30.04
+        ]
+      }
+    ],
+    "cards": {
+      "QT-markout-8": "front"
+    }
+  },
+  "capacityallocation-step": {
+    "objective": "capacityallocation",
+    "kind": "line",
+    "title": "Expected annual profit by deployed capital",
+    "xlabel": "Capital ($m)",
+    "ylabel": "Annual net P&L ($000)",
+    "labels": [
+      "1",
+      "2",
+      "3"
+    ],
+    "series": [
+      {
+        "label": "Profit",
+        "values": [
+          70,
+          108,
+          116
+        ]
+      }
+    ],
+    "cards": {
+      "QT-capacityallocation-6": "front"
+    }
+  },
+  "capacityallocation-transfer": {
+    "objective": "capacityallocation",
+    "kind": "line",
+    "title": "Two sleeves with different remaining capacity",
+    "xlabel": "Capital per sleeve ($m)",
+    "ylabel": "Expected annual net P&L ($000)",
+    "labels": [
+      "1",
+      "2"
+    ],
+    "series": [
+      {
+        "label": "Sleeve A",
+        "values": [
+          100,
+          105
+        ]
+      },
+      {
+        "label": "Sleeve B",
+        "values": [
+          60,
+          90
+        ]
+      }
+    ],
+    "cards": {
+      "QT-capacityallocation-8": "front"
+    }
+  },
+  "walkforward-step": {
+    "objective": "walkforward",
+    "kind": "window",
+    "title": "Training windows at two forecast origins",
+    "xlabel": "Month number",
+    "ylabel": "Training fit",
+    "labels": [
+      "Fit A",
+      "Fit B"
+    ],
+    "series": [
+      {
+        "label": "Start",
+        "values": [
+          1,
+          1
+        ]
+      },
+      {
+        "label": "End",
+        "values": [
+          3,
+          4
+        ]
+      }
+    ],
+    "cards": {
+      "QT-walkforward-6": "front"
+    }
+  },
+  "walkforward-transfer": {
+    "objective": "walkforward",
+    "kind": "window",
+    "title": "Candidate training windows before month 6",
+    "xlabel": "Month number",
+    "ylabel": "Candidate fit",
+    "labels": [
+      "A",
+      "B"
+    ],
+    "series": [
+      {
+        "label": "Start",
+        "values": [
+          4,
+          3
+        ]
+      },
+      {
+        "label": "End",
+        "values": [
+          6,
+          5
+        ]
+      }
+    ],
+    "cards": {
+      "QT-walkforward-8": "front"
+    }
+  },
+  "volpremium-step": {
+    "objective": "volpremium",
+    "kind": "bars",
+    "title": "Variance swap observations",
+    "xlabel": "Period",
+    "ylabel": "Variance points",
+    "labels": [
+      "A",
+      "B"
+    ],
+    "series": [
+      {
+        "label": "Realized",
+        "values": [
+          450,
+          350
+        ]
+      },
+      {
+        "label": "Strike",
+        "values": [
+          400,
+          400
+        ]
+      }
+    ],
+    "cards": {
+      "QT-volpremium-6": "front"
+    }
+  },
+  "volpremium-transfer": {
+    "objective": "volpremium",
+    "kind": "bars",
+    "title": "Two outcomes for a short variance position",
+    "xlabel": "Outcome",
+    "ylabel": "Variance points",
+    "labels": [
+      "A",
+      "B"
+    ],
+    "series": [
+      {
+        "label": "Realized",
+        "values": [
+          500,
+          900
+        ]
+      },
+      {
+        "label": "Strike",
+        "values": [
+          400,
+          400
+        ]
+      }
+    ],
+    "cards": {
+      "QT-volpremium-8": "front"
+    }
+  },
+  "idempotency-step": {
+    "objective": "idempotency",
+    "kind": "matrix",
+    "title": "Execution reports in arrival order",
+    "xlabel": "Report number",
+    "ylabel": "Reported field",
+    "labels": [
+      "1",
+      "2",
+      "3"
+    ],
+    "series": [
+      {
+        "label": "Execution ID",
+        "values": [
+          11,
+          11,
+          12
+        ]
+      },
+      {
+        "label": "Shares",
+        "values": [
+          20,
+          20,
+          20
+        ]
+      }
+    ],
+    "cards": {
+      "QT-idempotency-6": "front"
+    }
+  },
+  "idempotency-transfer": {
+    "objective": "idempotency",
+    "kind": "line",
+    "title": "Cumulative filled quantity for one order",
+    "xlabel": "Report number",
+    "ylabel": "Cumulative shares",
+    "labels": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "series": [
+      {
+        "label": "Shares",
+        "values": [
+          20,
+          20,
+          35,
+          50
+        ]
+      }
+    ],
+    "cards": {
+      "QT-idempotency-8": "front"
+    }
+  },
+  "baskethedge-step": {
+    "objective": "baskethedge",
+    "kind": "bars",
+    "title": "Executable prices per ETF-equivalent share",
+    "xlabel": "Transaction",
+    "ylabel": "Dollars per share",
+    "labels": [
+      "ETF bid",
+      "Basket ask"
+    ],
+    "series": [
+      {
+        "label": "Price",
+        "values": [
+          24.04,
+          24
+        ]
+      }
+    ],
+    "cards": {
+      "QT-baskethedge-6": "front"
+    }
+  },
+  "baskethedge-transfer": {
+    "objective": "baskethedge",
+    "kind": "bars",
+    "title": "Two creation routes for the same fund",
+    "xlabel": "Route",
+    "ylabel": "Cents per equivalent share",
+    "labels": [
+      "A",
+      "B"
+    ],
+    "series": [
+      {
+        "label": "Gross spread",
+        "values": [
+          5,
+          4
+        ]
+      },
+      {
+        "label": "Total costs",
+        "values": [
+          6,
+          2
+        ]
+      }
+    ],
+    "cards": {
+      "QT-baskethedge-8": "front"
+    }
   }
 }

@@ -212,4 +212,81 @@ def worked_examples():
         ax.set(xlabel="Observation",ylabel="Illustrative price ($)")
         ax.legend(fontsize=8)
     add("reversion-2","A broken reference can look like a bargain","When a persistent value change shifts price to a new level, a model anchored to the old reference can repeatedly forecast a rebound that fails to arrive.",disagreement)
+
+    # Worked pictures for individual operations that feed the longer calculations.
+    def tail_weights(ax):
+        ax.barh(0, 3, left=0, color=BLUE, height=.45)
+        ax.barh(0, 2, left=3, color=ORANGE, height=.45)
+        ax.text(1.5, 0, "$9m loss\n3 of 5", ha="center", va="center", color="white")
+        ax.text(4, 0, "$4m loss\n2 of 5", ha="center", va="center", color="white")
+        ax.set(xlim=(0,5), ylim=(-.6,.6), yticks=[], xticks=range(6),
+               xlabel="Percentage points of total probability in the worst 5%")
+    add("es-7", "Zoom in on the selected tail",
+        "Out of five percentage points in the tail, three are at the larger loss. Their conditional weight is 3/5.", tail_weights)
+
+    def projected_variance(ax):
+        cloud = np.array([[-3, -1.25], [-2, -1.35], [-1, -.3], [0, 0],
+                          [1, .3], [2, 1.35], [3, 1.25]])
+        centered = cloud - cloud.mean(axis=0)
+        _, axes = np.linalg.eigh(np.cov(centered.T))
+        axis = axes[:, -1]
+        scores = centered @ axis
+        projected = np.outer(scores, axis)
+        endpoints = np.outer([scores.min(), scores.max()], axis)
+        ax.plot(*endpoints.T, ls="--", color=ORANGE, label="Component axis")
+        ax.scatter(*centered.T, color=BLUE, label="Centered returns")
+        for point, projection in zip(centered, projected):
+            ax.plot([point[0], projection[0]], [point[1], projection[1]], color=GREEN, lw=1.5)
+        ax.set(aspect="equal",xlabel="Asset A return deviation",ylabel="Asset B return deviation")
+        ax.legend(fontsize=9)
+    add("pca-7", "Measure spread along the component axis",
+        "The short segments project observations onto the dashed principal axis. The variance of those projected scores is the component eigenvalue.", projected_variance)
+
+    t=np.arange(1,9)
+    path=[6,5,3.5,4.2,4.6,3.6,4.1,4.3]
+    line("cointegration-7","A spread with a nonzero equilibrium",
+         "The example spread fluctuates around a fitted reference of $4. A nonzero intercept can be part of the spread model.",
+         t,{"Spread":path,"Reference":[4]*len(t)},"Date","Spread ($)")
+    line("kalman-7","A zero gain leaves the prediction in place",
+         "For a prediction of 10, every observed value from 6 to 14 maps to a posterior of 10 when gain is zero.",
+         [6,8,10,12,14],{"Posterior (gain 0)":[10]*5,"Posterior (gain 1)":[6,8,10,12,14]},"Observed value","Updated state")
+    def discounted_cash(ax):
+        ax.bar(["0.4 share","Cash due","Combined"],[32,-32,0],color=[BLUE,ORANGE,GREEN])
+        ax.axhline(0,color="#66777e",lw=.8)
+        ax.set(ylim=(-40,40),ylabel="Down-state terminal value ($)")
+        for x,y in enumerate([32,-32,0]):
+            ax.text(x,y+2 if y>=0 else y-2,f"${y:+d}",ha="center",va="bottom" if y>=0 else "top")
+    add("optiontree-7","Match the payoff in the down state",
+        "At $80, the stock leg is worth $32. A $32 debt repayment offsets it and reproduces the call’s zero down-state payoff.",discounted_cash)
+
+    def signed_error(ax):
+        ax.axhline(0,color="#66777e",lw=.8)
+        ax.scatter([3,7],[0,0],s=75,color=[BLUE,ORANGE],zorder=3)
+        ax.annotate("",(7,.18),(3,.18),arrowprops={"arrowstyle":"->","lw":2,"color":GREEN})
+        ax.text(5,.28,"target − old Q = +4",ha="center")
+        for x,name in [(3,"Old Q"),(7,"Target")]:
+            ax.text(x,-.14,name,ha="center",va="top")
+        ax.set(xlim=(1,9),ylim=(-.5,.6),yticks=[],xlabel="Action value (reward units)")
+    add("qlearning-7","Read the signed update error", "The arrow goes from the old Q of 3 to the target of 7. Its signed length is +4.",signed_error)
+
+    x=np.linspace(-7,7,151)
+    line("brownian-7","A shorter horizon concentrates the distribution",
+         "Under zero drift and independent normal increments, the standard deviation is 1 point on day one and 2 points on day four.",
+         x,{"1 day":np.exp(-x*x/2)/np.sqrt(2*np.pi),"4 days":np.exp(-x*x/8)/np.sqrt(8*np.pi)},
+         "Cumulative return (percentage points)","Probability density")
+    h=np.linspace(0,1.5,40)
+    line("riskbudget-7","Adding a hedge can lower portfolio volatility",
+         "In this example a hedge offsets a shared risk, while independent risk remains. Near zero hedge, an added unit reduces portfolio volatility.",
+         h,{"Portfolio volatility":np.sqrt((10-8*h)**2+4**2)},"Hedge position (units)","Annual volatility (%)")
+    line("gammahedge-7","A short call’s position delta slopes down",
+         "In this illustrative curve the signed delta of a short call becomes more negative as spot rises. Its local slope is negative gamma.",
+         [90,95,100,105,110],{"Short call":[-.15,-.3,-.5,-.7,-.85]},"Stock price ($)","Position delta per underlying share")
+    def lag_pairs(ax):
+        ax.scatter(range(1,7),[0]*6,s=55,color=BLUE,zorder=3)
+        for i in [1,3]:
+            ax.annotate("",(i+2,.02),(i,.02),arrowprops={"arrowstyle":"->","lw":2,"color":ORANGE,
+                        "connectionstyle":"arc3,rad=-.55"})
+        ax.set(xlim=(.5,6.5),ylim=(-.45,.65),yticks=[],xticks=range(1,7),xlabel="Daily observation number")
+    add("hac-5","Pair observations separated by two lags",
+        "Two example pairs link observation 1 to 3 and 3 to 5. The lag counts time steps, not the number of intervening points.",lag_pairs)
     return examples
