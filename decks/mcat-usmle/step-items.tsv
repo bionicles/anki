@@ -628,3 +628,146 @@ blood.drug	Acquired methemoglobinemia	original:hmet-iron	original:hmet-cyan	orig
 blood.drug	Propylthiouracil agranulocytosis	original:hptu-line	original:hptu-throat	original:hptu-confirmed
 blood.drug	Tumor lysis syndrome	original:htls-k original:htls-ca original:htls-formed original:htls-product original:htls-allop original:htls-ras	original:htls-cluster	original:htls-monitor original:htls-ecg original:htls-silent
 blood.drug	Warfarin			original:rad-anticoag original:ccs-hit-warfarin
+social.interview	Building rapport and fostering the relationship	original:s1-comm-listen-open		
+social.interview	Gathering the patient's account and response to illness	original:s1-comm-listen-open original:s1-comm-listen-baseline		
+social.interview	Providing information about the working diagnosis	original:s1-comm-info-pace		
+social.interview	Shared decisions and patient preferences	original:s1-comm-choice-priority	original:ckcomm-values original:scgoals-recommend original:scgoals-change	
+social.interview	Supporting emotion in difficult conversations	original:s1-comm-listen-emotion original:s1-comm-listen-silence		
+social.interview	Education and support for patient behavior	original:scteach-purpose original:scteach-words original:scteach-action	original:scteach-repeat	original:scteach-barrier
+social.interview	Health literacy and teach-back	original:scteach-purpose original:scteach-words original:scteach-action	original:ckcomm-understand original:scteach-repeat original:scdischarge-technique	original:sclang-verify original:scdischarge-show
+social.interview	Communicating numerical benefits and harms	original:scrisk-unit original:scrisk-benefit original:scrisk-lower original:scframe-pair original:scframe-real	original:scrisk-fair original:scrisk-translate original:scrisk-personal original:scframe-counsel	original:fip-study-relative original:scgoals-understand original:scframe-website
+social.interpret	Use of a qualified interpreter	original:stepeth-translator original:scinterp-address	original:scinterp-mismatch original:scinterp-simple original:sclang-family	original:fip-consent-interpreter original:scinterp-relative original:sclang-verify
+social.interpret	Communication with a surrogate	original:scsur-definition original:scsur-voice	original:scthird-standard original:scsur-known original:scsur-unknown	original:scthird-instead original:scthird-written original:scthird-unsure original:scsur-role original:scsur-conflict original:scsur-recover
+social.consent	Informed consent and permission for a particular treatment	original:sccons-paper	original:sccons-scope original:sccons-withdraw	original:sccons-fall original:sccons-elective
+social.consent	Disclosure of risks and benefits	original:sccons-options		
+social.consent	Reasonable alternatives and forgoing treatment	original:sccons-options		
+social.consent	Placebos in clinical practice		original:scplacebo-secret	original:scplacebo-agreement
+social.consent	Conflicts of interest in treatment choices	original:screfer-interest	original:screfer-alternate	original:screfer-noneed
+social.consent	Permission and assent for vulnerable patients	original:scassent-assent	original:scassent-fear	original:scassent-delay
+social.capacity	Assessing decision-making capacity	original:stepeth-capacity original:sccap-reason	original:sccap-aid original:sccap-unpopular	original:fip-consent-scope original:sccap-record
+social.capacity	Informed refusal	original:stepeth-refusal	original:sccap-unpopular	original:fip-consent-refuse original:scsur-recover
+social.involuntary	Involuntary admission and least restrictive safe care	original:schold-test	original:schold-urgent original:schold-safe	original:schold-reeval
+social.abuse	Child abuse recognition and protective services		original:scchild-report	original:scchild-bone
+social.abuse	Foster care and authority for immunizations		original:scfoster-vaccine original:scfoster-operation	original:scfoster-unknown
+social.abuse	Elder abuse and neglect		original:scabuse-older	
+social.abuse	Intimate partner violence	original:scabuse-privacy	original:scabuse-adult	
+social.abuse	Reporting abuse or neglect		original:scchild-report original:scabuse-older	original:scabuse-honest
+social.abuse	Duty to warn or protect		original:scwarn-who	original:scwarn-duty
+social.birth	Birth-related treatment decisions	original:scbirth-preg	original:scbirth-decline	original:scbirth-family original:scbirth-update
+social.birth	Decisions for a seriously ill newborn	original:scnew-infant	original:scnew-uncertain	original:scnew-discord
+social.palliative	Withholding or withdrawing life support	original:scpall-same	original:scpall-trial	original:scpall-milestone
+social.palliative	Advance directives and advance care planning	original:scdirective-proxy	original:scdirective-notnow	original:scdirective-revoke original:scdirective-portable
+social.palliative	Health care proxy	original:scdirective-proxy	original:scsur-known	original:scsur-role
+social.palliative	Death by neurologic criteria	original:scbrain-coma	original:scbrain-sed	original:scbrain-talk
+social.palliative	Diagnosis and pronouncement of death			
+social.palliative	Organ donation	original:scdonor-indep	original:scdonor-roles	original:scdonor-provide
+social.palliative	Hospice		original:schosp-months	original:schosp-long original:schosp-other
+social.palliative	End-of-life pain management and symptom relief		original:scpall-pain original:scsed-refractory	
+social.palliative	Information sharing and counseling of families		original:scpall-pain	original:scbrain-talk
+social.palliative	Psychosocial and spiritual care for fear or loneliness	original:s1-comm-listen-support		original:scsed-alone
+social.relationship	Professional boundaries	original:scbound-current	original:scbound-response	original:scbound-former
+social.relationship	Confidentiality and privacy including HIPAA	original:scfamily-limit	original:scfamily-permitted original:scfamily-object	original:scfamily-unable original:scfamily-listen
+social.relationship	Truth telling and information preferences	original:s1-comm-info-family original:s1-comm-info-delegate original:s1-comm-info-pace		
+social.relationship	Autonomy	original:stepeth-refusal	original:sccap-unpopular	original:fip-consent-refuse
+social.relationship	Justice	original:scjustice-principle	original:scjustice-donor	original:scjustice-tie
+social.relationship	Beneficence and nonmaleficence			
+social.impairment	Recognizing and responding to physician impairment	original:scimp-ability	original:scimp-imminent original:scimp-stable	original:scimp-return
+social.impairment	Duty to report a physician whose impairment endangers patients			original:scimp-report
+social.negligence	Professional negligence or malpractice	original:scneg-care	original:scneg-outcome	original:scneg-causation
+social.negligence	Reporting negligence under applicable requirements			
+social.conduct	Professional misconduct and the duty to report	original:scconduct-scope	original:scconduct-falsify	original:scconduct-persists
+social.referral	Referral ethics and financial interests	original:screfer-interest	original:screfer-alternate	original:screfer-noneed
+social.culture	Individual cultural beliefs and preferences	original:scculture-ask	original:scculture-fast original:scculture-declines	original:scculture-team
+social.systems	How system complexity permits error	original:scsystem-terms original:scsystem-storage original:scsystem-act	original:scsystem-repeat	original:scsystem-layer
+social.systems	Safety culture and organizational behavior			original:screports-fall original:scsbar-dismissed
+social.systems	Work environment and process design	original:scsystem-storage	original:scsystem-repeat	original:scdesign-test
+social.systems	Staffing, fatigue and scheduling			
+social.systems	Standardization and simplification		original:scdesign-connector	
+social.systems	Measuring system performance		original:scmeasure-denom	original:scmeasure-elig
+social.systems	Integration of care across settings			original:schandoff-outpatient original:screcon-hold
+social.systems	Overuse of imaging, medication or other resources			original:screfer-noneed
+social.systems	Economic factors affecting care			original:scteach-barrier original:sccost-network
+social.quality	Variation in care and standardization	original:sccontrol-limit	original:sccontrol-inside	original:sccontrol-routine
+social.quality	Checklists, guidelines and clinical pathways		original:scsite-side	
+social.quality	Reliability of processes			
+social.quality	Model for improvement and PDSA	original:scpdsa-prediction	original:scpdsa-study	original:scpdsa-adapt
+social.quality	Structure measures	original:scmeasure-input		
+social.quality	Process measures	original:scmeasure-process		original:scinfection-central
+social.quality	Outcome measures		original:scmeasure-outcome	
+social.quality	Balancing measures			original:scmeasure-balance original:scmeasure-delay original:scmeasure-flat
+social.quality	Run charts	original:scrun-median original:scrun-series	original:scrun-rule original:scrun-cross	original:scrun-why
+social.quality	Control charts	original:sccontrol-limit	original:sccontrol-outside original:sccontrol-inside	original:sccontrol-invest original:sccontrol-routine
+social.quality	Developing and applying system and individual measures		original:scmeasure-denom	original:scmeasure-elig
+social.quality	Core measures and physician quality reporting			
+social.quality	Event reporting systems for quality measurement		original:screports-incidence	original:screports-rise
+social.quality	Leadership and change management			original:scpdsa-adapt
+social.quality	High-value and cost-conscious care			original:screfer-noneed
+social.quality	Equitable care and access	original:scequity-stratify	original:scequity-harm	original:scequity-act
+social.quality	Patient-centered care	original:s1-comm-choice-priority	original:ckcomm-values	
+social.quality	Timely care			original:scmeasure-delay
+social.safety	Epidemiology and measurement of medical error		original:screports-incidence	original:screports-rise
+social.safety	Active failures and latent hazards	original:scsystem-terms original:scsystem-storage original:scsystem-act	original:scsystem-repeat	original:scsystem-layer
+social.safety	Multiple defenses and the Swiss cheese model			original:scsystem-layer
+social.safety	Preventable and nonpreventable adverse events	original:scnear-harm original:scnear-injury	original:scnear-allergy	
+social.safety	Near misses and safety hazards	original:scnear-intercept		original:fip-safety-near original:scnear-examine
+social.safety	Patient understanding of medicines and health literacy		original:scteach-repeat	original:sclang-verify
+social.safety	Patient cost and social barriers			original:scteach-barrier
+social.safety	Patient beliefs and missed appointments			
+social.safety	Clinician knowledge and judgment errors			
+social.safety	Fatigue or sleep deprivation			
+social.safety	Cognitive bias including anchoring and availability	original:scbias-anchor	original:scbias-discord original:scbias-recent	original:scbias-reopen
+social.safety	Framing bias	original:scframe-pair original:scframe-real	original:scframe-counsel	original:scframe-website
+social.safety	Human factors and environmental design	original:scdesign-forcing original:scsystem-storage	original:scdesign-connector	
+social.safety	High reliability organization principles			
+social.safety	Event reporting and monitoring		original:screports-incidence	original:screports-rise original:screports-fall
+social.safety	Communication after adverse events and disclosure	original:scdisclose-truth	original:scdisclose-uncertain	original:scdisclose-follow
+social.safety	Shift, transfer and discharge handoff errors	original:schandoff-contingency	original:schandoff-read	original:schandoff-receiver original:schandoff-outpatient
+social.safety	Medication ordering and transcription errors		original:scid-orders	original:scsystem-layer
+social.safety	Dispensing errors			
+social.safety	Medication administration errors including route and quantity	original:scdevice-rate original:scdevice-strength	original:scdesign-connector	
+social.safety	Medication reconciliation	original:screcon-history	original:screcon-lists	original:screcon-hold original:screcon-duplicate
+social.safety	Medication calculation errors	original:scdevice-units original:scdevice-rate original:scdevice-strength		
+social.safety	Universal protocol, time-out and wrong site or procedure	original:scsite-when	original:scsite-side	original:scsite-junior
+social.safety	Retained foreign body			
+social.safety	Procedure-related organ injury			
+social.safety	Anesthesia-related error			
+social.safety	Health care-associated infection prevention	original:scinfection-gloves	original:scinfection-catheter	original:scinfection-central
+social.safety	Surgical site infection			
+social.safety	Ventilator-associated pneumonia			
+social.safety	Central line-associated bloodstream infection		original:scmeasure-denom	original:scinfection-central
+social.safety	Catheter-associated urinary tract infection		original:scinfection-catheter	
+social.safety	Hand hygiene	original:scinfection-gloves		
+social.safety	Documentation and electronic record errors		original:scconduct-falsify	
+social.safety	Copy-forward, voice recognition and incorrect dates			
+social.safety	Patient identification and specimen mislabeling	original:scid-location	original:scid-collection	original:scid-label
+social.safety	Two patient identifiers and verbal result verification	original:scid-location	original:scnear-point original:scid-orders original:scid-collection	original:fip-safety-loop
+social.safety	Diagnostic study errors and misinterpretation		original:scbias-discord	
+social.safety	Telemetry or drug monitoring errors	original:sctele-gap	original:sctele-signal original:sctele-routed	original:sctele-noise
+social.safety	Device malfunction, programming and incorrect use	original:scdevice-rate original:scdevice-strength	original:scdevice-independent	original:scdevice-pump
+social.safety	Situational awareness			
+social.safety	Forcing functions and visual cues	original:scdesign-forcing	original:scdesign-connector	original:scdesign-alert original:scdesign-test
+social.safety	Near-miss and retrospective systems analysis		original:scfmea-after	original:scnear-examine
+social.safety	Failure modes and effects analysis	original:scfmea-before	original:scfmea-basis original:scfmea-pilot original:scfmea-after	original:scfmea-action
+social.safety	Morbidity and mortality review			
+social.safety	Root cause analysis		original:scfmea-after	original:fip-safety-reason
+social.safety	Speaking up and psychological safety			original:scsite-junior original:scsbar-dismissed
+social.safety	Closed-loop communication			original:fip-safety-loop original:schandoff-receiver
+social.safety	Teamwork and communication across professions	original:scsbar-rec	original:scsbar-urgency	original:scsbar-dismissed
+social.safety	Case management and communication between teams			original:schandoff-outpatient
+social.policy	Disparities in access and outcomes	original:scequity-stratify original:scequity-gap original:scequity-smaller	original:scequity-harm original:scequity-compare	original:scequity-rate original:scequity-act original:scequity-next
+social.policy	Race and ethnicity			
+social.policy	Numeracy and literacy as access barriers			
+social.policy	Socioeconomic status and barriers to care			original:scteach-barrier original:sccost-network
+social.policy	Gender and sexual diversity or identity			
+social.policy	Immigration status			
+social.policy	English proficiency and language access	original:sclang-language	original:sclang-family original:scequity-harm	original:sclang-verify
+social.policy	Incarcerated populations			
+social.policy	Disability and effective communication		original:scinterp-mismatch	original:scinterp-access
+social.policy	Rural access and critical access hospitals		original:scrural-local	original:scrural-delay
+social.policy	Social justice and allocation	original:scjustice-principle	original:scjustice-donor	original:scjustice-tie
+social.finance	Medicare and Medicaid	original:scins-difference	original:scins-dual	original:scins-verify
+social.finance	Private insurance and self-pay			
+social.finance	Deductibles, copayments and coinsurance	original:sccost-ded	original:sccost-basis original:sccost-co original:sccost-fixed	original:sccost-near
+social.finance	Out-of-network, in-network and preferred provider costs			original:sccost-network original:sccost-cap
+social.finance	Emergency services and EMTALA	original:scemtala-purpose	original:scemtala-pay original:scemtala-positive	original:scemtala-transfer original:scemtala-screenneg
+social.finance	Pay for performance		original:scpay-payment	original:scpay-case

@@ -374,6 +374,68 @@ def hematology():
         save(fig, "he_lab_" + code)
 
 
+def quality_and_communication():
+    # Each panel describes a separate cohort of 100 over the same year.
+    for code, counts in {"a": (12, 6), "b": (4, 2)}.items():
+        fig, panels = plt.subplots(1, 2, figsize=(5.3, 3.2))
+        for ax, count, title in zip(panels, counts, ["Usual care", "New option"]):
+            for index in range(100):
+                event = index < count
+                ax.scatter(index%10, 9-index//10, s=34, marker="s" if event else "o",
+                           facecolors=COLORS[0] if event else "white", edgecolors=COLORS[0], linewidths=.8)
+            ax.set(aspect="equal", title=title, xlim=(-.6,9.6), ylim=(-.6,9.6))
+            ax.axis("off")
+        fig.subplots_adjust(top=.85, bottom=.19, wspace=.12)
+        fig.text(.5,.06,"Each symbol = 1 person   •   Filled square = event within 1 year",ha="center",fontsize=9)
+        save(fig, "soc_risk_" + code)
+
+    base = [46,54,48,53,45,51,47,55,49,52]
+    for code, follow in {"a":[42,44,41,43,40,42,39], "b":[47,55,43,52,46,54,49]}.items():
+        fig, ax = axes("Week", "Median time to result (minutes)")
+        ax.plot(range(1,18), base+follow, "o-", color=COLORS[0], lw=1.7)
+        ax.axhline(np.median(base), color="black", ls="--", label="Baseline median")
+        ax.axvline(10.5, color=COLORS[1], ls=":", label="Pilot begins")
+        ax.set(ylim=(32,67), xticks=[1,4,7,10,13,16]); ax.legend(loc="upper left",fontsize=8)
+        save(fig, "soc_run_" + code)
+
+    for code, delay in {"a":[16,16,17,16,16,28,35,37],
+                        "b":[16,16,17,16,16,17,15,16]}.items():
+        fig, panels = plt.subplots(2,1,figsize=(5.5,3.8),sharex=True,layout="constrained")
+        for ax, values, label, bounds in zip(panels, [[8,9,7,8,8,4,3,2],delay],
+            ["Errors per\n1,000 orders","Time to urgent\ndose (minutes)"],[(0,11),(0,43)]):
+            ax.plot(range(1,9), values, "o-", color=COLORS[0], lw=1.8)
+            ax.axvline(5.5,color=COLORS[1],ls=":"); ax.set(ylabel=label,ylim=bounds);ax.grid(alpha=.16)
+        panels[0].set_title("Order verification pilot starts after week 5")
+        panels[1].set(xlabel="Week",xticks=range(1,9))
+        save(fig,"soc_balance_" + code)
+
+    # p-chart expressed per 1,000 opportunities. The historical reference
+    # probability is fixed at 0.02, with 1,000 observations in every subgroup.
+    margin = 3*1000*np.sqrt(.02*.98/1000)
+    for code, last in [("a", 38), ("b", 27)]:
+        counts = [18,22,17,21,24,16,23,last]
+        fig, ax = axes("Week", "Errors per 1,000 opportunities")
+        ax.plot(range(1,9), counts, "o-", color=COLORS[0])
+        ax.axhline(20,color="#555",ls=":",label="Historical mean")
+        ax.axhline(20+margin,color=COLORS[1],ls="--",label="3-sigma limits")
+        ax.axhline(20-margin,color=COLORS[1],ls="--")
+        ax.set(ylim=(0,54),xticks=range(1,9),title="1,000 observations each week")
+        ax.legend(loc="upper left",fontsize=8)
+        save(fig,"soc_control_" + code)
+
+    cases = {"a": ([60, 75], [60, 45]), "b": ([60, 75], [60, 72])}
+    for code, (group_a, group_b) in cases.items():
+        fig, ax = axes("", "Completed follow-up within 14 days (%)")
+        for values, name, marker, style, color in zip([group_a,group_b],["No interpreter requested","Interpreter requested"],
+                ["o","s"],["-","--"],COLORS):
+            ax.plot([0,1], values, marker=marker, ls=style, color=color, label=name, lw=2)
+            ax.annotate(str(values[1])+"%",(1,values[1]),xytext=(7,0),textcoords="offset points",va="center")
+        ax.text(-.06,60,"60%",ha="right",va="center")
+        ax.set(xticks=[0,1],xticklabels=["Before","After"],xlim=(-.25,1.24),ylim=(25,95))
+        ax.legend(loc="lower left",fontsize=8)
+        save(fig,"soc_access_" + code)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -383,6 +445,7 @@ def main():
     special_senses()
     neurologic_monitoring()
     hematology()
+    quality_and_communication()
     plot("refeed", "Hours after starting nutrition", "Serum phosphate (mg/dL)",
          [0,12,24,36,48], {"Patient A": [3.2,2.9,2.4,1.8,1.6],
                             "Patient B": [3.1,3.2,3.0,3.1,3.1]})
