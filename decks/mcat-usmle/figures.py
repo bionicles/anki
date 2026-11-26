@@ -4767,6 +4767,111 @@ def vascular_flow_studies():
         save(fig, "vleg_" + name, indexed=True)
 
 
+def prenatal_visit_studies():
+    """Draw prenatal measurement records, trial results and developmental biology figures."""
+    for name, value, median in (("afpa", 84, 30), ("afpb", 90, 60)):
+        study_table("previsit_" + name, "Singleton AFP screen",
+                    ["Quantity", "AFP (ng/mL)"],
+                    [["Maternal sample", value], ["Gestational reference median", median]])
+    for name, affected, unaffected in (("ppva", 80, 20), ("ppvb", 6, 18)):
+        study_table("previsit_" + name, "Diagnostic follow-up of positive screens",
+                    ["Diagnostic result", "Pregnancies"],
+                    [["Condition present", affected], ["Condition absent", unaffected]])
+    for name, igg in (("bimmune", "Detected"), ("bsus", "Not detected")):
+        study_table("previsit_" + name, "Maternal parvovirus B19 serology",
+                    ["Test", "Serum result"], [["IgG", igg], ["IgM", "Not detected"]])
+    for name, baseline, rise in (("nst30", 135, 12), ("nst36", 145, 13)):
+        fig, ax = axes("Time (seconds)", "Fetal heart rate (beats/min)")
+        times = [0, 5, 8, 11, 14, 17, 20, 25, 28]
+        rates = [baseline, baseline, baseline, baseline+rise*.65,
+                 baseline+rise, baseline+rise*.65, baseline, baseline, baseline]
+        ax.plot(times, rates, color=COLORS[0], lw=2.5)
+        ax.set(xticks=[0, 4, 8, 12, 16, 20, 24, 28],
+               yticks=[baseline, baseline+5, baseline+10, baseline+rise, baseline+20],
+               ylim=(baseline-3, baseline+22), title="Acceleration • simplified measurement")
+        ax.axhline(baseline, color="#555555", ls=":", lw=1)
+        save(fig, "previsit_" + name, indexed=True)
+
+    study_table("previsit_mrc", "Neural tube defect recurrence", ["Group", "Affected", "Known outcomes"],
+                [["With folic acid", "6", "593"], ["Without folic acid", "21", "602"]],
+                source="MRC Vitamin Study")
+    study_table("previsit_gdyield", "Gestational diabetes diagnoses",
+                ["Strategy assigned", "Diagnosed"], [["One step", "16.5%"], ["Two steps", "8.5%"]],
+                source="Hillier et al.")
+    study_table("previsit_gdbirth", "Large-for-gestational-age birth", ["Measure", "One step vs. two steps"],
+                [["Risk ratio", "0.95"], ["97.5% confidence interval", "0.87 to 1.05"]],
+                source="Hillier et al.")
+
+    fig, ax = axes("DNA content per cell", "Number of cells")
+    ax.bar(["2C", "Between 2C and 4C", "4C"], [100, 60, 40], color=COLORS[0])
+    ax.set(ylim=(0, 120), title="DNA content in 200 single cells • simulated")
+    save(fig, "previsit_hist", indexed=True)
+    for name, late_poles, late_chromosomes in (
+            ("spindleA", (-5, 5), (-4, 4)), ("spindleB", (-7, 7), (-4, 4))):
+        fig, ax = axes("Position on spindle axis (µm)", "Observation")
+        for y, poles, chromosomes in ((1, (-5, 5), (-2, 2)),
+                                      (0, late_poles, late_chromosomes)):
+            ax.plot(poles, [y, y], color="#aab8bd", lw=2)
+            ax.scatter(poles, [y, y], marker="o", color=COLORS[0], s=70,
+                       label="Pole" if y else None)
+            ax.scatter(chromosomes, [y, y], marker="X", color=COLORS[1], s=90,
+                       label="Daughter chromosome" if y else None)
+        ax.set(ylim=(-.65, 1.7), xlim=(-8, 8), xticks=range(-8, 9),
+               yticks=[0, 1], yticklabels=["Later", "Earlier"], title="Mitotic spindle • simplified")
+        ax.legend(loc="upper center", ncol=2, fontsize=8)
+        save(fig, "previsit_" + name, indexed=True)
+    study_table("previsit_lineage", "Precursor differentiation assay",
+                ["Readout", "Culture A", "Culture B"], [["Myosin (units)", "7", "10"],
+                ["Muscle actin (units)", "8", "1"], ["Stimulated contraction", "Present", "Absent"]])
+    fig, ax = axes("Position along tissue (arbitrary units)", "Local cell–landmark pair")
+    for y, start, end, marker in [(3, 1, 4, "o"), (2.65, 2, 5, "D"),
+                                  (1.65, 1, 7, "o"), (1.3, 2, 4, "D")]:
+        ax.annotate("", xy=(end, y), xytext=(start, y),
+                    arrowprops=dict(arrowstyle="->", color=COLORS[0], lw=1.8))
+        ax.scatter(start, y, marker=marker, facecolors="white", edgecolors=COLORS[0], s=50)
+        ax.scatter(end, y, marker=marker, color=COLORS[0], s=50)
+    ax.set(xlim=(0, 8), ylim=(.8, 3.5), yticks=[3, 2.65, 1.65, 1.3],
+           yticklabels=["Cell A", "Landmark A", "Cell B", "Landmark B"],
+           title="Cell and landmark positions")
+    save(fig, "previsit_migration", indexed=True)
+
+    for name, closed in (("foldclosed", True), ("foldopen", False)):
+        fig, ax = plt.subplots(figsize=(4.5, 2.5), layout="constrained")
+        if closed:
+            ax.plot([-3, 3], [0.75, 0.75], color=COLORS[0], lw=4)
+            theta = np.linspace(0, 2*np.pi, 180)
+            ax.plot(.57*np.cos(theta), .56*np.sin(theta), color=COLORS[1], lw=5)
+        else:
+            for sign in (-1, 1):
+                ax.plot([3*sign, 1.5*sign, .72*sign, .47*sign],
+                        [.55, .55, .68, .91], color=COLORS[0], lw=4)
+                ax.plot([.47*sign, .49*sign, .48*sign, .34*sign, 0],
+                        [.91, .45, -.1, -.4, -.51], color=COLORS[1], lw=5)
+        ax.set(xlim=(-3.1, 3.1), ylim=(-1.2, 1.5), aspect="equal",
+               title="Transverse section • dorsal side above")
+        ax.axis("off")
+        ax.plot([], [], color=COLORS[0], lw=4, label="Surface ectoderm")
+        ax.plot([], [], color=COLORS[1], lw=4, label="Neuroectoderm")
+        ax.legend(loc="lower center", bbox_to_anchor=(.5, -.18), ncol=2, fontsize=8)
+        save(fig, "previsit_" + name, indexed=True)
+
+    for name, centers in (("aligned", (0, 0, 0)), ("aligning", (-.8, .9, 0))):
+        fig, ax = plt.subplots(figsize=(4.5, 2.5), layout="constrained")
+        theta = np.linspace(0, 2*np.pi, 160)
+        ax.plot(2.65*np.cos(theta), 1.3*np.sin(theta), color="#737373", lw=1)
+        ax.plot([0, 0], [-1.23, 1.23], color="#737373", ls=":", lw=1.3)
+        ax.scatter([-2.1, 2.1], [0, 0], s=80, color=COLORS[0], marker="*", label="Spindle pole")
+        for x, y in zip(centers, [-.7, 0, .7]):
+            for sign in (-1, 1):
+                ax.plot([x-.16, x+.16], [y+sign*.23, y-sign*.23], color=COLORS[1], lw=3)
+        ax.set(xlim=(-2.85, 2.85), ylim=(-1.55, 1.55), aspect="equal",
+               title="Positions of replicated chromosomes")
+        ax.axis("off")
+        ax.plot([], [], color="#737373", ls=":", label="Equatorial plane")
+        ax.legend(loc="lower center", bbox_to_anchor=(.5, -.23), ncol=2, fontsize=8)
+        save(fig, "previsit_" + name, indexed=True)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -4860,6 +4965,7 @@ def main():
     cerebrovascular_studies()
     obstetric_complication_studies()
     vascular_flow_studies()
+    prenatal_visit_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
