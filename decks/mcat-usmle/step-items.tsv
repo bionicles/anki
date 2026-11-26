@@ -1974,22 +1974,22 @@ multi.tumor	Cancer-associated inflammatory myopathy	original:mgen-myo-1	original
 multi.tumor	Cancer-associated membranous nephropathy	original:mgen-mn-1	original:mgen-mn-2	original:mgen-mn-3
 multi.tumor	Fanconi anemia and inherited DNA repair defects	original:mgen-fa-1	original:mgen-fa-2	original:mgen-fa-3 original:mgen-fa-3-a original:mgen-fa-3-c
 multi.tumor	Lynch syndrome	original:gut-gene-repair original:mgen-lyn-1-b original:mgen-lyn-1-c	original:gut-gene-lynch original:mgen-lyn-2-a original:mgen-lyn-2-b original:mgen-lyn-2-c	original:gut-gene-distinguish original:mgen-lyn-3-b original:mgen-lyn-3-c
-multi.symptom	Undifferentiated joint pain			
-multi.symptom	Undifferentiated chest pain			
-multi.symptom	Undifferentiated cough			
-multi.symptom	Dizziness and light-headedness			
-multi.symptom	Undifferentiated dyspnea			
-multi.symptom	Fatigue			
-multi.symptom	Fever of unknown origin			
-multi.symptom	Frailty			
-multi.symptom	Failure to thrive			
-multi.symptom	Hemoptysis			
-multi.symptom	Lymphedema			
-multi.symptom	Pain treatment and safe opioid prescribing			
-multi.symptom	Palpitations			
-multi.symptom	Pruritus			
-multi.symptom	Syncope and breath-holding spells			
-multi.symptom	Unintentional weight gain or loss		original:nut-weight-measure original:nut-weight-cause	original:nut-weight-percent original:nut-weight-fluid
+multi.symptom	Undifferentiated joint pain	original:msk-joint-fluid-loc original:msk-joint-specific original:msk-joint-organism	original:msk-joint-why original:msk-joint-lab original:sympt-joint-2-rule original:sympt-joint-2-case original:sympt-joint-2-other	original:msk-joint-f original:ccs-joint-aspirate original:ccs-joint-unstable
+multi.symptom	Undifferentiated chest pain	original:mi-define-principle original:sympt-chest-1-case original:sympt-chest-1-other	original:mi-define-myocarditis original:mi-define-ischemia original:ckacs-troponin original:ckacs-trend original:sympt-chest-2-rule	original:sympt-chest-3-rule original:sympt-chest-3-case original:sympt-chest-3-other
+multi.symptom	Undifferentiated cough	original:sympt-cough-1-rule original:sympt-cough-1-case original:sympt-cough-1-other	original:sympt-cough-2-rule original:sympt-cough-2-case original:sympt-cough-2-other	original:sympt-cough-3-rule original:sympt-cough-3-case original:sympt-cough-3-other
+multi.symptom	Dizziness and light-headedness	original:sympt-diz-1-rule original:sympt-diz-1-case original:sympt-diz-1-other	original:ndiz-elig original:ndiz-episodic original:ndiz-gait original:ndiz-skew	original:ndiz-reposition original:ndiz-equiv original:ndiz-changed original:sympt-diz-3-rule
+multi.symptom	Undifferentiated dyspnea	original:sympt-dysp-1-rule original:sympt-dysp-1-case original:sympt-dysp-1-other	original:sympt-dysp-2-rule original:sympt-dysp-2-case original:sympt-dysp-2-other	original:sympt-dysp-3-rule original:sympt-dysp-3-case original:sympt-dysp-3-other
+multi.symptom	Fatigue	original:sympt-fat-1-rule original:sympt-fat-1-case original:sympt-fat-1-other	original:sympt-fat-2-rule original:sympt-fat-2-case original:sympt-fat-2-other original:sympt-fat-2-rule-extra original:sympt-fat-2-case-extra original:sympt-fat-2-other-extra	original:sympt-fat-3-rule original:sympt-fat-3-case original:sympt-fat-3-other
+multi.symptom	Fever of unknown origin	original:sympt-fuo-1-rule original:sympt-fuo-1-case original:sympt-fuo-1-other	original:msk-disc-mri original:sympt-fuo-2-rule original:sympt-fuo-2-case original:sympt-fuo-2-rule-extra original:sympt-fuo-2-case-extra original:sympt-fuo-2-other	original:sympt-fuo-3-rule original:sympt-fuo-3-case original:sympt-fuo-3-other
+multi.symptom	Frailty	original:sympt-frail-1-rule original:sympt-frail-1-case original:sympt-frail-1-other	original:sympt-frail-2-rule original:sympt-frail-2-case original:sympt-frail-2-other	original:sympt-frail-3-rule original:sympt-frail-3-case original:sympt-frail-3-other
+multi.symptom	Failure to thrive	original:prevcare-weight-1 original:sympt-grow-1-rule original:sympt-grow-1-case original:sympt-grow-1-other	original:prevcare-weight-2 original:sympt-grow-2-rule original:sympt-grow-2-other	original:prevcare-weight-3 original:sympt-grow-3-case original:sympt-grow-3-other
+multi.symptom	Hemoptysis	original:sympt-hem-1-rule original:sympt-hem-1-case original:sympt-hem-1-other	original:sympt-hem-2-rule original:sympt-hem-2-case original:sympt-hem-2-other	original:acm-prev-symptoms original:sympt-hem-3-rule original:sympt-hem-3-case original:sympt-hem-3-other original:sympt-hem-3-rule-extra original:sympt-hem-3-case-extra original:sympt-hem-3-other-extra
+multi.symptom	Lymphedema	original:sympt-lym-1-rule original:sympt-lym-1-case original:sympt-lym-1-other original:sympt-lym-1-rule-extra original:sympt-lym-1-case-extra original:sympt-lym-1-other-extra	original:sympt-lym-2-rule original:sympt-lym-2-case original:sympt-lym-2-other	original:sympt-lym-3-rule original:sympt-lym-3-case original:sympt-lym-3-other
+multi.symptom	Pain treatment and safe opioid prescribing	original:sympt-pain-1-rule original:sympt-pain-1-case original:sympt-pain-1-other	original:sympt-pain-2-rule original:sympt-pain-2-case original:sympt-pain-2-other	original:sympt-pain-3-rule original:sympt-pain-3-case original:sympt-pain-3-other original:sympt-pain-3-rule-extra original:sympt-pain-3-case-extra original:sympt-pain-3-other-extra
+multi.symptom	Palpitations	original:sympt-palp-1-rule original:sympt-palp-1-case original:sympt-palp-1-other	original:bh-eattx-electrical original:sympt-palp-2-rule original:sympt-palp-2-case original:sympt-palp-2-other	original:sympt-palp-3-rule original:sympt-palp-3-case original:sympt-palp-3-other original:sympt-palp-3-rule-extra original:sympt-palp-3-case-extra original:sympt-palp-3-other-extra
+multi.symptom	Pruritus	original:sympt-itch-1-rule original:sympt-itch-1-case original:sympt-itch-1-other	original:sympt-itch-2-rule original:sympt-itch-2-case original:sympt-itch-2-other	original:sympt-itch-3-rule original:sympt-itch-3-case original:sympt-itch-3-other
+multi.symptom	Syncope and breath-holding spells	original:sympt-syn-1-rule original:sympt-syn-1-case original:sympt-syn-1-other	original:cv-as-confirm original:sympt-syn-2-rule original:sympt-syn-2-case original:sympt-syn-2-other	original:cv-as-refer original:sympt-syn-3-rule original:sympt-syn-3-case original:sympt-syn-3-other
+multi.symptom	Unintentional weight gain or loss	original:sympt-weight-1-rule original:sympt-weight-1-case original:sympt-weight-1-other	original:nut-weight-measure original:nut-weight-cause original:prevcare-aweight-2 original:prevcare-owt-2 original:sympt-weight-2-rule original:sympt-weight-2-case	original:nut-weight-percent original:nut-weight-fluid original:prevcare-aweight-3 original:prevcare-owt-3 original:sympt-weight-3-case
 multi.nutrition	Kwashiorkor	original:nutri-kwash-1-rule original:nutri-kwash-1-case original:nutri-kwash-1-other	original:nutri-kwash-2-rule original:nutri-kwash-2-case original:nutri-kwash-2-other original:nutri-kwash-2-rule-extra original:nutri-kwash-2-case-extra original:nutri-kwash-2-other-extra	original:nutri-kwash-3-rule original:nutri-kwash-3-case original:nutri-kwash-3-other
 multi.nutrition	Marasmus	original:nutri-mar-1-rule original:nutri-mar-1-case original:nutri-mar-1-other	original:nutri-mar-2-rule original:nutri-mar-2-case original:nutri-mar-2-other	original:nutri-mar-3-rule original:nutri-mar-3-case original:nutri-mar-3-other
 multi.nutrition	Vitamin A disorders	original:nutri-vita-1-rule original:nutri-vita-1-case original:nutri-vita-1-other	original:well-preg-retinol original:nutri-vita-2-rule original:nutri-vita-2-case original:nutri-vita-2-other	original:nutri-vita-3-rule original:nutri-vita-3-case original:nutri-vita-3-other

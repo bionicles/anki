@@ -1793,6 +1793,91 @@ def clinical_nutrition_studies():
                [.10, .21, .25, .44])
 
 
+def multisystem_symptom_studies():
+    """Render fictional cases for the interpretation of multisystem symptoms."""
+    def table(name, title, columns, rows, widths):
+        fig, ax = plt.subplots(figsize=(5.95, 2.75), layout="constrained")
+        ax.axis("off")
+        ax.set_title(title + "  •  simulated", fontsize=12)
+        grid = ax.table(cellText=rows, colLabels=columns, colWidths=widths,
+                        cellLoc="left", colLoc="left", bbox=[0, .04, 1, .82])
+        grid.auto_set_font_size(False)
+        grid.set_fontsize(9.8)
+        for col in range(len(columns)):
+            grid[0, col].set_facecolor("#dcecf2")
+        save(fig, "sympt_" + name)
+
+    for name, values in [("rise", [13, 90, 59]), ("flat", [33, 34, 33])]:
+        fig, ax = axes("Hours from first sample", "hs-troponin I (ng/L)")
+        ax.plot([0, 2, 6], values, "o-", lw=2, color=COLORS[0])
+        ax.axhline(20, ls="--", color="#6d3942", label="Assay upper reference limit")
+        for x, y in zip([0, 2, 6], values):
+            ax.annotate(str(y), (x, y), xytext=(0, 6), textcoords="offset points", ha="center")
+        ax.set(title="Serial troponin  •  simulated", xticks=[0, 2, 6], ylim=(0, 110))
+        ax.legend(loc="upper right", fontsize=8)
+        save(fig, "sympt_trop_" + name)
+
+    for name, hb, sat in [("anemia", "6.5", "98"), ("hypox", "14.2", "82")]:
+        table("oxy_" + name, "Breathlessness assessment at sea level", ["Measure", "Result", "Local interval"],
+              [["Hemoglobin (g/dL)", hb, "12–16"], ["SpO₂ on room air (%)", sat, "95–100"]], [.53, .19, .28])
+    for name, ph, co2, oxygen in [("good", "7.36", 46, 95), ("bad", "7.19", 79, 95)]:
+        table("vent_" + name, "Gas exchange on supplemental oxygen", ["Measure", "Arrival", "1 hour"],
+              [["Arterial pH", "7.27", ph], ["PaCO₂ (mm Hg)", 62, co2],
+               ["SpO₂ (%)", 90, oxygen]], [.54, .23, .23])
+    for name, temps in [("doc", [38.6, 37.2, 38.8, 38.5, 37.1, 38.7]),
+                        ("none", [36.9, 37.2, 37.0, 37.3, 36.8, 37.1])]:
+        fig, ax = axes("Day of illness", "Oral temperature (°C)")
+        days = [1, 5, 9, 15, 21, 28]
+        ax.scatter(days, temps, s=45, color=COLORS[0])
+        ax.set(title="Documented temperature readings  •  simulated", xticks=days, ylim=(36.5, 39.2))
+        save(fig, "sympt_feb_" + name)
+    for name, prior in [("ind", ["Independent", "Independent", "Independent"]),
+                        ("dep", ["Needs help", "Needs help", "Needs help"])]:
+        table("frail_" + name, "Function around an acute admission",
+              ["Task", "Usual, 2 weeks prior", "Today"],
+              [[task, before, "Needs help"] for task, before in zip(["Dressing", "Transfers", "Shopping"], prior)],
+              [.25, .43, .32])
+    for name, values in [("track", [-1.5, -1.55, -1.48, -1.5]),
+                         ("fall", [-.15, -.45, -1.0, -1.65])]:
+        fig, ax = axes("Age (months)", "Weight-for-age z score")
+        ax.plot([3, 4, 5, 6], values, "o-", color=COLORS[0], lw=2)
+        ax.axhline(0, color="#66717b", ls=":", label="Reference median")
+        ax.set(title="Term infant, serial measurements  •  simulated",
+               xticks=[3, 4, 5, 6], yticks=[-2, -1.5, -1, -.5, 0], ylim=(-2.2, .45))
+        ax.legend(loc="lower left", fontsize=8)
+        save(fig, "sympt_grow_" + name)
+    for name, start, stop in [("match", 8, 13), ("apart", 18, 23)]:
+        fig, ax = plt.subplots(figsize=(5.8, 2.75), layout="constrained")
+        ax.broken_barh([(start, stop-start)], (1.6, .5), facecolors=COLORS[0])
+        ax.plot(10, 1, "D", color=COLORS[1], ms=9)
+        ax.axvline(10, color=COLORS[1], lw=1, ls=":")
+        ax.set(xlim=(0, 30), ylim=(.6, 2.55), xlabel="Minutes from start of recording",
+               yticks=[1, 1.85], yticklabels=["Symptom mark", "Tachycardia"],
+               title="Ambulatory ECG event log  •  simulated")
+        ax.set_xticks(range(0, 31, 5))
+        ax.text(29.8, 2.25, "Sinus rhythm outside the shaded interval", ha="right", fontsize=8)
+        save(fig, "sympt_palp_" + name)
+    for name, start in [("60", 60), ("120", 120)]:
+        table("wt_" + name, "Comparable clinic weights", ["Visit", "Weight"],
+              [["Month 0", f"{start} kg"], ["Month 4", f"{start - 6} kg"]], [.55, .45])
+    for name, sat, rr, air in [("ok", "97%", "18", "Clears secretions"),
+                               ("bad", "84%", "34", "Cannot clear blood")]:
+        table("hem_" + name, "Observations during hemoptysis",
+              ["Finding", "Arrival", "20 min later"],
+              [["SpO₂ on same O₂", "96%", sat], ["Respiratory rate/min", "20", rr],
+               ["Airway", "Clears secretions", air]], [.35, .30, .35])
+    for name, last in [("more", 32), ("same", 29)]:
+        table("limb_" + name, "Upper arm circumference at fixed landmark",
+              ["Visit", "Affected arm", "Opposite arm"],
+              [["Baseline", "28 cm", "27 cm"], ["6 weeks", f"{last} cm", "28 cm"]], [.34, .33, .33])
+    for name, scores in [("short", [2, 5, 2, 2, 2]), ("late", [2, 3, 4, 8, 6])]:
+        fig, ax = axes("Time relative to usual activity", "Fatigue severity (0–10)")
+        ax.plot(range(5), scores, "o-", color=COLORS[0], lw=2)
+        ax.set(title="Activity and symptom diary  •  simulated", ylim=(0, 10),
+               xticks=range(5), xticklabels=["Before", "After", "Evening", "Day +1", "Day +2"])
+        save(fig, "sympt_fat_" + name)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -1814,6 +1899,7 @@ def main():
     multisystem_physiology()
     multisystem_genetic_studies()
     clinical_nutrition_studies()
+    multisystem_symptom_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
