@@ -4119,6 +4119,42 @@ def gi_monitoring_records():
                 source="no emesis")
 
 
+def liver_contrast_record():
+    phases = ["Precontrast", "Arterial", "Portal venous", "Delayed"]
+    fig, ax = axes("Contrast phase", "Attenuation (HU)")
+    for values, name, style, color in [([49, 131, 85, 67], "Nodule", "o-", COLORS[0]),
+                                       ([55, 75, 110, 94], "Liver", "s--", COLORS[1])]:
+        ax.plot(phases, values, style, color=color, lw=2, label=name)
+    ax.set(ylim=(35, 150), title="Multiphasic CT • simulated")
+    ax.legend()
+    save(fig, "gionc_contrast", indexed=True)
+
+
+def ovarian_cycle_record():
+    days = [8, 11, 14, 17, 20, 23, 26]
+    fig, ax = axes("Cycle day sampled", "Relative concentration")
+    for series, name, style, color in [([1, 2, 9, 2, 1, 1, 1], "LH", "o-", COLORS[0]),
+                                       ([1, 1, 1.5, 4, 8, 6, 2], "Progesterone", "s--", COLORS[1])]:
+        ax.plot(days, series, style, lw=2, color=color, label=name)
+    ax.set(xticks=days, ylim=(0, 11), title="Ovarian cycle • simulated samples")
+    ax.legend()
+    save(fig, "organread_cycle", indexed=True)
+
+
+def gastrointestinal_trial_outcomes():
+    for name, title, group_names, values, label, upper in [
+        ("flot", "FLOT4 • resectable gastric or junctional cancer",
+         ["Perioperative FLOT", "Perioperative ECF/ECX"], [50, 35], "Median overall survival (months)", 62),
+        ("cross", "CROSS • resectable esophageal or junctional cancer",
+         ["Chemoradiation + surgery", "Surgery alone"], [92, 69], "Margin-negative resections (%)", 107),
+    ]:
+        fig, ax = axes("", label)
+        bars = ax.bar(group_names, values, color=COLORS, width=.55)
+        ax.bar_label(bars, padding=3)
+        ax.set(ylim=(0, upper), title=title)
+        save(fig, "gitrial_" + name, indexed=True)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -4191,6 +4227,9 @@ def main():
     gi_liver_studies()
     gi_localization_and_trial()
     gi_monitoring_records()
+    liver_contrast_record()
+    ovarian_cycle_record()
+    gastrointestinal_trial_outcomes()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()

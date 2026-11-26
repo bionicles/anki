@@ -175,34 +175,34 @@ gi.inf	Crohn disease and granulomatous or regional enteritis	original:gut-ibd-fi
 gi.inf	Microscopic colitis (collagenous and lymphocytic)	original:gutimmune-mic-1-rule original:gutimmune-mic-1-case original:gutimmune-mic-1-transfer	original:gutimmune-mic-2-rule original:gutimmune-mic-2-case original:gutimmune-mic-2-transfer	original:gutimmune-mic-3-rule original:gutimmune-mic-3-case original:gutimmune-mic-3-transfer
 gi.inf	Ulcerative colitis	original:gut-ibd-ulcerative original:gutimmune-uc-1-case original:gutimmune-uc-1-transfer	original:gut-ibd-continuous original:gut-ibdimg-polyps original:gutimmune-uc-2-rule original:gutimmune-uc-2-transfer original:gut-uc-mimic	original:gut-uc-time original:gut-uc-perforation original:gutimmune-uc-3-rule original:gut-uc-initial
 gi.inf	Toxic megacolon	original:gutimmune-toxic-1-rule original:gutimmune-toxic-1-case original:gutimmune-toxic-1-transfer	original:gutimmune-toxic-2-rule original:gutimmune-toxic-2-case original:gutimmune-toxic-2-transfer	original:gutimmune-toxic-3-rule original:gutimmune-toxic-3-case original:gutimmune-toxic-3-transfer
-gi.tumor	Benign gastric polyps and cysts			
-gi.tumor	Benign small intestinal neoplasms and cysts			
-gi.tumor	Colonic, rectal or anal polyps			
-gi.tumor	Oral cavity and salivary gland cancers			
-gi.tumor	Esophageal squamous cell carcinoma			
-gi.tumor	Esophageal adenocarcinoma	original:gut-bar-tumor		
-gi.tumor	Barrett esophagus	original:gut-bar-lining	original:gut-bar-confirm	original:gut-bar-expert
-gi.tumor	Gastrinoma and Zollinger–Ellison syndrome			
-gi.tumor	Gastrointestinal carcinoid			
-gi.tumor	Gastrointestinal stromal tumor			
-gi.tumor	Small intestinal malignancy			
-gi.tumor	Gastric adenocarcinoma		original:phil-stomach-sample	
-gi.tumor	Gastric lymphoma including MALT lymphoma			
-gi.tumor	Colorectal cancer and screening		original:gut-crc-risk original:gut-crc-symptoms	original:gut-crc-pos original:gut-crc-neg
-gi.tumor	Anal cancer			
-gi.tumor	Lynch syndrome	original:gut-gene-repair	original:gut-gene-lynch	original:gut-gene-distinguish original:gut-gene-cascade
-gi.tumor	Familial adenomatous polyposis	original:gut-gene-apc	original:gut-gene-poly	
-gi.tumor	Peutz–Jeghers syndrome	original:gut-gene-pj	original:gut-gene-pigment	
-gi.tumor	Gardner syndrome			
-gi.tumor	Turcot syndrome			
-gi.tumor	MUTYH-associated polyposis	original:gut-gene-mutyh		
-gi.tumor	Gallbladder cancer			
-gi.tumor	Cholangiocarcinoma			
-gi.tumor	Ampullary adenocarcinoma			
-gi.tumor	Hepatocellular carcinoma			
-gi.tumor	Peritoneal cancer or metastatic studding			
-gi.tumor	Pancreatic malignancy			
-gi.tumor	Metastases involving the digestive system			
+gi.tumor	Benign gastric polyps and cysts	original:gimass-gpol-1-rule original:gimass-gpol-1-case original:gimass-gpol-1-transfer	original:gimass-gpol-2-rule original:gimass-gpol-2-case original:gimass-gpol-2-transfer	original:gimass-gpol-3-rule original:gimass-gpol-3-case original:gimass-gpol-3-transfer
+gi.tumor	Benign small intestinal neoplasms and cysts	original:gimass-spol-1-rule original:gimass-spol-1-case original:gimass-spol-1-transfer	original:gimass-spol-2-rule original:gimass-spol-2-case original:gimass-spol-2-transfer	original:gimass-spol-3-rule original:gimass-spol-3-case original:gimass-spol-3-transfer
+gi.tumor	Colonic, rectal or anal polyps	original:gimass-cpol-1-rule original:gimass-cpol-1-case original:gimass-cpol-1-transfer	original:gimass-cpol-2-rule original:gimass-cpol-2-case original:gimass-cpol-2-transfer	original:gimass-cpol-3-rule original:gimass-cpol-3-case original:gimass-cpol-3-transfer
+gi.tumor	Oral cavity and salivary gland cancers	original:gimass-mouthca-1-rule original:gimass-mouthca-1-case original:gimass-mouthca-1-transfer	original:gimass-mouthca-2-rule original:gimass-mouthca-2-case original:gimass-mouthca-2-transfer	original:gimass-mouthca-3-rule original:gimass-mouthca-3-case original:gimass-mouthca-3-transfer
+gi.tumor	Esophageal squamous cell carcinoma	original:giupper-esq-1-rule original:giupper-esq-1-case original:giupper-esq-1-transfer original:gislide-esq-1-rule original:gislide-esq-1-case original:gislide-esq-1-transfer	original:giupper-esq-2-rule original:giupper-esq-2-case original:giupper-esq-2-transfer	original:giupper-esq-3-rule original:giupper-esq-3-case original:giupper-esq-3-transfer original:gitrial-esq-3-rule original:gitrial-esq-3-case original:gitrial-esq-3-transfer
+gi.tumor	Esophageal adenocarcinoma	original:gut-bar-tumor original:giupper-ead-1-case original:giupper-ead-1-transfer original:gislide-esq-1-rule original:gislide-esq-1-case original:gislide-esq-1-transfer	original:giupper-ead-2-rule original:giupper-ead-2-case original:giupper-ead-2-transfer	original:giupper-ead-3-rule original:giupper-ead-3-case original:giupper-ead-3-transfer original:gitrial-ead-3-rule original:gitrial-ead-3-case original:gitrial-ead-3-transfer
+gi.tumor	Barrett esophagus	original:gut-bar-lining original:giupper-bar-1-case original:giupper-bar-1-transfer	original:gut-bar-confirm original:giupper-bar-2-rule original:giupper-bar-2-transfer	original:gut-bar-expert original:giupper-bar-3-case original:giupper-bar-3-transfer
+gi.tumor	Gastrinoma and Zollinger–Ellison syndrome	original:gimass-gas-1-rule original:gimass-gas-1-case original:gimass-gas-1-transfer	original:gimass-gas-2-rule original:gimass-gas-2-transfer original:eh-net-gastrin	original:gimass-gas-3-rule original:gimass-gas-3-case original:gimass-gas-3-transfer
+gi.tumor	Gastrointestinal carcinoid	original:gimass-net-1-rule original:gimass-net-1-case original:gimass-net-1-transfer	original:gimass-net-2-rule original:gimass-net-2-case original:gimass-net-2-transfer	original:gimass-net-3-rule original:gimass-net-3-case original:gimass-net-3-transfer
+gi.tumor	Gastrointestinal stromal tumor	original:giupper-gist-1-rule original:giupper-gist-1-case original:giupper-gist-1-transfer	original:giupper-gist-2-rule original:giupper-gist-2-case original:giupper-gist-2-transfer	original:giupper-gist-3-rule original:giupper-gist-3-case original:giupper-gist-3-transfer
+gi.tumor	Small intestinal malignancy	original:gimass-small-1-rule original:gimass-small-1-case original:gimass-small-1-transfer	original:gimass-small-2-rule original:gimass-small-2-case original:gimass-small-2-transfer	original:gimass-small-3-rule original:gimass-small-3-case original:gimass-small-3-transfer
+gi.tumor	Gastric adenocarcinoma	original:giupper-stom-1-rule original:giupper-stom-1-case original:giupper-stom-1-transfer	original:phil-stomach-sample original:giupper-stom-2-rule original:giupper-stom-2-transfer	original:giupper-stom-3-rule original:giupper-stom-3-case original:giupper-stom-3-transfer original:gitrial-stom-3-rule original:gitrial-stom-3-case original:gitrial-stom-3-transfer
+gi.tumor	Gastric lymphoma including MALT lymphoma	original:giupper-malt-1-rule original:giupper-malt-1-case original:giupper-malt-1-transfer	original:giupper-malt-2-rule original:giupper-malt-2-case original:giupper-malt-2-transfer	original:giupper-malt-3-rule original:giupper-malt-3-case original:giupper-malt-3-transfer
+gi.tumor	Colorectal cancer and screening	original:gipoly-crc-1-case original:gipoly-crc-1-transfer original:prevcare-ascreen-1	original:gut-crc-risk original:gut-crc-symptoms original:gipoly-crc-2-rule	original:gut-crc-pos original:gut-crc-neg original:gut-crc-rule original:gimass-met-3-rule original:gimass-met-3-case original:gimass-met-3-transfer
+gi.tumor	Anal cancer	original:gionc-anal-1-rule original:gionc-anal-1-case original:gionc-anal-1-transfer	original:gionc-anal-2-rule original:gionc-anal-2-case original:gionc-anal-2-transfer	original:gionc-anal-3-rule original:gionc-anal-3-case original:gionc-anal-3-transfer
+gi.tumor	Lynch syndrome	original:gut-gene-repair original:mgen-lyn-1-b original:mgen-lyn-1-c	original:gut-gene-lynch original:mgen-lyn-2-a original:mgen-lyn-2-b original:mgen-lyn-2-c	original:gut-gene-distinguish original:gut-gene-cascade original:mgen-lyn-3-b original:mgen-lyn-3-c
+gi.tumor	Familial adenomatous polyposis	original:gut-gene-apc original:gipoly-fap-1-case original:gipoly-fap-1-transfer	original:gut-gene-poly original:gipoly-fap-2-rule original:gipoly-fap-2-transfer	original:gipoly-fap-3-rule original:gipoly-fap-3-case original:gipoly-fap-3-transfer
+gi.tumor	Peutz–Jeghers syndrome	original:gut-gene-pj original:gipoly-pj-1-rule original:gipoly-pj-1-case original:gipoly-pj-1-transfer	original:gut-gene-pigment original:gipoly-pj-2-rule original:gipoly-pj-2-transfer	original:gipoly-pj-3-rule original:gipoly-pj-3-case original:gipoly-pj-3-transfer
+gi.tumor	Gardner syndrome	original:gipoly-gard-1-rule original:gipoly-gard-1-case original:gipoly-gard-1-transfer	original:gipoly-gard-2-rule original:gipoly-gard-2-case original:gipoly-gard-2-transfer	original:gipoly-gard-3-rule original:gipoly-gard-3-case original:gipoly-gard-3-transfer
+gi.tumor	Turcot syndrome	original:gipoly-tur-1-rule original:gipoly-tur-1-case original:gipoly-tur-1-transfer	original:gipoly-tur-2-rule original:gipoly-tur-2-case original:gipoly-tur-2-transfer	original:gipoly-tur-3-rule original:gipoly-tur-3-case original:gipoly-tur-3-transfer
+gi.tumor	MUTYH-associated polyposis	original:gut-gene-mutyh original:gipoly-map-1-case original:gipoly-map-1-transfer	original:gipoly-map-2-rule original:gipoly-map-2-case original:gipoly-map-2-transfer	original:gipoly-map-3-rule original:gipoly-map-3-case original:gipoly-map-3-transfer
+gi.tumor	Gallbladder cancer	original:gionc-gb-1-rule original:gionc-gb-1-case original:gionc-gb-1-transfer	original:gionc-gb-2-rule original:gionc-gb-2-case original:gionc-gb-2-transfer	original:gionc-gb-3-rule original:gionc-gb-3-case original:gionc-gb-3-transfer
+gi.tumor	Cholangiocarcinoma	original:gionc-duct-1-rule original:gionc-duct-1-case original:gionc-duct-1-transfer	original:gionc-duct-2-rule original:gionc-duct-2-case original:gionc-duct-2-transfer	original:gionc-duct-3-case original:hepatobiliary-psc-3-rule original:hepatobiliary-psc-3-transfer
+gi.tumor	Ampullary adenocarcinoma	original:gionc-amp-1-rule original:gionc-amp-1-case original:gionc-amp-1-transfer	original:gionc-amp-2-rule original:gionc-amp-2-case original:gionc-amp-2-transfer	original:gionc-amp-3-rule original:gionc-amp-3-case original:gionc-amp-3-transfer
+gi.tumor	Hepatocellular carcinoma	original:gionc-hcc-1-rule original:gionc-hcc-1-case original:gionc-hcc-1-transfer	original:gionc-hcc-2-rule original:gionc-hcc-2-case original:gionc-hcc-2-transfer	original:hepatobiliary-cirr-3-rule original:hepatobiliary-cirr-3-case original:hepatobiliary-cirr-3-transfer original:gitrial-hcc-3-rule original:gitrial-hcc-3-case original:gitrial-hcc-3-transfer
+gi.tumor	Peritoneal cancer or metastatic studding	original:gimass-perit-1-rule original:gimass-perit-1-case original:gimass-perit-1-transfer	original:gimass-perit-2-rule original:gimass-perit-2-transfer original:gut-asc-low	original:gimass-perit-3-rule original:gimass-perit-3-case original:gimass-perit-3-transfer
+gi.tumor	Pancreatic malignancy	original:gionc-panc-1-rule original:gionc-panc-1-case original:gionc-panc-1-transfer original:gitrial-panc-1-rule original:gitrial-panc-1-case original:gitrial-panc-1-transfer	original:gionc-panc-2-rule original:gionc-panc-2-case original:gionc-panc-2-transfer original:gitrial-panc-2-case original:gitrial-panc-2-transfer original:gut-epi-sample	original:gionc-panc-3-rule original:gionc-panc-3-case original:gionc-panc-3-transfer original:gitrial-panc-3-case original:gitrial-panc-3-transfer original:gut-epi-time
+gi.tumor	Metastases involving the digestive system	original:gimass-met-1-rule original:gimass-met-1-case original:gimass-met-1-transfer	original:gimass-met-2-rule original:gimass-met-2-case original:gimass-met-2-transfer	original:gimass-met-3-rule original:gimass-met-3-case original:gimass-met-3-transfer
 gi.symptom	Abdominal pain		original:gut-ibs-pattern original:gut-mes-cta	original:gut-mes-peritoneum
 gi.symptom	Constipation	original:gut-opio-motility	original:gut-opio-med	original:gut-opio-first
 gi.symptom	Diarrhea	original:gut-gap-rule original:gut-gap-a original:gut-gap-b	original:gut-gap-osm original:gut-gap-sec original:gut-gap-principle	original:gut-gap-history original:gut-hydrate-oral original:gut-hydrate-iv

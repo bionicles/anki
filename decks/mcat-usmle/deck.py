@@ -134,7 +134,7 @@ def render(row):
     if fig:
         if fig.endswith(".wav"):
             media_html = "[sound:" + fig + "]"
-        elif fig.endswith(".png"):
+        elif fig.endswith((".png", ".jpg")):
             media_html = '<div><img src="' + html.escape(fig, quote=True) + '"></div>'
         else:
             raise ValueError("Unsupported question media: " + fig)
@@ -306,7 +306,7 @@ def verify_imaging(cards):
     images = table(ROOT / "imaging.tsv")
     credits = {row["Figure"]: row for row in images}
     assert len(credits) == len(images)
-    assert set(credits) == {p.name for p in (ROOT / "media").glob("med_rad_*.png")}
+    assert set(credits) == {p.name for p in (ROOT / "media").glob("med_rad_*")}
     for row in images:
         assert re.fullmatch(r"[0-9a-f]{40}", row["SourceSHA1"]), row
         assert row["Source"].startswith("https://commons.wikimedia.org/wiki/File:"), row
@@ -380,7 +380,7 @@ def verify(folder):
         assert len(ids)==int(row["Cards"]) and all(all(row[k]==keyed[i][k] for k in ("Exam","Topic","Section")) for i in ids)
         mapped.extend(ids)
     assert Counter(mapped)==Counter(keyed.keys())
-    assert {r["Figure"] for r in expected if r["Figure"]}=={p.name for p in (ROOT/"media").iterdir() if p.suffix in {".png", ".wav"}}
+    assert {r["Figure"] for r in expected if r["Figure"]}=={p.name for p in (ROOT/"media").iterdir() if p.suffix in {".png", ".jpg", ".wav"}}
     tsv=folder/(FILE+".tsv")
     with tsv.open(newline="") as f:
         for line in f:
@@ -423,7 +423,7 @@ def file_hash(path):
 
 def build_inputs(lock):
     paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step-items.tsv", "step_coverage.py", "intrapartum.py", "ptbxl.py", "ptbxl.tsv", "figures.py", "heart-sounds.tsv", "heart_sounds.py")]
-    paths.extend(sorted(p for p in (ROOT / "media").iterdir() if p.suffix in {".png", ".wav"}))
+    paths.extend(sorted(p for p in (ROOT / "media").iterdir() if p.suffix in {".png", ".jpg", ".wav"}))
     return {"sources": lock, "files": {p.relative_to(ROOT).as_posix(): file_hash(p) for p in paths}}
 
 
