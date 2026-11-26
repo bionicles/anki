@@ -3561,6 +3561,143 @@ def quality_improvement_studies():
                     [["Arrival", "08:00"], ["Assessment", assessment], ["Result", "09:30"]])
 
 
+def coronary_ischemia_studies():
+    """Coronary flow, clinical observations, and published trial comparisons."""
+    fig, ax = axes("Exercise workload (relative units)", "Coronary flow (relative units)")
+    for label, values, color in [("Vessel A", [1, 1.5, 2.1, 2.7, 3.3], COLORS[0]),
+                                 ("Vessel B", [1, 1.3, 1.5, 1.5, 1.5], COLORS[1])]:
+        ax.plot(range(5), values, "o-", label=label, color=color)
+    ax.set(title="Coronary response to exercise • simulated", xticks=range(5), ylim=(0, 3.6))
+    ax.legend()
+    save(fig, "coronary_reserve")
+    for suffix, final in [("a", ["Two flights", "3 min with rest"]), ("b", ["At rest", "25 min, ongoing"])]:
+        study_table("coronary_diary_" + suffix, "Chest pressure diary", ["When", "Onset", "Duration"],
+                    [["4 weeks ago", "Two flights", "3 min with rest"],
+                     ["2 weeks ago", "Two flights", "3 min with rest"], ["Today", *final]])
+    for suffix, narrowing in [("a", "95%"), ("b", "20%")]:
+        study_table("coronary_prov_" + suffix, "Coronary provocation study", ["Finding", "During acetylcholine"],
+                    [["Symptoms", "Usual chest pain"], ["ECG", "Transient ST depression"],
+                     ["Epicardial narrowing", narrowing]])
+    for suffix, values in [("v", [61, 61, 83, 82]), ("a", [60, 80, 81, 80])]:
+        fig, ax = axes("Sampling location", "Oxygen saturation (%)")
+        ax.plot(["SVC", "RA", "RV", "PA"], values, "o-", color=COLORS[0], lw=2)
+        for i, value in enumerate(values):
+            ax.annotate(f"{value}%", (i, value), xytext=(0, 7), textcoords="offset points", ha="center")
+        ax.set(ylim=(50, 95), title="Catheter oximetry • simulated")
+        save(fig, "coronary_sat_" + suffix)
+    for suffix, late in [("a", ["78/50", "Larger collection", "Present"]),
+                         ("b", ["120/76", "Small, unchanged", "Absent"])]:
+        study_table("coronary_tam_" + suffix, "Postinfarction observations", ["Observation", "Earlier", "Now"],
+                    [["Blood pressure", "118/74", late[0]], ["Pericardial fluid", "Small", late[1]],
+                     ["RV diastolic collapse", "Absent", late[2]]])
+    study_table("coronary_oxygen", "Trial population", ["Study characteristic", "DETO2X-AMI"],
+                [["Presentation", "Suspected MI"], ["Entry oxygen saturation", "At least 90%"],
+                 ["Comparison", "Routine oxygen vs ambient air"]], source="Hofmann et al.")
+    fig, ax = axes("Initial PCI strategy", "Patients with an event (%)")
+    bars = ax.bar(["Culprit only", "Immediate multivessel"], [45.9, 55.4], width=.56, color=COLORS[:2])
+    ax.bar_label(bars, fmt="%.1f%%", padding=3)
+    ax.set(ylim=(0, 70), title="Death or renal-replacement therapy at 30 days\nCULPRIT-SHOCK")
+    save(fig, "coronary_culprit")
+    fig, ax = axes("Relative risk of renal-replacement therapy", "")
+    ax.axvline(1, color="#555555", linestyle="--", label="Equal risks")
+    ax.errorbar(.71, 0, xerr=[[.22], [.32]], fmt="o", capsize=5, color=COLORS[0])
+    ax.text(.71, .25, "0.71 (95% CI 0.49–1.03)", ha="center")
+    ax.set(xlim=(.35, 1.2), ylim=(-.8, .8), yticks=[], title="Renal replacement at 30 days • CULPRIT-SHOCK")
+    ax.legend(loc="lower right")
+    save(fig, "coronary_renal")
+    for suffix, rest in [("a", "Normal"), ("b", "Reduced")]:
+        study_table("coronary_perfusion_" + suffix, "Relative tracer uptake", ["Region", "Stress", "Rest"],
+                    [["Anterior", "Reduced", rest], ["Inferior", "Normal", "Normal"],
+                     ["Lateral", "Normal", "Normal"]])
+
+
+def electric_membrane_studies():
+    """Original physical models and simulated observations for MCAT science."""
+    fig, ax = axes("Position (cm)", "")
+    for x, voltage in [(0, 8), (1, 6), (2, 4), (5, 2), (8, 0)]:
+        ax.axvline(x, color=COLORS[0], lw=2)
+        ax.text(x, .94, f"{voltage} V", ha="center", va="top", backgroundcolor="white")
+    for x, name in [(.5, "A"), (6.5, "B")]:
+        ax.text(x, .48, name, ha="center", fontsize=14, weight="bold")
+    ax.set(xlim=(-.6, 8.6), ylim=(0, 1), yticks=[], title="Equipotential map • simulated")
+    save(fig, "electric_equip")
+    t = np.linspace(0, 50, 301)
+    fig, ax = axes("Time (ms)", "Capacitor voltage (V)")
+    ax.plot(t, 8 * np.exp(-t/10), lw=2, color=COLORS[0])
+    ax.set(xlim=(0, 35), ylim=(0, 8.4), xticks=range(0,36,5), title="Discharge through a resistor")
+    save(fig, "electric_discharge")
+    fig, ax = axes("Horizontal position", "Vertical position")
+    angle = np.linspace(0, np.pi/2, 80)
+    for sign, label, color in [(1, "A", COLORS[0]), (-1, "B", COLORS[1])]:
+        ax.plot(np.sin(angle), sign * (1 - np.cos(angle)), lw=2, color=color)
+        ax.text(1.04, sign * .96, label, color=color, weight="bold")
+    ax.annotate("", xy=(0, 0), xytext=(-.62, 0), arrowprops=dict(arrowstyle="->", lw=2))
+    ax.set(aspect="equal", xlim=(-.7, 1.28), ylim=(-1.15, 1.15), xticks=[], yticks=[],
+           title="Particle tracks • magnetic field into page")
+    save(fig, "electric_track")
+    study_table("electric_mass", "Galvanic cell electrodes", ["Electrode", "Start mass", "End mass"],
+                [["Zinc", "2.00 g", "1.87 g"], ["Copper", "2.00 g", "2.13 g"]])
+    fig, ax = axes("Time after current step (ms)", "Voltage change from rest (mV)")
+    for plateau, time_constant, label, color, style in [(10, 10, "A", COLORS[0], "-"), (5, 5, "B", COLORS[1], "--")]:
+        ax.plot(t, plateau * (1 - np.exp(-t/time_constant)), style, label=label, color=color, lw=2.3)
+    ax.set(xlim=(0, 50), ylim=(0, 10.5), xticks=range(0, 51, 5), title="Passive membrane response • simulated")
+    ax.legend()
+    save(fig, "electric_pulse")
+    study_table("electric_flow", "Isolated organ perfusion", ["Run", "Inlet (mm Hg)", "Outlet (mm Hg)", "Flow (mL/min)"],
+                [["A", 45, 25, 5], ["B", 65, 25, 5]])
+
+
+def ventricular_failure_studies():
+    """Simulated hemodynamic records and sectional mitral valve diagrams."""
+    for suffix, wedge in [("pre", 8), ("post", 25)]:
+        study_table("ventricle_ph_" + suffix, "Right-heart catheterization", ["Measurement", "Value"],
+                    [["Mean PA pressure", "32 mm Hg"], ["Wedge pressure", f"{wedge} mm Hg"], ["Cardiac output", "4 L/min"]])
+    for suffix, data in [("t", ["<0.01", "3.8", "14.0"]), ("a", ["1.7", "1.1", "5.4"])]:
+        study_table("ventricle_high_" + suffix, "High-output heart failure", ["Measurement", "Patient", "Reference interval"],
+                    [["TSH (mIU/L)", data[0], "0.4–4.0"], ["Free T4 (ng/dL)", data[1], "0.8–1.8"],
+                     ["Hemoglobin (g/dL)", data[2], "12–16"]])
+    for suffix, values in [("a", [28, 44, 54]), ("b", [28, 28, 28])]:
+        study_table("ventricle_rate_" + suffix, "LV function after rhythm control",
+                    ["Measurement", "Before", "8 weeks", "6 months"],
+                    [["Mean HR (/min)", 136, 72, 73], ["LVEF (%)", *values]])
+    for suffix, values in [("a", [150, 105]), ("b", [75, 30])]:
+        study_table("ventricle_ef_" + suffix, "LV volume measurements", ["Timing", "Volume (mL)"],
+                    [["End diastole", values[0]], ["End systole", values[1]]])
+    for suffix in ("flail", "tether"):
+        fig, ax = plt.subplots(figsize=(5.1, 3.6), layout="constrained")
+        ax.axhline(0, color="#848484", ls="--", lw=1)
+        ax.text(-1.28, 1.06, "Left atrium")
+        ax.text(-1.28, -1.61, "Left ventricle")
+        ax.text(1.20, .06, "Annulus", ha="right", color="#555555", fontsize=8)
+        for x in [-1, 1]:
+            ax.scatter(x, 0, s=38, color="#343b3d", zorder=3)
+        if suffix == "flail":
+            leaves = [([-1, -.72, -.44, -.16], [0, -.13, -.10, .37]),
+                      ([1, .66, .30, .03], [0, -.10, -.18, -.23])]
+            chords = [([-.16, -.33], [.37, .17]), ([-.57, -.73], [-.75, -1.0]),
+                      ([.03, .72], [-.23, -1.0])]
+            muscle_y = -1.0
+        else:
+            leaves = [([-1, -.73, -.43, -.12], [0, -.23, -.48, -.61]),
+                      ([1, .73, .43, .12], [0, -.23, -.48, -.61])]
+            chords = [([-.12, -.73], [-.61, -1.30]), ([.12, .72], [-.61, -1.30])]
+            muscle_y = -1.30
+        for x, y in leaves:
+            ax.plot(x, y, color=COLORS[0], lw=5, solid_capstyle="round")
+        for x, y in chords:
+            ax.plot(x, y, color=COLORS[1], lw=2)
+        ax.scatter([-.73, .72], [muscle_y, muscle_y], marker="^", s=160, color=COLORS[1])
+        ax.set(aspect="equal", xlim=(-1.45, 1.45), ylim=(-1.72, 1.37), title="Mitral apparatus in systole • schematic")
+        ax.axis("off")
+        save(fig, "ventricle_" + suffix)
+
+
+def posterior_lead_study():
+    """Simulated supplementary leads during ischemic symptoms."""
+    study_table("coronary_ecg_post", "Posterior ECG during chest pain", ["Lead", "J-point level vs baseline"],
+                [["V7", "+1.5 mm"], ["V8", "+2.0 mm"], ["V9", "+1.5 mm"]])
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -3612,6 +3749,10 @@ def main():
     social_psychology_studies()
     goals_of_care_records()
     quality_improvement_studies()
+    coronary_ischemia_studies()
+    electric_membrane_studies()
+    ventricular_failure_studies()
+    posterior_lead_study()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
