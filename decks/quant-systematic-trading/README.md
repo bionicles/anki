@@ -19,6 +19,7 @@ Start with domain 01 if returns and position accounting are new to you. Each obj
 | In Anki Browse, combine the deck name with a tag | What it selects |
 | --- | --- |
 | `deck:"Quantitative and Systematic Trading" tag:visual::question` | 198 chart questions. Infer the answer before turning the card. |
+| `deck:"Quantitative and Systematic Trading" tag:practice::example` | 138 independently scheduled chart cases corresponding to the core worked examples, one per objective. |
 | `deck:"Quantitative and Systematic Trading" tag:visual::worked` | 193 text questions with an illustrated example on the back. |
 | `deck:"Quantitative and Systematic Trading" tag:domain::09` | The 44 market, funding and tail-risk cards. |
 | `deck:"Quantitative and Systematic Trading" tag:objective::optiontree` | Eight questions on one-period replication, from a single terminal payoff to a new two-state tree. |
@@ -77,7 +78,7 @@ Each card includes its source. The coverage map links every objective to its car
 
 ## Rebuild and verify
 
-Edit `cards.tsv` for prompts, answers and explanations. Edit `components.csv` and `curriculum.tsv` when the scope changes. Observations for chart questions are in `figure-data.json`; the supplemental diagrams are in `worked_examples.py`. Keep card IDs stable when revising a note.
+Edit `cards.tsv` for prompts, answers and explanations. Edit `components.csv` and `curriculum.tsv` when the scope changes. Observations for chart questions are in `figure-data.json`; the supplemental diagrams are in `worked_examples.py`. Keep card IDs stable when revising a note. A worked answer should show how the result follows from the evidence. Give any follow-up decision its own front, checking for an existing card on that objective first.
 
 From this directory run the following commands. The build expects a fresh output directory.
 
