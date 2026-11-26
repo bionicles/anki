@@ -12,6 +12,7 @@ import re
 import shutil
 import subprocess
 import tempfile
+from zipfile import ZIP_DEFLATED, ZipFile
 
 from step_coverage import display, measure, measure_item_depth
 from extract import ROOT, FIELDS, cohort, openstax, read
@@ -238,7 +239,14 @@ def make(folder, prior):
     write_table(folder/"coverage.tsv",["Exam","Section","Topic","Cards","CardIDs"],
                 [dict(Exam=e,Section=s,Topic=t,Cards=len(ids),CardIDs=" ".join(ids))
                  for (e,s,t),ids in sorted(objectives.items())])
-    genanki.Package(list(decks.values()),media_files=sorted(media)).write_to_file(folder/(FILE+".apkg"))
+    # genanki stores every member uncompressed, including the Anki database and audio.
+    package = genanki.Package(list(decks.values()), media_files=sorted(media))
+    with tempfile.TemporaryFile() as raw:
+        package.write_to_file(raw)
+        with ZipFile(raw) as source, ZipFile(folder / (FILE + ".apkg"), "w", ZIP_DEFLATED) as output:
+            for name in source.namelist():
+                with source.open(name) as entry, output.open(name, "w") as target:
+                    shutil.copyfileobj(entry, target)
     return rows
 
 

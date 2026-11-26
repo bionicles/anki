@@ -2983,6 +2983,119 @@ def gestational_exposure_studies():
         save(fig, "gestexposure_" + name)
 
 
+def neonatal_and_mechanics_studies():
+    """Render original neonatal studies, published trial results and mechanics exercises."""
+    from matplotlib.patches import Circle, Polygon, Rectangle
+
+    def record(name, title, columns, rows, source="simulated"):
+        fig, ax = plt.subplots(figsize=(6.1, 2.65), layout="constrained")
+        ax.axis("off")
+        ax.set_title(f"{title}  •  {source}")
+        table = ax.table(cellText=rows, colLabels=columns, loc="center",
+                         cellLoc="center", bbox=[.01, .08, .98, .76])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for col in range(len(columns)):
+            table[0, col].set_facecolor("#e2edf1")
+        save(fig, "neonatal_" + name)
+
+    for name, minute in [("sat5", 5), ("sat10", 10)]:
+        record(name, "Delivery-room observations", ["Time since birth", "Right-hand SpO₂", "Heart rate"],
+               [[f"{minute} minutes", "82%", "146/min"]])
+    for name, hand, foot in [("postlow", "97%", "89%"), ("prelow", "89%", "97%")]:
+        record(name, "Paired newborn oximetry", ["Sample site", "Oxygen saturation"],
+               [["Right hand", hand], ["Foot", foot]])
+    record("mask", "Mask ventilation at birth", ["Observation", "Initial", "After mask breaths"],
+           [["Heart rate", "78/min", "76/min"], ["Chest movement", "Absent", "Absent"]])
+    for name, support in [("bpdcpap", "Nasal CPAP"), ("bpdvent", "Endotracheal ventilation")]:
+        record(name, "Very preterm infant at 36 weeks PMA", ["Observation", "Finding"],
+               [["Respiratory support", support], ["FiO₂", "0.25"]])
+    for name, dilation, turns in [("ropquiet", "Within expected limits", "Within expected limits"),
+                                  ("ropplus", "Marked dilation", "Marked tortuosity")]:
+        record(name, "Retinal specialist report", ["Posterior pole assessment", "Finding"],
+               [["Veins", dilation], ["Arterioles", turns],
+                ["Overall plus criteria", "Met" if name == "ropplus" else "Absent"]])
+    for name, total, direct in [("indirect", "12.0", "0.4"), ("direct", "6.0", "4.2")]:
+        record(name, "Serum bilirubin fractions", ["Measurement", "Result"],
+               [["Total", total + " mg/dL"], ["Direct", direct + " mg/dL"]])
+    record("rhtrend", "Follow-up after immune hemolysis", ["Measurement", "Day 7", "Week 4"],
+           [["Hemoglobin", "13.8 g/dL", "7.6 g/dL"], ["Total bilirubin", "10.0 mg/dL", "2.2 mg/dL"]])
+    record("glucose", "Day five, regular feeds continue", ["IV glucose delivery", "Plasma glucose"],
+           [["Higher rate", "78 mg/dL"], ["After reducing rate", "39 mg/dL"]])
+    record("sizes", "Birthweight reference for two newborn boys", ["Infant", "Birth weight", "Gestation", "Chart percentile"],
+           [["A", "2.40 kg", "35 weeks", "40th"], ["B", "2.40 kg", "39 weeks", "2nd"]])
+
+    fig, ax = axes("Distending pressure (arbitrary units)", "Lung volume (arbitrary units)")
+    x = [0, 1, 2, 3, 4]
+    for label, vals, style in [("A", [0, 2, 4, 6, 8], "o-"), ("B", [0, 1, 2, 3, 4], "s--")]:
+        ax.plot(x, vals, style, lw=2, label=label)
+    ax.set_title("Model lung inflation over a limited pressure range")
+    ax.legend()
+    save(fig, "neonatal_compliance")
+    fig, panels = plt.subplots(1, 2, figsize=(6.2, 2.9), layout="constrained")
+    for ax, label in zip(panels, ["One sphere • radius r", "Eight spheres • radius r/2"]):
+        ax.set(xlim=(-2.2, 2.2), ylim=(-1.35, 1.35), aspect="equal", title=label)
+        ax.axis("off")
+    panels[0].add_patch(Circle((0, 0), 1, fc="#d8e9ed", ec=COLORS[0], lw=2))
+    for y in [-.53, .53]:
+        for x in [-1.56, -.52, .52, 1.56]:
+            panels[1].add_patch(Circle((x, y), .5, fc="#d8e9ed", ec=COLORS[0], lw=1.5))
+    fig.suptitle("Equal total gas volume • spherical model")
+    save(fig, "neonatal_alveoli")
+    record("esctime", "ESC-NOW trial, infants born at ≥36 weeks",
+           ["Care approach", "Birth to medical readiness"], [["Usual care", "14.9 days"], ["Eat, Sleep, Console", "8.2 days"]],
+           source="published means")
+    record("coolprob", "Cooling trial, infants born at 33–35 weeks",
+           ["Outcome", "Posterior probability of harm"], [["Death or disability", "74%"], ["Death", "87%"]],
+           source="published estimates")
+
+    fig, ax = axes("Time (s)", "Position (m)")
+    times = [0, 1, 2, 3, 4]
+    ax.plot(times, [1, 3, 3, 0, 1], "o-", color=COLORS[0], lw=2)
+    for x, y, label in [(.5, 1.75, "A"), (1.5, 3.12, "B"), (2.6, 1.65, "C"), (3.5, .7, "D")]:
+        ax.text(x, y, label, weight="bold")
+    ax.set(xticks=times, ylim=(-.2, 3.55))
+    save(fig, "neonatal_motion")
+    fig, ax = plt.subplots(figsize=(5.8, 2.6), layout="constrained")
+    ax.set(xlim=(-3.2, 4.2), ylim=(-1.4, 1.5), aspect="equal")
+    ax.axis("off")
+    ax.add_patch(Rectangle((-.65, -.45), 1.3, .9, fc="#d8e9ed", ec=COLORS[0]))
+    ax.text(0, 0, "3 kg", ha="center", va="center")
+    for end, edge, label in [(3.7, .65, "10 N"), (-1.87, -.65, "4 N")]:
+        ax.annotate("", xy=(end, 0), xytext=(edge, 0), arrowprops=dict(arrowstyle="-|>", lw=2.6))
+        ax.text((end+edge)/2, .25, label, ha="center")
+    ax.set_title("Horizontal forces acting on the cart")
+    save(fig, "neonatal_arrows")
+    record("netdata", "Matched cart mass", ["Trial", "Rightward force", "Leftward force"],
+           [["A", "9 N", "5 N"], ["B", "5 N", "6 N"], ["C", "3 N", "0 N"]])
+    fig, ax = plt.subplots(figsize=(6, 2.7), layout="constrained")
+    ax.set(xlim=(-.31, .52), ylim=(-.15, .26), aspect="equal")
+    ax.axis("off")
+    ax.plot([-.24, .44], [0, 0], lw=5, color=COLORS[0])
+    ax.add_patch(Polygon([(-.04,-.067),(.04,-.067),(0,-.005)], color="#666"))
+    for x, label in [(-.2, "12 N"), (.4, "X")]:
+        ax.annotate("",xy=(x,.002),xytext=(x,.15),arrowprops=dict(arrowstyle="-|>",lw=2))
+        ax.text(x,.17,label,ha="center")
+    ax.text(-.12,-.05,"0.20 m",ha="center")
+    ax.text(.2,-.05,"0.40 m",ha="center")
+    ax.set_title("Massless beam with a frictionless pivot")
+    save(fig, "neonatal_beam")
+    for name, xlab, ylab, xv, yv in [
+        ("torread", "Perpendicular distance (m)", "Torque magnitude (N·m)", [0,.1,.2,.3], [0,.8,1.6,2.4]),
+        ("workarea", "Position (m)", "Pull in direction of travel (N)", [0,1,2,3], [0,2,4,6])]:
+        fig, ax = axes(xlab, ylab)
+        ax.plot(xv, yv, "o-", color=COLORS[0], lw=2)
+        ax.set(xticks=xv, yticks=yv)
+        save(fig, "neonatal_" + name)
+    record("energies", "Cart on a rough track", ["Energy", "Start", "Finish"],
+           [["Kinetic", "2 J", "7 J"], ["Gravitational potential", "10 J", "2 J"]])
+    fig, ax = axes("Time (s)", "Displacement (cm)")
+    t = np.linspace(0,6,181)
+    ax.plot(t, 2*np.cos(np.pi*t), color=COLORS[0], lw=2)
+    ax.set(xticks=range(7), yticks=[-2,-1,0,1,2])
+    save(fig, "neonatal_wave")
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -3020,6 +3133,7 @@ def main():
     hepatobiliary_studies()
     postpartum_studies()
     gestational_exposure_studies()
+    neonatal_and_mechanics_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
