@@ -86,7 +86,7 @@ lung.restrict	Usual interstitial pneumonia
 lung.restrict	Desquamative interstitial pneumonia			
 lung.restrict	Nonspecific interstitial pneumonia			
 lung.failure	Acute respiratory distress syndrome	original:pul-ards-size	original:pul-ards-ratio	original:pul-ards-dose original:pul-ards-prone
-lung.failure	Pulmonary hypertension	original:pul-cdh-vessels original:pul-ph-a original:pul-ph-b	original:pul-cdh-echo original:pul-ph-pre original:pul-ph-post original:pul-ph-combined	original:acm-pe-symptom original:pul-ph-echo original:pul-ph-scan
+lung.failure	Pulmonary hypertension	original:pul-cdh-vessels original:pul-ph-a original:pul-ph-b original:pul-ph-equation	original:pul-cdh-echo original:pul-ph-pre original:pul-ph-post original:pul-ph-combined original:pul-ph-rule	original:acm-pe-symptom original:pul-ph-echo original:pul-ph-scan
 lung.failure	Pulmonary arteriovenous fistula			
 lung.failure	Pulmonary edema			
 lung.failure	Pulmonary thromboembolism	original:pul-pe-rv	original:pul-pe-below original:pul-pe-above	original:acm-pe-duration
@@ -205,7 +205,7 @@ gi.tumor	Pancreatic malignancy
 gi.tumor	Metastases involving the digestive system			
 gi.symptom	Abdominal pain		original:gut-ibs-pattern original:gut-mes-cta	original:gut-mes-peritoneum
 gi.symptom	Constipation	original:gut-opio-motility	original:gut-opio-med	original:gut-opio-first
-gi.symptom	Diarrhea	original:gut-gap-rule original:gut-gap-a	original:gut-gap-osm original:gut-gap-sec	original:gut-gap-history original:gut-hydrate-oral original:gut-hydrate-iv
+gi.symptom	Diarrhea	original:gut-gap-rule original:gut-gap-a original:gut-gap-b	original:gut-gap-osm original:gut-gap-sec original:gut-gap-principle	original:gut-gap-history original:gut-hydrate-oral original:gut-hydrate-iv
 gi.symptom	Nausea and vomiting		original:gut-ped-pylorus original:gut-empty-delay	original:gut-empty-short
 gi.upper	Dental abscess			
 gi.upper	Dental caries			
@@ -287,7 +287,7 @@ gi.pancreas	Hereditary pancreatitis
 gi.pancreas	Pancreatic cysts or pseudocysts			
 gi.pancreas	Pancreatic duct obstruction			
 gi.pancreas	Pancreatic exocrine insufficiency	original:gut-epi-fat original:gut-epi-vit	original:gut-epi-low original:gut-epi-border	original:gut-epi-time original:gut-epi-monitor
-gi.peritoneum	Ascites	original:gut-asc-formula original:gut-asc-a	original:gut-asc-portal original:gut-asc-heart	original:gut-asc-new original:ccs-liver-sample
+gi.peritoneum	Ascites	original:gut-asc-formula original:gut-asc-a original:gut-asc-b	original:gut-asc-portal original:gut-asc-heart original:gut-asc-cut original:gut-asc-low	original:gut-asc-new original:ccs-liver-sample
 gi.trauma	Abdominal wall defects			
 gi.trauma	Postsurgical adhesions	original:gut-adh-cause	original:gut-adh-predict original:gut-adh-fail	original:gut-adh-safe original:gut-adh-urgent
 gi.trauma	Digestive complications of surgery	original:nut-dump-early	original:nut-dump-timing	original:nut-dump-food
@@ -314,7 +314,7 @@ gi.congenital	Tracheoesophageal fistula
 gi.drug	Motility changes with chronic laxative use			
 gi.drug	Opioid-induced dysmotility	original:gut-opio-motility	original:gut-opio-med	original:gut-opio-resist
 gi.drug	NSAID-associated gastritis, duodenitis or peptic ulcer disease			
-gi.drug	Drug-induced liver injury	original:gut-dili-formula original:gut-dili-a	original:gut-dili-hep original:gut-dili-chol	original:gut-dili-timeline original:gut-dili-cause
+gi.drug	Drug-induced liver injury	original:gut-dili-formula original:gut-dili-a original:gut-dili-b	original:gut-dili-hep original:gut-dili-chol original:gut-dili-rule original:gut-dili-mix	original:gut-dili-timeline original:gut-dili-cause
 gi.drug	Acetaminophen hepatotoxicity			
 gi.drug	Isoniazid hepatotoxicity			
 gi.drug	Drug-induced pancreatitis including thiazides			
@@ -521,7 +521,7 @@ neuro.ear	Necrotizing otitis externa
 neuro.ear	Vestibular schwannoma	original:nnf-origin	original:nnf-bilateral	
 neuro.ear	NF2-related schwannomatosis		original:nnf-bilateral	original:nnf-child
 neuro.ear	Cholesteatoma			
-neuro.ear	Hearing loss	original:nhear-conduct original:nhear-mix	original:nhear-paired original:nhear-mixed	original:nshl-salvage
+neuro.ear	Hearing loss	original:nhear-conduct original:nhear-mix original:nhear-bone	original:nhear-paired original:nhear-mixed original:nhear-rule original:nhear-normal	original:nshl-salvage original:nhear-meaning original:nhear-expect original:nhear-restored
 neuro.ear	Noise-induced hearing loss			
 neuro.ear	Otosclerosis			
 neuro.ear	Tinnitus			
@@ -538,3 +538,93 @@ neuro.ear	Antineoplastic ototoxicity including cisplatin
 neuro.ear	Aminoglycoside ototoxicity			
 neuro.ear	Loop diuretic ototoxicity			
 neuro.ear	Salicylate ototoxicity			
+blood.inf	Bacterial disorders of blood			
+blood.inf	Viral hemorrhagic fevers (Ebola and Marburg)			
+blood.inf	Chikungunya			
+blood.inf	Dengue			
+blood.inf	Zika virus disease			
+blood.inf	Malaria		original:hmal-travel	original:hmal-again
+blood.inf	Babesiosis	original:hbab-rbc	original:hbab-picture	original:hbab-antibiotic original:hbab-risk
+blood.inf	Lymphadenitis			
+blood.inf	Lymphangitis			
+blood.inf	Buboes and bubonic plague			
+blood.inf	Cat-scratch disease			
+blood.inf	Cryoglobulinemia including mixed cryoglobulinemia			
+blood.inf	Autoimmune hemolytic anemia	original:hwarm-dat original:hwarm-surface original:hwarm-igg original:hwarm-comp	original:hwarm-warm original:hwarm-cold	original:hwarm-first original:hemoly-whatnext
+blood.inf	Paroxysmal nocturnal hemoglobinuria	original:hpnh-anchor	original:hpnh-site	original:hpnh-sample
+blood.inf	Thrombotic thrombocytopenic purpura	original:httpur-substrate	original:httpur-suspect original:httpur-activity	original:httpur-draw original:httpur-treat
+blood.inf	Hemolytic uremic syndrome	original:hhus-triad	original:hhus-child	original:hhus-urine
+blood.tumor	Acute lymphoblastic leukemia	original:hlymph-line	original:hlymph-type	original:hlymph-csf original:hlymph-resid
+blood.tumor	Acute myeloid leukemia including APL	original:hapl-rod original:hapl-fusion	original:hapl-marrow	original:hapl-start original:hapl-change
+blood.tumor	Chronic lymphocytic leukemia		original:hcll-flow original:hcll-lineage	original:hcll-observe original:hcll-progress
+blood.tumor	Chronic myeloid leukemia	original:hcml-enzyme	original:hcml-different	original:hcml-monitor
+blood.tumor	Hodgkin lymphoma	original:hnode-rs	original:hnode-biopsy	original:hnode-sweat
+blood.tumor	Non-Hodgkin lymphoma		original:hburk-mass	
+blood.tumor	Burkitt lymphoma	original:hburk-myc	original:hburk-mass	original:hburk-prepare
+blood.tumor	T-cell lymphoma			
+blood.tumor	Multiple myeloma	original:hplasma-organ	original:hclone-boundary original:hplasma-smolder original:hplasma-lytic	original:hplasma-attrib original:hplasma-sixty original:hplasma-unrelated
+blood.tumor	Dysproteinemias	original:hplasma-rouleaux original:hspep-rule original:hspep-sharp original:hspep-broad	original:hplasma-mgus original:hspep-type original:hspep-occult	original:hspep-typealone
+blood.tumor	Monoclonal gammopathy of undetermined significance		original:hplasma-mgus	original:hplasma-unrelated
+blood.tumor	Myelofibrosis	original:hmfib-spl	original:hmfib-tear	original:hmfib-core
+blood.tumor	Myelodysplastic syndromes	original:hmd-ineffective	original:hmd-dyspl	original:hmd-risk
+blood.tumor	Waldenström macroglobulinemia and related immunoproliferative neoplasms			
+blood.cells	Anemia of inflammation	original:hiron-ferr	original:hiron-compare	original:hiron-mixed
+blood.cells	G6PD deficiency	original:gen-glucose-6-phosphate-dehydrogenase-deficiency-redox	original:gen-glucose-6-phosphate-dehydrogenase-deficiency-trigger	original:hmet-g6
+blood.cells	Pyruvate kinase deficiency			
+blood.cells	Red cell membrane disorders	original:gen-hereditary-spherocytosis-shape	original:hemoly-inherited	original:gen-hereditary-spherocytosis-stones
+blood.cells	Hereditary spherocytosis	original:gen-hereditary-spherocytosis-shape	original:hemoly-inherited	original:gen-hereditary-spherocytosis-stones
+blood.cells	Hereditary elliptocytosis			
+blood.cells	Congenital methemoglobinemia			
+blood.cells	Sickle cell disease	original:gen-sickle-cell-disease-polymer	original:hacute-chest original:hhb-sc	original:hacute-lung original:hhb-donor original:hhb-confirm
+blood.cells	Sideroblastic anemia			
+blood.cells	Thalassemias	original:gen-beta-thalassemia-globin	original:gen-beta-thalassemia-age	original:gen-beta-thalassemia-iron original:hhb-confirm
+blood.cells	Acute blood loss anemia	original:ery-retic		
+blood.cells	Chronic blood loss anemia		original:ckiron-loss original:ckiron-early	original:hiron-mixed
+blood.cells	Aplastic anemia		original:hmarrow-marrow	original:hmarrow-invest
+blood.cells	Leukopenia			
+blood.cells	Neutropenia	original:hanc-calc	original:hanc-worked	original:hanc-first
+blood.cells	Cyclic neutropenia			
+blood.cells	Agranulocytosis	original:hptu-line	original:hptu-throat	original:hptu-confirmed
+blood.cells	Pancytopenia	original:hmarrow-pan	original:hmarrow-marrow	original:hmarrow-invest
+blood.cells	Quantitative thrombocytopenia	original:hitp-immune	original:hitp-isol	original:hitp-low
+blood.cells	Immune thrombocytopenia	original:hitp-immune	original:hitp-isol	original:hitp-watch original:hitp-low original:hchilditp-minor
+blood.cells	Leukocytosis		original:hcml-different	
+blood.cells	Polycythemia vera	original:hpv-drive	original:hpv-jak	
+blood.cells	Secondary erythrocytosis			original:hpv-hypox
+blood.clot	Disseminated intravascular coagulation	original:hdic-consume original:hdic-synthesis original:hdic-recover	original:hdic-shock original:hfrag-rule original:hdic-other	original:hdic-reverse original:hdic-repeat
+blood.clot	Congenital hemophilia A	original:gen-hemophilia-factor	original:hmix-factor	
+blood.clot	Congenital hemophilia B	original:gen-hemophilia-factor	original:hmix-factor	
+blood.clot	Hypofibrinogenemia	original:hdic-consume	original:hdic-shock	
+blood.clot	Von Willebrand disease	original:hvwd-panel	original:hvwd-normal	original:hvwd-stress
+blood.clot	Qualitative platelet dysfunction			
+blood.clot	Heparin-induced thrombocytopenia		original:ckhit-pattern	original:ccs-hit-choice original:ccs-hit-warfarin
+blood.clot	Hyperhomocysteinemia			
+blood.clot	Hypoplasminogenemia			
+blood.clot	Antithrombin deficiency			
+blood.clot	Protein C deficiency			
+blood.clot	Protein S deficiency			
+blood.clot	Factor V Leiden	original:hvl-resist	original:hvl-assay	original:hvl-carrier
+blood.clot	Anticardiolipin antibodies			original:haps-twelve
+blood.clot	Lupus anticoagulant	original:haps-paradox	original:haps-panel	
+blood.clot	Prothrombin G20210A			
+blood.clot	ABO-incompatible transfusion	original:hcross-abo		original:hcross-identity
+blood.clot	Rh-incompatible transfusion			
+blood.clot	Delayed hemolytic transfusion reaction	original:htrans-delayed	original:htrans-days	original:htrans-future
+blood.clot	Acute transfusion reactions	original:hcross-abo	original:hcross-reg	original:ccs-blood-stop
+blood.clot	Septic transfusion reaction		original:hseptic-platelet	original:hseptic-notify
+blood.clot	Transfusion-related acute lung injury	original:htrans-lung	original:htrans-leak	original:htrans-permeable
+blood.clot	Anaphylactic transfusion reaction including anti-IgA		original:hanaph-wheeze	original:hanaph-washed
+blood.injury	Mechanical or cardiac valve hemolysis	original:hvalve-shear	original:hvalve-leak	original:hvalve-trend
+blood.injury	Splenic rupture or laceration		original:hblunt-stable original:hblunt-unstable original:hthreshold-first	original:hblunt-blush original:hblunt-worse original:hblunt-resource
+blood.injury	Splenic infarction	original:hinfar-ischemia	original:hinfar-height	
+blood.injury	Splenic abscess			
+blood.injury	Complications of splenectomy and asplenia	original:hspleen-capsule	original:hspleen-vacc	original:hspleen-review original:haspl-fever
+blood.injury	Hypersplenism			
+blood.drug	Antiplatelet agents	original:rx-platelet-receptor	original:rx-platelet-cyp	
+blood.drug	Direct thrombin inhibitors	original:rx-dab-target	original:rx-idaru-agent	original:rx-dab-renal
+blood.drug	Chemotherapy-related hematologic toxicity		original:hanc-worked	original:hanc-first original:hmarrowrisk-severity
+blood.drug	Coagulation factor inhibitors	original:rx-dab-target	original:rx-idaru-agent	original:rx-dab-renal
+blood.drug	Acquired methemoglobinemia	original:hmet-iron	original:hmet-cyan	original:hmet-g6
+blood.drug	Propylthiouracil agranulocytosis	original:hptu-line	original:hptu-throat	original:hptu-confirmed
+blood.drug	Tumor lysis syndrome	original:htls-k original:htls-ca original:htls-formed original:htls-product original:htls-allop original:htls-ras	original:htls-cluster	original:htls-monitor original:htls-ecg original:htls-silent
+blood.drug	Warfarin			original:rad-anticoag original:ccs-hit-warfarin

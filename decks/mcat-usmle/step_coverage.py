@@ -113,7 +113,43 @@ def measure(families, blueprint, depth, weights, cards, details=()):
     return report, tags
 
 
-def display(report):
+def measure_item_depth(families, items, objectives):
+    """Only count an evidence card when both editorial registers cite it."""
+    systems = {row["Family"]: row["System"] for row in families}
+    grouped = defaultdict(list)
+    for row in objectives:
+        if row["ReviewState"] == "Documented":
+            layers = [set(row[level+"IDs"].split()) for level in LEVELS]
+            grouped[row["Exam"], row["Family"]].append((row["Objective"], layers))
+
+    report = []
+    for item in items:
+        family = item["Family"]
+        for exam, column in zip(STEPS, ("Step1IDs", "Step2CKIDs", "Step3IDs")):
+            cited = set(item[column].split())
+            row = dict(Exam=exam, System=systems[family], Family=family, Item=item["Item"],
+                       MappedCards=str(len(cited)), CardIDs=" ".join(sorted(cited)))
+            linked = [set() for level in LEVELS]
+            paired, complete = [], []
+            for objective, layers in grouped[exam, family]:
+                overlaps = [cited & layer for layer in layers]
+                for matched, overlap in zip(linked, overlaps):
+                    matched.update(overlap)
+                if overlaps[1] and overlaps[2]:
+                    paired.append(objective)
+                    if overlaps[0]:
+                        complete.append(objective)
+            for level, matched in zip(LEVELS, linked):
+                row[level+"IDs"] = " ".join(sorted(matched))
+            row["PairedObjectives"] = str(len(paired))
+            row["ThreeLevelObjectives"] = str(len(complete))
+            row["PairedObjectiveNames"] = " | ".join(paired)
+            row["ThreeLevelObjectiveNames"] = " | ".join(complete)
+            report.append(row)
+    return report
+
+
+def display(report, item_report=()):
     print("Families with documented practice / families in scope")
     print("Exam or system                                 Mapped    Applied    Transfer   All three")
     def line(title, rows):
@@ -135,3 +171,11 @@ def display(report):
                 numerator = sum(int(r["NamedItemsMapped"]) for r in rows)
                 denominator = sum(int(r["NamedItemsInScope"]) for r in rows)
                 print(f"  {system} · {exam}: {numerator}/{denominator}")
+
+    if item_report:
+        print("Named items across inventoried systems (mapped / paired cases / three levels)")
+        for exam in STEPS:
+            rows = [r for r in item_report if r["Exam"] == exam]
+            counts = [sum(int(r[key]) > 0 for r in rows) for key in
+                      ("MappedCards", "PairedObjectives", "ThreeLevelObjectives")]
+            print(f"  {exam}: " + " / ".join(map(str, counts)) + f" of {len(rows)} named items")

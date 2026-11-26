@@ -13,7 +13,7 @@ import shutil
 import subprocess
 import tempfile
 
-from step_coverage import display, measure
+from step_coverage import display, measure, measure_item_depth
 from extract import ROOT, FIELDS, cohort, openstax, read
 
 RELEASE = ROOT / "release"
@@ -163,6 +163,11 @@ def step_measurements(cards):
                    table(ROOT/"step-depth.tsv"), table(ROOT/"step-weights.tsv"), cards, table(ROOT/"step-items.tsv"))
 
 
+def named_measurements():
+    return measure_item_depth(table(ROOT/"step-families.tsv"), table(ROOT/"step-items.tsv"),
+                              table(ROOT/"step-depth.tsv"))
+
+
 def make(folder, prior):
     import genanki
     model=package_model()
@@ -173,6 +178,8 @@ def make(folder, prior):
     write_table(folder/"retired.tsv",["CardID"],[{"CardID":k} for k in sorted(retired)])
     report, practice_tags = step_measurements(rows)
     write_table(folder/"step-coverage.tsv", list(report[0]), report)
+    named = named_measurements()
+    write_table(folder/"step-item-coverage.tsv", list(named[0]), named)
     decks={}; media=set(); objectives=defaultdict(list)
     with (folder/(FILE+".tsv")).open("w",newline="",encoding="utf-8") as f:
         f.write(f"#separator:Tab\n#html:true\n#notetype:{model.name}\n#deck column:2\n#guid column:1\n#tags column:11\n#columns:")
@@ -241,6 +248,7 @@ def verify(folder):
         assert all(k in keyed and keyed[k]["Exam"]==row["Exam"] for k in ids), row
     report, practice_tags = step_measurements(expected)
     assert table(folder/"step-coverage.tsv") == report
+    assert table(folder/"step-item-coverage.tsv") == named_measurements()
     verify_imaging(expected)
     sound_records = table(ROOT/"heart-sounds.tsv")
     clips = {r["Clip"]: r for r in sound_records}
@@ -328,7 +336,7 @@ def main():
         fcntl.flock(lock,fcntl.LOCK_EX if args.action in {"update","build"} else fcntl.LOCK_SH)
         if args.action=="coverage":
             cards, _ = deduplicate(records(RELEASE), alias_map(RELEASE))
-            display(step_measurements(cards)[0])
+            display(step_measurements(cards)[0], named_measurements())
             return
         if args.action=="test":verify(RELEASE);return
         previous=read(RELEASE/"sources.lock.json") if RELEASE.exists() else {}

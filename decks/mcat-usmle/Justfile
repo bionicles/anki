@@ -8,6 +8,7 @@ build:
     uv run --no-project --with genanki==0.13.1 --with anki==26.9.4 python -B deck.py build
 
 test:
+    python3 -B -m unittest test_step_coverage
     uv run --no-project --with genanki==0.13.1 --with anki==26.9.4 python -B deck.py test
 
 figures:

@@ -318,6 +318,62 @@ def neurologic_monitoring():
         save(fig, "nvc_" + code)
 
 
+def hematology():
+    # Hypothetical 1:1 mixing studies. Each column uses the same reference
+    # interval; the normal plasma control remains normal after incubation.
+    for code, times in {"a": (78, 33, 34), "b": (77, 34, 65),
+                        "c": (75, 63, 65)}.items():
+        fig, ax = axes("", "aPTT (seconds)")
+        values = [30, *times, 31]
+        ax.bar(range(5), values, color=[COLORS[0], COLORS[1], COLORS[1], COLORS[1], COLORS[0]])
+        ax.axhspan(25, 36, alpha=.20, color="#83bba4", label="Reference: 25–36 s")
+        ax.set(xticks=range(5), xticklabels=["Control", "Patient", "1:1 mix\ninitial",
+               "1:1 mix\nincubated", "Control\nincubated"], ylim=(0, 99),
+               title="Mixing study • immediate and after incubation")
+        ax.bar_label(ax.containers[0], padding=2)
+        ax.legend(loc="upper right")
+        save(fig, "he_mix_" + code)
+
+    for code, fractions in {"a": (58, 39, 1, 2, 0), "b": (0, 92, 5, 3, 0),
+                            "c": (0, 50, 2, 3, 45), "d": (40, 54, 4, 2, 0)}.items():
+        fig, ax = axes("Hemoglobin fraction", "Share of total (%)")
+        ax.bar(["A","S","F","A₂","C"], fractions, color=COLORS[0])
+        ax.set(ylim=(0, 107), title="Quantitative hemoglobin analysis")
+        ax.bar_label(ax.containers[0], padding=2)
+        save(fig, "he_hb_" + code)
+
+    # Idealized serum protein electrophoresis with the anode on the left.
+    x = np.linspace(0, 1, 900)
+    def peak(center, width, height):
+        return height*np.exp(-.5*((x-center)/width)**2)
+    common = peak(.11,.035,2.6) + peak(.26,.032,.32) + peak(.39,.044,.62) + peak(.57,.048,.61)
+    for code, gamma in {"a": peak(.80,.011,1.8) + peak(.80,.08,.21),
+                        "b": peak(.80,.09,1.18), "c": peak(.80,.085,.14)}.items():
+        fig, ax = axes("Migration region", "Relative signal (arbitrary units)")
+        ax.plot(x, common + gamma, color=COLORS[0], lw=2)
+        ax.set(xticks=[.11,.26,.39,.57,.80], xticklabels=["Albumin","α₁","α₂","β","γ"],
+               xlim=(0,1), ylim=(0,3), title="Serum protein electrophoresis • schematic")
+        save(fig, "he_spep_" + code)
+
+    lab_cases = {
+        "a": ([185, 125, 60], [13, 17, 23], [330, 205, 95]),
+        "b": ([80, 44, 18], [12, 13, 13], [340, 325, 335]),
+        "c": ([46, 83, 132], [22, 17, 14], [95, 160, 240]),
+    }
+    for code, series in lab_cases.items():
+        fig, panels = plt.subplots(1, 3, figsize=(6.6, 2.9), layout="constrained")
+        for ax, values, name, unit, limits in zip(
+            panels, series, ["Platelets", "Prothrombin time", "Fibrinogen"],
+            ["×10⁹/L", "Seconds", "mg/dL"], [(0,210), (0,29), (0,405)]
+        ):
+            ax.plot([0, 6, 12], values, "o-", color=COLORS[0])
+            for hour, v in zip([0,6,12], values):
+                ax.annotate(str(v),(hour,v),xytext=(0,6),textcoords="offset points",ha="center",fontsize=8)
+            ax.set(title=name, ylabel=unit, xlabel="Hours", xticks=[0,6,12], ylim=limits, xlim=(-2,14))
+            ax.grid(alpha=.18)
+        save(fig, "he_lab_" + code)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -326,6 +382,7 @@ def main():
     gastrointestinal()
     special_senses()
     neurologic_monitoring()
+    hematology()
     plot("refeed", "Hours after starting nutrition", "Serum phosphate (mg/dL)",
          [0,12,24,36,48], {"Patient A": [3.2,2.9,2.4,1.8,1.6],
                             "Patient B": [3.1,3.2,3.0,3.1,3.1]})

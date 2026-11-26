@@ -298,3 +298,60 @@ USMLE Step 3	neuro.congenital	Recognize symptomatic ventricular obstruction in t
 USMLE Step 2 CK	neuro.trauma	Interpret delayed symptoms after mild head injury		original:ntbi-delay			Documented
 USMLE Step 3	neuro.trauma	Identify danger signs following concussion		original:ntbi-deteriorate			Documented
 USMLE Step 3	neuro.drug	Treat disabling tardive dyskinesia		original:bh-schiztx-tardive			Documented
+USMLE Step 1	blood.inf	Identify mechanisms of hemolytic red cell injury	original:hwarm-dat original:hwarm-surface				Documented
+USMLE Step 1	blood.inf	Identify red cell fragmentation on a blood film		original:httpur-fragments			Documented
+USMLE Step 2 CK	blood.inf	Use the DAT and clinical history to distinguish immune hemolysis		original:hwarm-warm	original:hwarm-cold	A complement-only DAT and cold-related symptoms replace IgG coating and spherocytes.	Documented
+USMLE Step 2 CK	blood.inf	Recognize thrombotic microangiopathies from a patient presentation		original:httpur-suspect	original:hhus-child	Prominent acute kidney injury after bloody diarrhea shifts the leading diagnosis in a child.	Documented
+USMLE Step 3	blood.inf	Sequence pretreatment sampling and urgent care for probable immune TTP		original:httpur-draw original:httpur-treat			Documented
+USMLE Step 3	blood.inf	Interpret compartment-specific PNH testing after a transfusion		original:hpnh-sample			Documented
+USMLE Step 1	blood.tumor	Recognize evidence of myeloid lineage in marrow blasts		original:hapl-rod			Documented
+USMLE Step 1	blood.tumor	Recognize the disturbance underlying a clonal blood count	original:hcml-enzyme				Documented
+USMLE Step 2 CK	blood.tumor	Classify a plasma cell clone by burden and myeloma-defining events	original:hclone-boundary	original:hplasma-smolder	original:hplasma-lytic original:hplasma-mgus	Attributable lytic lesions appear with the same marrow fraction; a different patient has less than 10% clonal cells and a small M protein.	Documented
+USMLE Step 2 CK	blood.tumor	Select confirmatory testing after suspicious blood or marrow morphology		original:hcll-flow original:hapl-confirm			Documented
+USMLE Step 3	blood.tumor	Decide whether a plasma cell clone meets criteria for treatment evaluation	original:hplasma-attrib	original:hplasma-sixty	original:hplasma-unrelated	An incidental small clone plus anemia from GI bleeding differs from an asymptomatic clone meeting the marrow biomarker threshold.	Documented
+USMLE Step 3	blood.tumor	Choose observation or treatment evaluation in CLL		original:hcll-observe	original:hcll-progress	Symptomatic anemia from progressive marrow infiltration develops after an initially asymptomatic course.	Documented
+USMLE Step 1	blood.cells	Read the dominant and absent fractions in quantitative hemoglobin analysis		original:hhb-major	original:hhb-none	A second panel loses all measurable HbA and is dominated by HbS.	Documented
+USMLE Step 1	blood.cells	Identify erythrocyte morphology on individual blood films		original:hemoly-sphere	original:hhb-target	An independent specimen has concentric hemoglobin staining rather than loss of central pallor.	Documented
+USMLE Step 2 CK	blood.cells	Distinguish anemia from sequestration and from marrow arrest in sickle cell disease		original:hacute-splenic	original:hacute-aplas	The spleen no longer enlarges and reticulocytes are nearly absent.	Documented
+USMLE Step 2 CK	blood.cells	Classify hemoglobin fractions in an untransfused adult		original:hhb-trait	original:hhb-sc	A separate panel lacks HbA and has a substantial HbC fraction.	Documented
+USMLE Step 2 CK	blood.cells	Differentiate anemia of inflammation from absolute iron deficiency		original:hiron-compare	original:hiron-loss	Low ferritin and high binding capacity replace high ferritin and low binding capacity.	Documented
+USMLE Step 3	blood.cells	Interpret HbA in the context of transfusion and red cell indices	original:hanchor-history	original:hhb-donor	original:hhb-confirm	The second adult has never been transfused and has marked microcytosis, normal iron stores and no HbA.	Documented
+USMLE Step 3	blood.cells	Decide whether newly diagnosed ITP requires initial drug treatment		original:hitp-watch	original:hitp-low original:hchilditp-minor	A lower count changes the adult decision. A child with a similarly low count has skin findings only.	Documented
+USMLE Step 1	blood.clot	Determine whether a prolonged aPTT corrects in immediate and incubated mixes	original:hmix-logic	original:hmix-normal	original:hmix-time	Correction is lost after incubation in an independent specimen while the incubated control stays normal.	Documented
+USMLE Step 2 CK	blood.clot	Distinguish patients with hydrostatic and permeability edema during transfusion	original:hbridge-mechanism	original:htrans-fluid	original:htrans-leak	Positive fluid balance and elevated venous pressure are replaced by the absence of left atrial hypertension or an ARDS trigger.	Documented
+USMLE Step 2 CK	blood.clot	Interpret serial platelet counts and coagulation measurements	original:hfrag-rule	original:hdic-shock	original:hdic-other	Both cases lose platelets, but prothrombin time and fibrinogen remain preserved in the patient with neurologic symptoms.	Documented
+USMLE Step 2 CK	blood.clot	Choose further testing after a prolonged aPTT mixing study		original:hmix-factor	original:hmix-postpartum original:hmix-immediate	Delayed loss of correction with postpartum bleeding and immediate noncorrection on separate studies warrant inhibitor evaluation.	Documented
+USMLE Step 3	blood.clot	Choose acute support for pulmonary edema after transfusion	original:hbridge-rule	original:htrans-over	original:htrans-permeable	A hypotensive patient without overload needs respiratory and hemodynamic support in place of routine diuresis.	Documented
+USMLE Step 3	blood.clot	Evaluate a suspected factor VIII inhibitor	original:hmix-rule	original:hmix-bleed			Documented
+USMLE Step 1	blood.injury	Explain the risk of invasive bacterial infection after splenectomy	original:hspleen-capsule				Documented
+USMLE Step 1	blood.injury	Explain fragmentation of red cells around a prosthesis	original:hvalve-shear				Documented
+USMLE Step 2 CK	blood.injury	Select the next step after suspected blunt splenic injury	original:hthreshold-first	original:hblunt-stable	original:hblunt-unstable	Persistent shock and free fluid make transfer to CT unsafe and favor emergency surgery.	Documented
+USMLE Step 3	blood.injury	Choose a spleen-preserving or operative pathway after blunt trauma	original:hblunt-resource	original:hblunt-blush	original:hblunt-worse	Initially stable arterial bleeding is contrasted with failed observation, persistent hypotension and peritonitis.	Documented
+USMLE Step 3	blood.injury	Assess the response to intervention for mechanical hemolysis		original:hvalve-trend			Documented
+USMLE Step 1	blood.drug	Explain biochemical consequences of tumor lysis	original:htls-k original:htls-ca				Documented
+USMLE Step 2 CK	blood.drug	Calculate the absolute neutrophil count from a manual differential	original:hmarrowrisk-formula	original:hanc-worked	original:hanc-reverse	A higher total leukocyte count gives a lower ANC when neutrophils and bands are a smaller fraction.	Documented
+USMLE Step 2 CK	blood.drug	Identify oxidative toxicity from medication		original:hmet-cyan			Documented
+USMLE Step 3	blood.drug	Decide when IV calcium is appropriate in tumor lysis syndrome	original:htls-monitor	original:htls-ecg	original:htls-silent	Dangerous hyperkalemic ECG changes are absent in a different patient with isolated asymptomatic hypocalcemia.	Documented
+USMLE Step 3	blood.drug	Prioritize empiric treatment in high-risk febrile neutropenia	original:hmarrowrisk-severity	original:hanc-first			Documented
+USMLE Step 1	blood.inf	Relate mixed cryoglobulins to complement consumption					Awaiting review
+USMLE Step 2 CK	blood.inf	Distinguish reactive and suppurative lymphadenitis					Awaiting review
+USMLE Step 3	blood.inf	Assess organ involvement in symptomatic cryoglobulinemia					Awaiting review
+USMLE Step 1	blood.tumor	Relate IgM to hyperviscosity					Awaiting review
+USMLE Step 2 CK	blood.tumor	Distinguish Waldenström macroglobulinemia from other IgM disorders					Awaiting review
+USMLE Step 3	blood.tumor	Manage acute symptomatic hyperviscosity					Awaiting review
+USMLE Step 1	blood.cells	Explain ATP depletion in pyruvate kinase deficiency					Awaiting review
+USMLE Step 2 CK	blood.cells	Distinguish a sideroblastic anemia pattern from iron deficiency					Awaiting review
+USMLE Step 3	blood.cells	Assess recurrent severe neutropenia across a series of CBCs					Awaiting review
+USMLE Step 1	blood.clot	Explain failure of natural anticoagulant pathways					Awaiting review
+USMLE Step 2 CK	blood.clot	Interpret a platelet aggregation study					Awaiting review
+USMLE Step 3	blood.clot	Select a bleeding plan in a qualitative platelet disorder					Awaiting review
+USMLE Step 1	blood.injury	Explain cytopenias from hypersplenism					Awaiting review
+USMLE Step 2 CK	blood.injury	Differentiate splenic infarction from abscess on CT					Awaiting review
+USMLE Step 3	blood.injury	Choose source control for a splenic abscess					Awaiting review
+USMLE Step 1	blood.drug	Distinguish impaired factor synthesis from impaired factor activity					Awaiting review
+USMLE Step 2 CK	blood.drug	Interpret coagulation studies after factor Xa inhibitor exposure					Awaiting review
+USMLE Step 3	blood.drug	Reassess anticoagulation after bleeding in a patient with renal failure					Awaiting review
+USMLE Step 1	blood.clot	Interpret consumption and recovery of coagulation factors	original:hdic-synthesis	original:hdic-consume	original:hdic-recover	The independent follow-up example shows rising fibrinogen and shortening PT after treatment instead of progressive consumption.	Documented
+USMLE Step 1	blood.inf	Identify the antibody mechanism in immune hemolysis	original:hwarm-dat	original:hwarm-igg	original:hwarm-comp	Cold-dependent agglutination and residual C3d replace IgG coating at body temperature.	Documented
+USMLE Step 1	blood.tumor	Distinguish a restricted protein peak from a broad gamma increase	original:hspep-rule	original:hspep-sharp	original:hspep-broad	The second trace has a wide gamma elevation from proteins with a range of mobilities.	Documented
+USMLE Step 1	blood.drug	Use the urate-lowering mechanism to predict an unexpected laboratory or metabolic effect	original:htls-allop original:htls-ras	original:htls-formed	original:htls-product	A different agent degrades urate directly and remains active in a collected blood specimen, biasing the assay result.	Documented
