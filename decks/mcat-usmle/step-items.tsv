@@ -1990,23 +1990,23 @@ multi.symptom	Palpitations
 multi.symptom	Pruritus			
 multi.symptom	Syncope and breath-holding spells			
 multi.symptom	Unintentional weight gain or loss		original:nut-weight-measure original:nut-weight-cause	original:nut-weight-percent original:nut-weight-fluid
-multi.nutrition	Kwashiorkor			
-multi.nutrition	Marasmus			
-multi.nutrition	Vitamin A disorders		original:well-preg-retinol	
-multi.nutrition	B-vitamin deficiencies			
-multi.nutrition	Thiamine deficiency including Wernicke–Korsakoff syndrome and beriberi			original:nut-refeed-vitamin
-multi.nutrition	Niacin deficiency			
-multi.nutrition	Pyridoxine deficiency and toxicity			
-multi.nutrition	Folate deficiency			
-multi.nutrition	Cobalamin deficiency and pernicious anemia			
-multi.nutrition	Scurvy			
-multi.nutrition	Vitamin D disorders and rickets			
-multi.nutrition	Vitamin E disorders			
-multi.nutrition	Vitamin K disorders			
-multi.nutrition	Mineral deficiency and toxicity	original:nut-zinc-copper	original:nut-zinc-history original:nut-copper-gait	original:nut-zinc-source
-multi.nutrition	Obesity			
-multi.nutrition	Enteral nutrition		original:nut-enteral-swallow	original:nut-enteral-reassess original:nut-par-wean
-multi.nutrition	Parenteral nutrition		original:nut-par-obstruction original:nut-par-bowel	original:nut-par-wean
+multi.nutrition	Kwashiorkor	original:nutri-kwash-1-rule original:nutri-kwash-1-case original:nutri-kwash-1-other	original:nutri-kwash-2-rule original:nutri-kwash-2-case original:nutri-kwash-2-other original:nutri-kwash-2-rule-extra original:nutri-kwash-2-case-extra original:nutri-kwash-2-other-extra	original:nutri-kwash-3-rule original:nutri-kwash-3-case original:nutri-kwash-3-other
+multi.nutrition	Marasmus	original:nutri-mar-1-rule original:nutri-mar-1-case original:nutri-mar-1-other	original:nutri-mar-2-rule original:nutri-mar-2-case original:nutri-mar-2-other	original:nutri-mar-3-rule original:nutri-mar-3-case original:nutri-mar-3-other
+multi.nutrition	Vitamin A disorders	original:nutri-vita-1-rule original:nutri-vita-1-case original:nutri-vita-1-other	original:well-preg-retinol original:nutri-vita-2-rule original:nutri-vita-2-case original:nutri-vita-2-other	original:nutri-vita-3-rule original:nutri-vita-3-case original:nutri-vita-3-other
+multi.nutrition	B-vitamin deficiencies	original:nutri-bgroup-1-rule original:nutri-bgroup-1-case original:nutri-bgroup-1-other	original:nutri-bgroup-2-rule original:nutri-bgroup-2-case original:nutri-bgroup-2-other	original:nutri-bgroup-3-rule original:nutri-bgroup-3-case original:nutri-bgroup-3-other
+multi.nutrition	Thiamine deficiency including Wernicke–Korsakoff syndrome and beriberi	original:s1-thiam-heart original:s1-thiam-path original:nutri-thia-1-rule original:nutri-thia-1-other	original:ck-thiam-amnesia original:ck-thiam-classic original:nutri-thia-2-rule original:nutri-thia-2-case	original:nut-refeed-vitamin original:ccs-nutrition-follow original:nutri-thia-3-rule original:nutri-thia-3-other
+multi.nutrition	Niacin deficiency	original:nutri-nia-1-rule original:nutri-nia-1-case original:nutri-nia-1-other	original:nutri-nia-2-rule original:nutri-nia-2-case original:nutri-nia-2-other	original:nutri-nia-3-rule original:nutri-nia-3-case original:nutri-nia-3-other
+multi.nutrition	Pyridoxine deficiency and toxicity	original:nutri-b6-1-rule original:nutri-b6-1-case original:nutri-b6-1-other	original:nutri-b6-2-rule original:nutri-b6-2-case original:nutri-b6-2-other	original:nutri-b6-3-rule original:nutri-b6-3-case original:nutri-b6-3-other
+multi.nutrition	Folate deficiency	original:s1-folate-marker original:s1-folate-division original:s1-folate-timing original:nutri-fol-1-rule original:nutri-fol-1-other	original:ck-folate-prevention-distinguish original:nutri-fol-2-rule original:nutri-fol-2-case	original:acm-folate-cbc original:acm-folate-counsel original:nutri-fol-3-rule original:nutri-fol-3-case original:nutri-fol-3-other
+multi.nutrition	Cobalamin deficiency and pernicious anemia	original:s1-b12-if original:s1-b12-ileum original:s1-b12-methyl original:s1-b12-nerve original:nutri-b12-1-rule	original:ck-b12-nut-border original:ck-b12-nut-antibody original:ck-b12-nut-vegan original:ck-b12-nut-normalcbc original:nutri-b12-2-rule	original:fip-b12-renal original:nutri-b12-3-rule original:nutri-b12-3-case original:nutri-b12-3-other
+multi.nutrition	Scurvy	original:s1-vitc-hydroxyl original:s1-vitc-gums original:s1-vitc-meal original:nutri-scur-1-other	original:ck-vitc-presentation original:ck-vitc-healing original:nutri-scur-2-rule original:nutri-scur-2-other	original:nutri-scur-3-rule original:nutri-scur-3-case original:nutri-scur-3-other
+multi.nutrition	Vitamin D disorders and rickets	original:nutri-vitd-1-rule original:nutri-vitd-1-case original:nutri-vitd-1-other	original:well-infant-dose original:msk-mala-case original:nutri-vitd-2-rule original:nutri-vitd-2-case original:nutri-vitd-2-other	original:msk-mala-cause original:well-infant-concentration original:nutri-vitd-3-rule original:nutri-vitd-3-case original:nutri-vitd-3-case-extra original:nutri-vitd-3-other
+multi.nutrition	Vitamin E disorders	original:nutri-vite-1-rule original:nutri-vite-1-case original:nutri-vite-1-other	original:nutri-vite-2-rule original:nutri-vite-2-case original:nutri-vite-2-other	original:nutri-vite-3-rule original:nutri-vite-3-case original:nutri-vite-3-other
+multi.nutrition	Vitamin K disorders	original:nutri-vitk-1-rule original:nutri-vitk-1-case original:nutri-vitk-1-other	original:nutri-vitk-2-rule original:nutri-vitk-2-case original:nutri-vitk-2-other	original:nutri-vitk-3-rule original:nutri-vitk-3-case original:nutri-vitk-3-other original:nutri-vitk-3-rule-extra original:nutri-vitk-3-case-extra original:nutri-vitk-3-other-extra
+multi.nutrition	Mineral deficiency and toxicity	original:nut-zinc-copper original:well-iron-absorb original:well-preg-iodine original:nutri-min-1-rule original:nutri-min-1-rule-extra original:nutri-min-1-case original:nutri-min-1-other	original:nut-zinc-history original:nut-copper-gait original:nutri-min-2-rule original:nutri-min-2-case original:nutri-min-2-other original:nutri-min-2-rule-extra original:nutri-min-2-case-extra original:nutri-min-2-other-extra	original:nut-zinc-source original:nutri-min-3-rule original:nutri-min-3-other
+multi.nutrition	Obesity	original:prevcare-aweight-1 original:nutri-ob-1-rule original:nutri-ob-1-case original:nutri-ob-1-other	original:nut-weight-bmi original:nutri-ob-2-rule original:nutri-ob-2-case original:nutri-ob-2-other	original:nutri-ob-3-rule original:nutri-ob-3-case original:nutri-ob-3-other
+multi.nutrition	Enteral nutrition	original:nutri-ent-1-rule original:nutri-ent-1-case original:nutri-ent-1-other	original:nut-enteral-swallow original:nut-enteral-oral original:nutri-ent-2-rule	original:nut-enteral-reassess original:nut-par-wean original:nutri-ent-3-rule original:nutri-ent-3-case original:nutri-ent-3-other original:nutri-ent-3-rule-extra original:nutri-ent-3-case-extra original:nutri-ent-3-other-extra
+multi.nutrition	Parenteral nutrition	original:nutri-par-1-rule original:nutri-par-1-case original:nutri-par-1-other	original:nut-par-obstruction original:nut-par-bowel original:nut-enteral-swallow original:nutri-par-2-rule	original:nut-par-wean original:nutri-par-3-case original:nutri-par-3-other
 multi.exposure	Hypothermia			
 multi.exposure	Hyperthermia and heat stroke			
 multi.exposure	Ionizing radiation exposure			

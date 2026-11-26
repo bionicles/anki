@@ -24,6 +24,8 @@ The combined medical study package includes work with different licenses. Distri
 
 **Behavioral-health figures.** Twelve original figures use simulated mood, psychosis and tic timelines, menstrual symptom diaries, arterial blood gases, phosphate measurements and respiratory observations. The renderer is `behavioral_courses()` in `figures.py`.
 
+**Clinical nutrition figures.** Twenty original teaching figures use simulated growth measurements, edema assessments, laboratory panels, supplement labels and feeding records. The renderer is `clinical_nutrition_studies()` in `figures.py`. Clinical sources appear on the card backs.
+
 **Multisystem genetics and cancer figures.** Twenty original figures depict simulated biochemical assays, genetic and tumor stain reports, and postexercise motor responses. Question backs cite the sources for interpretation. The renderer is `multisystem_genetic_studies()` in `figures.py`.
 
 **Multisystem physiology figures.** Twenty-one original teaching figures show simulated measurements for blood gas interpretation, fluid balance, electrolyte disorders and hemodynamic reassessment. The rendering function is `multisystem_physiology()` in `figures.py`. The clinical references are credited on the cards.

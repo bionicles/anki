@@ -1720,6 +1720,79 @@ def multisystem_genetic_studies():
                 ["Lab interval for PBG/creatinine", "0–4 mg/g"]], [.64, .36])
 
 
+def clinical_nutrition_studies():
+    """Render fictional nutrition assessments, laboratory reports and feeding records."""
+    for name, mm in [("low", 112), ("mid", 120)]:
+        fig, ax = plt.subplots(figsize=(5.6, 2.1), layout="constrained")
+        ax.hlines(.35, 100, 135, color=COLORS[0], lw=2)
+        for x in range(100, 136):
+            height = .18 if x % 5 == 0 else .09
+            ax.vlines(x, .35, .35 + height, color=COLORS[0])
+            if x % 5 == 0:
+                ax.text(x, .23, str(x), ha="center", fontsize=9)
+        ax.annotate(f"{mm} mm", (mm, .54), xytext=(mm, 1.0), ha="center",
+                    arrowprops={"arrowstyle": "-|>", "color": COLORS[1]}, color=COLORS[1])
+        ax.set(xlim=(98, 137), ylim=(0, 1.32), title="Mid-upper arm circumference  •  simulated reading")
+        ax.axis("off")
+        save(fig, "nutri_mu_" + name)
+
+    def report(name, title, headers, rows, widths):
+        fig, ax = plt.subplots(figsize=(5.9, 2.65), layout="constrained")
+        ax.axis("off")
+        ax.set_title(title + "  •  simulated", fontsize=12)
+        table = ax.table(cellText=rows, colLabels=headers, colWidths=widths,
+                         cellLoc="left", colLoc="left", bbox=[0, .04, 1, .82])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for col in range(len(headers)):
+            table[0, col].set_facecolor("#dcecf2")
+        save(fig, "nutri_" + name)
+
+    for name, servings in [("one", 1), ("two", 2)]:
+        report("b6_" + name, "Daily supplement history",
+               ["Product", "B6 per serving", "Servings taken"],
+               [["Multivitamin", "10 mg", "1"], ["B-complex", "50 mg", str(servings)]],
+               [.36, .33, .31])
+    for name, mma in [("fol", "0.20"), ("both", "1.10")]:
+        report("met_" + name, "Serum metabolites",
+               ["Measurement", "Result", "Lab interval"],
+               [["Homocysteine (µmol/L)", "30", "5–15"], ["MMA (µmol/L)", mma, "0.08–0.40"]],
+               [.55, .18, .27])
+    for name, vit_d, pth, phosphate in [("d", "5", "156", "2.8"), ("p", "36", "35", "2.2")]:
+        report("rick_" + name, "Pediatric mineral panel",
+               ["Measurement", "Result", "Local age interval"],
+               [["25-OH vitamin D (ng/mL)", vit_d, "20–50"], ["PTH (pg/mL)", pth, "15–65"],
+                ["Phosphate (mg/dL)", phosphate, "4.0–6.5"], ["ALP (U/L)", "760", "140–400"]],
+               [.53, .16, .31])
+    for name, ferritin, saturation, crp in [("low", 7, 6, 1), ("infl", 325, 8, 85)]:
+        report("iron_" + name, "Adult iron profile",
+               ["Measurement", "Result", "Lab interval"],
+               [["Ferritin (ng/mL)", ferritin, "20–250"], ["Transferrin saturation (%)", saturation, "20–45"],
+                ["CRP (mg/L)", crp, "<5"]], [.55, .17, .28])
+    for name, kg in [("a", "81.92"), ("b", "64.00")]:
+        report("bmi_" + name, "Adult anthropometry", ["Measurement", "Result"],
+               [["Standing height", "1.60 m"], ["Weight", kg + " kg"]], [.55, .45])
+    for name, held in [("full", 0), ("stop", 5)]:
+        report("pump_" + name, "Enteral pump log", ["Item", "Value"],
+               [["Prescribed feeding window", "20 hours"], ["Rate while running", "60 mL/hour"],
+                ["Time paused within window", f"{held} hours"], ["Catch-up volume", "None"]],
+               [.64, .36])
+    for name, amounts in [("iv", [400, 800, 800]), ("gi", [800, 1200, 0])]:
+        report("energy_" + name, "24-hour delivered energy", ["Route or goal", "Energy (kcal)"],
+               list(zip(["Oral", "Enteral tube", "Parenteral", "Daily goal"], amounts + [2000])),
+               [.57, .43])
+    for name, dose, device in [("ml", "400 IU per mL", "Oral syringe (mL)"),
+                               ("drop", "400 IU per drop", "Drop dispenser")]:
+        report("drops_" + name, "Infant vitamin D product label", ["Label entry", "Value"],
+               [["Vitamin D concentration", dose], ["Supplied device", device]], [.54, .46])
+    for name, edema, feeding in [("down", ["+++", "++", "+"], ["Poor", "Better", "Alert, eating"]),
+                                 ("ill", ["++", "++", "++"], ["Poor", "Less alert", "Lethargic, poor intake"])]:
+        report("edema_" + name, "Therapeutic nutrition follow-up",
+               ["Day", "Weight (kg)", "Edema grade", "Observation"],
+               [[day, wt, e, f] for day, wt, e, f in zip([1, 2, 3], [8.6, 8.4, 8.2], edema, feeding)],
+               [.10, .21, .25, .44])
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -1740,6 +1813,7 @@ def main():
     preventive_care_studies()
     multisystem_physiology()
     multisystem_genetic_studies()
+    clinical_nutrition_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
