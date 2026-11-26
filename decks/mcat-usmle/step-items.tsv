@@ -2034,24 +2034,24 @@ multi.venom	Scorpion envenomation
 multi.venom	Snake envenomation			
 multi.venom	Spider envenomation			
 multi.venom	Jellyfish stings			
-multi.fluid	Assessment of volume status			
-multi.fluid	Dehydration			
-multi.fluid	Hypovolemia			
-multi.fluid	Volume overload			
-multi.fluid	Hyponatremia			
-multi.fluid	Hypernatremia			
-multi.fluid	Hypokalemia		original:ku-cis-k	original:ccs-dka-potassium
-multi.fluid	Hyperkalemia	original:htls-k	original:rx-epl-potassium	original:htls-ecg original:htls-monitor original:cv-hf-highk
-multi.fluid	Hypocalcemia	original:htls-ca	original:rx-cin-tetany original:rx-rankl-ckd original:per-seiz-ca	original:htls-silent
-multi.fluid	Hypercalcemia			
-multi.fluid	Hypophosphatemia	original:nut-refeed-atp	original:nut-refeed-plot	original:nut-refeed-normal original:nut-refeed-trend
-multi.fluid	Hyperphosphatemia	original:htls-ca		
-multi.fluid	Hypomagnesemia	original:ku-cis-mg	original:ku-cis-k	
-multi.fluid	Metabolic acidosis			
-multi.fluid	Metabolic alkalosis	original:bh-eat-purge		
-multi.fluid	Respiratory acidosis		original:pul-niv-acidosis	
-multi.fluid	Respiratory alkalosis			
-multi.fluid	Mixed acid–base disorders			
+multi.fluid	Assessment of volume status	original:msys-volume-1 original:msys-volume-1-a original:msys-volume-1-b original:msys-volume-1-c	original:rx-loop-weight original:prevcare-aweight-2 original:msys-volume-2 original:msys-volume-2-b original:msys-volume-2-c	original:msys-volume-3
+multi.fluid	Dehydration	original:gut-hydrate-transport original:msys-dehyd-1	original:gut-hydrate-shock original:msys-dehyd-2	original:gut-hydrate-oral original:gut-hydrate-rule original:gut-hydrate-iv
+multi.fluid	Hypovolemia	original:msys-hypovol-1	original:rx-loop-weight original:gut-hydrate-shock	original:gut-hydrate-iv original:gut-hydrate-rule original:gut-hydrate-oral original:ccs-adrenal-fluid
+multi.fluid	Volume overload	original:msys-over-1	original:prevcare-aweight-2 original:msys-over-2	original:acm-hf-fluid original:ku-g5-volume
+multi.fluid	Hyponatremia	original:eh-siad-sense	original:ey-pp original:eh-siad-wet original:eh-siad-retain	original:eh-sodium-seizure original:eh-sodium-danger original:eh-sodium-stop original:eh-sodium-diuresis
+multi.fluid	Hypernatremia	original:msys-highna-1 original:msys-highna-1-b original:msys-highna-1-c	original:msys-highna-2 original:msys-highna-2-a original:msys-highna-2-c	original:msys-highna-3
+multi.fluid	Hypokalemia	original:ku-ampho-loss original:msys-lowk-1	original:ku-cis-k original:ku-ampho-pattern original:msys-lowk-2	original:ccs-dka-potassium original:behavior-ed-unstable
+multi.fluid	Hyperkalemia	original:htls-k	original:rx-epl-potassium original:ku-sulfa-k	original:htls-ecg original:htls-monitor original:cv-hf-highk original:ku-aki-now
+multi.fluid	Hypocalcemia	original:htls-ca original:msys-lowca-1-a original:msys-lowca-1-b original:msys-lowca-1-c	original:rx-cin-tetany original:rx-rankl-ckd original:per-seiz-ca	original:htls-silent original:rx-cin-baseline original:msys-lowca-3 original:msys-lowca-3-a original:msys-lowca-3-c
+multi.fluid	Hypercalcemia	original:axis-pth-feedback original:eh-pth-high original:eh-pth-off	original:ey-ca original:axis-pth-bones original:eh-pth-cancer original:eh-pth-fhh	original:eh-pth-stone original:axis-pth-definitive original:eh-pth-family
+multi.fluid	Hypophosphatemia	original:nut-refeed-atp	original:nut-refeed-plot original:ku-tdf-check	original:nut-refeed-normal original:nut-refeed-trend original:nut-refeed-baseline
+multi.fluid	Hyperphosphatemia	original:htls-ca original:msys-highp-1	original:htls-cluster original:msys-highp-2	original:htls-silent original:msys-highp-3
+multi.fluid	Hypomagnesemia	original:ku-cis-mg original:ku-ampho-loss	original:ku-cis-k original:ku-ampho-pattern	original:msys-lowmg-3
+multi.fluid	Metabolic acidosis	original:acid-anion original:behavior-abg-b original:ku-rta-distal original:ku-rta-four original:msys-macid-1-b original:msys-macid-1-c	original:behavior-acid-case original:ku-rta-hyper original:msys-macid-2-a original:msys-macid-2-b original:msys-macid-2-c	original:ku-ampho-rta
+multi.fluid	Metabolic alkalosis	original:bh-eat-purge original:msys-malk-1-a original:msys-malk-1-b original:msys-malk-1-c	original:msys-malk-2 original:msys-malk-2-a original:msys-malk-2-c	original:msys-malk-3
+multi.fluid	Respiratory acidosis	original:acid-chronic	original:pul-niv-acidosis	original:pul-niv-start original:pul-niv-rule original:pul-niv-compensated
+multi.fluid	Respiratory alkalosis	original:behavior-hyper-1 original:behavior-abg-a	original:behavior-alk-case	original:msys-ralk-3
+multi.fluid	Mixed acid–base disorders	original:msys-mixed-1 original:msys-mixed-1-b original:msys-mixed-1-c	original:msys-mixed-2 original:msys-mixed-2-b original:msys-mixed-2-c	original:msys-mixed-3 original:msys-mixed-3-a original:msys-mixed-3-b original:msys-mixed-3-c
 multi.abuse	Child physical abuse and abusive head trauma			
 multi.abuse	Factitious disorder imposed on another			
 multi.abuse	Intimate partner violence			
@@ -2059,16 +2059,16 @@ multi.abuse	Elder abuse
 multi.abuse	Sexual assault			
 multi.trauma	Prioritization in multisystem trauma			
 multi.trauma	Multisystem blast injury			
-multi.shock	Cardiogenic shock			
-multi.shock	Hypovolemic shock		original:gut-hydrate-shock	
-multi.shock	Neurogenic shock			
-multi.shock	Septic shock			
-multi.shock	Sepsis			
-multi.shock	Bacteremia			
-multi.shock	Systemic inflammatory response syndrome			
-multi.shock	Refractory shock			
-multi.shock	Multiorgan dysfunction			
-multi.shock	Meningococcemia			
+multi.shock	Cardiogenic shock	original:msys-cardio-1 original:msys-cardio-1-b original:msys-cardio-1-c	original:msys-cardio-2 original:msys-cardio-2-a original:msys-cardio-2-b original:msys-cardio-2-c	original:cv3-hf-cold original:cv3-hf-rule original:cv3-hf-after
+multi.shock	Hypovolemic shock	original:msys-loss-1	original:gut-hydrate-shock	original:msys-loss-3
+multi.shock	Neurogenic shock	original:msys-neuro-1	original:msys-neuro-2	original:msys-neuro-3
+multi.shock	Septic shock	original:msys-septic-1 original:msys-septic-1-a original:msys-septic-1-b original:msys-septic-1-c	original:msys-septic-2 original:msys-septic-2-a original:msys-septic-2-b original:msys-septic-2-c	original:ccs-sepsis-pressor original:ccs-sepsis-culture original:ccs-sepsis-map original:ccs-sepsis-focus original:msys-septic-3-a original:msys-septic-3-b original:msys-septic-3-c
+multi.shock	Sepsis	original:msys-seps-1	original:per-pp-ill	original:per-sepsis-cool original:per-sepsis-rule original:per-pp-source
+multi.shock	Bacteremia	original:msys-bact-1	original:msk-disc-mri original:msys-bact-2	original:msys-bact-3
+multi.shock	Systemic inflammatory response syndrome	original:msys-sirs-1	original:msys-sirs-2	original:msys-sirs-3
+multi.shock	Refractory shock	original:msys-refrac-1	original:msys-refrac-2	original:msys-refrac-3
+multi.shock	Multiorgan dysfunction	original:msys-mods-1 original:msys-mods-1-a original:msys-mods-1-b original:msys-mods-1-c	original:msys-mods-2 original:msys-mods-2-a original:msys-mods-2-b original:msys-mods-2-c	original:msys-mods-3
+multi.shock	Meningococcemia	original:msys-men-1	original:msys-men-2	original:msys-men-3
 multi.genetic	VACTERL and congenital anomaly associations			
 multi.genetic	Beckwith–Wiedemann syndrome			
 multi.genetic	Down syndrome		bank:cohort:paeds:q-4c86adeaedc4:v1	
@@ -2089,10 +2089,10 @@ multi.genetic	Cystic fibrosis	original:gen-cystic-fibrosis-duct	original:gen-cys
 multi.genetic	Hereditary hemochromatosis	original:gen-hereditary-hemochromatosis-absorb	original:gen-hereditary-hemochromatosis-organs	original:gen-hereditary-hemochromatosis-penetrance
 multi.genetic	Wilson disease	original:gen-wilson-disease-transport	original:gen-wilson-disease-clues	original:gen-wilson-disease-family
 multi.genetic	Fragile X syndrome	original:gen-fragile-x-syndrome-silence	original:gen-fragile-x-syndrome-clues	
-multi.drug	Beta agonist-induced hypokalemia			
-multi.drug	Glucocorticoid-associated electrolyte disorders			
-multi.drug	Diuretic-associated electrolyte and acid–base disorders			
-multi.drug	Alcohol-associated electrolyte and acid–base disorders			
-multi.drug	Drug-associated polydipsia			
-multi.drug	Drug-induced SIADH			
-multi.drug	Drug-induced diabetes insipidus	original:bh-lith-water		
+multi.drug	Beta agonist-induced hypokalemia	original:msys-beta-1 original:msys-beta-1-b original:msys-beta-1-c	original:msys-beta-2	original:msys-beta-3 original:msys-beta-3-b original:msys-beta-3-c
+multi.drug	Glucocorticoid-associated electrolyte disorders	original:msys-steroid-1	original:msys-steroid-2	original:msys-steroid-3
+multi.drug	Diuretic-associated electrolyte and acid–base disorders	original:rx-thiazide-urineca original:msys-diur-1	original:msys-diur-2 original:msys-diur-2-a original:msys-diur-2-c	original:rx-thiazide-na original:rx-loop-dig original:msys-diur-3-a original:msys-diur-3-c
+multi.drug	Alcohol-associated electrolyte and acid–base disorders	original:msys-alcohol-1	original:msys-alcohol-2	original:msys-alcohol-3
+multi.drug	Drug-associated polydipsia	original:behavior-mdma-1 original:msys-polyd-1	original:msys-polyd-2	original:msys-polyd-3
+multi.drug	Drug-induced SIADH	original:msys-siadh-1 original:msys-siadh-1-b original:msys-siadh-1-c	original:ey-pp original:msys-siadh-2 original:msys-siadh-2-b original:msys-siadh-2-c	original:eh-sodium-diuresis original:msys-siadh-3 original:msys-siadh-3-b original:msys-siadh-3-c
+multi.drug	Drug-induced diabetes insipidus	original:bh-lith-water original:ku-li-resist	original:ku-li-dx	original:msys-di-3

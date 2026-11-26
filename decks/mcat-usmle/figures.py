@@ -1576,6 +1576,77 @@ def preventive_care_studies():
                [.52, .24, .24])
 
 
+def multisystem_physiology():
+    """Render simulated case records for fluid, electrolyte and shock decisions."""
+    def record(name, title, columns, rows, widths=(.46, .22, .32)):
+        fig, ax = plt.subplots(figsize=(5.85, 2.85), layout="constrained")
+        ax.axis("off")
+        ax.set_title(title + "  •  simulated", fontsize=12)
+        table = ax.table(cellText=rows, colLabels=columns, colWidths=widths,
+                         cellLoc="left", colLoc="left", bbox=[0, .04, 1, .84])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for col in range(len(columns)):
+            table[0, col].set_facecolor("#dcecf2")
+        save(fig, "msys_" + name)
+
+    for name, co2 in [("fit", 26), ("low", 18), ("high", 40)]:
+        bicarb = 12
+        ph = 6.1 + np.log10(bicarb / (.03 * co2))
+        record("gas_" + name, "Arterial blood gas", ["Arterial sample", "Result", "Usual interval"],
+               [["pH", f"{ph:.2f}", "7.35–7.45"], ["PaCO₂ (mm Hg)", co2, "35–45"],
+                ["HCO₃⁻ (mmol/L)", bicarb, "22–26"]])
+
+    for name, sodium, chloride in [("hi", 140, 102), ("norm", 138, 116)]:
+        record("gap_" + name, "Serum chemistry", ["Measurement", "Result", "Unit"],
+               [["Sodium", sodium, "mmol/L"], ["Chloride", chloride, "mmol/L"],
+                ["Bicarbonate", 12, "mmol/L"], ["Lab gap, no K", "8–12", "mmol/L"]],
+               (.5, .20, .30))
+    for name, value in [("low", 8), ("high", 54)]:
+        record("cl_" + name, "Simultaneous blood and urine", ["Measurement", "Result", "Unit"],
+               [["Arterial pH", "7.50", "—"], ["Serum bicarbonate", 35, "mmol/L"],
+                ["Spot urine chloride", value, "mmol/L"]])
+
+    for name, amounts in [("pos", [1100, 1900, 1000, 400]), ("neg", [900, 600, 850, 1750])]:
+        record("io_" + name, "24-hour intake and measured output", ["Direction", "Source", "Volume (mL)"],
+               list(zip(["Intake", "Intake", "Output", "Output"],
+                        ["Oral", "IV", "Urine", "Gastrointestinal"], amounts)),
+               (.28, .44, .28))
+
+    for name, peak in [("rise", 60), ("flat", 51)]:
+        fig, ax = axes("Time from start of maneuver (s)", "Stroke volume (mL)")
+        times = [-30, 0, 30, 60, 90, 120]
+        values = [50, 50, peak, peak, 50, 50]
+        ax.axvspan(0, 60, color="#e0edf1", label="Legs raised")
+        ax.plot(times, values, "o-", color=COLORS[0], lw=2)
+        for j in (0, 2):
+            ax.annotate(str(values[j]), (times[j], values[j]), xytext=(0, 7),
+                        textcoords="offset points", ha="center")
+        ax.set(title="Passive leg raise  •  simulated stroke volume", xticks=times, ylim=(46, 65))
+        ax.legend(loc="upper right", fontsize=9)
+        save(fig, "msys_plr_" + name)
+
+    for name, wedge, ci in [("pump", 26, "1.6"), ("loss", 4, "1.5")]:
+        record("hemo_" + name, "Invasive hemodynamics", ["Measurement", "Result", "Resting interval"],
+               [["Wedge pressure (mm Hg)", wedge, "6–12"], ["Cardiac index (L/min/m²)", ci, "2.5–4.0"]],
+               (.55, .16, .29))
+    for name, uosm, una in [("dil", 65, 12), ("con", 490, 65)]:
+        record("osm_" + name, "Paired serum and urine samples", ["Measurement", "Serum", "Urine"],
+               [["Sodium (mmol/L)", 122, una], ["Osmolality (mOsm/kg)", 260, uosm]])
+    for name, uosm, vol in [("con", 880, "0.8"), ("dil", 105, "5.8")]:
+        record("ton_" + name, "Water balance over 24 hours", ["Measurement", "Result", "Unit"],
+               [["Serum sodium", 153, "mmol/L"], ["Serum osmolality", 315, "mOsm/kg"],
+                ["Urine osmolality", uosm, "mOsm/kg"], ["24-hour urine", vol, "L"]])
+    for name, ion, alb in [("bound", "1.20", "2.1"), ("ion", "0.88", "4.0")]:
+        record("ca_" + name, "Serum calcium fractions", ["Measurement", "Result", "Lab interval"],
+               [["Total calcium (mg/dL)", "7.6", "8.5–10.5"], ["Ionized calcium (mmol/L)", ion, "1.15–1.30"],
+                ["Albumin (g/dL)", alb, "3.5–5.0"]], (.56, .16, .28))
+    for name, urine, oxygen in [("good", [12, 48], [5, 2]), ("bad", [24, 8], [2, 5])]:
+        record("org_" + name, "Serial bedside observations", ["Measurement", "Hour 0", "Hour 4"],
+               [["MAP (mm Hg)", 56, 70], ["Urine output (mL/h)", *urine],
+                ["Nasal O₂ flow (L/min)", *oxygen]], (.56, .22, .22))
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -1594,6 +1665,7 @@ def main():
     behavioral_courses()
     urology_studies()
     preventive_care_studies()
+    multisystem_physiology()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
