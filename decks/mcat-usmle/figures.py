@@ -4540,6 +4540,40 @@ def shift_safety_studies():
                 [["21 patients", "3 clinicians"]])
 
 
+def reproductive_infection_studies():
+    """Render bedside records, published trial results and MCAT experiments."""
+    labels = ["Discharge", "Vaginal pH", "Clue cells", "Whiff test"]
+    for name, values in [("bv", ["Thin, uniform", "5.3", "Present", "Negative"]),
+                         ("ph", ["No typical coating", "5.2", "Absent", "Negative"])]:
+        study_table("gynex_" + name, "Bedside assessment", ["Finding", "Result"],
+                    list(zip(labels, values)))
+
+    study_table("gynex_stepup", "BV recurrence within 12 weeks",
+                ["Partner group", "Recurrences", "Proportion"],
+                [["Concurrent treatment", "24 / 69", "35%"], ["Standard care alone", "43 / 68", "63%"]],
+                source="StepUp, 2025")
+    study_table("gynex_word", "Analgesic use in the first 24 hours",
+                ["Word catheter", "Marsupialization"], [["33%", "74%"]], source="WoMan trial")
+    study_table("gynex_recur", "Recurrence within one year",
+                ["Word catheter", "Marsupialization", "RR (95% CI)"],
+                [["12%", "10%", "1.1 (0.64–1.91)"]], source="WoMan trial")
+
+    study_table("gynex_rprfall", "Quantitative RPR • same laboratory", ["Visit", "Titer"],
+                [["Start of treatment", "1:32"], ["Six-month follow-up", "1:8"]])
+    study_table("gynex_rprrise", "Quantitative RPR • same laboratory", ["Visit", "Titer"],
+                [["After prior treatment", "1:4"], ["Current visit", "1:16"], ["Three weeks later", "1:16"]])
+    study_table("gynex_cycle", "Hormone sampling during one cycle",
+                ["Cycle day", "LH (IU/L)", "Progesterone (ng/mL)"],
+                [["10", "5", "0.5"], ["13", "38", "0.8"], ["16", "8", "4"], ["20", "5", "12"]])
+
+    fig, ax = axes("Aqueous buffer pH", "Recovered compound in organic layer (%)")
+    values = [78, 65, 27]
+    bars = ax.bar(["3.8", "4.8", "5.8"], values, color=COLORS[0], width=.55)
+    ax.bar_label(bars, labels=[f"{v}%" for v in values], padding=3)
+    ax.set(ylim=(0, 100), title="Weak acid partitioning • simulated experiment")
+    save(fig, "gynex_extract", indexed=True)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -4629,6 +4663,7 @@ def main():
     study_design_cases()
     airway_tumor_studies()
     shift_safety_studies()
+    reproductive_infection_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
