@@ -24,6 +24,8 @@ The combined medical study package includes work with different licenses. Distri
 
 **Behavioral-health figures.** Twelve original figures use simulated mood, psychosis and tic timelines, menstrual symptom diaries, arterial blood gases, phosphate measurements and respiratory observations. The renderer is `behavioral_courses()` in `figures.py`.
 
+**Multisystem genetics and cancer figures.** Twenty original figures depict simulated biochemical assays, genetic and tumor stain reports, and postexercise motor responses. Question backs cite the sources for interpretation. The renderer is `multisystem_genetic_studies()` in `figures.py`.
+
 **Multisystem physiology figures.** Twenty-one original teaching figures show simulated measurements for blood gas interpretation, fluid balance, electrolyte disorders and hemodynamic reassessment. The rendering function is `multisystem_physiology()` in `figures.py`. The clinical references are credited on the cards.
 
 **Well-patient care figures.** Fourteen original charts and tables show simulated patient measurements, sleep diaries, activity summaries, functional interviews and food labels. The two head-growth charts plot the WHO boys’ reference values at selected ages from birth to 12 months alongside fictional patient records. The renderer is `preventive_care_studies()` in `figures.py`. [WHO simplified field table for boys](https://cdn.who.int/media/docs/default-source/child-growth/child-growth-standards/indicators/head-circumference-for-age/sft_hcfa_boys_p_0_5.pdf)

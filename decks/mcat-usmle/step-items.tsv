@@ -1958,22 +1958,22 @@ multi.inf	Takayasu arteritis
 multi.inf	Granulomatosis with polyangiitis			
 multi.inf	Familial Mediterranean fever			
 multi.inf	Sarcoidosis and Löfgren syndrome			
-multi.tumor	Ectopic ADH production			
-multi.tumor	Ectopic ACTH production			
-multi.tumor	Humoral hypercalcemia of malignancy			
-multi.tumor	Paraneoplastic erythrocytosis			
-multi.tumor	Nonbacterial thrombotic endocarditis			
-multi.tumor	Lambert–Eaton myasthenic syndrome			
-multi.tumor	Paraneoplastic cerebellar degeneration			
-multi.tumor	Limbic encephalitis			
-multi.tumor	Paraneoplastic sensory neuronopathy			
-multi.tumor	Anti-NMDA receptor encephalitis			
-multi.tumor	Malignancy-associated acanthosis nigricans			
-multi.tumor	Hypertrophic pulmonary osteoarthropathy			
-multi.tumor	Cancer-associated inflammatory myopathy			
-multi.tumor	Cancer-associated membranous nephropathy			
-multi.tumor	Fanconi anemia and inherited DNA repair defects			
-multi.tumor	Lynch syndrome		original:gut-gene-lynch	
+multi.tumor	Ectopic ADH production	original:pul-sclc-water original:mgen-adh-1-b original:mgen-adh-1-c	original:pul-sclc-sodium original:ey-pp original:mgen-adh-2-c	original:mgen-adh-3
+multi.tumor	Ectopic ACTH production	original:pul-sclc-acth	original:pul-sclc-cortisol original:pul-sclc-sodium original:mgen-acth-2-a	original:mgen-acth-3 original:mgen-acth-3-a original:mgen-acth-3-b
+multi.tumor	Humoral hypercalcemia of malignancy	original:mgen-pth-1 original:mgen-pth-1-b original:mgen-pth-1-c	original:eh-pth-cancer original:mgen-pth-2 original:mgen-pth-2-a original:mgen-pth-2-c	original:mgen-pth-3 original:mgen-pth-3-a original:mgen-pth-3-b original:mgen-pth-3-c
+multi.tumor	Paraneoplastic erythrocytosis	original:hpv-drive original:mgen-epo-1 original:mgen-epo-1-a original:mgen-epo-1-c	original:mgen-epo-2 original:mgen-epo-2-a original:mgen-epo-2-c	original:mgen-epo-3
+multi.tumor	Nonbacterial thrombotic endocarditis	original:mgen-nbte-1	original:mgen-nbte-2 original:mgen-nbte-2-a original:mgen-nbte-2-c	original:mgen-nbte-3
+multi.tumor	Lambert–Eaton myasthenic syndrome	original:mgen-lems-1 original:mgen-lems-1-a original:mgen-lems-1-b original:mgen-lems-1-c	original:mgen-lems-2 original:mgen-lems-2-a original:mgen-lems-2-b original:mgen-lems-2-c	original:mgen-lems-3
+multi.tumor	Paraneoplastic cerebellar degeneration	original:mgen-cereb-1	original:mgen-cereb-2 original:mgen-cereb-2-a original:mgen-cereb-2-b original:mgen-cereb-2-c	original:mgen-cereb-3
+multi.tumor	Limbic encephalitis	original:mgen-limb-1	original:mgen-limb-2	original:mgen-limb-3
+multi.tumor	Paraneoplastic sensory neuronopathy	original:mgen-sens-1	original:mgen-sens-2	original:mgen-sens-3 original:mgen-sens-3-a original:mgen-sens-3-c
+multi.tumor	Anti-NMDA receptor encephalitis	original:mgen-nmda-1	original:mgen-nmda-2	original:mgen-nmda-3 original:mgen-nmda-3-a original:mgen-nmda-3-b original:mgen-nmda-3-c
+multi.tumor	Malignancy-associated acanthosis nigricans	original:mgen-acan-1	original:mgen-acan-2	original:mgen-acan-3
+multi.tumor	Hypertrophic pulmonary osteoarthropathy	original:mgen-hoa-1	original:mgen-hoa-2	original:mgen-hoa-3
+multi.tumor	Cancer-associated inflammatory myopathy	original:mgen-myo-1	original:mgen-myo-2	original:mgen-myo-3 original:mgen-myo-3-a original:mgen-myo-3-c
+multi.tumor	Cancer-associated membranous nephropathy	original:mgen-mn-1	original:mgen-mn-2	original:mgen-mn-3
+multi.tumor	Fanconi anemia and inherited DNA repair defects	original:mgen-fa-1	original:mgen-fa-2	original:mgen-fa-3 original:mgen-fa-3-a original:mgen-fa-3-c
+multi.tumor	Lynch syndrome	original:gut-gene-repair original:mgen-lyn-1-b original:mgen-lyn-1-c	original:gut-gene-lynch original:mgen-lyn-2-a original:mgen-lyn-2-b original:mgen-lyn-2-c	original:gut-gene-distinguish original:mgen-lyn-3-b original:mgen-lyn-3-c
 multi.symptom	Undifferentiated joint pain			
 multi.symptom	Undifferentiated chest pain			
 multi.symptom	Undifferentiated cough			
@@ -2069,26 +2069,26 @@ multi.shock	Systemic inflammatory response syndrome	original:msys-sirs-1	origina
 multi.shock	Refractory shock	original:msys-refrac-1	original:msys-refrac-2	original:msys-refrac-3
 multi.shock	Multiorgan dysfunction	original:msys-mods-1 original:msys-mods-1-a original:msys-mods-1-b original:msys-mods-1-c	original:msys-mods-2 original:msys-mods-2-a original:msys-mods-2-b original:msys-mods-2-c	original:msys-mods-3
 multi.shock	Meningococcemia	original:msys-men-1	original:msys-men-2	original:msys-men-3
-multi.genetic	VACTERL and congenital anomaly associations			
-multi.genetic	Beckwith–Wiedemann syndrome			
-multi.genetic	Down syndrome		bank:cohort:paeds:q-4c86adeaedc4:v1	
-multi.genetic	Prader–Willi syndrome			
-multi.genetic	Alpha-1 antitrypsin deficiency			
-multi.genetic	Porphyrias			
-multi.genetic	Maple syrup urine disease	original:gen-maple-syrup-urine-disease-substrates original:gen-maple-syrup-urine-disease-block	original:gen-maple-syrup-urine-disease-case	
-multi.genetic	Urea cycle defects	original:gen-ornithine-transcarbamylase-deficiency-urea	original:gen-ornithine-transcarbamylase-deficiency-marker	original:gen-ornithine-transcarbamylase-deficiency-female
-multi.genetic	Fabry disease			
-multi.genetic	Tay–Sachs disease			
-multi.genetic	Glycogen storage diseases	original:gen-glycogen-storage-disease-type-i-reaction original:gen-glycogen-storage-disease-type-i-subtype original:gen-glycogen-storage-disease-type-v-enzyme	original:gen-glycogen-storage-disease-type-i-liver original:gen-glycogen-storage-disease-type-v-wind	original:gen-glycogen-storage-disease-type-v-urine
-multi.genetic	Mucopolysaccharidoses			
-multi.genetic	Amyloidosis			
-multi.genetic	Ehlers–Danlos syndromes			
-multi.genetic	Primary ciliary dyskinesia and Kartagener syndrome			
+multi.genetic	VACTERL and congenital anomaly associations	original:mgen-vact-1	original:mgen-vact-2	original:mgen-vact-3
+multi.genetic	Beckwith–Wiedemann syndrome	original:mgen-bws-1	original:mgen-bws-2	original:mgen-bws-3 original:mgen-bws-3-b original:mgen-bws-3-c
+multi.genetic	Down syndrome	original:gen-down-syndrome-mosaic	bank:cohort:paeds:q-4c86adeaedc4:v1 original:gen-down-syndrome-translocation	original:gen-down-syndrome-parents
+multi.genetic	Prader–Willi syndrome	original:mgen-pws-1 original:mgen-pws-1-b original:mgen-pws-1-c	original:mgen-pws-2 original:mgen-pws-2-a original:mgen-pws-2-b original:mgen-pws-2-c	original:mgen-pws-3 original:mgen-pws-3-a original:mgen-pws-3-b original:mgen-pws-3-c
+multi.genetic	Alpha-1 antitrypsin deficiency	original:mgen-aat-1 original:mgen-aat-1-a original:mgen-aat-1-c	original:mgen-aat-2	original:mgen-aat-3 original:mgen-aat-3-a original:mgen-aat-3-c
+multi.genetic	Porphyrias	original:mgen-por-1 original:mgen-por-1-a original:mgen-por-1-b original:mgen-por-1-c	original:mgen-por-2 original:mgen-por-2-b original:mgen-por-2-c	original:mgen-por-3
+multi.genetic	Maple syrup urine disease	original:gen-maple-syrup-urine-disease-substrates original:gen-maple-syrup-urine-disease-block	original:gen-maple-syrup-urine-disease-case original:mgen-msud-2-a original:mgen-msud-2-b original:mgen-msud-2-c	original:mgen-msud-3
+multi.genetic	Urea cycle defects	original:gen-ornithine-transcarbamylase-deficiency-urea original:mgen-otc-1-a original:mgen-otc-1-b original:mgen-otc-1-c	original:gen-ornithine-transcarbamylase-deficiency-marker	original:gen-ornithine-transcarbamylase-deficiency-female
+multi.genetic	Fabry disease	original:mgen-fab-1	original:mgen-fab-2 original:mgen-fab-2-a original:mgen-fab-2-b original:mgen-fab-2-c	original:mgen-fab-3 original:mgen-fab-3-a original:mgen-fab-3-b original:mgen-fab-3-c
+multi.genetic	Tay–Sachs disease	original:mgen-tay-1 original:mgen-tay-1-a original:mgen-tay-1-b original:mgen-tay-1-c	original:mgen-tay-2 original:mgen-tay-2-a original:mgen-tay-2-b original:mgen-tay-2-c	original:mgen-tay-3
+multi.genetic	Glycogen storage diseases	original:gen-glycogen-storage-disease-type-i-reaction original:gen-glycogen-storage-disease-type-i-subtype original:gen-glycogen-storage-disease-type-v-enzyme	original:gen-glycogen-storage-disease-type-i-liver original:gen-glycogen-storage-disease-type-v-wind original:mgen-gsd-2-a	original:gen-glycogen-storage-disease-type-v-urine original:mgen-gsd-3-a original:mgen-gsd-3-c
+multi.genetic	Mucopolysaccharidoses	original:mgen-mps-1	original:mgen-mps-2	original:mgen-mps-3
+multi.genetic	Amyloidosis	original:cv-amy-light original:cv-amy-stiff	original:cv-amy-screen original:cv-amy-clues	original:cv-amy-genetic original:cv-amy-positive original:cv-amy-negative original:mgen-amy-3-a original:mgen-amy-3-b
+multi.genetic	Ehlers–Danlos syndromes	original:mgen-eds-1	original:mgen-eds-2	original:mgen-eds-3
+multi.genetic	Primary ciliary dyskinesia and Kartagener syndrome	original:pul-cilia-laterality original:pul-cilia-clear	original:pul-cilia-syndrome original:pul-cilia-normal	original:pul-cilia-refer original:pul-cilia-nitric
 multi.genetic	Marfan syndrome	original:gen-marfan-syndrome-protein	original:gen-marfan-syndrome-cluster	original:gen-marfan-syndrome-aorta
-multi.genetic	Cystic fibrosis	original:gen-cystic-fibrosis-duct	original:gen-cystic-fibrosis-meconium	original:gen-cystic-fibrosis-growth
-multi.genetic	Hereditary hemochromatosis	original:gen-hereditary-hemochromatosis-absorb	original:gen-hereditary-hemochromatosis-organs	original:gen-hereditary-hemochromatosis-penetrance
-multi.genetic	Wilson disease	original:gen-wilson-disease-transport	original:gen-wilson-disease-clues	original:gen-wilson-disease-family
-multi.genetic	Fragile X syndrome	original:gen-fragile-x-syndrome-silence	original:gen-fragile-x-syndrome-clues	
+multi.genetic	Cystic fibrosis	original:gen-cystic-fibrosis-duct original:mgen-cf-1-b original:mgen-cf-1-c	original:gen-cystic-fibrosis-meconium original:mgen-cf-2-a original:mgen-cf-2-b original:mgen-cf-2-c	original:gen-cystic-fibrosis-growth original:mgen-cf-3-a original:mgen-cf-3-b original:mgen-cf-3-c
+multi.genetic	Hereditary hemochromatosis	original:gen-hereditary-hemochromatosis-absorb	original:gen-hereditary-hemochromatosis-organs original:mgen-iron-2-a original:mgen-iron-2-b original:mgen-iron-2-c	original:gen-hereditary-hemochromatosis-penetrance original:mgen-iron-3-a original:mgen-iron-3-b original:mgen-iron-3-c
+multi.genetic	Wilson disease	original:gen-wilson-disease-transport	original:gen-wilson-disease-clues original:mgen-wilson-2-a original:mgen-wilson-2-b original:mgen-wilson-2-c	original:gen-wilson-disease-family
+multi.genetic	Fragile X syndrome	original:gen-fragile-x-syndrome-silence	original:gen-fragile-x-syndrome-clues original:fmr-plan-tremor original:fmr-plan-ovarian	original:fmr-plan-maternal original:fmr-plan-paternal
 multi.drug	Beta agonist-induced hypokalemia	original:msys-beta-1 original:msys-beta-1-b original:msys-beta-1-c	original:msys-beta-2	original:msys-beta-3 original:msys-beta-3-b original:msys-beta-3-c
 multi.drug	Glucocorticoid-associated electrolyte disorders	original:msys-steroid-1	original:msys-steroid-2	original:msys-steroid-3
 multi.drug	Diuretic-associated electrolyte and acid–base disorders	original:rx-thiazide-urineca original:msys-diur-1	original:msys-diur-2 original:msys-diur-2-a original:msys-diur-2-c	original:rx-thiazide-na original:rx-loop-dig original:msys-diur-3-a original:msys-diur-3-c

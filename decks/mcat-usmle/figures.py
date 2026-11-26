@@ -1647,6 +1647,79 @@ def multisystem_physiology():
                 ["Nasal O₂ flow (L/min)", *oxygen]], (.56, .22, .22))
 
 
+def multisystem_genetic_studies():
+    """Draw simulated genetic, biochemical and electrophysiologic case records."""
+    def report(name, title, columns, rows, widths):
+        fig, ax = plt.subplots(figsize=(5.8, 2.65), layout="constrained")
+        ax.axis("off")
+        ax.set_title(title + "  •  simulated", fontsize=12)
+        table = ax.table(cellText=rows, colLabels=columns, colWidths=widths,
+                         cellLoc="left", colLoc="left", bbox=[0, .04, 1, .83])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for col in range(len(columns)):
+            table[0, col].set_facecolor("#dcecf2")
+        save(fig, "mgen_" + name)
+
+    for name, values in [("hi", [73, 69]), ("mid", [46, 52])]:
+        report("sweat_" + name, "Quantitative sweat chloride",
+               ["Collection", "Chloride (mmol/L)", "Sample quality"],
+               [[f"Visit {n}", v, "Adequate"] for n, v in enumerate(values, 1)], [.26, .39, .35])
+    for name, paternal in [("mat", "Absent"), ("both", "Present")]:
+        report("imp_" + name, "SNRPN methylation assay",
+               ["Patient signal", "Result", "Assay control"],
+               [["Methylated (maternal)", "Present", "Valid"],
+                ["Unmethylated (paternal)", paternal, "Valid"]], [.54, .20, .26])
+    for name, copies in [("del", 1), ("two", 2)]:
+        report("dos_" + name, "Chromosome 15 critical region",
+               ["Study", "Patient finding"],
+               [["Methylation", "Maternal-only pattern"],
+                ["Genomic dosage", f"{copies} " + ("copy" if copies == 1 else "copies")]],
+               [.48, .52])
+    for name, hex_b in [("a", 105), ("ab", 3)]:
+        fig, ax = axes("", "Activity (% of control mean)")
+        ax.axhspan(70, 130, color="#ddebdc", label="Lab reference band")
+        values = [2, hex_b]
+        ax.bar(["Hex A", "Hex B"], values, width=.46, color=COLORS[0])
+        for pos, value in enumerate(values):
+            ax.text(pos, value + 3, str(value), ha="center")
+        ax.set(title="Leukocyte isoenzyme activities  •  simulated", ylim=(0, 155))
+        ax.legend(loc="upper center", fontsize=8)
+        save(fig, "mgen_hex_" + name)
+
+    for name, value in [("hi", 82), ("norm", 2)]:
+        report("orot_" + name, "Neonatal urine metabolic panel",
+               ["Analyte", "Result", "Lab interval"],
+               [["Orotic acid (mmol/mol Cr)", str(value), "0–4"]], [.48, .20, .32])
+    for name, sat, ferr, crp in [("high", 81, 760, 2), ("infl", 22, 810, 92)]:
+        report("iron_" + name, "Serum iron and inflammatory indices",
+               ["Analyte", "Result", "Lab interval"],
+               [["Transferrin saturation (%)", sat, "20–45"], ["Ferritin (ng/mL)", ferr, "30–300"],
+                ["CRP (mg/L)", crp, "<5"]], [.56, .16, .28])
+    for name, peak in [("big", 4.4), ("small", 2.2)]:
+        fig, ax = axes("", "CMAP amplitude (mV)")
+        ax.bar(["At rest", "After brief exercise"], [2, peak], width=.46, color=COLORS)
+        for pos, value in enumerate([2, peak]):
+            ax.text(pos, value + .12, f"{value:.1f}", ha="center")
+        ax.set(title="Motor response to stimulation  •  simulated", ylim=(0, 5.3))
+        save(fig, "mgen_cmap_" + name)
+    for name, pth in [("low", 5), ("keep", 51)]:
+        report("pth_" + name, "Simultaneous serum measurements",
+               ["Analyte", "Result", "Lab interval"],
+               [["Ionized calcium (mmol/L)", "1.60", "1.15–1.30"],
+                ["Intact PTH (pg/mL)", pth, "15–65"]], [.55, .16, .29])
+    for name, lost in [("one", {"MLH1", "PMS2"}), ("two", {"MSH2", "MSH6"})]:
+        report("ihc_" + name, "Colorectal tumor immunohistochemistry",
+               ["Protein", "Tumor nuclei", "Internal control"],
+               [[protein, "Absent" if protein in lost else "Retained", "Retained"]
+                for protein in ["MLH1", "PMS2", "MSH2", "MSH6"]], [.25, .38, .37])
+    for name, creat in [("ref", "1.00"), ("high", "0.10")]:
+        report("pbg_" + name, "Spot urine during current symptoms",
+               ["Measurement", "Patient / lab value"],
+               [["Porphobilinogen (PBG)", "3 mg/L"], ["Creatinine", creat + " g/L"],
+                ["Lab interval for PBG/creatinine", "0–4 mg/g"]], [.64, .36])
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -1666,6 +1739,7 @@ def main():
     urology_studies()
     preventive_care_studies()
     multisystem_physiology()
+    multisystem_genetic_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
