@@ -627,10 +627,160 @@ def endocrine():
 
 
 
+def cardiovascular_studies():
+    """Draw simulated segmental pressure, catheter oximetry and pacemaker studies."""
+    pressures = {
+        "a": ("Left", [140, 132, 84, 98]),
+        "b": ("Right", [120, 128, 192, 178]),
+        "c": ("Left", [134, 140, 147, 154]),
+    }
+    for case, (leg, values) in pressures.items():
+        labels = ["Right arm", "Left arm", leg + " dorsalis pedis", leg + " posterior tibial"]
+        fig, ax = axes("Systolic pressure (mm Hg)", "")
+        y = np.arange(len(values))
+        ax.barh(y, values, color=[COLORS[0]] * 2 + [COLORS[1]] * 2, height=.58)
+        ax.set(yticks=y, yticklabels=labels, xlim=(0, 224), title="Resting Doppler pressures")
+        ax.invert_yaxis()
+        for pos, value in enumerate(values):
+            ax.text(value + 3, pos, str(value), va="center")
+        save(fig, "cvstudy_abi_" + case)
+
+    sites = ["Superior vena cava", "Inferior vena cava", "Right atrium",
+             "Right ventricle", "Pulmonary artery"]
+    runs = {"a": [66, 68, 83, 83, 84], "b": [65, 67, 66, 83, 84],
+            "c": [65, 67, 66, 68, 85]}
+    for case, values in runs.items():
+        fig, ax = axes("Oxygen saturation (%)", "Sampling site")
+        ax.scatter(values, np.arange(5), color=COLORS[0], s=65)
+        ax.set(yticks=np.arange(5), yticklabels=sites, xlim=(55, 98),
+               ylim=(4.6, -.6), title="Catheter oximetry · room air")
+        for pos, value in enumerate(values):
+            ax.text(value + 1.2, pos, str(value), va="center")
+        save(fig, "cvstudy_sat_" + case)
+
+    # The tall thin vertical lines are stimulus artifacts. Native and paced
+    # complexes intentionally differ in width in this single-lead schematic.
+    t = np.arange(0, 4.1, .001)
+    spikes = [.35, 1.35, 2.35, 3.35]
+    for case in ("a", "b", "c"):
+        fig, ax = axes("Time (s)", "Signal (mV)")
+        trace = np.zeros_like(t)
+        if case == "c":
+            beats = [s - .095 for s in spikes]
+            width = .70
+        else:
+            beats = [s + .05 for s in (spikes[::2] if case == "a" else spikes)]
+            width = 1.35
+        for beat in beats:
+            for delay, height, sigma in [(-.025, -.16, .012), (0, 1.05, .020),
+                                          (.035, -.33, .013), (.20, .18, .055)]:
+                trace += height * np.exp(-.5 * ((t - beat - width * delay) / (sigma * width))**2)
+        ax.plot(t, trace, color=COLORS[0], lw=1.3)
+        for spike in spikes:
+            base = np.interp(spike, t, trace)
+            ax.vlines(spike, base, base + 1.42, color=COLORS[0], lw=1.0)
+        ax.set(title="Single ventricular lead · simulated strip", xlim=(0, 4.1),
+               ylim=(-.5, 1.65), xticks=np.arange(0, 4.1, .5))
+        save(fig, "cvstudy_pace_" + case)
+
+
+def vascular_anatomy():
+    """Schematic transverse sections for diameter and compressibility exercises."""
+    from matplotlib.patches import Ellipse
+
+    for case, wall, channel in [("a", 5.0, 1.8), ("b", 2.0, 1.8)]:
+        fig, ax = axes("Transverse position (cm)", "Depth (cm)")
+        ax.add_patch(Ellipse((0, 3.5), wall, wall, facecolor="#cebec2",
+                             edgecolor="#463d42", lw=2, label="Aortic wall boundary"))
+        ax.add_patch(Ellipse((0, 3.5), channel, channel, facecolor="#304f64",
+                             label="Flow channel"))
+        ax.set_aspect("equal")
+        ax.set(xlim=(-3.2, 3.2), ylim=(6.5, .5), yticks=np.arange(1, 6.5, .5),
+               title="Abdominal aorta · transverse schematic")
+        ax.tick_params(labelsize=8)
+        ax.legend(loc="center left", bbox_to_anchor=(1, .5), fontsize=8)
+        save(fig, "cvstudy_aorta_" + case)
+
+    for case, final_height in [("a", .77), ("b", .035)]:
+        fig, panels = plt.subplots(1, 2, figsize=(6, 2.9), layout="constrained")
+        for panel, title, art_height, ven_height in zip(
+                panels, ["Before compression", "During compression"],
+                [1.0, .84], [1.0, final_height]):
+            for x, name, width, height in [(1, "Artery", 1.2, art_height),
+                                            (2.7, "Vein", 1.45, ven_height)]:
+                panel.add_patch(Ellipse((x, 1.0), width, height, facecolor="#314e60",
+                                        edgecolor="#223442", lw=2))
+                panel.text(x, .16, name, ha="center", fontsize=10)
+            panel.set(xlim=(0, 3.7), ylim=(-.1, 2.1), title=title, aspect="equal")
+            panel.axis("off")
+        fig.suptitle("Femoral vessels · same transverse plane", fontsize=12)
+        save(fig, "cvstudy_vein_" + case)
+
+
+def ventricular_loops():
+    """Compare ejection and passive filling at a common end-diastolic volume."""
+    for case, residual, filling, end_pressure in [("a", 85, 10, 90), ("b", 50, 25, 100)]:
+        fig, ax = axes("LV volume (mL)", "LV pressure (mm Hg)")
+        for label, esv, edp, esp, color, style in [
+                ("Reference", 50, 10, 100, COLORS[0], "-"),
+                ("Patient", residual, filling, end_pressure, COLORS[1], "--")]:
+            edv = 120
+            u = np.linspace(0, 1, 90)
+            v_fill = esv + (edv - esv) * u
+            p_fill = 3 + (edp - 3) * (np.exp(3 * u) - 1) / np.expm1(3)
+            v_eject = edv - (edv - esv) * u
+            p_eject = 80 + (esp - 80) * u + 26 * np.sin(np.pi * u)
+            # Filling, isovolumetric contraction, ejection, relaxation.
+            vol = np.r_[v_fill, edv, v_eject, esv]
+            pressure = np.r_[p_fill, 80, p_eject, 3]
+            ax.plot(vol, pressure, style, color=color, lw=2.4, label=label)
+        ax.set(xlim=(35, 140), ylim=(0, 130), xticks=[35, 50, 65, 85, 100, 120, 135],
+               title="Left ventricular cycle · simulated")
+        ax.legend(loc="upper right", fontsize=8)
+        save(fig, "cvstudy_pv_" + case)
+
+
+def rhythm_studies():
+    """AV event timing and simulated arrest strips, in seconds."""
+    for case in ("a", "b"):
+        atrial = np.arange(.2, 4.85, .76 if case == "a" else .57)
+        ventricular = atrial + .28 if case == "a" else np.arange(.37, 5, 1.43)
+        fig, ax = axes("Time (s)", "")
+        for times, y, color in [(atrial, 1, COLORS[0]), (ventricular, 0, COLORS[1])]:
+            ax.vlines(times, y - .15, y + .15, color=color, lw=2.6)
+        ax.set(xlim=(0, 5), ylim=(-.55, 1.55), yticks=[0, 1],
+               yticklabels=["QRS onset", "P onset"], xticks=np.arange(0, 5.1, .5),
+               title="Atrial and ventricular timing · schematic")
+        if case == "a":
+            # Give exact first-pair timestamps while preserving the classification task.
+            ax.text(atrial[0], 1.22, "0.20 s", ha="left")
+            ax.text(ventricular[0], .21, "0.48 s", ha="left")
+        save(fig, "cvstudy_av_" + case)
+
+    t = np.arange(0, 4, .002)
+    phase = 2 * np.pi * (4.7*t + .13*np.sin(2*np.pi*1.8*t) + .28*t**2)
+    vf = (.40 + .16*np.sin(2*np.pi*.82*t)) * np.sin(phase)
+    vf += .16*np.sin(2*np.pi*7.3*t + .74*np.sin(2*np.pi*1.3*t))
+    organized = np.zeros_like(t)
+    for beat in np.arange(.35, 4, .84):
+        for delay, amp, width in [(-.17, .11, .025), (0, 1, .018),
+                                  (.035, -.23, .015), (.23, .19, .05)]:
+            organized += amp*np.exp(-.5*((t-beat-delay)/width)**2)
+    for case, signal in [("a", vf), ("b", organized)]:
+        fig, ax = axes("Time (s)", "Signal (mV)")
+        ax.plot(t, signal, lw=1.5, color=COLORS[0])
+        ax.set(title="Rhythm check · simulated monitor lead", xlim=(0, 4), ylim=(-.8, 1.2))
+        save(fig, "cvstudy_arrest_" + case)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
     cardiovascular()
+    cardiovascular_studies()
+    vascular_anatomy()
+    ventricular_loops()
+    rhythm_studies()
     respiratory()
     gastrointestinal()
     special_senses()

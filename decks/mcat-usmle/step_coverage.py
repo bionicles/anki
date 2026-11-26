@@ -149,6 +149,15 @@ def measure_item_depth(families, items, objectives):
     return report
 
 
+def practice_bands(rows):
+    """Place each named topic in its deepest documented practice band."""
+    total = len(rows)
+    linked = sum(int(r["MappedCards"]) > 0 for r in rows)
+    paired = sum(int(r["PairedObjectives"]) > 0 for r in rows)
+    complete = sum(int(r["ThreeLevelObjectives"]) > 0 for r in rows)
+    return total - linked, linked - paired, paired - complete, complete
+
+
 def display(report, item_report=()):
     print("Families with documented practice / families in scope")
     print("Exam or system                                 Mapped    Applied    Transfer   All three")
@@ -162,20 +171,37 @@ def display(report, item_report=()):
         for system in dict.fromkeys(r["System"] for r in rows):
             line("  " + system, [r for r in rows if r["System"] == system])
 
-    audited = [row for row in report if row["NamedItemsInScope"]]
-    if audited:
-        print("Named outline items with linked evidence (systems inventoried in detail)")
-        for system in dict.fromkeys(row["System"] for row in audited):
-            for exam in STEPS:
-                rows = [r for r in audited if r["Exam"] == exam and r["System"] == system]
-                numerator = sum(int(r["NamedItemsMapped"]) for r in rows)
-                denominator = sum(int(r["NamedItemsInScope"]) for r in rows)
-                print(f"  {system} · {exam}: {numerator}/{denominator}")
-
     if item_report:
+        print("Named topics by deepest documented practice; each topic is counted once per Step")
+        systems = list(dict.fromkeys(r["System"] for r in report))
+        grouped = defaultdict(list)
+        for item in item_report:
+            grouped[item["Exam"], item["System"]].append(item)
+        for exam in STEPS:
+            print(exam)
+            print(f"{'System':45}{'No link':>9}{'No pair¹':>10}{'Pair only':>11}{'Full':>7}{'Total':>8}")
+            for system in systems:
+                topics = grouped[exam, system]
+                if topics:
+                    bands = practice_bands(topics)
+                    print(f"{system:45}{bands[0]:9}{bands[1]:10}{bands[2]:11}{bands[3]:7}{len(topics):8}")
+                else:
+                    print(f"{system:45}  Named topics not yet inventoried")
+        print("¹ Linked to a card, with no documented application and changed case for the same objective.")
         print("Named items across inventoried systems (mapped / paired cases / three levels)")
         for exam in STEPS:
             rows = [r for r in item_report if r["Exam"] == exam]
             counts = [sum(int(r[key]) > 0 for r in rows) for key in
                       ("MappedCards", "PairedObjectives", "ThreeLevelObjectives")]
             print(f"  {exam}: " + " / ".join(map(str, counts)) + f" of {len(rows)} named items")
+
+    else:
+        audited = [row for row in report if row["NamedItemsInScope"]]
+        if audited:
+            print("Named outline items with linked evidence (systems inventoried in detail)")
+            for system in dict.fromkeys(row["System"] for row in audited):
+                for exam in STEPS:
+                    rows = [r for r in audited if r["Exam"] == exam and r["System"] == system]
+                    numerator = sum(int(r["NamedItemsMapped"]) for r in rows)
+                    denominator = sum(int(r["NamedItemsInScope"]) for r in rows)
+                    print(f"  {system} · {exam}: {numerator}/{denominator}")

@@ -957,3 +957,130 @@ endo.congenital	Congenital hypothyroidism	original:eh-ch-why original:eh-ch-labs
 endo.drug	Drug-related endocrine effects	original:bh-lith-water original:bh-prolactin-signal	original:bh-prolactin-amenorrhea original:rx-sglt-gap original:rx-cin-tetany	original:rx-v2-symptoms original:rx-cin-baseline
 endo.drug	Exogenous glucocorticoid suppression of the adrenal axis	bank:usmle-step1:endocrine-tertiary-adrenal-withdrawal:v1 original:eh-withdraw-axis original:ey-long original:ey-short	original:eh-withdraw-skin original:ey-taper original:ey-chronic original:ey-brief	original:eh-withdraw-dose original:eh-withdraw-mid original:eh-withdraw-clear original:eh-withdraw-stress
 endo.drug	Anabolic androgen effects	original:eh-and-axis original:eh-and-low	original:eh-and-history	original:eh-and-avoid
+cv.inf	Bacterial endocarditis	original:cv-ie-embolus original:cv-ie-right	original:cv-ie-block original:cv-ie-cultures original:cv-ie-negative original:cv-ie-rule-echo	original:cv-ie-failure original:cv-dentrule-target original:cv-dental-gingiva original:cv-dental-xray original:cv-dental-gi
+cv.inf	Inflammation of the myocardium		original:mi-define-myocarditis	
+cv.inf	Atherosclerotic plaque, including aortic plaque	original:phil-aorta-intima original:phil-aorta-contrast original:mi-define-thrombus		
+cv.tumor	Atrial myxoma	original:cv-mass-obstruct original:cv-mass-whichlung	original:cv-mass-myxoma	original:cv-mass-embolus
+cv.tumor	Metastatic tumor of the heart			
+cv.rhythm	Premature atrial complexes			
+cv.rhythm	Premature ventricular complexes	original:ecg-wide original:ecg-burden	original:ecg-premature original:ecg-pattern original:ecg-timing	
+cv.rhythm	Atrial flutter		original:rx-aden-flutter	
+cv.rhythm	Atrial fibrillation	original:ecg-response	original:ecg-af	original:ecg-prevention original:rx-dron-permanent
+cv.rhythm	Multifocal atrial tachycardia			
+cv.rhythm	Paroxysmal supraventricular tachycardia	original:rx-aden-node original:rx-aden-caffeine		
+cv.rhythm	Ventricular tachycardia			original:ecg-pulse
+cv.rhythm	Ventricular fibrillation	original:cv1-vf-mech	original:cv2-vf-pic	original:cv3-vf-rule original:cv3-vf-shock original:cv3-vf-after
+cv.rhythm	Wide-complex tachycardia			original:ecg-pulse
+cv.rhythm	Torsades de pointes		original:rx-dof-twist	original:rx-dof-admit
+cv.rhythm	Bradyarrhythmias			original:ecg-bridge original:cv3-pac-check original:cv3-pac-tx
+cv.rhythm	First-degree atrioventricular block	original:cv1-av-slow	original:cv2-av-first	
+cv.rhythm	Second-degree atrioventricular block	original:ecg-ratio	original:ecg-subtype	
+cv.rhythm	Complete atrioventricular block	original:cv1-av-none	original:cv2-av-third	original:cv3-av-rule original:cv3-av-persist original:cv3-av-resolve
+cv.rhythm	Left bundle branch block			
+cv.rhythm	Right bundle branch block			
+cv.rhythm	Cardiac arrest	original:cv1-vf-mech original:cv1-pea-mech	original:cv2-vf-pic original:cv2-pea-pic	original:cv3-vf-rule original:cv3-vf-shock original:cv3-pea-path original:cv3-vf-after
+cv.rhythm	Sinus node dysfunction			
+cv.rhythm	Long QT, inherited or acquired	original:rx-dof-ikr	original:rx-dof-twist	original:rx-dof-admit
+cv.rhythm	Ventricular preexcitation (WPW)			
+cv.rhythm	Carotid sinus hypersensitivity			
+cv.rhythm	Pacemaker sensing failure	original:cv1-pac-sense	original:cv2-pac-compete original:cv2-pac-noise original:cv2-pac-rule	
+cv.rhythm	Pacemaker capture failure	original:cv1-pac-rule original:cv1-pac-some original:cv1-pac-all	original:cv2-pac-miss	original:cv3-pac-check original:cv3-pac-tx original:cv3-pac-lead
+cv.failure	Rupture of mitral chordae			
+cv.failure	Heart failure with congestion	original:cv1-edema-pressure	original:cv-hf-reduced original:cv-hf-preserved original:cv2-edema-wedge original:cv2-hf-tissue	original:cv-hf-rule-congestion original:cv-hf-decongest original:cv3-hf-rule original:cv3-hf-cold original:cv3-hf-after
+cv.failure	Cor pulmonale			
+cv.failure	Diastolic dysfunction	original:cv-hf-stiff original:cv1-pv-diastole	original:cv-hf-preserved original:cv-hf-prove original:cv2-pv-ef	
+cv.failure	Systolic dysfunction	original:cv1-pv-systole original:cv1-pv-number	original:cv-hf-reduced original:cv-hf-improved	original:cv-hf-sglt
+cv.failure	Mitral dysfunction associated with heart failure		original:cv-mr-secondary	original:cv-mr-functional
+cv.failure	Heart failure after infarction		original:cv2-edema-wedge	
+cv.failure	High-output failure from excess thyroid hormone			
+cv.failure	High-output failure from anemia			
+cv.failure	Heart failure due to persistent tachycardia			
+cv.failure	Cardiogenic pulmonary edema	original:cv1-edema-pressure	original:cv2-edema-wedge	original:cv3-hf-cold
+cv.ischemia	Acute coronary syndrome		original:ckacs-troponin original:ckacs-trend	original:mi-after-statin original:mi-after-rehab original:mi-after-home
+cv.ischemia	Acute myocardial infarction	original:mi-define-thrombus original:mi-define-demand	original:mi-define-rule original:mi-define-ischemia	original:mi-define-anemia original:mi-define-scad original:cv3-mi-basis original:cv3-mi-shock original:cv3-mi-edema
+cv.ischemia	Stable exertional angina			
+cv.ischemia	Unstable angina			
+cv.ischemia	Coronary vasospasm			
+cv.myocardium	Dilated cardiomyopathy			
+cv.myocardium	Alcohol-associated cardiomyopathy			
+cv.myocardium	Viral cardiomyopathy or myocarditis		original:mi-define-myocarditis	
+cv.myocardium	Stress cardiomyopathy			
+cv.myocardium	Familial dilated cardiomyopathy			
+cv.myocardium	Hypertrophic obstructive cardiomyopathy	original:cv-hcm-leaflet original:cv-hcm-small	original:cv-hcm-exercise original:cv-hcm-prov	original:cv-hcm-family original:cv-hcm-vus original:cv-hcm-first
+cv.myocardium	Restrictive cardiomyopathy	original:cv-amy-stiff original:cv-amy-light	original:cv-amy-clues original:cv-amy-screen	original:cv-amy-genetic original:cv-amy-negative original:cv-amy-positive
+cv.myocardium	Hypertensive heart disease and LV hypertrophy	original:cv-bp-afterload		
+cv.myocardium	Right ventricular hypertrophy			
+cv.myocardium	Postinfarction septal rupture	original:cv1-mi-sept	original:cv2-mi-jet	original:cv3-mi-basis original:cv3-mi-shock
+cv.myocardium	Postinfarction tamponade	original:cv1-mi-free	original:cv2-mi-blood	
+cv.myocardium	Papillary muscle rupture or dysfunction	original:cv1-mi-rule original:cv1-mi-atrium	original:cv2-mi-rule original:cv2-mi-flail	original:cv3-mi-edema original:cv3-mi-tee original:cv3-mi-surgeon
+cv.myocardium	Ventricular free-wall rupture	original:cv1-mi-free	original:cv2-mi-blood	
+cv.pericardium	Constrictive pericarditis			
+cv.pericardium	Pericardial effusion		original:cv-tamp-echo original:cv-tamp-stable	original:cv-tamp-observe original:cv-tamprule-trigger
+cv.pericardium	Cardiac tamponade	original:cv-tamp-collapse original:cv-tamp-pulse original:cv-tamp-rate original:cv1-mi-free	original:cv-tamp-echo original:cv2-mi-blood	original:cv-tamp-unstable
+cv.pericardium	Acute pericarditis	original:cv-peri-friction	original:cv-peri-pain original:cv-peri-ecg	original:cv-peri-initial
+cv.pericardium	Pericarditis after infarction			
+cv.pericardium	Pericardial inflammation after surgery or trauma			
+cv.valve	Mitral regurgitation	original:cv-mr-direction original:cv-mr-forward original:cv-mr-apparent original:cv1-mi-atrium	original:cv-valrule-definition original:cv-mr-primary original:cv-mr-secondary original:cv2-mi-flail	original:cv-mr-threshold original:cv-mr-functional original:cv-valrule-leaflet original:cv3-mi-edema original:cv3-mi-surgeon
+cv.valve	Mitral stenosis			
+cv.valve	Mitral valve prolapse			
+cv.valve	Aortic stenosis	original:cv-as-adapt original:cv-as-load original:cv-jet-rule original:cv-jet-fast original:cv-jet-slow	original:cv-as-confirm original:cv-as-lowflow original:cv-as-severity	original:cv-as-moderate original:cv-as-refer
+cv.valve	Aortic regurgitation	original:cv-ar-leak original:cv-ar-pulse	original:cv-ar-hear original:cv-ar-position	
+cv.valve	Tricuspid regurgitation			
+cv.valve	Tricuspid stenosis			
+cv.valve	Pulmonary valve stenosis			
+cv.valve	Pulmonary valve regurgitation			
+cv.valve	Valvular vegetations	original:cv-ie-embolus original:cv-ie-right		
+cv.valve	Innocent flow murmurs			
+cv.valve	Rheumatic valve disease			
+cv.valve	Prosthetic valve complications		original:cv-prosth-agent	original:cv-prosth-change original:cv-prosth-inr
+cv.hypo	Orthostatic hypotension	original:cv-stand-pool original:cv-stand-reflex	original:cv-stand-criterion original:cv-stand-negative original:cv-stand-positive	original:cv-orthrule-measure original:cv-stand-meds
+cv.hyper	Elevated pressure reading and diagnostic confirmation		original:cv-bp-masked original:cv-bp-white	
+cv.hyper	Primary hypertension			original:cv-bp-oral
+cv.hyper	Hypertensive emergency		original:cv-bp-organ	original:cv-bprule-route original:cv-bp-emergency
+cv.hyper	Secondary hypertension		original:axis-aldo-screen	original:axis-aldo-side
+cv.lipid	Raised LDL cholesterol	original:rx-statin-ldlr original:cv1-lip-ldl	original:rx-eze-complement original:cv2-lip-fh	original:rx-statin-response original:cv3-lip-ldlrisk
+cv.lipid	Mixed hyperlipidemia		original:cv2-lip-mixed	
+cv.lipid	Hypertriglyceridemia	original:cv1-lip-lpl	original:cv2-lip-lpl original:cv2-lip-mixed	original:cv3-lip-rule original:cv3-lip-high original:cv3-lip-lower original:cv3-lip-secondary
+cv.lipid	Lipoprotein metabolism and lipase deficiency	original:cv1-lip-lpl	original:cv2-lip-lpl original:cv2-lip-apo	
+cv.vascular	Abdominal aortic aneurysm	original:cv1-aaa-rule original:cv1-aaa-wide original:cv1-aaa-narrow original:cv1-aaa-tissue	original:cv2-aaa-screen original:cv2-aaa-never original:cv2-aaa-wall	original:cv3-aaa-rule original:cv3-aaa-watch original:cv3-aaa-urgent original:cv3-aaa-elective
+cv.vascular	Thoracic aortic aneurysm			
+cv.vascular	Aortic dissection	original:cv-aorta-layer original:cv-aorta-regurg	original:cv-aorta-rule-criterion original:cv-aorta-stanford original:cv-aorta-descending	original:cv-aorta-rule-principle original:cv-aorta-atype original:cv-aorta-btype original:cv-aorta-complicate
+cv.vascular	Ruptured aortic aneurysm	original:cv1-aaa-retro	original:cv2-aaa-pain	
+cv.vascular	Iliac or other peripheral aneurysm and rupture			
+cv.vascular	Aortoiliac occlusive disease			
+cv.vascular	Acute arterial embolism or thrombosis of a limb	original:cv1-ali-nerve	original:cv2-ali-doppler original:cv2-ali-toes original:cv2-ali-weak	original:cv3-ali-heparin original:cv3-ali-rule original:cv3-ali-rescue original:cv3-ali-dead original:cv3-ali-after
+cv.vascular	Arteriovenous fistula			
+cv.vascular	Cholesterol crystal embolization			
+cv.vascular	Intermittent claudication	original:cv1-abi-exert	original:cv2-abi-exercise original:cv2-abi-abnormal	original:cv3-pad-rule original:cv3-pad-better original:cv3-pad-limited
+cv.vascular	Hypertensive vascular injury			
+cv.vascular	Lower-extremity peripheral artery disease	original:cv1-abi-rule original:cv1-abi-low original:cv1-abi-high original:cv1-abi-stiff	original:cv2-abi-next original:cv2-abi-exercise original:cv2-abi-toe original:cv2-abi-abnormal	original:cv3-abi-explain original:cv3-pad-rule original:cv3-pad-better original:cv3-pad-limited original:cv3-pad-wound
+cv.vascular	Thromboangiitis obliterans			
+cv.vascular	Deep vein thrombosis	original:cv1-dvt-rule original:cv1-dvt-open original:cv1-dvt-flat	original:cv2-dvt-risk original:cv2-dvt-negative original:cv2-dvt-positive original:cv2-dvt-image original:cv2-dvt-color	original:cv3-dvt-rule original:cv3-dvt-prox original:cv3-dvt-whole original:cv3-dvt-confirm
+cv.vascular	Venous thromboembolism	original:pul-pe-rv	original:ckpe-high original:ckpe-risk original:ckpe-rule	original:acm-pe-duration original:hthrom-provoked
+cv.vascular	Superficial venous thrombosis and phlebitis			
+cv.vascular	Varicose veins			
+cv.vascular	Chronic venous insufficiency			
+cv.vascular	Venous stasis ulcers			
+cv.vascular	Stasis dermatitis			
+cv.trauma	Penetrating ventricular injury			
+cv.trauma	Blunt myocardial injury	original:cv-blunt-marker original:cv-blunt-rhythm	original:cv-blunt-indication original:cv-blunt-window original:cv-blunt-pair	original:cv-blunt-rule original:cv-blunt-isolated original:cv-blunt-discordant
+cv.trauma	Traumatic myocardial rupture			
+cv.trauma	Blunt aortic injury			
+cv.trauma	Traumatic tamponade			
+cv.congenital	Anomalous origin of the left coronary artery	original:cv1-alcapa-steal	original:cv2-alcapa-origin	original:cv3-alcapa-repair
+cv.congenital	Atrial septal defect	original:cv1-shunt-atrium original:cv1-asd-volume original:cv1-asd-reverse	original:cv2-shunt-asd original:cv2-asd-flow	original:cv3-asd-rule original:cv3-asd-close original:cv3-asd-keep
+cv.congenital	Coarctation of the aorta	original:cv-coarc-pressure	original:cv-coarc-pulses	original:cv-coarc-repaired
+cv.congenital	Atrioventricular septal defect	original:cv1-avsd-structure	original:cv2-avsd-dx	original:cv3-avsd-pah
+cv.congenital	Patent foramen ovale	original:cv1-pfo-path	original:cv2-pfo-path	original:cv3-pfo-rule original:cv3-pfo-close original:cv3-pfo-migraine
+cv.congenital	Patent ductus arteriosus	original:cv1-shunt-duct original:cv1-pda-flow	original:cv2-shunt-pda	original:cv3-pda-close
+cv.congenital	Tetralogy of Fallot	original:cv-fallot-intensity original:cv-fallot-shunt	original:cv2-fallot-echo	original:cv-fallot-lifelong
+cv.congenital	Transposition of the great arteries	original:cv-tga-mixing original:cv-tga-parallel	original:cv2-tga-echo	original:cv-tga-septostomy original:cv-tga-switch
+cv.congenital	Congenital ventricular septal defect	original:cv1-shunt-vent	original:cv2-shunt-vsd	original:cv3-vsd-small
+cv.drug	Anthracycline cardiotoxicity			
+cv.drug	Cardiovascular toxicity of cocaine			
+cv.drug	Cardiovascular toxicity of amphetamines			
+cv.drug	Cardiovascular toxicity of phencyclidine			
+cv.drug	ACE inhibitor adverse effects	original:rx-ace-peptide	original:rx-ace-tongue	original:rx-ace-preg
+cv.drug	Calcium channel blocker adverse effects		original:rx-aml-ankles original:rx-dilt-dual	
+cv.drug	Alpha-adrenergic blocker adverse effects			
+cv.drug	Minoxidil adverse effects			
