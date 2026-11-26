@@ -4155,6 +4155,40 @@ def gastrointestinal_trial_outcomes():
         save(fig, "gitrial_" + name, indexed=True)
 
 
+def skin_patch_record():
+    study_table("skinflare_patch", "Patch site readings", ["Site", "Day 2", "Day 4"],
+                [["Nickel", "Red, infiltrated papules", "Infiltrated papules"],
+                 ["Fragrance mix", "Clear", "Clear"], ["Vehicle", "Clear", "Clear"]])
+
+
+def skin_treatment_evidence():
+    study_table("skinevidence_edema", "Recurrent leg cellulitis",
+                ["Assigned care", "Participants with recurrence"],
+                [["Compression + education", "6/41 (15%)"], ["Education alone", "17/43 (40%)"]],
+                source="Webb et al.")
+    study_table("skinevidence_blister", "Bullous pemphigoid strategies",
+                ["Initial strategy", "≤3 blisters,\nweek 6", "Serious related harm,\nby week 52"],
+                [["Doxycycline", "74%", "18%"], ["Prednisolone", "91%", "36%"]],
+                source="BLISTER")
+
+
+def cognition_records():
+    """Original hypothetical records for reasoning about cognition experiments."""
+    study_table("cogread_strategy", "Novel problem • shortcut use",
+                ["Practice", "Used shortcut", "Tested"],
+                [["Long strategy", "9", "30"], ["Comparison", "18", "24"]])
+    study_table("cogread_sleep", "One scored sleep record",
+                ["State", "Minutes"],
+                [["Awake", "40"], ["N1", "20"], ["N2", "175"], ["N3", "75"], ["REM", "90"]])
+    study_table("cogread_intrusion", "Recall test • list-A intrusions",
+                ["List similarity", "Intrusions", "Participants"],
+                [["High", "16", "4"], ["Low", "9", "6"]])
+    fig, ax = axes("Test token", "Mean increase (sucks/min)")
+    ax.bar(["Repeat", "Within", "Across"], [1, 2, 8], color=COLORS[:3])
+    ax.set(title="Infant sucking recovery • simulated", ylim=(0, 10), yticks=range(0, 11, 2))
+    save(fig, "cogread_infant", indexed=True)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -4230,6 +4264,9 @@ def main():
     liver_contrast_record()
     ovarian_cycle_record()
     gastrointestinal_trial_outcomes()
+    skin_patch_record()
+    skin_treatment_evidence()
+    cognition_records()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
