@@ -944,6 +944,212 @@ def fetal_atrium_calipers():
         save(fig, "perinatal_cal_" + case)
 
 
+def evidence_studies():
+    """Original study displays with explicit denominators, units and comparison groups."""
+    for case, observations in [
+        ("a", [(2, 1, 0), (4, 0, 1), (6, 2, 0), (8, 1, 0), (10, 1, 0)]),
+        ("b", [(2, 0, 2), (4, 1, 0), (6, 0, 1), (8, 1, 0), (10, 0, 1)]),
+    ]:
+        fig, ax = axes("Follow-up (months)", "Estimated event-free probability")
+        times, levels = [0], [1.]
+        risk, survival = 8, 1.
+        for time, events, censored in observations:
+            survival *= 1 - events / risk
+            times.append(time)
+            levels.append(survival)
+            if censored:
+                ax.plot(time, survival, marker="+", ms=11, color=COLORS[0])
+            risk -= events + censored
+        ax.step(times, levels, where="post", color=COLORS[0], lw=2.4)
+        ax.axhline(.5, color="#555", ls=":", lw=1)
+        ax.set(xlim=(-.15, 10.4), ylim=(0, 1.06), xticks=range(0, 11, 2),
+               yticks=[0, .25, .5, .75, 1], title="Event-free survival · 8 participants at entry")
+        ax.text(.04, .08, "+  censoring time", transform=ax.transAxes, fontsize=10)
+        save(fig, "evidence_km_" + case)
+
+    for case, logs, ses in [
+        ("a", [-.30, -.45, -.22], [.11, .18, .13]),
+        ("b", [-.55, .42, .10], [.11, .12, .14]),
+    ]:
+        fig, ax = axes("Risk ratio for an adverse event (log scale)", "")
+        for row, (estimate, se) in enumerate(zip(logs, ses)):
+            lo, mid, hi = np.exp([estimate-1.96*se, estimate, estimate+1.96*se])
+            ax.hlines(row, lo, hi, color=COLORS[0], linewidth=2)
+            ax.plot(mid, row, "s", color=COLORS[0], markersize=5 + (.18-se)*40)
+        ax.axvline(1, color="#555", ls="--")
+        ax.set_xscale("log")
+        ax.set(xlim=(.4, 2.2), yticks=[0, 1, 2], yticklabels=["Trial C", "Trial B", "Trial A"],
+               xticks=[.5, .75, 1, 1.5, 2], xticklabels=["0.5", "0.75", "1", "1.5", "2"],
+               ylim=(-.6, 2.6), title="Three independent trials · 95% confidence intervals")
+        ax.minorticks_off()
+        save(fig, "evidence_forest_" + case)
+
+    for case, omit in [("a", False), ("b", True)]:
+        fig, ax = axes("Estimated treatment effect (mean difference)", "Standard error")
+        for se in [.05, .09, .13, .17, .21, .25]:
+            for offset in [-1.3, -.4, .4, 1.3]:
+                if omit and se >= .16 and offset > 0:
+                    continue
+                ax.plot(-.3+offset*se, se, "o", ms=5, color=COLORS[0])
+        ax.axvline(-.3, ls=":", color="#555")
+        ax.set(xlim=(-.7, .1), ylim=(.28, 0), title="Study estimates by precision")
+        save(fig, "evidence_funnel_" + case)
+
+    for case, xy in [("a", [(0, 0), (.1, .58), (.25, .82), (.5, .94), (1, 1)]),
+                     ("b", [(0, 0), (.05, .35), (.15, .68), (.4, .90), (1, 1)])]:
+        fig, ax = axes("False-positive rate", "True-positive rate")
+        x, y = zip(*xy)
+        ax.plot(x, y, "o-", color=COLORS[0])
+        ax.plot([0, 1], [0, 1], "--", color="#999")
+        for i, (px, py) in enumerate(xy[1:-1]):
+            ax.annotate("ABC"[i], (px, py), xytext=(6, -11), textcoords="offset points")
+        ax.set(xlim=(-.03, 1.04), ylim=(-.03, 1.07), title="Candidate test thresholds")
+        ax.set_xticks(np.linspace(0, 1, 6))
+        ax.set_aspect("equal")
+        save(fig, "evidence_roc_" + case)
+
+    for case, title, values in [
+        ("a", "Treatment failure · new minus standard", [(-1, -3, 2)]),
+        ("b", "Treatment failure · new minus standard", [(1, -2, 5)]),
+        ("c", "Symptom change · new minus comparator", [(1, -1, 2)]),
+        ("d", "Symptom change · new minus comparator", [(-1, -4, 1)]),
+    ]:
+        fig, ax = axes("Risk difference (percentage points)" if case in "ab" else "Mean difference (points)", "")
+        for mid, lo, hi in values:
+            ax.hlines(0, lo, hi, linewidth=3, color=COLORS[0])
+            ax.plot(mid, 0, "s", color=COLORS[0])
+            ax.text(lo, .18, str(lo), ha="center"); ax.text(hi, .18, str(hi), ha="center")
+        ax.axvline(0, color="#888", ls=":")
+        for bound in ([4] if case in "ab" else [-3, 3]):
+            ax.axvline(bound, color=COLORS[1], ls="--")
+        ax.set(xlim=(-6, 6), ylim=(-.6, .8), yticks=[], xticks=range(-6, 7, 2), title=title)
+        ax.text(.5, .06, "Dashed lines mark prespecified margins",
+                ha="center", transform=ax.transAxes, fontsize=9)
+        save(fig, "evidence_margin_" + case)
+
+    for case, y in [("a", [3, 4, 4, 6, 5, 7, 8, 8, 9]),
+                    ("b", [11, 7, 4, 2, 1, 2, 4, 7, 11])]:
+        fig, ax = axes("Exposure score", "Outcome score")
+        ax.scatter(range(1, 10), y, color=COLORS[0], s=42)
+        ax.set(xlim=(0, 10), ylim=(0, 12), title="Individual observations")
+        save(fig, "evidence_scatter_" + case)
+
+    for case, counts in [("a", [4, 7, 10, 12, 12, 8, 5, 2, 1]),
+                         ("b", [18, 17, 16, 11, 8, 3, 2, 1, 1])]:
+        fig, ax = axes("Length of stay (days)", "Number of patients")
+        ax.bar(range(1, 10), counts, width=.88, color=COLORS[0])
+        ax.set(xticks=range(1, 10), title="Discharge cohort · completed stays")
+        save(fig, "evidence_stays_" + case)
+
+
+def evidence_reports():
+    """Redraw two published quantitative results and generate independent teaching reports."""
+    for name, title, groups, rates, outcome, source in [
+        ("dpp", "Diabetes Prevention Program", ["Placebo", "Metformin", "Lifestyle"],
+         [11.0, 7.8, 4.8], "New diabetes cases per 100 person-years", "DPP Research Group, 2002"),
+        ("sprint", "SPRINT · original randomized comparison", ["Standard target", "Intensive target"],
+         [2.19, 1.65], "Primary composite events per 100 person-years", "SPRINT Research Group, 2015"),
+    ]:
+        fig, ax = plt.subplots(figsize=(6.1, 3.2), layout="constrained")
+        bars = ax.barh(groups, rates, color=COLORS[0], height=.55)
+        ax.bar_label(bars, labels=[str(x) for x in rates], padding=5)
+        ax.set(xlabel=outcome, title=title, xlim=(0, max(rates)*1.2))
+        ax.invert_yaxis()
+        ax.spines[["top", "right"]].set_visible(False)
+        ax.set_xlabel(f"{outcome}\n{source}")
+        save(fig, "evidence_" + name)
+
+    for case, cells in [("a", [[72, 8], [18, 102]]), ("b", [[18, 2], [42, 238]])]:
+        fig, ax = plt.subplots(figsize=(5.3, 2.4), layout="constrained")
+        ax.axis("off")
+        ax.set_title("Independent reference assessment in all participants")
+        table = ax.table(cellText=[["Reference result", "Test +", "Test −"],
+                                   ["Condition present", *cells[0]], ["Condition absent", *cells[1]]],
+                         cellLoc="center", colWidths=[.48, .24, .24], loc="center")
+        table.auto_set_font_size(False)
+        table.set_fontsize(11); table.scale(1, 1.8)
+        for (row, _), cell in table.get_celld().items():
+            cell.set_facecolor("#cfe4e9" if row == 0 else "#f4f8fa")
+        save(fig, "evidence_test_" + case)
+
+    for case, counts in [("a", [[10, 100], [30, 100]]), ("b", [[8, 100], [24, 100]])]:
+        fig, ax = plt.subplots(figsize=(5.5, 2.6), layout="constrained")
+        ax.axis("off")
+        ax.set_title("One-year events and participants at risk")
+        table = ax.table(cellText=[["Age stratum", "Events", "Participants"],
+                                   ["18–64 years", *counts[0]], ["65+ years", *counts[1]]],
+                         cellLoc="center", colWidths=[.38, .25, .33], loc="center")
+        table.auto_set_font_size(False)
+        table.set_fontsize(11); table.scale(1, 1.8)
+        for (row, _), cell in table.get_celld().items():
+            cell.set_facecolor("#cfe4e9" if row == 0 else "#f4f8fa")
+        save(fig, "evidence_age_" + case)
+
+
+def population_and_decision_figures():
+    """Age distributions and diagnostic probabilities in contrasting example populations."""
+    for case, men, women in [("a", [17, 16, 15, 12, 8], [16, 15, 14, 12, 9]),
+                                 ("b", [8, 10, 14, 16, 15], [8, 10, 14, 17, 17])]:
+        fig, ax = axes("Residents (thousands)", "Age (years)")
+        labels = ["0–19", "20–39", "40–59", "60–79", "80+"]
+        ax.barh(labels, -np.array(men), label="Men", color=COLORS[0])
+        ax.barh(labels, women, label="Women", color=COLORS[1])
+        ax.set(xticks=[-20, -10, 0, 10, 20], xticklabels=[20, 10, 0, 10, 20],
+               xlim=(-20, 20), title="Population by age group and sex")
+        ax.legend(loc="upper center", bbox_to_anchor=(.5, -.2), ncol=2)
+        save(fig, "evidence_pyramid_" + case)
+
+    for case, disease, sensitivity, false_positive in [
+        ("a", .10, .80, .10), ("b", .30, .80, .10)
+    ]:
+        fig, ax = plt.subplots(figsize=(6.0, 3.4), layout="constrained")
+        ax.axis("off"); ax.set(xlim=(0, 1.05), ylim=(0, 1))
+        ax.set_title("Diagnostic pathways · probabilities on branches")
+        for y, prevalence, status, pos in [(.72, disease, "Disease", sensitivity),
+                                           (.28, 1-disease, "No disease", false_positive)]:
+            ax.plot([.08, .38], [.5, y], color="#758996")
+            ax.text(.18, (.5+y)/2+.025, f"{prevalence:.0%}", ha="center")
+            ax.text(.39, y, status, ha="left", va="center")
+            for end, p, name in [(y+.12, pos, "Test positive"), (y-.12, 1-pos, "Test negative")]:
+                ax.plot([.60, .82], [y, end], color="#758996")
+                ax.text(.71, (y+end)/2+.018, f"{p:.0%}", ha="center")
+                ax.text(.83, end, name, va="center")
+        save(fig, "evidence_tree_" + case)
+
+
+def hypothesis_error_regions():
+    """Areas under two prespecified sampling distributions in a one-sided test."""
+    from math import sqrt, pi
+    x = np.linspace(-4, 6, 601)
+    cutoff = 1.645
+    null = np.exp(-x**2 / 2) / sqrt(2*pi)
+    alternative = np.exp(-(x-2.5)**2 / 2) / sqrt(2*pi)
+    for case in ("a", "b"):
+        fig, ax = axes("Standardized estimate", "Density")
+        ax.plot(x, null, color=COLORS[0], label="Null")
+        ax.plot(x, alternative, ls="--", color=COLORS[1], label="Alternative")
+        if case == "a":
+            ax.fill_between(x, 0, null, where=x >= cutoff, color=COLORS[0], alpha=.55)
+        else:
+            ax.fill_between(x, 0, alternative, where=x < cutoff, color=COLORS[1], alpha=.55)
+        ax.axvline(cutoff, color="#333", ls=":", lw=1.8)
+        ax.set(xlim=(-3.7, 5.7), ylim=(0, .5), title="Reject the null to the right of the dotted line")
+        ax.legend(loc="upper right")
+        save(fig, "evidence_tails_" + case)
+
+
+def agreement_figures():
+    """Original paired-method data shown as differences versus means."""
+    means = np.arange(10, 91, 10)
+    noise = np.array([-.4, .2, .4, -.2, 0, .3, -.3, .2, -.2])
+    for case, differences in [("a", 8+noise), ("b", .12*means+noise)]:
+        fig, ax = axes("Mean of the two measurements (units)", "New minus reference (units)")
+        ax.scatter(means, differences, color=COLORS[0], s=45)
+        ax.axhline(0, color="#555", ls=":")
+        ax.set(xlim=(0, 100), ylim=(-1, 13), title="Agreement of two measurement methods")
+        save(fig, "evidence_agreement_" + case)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -953,6 +1159,11 @@ def main():
     perinatal_studies()
     twin_fluid_studies()
     fetal_atrium_calipers()
+    evidence_studies()
+    evidence_reports()
+    hypothesis_error_regions()
+    agreement_figures()
+    population_and_decision_figures()
     cardiovascular_studies()
     vascular_anatomy()
     ventricular_loops()

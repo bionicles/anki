@@ -1332,3 +1332,129 @@ ob.systemic	Lupus and pregnancy			original:per-sle-med
 ob.systemic	Epilepsy in pregnancy			original:per-ep-stay
 ob.systemic	Maternal hypothyroidism	original:per-thy-horm	original:per-thy-labs	original:acm-hypothyroid-need original:acm-hypothyroid-monitor original:acm-hypothyroid-iron original:acm-hypothyroid-post
 ob.systemic	Maternal hyperthyroidism			original:per-thy-hyper
+stats.population	New disease occurrence and person-time incidence	original:epi-inc-den original:epi-cohort-pro original:epi-dpp-axis	original:epi-inc-calc original:epi-prev-life original:epi-series original:epi-dpp-diff original:epi-sprint-diff	original:epi-inc-time original:epi-rate-notrisk
+stats.population	Prevalence and duration of disease	original:epi-prev-snap	original:epi-prev-life original:epi-cross	original:epi-age-plan original:epi-rate-preval
+stats.population	Crude and stratum-specific population rates	original:epi-std-rule original:epi-age-a original:epi-age-b	original:epi-crude-weight	original:epi-std-paradox
+stats.population	Direct standardization and adjusted rates	original:epi-std-rule original:epi-agerule original:epi-age-a original:epi-age-b	original:epi-std-direct	original:epi-std-paradox original:epi-smr-prac
+stats.population	Maternal mortality ratio	original:epi-mat-den	original:epi-maternal	original:epi-mat-compare
+stats.population	Neonatal, infant and under-five mortality	original:epi-neonatal	original:epi-underfive	original:epi-child-quality
+stats.population	Morbidity versus mortality	original:epi-morb	original:epi-hale	original:epi-burden-choose original:epi-daly-scale
+stats.population	Life expectancy and health-adjusted life expectancy	original:epi-healthy-years	original:epi-hale	original:epi-burden-choose
+stats.population	Population attributable risk and fraction	original:epi-par-rule	original:epi-par-calc	original:epi-par-reach original:epi-attr-base original:epi-impact-rule original:epi-impact-a original:epi-impact-b
+stats.population	Risk factors and reference populations	original:epi-rf-temporal	original:epi-risk-factor	original:epi-risk-marker
+stats.population	Reading a survival curve and its risk set	original:epi-km-step original:epi-km-mark original:epi-km-fall	original:epi-km-medrule original:epi-km-a original:epi-km-b	original:epi-km-assume original:epi-hr-cross
+stats.population	Years of potential life lost	original:epi-years	original:epi-ypll-multi	original:epi-yll-prior
+stats.population	Quality-adjusted life years	original:epi-qaly-unit	original:epi-qaly-calc	original:epi-qaly-choice
+stats.population	Disability-adjusted life years	original:epi-daly	original:epi-daly-case	original:epi-daly-scale
+stats.population	Observed-to-expected mortality ratio	original:epi-smr-null	original:epi-smr	original:epi-smr-prac
+stats.population	Population pyramids and changing age structure	original:epi-age-shape original:epi-pyr-young original:epi-pyr-old	original:epi-pyramid-cap	original:epi-age-plan
+stats.population	Surveillance and disease reporting	original:epi-report-rule	original:epi-cluster original:epi-report-local	original:epi-surv-shift original:epi-cluster-verify
+stats.population	Evaluating a suspected cluster	original:epi-cluster-exp	original:epi-cluster	original:epi-cluster-verify
+stats.population	Health advisories and communication with communities	original:epi-notice	original:epi-report-action	original:epi-advisory
+stats.population	Attack proportion and denominators at risk	original:epi-attack	original:epi-attack-comp	original:epi-attack-den
+stats.population	Indirect protection from population immunity	original:epi-herd	original:epi-herd-group	original:epi-herd-avoid
+stats.population	Vaccine effectiveness	original:epi-ve-rr	original:epi-ve-case	original:epi-ve-abs
+stats.population	Primary and secondary prevention	original:epi-prev-primary	original:epi-prev-secondary	original:epi-policy-upstream
+stats.population	Community and school policy interventions	original:epi-school-access	original:epi-school-policy	original:epi-policy-upstream
+stats.population	Food access, transportation and environmental conditions	original:epi-access-code original:epi-school-access	original:epi-access-study	original:epi-access-bus
+stats.design	Exposure, outcome and unit of analysis	original:epi-var original:epi-comm-assign	original:epi-eco	original:epi-cluster-random
+stats.design	Case reports and case series	original:epi-case-one	original:epi-series	original:epi-cases-series
+stats.design	Sampling a community or cross-sectional population	original:epi-survey-den	original:epi-cross	original:epi-survey-fix
+stats.design	Ecological study designs	original:epi-eco-level	original:epi-eco original:epi-ecofall	original:epi-eco-fix
+stats.design	Case-control sampling and appropriate controls	original:epi-cc-rule	original:epi-cc-source original:epi-odds-case original:epi-controls-again	original:epi-cc-v-cohort
+stats.design	Prospective and retrospective cohort designs	original:epi-cohort-pro original:epi-rct-v	original:epi-cohort-ret	original:epi-coh-rate original:epi-caus-clock
+stats.design	Randomized controlled trials	original:epi-rct-v	original:epi-random-lot	original:fip-tests-random original:epi-strat
+stats.design	Masking and placebo controls	original:epi-alloc-late original:epi-placebo-blind	original:epi-mask	original:fip-tests-mask original:fip-abstract-blind
+stats.design	Noninferiority margins and trial interpretation	original:epi-ni-rule	original:epi-ni-a original:epi-ni-b original:epi-ni-orient	original:epi-ni-plan
+stats.design	Equivalence margins	original:epi-eq-rule	original:epi-eq-bound	original:epi-eq-a original:epi-eq-b original:epi-eq-check
+stats.design	Community and cluster intervention trials	original:epi-comm-assign	original:epi-school-policy	original:epi-cluster-random
+stats.design	Systematic review and quantitative synthesis	original:epi-rev original:epi-pool-weight	original:epi-review-score original:epi-pool-compute	original:epi-funnel-search original:epi-pool-scale
+stats.design	Estimating or pooling effect sizes	original:epi-pool-weight	original:epi-pool-compute	original:epi-pool original:epi-pool-scale
+stats.design	Between-study heterogeneity	original:epi-hetero-rule	original:epi-forest-b	original:epi-pool original:epi-forest-review
+stats.design	Publication or small-study effects	original:epi-pub-select	original:epi-funnel-b	original:epi-funnel-search
+stats.design	Forest plot interpretation	original:epi-forest-rule	original:epi-forest-a original:epi-forest-b original:epi-forest-null	original:epi-forest-review
+stats.design	Funnel plot interpretation	original:epi-funnel-rule	original:epi-funnel-a original:epi-funnel-b	original:epi-funnel-search
+stats.design	Domain-based assessment of risk of bias	original:epi-bias-domain	original:epi-review-score	original:epi-risk-bias
+stats.design	Eligibility criteria and selecting a study sample	original:epi-elig-target	original:epi-access-study original:epi-controls-again	original:epi-select original:epi-survey-fix
+stats.design	Matching controls to cases	original:epi-match-purpose	original:epi-match-control	original:epi-match
+stats.design	Inference without a comparison group	original:epi-case-one	original:epi-series	original:epi-regm-case original:epi-cases-series
+stats.design	Concealing the allocation sequence	original:epi-conceal original:epi-alloc-case	original:epi-conceal-env	original:epi-alloc-phone
+stats.design	Random allocation and stratification	original:epi-conceal original:epi-itt-rule original:epi-strat-why	original:epi-random-lot	original:fip-tests-random original:epi-strat original:epi-alloc-phone
+stats.design	Incomplete follow-up	original:epi-loss-select	original:ck-test-performance-loss original:epi-itt-missing	original:epi-itt-miss original:epi-risk-bias
+stats.design	Nonadherence and intention-to-treat analysis	original:epi-itt-rule	original:epi-itt-switch original:epi-itt-missing	original:epi-itt-miss original:epi-adherence-choice
+stats.design	Qualitative interviews, sampling and analysis	original:epi-qual-unit	original:epi-qual	original:epi-qual-count
+stats.association	Risk ratio and relative risk reduction	original:epi-frac-rr original:epi-frac-equal original:epi-ve-rr	original:epi-attack-comp original:epi-ve-case	original:fip-study-ratio original:epi-odds-common
+stats.association	Odds and odds ratios	original:epi-odds-rule	original:epi-odds-case	original:epi-odds-common
+stats.association	Hazard ratios	original:epi-hr-rule	original:epi-hr-case	original:epi-hr-cross
+stats.association	Absolute risk and risk difference	original:epi-arr-rule original:epi-risk-rule original:epi-frac-rr original:epi-nnt-recip original:epi-nnh-recip	original:epi-nnt-calc original:epi-nnh-calc original:epi-risk-hi original:epi-risk-lo	original:fip-study-baseline original:fip-study-rd original:fip-ad-abs original:epi-harm-sign
+stats.association	Number needed to treat	original:epi-nnt-recip original:epi-nnt-small	original:epi-nnt-calc	original:fip-study-nnt original:fip-ad-benefit original:epi-dpp-nnt original:epi-nnt-null
+stats.association	Number needed to harm	original:epi-nnh-recip	original:epi-nnh-calc	original:fip-study-harm original:epi-harm-sign original:epi-nnt-null
+stats.association	Attributable risk and attributable fraction among the exposed	original:epi-attr-rule	original:epi-attr-case	original:epi-attr-base
+stats.association	Attributable risk and fraction in the population	original:epi-par-rule	original:epi-par-calc	original:epi-par-reach original:epi-attr-base original:epi-impact-rule original:epi-impact-a original:epi-impact-b
+stats.distribution	Mean, median and mode	original:epi-med-rule	original:epi-hist-mode original:epi-hist-skew	original:epi-median-mean original:epi-center-rule original:epi-median-patient
+stats.distribution	Standard deviation, range and interquartile range	original:epi-spread-iqr	original:epi-hist-skew original:epi-spread-compare	original:epi-spread-err original:epi-normal-warn
+stats.distribution	Regression toward the mean	original:epi-regm	original:epi-regmean-follow	original:epi-regm-case
+stats.distribution	Normal distribution and standardized values	original:epi-normal-z	original:epi-normal-tail	original:epi-normal-warn
+stats.distribution	Nominal categories and choice of summaries	original:epi-nom-name original:epi-chi-why	original:epi-nom-code original:epi-chi-test	original:epi-nom-ad
+stats.regression	Correlation coefficients and scatterplots	original:epi-corr-rule original:epi-scatter-a original:epi-scatter-b	original:epi-corr-outlier	original:epi-corr-tool original:epi-agreement-rule original:epi-agreement-fixed original:epi-agreement-prop
+stats.regression	Adjusted coefficients in multiple regression	original:epi-mult-hold	original:epi-mult-unit	original:epi-mult-change original:epi-mult-conf
+stats.screen	Validity and test accuracy	original:epi-valid-v-repeat	original:epi-valid-ref	original:epi-corr-tool original:epi-valid-repeat original:epi-agreement-rule original:epi-agreement-fixed original:epi-agreement-prop
+stats.screen	Reproducibility and reliability	original:epi-repeat-target original:epi-valid-v-repeat	original:epi-repeat-cal	original:epi-valid-repeat
+stats.screen	Suitability and possible harms of screening	original:epi-screen-allow	original:epi-screen-accept	original:epi-screen-harm original:epi-lead-out
+stats.screen	Screening versus diagnostic confirmation	original:epi-screen-allow	original:ckprevent-scope original:ckprevent-conf original:epi-confirm-scope original:epi-screen-accept	original:epi-confirm-sym
+stats.screen	Lead-time bias	original:epi-lead-rule	original:epi-lead-case original:epi-screen-time	original:epi-lead-out
+stats.screen	Length-time bias	original:epi-length-screen	original:epi-screen-slow	original:epi-length-case
+stats.screen	Sensitivity	original:stepstats-sens original:epi-roc-rule original:epi-neg-lr	original:epi-sens-only	original:fip-tests-sens original:fip-abstract-sens original:epi-valid-repeat
+stats.screen	Specificity	original:stepstats-spec original:epi-roc-rule original:epi-neg-lr	original:epi-test-spec original:epi-roc-rule2	original:fip-tests-specific original:fip-abstract-spec
+stats.screen	Positive predictive value	original:stepstats-ppv original:epi-test-ppvrule original:epi-test-high original:epi-test-low	original:ck-test-performance-predict	original:fip-tests-ppv original:fip-tests-prev original:fip-abstract-positive original:epi-roc-patient original:epi-test-conclude original:epi-tree-ppv-a original:epi-tree-ppv-b
+stats.screen	Negative predictive value	original:epi-npv-rule	original:ck-test-performance-neg original:epi-npv-calc original:epi-test-npv	original:epi-neg-use
+stats.screen	Receiver operating characteristic curves	original:epi-roc-rule	original:epi-roc-select original:epi-roc-sensitive original:epi-roc-rule2	original:epi-roc-patient
+stats.screen	Joint probability, independence and overlapping events	original:epi-prob-and original:epi-tree-rule original:epi-tree-first original:epi-tree-other	original:epi-prob-or original:epi-tree-path original:epi-multi-calc	original:epi-prob-dep
+stats.screen	Clinical decision tree probabilities	original:epi-tree-rule original:epi-tree-first original:epi-tree-other original:epi-utility-meaning	original:epi-tree-path	original:epi-tree-ppv-a original:epi-tree-ppv-b
+stats.screen	Positive and negative likelihood ratios	original:stepstats-lr original:epi-neg-lr	original:epi-lr-odds	original:fip-tests-lr original:epi-bayes-neg original:epi-bayes-stop original:epi-bayes-rule original:epi-prob-dep
+stats.screen	Pretest and posttest probability	original:epi-bayes-prior	original:epi-lr-odds	original:fip-tests-odds original:fip-tests-post original:epi-bayes-neg original:epi-bayes-stop original:epi-bayes-rule original:epi-tree-ppv-a original:epi-tree-ppv-b
+stats.interpret	Exploratory versus prespecified hypotheses	original:epi-hyp-when original:epi-protocol-role original:epi-sub-prespec	original:epi-hyp-rep original:epi-protocol-new	original:epi-ni-plan original:epi-posthoc original:epi-preregister
+stats.interpret	Causal assessment, temporality and dose response	original:epi-dose original:epi-rf-temporal original:epi-rev-time	original:epi-reverse original:epi-risk-factor	original:epi-caus-clock original:epi-risk-marker
+stats.interpret	Reverse causation	original:epi-rev-time	original:epi-cross original:epi-reverse	original:epi-caus-clock
+stats.interpret	Null hypothesis and reference value	original:stepstats-conf original:epi-alpha original:epi-pval-rule original:epi-frac-equal	original:epi-ci-null	original:fip-study-null
+stats.interpret	False positives and alpha	original:epi-alpha original:epi-falsepos original:epi-which-error original:epi-multi-fp original:epi-tails-rule original:epi-tails-alpha	original:epi-multi-calc original:epi-interim-peek	original:epi-alpha-choice
+stats.interpret	Multiple comparisons and family-wise error	original:epi-multi-fp	original:epi-multi-calc original:epi-interim-peek original:epi-hyp-rep	original:epi-posthoc
+stats.interpret	Random error and precision	original:epi-multi-fp original:epi-clin-why	original:epi-spread-compare original:epi-power-change	original:epi-cluster-random original:epi-ci-size original:epi-mat-compare original:epi-spread-err
+stats.interpret	False negatives and power	original:epi-power-rule original:epi-power-miss original:epi-which-error original:epi-tails-rule original:epi-tails-beta	original:epi-power-change original:epi-power-shift	original:epi-alpha-choice
+stats.interpret	Sample size and statistical power	original:epi-power-rule original:epi-which-error	original:epi-power-change original:epi-power-shift	original:epi-ci-size
+stats.interpret	Chi-square tests for counts	original:epi-chi-why	original:epi-chi-test	original:epi-chi-result
+stats.interpret	Confidence intervals	original:stepstats-conf original:epi-eq-rule	original:epi-ci-null original:epi-eq-bound original:epi-importance-rule original:epi-importance-above original:epi-importance-below	original:fip-study-null original:epi-ci-meaning original:epi-ci-size original:epi-clinical-min original:epi-clin-rule original:epi-clin-wide original:epi-nnt-null
+stats.interpret	Meaning of a p-value	original:epi-pval-rule original:epi-clin-why	original:epi-p-small	original:epi-chi-result
+stats.interpret	Paired and independent-sample t-tests	original:epi-t-why	original:epi-t-pair original:epi-t-indep	original:epi-paired-vs-group
+stats.interpret	Prespecified and post hoc subgroups	original:epi-sub-prespec	original:epi-modify-case	original:epi-posthoc original:epi-interaction-p
+stats.interpret	Effect modification	original:epi-modify-rule	original:epi-modify-case	original:epi-interaction-p original:epi-hetero-scale
+stats.interpret	Reading graphs, tables and reported endpoints	original:epi-scatter-a original:epi-scatter-b original:epi-dpp-axis original:epi-test-high original:epi-test-low original:epi-pyr-young original:epi-pyr-old original:epi-km-fall original:epi-dpp-choice	original:epi-km-a original:epi-km-b original:epi-ni-a original:epi-ni-b original:epi-forest-a original:epi-forest-b original:epi-funnel-a original:epi-funnel-b original:epi-hist-mode original:epi-hist-skew original:epi-dpp-diff original:epi-sprint-diff original:epi-test-spec original:epi-test-npv	original:fip-ad-mortality original:epi-eq-a original:epi-eq-b original:epi-sprint-composite
+stats.interpret	Selection and sampling bias	original:epi-alloc-case original:epi-survey-den	original:epi-cc-source original:epi-conceal-env original:epi-access-study	original:epi-qual-count
+stats.interpret	Recall bias	original:epi-recall-why	original:epi-recall-case	original:epi-recall-fix
+stats.interpret	Ascertainment and observer bias	original:epi-alloc-late	original:epi-mask original:epi-detect-case	original:fip-tests-mask original:fip-abstract-blind original:epi-surv-shift original:epi-risk-bias
+stats.interpret	Ecological fallacy	original:epi-eco-level	original:epi-eco original:epi-ecofall	original:epi-eco-fix
+stats.interpret	Attrition bias	original:epi-loss-select	original:ck-test-performance-loss	original:epi-km-assume original:epi-itt-miss
+stats.interpret	Confounding and control of common causes	original:epi-conf-rule	original:epi-match-control	original:fip-tests-random original:epi-match original:epi-mult-conf original:epi-adherence-choice
+stats.interpret	Changes in behavior during observation	original:epi-haw-why	original:epi-haw-case	original:epi-haw-mitigate
+stats.interpret	Placebo responses and threats to validity	original:epi-placebo-blind	original:epi-placebo-case	original:epi-placebo-design
+stats.interpret	Internal validity	original:epi-internal-rule	original:epi-detect-case	original:epi-placebo-design
+stats.interpret	External validity and generalizability	original:epi-internal-rule original:epi-apply-pop	original:epi-prag-example	original:fip-ad-general original:fip-abstract-scope original:epi-select original:epi-prag-case original:epi-sprint-limit original:epi-test-conclude
+stats.interpret	Efficacy and effectiveness	original:epi-effective-rule	original:epi-prag-example	original:epi-prag-case original:epi-dpp-comp
+stats.interpret	Clinical importance versus statistical significance	original:epi-clin-why	original:epi-importance-rule original:epi-importance-above original:epi-importance-below	original:epi-clinical-min original:epi-clin-rule original:epi-clin-wide original:epi-chi-result original:epi-endp-proxy
+stats.interpret	Clinical versus surrogate endpoints	original:epi-surr-why	original:epi-surrogate-example	original:epi-endp-proxy
+stats.decide	Applying evidence to a particular patient	original:epi-apply-pop original:epi-effective-rule	original:epi-risk-hi original:epi-risk-lo original:epi-risk-base original:epi-prefs-real	original:fip-ad-general original:epi-select original:epi-pool original:epi-bayes-stop original:epi-prag-case original:epi-real-rule original:epi-dpp-nnt original:epi-sprint-limit original:epi-dpp-comp original:epi-test-conclude
+stats.decide	Preferences and individual benefit–harm tradeoffs	original:epi-utility-meaning	original:epi-prefs-real	original:epi-risk-utility original:epi-screen-harm original:epi-pref-plan original:epi-harm-v-benefit
+stats.decide	Patient baseline risk and expected absolute benefit	original:epi-risk-rule original:epi-nnt-small	original:epi-risk-hi original:epi-risk-lo original:epi-risk-base	original:fip-study-relative original:epi-hetero-scale original:epi-ve-abs
+stats.decide	Synthesizing outcome data for a clinical decision	original:epi-dpp-choice	original:epi-dpp-diff original:epi-sprint-diff	original:fip-ad-abs original:fip-ad-benefit original:fip-ad-harm original:epi-risk-utility original:epi-dpp-nnt original:epi-sprint-limit original:epi-sprint-composite original:epi-dpp-comp original:epi-harm-v-benefit
+stats.ethics	Informed and voluntary research consent	original:epi-consent	original:epi-consent-withdraw original:epi-consent-lang	original:epi-consent-new original:epi-privacy-split original:epi-eq-harm
+stats.ethics	Research use of protected health information	original:epi-privacy-code	original:epi-privacy-use	original:epi-privacy-split
+stats.ethics	Independent ethics review	original:epi-irb-role	original:epi-privacy-use original:epi-irb-start	original:epi-consent-new original:epi-schedule original:epi-eq-harm original:epi-sched-practice
+stats.ethics	Planned interim analyses	original:epi-dmc-role original:epi-stop-type	original:epi-interim-peek	original:epi-stop-futile original:epi-monitor-rule
+stats.ethics	Efficacy or futility stopping decisions	original:epi-stop-type	original:epi-dmc-signal original:epi-dmc-futile	original:epi-stop-harm original:epi-stop-futile original:epi-monitor-rule
+stats.ethics	Independent safety monitoring	original:epi-dmc-role	original:epi-dmc-signal original:epi-dmc-futile	original:epi-stop-harm original:epi-monitor-rule
+stats.ethics	Drug development phases	original:epi-phase-early	original:epi-phase-signal original:epi-phase-confirm original:epi-phase-use original:epi-schedule-dea	original:epi-phase-after
+stats.ethics	Ethical choice of placebo or active comparator	original:epi-pl-std	original:epi-placebo-eth	original:epi-placebo-design
+stats.ethics	Equipoise and appropriateness of randomization	original:epi-equipoise	original:epi-placebo-eth	original:epi-eq-harm
+stats.ethics	Trial protocol, intervention schedule and oversight	original:epi-protocol-role	original:epi-protocol-new	original:epi-preregister original:epi-schedule
+stats.ethics	Off-label clinical use and research distinctions	original:epi-offlabel-term	original:epi-phase-use	original:epi-offlabel
+stats.ethics	Controlled substance scheduling in research	original:epi-scheduling	original:epi-schedule-dea	original:epi-sched-practice
