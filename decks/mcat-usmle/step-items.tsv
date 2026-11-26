@@ -135,3 +135,186 @@ lung.drug	Adverse effects of high inspired oxygen
 lung.drug	Acute tobacco or nicotine effects			
 lung.drug	Acute inhalant effects			
 lung.drug	Acute cocaine effects			
+gi.inf	C. difficile colitis		original:gut-cdiff-eligible original:gut-cdiff-carriage	original:gut-cdiff-repeat original:gut-cdiff-relapse
+gi.inf	Acute bacterial gastroenteritis and traveler's diarrhea			
+gi.inf	Staphylococcal foodborne illness			
+gi.inf	Diarrheagenic E. coli			
+gi.inf	Listerial enteritis			
+gi.inf	Yersinia enterocolitis			
+gi.inf	Campylobacter enteritis			
+gi.inf	Cholera			
+gi.inf	Salmonella enteritis			
+gi.inf	Shigella enteritis			
+gi.inf	Hepatic abscess			
+gi.inf	Subhepatic or subphrenic abscess			
+gi.inf	Primary bacterial peritonitis			original:ccs-liver-negative original:gut-fluidrule-pmns original:gut-fluidrule-negative
+gi.inf	Secondary peritonitis			
+gi.inf	Cytomegalovirus esophagitis			
+gi.inf	Herpes simplex esophagitis			
+gi.inf	Hepatitis A	bank:usmle-step1:micro-hav-clinical-recognition:v1		
+gi.inf	Hepatitis B	original:gut-hbv-core original:gut-hbv-surface	original:gut-hbv-acute original:gut-hbv-resolved	original:gut-hbv-react original:gut-hbv-sus
+gi.inf	Hepatitis C			
+gi.inf	Hepatitis D			
+gi.inf	Hepatitis E			
+gi.inf	Coxsackievirus enteritis or colitis			
+gi.inf	Echovirus enteritis or colitis			
+gi.inf	Rotavirus enteritis			
+gi.inf	Mumps			
+gi.inf	Herpetic gingivostomatitis			
+gi.inf	Oral candidiasis			
+gi.inf	Cryptosporidiosis			
+gi.inf	Cyclosporiasis			
+gi.inf	Amebiasis			
+gi.inf	Giardiasis			
+gi.inf	Cystoisosporiasis			
+gi.inf	Strongyloidiasis			
+gi.inf	Autoimmune hepatitis			
+gi.inf	Celiac disease	original:gut-cel-villi original:gut-cel-iron	original:gut-cel-confirm original:gut-celimg-interpret	original:gut-cel-persist original:gut-cel-diet
+gi.inf	Eosinophilic esophagitis	original:gut-eoe-layer	original:gut-eoe-biopsy original:gut-eoeimg-rings	original:gut-eoe-dilate
+gi.inf	Crohn disease and granulomatous or regional enteritis	original:gut-ibd-fistula	original:gut-ibd-skip original:gut-ibd-tract	
+gi.inf	Microscopic colitis (collagenous and lymphocytic)			
+gi.inf	Ulcerative colitis	original:gut-ibd-ulcerative	original:gut-ibd-continuous original:gut-ibdimg-polyps	original:gut-uc-time original:gut-uc-perforation
+gi.inf	Toxic megacolon			
+gi.tumor	Benign gastric polyps and cysts			
+gi.tumor	Benign small intestinal neoplasms and cysts			
+gi.tumor	Colonic, rectal or anal polyps			
+gi.tumor	Oral cavity and salivary gland cancers			
+gi.tumor	Esophageal squamous cell carcinoma			
+gi.tumor	Esophageal adenocarcinoma	original:gut-bar-tumor		
+gi.tumor	Barrett esophagus	original:gut-bar-lining	original:gut-bar-confirm	original:gut-bar-expert
+gi.tumor	Gastrinoma and Zollinger–Ellison syndrome			
+gi.tumor	Gastrointestinal carcinoid			
+gi.tumor	Gastrointestinal stromal tumor			
+gi.tumor	Small intestinal malignancy			
+gi.tumor	Gastric adenocarcinoma		original:phil-stomach-sample	
+gi.tumor	Gastric lymphoma including MALT lymphoma			
+gi.tumor	Colorectal cancer and screening		original:gut-crc-risk original:gut-crc-symptoms	original:gut-crc-pos original:gut-crc-neg
+gi.tumor	Anal cancer			
+gi.tumor	Lynch syndrome	original:gut-gene-repair	original:gut-gene-lynch	original:gut-gene-distinguish original:gut-gene-cascade
+gi.tumor	Familial adenomatous polyposis	original:gut-gene-apc	original:gut-gene-poly	
+gi.tumor	Peutz–Jeghers syndrome	original:gut-gene-pj	original:gut-gene-pigment	
+gi.tumor	Gardner syndrome			
+gi.tumor	Turcot syndrome			
+gi.tumor	MUTYH-associated polyposis	original:gut-gene-mutyh		
+gi.tumor	Gallbladder cancer			
+gi.tumor	Cholangiocarcinoma			
+gi.tumor	Ampullary adenocarcinoma			
+gi.tumor	Hepatocellular carcinoma			
+gi.tumor	Peritoneal cancer or metastatic studding			
+gi.tumor	Pancreatic malignancy			
+gi.tumor	Metastases involving the digestive system			
+gi.symptom	Abdominal pain		original:gut-ibs-pattern original:gut-mes-cta	original:gut-mes-peritoneum
+gi.symptom	Constipation	original:gut-opio-motility	original:gut-opio-med	original:gut-opio-first
+gi.symptom	Diarrhea	original:gut-gap-rule original:gut-gap-a	original:gut-gap-osm original:gut-gap-sec	original:gut-gap-history original:gut-hydrate-oral original:gut-hydrate-iv
+gi.symptom	Nausea and vomiting		original:gut-ped-pylorus original:gut-empty-delay	original:gut-empty-short
+gi.upper	Dental abscess			
+gi.upper	Dental caries			
+gi.upper	Malocclusion			
+gi.upper	Salivary duct stones			
+gi.upper	Sialadenitis and parotitis			
+gi.upper	Achalasia and cardiospasm	original:gut-ach-neurons original:gut-ach-move	original:gut-ach-confirm original:gut-achimg-beak	original:gut-ach-follow original:gut-ach-type3
+gi.upper	Dysphagia	original:gut-achimg-contour	original:gut-ach-mimic original:gut-eoe-biopsy	original:gut-ach-follow original:gut-swallow-esophagus original:gut-swallow-oropharynx
+gi.upper	Zenker and other esophageal diverticula			
+gi.upper	Esophageal or adjacent abscess without sinus			
+gi.upper	Reflux esophagitis and GERD	bank:usmle-step1:pharm-omeprazole-gerd:v1		
+gi.upper	Pill esophagitis	original:gut-pill-contact	original:gut-pill-pain	original:gut-pill-action original:gut-pill-prevent
+gi.upper	Mallory–Weiss tear			
+gi.upper	Paraesophageal or hiatal hernia			
+gi.upper	Esophageal stenosis or stricture	original:gut-eoe-layer		original:gut-eoe-dilate
+gi.bowel	Dyspepsia or hyperacidity			
+gi.bowel	Gastric ulcer		original:gut-bleedimg-gastric	original:gut-ulcer-clean
+gi.bowel	Gastritis			
+gi.bowel	Peptic ulcer disease	original:gut-ulcer-bleed	original:gut-ulcer-risk	original:gut-ulcer-vessel original:gut-hp-valid
+gi.bowel	Perforated peptic ulcer			
+gi.bowel	Gastroparesis	original:gut-empty-retained	original:gut-empty-delay original:gut-empty-pass	original:gut-empty-short
+gi.bowel	Appendicitis	original:gut-app-pain	original:gut-app-rule original:gut-app-enlarged original:gut-app-abscess	original:gut-app-discuss original:gut-app-peritonitis
+gi.bowel	Angiodysplasia			
+gi.bowel	Diverticulosis			
+gi.bowel	Diverticulitis		original:gut-div-confirm	original:gut-div-mild original:gut-div-abscess
+gi.bowel	Duodenitis			
+gi.bowel	Duodenal ulcer		original:gut-bleedimg-duod	original:gut-ulcer-vessel
+gi.bowel	Noninfectious gastroenteritis or colitis			
+gi.bowel	Hirschsprung disease			
+gi.bowel	Intestinal impaction			
+gi.bowel	Intestinal obstruction or stricture	original:gut-adh-closed original:rad-level	original:rad-sbo original:gut-adh-fail	original:gut-adh-urgent
+gi.bowel	Intussusception	original:gut-int-mechanism	original:gut-int-target original:gut-int-test	original:gut-int-stable original:gut-int-periton
+gi.bowel	Irritable bowel syndrome		original:gut-ibs-pattern original:gut-ibs-calpro	original:gut-ibs-alarm
+gi.bowel	Acute mesenteric ischemia	original:gut-mes-source original:gut-mes-lowflow	original:gut-mes-cta original:gut-mes-lactate	original:gut-mes-peritoneum
+gi.bowel	Ischemic colitis			
+gi.bowel	Necrotizing enterocolitis			
+gi.bowel	Paralytic ileus			
+gi.bowel	Intestinal volvulus	original:gut-ped-twist	original:gut-ped-rotation	
+gi.bowel	Malnutrition and malabsorption	original:gut-cel-iron original:gut-epi-fat	original:gut-epi-low	original:gut-epi-monitor
+gi.bowel	Lactose intolerance	original:gut-lact-defect	original:gut-lact-symptomatic original:gut-lact-asymptomatic	
+gi.bowel	Short bowel syndrome			
+gi.bowel	Anorectal abscess			
+gi.bowel	Anal fissure			
+gi.bowel	Anal fistula			
+gi.bowel	Anorectal ulcer			
+gi.bowel	Fecal incontinence			
+gi.bowel	Rectal or anal bleeding			
+gi.bowel	Proctitis			
+gi.bowel	Hemorrhoids			
+gi.bowel	Rectal prolapse			
+gi.liver	Cirrhosis	original:phil-liver-pattern	original:phil-nodules	original:ccs-liver-sample
+gi.liver	Dubin–Johnson syndrome	original:gut-bili-dubin	original:gut-bili-black	
+gi.liver	Rotor syndrome			
+gi.liver	End-stage liver disease and transplant indications			
+gi.liver	Gilbert syndrome	original:gut-bili-conjugate	original:gut-bili-gilbert	original:gut-bili-reassure
+gi.liver	Crigler–Najjar syndrome	original:gut-bili-crigler		
+gi.liver	Hepatic encephalopathy		original:gut-he-precip	original:gut-he-first original:gut-he-excess original:gut-he-recurs
+gi.liver	Noninfectious hepatitis			
+gi.liver	Alcohol-associated fatty liver or hepatitis			
+gi.liver	Metabolic dysfunction-associated steatotic liver disease			
+gi.liver	Hepatorenal syndrome			
+gi.liver	Hepatopulmonary syndrome			
+gi.liver	Jaundice	original:gut-bili-water	original:gut-bili-gilbert original:gut-ba-test	original:gut-ba-urgent
+gi.liver	Portal hypertension	original:phil-portal-resist	original:gut-asc-portal	
+gi.liver	Esophageal varices	original:gut-var-channel	original:gut-var-bleed	original:gut-var-early original:gut-var-antibiotic original:gut-var-band original:gut-var-prevent original:gut-var-rescue
+gi.liver	Bile duct obstruction or cholestasis	original:gut-stone-level	original:gut-stone-mid	original:gut-stone-direct
+gi.liver	Acute cholangitis		original:ckgi-obstruct	original:gut-panc-infection
+gi.liver	Choledocholithiasis	original:gut-stone-level	original:gut-stone-high original:gut-stone-mid	original:gut-stone-direct original:gut-stone-avoid
+gi.liver	Cholelithiasis	original:rad-shadow	original:rad-stones	original:rad-symptomatic
+gi.liver	Acute cholecystitis		original:ckruq-functional original:ckruq-murphy	
+gi.liver	Parenteral nutrition-associated cholestasis			
+gi.liver	Gallstone ileus			
+gi.liver	Mirizzi syndrome			
+gi.liver	Primary biliary cholangitis			
+gi.liver	Primary sclerosing cholangitis			
+gi.pancreas	Acute pancreatitis	original:gut-panc-enzyme	original:gut-panc-atypical original:ckgi-criteria	original:gut-panc-feed original:gut-panc-infection
+gi.pancreas	Chronic pancreatitis			
+gi.pancreas	Hereditary pancreatitis			
+gi.pancreas	Pancreatic cysts or pseudocysts			
+gi.pancreas	Pancreatic duct obstruction			
+gi.pancreas	Pancreatic exocrine insufficiency	original:gut-epi-fat original:gut-epi-vit	original:gut-epi-low original:gut-epi-border	original:gut-epi-time original:gut-epi-monitor
+gi.peritoneum	Ascites	original:gut-asc-formula original:gut-asc-a	original:gut-asc-portal original:gut-asc-heart	original:gut-asc-new original:ccs-liver-sample
+gi.trauma	Abdominal wall defects			
+gi.trauma	Postsurgical adhesions	original:gut-adh-cause	original:gut-adh-predict original:gut-adh-fail	original:gut-adh-safe original:gut-adh-urgent
+gi.trauma	Digestive complications of surgery	original:nut-dump-early	original:nut-dump-timing	original:nut-dump-food
+gi.trauma	Post-gastric surgery syndromes	original:nut-dump-late	original:nut-dump-timing	original:nut-dump-food
+gi.trauma	Blind loop syndrome			
+gi.trauma	Duodenal tear			
+gi.trauma	Gastrointestinal foreign body			
+gi.trauma	Inguinal hernia			
+gi.trauma	Femoral hernia			
+gi.trauma	Abdominal wall hernia			
+gi.trauma	Open abdominal wound			
+gi.trauma	Hollow viscus perforation	original:rad-freeair	original:rad-perforate	original:gut-uc-perforation
+gi.trauma	Blunt abdominal trauma			
+gi.trauma	Esophageal rupture or Boerhaave syndrome			
+gi.trauma	Umbilical hernia			
+gi.congenital	Annular pancreas			
+gi.congenital	Biliary atresia	original:gut-ba-color	original:gut-ba-test original:gut-ba-persist	original:gut-ba-urgent original:gut-crib-below
+gi.congenital	Cleft lip or palate			
+gi.congenital	Esophageal atresia			
+gi.congenital	Intestinal malrotation	original:gut-ped-twist	original:gut-ped-rotation	
+gi.congenital	Meckel diverticulum			
+gi.congenital	Hypertrophic pyloric stenosis	original:gut-ped-bile	original:gut-ped-pylorus original:gut-pedimg-muscle	
+gi.congenital	Tracheoesophageal fistula			
+gi.drug	Motility changes with chronic laxative use			
+gi.drug	Opioid-induced dysmotility	original:gut-opio-motility	original:gut-opio-med	original:gut-opio-resist
+gi.drug	NSAID-associated gastritis, duodenitis or peptic ulcer disease			
+gi.drug	Drug-induced liver injury	original:gut-dili-formula original:gut-dili-a	original:gut-dili-hep original:gut-dili-chol	original:gut-dili-timeline original:gut-dili-cause
+gi.drug	Acetaminophen hepatotoxicity			
+gi.drug	Isoniazid hepatotoxicity			
+gi.drug	Drug-induced pancreatitis including thiazides			

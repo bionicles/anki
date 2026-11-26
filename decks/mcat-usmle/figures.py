@@ -210,11 +210,46 @@ def respiratory():
         save(fig, f"lung_niv_{case}")
 
 
+def gastrointestinal():
+    panels = [
+        ("enzymes", "liver chemistry", "Multiple of upper limit of normal",
+         ["ALT", "Alkaline phosphatase"], [(18, 2), (3, 6), (9, 3)], 21),
+        ("gap", "stool electrolytes", "Concentration (mmol/L)",
+         ["Sodium", "Potassium"], [(35, 30), (100, 30)], 120),
+        ("saag", "same-day albumin levels", "Albumin (g/dL)",
+         ["Serum", "Ascitic fluid"], [(3.2, 1.4), (3.0, 2.4)], 4),
+    ]
+    for name, title, unit, labels, cases, ymax in panels:
+        for code, values in zip("abc", cases):
+            fig, ax = axes("", unit)
+            bars = ax.bar(labels, values, color=COLORS, width=.5)
+            ax.bar_label(bars, fmt="%g", padding=4)
+            ax.set(ylim=(0,ymax), title=f"Simulated {title}")
+            save(fig, f"gi_{name}_{code}")
+
+    for code, values in [("a", [100, 79, 55, 26]), ("b", [100, 68, 45, 5])]:
+        fig, ax = axes("Time after standardized meal (hours)", "Meal retained (%)")
+        ax.plot([0,1,2,4], values, "o-", color=COLORS[0])
+        for x, y in zip([0,1,2,4],values):
+            ax.annotate(f"{y}%",(x,y),xytext=(0,5),textcoords="offset points",ha="center")
+        ax.set(xticks=[0,1,2,3,4],ylim=(0,116),title="Simulated solid-meal gastric emptying study")
+        save(fig,f"gi_empty_{code}")
+
+    for code, heights in [("a", [12, 10, 8]), ("b", [6, 2, 0])]:
+        fig, ax = axes("Time after swallowing barium (min)", "Column height (cm)")
+        ax.plot([1,2,5], heights, "o-", color=COLORS[0])
+        for x, y in zip([1,2,5], heights):
+            ax.annotate(str(y),(x,y),xytext=(0,6),textcoords="offset points",ha="center")
+        ax.set(xticks=[1,2,5],ylim=(-.6,14),title="Simulated timed barium esophagram measurements")
+        save(fig,f"gi_barium_{code}")
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
     cardiovascular()
     respiratory()
+    gastrointestinal()
     plot("refeed", "Hours after starting nutrition", "Serum phosphate (mg/dL)",
          [0,12,24,36,48], {"Patient A": [3.2,2.9,2.4,1.8,1.6],
                             "Patient B": [3.1,3.2,3.0,3.1,3.1]})
