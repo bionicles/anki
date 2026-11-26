@@ -4643,6 +4643,50 @@ def cerebrovascular_studies():
     save(fig, "nvas_nascet", indexed=True)
 
 
+def obstetric_complication_studies():
+    """Draw simulated prenatal reports, Doppler signals and an MCAT unfolding curve."""
+    for name, length in (("crl9", 9), ("crl4", 4)):
+        study_table("obloss_" + name, "First transvaginal study",
+                    ["Observation", "Result"],
+                    [["Location", "Intrauterine embryo"], ["Crown–rump length", f"{length} mm"],
+                     ["Cardiac activity", "Absent on adequate observation"]])
+
+    for name, final in (("iron", ["9.1", "70", "5"]), ("dilution", ["11.3", "88", "56"])):
+        study_table("obloss_" + name, "Prenatal laboratory record",
+                    ["Gestation", "Hb (g/dL)", "MCV (fL)", "Ferritin (ng/mL)"],
+                    [["10 weeks", "12.4", "89", "62"], ["26 weeks", *final]])
+
+    for name, nadir in (("forward", 12), ("reversed", -8)):
+        fig, ax = axes("Time (cardiac cycles)", "Velocity (cm/s)")
+        phase = np.array([0, .15, .28, .45, .72, 1])
+        velocity = np.array([nadir, 52, 35, 24, 12, nadir])
+        for cycle in range(3):
+            ax.plot(phase + cycle, velocity, color=COLORS[0], lw=2.5)
+        ax.axhline(0, color="#333333", lw=1)
+        ax.set(xlim=(0, 3), ylim=(-15, 60), xticks=[0, 1, 2, 3],
+               title="Umbilical artery • positive is toward placenta")
+        save(fig, "obloss_" + name, indexed=True)
+
+    study_table("obloss_county", "County surveillance • annual review",
+                ["Measure", "Count"], [["Live births", "40,000"],
+                ["Deaths within pregnancy or 1 year after", "13"],
+                ["Deaths judged pregnancy-related", "8"]])
+
+    study_table("obloss_trial", "Early pregnancy loss • treatment success",
+                ["Regimen", "Success", "Percent"],
+                [["Mifepristone + misoprostol", "124 / 148", "83.8%"],
+                 ["Misoprostol alone", "100 / 149", "67.1%"]],
+                source="Schreiber et al.")
+
+    fig, ax = axes("Temperature (°C)", "Fraction unfolded")
+    temperature = np.linspace(29, 59, 180)
+    ax.plot(temperature, 1 / (1 + np.exp(-(temperature - 44) / 2.4)),
+            color=COLORS[0], lw=2.5)
+    ax.set(xticks=[32, 36, 40, 44, 48, 52, 56], yticks=[0, .25, .5, .75, 1],
+           title="Thermal unfolding • simulated measurement")
+    save(fig, "obloss_fold", indexed=True)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -4734,6 +4778,7 @@ def main():
     shift_safety_studies()
     reproductive_infection_studies()
     cerebrovascular_studies()
+    obstetric_complication_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
