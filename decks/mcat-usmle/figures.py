@@ -853,12 +853,106 @@ def renal_anatomy():
         save(fig, "kidney_tract_" + case)
 
 
+def perinatal_studies():
+    """Paired simulated assessments. Each pair changes the evidence under review."""
+    for case, dilation in [("a", [1, 2, 3]), ("b", [1, 1, 1])]:
+        fig, ax = axes("Time after initial examination (hours)", "Cervical dilation (cm)")
+        ax.plot([0, 1, 2], dilation, "o-", color=COLORS[0], lw=2.6, markersize=9)
+        ax.set(xticks=[0, 1, 2], yticks=range(6), ylim=(-.25, 5.25),
+               title="Patient at 31 weeks · regular contractions")
+        save(fig, "perinatal_labor_" + case)
+
+    def record(name, title, labels, observations):
+        fig, ax = plt.subplots(figsize=(5.6, 3.0), layout="constrained")
+        ax.axis("off")
+        ax.set_title(title, loc="left", fontsize=14)
+        table = ax.table(cellText=list(zip(labels, observations)), loc="center",
+                         cellLoc="left", colWidths=[.50, .50])
+        table.auto_set_font_size(False)
+        table.set_fontsize(11)
+        table.scale(1, 1.8)
+        for (row, _), cell in table.get_celld().items():
+            cell.set_facecolor("#edf5f6" if row % 2 == 0 else "white")
+            cell.set_edgecolor("#c9d7dc")
+        save(fig, "perinatal_" + name)
+
+    profile = ["Nonstress test", "Breathing over 30 min", "Body movements / 30 min",
+               "Extension → flexion", "Deepest fluid pocket"]
+    record("bpp_a", "Biophysical profile · completed observation", profile,
+           ["Reactive", "None", "4 discrete movements", "Present", "3.4 cm"])
+    record("bpp_b", "Biophysical profile · completed observation", profile,
+           ["Nonreactive", "None", "1 discrete movement", "Present", "4.0 cm"])
+    for case, measured, median in [("a", 64, 40), ("b", 54, 45)]:
+        record("mca_" + case, "Fetal middle cerebral artery · Doppler report",
+               ["Measured peak systolic velocity", "Median for gestational age"],
+               [f"{measured} cm/s", f"{median} cm/s"])
+    for case, hand, foot in [("a", 98, 96), ("b", 98, 94)]:
+        record("sat_" + case, "First newborn screen · room air · age 27 h",
+               ["Right hand", "Foot"], [f"{hand}%", f"{foot}%"])
+
+    for case in ("a", "b"):
+        fig, ax = plt.subplots(figsize=(5.2, 3.6), layout="constrained")
+        ax.set(aspect="equal", xlim=(-2.5, 3.45), ylim=(-.85, 2.85))
+        ax.axis("off")
+        ax.set_title("Lower uterine segment · sagittal schematic")
+        # Inner outline tapers to the internal cervical os at (0, 0).
+        x = np.array([-2.1, -1.9, -1.55, -.85, -.28, 0, .28, .85, 1.55, 1.9, 2.1])
+        y = np.array([2.5, 1.55, .95, .45, .13, 0, .13, .45, .95, 1.55, 2.5])
+        ax.plot(x, y, color="#945a57", lw=8, solid_capstyle="round")
+        ax.plot([-.12, -.12], [-.7, -.04], color="#945a57", lw=4)
+        ax.plot([.12, .12], [-.7, -.04], color="#945a57", lw=4)
+        end = 7 if case == "a" else 3
+        ax.plot(x[:end], y[:end]+.12, color="#463c78", lw=13, solid_capstyle="round")
+        ax.annotate("Placenta", (-1.92, 1.8), (-1.0, 2.4),
+                    arrowprops={"arrowstyle": "->"}, fontsize=11)
+        ax.annotate("Internal os", (0, -.02), (1.25, -.34),
+                    arrowprops={"arrowstyle": "->"}, fontsize=11)
+        if case == "b":
+            ax.text(.18, 1.24, "Edge–os distance\n35 mm on ultrasound", fontsize=10)
+        save(fig, "perinatal_os_" + case)
+
+
+def twin_fluid_studies():
+    """Synthetic ultrasound measurement reports for independent twin sacs."""
+    for case, pockets in [("a", [1.1, 9.3]), ("b", [1.2, 1.5])]:
+        fig, ax = axes("Amniotic sac", "Deepest vertical pocket (cm)")
+        ax.bar(["Twin A", "Twin B"], pockets, width=.43,
+               color=[COLORS[0], COLORS[1]])
+        for i, pocket in enumerate(pockets):
+            ax.text(i, pocket+.16, f"{pocket:.1f} cm", ha="center", fontsize=12)
+        ax.set(xlim=(-.65, 1.65), ylim=(0, 11), yticks=range(0, 11, 2),
+               title="Monochorionic diamniotic twins · 19 weeks")
+        save(fig, "perinatal_twin_" + case)
+
+
+def fetal_atrium_calipers():
+    """Magnified schematic of two opposing atrial walls, in a local coordinate frame."""
+    for case in ("a", "b"):
+        fig, ax = plt.subplots(figsize=(5.2, 3.1), layout="constrained")
+        ax.set(xlim=(-3.2, 3.2), ylim=(-1.75, 1.75), aspect="equal")
+        ax.axis("off")
+        ax.set_title("Fetal ventricular atrium · local wall detail")
+        for y in (-1.24, 1.0):
+            ax.add_patch(plt.Rectangle((-3, y), 6, .24, color="#b7a8aa"))
+        markers = [(-1.2, -1.2, 1., "A"), (1.25, 1.25, 1.23, "B")]
+        if case == "b":
+            markers = [(-1.45, -.45, 1., "A"), (1.25, 1.25, 1., "B")]
+        for x0, x1, radius, label in markers:
+            ax.plot([x0, x1], [-radius, radius], color="#145a74", lw=2, marker="+", ms=12)
+            ax.text(x1+.16, .12, label, weight="bold")
+        ax.text(-3, -1.61, "Shaded bands = ventricular walls", fontsize=10)
+        save(fig, "perinatal_cal_" + case)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
     cardiovascular()
     renal_studies()
     renal_anatomy()
+    perinatal_studies()
+    twin_fluid_studies()
+    fetal_atrium_calipers()
     cardiovascular_studies()
     vascular_anatomy()
     ventricular_loops()

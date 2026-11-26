@@ -1174,3 +1174,161 @@ renal.drug	Penicillin-associated renal injury		original:ku-cast-wbc	original:ku-
 renal.drug	Sulfonamide-associated renal effects	original:ku-sulfa-cryst	original:ku-sulfa-k	original:ku-sulfa-crystal
 renal.drug	Tenofovir nephrotoxicity	original:ku-tdf-site	original:ku-tdf-check	original:ku-tdf-manage
 renal.drug	Medication-induced urinary retention		original:ku-incon-ret	original:ku-ret-drain original:ku-diagram-empty
+ob.prenatal	Preconception folate and prevention of neural tube defects	original:s1-folate-timing	original:ck-folate-prevention-reason	original:acm-folate-counsel
+ob.prenatal	Vaccination before and during pregnancy	original:per-vax-live	original:per-vax-now original:per-vax-flu	original:per-vax-post
+ob.prenatal	Maternal nutrition, weight and vitamin assessment	original:well-preg-iodine	original:well-preg-retinol original:per-obesity-pre	original:well-preg-choline
+ob.prenatal	Maternal Rh status and antibody screening	original:per-rh-scr	original:per-rh-prevent	
+ob.prenatal	Care of the pregnant adolescent			original:per-teen-private
+ob.prenatal	Antepartum fetal well-being and biophysical profile	original:per-bpp-liquid original:per-bpp-tone	original:per-bpp-rule original:per-bpp-a original:per-bpp-b	original:per-late-surveil original:per-bpp-fluid
+ob.prenatal	Prenatal chromosome screening and diagnostic testing	original:pren-dx-villus original:pren-dx-fluid	original:pren-cf-positive original:pren-cf-nocall original:pren-dx-early original:per-thal-partner	original:pren-cf-refuse original:pren-cf-ppv original:per-vm-gen
+ob.prenatal	Maternal serum alpha-fetoprotein and open fetal defects		original:per-afp-screen	
+ob.prenatal	Prenatal diabetes screening		original:per-gd-screen	
+ob.prenatal	Prevention of maternal Rh sensitization	original:per-rh-scr	original:per-rh-prevent	original:per-rh-immune
+ob.prenatal	Establishing gestational age	original:per-date-us	original:per-late-rule original:per-late-case original:per-post-case original:per-date-lmp	original:per-date-small
+ob.prenatal	Prevention of iron deficiency during pregnancy		original:well-preg-iron	
+ob.prenatal	Ultrasound surveillance of fetal growth		original:plac-growth-abdo original:plac-growth-vessel original:plac-growth-early	
+ob.prenatal	Prenatal cytomegalovirus exposure and prevention	original:per-cmv-hyg		
+ob.prenatal	Prenatal enterovirus exposure		original:per-coxs-care	
+ob.prenatal	Prevention of perinatal hepatitis B	original:per-hbv-pass	original:per-hbv-born	original:per-hbv-test
+ob.prenatal	Prevention of perinatal herpes simplex		original:per-hsv-labor	original:per-hsv-clear original:per-hsv-active
+ob.prenatal	Prenatal HIV screening and perinatal prevention			original:per-hiv-arv
+ob.prenatal	Influenza prevention in pregnancy		original:per-vax-flu	
+ob.prenatal	Parvovirus B19 exposure during pregnancy		original:per-b19-test	original:per-b19-watch
+ob.prenatal	Prenatal rubella immunity and prevention	original:per-vax-live	original:per-vax-now	original:per-vax-post
+ob.prenatal	Varicella susceptibility and exposure in pregnancy	original:per-vax-live	original:per-vzv-new	
+ob.prenatal	Prenatal chlamydia screening and prevention		original:per-ct-testcure	
+ob.prenatal	Prenatal syphilis screening and prevention		original:per-syp-med	
+ob.prenatal	Maternal group B streptococcal screening		original:ob-gbs-when original:ob-gbs-urine	
+ob.prenatal	Prevention of congenital toxoplasmosis		original:per-tox-food	
+ob.prenatal	Ascending infection of the amniotic cavity	original:per-bag-rule original:per-bag-time		original:per-rom-manage original:per-rom-infect
+ob.prenatal	Asymptomatic bacteriuria during pregnancy	original:per-asb-risk	original:per-asb-cult	original:per-asb-tx
+ob.complication	Induced abortion and follow-up			original:per-ab-follow
+ob.complication	Septic pregnancy loss			original:per-pp-source
+ob.complication	Missed early pregnancy loss		original:per-early-missed	original:per-early-uncert original:per-early-choice
+ob.complication	Spontaneous pregnancy loss		original:per-early-live original:per-early-missed	original:per-early-uncert original:per-early-choice
+ob.complication	Threatened miscarriage		original:per-early-live	
+ob.complication	Acute fatty liver of pregnancy	original:per-afl-glu	original:per-afl-case	original:per-afl-birth
+ob.complication	Anemia during pregnancy			original:per-scd-iron
+ob.complication	Maternal sickle cell disease			original:per-scd-iron
+ob.complication	Maternal thalassemia		original:per-thal-partner	
+ob.complication	Antepartum bleeding	original:per-previa-site	original:per-previa-img original:per-previa-away	original:per-pt-urgent original:per-previa-exam
+ob.complication	Cardiomyopathy developing in pregnancy	original:per-heart-pump		original:per-heart-study
+ob.complication	Cervical insufficiency and a short cervix	original:per-cerv-why	original:per-cerv-measure	original:per-cerv-treat original:per-cerv-stitch
+ob.complication	Intrahepatic cholestasis of pregnancy	original:per-chol-solute	original:per-chol-prur	original:per-chol-itch original:per-chol-unconf
+ob.complication	Maternal uterine malformation affecting pregnancy	original:per-mull-breech		original:per-mull-present
+ob.complication	Ectopic pregnancy		original:ckob-urgent	original:ccs-ectopic-risk original:ccs-ectopic-unstable original:ccs-ectopic-trend original:ccs-ectopic-return original:per-ab-follow
+ob.complication	Maternal management when fetal structural anomalies are identified	original:per-vm-wall original:per-vm-good original:per-vm-bad	original:per-vm-cut original:per-vm-mild original:per-vm-mod original:per-vm-inf	original:per-vm-gen original:per-vm-route original:per-spina-offer
+ob.complication	Fetal growth restriction		original:plac-growth-abdo original:plac-growth-vessel original:plac-growth-early original:per-smoke-small	original:plac-growth-normal original:plac-growth-severe original:plac-growth-reverse original:per-date-small
+ob.complication	Gestational diabetes	original:per-dm-cross original:per-dm-birth	original:per-gd-screen	original:per-dm-after original:per-dm-later
+ob.complication	Maternal mortality and preventable causes			original:per-death-review
+ob.complication	Multifetal pregnancy and shared placentation	original:per-twin-plac original:per-twin-donor original:per-twin-recip	original:per-twin-pattern original:per-twin-rule original:per-twin-chart original:per-twin-neither	original:per-twin-plan original:per-twin-laser original:per-twin-I
+ob.complication	Premature placental separation			original:per-pt-urgent
+ob.complication	Placenta previa	original:per-previa-site	original:per-ecv-no original:per-previa-img original:per-previa-away	original:per-previa-exam original:per-acc-risk
+ob.complication	Excess amniotic fluid	original:per-twin-recip	original:per-twin-pattern original:per-twin-rule original:per-twin-chart original:per-twin-neither	
+ob.complication	Reduced amniotic fluid	original:per-late-fluid original:per-drug-fluid original:per-twin-donor	original:per-drug-nsaid original:per-ace-case original:per-twin-pattern original:per-twin-rule original:per-twin-chart original:per-twin-neither	original:per-bpp-fluid original:per-drug-stop
+ob.complication	Preeclampsia		original:ckpreg-organ original:ckpreg-post original:per-hellp-case original:per-ghtn-case	original:acm-preg-late original:acm-preg-long original:per-mg-mag
+ob.complication	Eclampsia		original:ckpreg-seizure	original:per-ecl-drug
+ob.complication	HELLP syndrome	original:per-hellp-key	original:per-hellp-case	
+ob.complication	Gestational hypertension		original:per-ghtn-case	
+ob.complication	Prolonged pregnancy	original:per-late-reserve original:per-late-fluid	original:per-late-rule original:per-late-case original:per-post-case	original:per-late-discuss original:per-late-surveil original:per-late-abnormal
+ob.complication	Management of alloimmunized pregnancy	original:per-rh-antibody original:per-rh-speed	original:per-rh-rule original:per-rh-fast original:per-rh-low	original:per-rh-plan original:per-rh-stable original:per-rh-hydrops original:per-rh-immune
+ob.complication	Nausea and vomiting of pregnancy		original:per-hg-mild original:per-hg-severe	
+ob.complication	Hyperemesis gravidarum	original:per-hg-thiam	original:per-hg-mild original:per-hg-severe	original:per-hg-glucose
+ob.complication	Trauma in a pregnant patient			original:per-rad-trauma
+ob.complication	Maternal infection complicating pregnancy		original:per-cs-endo	original:per-rom-infect original:per-asb-fever
+ob.labor	Normal labor progression and uncomplicated birth		original:labor-data-active original:labor-data-second	original:labor-data-pushing
+ob.labor	Labor dystocia and arrest			original:labor-data-arrest original:labor-data-wait original:labor-data-inadequate original:labor-data-action
+ob.labor	Shoulder dystocia	original:ob-shoulder-structure	original:ob-shoulder-recognize	original:ob-shoulder-legs
+ob.labor	Cesarean birth and operative complications	original:per-cs-bladder original:per-cs-fascia	original:per-cs-cell original:per-cs-endo original:per-cs-hema	original:per-birth-persist original:per-birth-turn original:per-cs-rule original:per-cs-seroma original:per-cs-open original:per-cs-pus
+ob.labor	Umbilical cord compression	original:ctg-mech-cord original:ob-cord-mechanism		
+ob.labor	Umbilical cord prolapse	original:ob-cord-mechanism	original:ob-cord-palpate	original:ob-cord-decompress original:ob-cord-delivery
+ob.labor	Malpresentation and external cephalic version	original:per-head-rule original:per-head-flex original:per-head-brow original:per-mull-breech	original:per-ecv-rule original:per-ecv-yes original:per-ecv-no	original:per-birth-rule original:per-birth-persist original:per-birth-turn original:per-mull-present
+ob.labor	Intrapartum fetal assessment	original:ctg-depth-principle original:ctg-mech-lateflow	original:ctg-depth-gradual original:ctg-depth-catrule original:ctg-read-ii original:ctg-read-iii	original:ctg-depth-freqrule original:per-late-abnormal
+ob.labor	Peripartum infection prophylaxis	original:ob-gbs-target	original:ob-gbs-urine	original:ob-gbs-positive original:ob-gbs-cesarean original:ob-gbs-urgent
+ob.labor	Prelabor rupture of membranes at term or preterm	original:per-bag-rule original:per-bag-time	original:per-rom-rule original:per-rom-fluid original:per-rom-blood	original:per-rom-manage original:per-rom-wait original:per-rom-infect original:per-rom-term
+ob.labor	Preterm labor and delivery	original:per-surf-rule original:per-surf-cell original:per-surf-work	original:per-pt-rule original:per-pt-change original:per-pt-same	original:per-rom-wait original:per-pt-eligible original:per-pt-transfer original:per-pt-urgent original:per-chol-unconf original:per-cerv-treat
+ob.labor	Contractions suggesting preterm labor		original:per-pt-rule original:per-pt-change original:per-pt-same	
+ob.labor	Labor and delivery beyond the due date	original:per-late-reserve original:per-late-fluid	original:per-late-rule original:per-late-case original:per-post-case	original:per-late-discuss original:per-late-surveil original:per-late-abnormal
+ob.postpartum	Lactation difficulty	original:eh-sheehan-milk	original:eh-sheehan-dx original:per-feed-observe	
+ob.postpartum	Breastfeeding problems after delivery		original:per-feed-observe	original:per-feed-intake
+ob.postpartum	Normal and abnormal lochia	original:per-pp-organ	original:per-cs-endo original:per-pp-ill	
+ob.postpartum	Postpartum cardiomyopathy	original:per-heart-pump	original:per-heart-case	
+ob.postpartum	Postpartum blues	original:per-blues-course	original:per-blues-well original:per-blues-ill	
+ob.postpartum	Postpartum hemorrhage		original:ckpph-tone original:ckpph-firm original:ckpph-contra	original:ccs-pph-tone original:ccs-pph-massage original:ccs-pph-trauma original:per-acc-plac
+ob.postpartum	Sepsis in the puerperium		original:per-pp-ill	original:per-pp-abx original:per-pp-source original:per-sepsis-rule original:per-sepsis-cool
+ob.postpartum	Retained placental tissue			original:per-pp-source original:per-acc-plac
+ob.postpartum	Abnormally adherent placenta			original:per-acc-risk original:per-acc-plac
+ob.postpartum	Uterine atony		original:ckpph-tone	original:ccs-pph-tone original:ccs-pph-massage
+ob.newborn	Initial assessment and transition after birth		original:born-resus-apnea original:born-resus-spont original:born-resus-effective original:per-acne-mild	
+ob.newborn	Newborn screening and follow-up	original:per-screen-sites original:per-pku-target	original:eh-ch-confirm original:ck-newborn-ear-quiet original:ck-newborn-ear-deadline original:ck-newborn-ear-abr original:ck-newborn-ear-oae original:per-screen-rule original:per-screen-pass original:per-screen-repeat original:per-pku-follow	original:acm-newborn-ear-one original:per-screen-low original:per-screen-retest
+ob.newborn	ABO-mediated hemolysis in the newborn	original:per-abo-igg	original:per-abo-infant	
+ob.newborn	Rh-mediated hemolysis in the newborn	original:per-rh-antibody		
+ob.newborn	Birth asphyxia and neonatal resuscitation	original:born-resus-brady	original:born-rule-trigger	original:born-resus-compress original:born-resus-mask original:born-resus-recover
+ob.newborn	Injury during birth, including brachial plexus palsy		original:ob-shoulder-injury	
+ob.newborn	Neonatal withdrawal after antenatal drug exposure		original:per-withdraw-infant	original:per-withdraw-care
+ob.newborn	Neonatal feeding difficulty		original:per-brue-expl original:per-withdraw-infant original:per-feed-observe	original:per-withdraw-care original:per-trach-feed original:per-feed-intake
+ob.newborn	Growth restriction in the newborn		original:per-sga-sugar	
+ob.newborn	Neonatal gastrointestinal obstruction	original:per-trach-atres	original:gut-ped-rotation original:per-trach-pouch	original:gut-ped-emergency
+ob.newborn	Neonatal hypocalcemia		original:per-seiz-ca	
+ob.newborn	Congenital cytomegalovirus infection	original:per-cmv-clock	original:per-cmv-time	original:per-cmv-confirm
+ob.newborn	Neonatal herpes simplex		original:per-hsv-labor	original:per-hsv-active
+ob.newborn	Perinatal HIV exposure in the newborn			original:per-hiv-arv
+ob.newborn	Perinatal hepatitis B exposure in the newborn	original:per-hbv-pass	original:per-hbv-born	original:per-hbv-test
+ob.newborn	Congenital rubella	original:per-rub-stage	original:per-rub-infant	
+ob.newborn	Fetal or neonatal parvovirus B19 disease	original:per-b19-cells		original:per-b19-watch
+ob.newborn	Congenital and neonatal varicella		original:per-vzv-new	
+ob.newborn	Perinatally acquired chlamydial infection		original:per-eye-ct original:per-ct-testcure	original:per-eye-protect
+ob.newborn	Neonatal group B streptococcal disease	original:ob-gbs-target		
+ob.newborn	Congenital syphilis		original:per-syp-med original:per-sy-infant	
+ob.newborn	Congenital toxoplasmosis	original:per-tox-eye	original:per-tox-triad	
+ob.newborn	Intrapartum compromise and stillbirth		original:per-still-path	
+ob.newborn	Neonatal jaundice	original:per-bili-heme original:per-abo-igg	original:ckpeds-time original:ckpeds-threshold original:ckpeds-direct original:gut-ba-test original:gut-ba-persist original:per-bili-rise original:per-abo-infant	original:gut-ba-urgent original:per-bili-rule original:per-bili-near original:per-bili-far
+ob.newborn	Neonatal laryngomalacia	original:per-airway-phase original:per-airway-in	original:per-laryng-stridor	
+ob.newborn	Large-for-gestational-age infant	original:per-dm-cross	original:per-dm-infant	
+ob.newborn	Meconium aspiration and care at birth			original:born-resus-meconium
+ob.newborn	Neonatal acne		original:per-acne-mild	
+ob.newborn	Neonatal thrush		original:per-thrush-mouth	
+ob.newborn	Neonatal hypoglycemia	original:per-dm-birth	original:per-dm-infant original:per-sga-sugar	original:per-seiz-glu
+ob.newborn	Conjunctivitis and lacrimal sac infection in newborns	original:per-eye-target	original:per-eye-gc original:per-eye-ct	original:per-eye-protect
+ob.newborn	Gonococcal ophthalmia neonatorum	original:per-eye-target	original:per-eye-gc	
+ob.newborn	Newborn phenylketonuria	original:per-pku-target	original:per-pku-follow	original:per-pku-diet
+ob.newborn	Complications of prematurity	original:per-surf-rule original:per-surf-cell original:per-surf-work original:per-rop-tissue original:per-bpd-age	original:per-rds-case original:per-bpd-ongoing	original:per-pt-eligible original:per-pt-transfer original:per-rds-cpap original:per-rop-discharge
+ob.newborn	Post-term newborn		original:per-post-appear	
+ob.newborn	Pseudomembranous colitis in infancy	original:per-colon-test	original:per-colon-infant	
+ob.newborn	Neonatal surfactant deficiency	original:per-surf-rule original:per-surf-cell original:per-surf-work	original:per-rds-case	original:per-rds-cpap
+ob.newborn	Bronchopulmonary dysplasia	original:per-bpd-age	original:per-bpd-ongoing	
+ob.newborn	Tracheomalacia in infancy	original:per-airway-phase original:per-airway-out	original:per-trach-collapse	
+ob.newborn	Tracheoesophageal fistula at birth	original:per-trach-atres	original:per-trach-pouch	original:per-trach-feed
+ob.newborn	Retinopathy of prematurity	original:per-rop-tissue		original:per-rop-discharge
+ob.newborn	Neonatal seizures		original:per-seiz-ca	original:per-seiz-glu
+ob.newborn	Sudden infant death and risk reduction	original:per-sleep-back	original:per-sleep-ref	original:per-sleep-room
+ob.newborn	Brief resolved unexplained event assessment	original:per-brue-meaning	original:per-brue-expl original:per-brue-age	original:per-brue-current
+ob.newborn	Neonatal tetanus		original:per-tet-infant	
+ob.drug	Alcohol exposure before birth	original:per-alc-time	original:per-alc-advice	original:per-alc-prior
+ob.drug	Prenatal tobacco and nicotine exposure		original:per-smoke-small	
+ob.drug	Prenatal substance exposure		original:per-withdraw-infant	
+ob.drug	Fetal exposure to ionizing radiation		original:per-rad-us original:per-stone-us	original:per-rad-trauma
+ob.drug	Fetal effects of renin-angiotensin system blockade		original:per-ace-case	original:per-ace-plan
+ob.drug	SSRI exposure and perinatal effects			original:per-ssri-plan
+ob.drug	Fetal effects of warfarin exposure	original:per-warf-cross original:per-warf-case		original:per-valve-plan
+ob.drug	Other developmental toxins and medication exposures	original:per-drug-fluid original:per-drug-duct	original:well-preg-retinol original:per-drug-nsaid	original:per-drug-stop
+ob.drug	Timing and effects of congenital infection	original:per-rub-stage		
+ob.systemic	Appendicitis complicating pregnancy		original:per-rad-us	
+ob.systemic	Asthma during pregnancy			original:per-asth-stay
+ob.systemic	Pregnancy-related carpal tunnel syndrome		original:per-carpal-hand	original:per-carpal-splint
+ob.systemic	Cirrhosis and pregnancy		original:per-cirr-risk	
+ob.systemic	Venous thrombosis in pregnancy and the puerperium		original:per-dvt-scan	original:per-dvt-again
+ob.systemic	Pregestational diabetes	original:per-dm-cross		original:eh-screen-preg
+ob.systemic	Heart failure during pregnancy or the puerperium	original:per-heart-pump	original:per-heart-case	original:per-heart-study
+ob.systemic	Maternal valve disease	original:per-warf-cross original:per-hep-case original:per-warf-case		original:per-valve-plan
+ob.systemic	Chronic maternal hypertension			original:per-ace-plan
+ob.systemic	Myasthenia gravis affecting obstetric care			original:per-mg-mag
+ob.systemic	Obesity in pregnancy		original:per-obesity-pre	
+ob.systemic	Acute pancreatitis during pregnancy		original:per-panc-lip	original:per-panc-us
+ob.systemic	Perinatal psychiatric disorders		original:per-blues-well original:per-blues-ill	original:per-pp-safe original:per-ssri-plan
+ob.systemic	Symptomatic renal stones in pregnancy		original:per-stone-us	
+ob.systemic	Maternal kidney impairment	original:per-renal-gfr		
+ob.systemic	Lupus and pregnancy			original:per-sle-med
+ob.systemic	Epilepsy in pregnancy			original:per-ep-stay
+ob.systemic	Maternal hypothyroidism	original:per-thy-horm	original:per-thy-labs	original:acm-hypothyroid-need original:acm-hypothyroid-monitor original:acm-hypothyroid-iron original:acm-hypothyroid-post
+ob.systemic	Maternal hyperthyroidism			original:per-thy-hyper
