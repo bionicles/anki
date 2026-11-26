@@ -1913,28 +1913,28 @@ male.drug	Finasteride and dutasteride effects	original:uro-fin-1 original:uro-fi
 male.drug	PDE5 inhibitor effects	original:uro-pde-1 original:uro-no-fdn original:uro-no-make original:uro-no-keep	original:uro-pde-2	original:behavior-sexual-3 original:behavior-pde-rule original:behavior-pde-fit
 male.drug	Cannabis-related reproductive effects	original:uro-weed-1	original:uro-weed-2	original:uro-weed-3
 male.drug	Drugs affecting nitric oxide signaling	original:uro-no-1 original:uro-no-fdn original:uro-no-make original:uro-no-keep	original:uro-no-2	original:behavior-pde-rule original:behavior-sexual-3 original:uro-no-3
-multi.inf	Brucellosis			
-multi.inf	Leptospirosis			
-multi.inf	Lyme disease			
-multi.inf	Melioidosis			
-multi.inf	Disseminated tuberculosis			
-multi.inf	Tularemia			
-multi.inf	Toxic shock syndrome			
-multi.inf	Q fever			
-multi.inf	Anaplasmosis			
-multi.inf	Ehrlichiosis			
-multi.inf	Rocky Mountain spotted fever and other rickettsioses			
-multi.inf	EBV infectious mononucleosis			
-multi.inf	Cytomegalovirus disease			
-multi.inf	Yellow fever			
-multi.inf	HHV-8-associated disease	original:im-ks-f		
-multi.inf	Blastomycosis			
-multi.inf	Systemic candidiasis			
-multi.inf	Coccidioidomycosis			
-multi.inf	Histoplasmosis			
-multi.inf	Schistosomiasis			
-multi.inf	Visceral leishmaniasis			
-multi.inf	Acute and chronic Chagas disease			
+multi.inf	Brucellosis	original:sysinf-bru-1-rule original:sysinf-bru-1-case original:sysinf-bru-1-other	original:sysinf-bru-2-rule original:sysinf-bru-2-case original:sysinf-bru-2-other	original:sysinf-bru-3-rule original:sysinf-bru-3-case original:sysinf-bru-3-other
+multi.inf	Leptospirosis	original:sysinf-lep-1-rule original:sysinf-lep-1-case original:sysinf-lep-1-other	original:sysinf-lep-2-rule original:sysinf-lep-2-case original:sysinf-lep-2-other	original:sysinf-lep-3-rule original:sysinf-lep-3-case original:sysinf-lep-3-other
+multi.inf	Lyme disease	original:sysinf-lyme-1-rule original:sysinf-lyme-1-case original:sysinf-lyme-1-other	original:sysinf-lyme-2-rule original:sysinf-lyme-2-case original:sysinf-lyme-2-other original:sysinf-lyme-2-rule-extra original:sysinf-lyme-2-case-extra original:sysinf-lyme-2-other-extra	original:sysinf-lyme-3-rule original:sysinf-lyme-3-case original:sysinf-lyme-3-other original:sysinf-lyme-3-rule-extra original:sysinf-lyme-3-case-extra original:sysinf-lyme-3-other-extra
+multi.inf	Melioidosis	original:sysinf-mel-1-rule original:sysinf-mel-1-case original:sysinf-mel-1-other	original:sysinf-mel-2-rule original:sysinf-mel-2-case original:sysinf-mel-2-other	original:sysinf-mel-3-rule original:sysinf-mel-3-case original:sysinf-mel-3-other
+multi.inf	Disseminated tuberculosis	original:sysinf-tb-1-rule original:sysinf-tb-1-case original:sysinf-tb-1-other	original:sysinf-tb-2-rule original:sysinf-tb-2-case original:sysinf-tb-2-other	original:sysinf-tb-3-rule original:sysinf-tb-3-case original:sysinf-tb-3-other
+multi.inf	Tularemia	original:sysinf-tul-1-rule original:sysinf-tul-1-case original:sysinf-tul-1-other	original:sysinf-tul-2-rule original:sysinf-tul-2-case original:sysinf-tul-2-other	original:sysinf-tul-3-rule original:sysinf-tul-3-case original:sysinf-tul-3-other
+multi.inf	Toxic shock syndrome	original:sysinf-stss-1-rule original:sysinf-stss-1-case original:sysinf-stss-1-other	original:sysinf-stss-2-rule original:sysinf-stss-2-case original:sysinf-stss-2-other	original:sysinf-stss-3-rule original:sysinf-stss-3-case original:sysinf-stss-3-other
+multi.inf	Q fever	original:sysinf-qf-1-rule original:sysinf-qf-1-case original:sysinf-qf-1-other	original:sysinf-qf-2-rule original:sysinf-qf-2-case original:sysinf-qf-2-other	original:sysinf-qf-3-rule original:sysinf-qf-3-case original:sysinf-qf-3-other
+multi.inf	Anaplasmosis	original:sysinf-ana-1-rule original:sysinf-ana-1-case original:sysinf-ana-1-other	original:sysinf-ana-2-rule original:sysinf-ana-2-case original:sysinf-ana-2-other	original:sysinf-ana-3-rule original:sysinf-ana-3-case original:sysinf-ana-3-other
+multi.inf	Ehrlichiosis	original:sysinf-ehr-1-rule original:sysinf-ehr-1-case original:sysinf-ehr-1-other	original:sysinf-ehr-2-rule original:sysinf-ehr-2-case original:sysinf-ehr-2-other	original:sysinf-ehr-3-rule original:sysinf-ehr-3-case original:sysinf-ehr-3-other
+multi.inf	Rocky Mountain spotted fever and other rickettsioses	original:sysinf-rms-1-rule original:sysinf-rms-1-case original:sysinf-rms-1-other	original:sysinf-rms-2-rule original:sysinf-rms-2-case original:sysinf-rms-2-other	original:sysinf-rms-3-rule original:sysinf-rms-3-case original:sysinf-rms-3-other
+multi.inf	EBV infectious mononucleosis	original:sysinf-ebv-1-rule original:sysinf-ebv-1-case original:sysinf-ebv-1-other original:sysinf-ebv-1-rule-extra original:sysinf-ebv-1-case-extra original:sysinf-ebv-1-other-extra	original:sysinf-ebv-2-rule original:sysinf-ebv-2-case original:sysinf-ebv-2-other	original:sysinf-ebv-3-rule original:sysinf-ebv-3-case original:sysinf-ebv-3-other
+multi.inf	Cytomegalovirus disease	original:sysinf-cmv-1-rule original:sysinf-cmv-1-case original:sysinf-cmv-1-other	original:per-vm-inf original:sysinf-cmv-2-rule original:sysinf-cmv-2-case original:sysinf-cmv-2-other original:sysinf-cmv-2-rule-extra original:sysinf-cmv-2-case-extra original:sysinf-cmv-2-other-extra original:sysinf-photo-retina	original:sysinf-cmv-3-rule original:sysinf-cmv-3-case original:sysinf-cmv-3-other original:sysinf-cmv-3-rule-extra original:sysinf-cmv-3-case-extra original:sysinf-cmv-3-other-extra
+multi.inf	Yellow fever	original:prevcare-otravel-1 original:sysinf-yf-1-rule original:sysinf-yf-1-case original:sysinf-yf-1-other	original:prevcare-otravel-2 original:sysinf-yf-2-rule original:sysinf-yf-2-case original:sysinf-yf-2-other	original:prevcare-otravel-3 original:sysinf-yf-3-rule original:sysinf-yf-3-case
+multi.inf	HHV-8-associated disease	original:im-ks-f original:sysinf-hhv-1-case original:sysinf-hhv-1-other	original:im-ks-biop original:im-ks-diff original:im-aids-t original:sysinf-hhv-2-case original:sysinf-photo-gingiva	original:im-ks-basic original:im-ks-a original:im-ks-t original:im-aids-history
+multi.inf	Blastomycosis	original:sysinf-bla-1-rule original:sysinf-bla-1-case original:sysinf-bla-1-other	original:sysinf-bla-2-rule original:sysinf-bla-2-case original:sysinf-bla-2-other	original:sysinf-bla-3-rule original:sysinf-bla-3-case original:sysinf-bla-3-other
+multi.inf	Systemic candidiasis	original:sysinf-can-1-rule original:sysinf-can-1-case original:sysinf-can-1-other	original:sysinf-can-2-rule original:sysinf-can-2-case original:sysinf-can-2-other	original:sysinf-can-3-rule original:sysinf-can-3-case original:sysinf-can-3-other original:sysinf-can-3-rule-extra original:sysinf-can-3-case-extra original:sysinf-can-3-other-extra
+multi.inf	Coccidioidomycosis	original:sysinf-coc-1-rule original:sysinf-coc-1-case original:sysinf-coc-1-other	original:sysinf-coc-2-rule original:sysinf-coc-2-case original:sysinf-coc-2-other	original:sysinf-coc-3-rule original:sysinf-coc-3-case original:sysinf-coc-3-other original:sysinf-coc-3-rule-extra original:sysinf-coc-3-case-extra original:sysinf-coc-3-other-extra
+multi.inf	Histoplasmosis	original:sysinf-his-1-rule original:sysinf-his-1-case original:sysinf-his-1-other	original:sysinf-his-2-rule original:sysinf-his-2-case original:sysinf-his-2-other	original:sysinf-his-3-rule original:sysinf-his-3-case original:sysinf-his-3-other
+multi.inf	Schistosomiasis	original:sysinf-sch-1-rule original:sysinf-sch-1-case original:sysinf-sch-1-other	original:sysinf-sch-2-rule original:sysinf-sch-2-case original:sysinf-sch-2-other	original:sysinf-sch-3-rule original:sysinf-sch-3-case original:sysinf-sch-3-other
+multi.inf	Visceral leishmaniasis	original:sysinf-leish-1-rule original:sysinf-leish-1-case original:sysinf-leish-1-other	original:sysinf-leish-2-rule original:sysinf-leish-2-case original:sysinf-leish-2-other	original:sysinf-leish-3-rule original:sysinf-leish-3-case original:sysinf-leish-3-other
+multi.inf	Acute and chronic Chagas disease	original:sysinf-chag-1-rule original:sysinf-chag-1-case original:sysinf-chag-1-other	original:sysinf-chag-2-rule original:sysinf-chag-2-case original:sysinf-chag-2-other	original:sysinf-chag-3-rule original:sysinf-chag-3-case original:sysinf-chag-3-other
 multi.inf	Acute rheumatic fever	original:inflam-arf-1-rule original:inflam-arf-1-case original:inflam-arf-1-other	original:ckstrep-why original:inflam-arf-2-rule original:inflam-arf-2-case original:inflam-arf-2-other	original:inflam-arf-3-rule original:inflam-arf-3-case original:inflam-arf-3-other
 multi.inf	Systemic autoimmune vasculitis	original:rheum-vas-1-rule original:rheum-vas-1-case original:rheum-vas-1-other	original:rheum-vas-2-rule original:rheum-vas-2-case original:rheum-vas-2-other	original:rheum-vas-3-rule original:rheum-vas-3-case original:rheum-vas-3-other
 multi.inf	Behçet disease	original:rheum-beh-1-rule original:rheum-beh-1-case original:rheum-beh-1-other	original:rheum-beh-2-rule original:rheum-beh-2-case original:rheum-beh-2-other	original:rheum-beh-3-rule original:rheum-beh-3-case original:rheum-beh-3-other

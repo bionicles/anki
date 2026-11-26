@@ -2109,6 +2109,92 @@ def multisystem_rheumatology_studies():
                          "Pulmonary vascular resistance (Wood units)"], vals)), [.76, .24])
 
 
+def systemic_infection_studies():
+    """Draw simulated patient records for comparing clinical courses and timing."""
+    def report(name, title, columns, rows, widths):
+        fig, ax = plt.subplots(figsize=(6.5, 2.8), layout="constrained")
+        ax.axis("off")
+        ax.set_title(title + "  •  simulated", fontsize=12)
+        t = ax.table(cellText=rows, colLabels=columns, colWidths=widths,
+                     cellLoc="left", colLoc="left", bbox=[0, .02, 1, .83])
+        t.auto_set_font_size(False)
+        t.set_fontsize(10)
+        for col in range(len(columns)):
+            t[0, col].set_facecolor("#dcecf2")
+        save(fig, "sysinf_" + name)
+
+    for name, intervals in [("short", [222, 228, 230]), ("long", [242, 282, 344])]:
+        fig, ax = plt.subplots(figsize=(5.7, 2.95), layout="constrained")
+        ax.plot([0, 1, 2], intervals, marker="o", lw=2, color=COLORS[0])
+        for t, val in enumerate(intervals):
+            ax.annotate(str(val), (t, val), xytext=(0, 6), textcoords="offset points", ha="center")
+        ax.set(xlim=(-.2, 2.2), ylim=(180, 380), xticks=[0, 1, 2],
+               xlabel="Observation time (hours)", ylabel="PR interval (ms)",
+               title="Serial ECG measurements  •  simulated")
+        ax.grid(axis="y", alpha=.25)
+        save(fig, "sysinf_pr_" + name)
+    report("lep_organ", "Laboratory course", ["Measurement", "Initial", "Now"],
+           [["Total bilirubin (mg/dL)", "1.1", "8.6"],
+            ["Creatinine (mg/dL)", "0.9", "3.4"]], [.50, .25, .25])
+    for name, art, visits in [("iris", "Day 15", ["Less fever", "Painful enlarging nodes"]),
+                              ("other", "Not started", ["Persistent fever", "Persistent fever and wasting"])]:
+        report("tb_" + name, "Clinical timeline", ["Entry", "Observation"],
+               [["TB therapy started", "Day 0"], ["Day 12 review", visits[0]],
+                ["ART started", art], ["Day 28 review", visits[1]]], [.44, .56])
+    for name, bp, cr in [("stable", "118/74", "0.9"), ("worse", "76/42", "2.3")]:
+        report("ts_" + name, "Serial observations", ["Measurement", "Earlier", "Current"],
+               [["Blood pressure (mm Hg)", "116/72", bp], ["Creatinine (mg/dL)", "0.9", cr]],
+               [.52, .22, .26])
+    report("q_acute", "Paired immunofluorescence titers", ["Antibody", "Day 5", "Week 5"],
+           [["Phase I IgG", "<1:16", "1:32"], ["Phase II IgG", "1:64", "1:256"]], [.44, .28, .28])
+    report("q_focus", "Endocarditis evaluation", ["Measurement", "Finding"],
+           [["Phase I IgG titer", "1:4096"], ["Phase II IgG titer", "1:512"],
+            ["Echocardiogram", "New vegetation on prosthetic valve"]], [.42, .58])
+    for name, vals in [("low", ["2.9", "78", "92"]), ("norm", ["6.8", "202", "31"])]:
+        report("an_" + name, "Day-one laboratory studies", ["Analyte", "Result", "Lab interval"],
+               [[k, v, ref] for k, v, ref in zip(
+                ["Leukocytes (×10⁹/L)", "Platelets (×10⁹/L)", "ALT (U/L)"],
+                vals, ["4.0–11.0", "150–400", "7–55"])], [.49, .19, .32])
+    for name, results in [("recent", ["Positive", "Positive", "Negative"]),
+                          ("old", ["Negative", "Positive", "Positive"])]:
+        report("eb_" + name, "EBV antibody panel", ["Serum marker", "Result"],
+               list(zip(["VCA IgM", "VCA IgG", "EBNA IgG"], results)), [.56, .44])
+    for name, vals in [("early", ["Day 4", "Positive", "Day 6", "Positive"]),
+                       ("late", ["Not obtained", "—", "Week 8", "Positive"])]:
+        report("cm_" + name, "CMV testing record", ["Specimen", "Age at collection", "PCR"],
+               [["Saliva", *vals[:2]], ["Urine", *vals[2:]]], [.30, .37, .33])
+    for name, last in [("rec", ["Afebrile", "Resuming activities", "Normal"]),
+                       ("severe", ["Fever recurs", "Jaundice", "Low urine output"])]:
+        report("yf_" + name, "Traveler follow-up", ["Interval", "Clinical course"],
+               [["Initial illness", "Fever, myalgias"], ["Next day", "Brief improvement"],
+                ["Later assessment", last[0] + ", " + last[1].lower()],
+                ["Renal status then", last[2]]], [.36, .64])
+    for name, vals, status in [("better", [14, 6, 2], "Fever resolves, gaining weight"),
+                               ("recur", [14, 2, 9], "Recurrent fever and weight loss")]:
+        report("hist_" + name, "Urine Histoplasma antigen (same assay)",
+               ["Visit", "Antigen (ng/mL)", "Clinical status"],
+               [["Initial", vals[0], "Fever, weight loss"], ["On treatment", vals[1], "Improving"],
+                ["Later follow-up", vals[2], status]], [.24, .25, .51])
+    for name, history, test in [("early", "First freshwater exposure on July 1", "July 4: negative"),
+                                ("late", "Treated three years ago", "Current: positive")]:
+        report("sch_" + name, "Travel clinic record", ["Item", "Details"],
+               [["History", history], ["Schistosoma antibody", test]], [.39, .61])
+    for name, counts in [("rec", [145, 188, 213]), ("low", [63, 71, 79])]:
+        fig, ax = plt.subplots(figsize=(5.7, 2.95), layout="constrained")
+        ax.plot([0, 2, 4], counts, marker="o", color=COLORS[0], lw=2)
+        ax.set(xlim=(-.2, 4.2), ylim=(0, 260), xticks=[0, 2, 4],
+               xlabel="Months of follow-up", ylabel="CD4 count (cells/µL)",
+               title="Immune recovery on ART  •  simulated")
+        ax.grid(axis="y", alpha=.25)
+        save(fig, "sysinf_cd_" + name)
+    for name, observations in [("clear", ["Negative", "Negative", "Negative"]),
+                               ("again", ["Negative", "Positive", "Negative"])]:
+        report("cand_" + name, "Bloodstream infection follow-up",
+               ["Blood collected", "Clinical microbiology report"],
+               list(zip(["June 2", "June 3", "June 4", "June 5"],
+                        ["Positive for Candida", *observations])), [.41, .59])
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -2135,6 +2221,7 @@ def main():
     environmental_exposure_studies()
     systemic_inflammation_studies()
     multisystem_rheumatology_studies()
+    systemic_infection_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
