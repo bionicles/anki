@@ -4489,6 +4489,39 @@ def study_design_cases():
     save(fig, "design_turn", indexed=True)
 
 
+def airway_tumor_studies():
+    """Clinical lung function models, the published NLST rates and exchange experiments."""
+    for name, expiration_cap, inspiration_cap in [("fixed", 2, 1.8), ("variable", 7, 1.5)]:
+        volume = np.linspace(0, 4.5, 240)
+        fraction = volume / volume[-1]
+        expiratory = np.minimum(8 * (1 - np.exp(-fraction * 30)) * (1 - fraction), expiration_cap)
+        inspiratory = -np.minimum(5 * np.sin(np.pi * fraction)**.65, inspiration_cap)
+        fig, ax = axes("Volume expired (L)", "Flow (L/s)")
+        ax.plot(volume, expiratory, color=COLORS[0], lw=2.5, label="Expiration")
+        ax.plot(volume, inspiratory, color=COLORS[1], lw=2.5, label="Inspiration")
+        ax.axhline(0, color="#555", lw=.8)
+        ax.set(ylim=(-4.5, 7.5), title="Maximal flow–volume loop • schematic")
+        ax.legend()
+        save(fig, "airmass_" + name, indexed=True)
+
+    fig, ax = axes("Screening assignment", "Lung cancer deaths\nper 100,000 person-years")
+    bars = ax.bar(["Low-dose CT", "Chest radiography"], [247, 309], color=COLORS)
+    ax.bar_label(bars)
+    ax.set(ylim=(0, 365), title="National Lung Screening Trial")
+    save(fig, "airmass_nlst", indexed=True)
+    study_table("airmass_adaura", "Five-year overall survival • stage IB–IIIA",
+                ["Assignment", "Estimated survival"], [["Osimertinib", "88%"], ["Placebo", "78%"]],
+                source="ADAURA")
+    study_table("airmass_counter", "Cumulative oxygen entering the receiver",
+                ["Time (min)", "Counter (µmol)"], [["2", "7"], ["5", "16"]])
+    study_table("airmass_perfusion", "Two perfusion runs",
+                ["Run", "Pressure drop (mm Hg)", "Flow (mL/min)"], [["A", "40", "8"], ["B", "60", "12"]])
+    study_table("airmass_gases", "Dry gas mixtures at the same temperature",
+                ["Sample", "Oxygen fraction", "Total pressure (mm Hg)"], [["A", "0.30", "400"], ["B", "0.20", "700"]])
+    study_table("airmass_blank", "Receiver oxygen gain",
+                ["Holder", "Gross rate (µmol/min)"], [["Impermeable sheet", "1"], ["Membrane A", "5"], ["Membrane B", "3"]])
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -4576,6 +4609,7 @@ def main():
     mcat_science_and_society_records()
     mcat_transfer_records()
     study_design_cases()
+    airway_tumor_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()

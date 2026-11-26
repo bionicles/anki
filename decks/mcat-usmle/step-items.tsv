@@ -50,23 +50,23 @@ lung.inf	Coccidioidomycosis	original:sysinf-coc-1-rule original:sysinf-coc-1-cas
 lung.inf	Pneumocystis pneumonia	original:pul-pcp-host original:pul-pcp-gradient original:lungfocus-pcp-1-rule original:lungfocus-pcp-1-transfer original:lungangles-pcp2-1-rule original:lungangles-pcp2-1-case original:lungangles-pcp2-1-transfer	original:pul-pcp-clinical original:pul-pcp-first original:pul-pcp-glucan original:lungfocus-pcp-2-rule original:lungfocus-pcp-2-transfer original:lungangles-pcp2-2-rule original:lungangles-pcp2-2-transfer	original:pul-pcp-severe original:pul-pcp-mild original:pul-pcp-rule original:pul-pcp-prevent original:lungfocus-pcpgas-3-rule original:lungfocus-pcpgas-3-case
 lung.inf	Pulmonary tuberculosis	original:lungbreadth-tb-1-case original:lungbreadth-tb-1-transfer original:sysinf-tb-1-rule	original:lungbreadth-tb-2-rule original:lungbreadth-tb-2-transfer original:lungfocus-pcp-2-transfer	original:lungbreadth-tb-3-rule original:lungbreadth-tb-3-case original:lungbreadth-tb-3-transfer
 lung.inf	Lung abscess	original:resppractice-emp-1-transfer original:resppractice-emp-1-case original:resppractice-abs-1-rule	original:resppractice-abs-2-rule original:resppractice-abs-2-case original:resppractice-abs-2-transfer	original:resppractice-abs-3-rule original:resppractice-abs-3-case original:resppractice-abs-3-transfer
-lung.tumor	Vocal cord polyp			
-lung.tumor	Nasal polyp			
-lung.tumor	Juvenile respiratory papillomatosis			
-lung.tumor	Solitary pulmonary nodule			
-lung.tumor	Lip, oral cavity and pharyngeal cancers			
-lung.tumor	Other head and neck malignancies			
-lung.tumor	Laryngeal cancer			
-lung.tumor	Tracheal cancer			
-lung.tumor	Lung cancer across histologies (screening or evaluation)		original:pul-screen-years	original:pul-screen-eligible original:pul-screen-symptom
-lung.tumor	Squamous cell carcinoma of lung			
-lung.tumor	Lung adenocarcinoma			
-lung.tumor	Large cell lung carcinoma			
-lung.tumor	Small cell lung carcinoma	original:pul-sclc-water original:pul-sclc-acth	original:pul-sclc-cortisol original:pul-sclc-sodium	original:pul-sclc-stage
-lung.tumor	Bronchial carcinoid			
-lung.tumor	Pleural mesothelioma			
-lung.tumor	Metastases to the lung			
-lung.tumor	Metastases to the pleura			
+lung.tumor	Vocal cord polyp	original:airmass-fold-1-rule original:airmass-fold-1-case original:airmass-fold-1-transfer	original:airmass-fold-2-rule original:airmass-fold-2-case original:airmass-fold-2-transfer	original:airmass-fold-3-rule original:airmass-fold-3-case original:airmass-fold-3-transfer
+lung.tumor	Nasal polyp	original:airmass-nasal-1-rule original:airmass-nasal-1-case original:airmass-nasal-1-transfer original:airmass-aerd-1-rule original:airmass-aerd-1-case original:airmass-aerd-1-transfer	original:airmass-nasal-2-rule original:airmass-nasal-2-case original:airmass-nasal-2-transfer original:airmass-cf-2-rule original:airmass-cf-2-case original:airmass-cf-2-transfer	original:airmass-nasal-3-rule original:airmass-nasal-3-case original:airmass-nasal-3-transfer original:airmass-aerdcare-3-rule original:airmass-aerdcare-3-case original:airmass-aerdcare-3-transfer
+lung.tumor	Juvenile respiratory papillomatosis	original:airmass-papilloma-1-rule original:airmass-papilloma-1-case original:airmass-papilloma-1-transfer	original:airmass-papilloma-2-rule original:airmass-papilloma-2-case original:airmass-papilloma-2-transfer	original:airmass-papilloma-3-rule original:airmass-papilloma-3-case original:airmass-papilloma-3-transfer
+lung.tumor	Solitary pulmonary nodule	original:airmass-nodule-1-rule original:airmass-nodule-1-case original:airmass-nodule-1-transfer	original:airmass-nodule-2-rule original:airmass-nodule-2-case original:airmass-nodule-2-transfer	original:airmass-nodule-3-rule original:airmass-nodule-3-case original:airmass-nodule-3-transfer
+lung.tumor	Lip, oral cavity and pharyngeal cancers	original:airmass-oral-1-rule original:airmass-oral-1-case original:airmass-oral-1-transfer	original:airmass-oral-2-rule original:airmass-oral-2-case original:airmass-oral-2-transfer	original:airmass-oral-3-rule original:airmass-oral-3-case original:airmass-oral-3-transfer
+lung.tumor	Other head and neck malignancies	original:airmass-head-1-rule original:airmass-head-1-case original:airmass-head-1-transfer	original:airmass-head-2-rule original:airmass-head-2-case original:airmass-head-2-transfer	original:airmass-head-3-rule original:airmass-head-3-case original:airmass-head-3-transfer
+lung.tumor	Laryngeal cancer	original:airmass-larynx-1-rule original:airmass-larynx-1-case original:airmass-larynx-1-transfer	original:airmass-larynx-2-rule original:airmass-larynx-2-case original:airmass-larynx-2-transfer	original:airmass-larynx-3-rule original:airmass-larynx-3-case original:airmass-larynx-3-transfer
+lung.tumor	Tracheal cancer	original:airmass-trachea-1-rule original:airmass-trachea-1-case original:airmass-trachea-1-transfer	original:airmass-trachea-2-rule original:airmass-trachea-2-case original:airmass-trachea-2-transfer	original:airmass-trachea-3-rule original:airmass-trachea-3-case original:airmass-trachea-3-transfer
+lung.tumor	Lung cancer across histologies (screening or evaluation)	original:airmass-screen-1-rule original:airmass-screen-1-case original:airmass-screen-1-transfer original:airmass-apex-1-rule original:airmass-apex-1-case original:airmass-apex-1-transfer	original:pul-screen-years original:airmass-screen-2-rule original:airmass-screen-2-case original:airmass-screen-2-transfer original:airmass-apexwork-2-rule original:airmass-apexwork-2-case original:airmass-apexwork-2-transfer	original:pul-screen-eligible original:pul-screen-symptom original:pul-screen-rule original:airmass-nlst-3-rule original:airmass-nlst-3-case original:airmass-nlst-3-transfer
+lung.tumor	Squamous cell carcinoma of lung	original:airmass-squamous-1-rule original:airmass-squamous-1-case original:airmass-squamous-1-transfer	original:airmass-morph-2-rule original:airmass-morph-2-case original:airmass-morph-2-transfer	original:airmass-squamous-3-rule original:airmass-squamous-3-case original:airmass-squamous-3-transfer
+lung.tumor	Lung adenocarcinoma	original:airmass-squamous-1-rule original:airmass-squamous-1-case original:airmass-squamous-1-transfer	original:airmass-morph-2-rule original:airmass-morph-2-case original:airmass-morph-2-transfer	original:airmass-adeno-3-rule original:airmass-adeno-3-case original:airmass-adeno-3-transfer original:airmass-adaura-3-rule original:airmass-adaura-3-case original:airmass-adaura-3-transfer
+lung.tumor	Large cell lung carcinoma	original:airmass-large-1-rule original:airmass-large-1-case original:airmass-large-1-transfer	original:airmass-large-2-rule original:airmass-large-2-case original:airmass-large-2-transfer	original:airmass-large-3-rule original:airmass-large-3-case original:airmass-large-3-transfer
+lung.tumor	Small cell lung carcinoma	original:pul-sclc-water original:pul-sclc-acth original:airmass-small-1-rule	original:pul-sclc-cortisol original:pul-sclc-sodium original:airmass-small-2-rule	original:pul-sclc-stage original:airmass-small-3-rule original:airmass-small-3-case
+lung.tumor	Bronchial carcinoid	original:airmass-carcinoid-1-rule original:airmass-carcinoid-1-case original:airmass-carcinoid-1-transfer	original:airmass-carcinoid-2-rule original:airmass-carcinoid-2-case original:airmass-carcinoid-2-transfer	original:airmass-carcinoid-3-rule original:airmass-carcinoid-3-case original:airmass-carcinoid-3-transfer
+lung.tumor	Pleural mesothelioma	original:airmass-meso-1-rule original:airmass-meso-1-case original:airmass-meso-1-transfer	original:airmass-meso-2-rule original:airmass-meso-2-case original:airmass-meso-2-transfer	original:airmass-meso-3-rule original:airmass-meso-3-case original:airmass-meso-3-transfer
+lung.tumor	Metastases to the lung	original:airmass-mets-1-rule original:airmass-mets-1-case original:airmass-mets-1-transfer	original:airmass-mets-2-rule original:airmass-mets-2-case original:airmass-mets-2-transfer	original:airmass-adeno-3-rule original:airmass-adeno-3-case original:airmass-adeno-3-transfer
+lung.tumor	Metastases to the pleura	original:airmass-pleural-1-rule original:airmass-pleural-1-case original:airmass-pleural-1-transfer	original:airmass-pleural-2-rule original:airmass-pleural-2-case original:airmass-pleural-2-transfer	original:airmass-pleural-3-rule original:airmass-pleural-3-case original:airmass-pleural-3-transfer
 lung.obstruct	Asthma and reactive airway disease	bank:usmle-step1:resp-asthma-exhalation-recognition:v1 original:resppractice-asth-1-rule original:resppractice-asth-1-case original:resppractice-asth-1-transfer	original:ckasth-silent original:resppractice-asth-2-rule original:resppractice-asth-2-transfer	original:ccs-asthma-recheck original:resppractice-asth-3-rule original:resppractice-asth-3-transfer original:resppractice-asth-3-rule-extra original:resppractice-asth-3-case original:resppractice-asth-3-transfer-extra
 lung.obstruct	Bronchiectasis	original:pul-brx-structure original:pul-brx-feedback original:resppractice-bronx-1-case original:resppractice-bronx-1-transfer	original:pul-brx-ct original:pul-brx-confirm original:resppractice-bronx-2-rule original:resppractice-bronx-2-transfer	original:pul-brx-clear original:pul-brx-rehab original:resppractice-bronx-3-rule
 lung.obstruct	Chronic airflow obstruction and COPD	original:pul-spiro-ratioa original:pul-spiro-rule original:pul-spiro-ratiob	original:pul-spiro-obstruct original:pul-niv-acidosis original:pul-spiro-lower original:pul-spiro-preserved	original:pul-niv-start original:pul-niv-compensated original:pul-niv-rule original:pul-niv-trajectory original:pul-niv-improve original:pul-niv-decline
@@ -109,21 +109,21 @@ lung.pleura	Pneumothorax	bank:usmle-step1:respiratory-respiratory-mechanics-r3:v
 lung.trauma	Epistaxis			
 lung.trauma	Sinus barotrauma			
 lung.trauma	Laryngeal or pharyngeal obstruction		original:pul-loop-neck	
-lung.trauma	Tracheoesophageal fistula			
+lung.trauma	Tracheoesophageal fistula	original:newborncare-tef-1-rule original:per-trach-atres original:newborncare-tef-1-transfer	original:newborncare-tef-2-rule original:per-trach-pouch original:newborncare-tef-2-transfer	original:newborncare-tef-3-rule original:per-trach-feed original:newborncare-tef-3-transfer
 lung.trauma	Tracheal stenosis		original:pul-loop-fixed	
-lung.trauma	Tracheomalacia			
+lung.trauma	Tracheomalacia	original:per-airway-phase original:per-airway-in original:per-airway-out	original:newborncare-trach-2-rule original:per-trach-collapse original:newborncare-trach-2-transfer	original:newborncare-trach-3-rule original:newborncare-trach-3-case original:newborncare-trach-3-transfer
 lung.trauma	Traumatic tracheal injury			
 lung.trauma	Upper airway foreign body			
 lung.trauma	Nasal or sinus injury including septal perforation			
 lung.trauma	Atelectasis			
-lung.trauma	Diaphragm or chest-wall injury	original:pul-flail-pain	original:pul-flail-motion	original:pul-flail-well original:pul-flail-fail
+lung.trauma	Diaphragm or chest-wall injury	original:pul-flail-pain	original:pul-flail-motion	original:pul-flail-well original:pul-flail-fail original:pul-flail-goal
 lung.trauma	Drowning and nonfatal drowning			
 lung.trauma	Lower airway foreign body			
 lung.trauma	Penetrating chest wound			
 lung.trauma	Pulmonary contusion			original:pul-flail-fail
-lung.trauma	Obstructive sleep apnea	original:pul-sleep-persist	original:pul-sleep-obstruct	original:pul-osas-home original:pul-osas-negative
-lung.trauma	Central sleep apnea	original:pul-sleep-cease	original:pul-sleep-central	
-lung.trauma	Obesity hypoventilation syndrome	original:pul-ohs-comp	original:pul-ohs-awake original:pul-ohs-high	original:pul-ohs-stable original:pul-ohs-discharge
+lung.trauma	Obstructive sleep apnea	original:pul-sleep-persist original:pul-sleep-effort original:pul-sleep-cease	original:pul-sleep-obstruct original:pul-sleep-rule original:pul-sleep-central	original:pul-osas-home original:pul-osas-negative original:airwayrest-osatest-3-rule
+lung.trauma	Central sleep apnea	original:pul-sleep-cease original:pul-sleep-effort original:pul-sleep-persist	original:pul-sleep-central original:pul-sleep-rule original:pul-sleep-obstruct	original:airwayrest-central-3-rule original:airwayrest-central-3-case original:airwayrest-central-3-transfer
+lung.trauma	Obesity hypoventilation syndrome	original:pul-ohs-comp original:airwayrest-retention-1-case original:airwayrest-retention-1-transfer	original:pul-ohs-awake original:pul-ohs-high original:pul-ohs-low	original:pul-ohs-stable original:pul-ohs-discharge original:airwayrest-pap-3-rule
 lung.congenital	Bronchogenic cyst			
 lung.congenital	Other congenital pulmonary cysts			
 lung.congenital	Congenital diaphragmatic hernia	original:pul-cdh-small original:pul-cdh-vessels	original:pul-cdh-radiograph	original:pul-cdh-airway original:pul-cdh-repair
