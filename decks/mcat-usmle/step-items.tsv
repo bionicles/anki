@@ -4,14 +4,14 @@ lung.inf	Adenoviral respiratory infection
 lung.inf	Coronavirus respiratory infection			
 lung.inf	Coxsackievirus upper respiratory infection			
 lung.inf	Influenza pneumonia, including influenza A, B and named subtypes			
-lung.inf	Parainfluenza respiratory infection			
+lung.inf	Parainfluenza respiratory infection	original:airwaycase-hpiv-1-rule original:airwaycase-hpiv-1-case original:airwaycase-hpiv-1-transfer	original:airwaycase-hpiv-2-rule original:airwaycase-hpiv-2-case original:airwaycase-hpiv-2-transfer	original:airwaycase-hpiv-3-rule original:airwaycase-hpiv-3-case original:airwaycase-hpiv-3-transfer
 lung.inf	Rhinovirus upper respiratory infection			
 lung.inf	Sinusitis			
-lung.inf	Epiglottitis			
+lung.inf	Epiglottitis	original:airwaycase-epi-1-rule original:airwaycase-epi-1-case original:airwaycase-epi-1-transfer	original:airwaycase-epi-2-rule original:airwaycase-epi-2-case original:airwaycase-epi-2-transfer	original:airwaycase-epi-3-rule original:airwaycase-epi-3-case original:airwaycase-epi-3-transfer
 lung.inf	Pertussis respiratory disease		bank:cohort:resp:q-e6aadc41a704:v1	
-lung.inf	Croup and acute laryngotracheitis			
-lung.inf	Acute laryngitis			
-lung.inf	Bacterial tracheitis		bank:cohort:resp:q-4afdbbb0b432:v1	
+lung.inf	Croup and acute laryngotracheitis	original:airwaycase-croup-1-rule original:airwaycase-croup-1-case original:airwaycase-croup-1-transfer	original:airwaycase-croup-2-rule original:airwaycase-croup-2-case original:airwaycase-croup-2-transfer	original:airwaycase-croup-3-rule original:airwaycase-croup-3-case original:airwaycase-croup-3-transfer
+lung.inf	Acute laryngitis	original:airwaycase-voice-1-rule original:airwaycase-voice-1-case original:airwaycase-voice-1-transfer	original:airwaycase-voice-2-rule original:airwaycase-voice-2-case original:airwaycase-voice-2-transfer	original:airwaycase-voice-3-rule original:airwaycase-voice-3-case original:airwaycase-voice-3-transfer
+lung.inf	Bacterial tracheitis	original:airwaycase-trach-1-rule original:airwaycase-trach-1-case original:airwaycase-trach-1-transfer	bank:cohort:resp:q-4afdbbb0b432:v1 original:airwaycase-trach-2-rule original:airwaycase-trach-2-case original:airwaycase-trach-2-transfer	original:airwaycase-trach-3-rule original:airwaycase-trach-3-case original:airwaycase-trach-3-transfer
 lung.inf	Pharyngitis			
 lung.inf	Streptococcal throat infection			
 lung.inf	Tonsillitis			
@@ -26,7 +26,7 @@ lung.inf	Organizing pneumonia
 lung.inf	Pulmonary anthrax			
 lung.inf	Aspiration pneumonia	original:resppractice-aspinf-1-rule original:resppractice-aspinf-1-case original:resppractice-aspinf-1-transfer	original:resppractice-aspinf-2-rule original:resppractice-aspinf-2-case original:resppractice-aspinf-2-transfer	original:resppractice-aspinf-3-rule original:resppractice-aspinf-3-case original:resppractice-aspinf-3-transfer
 lung.inf	Aspiration pneumonitis	original:resppractice-aspinf-1-rule original:resppractice-aspinf-1-case original:resppractice-aspinf-1-transfer	original:resppractice-aspchem-2-rule original:resppractice-aspchem-2-case original:resppractice-aspchem-2-transfer	original:resppractice-aspchem-3-rule original:resppractice-aspchem-3-case original:resppractice-aspchem-3-transfer
-lung.inf	Acute bronchitis			
+lung.inf	Acute bronchitis	original:airwaycase-bron-1-rule original:airwaycase-bron-1-case original:airwaycase-bron-1-transfer	original:airwaycase-bron-2-rule original:airwaycase-bron-2-case original:airwaycase-bron-2-transfer	original:airwaycase-bron-3-rule original:airwaycase-bron-3-case original:airwaycase-bron-3-transfer
 lung.inf	Bronchopneumonia			
 lung.inf	Pulmonary melioidosis			
 lung.inf	Chlamydophila pneumonia			
@@ -957,11 +957,11 @@ endo.congenital	Congenital hypothyroidism	original:eh-ch-why original:eh-ch-labs
 endo.drug	Drug-related endocrine effects	original:bh-lith-water original:bh-prolactin-signal	original:bh-prolactin-amenorrhea original:rx-sglt-gap original:rx-cin-tetany	original:rx-v2-symptoms original:rx-cin-baseline
 endo.drug	Exogenous glucocorticoid suppression of the adrenal axis	bank:usmle-step1:endocrine-tertiary-adrenal-withdrawal:v1 original:eh-withdraw-axis original:ey-long original:ey-short	original:eh-withdraw-skin original:ey-taper original:ey-chronic original:ey-brief	original:eh-withdraw-dose original:eh-withdraw-mid original:eh-withdraw-clear original:eh-withdraw-stress
 endo.drug	Anabolic androgen effects	original:eh-and-axis original:eh-and-low	original:eh-and-history	original:eh-and-avoid
-cv.inf	Bacterial endocarditis	original:cv-ie-embolus original:cv-ie-right	original:cv-ie-block original:cv-ie-cultures original:cv-ie-negative original:cv-ie-rule-echo	original:cv-ie-failure original:cv-dentrule-target original:cv-dental-gingiva original:cv-dental-xray original:cv-dental-gi
-cv.inf	Inflammation of the myocardium		original:mi-define-myocarditis	
-cv.inf	Atherosclerotic plaque, including aortic plaque	original:phil-aorta-intima original:phil-aorta-contrast original:mi-define-thrombus		
-cv.tumor	Atrial myxoma	original:cv-mass-obstruct original:cv-mass-whichlung	original:cv-mass-myxoma	original:cv-mass-embolus
-cv.tumor	Metastatic tumor of the heart			
+cv.inf	Bacterial endocarditis	original:cv-ie-embolus original:cv-ie-right original:valves-veg-1-rule	original:cv-ie-block original:cv-ie-cultures original:cv-ie-negative original:cv-ie-rule-echo	original:cv-ie-failure original:cv-dentrule-target original:cv-dental-gingiva original:cv-dental-xray original:cv-dental-gi
+cv.inf	Inflammation of the myocardium	original:valvefollow-my-1-rule original:valvefollow-my-1-case original:valvefollow-my-1-transfer	original:mi-define-myocarditis original:valvefollow-my-2-rule original:valvefollow-my-2-case original:valvefollow-my-2-transfer	original:valvefollow-my-3-rule original:valvefollow-my-3-case original:valvefollow-my-3-transfer
+cv.inf	Atherosclerotic plaque, including aortic plaque	original:phil-aorta-intima original:phil-aorta-contrast original:mi-define-thrombus original:valvefollow-plaque-1-transfer	original:valvefollow-plaque-2-rule original:valvefollow-plaque-2-case original:valvefollow-plaque-2-transfer	original:valvefollow-plaque-3-rule original:valvefollow-plaque-3-case original:valvefollow-plaque-3-transfer
+cv.tumor	Atrial myxoma	original:cv-mass-obstruct original:cv-mass-whichlung original:valvefollow-myx-1-rule	original:cv-mass-myxoma original:valvefollow-myx-2-rule original:cv-mass-thrombus	original:cv-mass-embolus original:valvefollow-myx-3-rule original:valvefollow-myx-3-transfer
+cv.tumor	Metastatic tumor of the heart	original:valvefollow-met-1-rule original:valvefollow-met-1-case original:valvefollow-met-1-transfer	original:valvefollow-met-2-rule original:valvefollow-met-2-case original:valvefollow-met-2-transfer	original:valvefollow-met-3-rule original:valvefollow-met-3-case original:valvefollow-met-3-transfer
 cv.rhythm	Premature atrial complexes	original:rhythm-pac-1-rule original:rhythm-pac-1-case original:rhythm-pac-1-transfer	original:rhythm-pac-2-rule original:rhythm-pac-2-case original:rhythm-pac-2-transfer	original:rhythm-pac-3-rule original:rhythm-pac-3-case original:rhythm-pac-3-transfer
 cv.rhythm	Premature ventricular complexes	original:ecg-wide original:ecg-burden original:rhythm-pvc-1-rule original:rhythm-pvc-1-transfer	original:ecg-premature original:ecg-pattern original:ecg-timing original:rhythm-pvc-2-rule original:rhythm-pvc-2-case original:rhythm-pvc-2-transfer	original:rhythm-pvc-3-rule original:rhythm-pvc-3-case original:rhythm-pvc-3-transfer
 cv.rhythm	Atrial flutter	original:rhythm-flutter-1-rule original:rhythm-flutter-1-case original:rhythm-flutter-1-transfer original:rhclinical-rate-1-rule original:rhclinical-rate-1-case original:rhclinical-rate-1-transfer	original:rx-aden-flutter original:rhythm-flutter-2-rule original:rhythm-flutter-2-transfer original:ecg-count original:rhclinical-rate-2-rule original:rhclinical-rate-2-case original:rhclinical-rate-2-transfer	original:rhythm-flutter-3-rule original:rhythm-flutter-3-case original:rhythm-flutter-3-transfer
@@ -1014,25 +1014,25 @@ cv.myocardium	Postinfarction septal rupture	original:cv1-mi-sept original:corona
 cv.myocardium	Postinfarction tamponade	original:cv1-mi-free original:coronary-tam-1-rule original:coronary-tam-1-case original:coronary-tam-1-transfer	original:cv2-mi-blood original:coronary-tam-2-rule original:coronary-tam-2-case original:coronary-tam-2-transfer	original:coronary-tam-3-rule original:coronary-tam-3-case original:coronary-tam-3-transfer
 cv.myocardium	Papillary muscle rupture or dysfunction	original:cv1-mi-rule original:cv1-mi-atrium original:coronary-pap-1-rule original:coronary-pap-1-case original:coronary-pap-1-transfer	original:cv2-mi-rule original:cv2-mi-flail original:coronary-pap-2-rule original:coronary-pap-2-case original:coronary-pap-2-transfer	original:cv3-mi-edema original:cv3-mi-tee original:cv3-mi-surgeon original:coronary-pap-3-rule
 cv.myocardium	Ventricular free-wall rupture	original:cv1-mi-free original:coronary-free-1-rule original:coronary-free-1-case original:coronary-free-1-transfer	original:cv2-mi-blood original:coronary-free-2-rule original:coronary-free-2-transfer	original:coronary-free-3-rule original:coronary-free-3-case original:coronary-free-3-transfer
-cv.pericardium	Constrictive pericarditis			
-cv.pericardium	Pericardial effusion		original:cv-tamp-echo original:cv-tamp-stable	original:cv-tamp-observe original:cv-tamprule-trigger
-cv.pericardium	Cardiac tamponade	original:cv-tamp-collapse original:cv-tamp-pulse original:cv-tamp-rate original:cv1-mi-free	original:cv-tamp-echo original:cv2-mi-blood	original:cv-tamp-unstable
-cv.pericardium	Acute pericarditis	original:cv-peri-friction	original:cv-peri-pain original:cv-peri-ecg	original:cv-peri-initial
-cv.pericardium	Pericarditis after infarction			
-cv.pericardium	Pericardial inflammation after surgery or trauma			
-cv.valve	Mitral regurgitation	original:cv-mr-direction original:cv-mr-forward original:cv-mr-apparent original:cv1-mi-atrium	original:cv-valrule-definition original:cv-mr-primary original:cv-mr-secondary original:cv2-mi-flail	original:cv-mr-threshold original:cv-mr-functional original:cv-valrule-leaflet original:cv3-mi-edema original:cv3-mi-surgeon
-cv.valve	Mitral stenosis			
-cv.valve	Mitral valve prolapse			
-cv.valve	Aortic stenosis	original:cv-as-adapt original:cv-as-load original:cv-jet-rule original:cv-jet-fast original:cv-jet-slow	original:cv-as-confirm original:cv-as-lowflow original:cv-as-severity	original:cv-as-moderate original:cv-as-refer
-cv.valve	Aortic regurgitation	original:cv-ar-leak original:cv-ar-pulse	original:cv-ar-hear original:cv-ar-position	
-cv.valve	Tricuspid regurgitation			
-cv.valve	Tricuspid stenosis			
-cv.valve	Pulmonary valve stenosis			
-cv.valve	Pulmonary valve regurgitation			
-cv.valve	Valvular vegetations	original:cv-ie-embolus original:cv-ie-right		
-cv.valve	Innocent flow murmurs			
-cv.valve	Rheumatic valve disease			
-cv.valve	Prosthetic valve complications		original:cv-prosth-agent	original:cv-prosth-change original:cv-prosth-inr
+cv.pericardium	Constrictive pericarditis	original:valves-con-1-rule original:valves-con-1-case original:valves-con-1-transfer	original:valves-con-2-rule original:valves-con-2-case original:valves-con-2-transfer	original:valves-con-3-rule original:valves-con-3-case original:valves-con-3-transfer
+cv.pericardium	Pericardial effusion	original:valves-eff-1-rule original:valves-eff-1-case original:valves-eff-1-transfer	original:cv-tamp-echo original:cv-tamp-stable original:valves-eff-2-rule	original:cv-tamp-observe original:cv-tamprule-trigger original:valves-eff-3-rule original:valves-eff-3-case original:valves-eff-3-transfer
+cv.pericardium	Cardiac tamponade	original:cv-tamp-collapse original:cv-tamp-pulse original:cv-tamp-rate original:cv1-mi-free original:valves-tam-1-case original:valves-tam-1-transfer	original:cv-tamp-echo original:cv2-mi-blood original:valves-tam-2-rule original:valves-tam-2-case original:valves-tam-2-transfer	original:cv-tamp-unstable original:cv-tamprule-trigger original:cv-tamp-observe
+cv.pericardium	Acute pericarditis	original:cv-peri-friction original:valves-acute-1-case original:valves-acute-1-transfer	original:cv-peri-pain original:cv-peri-ecg original:valves-acute-2-rule original:valves-acute-2-transfer	original:cv-peri-initial original:valves-acute-3-rule original:valves-acute-3-case original:valves-acute-3-transfer
+cv.pericardium	Pericarditis after infarction	original:valves-mi-1-rule original:valves-mi-1-case original:valves-mi-1-transfer	original:valves-mi-2-rule original:valves-mi-2-case original:valves-mi-2-transfer	original:valves-mi-3-rule original:valves-mi-3-case original:valves-mi-3-transfer
+cv.pericardium	Pericardial inflammation after surgery or trauma	original:valves-inj-1-rule original:valves-inj-1-case original:valves-inj-1-transfer	original:valves-inj-2-rule original:valves-inj-2-case original:valves-inj-2-transfer	original:valves-inj-3-rule original:valves-inj-3-case original:valves-inj-3-transfer original:valvefollow-postcase-3-rule original:valvefollow-postcase-3-case original:valvefollow-postcase-3-transfer
+cv.valve	Mitral regurgitation	original:cv-mr-direction original:cv-mr-forward original:cv-mr-apparent original:cv1-mi-atrium original:valves-mr-1-rule original:valves-mr-1-transfer	original:cv-valrule-definition original:cv-mr-primary original:cv-mr-secondary original:cv2-mi-flail	original:cv-mr-threshold original:cv-mr-functional original:cv-valrule-leaflet original:cv3-mi-edema original:cv3-mi-surgeon original:valves-mr-3-rule
+cv.valve	Mitral stenosis	original:valves-ms-1-rule original:valves-ms-1-case original:valves-ms-1-transfer original:valvefollow-msaf-1-rule original:valvefollow-msaf-1-case original:valvefollow-msaf-1-transfer	original:valves-ms-2-rule original:valves-ms-2-case original:valves-ms-2-transfer original:valvefollow-msaf-2-rule original:valvefollow-msaf-2-case original:valvefollow-msaf-2-transfer	original:valves-ms-3-rule original:valves-ms-3-case original:valves-ms-3-transfer original:valvefollow-msaf-3-rule original:valvefollow-msaf-3-case original:valvefollow-msaf-3-transfer
+cv.valve	Mitral valve prolapse	original:valves-mvp-1-rule original:valves-mvp-1-case original:valves-mvp-1-transfer	original:valves-mvp-2-rule original:valves-mvp-2-case original:valves-mvp-2-transfer	original:valves-mvp-3-rule original:valves-mvp-3-case original:valves-mvp-3-transfer
+cv.valve	Aortic stenosis	original:cv-as-adapt original:cv-as-load original:cv-jet-rule original:cv-jet-fast original:cv-jet-slow original:valvefollow-aserr-1-rule original:valvefollow-aserr-1-case original:valvefollow-aserr-1-transfer	original:cv-as-confirm original:cv-as-lowflow original:cv-as-severity original:valves-as-2-case original:valves-as-2-transfer original:valvefollow-aserr-2-rule original:valvefollow-aserr-2-case original:valvefollow-aserr-2-transfer	original:cv-as-moderate original:cv-as-refer original:valves-as-3-rule original:valvefollow-aserr-3-rule original:valvefollow-aserr-3-case original:valvefollow-aserr-3-transfer
+cv.valve	Aortic regurgitation	original:cv-ar-leak original:cv-ar-pulse original:valves-ar-1-case original:valves-ar-1-transfer	original:cv-ar-hear original:cv-ar-position original:valves-ar-2-transfer	original:valves-ar-3-rule original:valves-ar-3-case original:valves-ar-3-transfer
+cv.valve	Tricuspid regurgitation	original:valves-tr-1-rule original:valves-tr-1-case original:valves-tr-1-transfer	original:valves-tr-2-rule original:valves-tr-2-case original:valves-tr-2-transfer	original:valves-tr-3-rule original:valves-tr-3-case original:valves-tr-3-transfer
+cv.valve	Tricuspid stenosis	original:valves-ts-1-rule original:valves-ts-1-case original:valves-ts-1-transfer	original:valves-ts-2-rule original:valves-ts-2-case original:valves-ts-2-transfer	original:valves-ts-3-rule original:valves-ts-3-case original:valves-ts-3-transfer
+cv.valve	Pulmonary valve stenosis	original:valves-ps-1-rule original:valves-ps-1-case original:valves-ps-1-transfer	original:valves-ps-2-rule original:valves-ps-2-case original:valves-ps-2-transfer	original:valves-ps-3-rule original:valves-ps-3-case original:valves-ps-3-transfer
+cv.valve	Pulmonary valve regurgitation	original:valves-pr-1-rule original:valves-pr-1-case original:valves-pr-1-transfer	original:valves-pr-2-rule original:valves-pr-2-case original:valves-pr-2-transfer	original:valves-pr-3-rule original:valves-pr-3-case original:valves-pr-3-transfer
+cv.valve	Valvular vegetations	original:cv-ie-embolus original:cv-ie-right original:valves-veg-1-rule	original:cv-ie-rule-echo original:valves-veg-2-case original:valves-veg-2-transfer	original:valves-veg-3-rule original:valves-veg-3-case original:cv-ie-failure
+cv.valve	Innocent flow murmurs	original:valves-flow-1-rule original:valves-flow-1-case original:valves-flow-1-transfer	original:valves-flow-2-rule original:valves-flow-2-case original:valves-flow-2-transfer	original:valves-flow-3-rule original:valves-flow-3-case original:valves-flow-3-transfer
+cv.valve	Rheumatic valve disease	original:valves-rf-1-rule original:valves-rf-1-case original:valves-rf-1-transfer	original:valves-rf-2-rule original:valves-rf-2-case original:valves-rf-2-transfer	original:valves-rf-3-rule original:valves-rf-3-case original:valves-rf-3-transfer
+cv.valve	Prosthetic valve complications	original:valves-prost-1-rule original:valves-prost-1-case original:valves-prost-1-transfer	original:cv-prosth-agent original:valves-prost-2-rule original:valves-prost-2-case original:valves-prost-2-transfer	original:cv-prosth-change original:cv-prosth-inr original:valves-prost-3-rule original:valves-prost-3-case original:valves-prost-3-transfer
 cv.hypo	Orthostatic hypotension	original:cv-stand-pool original:cv-stand-reflex	original:cv-stand-criterion original:cv-stand-negative original:cv-stand-positive	original:cv-orthrule-measure original:cv-stand-meds
 cv.hyper	Elevated pressure reading and diagnostic confirmation		original:cv-bp-masked original:cv-bp-white	
 cv.hyper	Primary hypertension			original:cv-bp-oral

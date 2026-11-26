@@ -3807,6 +3807,111 @@ def rhythm_trial_results():
     save(fig, "rhevidence_race_ci")
 
 
+def valve_lesion_studies():
+    """Illustrative pressure and flow records. ICAP is observed trial data."""
+    phase = np.linspace(0, 1, 121)
+    fig, ax = axes("Fraction of diastole", "Pressure (mm Hg)")
+    ax.plot(phase, 19 - 4 * phase + 1.5 * np.cos(2*np.pi*phase),
+            label="Left atrium", color=COLORS[0])
+    ax.plot(phase, 5 + 4 * phase + 2*np.exp(-10*phase),
+            ls="--", label="Left ventricle", color=COLORS[1])
+    ax.set(title="Simultaneous pressures after valve opening • simulated", ylim=(0, 24))
+    ax.legend(loc="best")
+    save(fig, "valves_inflow")
+    study_table("valves_gradients", "Mean diastolic pressures at the same flow",
+                ["Chamber", "Atrium (mm Hg)", "Ventricle (mm Hg)"],
+                [["Right heart", "12", "4"], ["Left heart", "9", "8"]])
+    study_table("valves_leftgradient", "Mean pressures during diastole",
+                ["Right atrium", "Right ventricle", "Left atrium", "Left ventricle"],
+                [["5 mm Hg", "4 mm Hg", "20 mm Hg", "8 mm Hg"]])
+    for key, rows in [
+        ("dobutamine", [["Rest", "44", "0.82", "26"], ["Dobutamine", "62", "0.85", "45"]]),
+        ("dobutamine_b", [["Rest", "42", "0.85", "25"], ["Dobutamine", "63", "1.35", "29"]]),
+    ]:
+        study_table("valves_" + key, "Low-dose dobutamine echo • reduced LVEF",
+                    ["Stage", "Stroke volume\n(mL)", "Valve area\n(cm²)", "Mean gradient\n(mm Hg)"], rows)
+    fig, ax = axes("Fraction of cardiac cycle", "Pulmonary flow (mL/s)")
+    forward = 250*np.sin(np.pi*np.minimum(phase/.4, 1))
+    back = np.sin(np.pi*np.maximum((phase-.4)/.6, 0))
+    for label, flow, style, color in [("A", forward-94*back, "-", COLORS[0]),
+                                      ("B", forward-4*back, "--", COLORS[1])]:
+        ax.plot(phase, flow, ls=style, lw=2, label=label, color=color)
+    ax.axhline(0, color="#555555", lw=.8)
+    ax.set(title="Main pulmonary artery • simulated flow")
+    ax.legend(title="Profile")
+    save(fig, "valves_pulmflow")
+    fig, panels = plt.subplots(1, 2, figsize=(6.5, 3.1), layout="constrained", sharey=True)
+    for ax, name, left in zip(panels, ["A", "B"], [[120, 100, 120], [120, 126, 120]]):
+        ax.plot([0, 1, 2], left, "o-", color=COLORS[0], label="LV")
+        ax.plot([0, 1, 2], [40, 53, 40], "s--", color=COLORS[1], label="RV")
+        ax.set(xticks=[0, 1, 2], xticklabels=["Exp.", "Insp.", "Exp."], title="Record " + name,
+               ylim=(25, 140))
+        ax.legend(fontsize=8, loc="center left")
+    panels[0].set_ylabel("Systolic pressure (mm Hg)")
+    fig.suptitle("Simultaneous ventricular pressures • simulated")
+    save(fig, "valves_resp")
+    fig, ax = axes("Pericardial fluid volume (mL)", "Pericardial pressure (mm Hg)")
+    vol = np.linspace(0, 210, 101)
+    for name, scale, style, color in [("A", 62, "-", COLORS[0]), ("B", 124, "--", COLORS[1])]:
+        ax.plot(vol, np.expm1(vol/scale), ls=style, color=color, label=name)
+    ax.axvline(180, ls=":", color="#555555", lw=.8)
+    ax.set(title="Two pericardial pressure responses • illustrative", ylim=(0, 30))
+    ax.legend(title="Patient")
+    save(fig, "valves_reserve")
+    fig, ax = axes("Assigned add-on treatment", "Patients meeting endpoint (%)")
+    bars = ax.bar(["Colchicine", "Placebo"], [16.7, 37.5], color=COLORS, width=.55)
+    ax.bar_label(bars, labels=["16.7%", "37.5%"], padding=3)
+    ax.set(title="ICAP • incessant or recurrent pericarditis", ylim=(0, 50))
+    save(fig, "valves_icap")
+
+
+def atomic_measurement_studies():
+    """Original teaching figures for MCAT atomic structure and chemical measurements."""
+    hours = np.arange(0, 13, 3)
+    fig, ax = axes("Time (hours)", "Gross counts per minute")
+    ax.plot(hours, 20 + 160 * .5**(hours/3), "o-", color=COLORS[0], label="Sample in holder")
+    ax.axhline(20, ls="--", color=COLORS[1], label="Empty holder")
+    ax.set(title="Tracer counting experiment • simulated", xticks=hours, ylim=(0, 202))
+    ax.legend()
+    save(fig, "atomic_decay")
+    study_table("atomic_photo", "Photoelectrons at a fixed photon energy",
+                ["Subshell", "Photon energy (eV)", "Kinetic energy (eV)"],
+                [["X", "100", "25"], ["Y", "100", "80"]])
+    fig, ax = axes("Electron removed (in order)", "Ionization energy (relative units)")
+    ax.plot([1, 2, 3, 4], [1.0, 2.0, 10.5, 13.2], "o-", color=COLORS[0])
+    ax.set(title="Successive ionizations • illustrative", xticks=[1, 2, 3, 4], ylim=(0, 15))
+    save(fig, "atomic_jump")
+    study_table("atomic_period", "First ionization energies • gas-phase atoms",
+                ["Atom", "Na", "Mg", "Al", "Si"], [["kJ/mol", "496", "738", "578", "787"]],
+                source="rounded")
+    study_table("atomic_mass", "Gravimetric chloride assay",
+                ["Weighing", "Filter + precipitate (mg)"],
+                [["Dry filter alone", "101.0"], ["After first drying", "389.1"],
+                 ["After second drying", "387.6"], ["After third drying", "387.6"]])
+
+
+def rheumatic_af_outcomes():
+    """Published restricted mean times to the INVICTUS primary composite outcome."""
+    study_table("valvefollow_inv", "INVICTUS • time free of primary event",
+                ["Assigned treatment", "Restricted mean time (days)"],
+                [["Rivaroxaban", "1,599"], ["Vitamin K antagonist", "1,675"]],
+                source="trial data")
+
+
+def acute_airway_records():
+    """Simulated outpatient cough and pediatric croup observations."""
+    study_table("airwaycase_cough", "Acute cough • day 5",
+                ["Observation", "Measurement"],
+                [["Temperature / pulse", "37.2 °C / 82 per min"],
+                 ["Respiratory rate / SpO₂", "16 per min / 98% on air"],
+                 ["Chest exam", "No focal crackles, egophony or dullness"]])
+    study_table("airwaycase_observe", "After dexamethasone and nebulized epinephrine",
+                ["Time since epinephrine", "Stridor at rest", "Retractions"],
+                [["Before treatment", "Present", "Moderate"],
+                 ["30 minutes", "Absent", "Absent"], ["2 hours", "Absent", "Absent"],
+                 ["4 hours", "Absent", "Absent"]])
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -3866,6 +3971,10 @@ def main():
     conduction_and_device_studies()
     wave_and_signaling_studies()
     rhythm_trial_results()
+    valve_lesion_studies()
+    atomic_measurement_studies()
+    rheumatic_af_outcomes()
+    acute_airway_records()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()

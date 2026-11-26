@@ -17,3 +17,6 @@ figures:
 
 coverage:
     python3 -B deck.py coverage
+
+gaps:
+    python3 -B deck.py gaps

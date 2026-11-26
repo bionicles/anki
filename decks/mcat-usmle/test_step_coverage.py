@@ -103,3 +103,26 @@ class MCATScienceCoverageTest(unittest.TestCase):
         self.assertEqual(first["ResearchDesignIDs"], "b")
         self.assertEqual(first["UnclassifiedIDs"], "c")
         self.assertEqual(empty["DataInterpretationCards"], "0")
+
+
+class GapSummaryTest(unittest.TestCase):
+    def test_unlinked_topics_do_not_also_count_in_linked_depth_gaps(self):
+        from contextlib import redirect_stdout
+        from io import StringIO
+        from deck import display_gaps
+
+        def topic(name, linked, full):
+            return dict(Exam="USMLE Step 1", Family="cv.valve", Item=name,
+                        MappedCards=str(linked), ThreeLevelObjectives=str(full))
+        science = [dict(Subtopic="4E · Test topic", KnowledgeCards="0",
+                        ProblemSolvingCards="2", ResearchDesignCards="0", DataInterpretationCards="1")]
+        output = StringIO()
+        with redirect_stdout(output):
+            display_gaps([topic("Unlinked", 0, 0), topic("Linked", 2, 0), topic("Full", 4, 1)], science)
+        lines = output.getvalue().splitlines()
+        self.assertIn("4E (2)", lines[1])
+        self.assertIn("Research design", lines[1])
+        self.assertIn("Scientific knowledge", lines[1])
+        self.assertIn("cv.valve (1) — Unlinked", lines[3])
+        self.assertIn("cv.valve (1) — Linked", lines[5])
+        self.assertNotIn("cv.valve (1) — Full", output.getvalue())

@@ -14,7 +14,7 @@ import subprocess
 import tempfile
 from zipfile import ZIP_DEFLATED, ZipFile
 
-from step_coverage import display, measure, measure_item_depth
+from step_coverage import STEPS, display, measure, measure_item_depth
 from extract import ROOT, FIELDS, cohort, openstax, read
 
 RELEASE = ROOT / "release"
@@ -427,9 +427,42 @@ def current_build(folder, inputs):
     return info["inputs"] == inputs and info["outputs"] == files_in_release(folder)
 
 
+def display_gaps(items, science):
+    """Show the largest outstanding editorial workloads, with concrete examples."""
+    def show(groups):
+        ranked = sorted(groups.items(), key=lambda entry: (-len(entry[1]), entry[0]))
+        if not ranked:
+            print("  No outstanding gaps in this band")
+        for group, gaps in ranked[:3]:
+            print(f"  {group} ({len(gaps)}) — " + " / ".join(sorted(gaps)[:2]))
+
+    print("MCAT science • missing topic–skill combinations by content category")
+    groups = defaultdict(list)
+    for row in science:
+        category, _, topic = row["Subtopic"].partition(" · ")
+        for skill, column in MCAT_SCIENCE_SKILLS.items():
+            if not int(row[column + "Cards"]):
+                groups[category].append(f"{topic} ({skill})")
+    show(groups)
+    for exam in STEPS:
+        breadth = defaultdict(list)
+        depth = defaultdict(list)
+        for row in items:
+            if row["Exam"] != exam:
+                continue
+            if not int(row["MappedCards"]):
+                breadth[row["Family"]].append(row["Item"])
+            elif not int(row["ThreeLevelObjectives"]):
+                depth[row["Family"]].append(row["Item"])
+        print(f"{exam} • named topics without a linked card, by family")
+        show(breadth)
+        print(f"{exam} • linked topics without a three-card sequence, by family")
+        show(depth)
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("action",choices=["check","update","build","test","coverage"])
+    parser.add_argument("action",choices=["check","update","build","test","coverage","gaps"])
     parser.add_argument("--checkout",action="append",default=[],metavar="ID=PATH",help="Use this local Git checkout at its HEAD for update")
     args=parser.parse_args()
     configs=read(ROOT/"sources.json")
@@ -437,6 +470,9 @@ def main():
     if local.keys()-{c["id"] for c in configs}:parser.error("Unknown checkout ID")
     with (ROOT/"Justfile").open() as lock:
         fcntl.flock(lock,fcntl.LOCK_EX if args.action in {"update","build"} else fcntl.LOCK_SH)
+        if args.action=="gaps":
+            display_gaps(named_measurements(), mcat_science_coverage(table(ROOT/"blueprint.tsv")))
+            return
         if args.action=="coverage":
             cards, _ = deduplicate(records(RELEASE), alias_map(RELEASE))
             blueprint = table(ROOT/"blueprint.tsv")
