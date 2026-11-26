@@ -1,0 +1,125 @@
+Exam	Family	Objective	FoundationIDs	ApplicationIDs	TransferIDs	ChangedEvidence	ReviewState
+USMLE Step 1	ob.labor	Estimate an identifiable fetal baseline from a ten-minute strip	original:ctg-depth-principle	original:ctg-read-base	original:ctgrec-b-base original:ctgrec-g-baseline	Independent recorded windows have different baselines, noise and excursions.	Documented
+USMLE Step 1	ob.labor	Find the heart rate nadir relative to the contraction peak	original:ctg-read-axes	original:ctg-read-timing	original:ctgrec-a-align	A recorded event has an irregular shape and a different time offset.	Documented
+USMLE Step 1	ob.labor	Measure the size or duration of a fetal heart rate dip		original:ctg-read-duration original:ctgrec-c-drop			Documented
+USMLE Step 1	ob.labor	Distinguish missing data from an observed fetal heart rate		original:ctgrec-e-missingfhr			Documented
+USMLE Step 1	ob.labor	Explain contraction-associated changes in fetal oxygen delivery	original:ctg-act-recovery	original:ctg-mech-lateflow			Documented
+USMLE Step 1	ob.labor	Connect deceleration morphology to mechanical compression		original:ctg-mech-head	original:ctg-mech-cord	An abrupt drop with variable timing changes the likely structure from head to cord.	Documented
+USMLE Step 1	ob.labor	Interpret an internal uterine pressure measurement	original:labor-data-strength				Documented
+USMLE Step 2 CK	ob.labor	Classify a gradual deceleration by its relation to uterine activity	original:ctg-depth-gradual	original:ctg-read-early	original:ctg-read-late	The nadir moves from the contraction peak to after it on a different tracing.	Documented
+USMLE Step 2 CK	ob.labor	Classify recurrent late decelerations using baseline variability	original:ctg-depth-catrule	original:ctg-read-ii	original:ctg-read-iii	The second strip loses variability between decelerations, changing the classification.	Documented
+USMLE Step 2 CK	ob.labor	Calculate uterine activity in Montevideo units	original:labor-rule-mvu-rule	original:labor-data-mvu	original:labor-rule-mvu-other	A different number of contractions, rest pressure and peak heights change the sum.	Documented
+USMLE Step 2 CK	ob.labor	Identify whether cervical dilation has reached the active phase		original:labor-data-active	original:labor-data-latent	A second series plateaus below the active-phase threshold.	Documented
+USMLE Step 2 CK	ob.labor	Identify limitations of intrapartum signal acquisition		original:ctgrec-d-missinguc	original:ctg-signal-maternal	The second scenario loses the fetal signal to maternal pulse capture while a uterine channel remains available.	Documented
+USMLE Step 2 CK	ob.labor	Read sustained and transient fetal rate findings		original:ctg-read-long original:ctg-read-brady original:ctg-read-accel original:ctg-read-sine			Documented
+USMLE Step 3	ob.labor	Determine whether active-phase arrest criteria apply	original:labor-rule-minimum	original:labor-data-arrest	original:labor-data-wait	Adequate uterine activity is present in both cases but the second patient plateaus at 5 cm.	Documented
+USMLE Step 3	ob.labor	Quantify recurrence of decelerations	original:ctg-depth-freqrule	original:ctg-act-recurrence	original:ctg-act-intermittent	A different numerator and denominator put the repeat case below one half.	Documented
+USMLE Step 3	ob.labor	Decide when maternal oxygen is indicated during an abnormal tracing		original:ctg-act-oxygen	original:ctg-depth-uncoupled	Documented maternal hypoxemia changes the action.	Documented
+USMLE Step 3	ob.labor	Escalate delivery for a persistent high-risk tracing		original:ctg-act-delivery			Documented
+USMLE Step 3	ob.labor	Respond to excessive contractions on oxytocin		original:ctg-act-stop	original:ctg-act-persist	Persistent excessive uterine activity after stopping oxytocin changes the next intervention.	Documented
+USMLE Step 3	ob.labor	Assess whether a captured signal can support a baseline estimate		original:ctgrec-e-baseline			Documented
+USMLE Step 3	ob.labor	Recognize reassuring intrapartum status	original:ctg-depth-arrestprinciple	original:ctg-act-routine			Documented
+USMLE Step 1	ob.newborn	Predict shunt flow during newborn transition	original:birth-flow-resist	original:birth-flow-atrial	original:birth-flow-failed	Persistently elevated right-sided pressure reverses the expected interatrial gradient.	Documented
+USMLE Step 1	ob.newborn	Trace the fetal routes of placental blood	original:fetal-flow-supply original:fetal-flow-return	original:fetal-flow-liver original:fetal-flow-atria original:fetal-flow-duct			Documented
+USMLE Step 1	ob.newborn	Explain ventilation-responsive neonatal bradycardia	original:born-resus-brady				Documented
+USMLE Step 2 CK	ob.newborn	Decide when a newborn needs assisted ventilation	original:born-rule-trigger	original:born-resus-apnea	original:born-resus-spont	A vigorous spontaneously breathing newborn calls for routine transition care. A normal heart rate alone could not exclude the need for ventilation in the apneic case.	Documented
+USMLE Step 2 CK	ob.newborn	Assess response to assisted ventilation	original:born-resus-effective				Documented
+USMLE Step 3	ob.newborn	Decide when to add neonatal compressions	original:born-rule-vent-first	original:born-resus-compress	original:born-resus-mask	Both infants have a rate of 55/min. Only one received ventilation that moved the chest.	Documented
+USMLE Step 3	ob.newborn	Reassess a neonatal resuscitation as the heart rate recovers		original:born-resus-recover			Documented
+USMLE Step 1	ob.prenatal	Identify the specimen used for fetal chromosome diagnosis	original:pren-dx-villus original:pren-dx-fluid				Documented
+USMLE Step 2 CK	ob.prenatal	Interpret and follow up prenatal screening results		original:pren-cf-positive	original:pren-cf-nocall	An indeterminate report carries risk even though the laboratory supplied no positive chromosome result.	Documented
+USMLE Step 2 CK	ob.prenatal	Choose an early diagnostic procedure		original:pren-dx-early			Documented
+USMLE Step 3	ob.prenatal	Counsel about diagnostic testing after a positive screen		original:pren-cf-refuse			Documented
+USMLE Step 2 CK	ob.complication	Recognize and evaluate fetal growth restriction		original:plac-growth-abdo original:plac-growth-early			Documented
+USMLE Step 3	ob.complication	Decide planned delivery timing in isolated growth restriction		original:plac-growth-normal	original:plac-growth-severe	The weight percentile crosses the severe threshold and earlier planned delivery is indicated.	Documented
+USMLE Step 2 CK	ob.complication	Recognize pregnancy-associated hypertensive syndromes		original:ckpreg-organ	original:ckpreg-seizure	New seizure changes the diagnosis to eclampsia.	Documented
+USMLE Step 2 CK	ob.postpartum	Differentiate the source of acute postpartum hemorrhage		original:ckpph-tone	original:ckpph-firm	Uterine tone changes the likely bleeding source.	Documented
+USMLE Step 3	ob.postpartum	Reassess the cause of continued postpartum bleeding		original:ccs-pph-tone	original:ccs-pph-trauma	Persistent bleeding after tone recovers prompts evaluation for trauma.	Documented
+USMLE Step 1	repro.breasttumor	Connect breast tumor markers to growth signals	original:s1-breast-marker-her	original:s1-breast-marker-er			Documented
+USMLE Step 2 CK	repro.breasttumor	Select initial imaging for a palpable breast mass		original:ck-breast-mass-young	original:ck-breast-mass-forty	Age changes the initial imaging modality.	Documented
+USMLE Step 3	repro.breasttumor	Plan tissue evaluation for a suspicious breast mass		original:ccs-breast-mass-next	original:ccs-breast-mass-match	A discordant benign pathology result alters the next sampling decision.	Documented
+USMLE Step 1	male.tumor	Interpret markers in a possible seminoma		original:s1-testis-tumor-afp	original:s1-testis-tumor-hcg	The marker changes from AFP to hCG, which can be elevated in pure seminoma.	Documented
+USMLE Step 2 CK	male.tumor	Evaluate a solid testicular mass		original:ck-testis-tumor-scan original:ck-testis-tumor-normal			Documented
+USMLE Step 3	male.tumor	Plan the timing of germ-cell tumor markers	original:ccs-testicular-before				Documented
+USMLE Step 2 CK	male.trauma	Recognize acute scrotal torsion		original:ckscrot-torsion			Documented
+USMLE Step 1	skin.tumor	Recognize clinical warning signs of melanoma		original:s1-skin-mel-evolve	original:s1-skin-mel-size	A small lesion challenges reliance on the size criterion in isolation.	Documented
+USMLE Step 2 CK	skin.tumor	Select a diagnostic biopsy for a suspicious pigmented lesion		original:ck-mel-biopsy-sample			Documented
+USMLE Step 3	skin.tumor	Interpret what a melanoma biopsy establishes		original:ccs-melanoma-staging			Documented
+USMLE Step 2 CK	msk.inf	Prioritize aspiration or treatment for an acutely inflamed pediatric joint		original:ckjoint-sample	original:ckjoint-unstable	Systemic instability changes whether antibiotics may await a delayed aspiration.	Documented
+USMLE Step 3	msk.inf	Sequence urgent management of suspected septic arthritis		original:ccs-joint-aspirate	original:ccs-joint-unstable	A newly septic patient needs antibiotics while drainage is being arranged.	Documented
+USMLE Step 3	msk.trauma	Recognize compartment syndrome after a fracture		original:ccs-leg-passive			Documented
+USMLE Step 1	social.interview	Respond to a patient expressing distress		original:s1-comm-listen-emotion	original:s1-comm-listen-silence	Spoken fear calls for verbal acknowledgment; tearful silence calls for attentive space.	Documented
+USMLE Step 1	social.capacity	Identify impaired appreciation of consequences		original:stepeth-capacity			Documented
+USMLE Step 2 CK	social.interview	Assess understanding and elicit patient preferences		original:ckcomm-understand original:ckcomm-values			Documented
+USMLE Step 2 CK	social.consent	Identify who may consent when family participates		original:ckcomm-proxy			Documented
+USMLE Step 3	social.consent	Respect an informed refusal		original:fip-consent-refuse			Documented
+USMLE Step 3	social.safety	Classify a medication error intercepted before it reaches the patient		original:fip-safety-near			Documented
+USMLE Step 1	stats.screen	Calculate diagnostic test operating characteristics		original:stepstats-sens original:stepstats-spec original:stepstats-lr			Documented
+USMLE Step 2 CK	stats.screen	Interpret predictive value across clinical populations		original:ck-test-performance-falsepos	original:ck-test-performance-predict	Measured results from a low-risk cohort are followed by a shift from a specialist clinic to screening.	Documented
+USMLE Step 2 CK	stats.interpret	Identify bias from differential loss to follow-up		original:ck-test-performance-loss			Documented
+USMLE Step 3	stats.screen	Apply diagnostic probabilities		original:fip-tests-post original:pren-cf-ppv			Documented
+USMLE Step 3	stats.association	Calculate the number needed to treat or harm		original:fip-study-nnt	original:fip-study-harm	The second data set contains an excess of adverse events and requires a harm interpretation.	Documented
+USMLE Step 3	dev.child	Plan follow-up after developmental screening	original:acm-milestone-monitor	original:acm-milestone-repeat	original:acm-milestone-plan	Persistent concern despite a negative result warrants evaluation instead of routine repeat screening.	Documented
+USMLE Step 2 CK	dev.older	Find modifiable risks behind recurrent falls		original:ck-falls-environment			Documented
+USMLE Step 3	dev.older	Identify a priority at an older adult's fall visit		original:ccs-falls-injury	original:ccs-falls-gait	Acute focal pain requires injury assessment; gait impairment after injury is excluded calls for prevention.	Documented
+USMLE Step 2 CK	lung.obstruct	Identify severe airflow limitation in asthma		original:ckasth-silent			Documented
+USMLE Step 3	lung.obstruct	Recognize and reassess obstruction in an exacerbation		original:ccs-asthma-silent original:ccs-asthma-recheck			Documented
+USMLE Step 2 CK	gi.pancreas	Use pain and lipase to diagnose acute pancreatitis		original:ckgi-criteria			Documented
+USMLE Step 2 CK	endo.pancreas	Differentiate hyperglycemic emergencies		original:ckdka-normal	original:ckdka-hhs	High osmolality with little ketosis changes the diagnosis from ketoacidosis to HHS.	Documented
+USMLE Step 3	endo.pancreas	Modify DKA therapy in response to new laboratory results		original:ccs-dka-potassium	original:ccs-dka-sugar	A low starting potassium delays insulin; falling glucose with persistent ketosis calls for dextrose to continue insulin.	Documented
+USMLE Step 1	blood.cells	Explain sickle hemoglobin behavior	original:gen-sickle-cell-disease-polymer				Documented
+USMLE Step 2 CK	blood.cells	Recognize infantile sickle cell presentations		original:gen-sickle-cell-disease-infant			Documented
+USMLE Step 3	blood.cells	Explain infection prevention in functional asplenia	original:gen-sickle-cell-disease-spleen				Documented
+USMLE Step 1	bh.psychosis	Classify antipsychotic-induced movements by phenomenology and onset		original:bh-motor-dystonia	original:bh-motor-akathisia original:bh-motor-tardive	Inner restlessness early in treatment and involuntary movements years later produce different diagnoses.	Documented
+USMLE Step 2 CK	bh.personality	Distinguish personality patterns in socially isolated patients		original:bh-person-avoid	original:bh-person-schizoid	Fear of rejection and little desire for closeness point to different patterns.	Documented
+USMLE Step 3	bh.substance	Identify needs following opioid stabilization		original:bh-oud-discharge original:bh-oud-detox			Documented
+USMLE Step 1	cv.ischemia	Identify the mechanism of acute myocardial ischemia		original:mi-define-thrombus	original:mi-define-demand	A rapid arrhythmia with fixed disease replaces an acute culprit thrombus.	Documented
+USMLE Step 2 CK	cv.ischemia	Separate myocardial injury from an acute infarct	original:mi-define-rule	original:mi-define-myocarditis	original:mi-define-ischemia original:mi-define-stable	Evidence of acute coronary ischemia changes one diagnosis; chronically stable troponin changes the other.	Documented
+USMLE Step 2 CK	cv.ischemia	Use serial tests in suspected acute coronary syndrome		original:ckacs-troponin original:ckacs-trend			Documented
+USMLE Step 3	cv.ischemia	Classify infarction by the cause of ischemia		original:mi-define-scad	original:mi-define-anemia	The culprit in one case is an acute coronary lesion and in the other an extracoronary stressor.	Documented
+USMLE Step 3	cv.ischemia	Arrange cardiac rehabilitation after discharge		original:mi-after-rehab	original:mi-after-home	Limited travel changes how an appropriate rehabilitation program is delivered.	Documented
+USMLE Step 3	cv.ischemia	Monitor lipid therapy after an acute coronary syndrome	original:mi-after-statin	original:mi-after-recheck			Documented
+USMLE Step 1	ob.labor	Explain the compromise produced by a prolapsed cord	original:ob-cord-mechanism				Documented
+USMLE Step 2 CK	ob.labor	Recognize overt umbilical cord prolapse		original:ob-cord-palpate			Documented
+USMLE Step 3	ob.labor	Manage cord prolapse remote from vaginal delivery		original:ob-cord-decompress original:ob-cord-delivery			Documented
+USMLE Step 1	ob.labor	Localize the mechanical obstruction in shoulder dystocia	original:ob-shoulder-structure				Documented
+USMLE Step 2 CK	ob.labor	Recognize shoulder dystocia at delivery		original:ob-shoulder-recognize			Documented
+USMLE Step 2 CK	ob.newborn	Identify a nerve injury after shoulder dystocia		original:ob-shoulder-injury			Documented
+USMLE Step 3	ob.labor	Select a maneuver for shoulder impaction	original:ob-shoulder-legs				Documented
+USMLE Step 1	ob.labor	Identify the neonatal disease targeted by intrapartum antibiotics	original:ob-gbs-target				Documented
+USMLE Step 2 CK	ob.labor	Decide how a prior GBS urine result affects prophylaxis		original:ob-gbs-urine			Documented
+USMLE Step 2 CK	ob.prenatal	Identify the GBS screening window	original:ob-gbs-when				Documented
+USMLE Step 3	ob.labor	Decide when GBS-specific prophylaxis is indicated		original:ob-gbs-positive	original:ob-gbs-cesarean	The same positive culture has different implications in labor and at prelabor cesarean with intact membranes.	Documented
+USMLE Step 1	neuro.vascular	Relate diffusion restriction in acute ischemia to cell swelling		original:rad-edema			Documented
+USMLE Step 2 CK	neuro.vascular	Localize acute bleeding to a brain compartment		original:rad-intra	original:rad-sah	Blood centered in brain tissue and blood centered in the basal cisterns occupy different compartments on distinct CTs.	Documented
+USMLE Step 3	neuro.vascular	Sequence the initial evaluation for stroke		original:ccs-stroke-image original:ccs-stroke-mimic			Documented
+USMLE Step 1	neuro.muscle	Explain a dystrophinopathy genotype–phenotype relationship		original:gen-duchenne-and-becker-muscular-dystrophy-severity			Documented
+USMLE Step 2 CK	neuro.muscle	Distinguish proximal weakness caused by muscle disease and motor neuron disease		original:gen-duchenne-and-becker-muscular-dystrophy-gowers	original:gen-spinal-muscular-atrophy-infant	An older child with calf enlargement is contrasted with an infant with tongue fasciculations and absent reflexes.	Documented
+USMLE Step 3	neuro.muscle	Identify a surveillance need in dystrophinopathy	original:gen-duchenne-and-becker-muscular-dystrophy-heart				Documented
+USMLE Step 1	cv.ischemia	Localize coronary supply from the infarct territory on a new ECG					Awaiting review
+USMLE Step 2 CK	cv.ischemia	Distinguish posterior infarction from anterior ischemia using additional leads					Awaiting review
+USMLE Step 3	cv.ischemia	Identify mechanical complications after infarction from a changing exam					Awaiting review
+USMLE Step 1	neuro.vascular	Localize lateral medullary versus medial medullary injury from affected tracts					Awaiting review
+USMLE Step 2 CK	neuro.vascular	Distinguish posterior circulation stroke from peripheral vertigo on examination					Awaiting review
+USMLE Step 3	neuro.vascular	Select secondary stroke prevention when atrial fibrillation is identified on delayed monitoring					Awaiting review
+USMLE Step 1	ob.labor	Predict how fetal malpresentation changes the presenting diameter					Awaiting review
+USMLE Step 2 CK	ob.labor	Determine candidacy for external cephalic version					Awaiting review
+USMLE Step 3	ob.labor	Choose a delivery strategy after failed external cephalic version					Awaiting review
+USMLE Step 1	ob.labor	Explain why ruptured membranes change the risk of ascending infection					Awaiting review
+USMLE Step 2 CK	ob.labor	Interpret bedside tests for suspected rupture of membranes					Awaiting review
+USMLE Step 3	ob.labor	Adapt management after preterm membrane rupture to gestational age and clinical infection					Awaiting review
+USMLE Step 1	ob.labor	Explain the effect of antenatal corticosteroids on an immature fetal lung					Awaiting review
+USMLE Step 2 CK	ob.labor	Distinguish threatened preterm labor from established cervical change					Awaiting review
+USMLE Step 3	ob.labor	Integrate timing of corticosteroids, transfer and indicated preterm delivery					Awaiting review
+USMLE Step 1	ob.labor	Explain why placental reserve can decline after a prolonged pregnancy					Awaiting review
+USMLE Step 2 CK	ob.labor	Distinguish late-term and post-term pregnancies using reliable dating					Awaiting review
+USMLE Step 3	ob.labor	Choose surveillance or delivery after the due date in context					Awaiting review
+USMLE Step 1	ob.labor	Identify maternal anatomy at risk during a cesarean					Awaiting review
+USMLE Step 2 CK	ob.labor	Distinguish postoperative infection from other cesarean complications					Awaiting review
+USMLE Step 3	ob.labor	Reassess fever and an evolving surgical wound after cesarean birth					Awaiting review
+USMLE Step 1	renal.vascular	Explain an abrupt fall in filtration in bilateral renal artery stenosis					Awaiting review
+USMLE Step 2 CK	renal.vascular	Differentiate renovascular hypertension from primary aldosteronism					Awaiting review
+USMLE Step 3	renal.vascular	Reassess declining kidney function after starting renin–angiotensin blockade					Awaiting review
+USMLE Step 1	social.safety	Distinguish latent hazards from active failures in medication delivery					Awaiting review
+USMLE Step 2 CK	social.safety	Choose an intervention after identifying repeated wrong-patient orders					Awaiting review
+USMLE Step 3	social.safety	Use a balancing measure to check for harm after a safety intervention					Awaiting review

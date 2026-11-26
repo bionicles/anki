@@ -13,6 +13,7 @@ import shutil
 import subprocess
 import tempfile
 
+from step_coverage import display, measure
 from extract import ROOT, FIELDS, cohort, openstax, read
 
 RELEASE = ROOT / "release"
@@ -149,6 +150,11 @@ def alias_map(folder):
     return {r["SourceID"]:r["CardID"] for r in table(file)} if file.exists() else {}
 
 
+def step_measurements(cards):
+    return measure(table(ROOT/"step-families.tsv"), table(ROOT/"blueprint.tsv"),
+                   table(ROOT/"step-depth.tsv"), table(ROOT/"step-weights.tsv"), cards)
+
+
 def make(folder, prior):
     import genanki
     model=package_model()
@@ -157,6 +163,8 @@ def make(folder, prior):
     old_retired={r["CardID"] for r in table(RELEASE/"retired.tsv")} if (RELEASE/"retired.tsv").exists() else set()
     retired=(old_retired|set(prior.values()))-set(aliases.values())
     write_table(folder/"retired.tsv",["CardID"],[{"CardID":k} for k in sorted(retired)])
+    report, practice_tags = step_measurements(rows)
+    write_table(folder/"step-coverage.tsv", list(report[0]), report)
     decks={}; media=set(); objectives=defaultdict(list)
     with (folder/(FILE+".tsv")).open("w",newline="",encoding="utf-8") as f:
         f.write(f"#separator:Tab\n#html:true\n#notetype:{model.name}\n#deck column:2\n#guid column:1\n#tags column:11\n#columns:")
@@ -170,6 +178,7 @@ def make(folder, prior):
             source="cohort" if source in {"bank","cohort"} else source
             tags=["exam::"+label(r["Exam"]),"section::"+label(r["Section"]),"topic::"+label(r["Topic"]),"source::"+label(source)]
             if r["Figure"]:media.add(str(ROOT/"media"/r["Figure"]));tags.append("visual::question")
+            tags.extend(sorted(practice_tags[r["ID"]]))
             fields=render(r);guid=genanki.guid_for("mcat-usmle/v1",r["ID"])
             decks[name].add_note(genanki.Note(model=model,fields=fields,guid=guid,tags=tags,due=n))
             w.writerow([guid,name,*fields," ".join(tags)])
@@ -220,6 +229,8 @@ def verify(folder):
         assert row["Status"] in {"Partial","Unmapped","Verified"}
         assert bool(ids)==(row["Status"]!="Unmapped")
         assert all(k in keyed and keyed[k]["Exam"]==row["Exam"] for k in ids), row
+    report, practice_tags = step_measurements(expected)
+    assert table(folder/"step-coverage.tsv") == report
     verify_imaging(expected)
     coverage=table(folder/"coverage.tsv")
     mapped=[]
@@ -246,6 +257,7 @@ def verify(folder):
                     assert col.decks.name(c.did)=="::".join([NAME,r["Exam"],r["Section"]])
                     assert export[key]==[n.guid,col.decks.name(c.did),*fields,export[key][-1]]
                     assert {t.casefold() for t in n.tags}=={t.casefold() for t in export[key][-1].split()}, (key,n.tags,export[key][-1])
+                    assert practice_tags[key] == {t for t in n.tags if t.startswith(("outline::", "practice::"))}
                     assert n["Question"] in c.question() and n["Answer"] in c.answer(), (key,n["Answer"],c.answer()[:500])
                     assert key not in result;result[key]=(n.id,cid)
                 assert result.keys()==keyed.keys()==export.keys()
@@ -267,7 +279,7 @@ def file_hash(path):
 
 
 def build_inputs(lock):
-    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "specimens.tsv", "imaging.tsv")]
+    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step_coverage.py", "intrapartum.py")]
     paths.extend(sorted((ROOT / "media").glob("*.png")))
     return {"sources": lock, "files": {p.relative_to(ROOT).as_posix(): file_hash(p) for p in paths}}
 
@@ -286,7 +298,7 @@ def current_build(folder, inputs):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("action",choices=["check","update","build","test"])
+    parser.add_argument("action",choices=["check","update","build","test","coverage"])
     parser.add_argument("--checkout",action="append",default=[],metavar="ID=PATH",help="Use this local Git checkout at its HEAD for update")
     args=parser.parse_args()
     configs=read(ROOT/"sources.json")
@@ -294,6 +306,10 @@ def main():
     if local.keys()-{c["id"] for c in configs}:parser.error("Unknown checkout ID")
     with (ROOT/"Justfile").open() as lock:
         fcntl.flock(lock,fcntl.LOCK_EX if args.action in {"update","build"} else fcntl.LOCK_SH)
+        if args.action=="coverage":
+            cards, _ = deduplicate(records(RELEASE), alias_map(RELEASE))
+            display(step_measurements(cards)[0])
+            return
         if args.action=="test":verify(RELEASE);return
         previous=read(RELEASE/"sources.lock.json") if RELEASE.exists() else {}
         revisions={}

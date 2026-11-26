@@ -12,3 +12,7 @@ test:
 
 figures:
     uv run --no-project --with matplotlib==3.10.8 python -B figures.py
+    uv run --no-project --with matplotlib==3.10.8 python -B intrapartum.py
+
+coverage:
+    python3 -B deck.py coverage
