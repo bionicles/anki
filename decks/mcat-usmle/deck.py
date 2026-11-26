@@ -249,6 +249,7 @@ def verify(folder):
     report, practice_tags = step_measurements(expected)
     assert table(folder/"step-coverage.tsv") == report
     assert table(folder/"step-item-coverage.tsv") == named_measurements()
+    assert {r["Family"] for r in table(ROOT/"step-families.tsv")} == {r["Family"] for r in table(ROOT/"step-items.tsv")}, "A Step family is missing from the named-topic inventory"
     verify_imaging(expected)
     sound_records = table(ROOT/"heart-sounds.tsv")
     clips = {r["Clip"]: r for r in sound_records}

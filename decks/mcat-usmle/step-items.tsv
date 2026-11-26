@@ -1458,3 +1458,641 @@ stats.ethics	Equipoise and appropriateness of randomization	original:epi-equipoi
 stats.ethics	Trial protocol, intervention schedule and oversight	original:epi-protocol-role	original:epi-protocol-new	original:epi-preregister original:epi-schedule
 stats.ethics	Off-label clinical use and research distinctions	original:epi-offlabel-term	original:epi-phase-use	original:epi-offlabel
 stats.ethics	Controlled substance scheduling in research	original:epi-scheduling	original:epi-schedule-dea	original:epi-sched-practice
+immune.def	Common variable immunodeficiency	original:im-cv-f	original:im-cv-a original:im-ige original:im-ig-specific original:im-cv-transfer	original:im-cv-loss original:im-cv-before original:im-cv-base original:im-cv-drug
+immune.def	Hyper-IgM syndromes and impaired class switching	original:im-hyp-f original:im-hyp-a	original:im-hyp-t	original:im-hyp-counsel
+immune.def	X-linked agammaglobulinemia	original:gen-x-linked-agammaglobulinemia-bcell	original:gen-x-linked-agammaglobulinemia-timing	original:xla-replace original:xla-newborn original:xla-vax
+immune.def	Selective IgA deficiency	original:im-iga-loc original:im-ig-pattern original:im-ig-change	original:ckcel-iga original:im-iga-age original:im-cv-transfer	original:hanaph-screen original:hanaph-washed
+immune.def	Selective IgM deficiency	original:im-igm-f	original:im-igm	original:im-igm-once
+immune.def	Interpreting isolated low IgE	original:im-ige-f	original:im-ige	original:im-ige-t
+immune.def	Adenosine deaminase deficiency	original:im-ada-f	original:im-ada-test	original:im-ada-tx
+immune.def	22q11.2 deletion with thymic hypoplasia	original:im-dg-f original:im-dg-which	original:im-dg-a	original:im-dg-t
+immune.def	Severe combined immunodeficiency	original:im-trec	original:im-scid-next original:im-ada-test	original:im-scid-well original:im-scid-vax original:im-ada-tx
+immune.def	Wiskott–Aldrich syndrome	original:gen-wiskott-aldrich-syndrome-platelets original:im-ecz-f	original:gen-wiskott-aldrich-syndrome-pattern original:im-ecz	original:im-ecz-safe
+immune.def	Granulomatous inflammation in immune deficiency	original:im-gran	original:im-gran-ck	original:im-gran-steroid
+immune.def	Cutaneous allergic manifestations in immune deficiency	original:im-ecz-f	original:im-ecz	original:im-ecz-safe
+immune.def	Alternative pathway component deficiency	original:im-ch-t	original:im-ch-proper	original:im-alt-next
+immune.def	Early classical complement component deficiency	original:im-ch-f original:im-ch-a	original:im-ch-select	original:im-classic-follow
+immune.def	C3 deficiency and shared pathway abnormalities	original:im-shared	original:im-shared-both	original:im-ch-use
+immune.def	Terminal complement or membrane attack complex deficiency	original:im-ch-f original:im-mac	original:im-ch-shared	original:im-ch-inhib original:im-ch-grp
+immune.def	Hereditary angioedema due to C1 inhibitor deficiency or dysfunction	original:gen-hereditary-angioedema-mediator original:im-hae-f	original:gen-hereditary-angioedema-pattern original:im-hae-a original:im-hae-t original:im-hae-bas	original:gen-hereditary-angioedema-airway original:im-hae-miss
+immune.def	Mannose-binding lectin pathway deficiency	original:im-lect-f	original:im-ch-normal	original:im-lect-next
+immune.def	Chédiak–Higashi syndrome	original:im-chs-f	original:im-chs-a	original:im-chs-t
+immune.def	Chronic granulomatous disease	original:gen-chronic-granulomatous-disease-burst original:im-gran original:im-dhr-f original:im-dhr-a original:im-dhr-t	original:gen-chronic-granulomatous-disease-assay original:im-dhr-mosaic original:im-gran-ck	original:gen-chronic-granulomatous-disease-inherit original:im-gran-steroid
+immune.def	Leukocyte adhesion deficiency	original:im-lad-f	original:im-lad-a	original:im-lad-test
+immune.def	Natural killer cell deficiency	original:im-nk-f	original:im-nk	original:im-nk-once
+immune.hiv	HIV-1 diagnosis	original:im-rna-f original:im-rna-app original:im-rna-transfer	original:im-rna-why original:im-rna-a original:im-rna-t	original:im-rna-acute original:im-rna-care
+immune.hiv	HIV-2 diagnosis and treatment selection	original:im-h2-f	original:im-rna-why original:im-h2-a	original:im-h2-rna original:im-h2-rx
+immune.hiv	AIDS classification	original:im-aids-f	original:im-aids-a original:im-aids-t original:im-aids-base original:im-aids-non	original:im-aids-history
+immune.hiv	T-cell depletion and immune status in HIV	original:pul-pcp-host original:im-aids-f	original:im-aids-a original:im-pcp-agent	original:im-h2-rna original:im-pcp-base original:im-pcp-a original:im-pcp-t original:im-pcp-low
+immune.hiv	Immune reconstitution inflammatory syndrome	original:im-iris-f	original:im-iris-a original:im-iris-t original:im-iris-base	original:im-iris-rule original:im-iris-rx
+immune.hiv	Opportunistic infections in HIV	original:pul-pcp-host	original:pul-pcp-first original:im-aids-non original:im-ks-diff original:im-pcp-agent	original:pul-pcp-rule original:pul-pcp-severe original:pul-pcp-mild original:im-pcp-base original:im-pcp-a original:im-pcp-t original:im-pcp-low
+immune.hiv	HIV-associated distal sensory neuropathy	original:im-neuro-f	original:im-neuro	original:im-neuro-t
+immune.hiv	HIV-associated dementia and competing causes of cognitive change	original:im-cog-f	original:im-cog	original:im-cog-urgent
+immune.hiv	HIV-associated nephropathy	original:im-renal-f	original:ku-hiv	original:ku-hiv-art
+immune.hiv	Kaposi sarcoma in HIV	original:im-ks-f	original:im-aids-t original:im-ks-biop original:im-ks-diff	original:im-ks-basic original:im-ks-a original:im-ks-t original:im-aids-history
+immune.react	Immediate IgE-mediated hypersensitivity	original:im-i-f original:im-i-transfer	original:im-i-a	original:im-i-wait
+immune.react	Antibody-mediated type II hypersensitivity	original:im-ii-f original:im-ii-a	original:im-ii-hem	original:im-ii-t
+immune.react	Immune-complex type III hypersensitivity	original:im-iii-f original:im-iii-a original:im-serum-comp	original:im-ss-a	original:im-iii-t
+immune.react	T-cell-mediated type IV hypersensitivity	original:im-iv-f original:im-iv-app	original:im-iv-a	original:im-iv-rx
+immune.react	Anaphylaxis	original:im-ana-alpha	original:hanaph-wheeze original:im-i-a original:im-ana-pre original:im-ana-repeat	original:ccs-ana-recognize original:ccs-ana-route original:ccs-ana-adjunct original:ccs-ana-observe original:im-i-wait original:im-ss-rapid
+immune.react	Immune-mediated drug reactions	original:im-ii-a	original:im-ii-hem	original:im-ss-rx original:im-ii-t
+immune.react	Serum sickness	original:im-serum-comp	original:im-ss-f original:im-ss-a	original:im-iii-t original:im-ss-rapid
+immune.react	Solid organ transplant rejection	original:im-rej-cross original:im-gv-transfer	original:im-rej-a	original:im-rej-test original:im-rej-f original:im-rej-t
+immune.react	Graft-versus-host disease	original:im-gv-f original:im-gv-app	original:im-gv-a	original:im-gv-t
+immune.drug	Jarisch–Herxheimer reaction	original:im-jh-f	original:im-jh-a	original:im-jh-label original:im-jh-preg
+immune.drug	Glucocorticoid-associated immunosuppression	original:im-pred-f	original:im-pred-cut	original:im-pred-base original:im-pred-a original:im-pred-t original:im-pred-short
+immune.drug	Azathioprine toxicity	original:im-aza-f original:im-aza-app original:im-aza-transfer	original:im-aza-a	original:im-aza-monitor original:im-aza-int
+immune.drug	Cyclosporine effects and toxicity	original:im-cyc-f	original:im-cyc-a	original:im-cyc-mon
+immune.drug	Methotrexate toxicity	original:im-mtx-f	original:im-mtx-a	original:im-mtx-stop
+immune.drug	Abciximab-associated thrombocytopenia	original:im-abc-f	original:im-abc-a	original:im-abc-art
+immune.drug	Adalimumab and infection risk	original:im-tnf-f	original:im-tnf-a	original:im-tnf-sep
+immune.drug	Bevacizumab and wound healing	original:im-bev-f	original:im-bev-a	original:im-bev-base original:im-bev-open original:im-bev-early original:im-bev-ready
+immune.drug	Infliximab and infection risk	original:im-inf-f	original:im-inf-a	original:im-inf-lat
+immune.drug	Omalizumab and anaphylaxis	original:im-oma-f	original:im-oma-a	original:im-oma-rescue
+immune.drug	Rituximab and hepatitis B reactivation	original:im-rit-f	original:im-rit-a	original:im-rit-core
+immune.drug	Vaccine adverse events	original:im-vac-f	original:im-vac-ground original:im-vac-a original:im-vac-t	original:ccs-ana-recognize original:ccs-ana-route original:im-vac-pre original:im-vac-base original:im-vac-faint original:im-vac-shock
+dev.child	Linear growth and constitutional growth delay	original:ex-retest-speed original:ex-retest-slows original:ex-retest-steady		original:ex-retest-growth original:ex-retest-tracking original:ey-growth
+dev.child	Weight gain and growth faltering		original:well-growth-shape	original:well-growth-transition
+dev.child	Head circumference			
+dev.child	Normal voiding and stooling			
+dev.child	Primary nocturnal enuresis			
+dev.child	Age-appropriate physical examination			
+dev.child	Childhood screening		original:bh-autism-timing	original:bh-autism-positive original:acm-milestone-repeat original:acm-milestone-access original:acm-milestone-monitor original:acm-milestone-plan
+dev.child	Normal sleep and safe infant sleep	original:wp-surface original:per-sleep-back	original:wp-roll original:wp-seat original:per-sleep-ref	original:wp-swaddle original:wp-blanket original:per-sleep-room
+dev.child	Teething			
+dev.child	Gross and fine motor milestones			
+dev.child	Speech and language milestones			
+dev.child	Cognitive milestones			
+dev.child	Social development			
+dev.child	Anticipatory guidance			
+dev.child	Feeding and nutrition		original:well-infant-dose original:well-iron-first original:well-safefood-milk	original:well-infant-concentration original:well-iron-family original:well-safefood-honey
+dev.child	Physical activity			
+dev.child	Travel health			
+dev.child	Firearm injury prevention			
+dev.child	Water safety			
+dev.child	Child passenger restraints			
+dev.child	Routine childhood immunization			
+dev.child	Coping with illness			
+dev.child	Supporting family adherence			
+dev.adolescent	Growth velocity and constitutional delay	original:wp-age	original:wp-history	original:wp-redflag
+dev.adolescent	Weight and nutrition			
+dev.adolescent	Pubertal development	original:wp-androgen	original:ex-pubdelay-when original:wp-breast original:wp-history	original:wp-late original:ex-pubdelay-low original:ex-pubdelay-smell
+dev.adolescent	Age-appropriate physical examination			
+dev.adolescent	Pubertal gynecomastia			
+dev.adolescent	Autonomy and identity development			
+dev.adolescent	Sleep needs			
+dev.adolescent	Abstract reasoning			
+dev.adolescent	Role confusion and sexual identity			
+dev.adolescent	Anticipatory guidance			
+dev.adolescent	Exercise			
+dev.adolescent	Preventive and travel visits			
+dev.adolescent	Helmet use			
+dev.adolescent	Seat belts and distracted driving	original:wp-pass	original:wp-peers original:wp-belt	original:wp-practice
+dev.adolescent	Sexual health and consent			
+dev.adolescent	Screening for reproductive or sexual coercion			
+dev.adolescent	Routine adolescent immunization			
+dev.adolescent	Coping with illness			
+dev.adolescent	Supporting adherence			
+dev.adult	Weight change			
+dev.adult	Adult physical examination			
+dev.adult	Age- and risk-based screening	original:wp-rest	original:wp-risk original:wp-dxa original:wp-cuff original:ckprevent-conf original:cv-bp-white original:cv-bp-masked	original:wp-path original:wp-device original:acm-prev-bp
+dev.adult	Sleep			
+dev.adult	Cognitive development			
+dev.adult	Intimacy and isolation			
+dev.adult	Anticipatory guidance			
+dev.adult	Adult nutrition			
+dev.adult	Adult exercise			
+dev.adult	Preventive and travel medicine			
+dev.adult	Injury risk reduction			
+dev.adult	Adult vaccination			
+dev.adult	Coping with illness			
+dev.adult	Supporting treatment adherence			
+dev.older	Changes in weight			
+dev.older	Height loss and spinal compression			
+dev.older	Skin fragility and bruising			
+dev.older	Age-appropriate physical examination			
+dev.older	Thermoregulation			
+dev.older	Bladder and bowel changes			
+dev.older	Changes in sleep			
+dev.older	Mobility and motor function			
+dev.older	Normal cognitive aging			
+dev.older	Integrity, despair and life review			
+dev.older	Anticipatory guidance			
+dev.older	Nutrition in older adulthood			
+dev.older	Exercise in older adulthood	original:wp-training		original:ccs-falls-gait original:wp-program
+dev.older	Preventive and travel care			
+dev.older	Fall risk		original:ck-falls-history original:ck-falls-posture original:ck-falls-mobility original:ck-falls-pills original:ck-falls-environment	original:ccs-falls-injury original:ccs-falls-gait original:ccs-falls-taper original:ccs-falls-follow original:wp-program original:wp-multi original:cv-stand-meds
+dev.older	General health and functional assessment			
+dev.older	Polypharmacy		original:ck-falls-pills	original:ccs-falls-taper
+dev.older	Driving safety			
+dev.older	Caregiver strain			
+dev.older	Vaccination in older adulthood			
+bh.psychosis	Brief psychotic disorder			
+bh.psychosis	Delusional disorder			
+bh.psychosis	Psychosis from a medical condition			
+bh.psychosis	Schizophrenia	bank:usmle-step1:pharm-clozapine-uses:v1 bank:usmle-step1:pharm-risperidone-uses:v1	original:bh-psychosis-negative original:bh-schiztx-resist	original:bh-schiztx-depot
+bh.psychosis	Schizoaffective disorder			
+bh.psychosis	Substance-induced psychosis			
+bh.anxiety	Acute stress disorder			
+bh.anxiety	Generalized anxiety disorder		original:bh-general-domains	original:bh-general-therapy
+bh.anxiety	Anxiety from a medical condition			
+bh.anxiety	Social anxiety	original:bh-social-cue	original:bh-social-performance	
+bh.anxiety	Hyperventilation syndrome			
+bh.anxiety	Obsessive-compulsive disorder	bank:usmle-step1:pharm-fluoxetine-uses:v1	original:bh-ocd-intrusive original:bh-ocd-ritual	original:bh-ocd-exposure
+bh.anxiety	Panic disorder	original:bh-panic-loop	original:bh-panic-course	original:bh-panic-intero
+bh.anxiety	Agoraphobia			
+bh.anxiety	Specific phobia			
+bh.anxiety	Posttraumatic stress disorder		original:bh-trauma-avoid original:bh-trauma-duration	original:bh-traumatx-first original:bh-traumatx-benzo
+bh.anxiety	Selective mutism			
+bh.anxiety	Separation anxiety			
+bh.anxiety	Substance-induced anxiety			
+bh.anxiety	Trichotillomania			
+bh.mood	Major depressive disorder	bank:usmle-step1:pharm-sertraline-uses:v1		
+bh.mood	Psychotic depression			
+bh.mood	Seasonal pattern of depression			
+bh.mood	Postpartum depression and screening			
+bh.mood	Postpartum psychosis			original:ccs-mood-identify original:ccs-mood-setting original:ccs-mood-safety
+bh.mood	Cyclothymia			
+bh.mood	Persistent depressive disorder			
+bh.mood	Bipolar mania		original:bh-bipolar-psychotic	
+bh.mood	Bipolar depression			
+bh.mood	Bipolar mixed features			
+bh.mood	Premenstrual syndrome			
+bh.mood	Premenstrual dysphoric disorder		original:bh-pmdd-pattern	original:bh-pmdd-diary
+bh.mood	Mood disorder due to a medical condition		original:bh-depress-medical	
+bh.mood	Substance- or medication-induced mood disorder			
+bh.mood	Suicidal ideation, attempt and risk assessment		original:bh-safety-next	original:bh-safety-immediate original:bh-safety-plan original:bh-safety-contract
+bh.somatic	Body dysmorphic disorder			
+bh.somatic	Functional neurologic symptom disorder			
+bh.somatic	Functional seizures		original:bh-func-capture	original:bh-func-explain original:bh-func-dual
+bh.somatic	Dissociative disorders			
+bh.somatic	Illness anxiety disorder		original:bh-somatic-illanx	
+bh.somatic	Malingering		original:bh-fact-incentive	
+bh.somatic	Somatic symptom disorder including predominant pain		original:bh-somatic-required	original:bh-somatic-continuity
+bh.factitious	Factitious disorder imposed on self	original:bh-fact-intent		
+bh.eating	Anorexia nervosa			
+bh.eating	Binge-eating disorder		original:bh-eat-binge	
+bh.eating	Bulimia nervosa	original:bh-eat-purge	original:bh-eat-weight	
+bh.eating	Other specified or unspecified eating disorders			
+bh.eating	Gambling disorder		original:bh-gamble-chase	
+bh.eating	Kleptomania			
+bh.eating	Pyromania			
+bh.child	Reactive attachment disorder			
+bh.child	Attention-deficit/hyperactivity disorder			original:bh-child-preschool original:bh-child-goals
+bh.child	Speech sound and language disorders			
+bh.child	Specific learning disorder and dyslexia			
+bh.child	Intellectual disability			
+bh.child	Developmental delay and school difficulties			
+bh.child	Fetal alcohol syndrome			
+bh.child	Oppositional defiant disorder			
+bh.child	Conduct disorder			
+bh.child	Autism spectrum disorder		original:bh-autism-timing original:bh-asd-pattern	original:bh-autism-positive original:bh-asd-tailor
+bh.child	Rett syndrome			
+bh.child	Childhood-onset psychosis			
+bh.child	Enuresis			
+bh.child	Encopresis			
+bh.child	Tic disorders and Tourette syndrome		original:bh-tic-tourette original:bh-tic-motor	
+bh.personality	Antisocial personality disorder			
+bh.personality	Avoidant personality disorder		original:bh-person-avoid	
+bh.personality	Borderline personality disorder		original:bh-border-pattern	original:bh-border-dbt
+bh.personality	Dependent personality disorder		original:bh-person-depend	
+bh.personality	Histrionic personality disorder			
+bh.personality	Narcissistic personality disorder		original:bh-person-grand	
+bh.personality	Obsessive-compulsive personality disorder		original:bh-person-order	
+bh.personality	Paranoid personality disorder			
+bh.personality	Schizoid personality disorder		original:bh-person-schizoid	
+bh.stress	Adjustment disorder		original:bh-adjust-stressor	
+bh.stress	Normal grief			
+bh.stress	Prolonged grief		original:bh-grief-duration	original:bh-grief-context
+bh.stress	Parent–child relationship problems			
+bh.stress	Psychosocial stressors			
+bh.stress	Transference			
+bh.stress	Personality traits and coping			
+bh.sexual	Gender dysphoria		original:bh-gender-criterion	original:bh-gender-goals
+bh.sexual	Psychosexual dysfunction			original:bh-sert-sexual
+bh.substance	Alcohol use disorder			original:bh-alcohol-after original:bh-acamp-kidney
+bh.substance	Alcohol intoxication			
+bh.substance	Alcohol withdrawal		bank:cohort:psych:q-77eb1e7793e5:v1 original:bh-alcohol-timeline original:bh-alcohol-previous	original:bh-alcohol-first original:bh-alcohol-scale
+bh.substance	Nicotine dependence and withdrawal			
+bh.substance	Varenicline in smoking cessation	original:bh-varen-partial		
+bh.substance	Cannabis use disorder, intoxication and withdrawal			
+bh.substance	Hallucinogen-related disorders including intoxication			
+bh.substance	Inhalant-related disorders			
+bh.substance	Opioid use disorder including heroin and prescription opioids		original:bh-oud-maintenance	original:bh-oud-discharge original:bh-oud-detox
+bh.substance	Opioid intoxication			original:bh-opant-recur
+bh.substance	Opioid withdrawal	original:bh-oud-induce original:bh-nalt-withdraw		
+bh.substance	Sedative-hypnotic use disorder and intoxication			
+bh.substance	Sedative-hypnotic withdrawal			
+bh.substance	Cocaine-related disorders			
+bh.substance	Methamphetamine-related disorders			
+bh.substance	Stimulant withdrawal			
+bh.substance	MDMA-related disorders			
+bh.substance	PCP-related disorders			
+bh.substance	Synthetic cathinone-related disorders			
+bh.substance	Polysubstance use and intoxication			
+skin.inf	Cellulitis			
+skin.inf	Erysipelas			
+skin.inf	Impetigo			
+skin.inf	Staphylococcal scalded skin syndrome			
+skin.inf	Cutaneous abscess and carbuncle			
+skin.inf	Cutaneous anthrax			
+skin.inf	Folliculitis			
+skin.inf	Infected pilonidal disease			
+skin.inf	Staphylococcal skin infection including MRSA			
+skin.inf	Cutaneous mycobacterial infection and leprosy			
+skin.inf	Scarlet fever		bank:cohort:id:q-aa32a11438af:v1 bank:cohort:paeds:q-2294851f2f87:v1	
+skin.inf	Cutaneous herpes simplex			
+skin.inf	Herpes zoster			
+skin.inf	Ramsay Hunt syndrome			
+skin.inf	Molluscum contagiosum		bank:cohort:derm:q-6831a3607696:v1	
+skin.inf	Hand-foot-and-mouth disease		bank:cohort:derm:q-c259d8812082:v1	
+skin.inf	Herpangina			
+skin.inf	Erythema infectiosum			
+skin.inf	Varicella			
+skin.inf	Rubella			
+skin.inf	Measles	bank:usmle-step1:micro-measles-clinical-recognition:v1		
+skin.inf	Roseola			
+skin.inf	Common warts			
+skin.inf	Cutaneous candidiasis			
+skin.inf	Tinea corporis and superficial dermatophytosis			
+skin.inf	Diaper dermatitis			
+skin.inf	Onychomycosis			
+skin.inf	Cutaneous larva migrans			
+skin.inf	Cutaneous leishmaniasis			
+skin.inf	Scabies			
+skin.inf	Pediculosis			
+skin.inf	Arthropod bites including bedbugs			
+skin.inf	Psoriasis			
+skin.inf	Lichen planus and lichenoid dermatoses			
+skin.inf	Allergic contact dermatitis	original:im-iv-f original:im-iv-app	original:im-iv-a	original:im-iv-rx
+skin.inf	Irritant contact dermatitis			
+skin.inf	Plant dermatitis			
+skin.inf	Epidermolysis bullosa			
+skin.inf	Dermatitis herpetiformis			
+skin.inf	Pemphigus			
+skin.inf	Bullous pemphigoid			
+skin.inf	Pyoderma gangrenosum			
+skin.inf	Erythema nodosum			
+skin.inf	Atopic dermatitis			
+skin.inf	Pityriasis rosea			
+skin.inf	Urticaria			
+skin.inf	Stevens–Johnson syndrome			
+skin.inf	Erythema multiforme			
+skin.inf	Toxic epidermal necrolysis			
+skin.inf	Vitiligo			
+skin.tumor	Actinic keratosis			
+skin.tumor	Epidermoid and other cutaneous cysts			
+skin.tumor	Hemangioma			
+skin.tumor	Lipoma			
+skin.tumor	Melanocytic nevi			
+skin.tumor	Seborrheic keratosis			
+skin.tumor	Xanthoma			
+skin.tumor	Basal cell carcinoma			
+skin.tumor	Cutaneous squamous cell carcinoma			
+skin.tumor	Melanoma including genital sites	original:s1-skin-mel-evolve original:s1-skin-mel-asym original:s1-skin-mel-size	original:ck-mel-biopsy-sample original:ck-mel-biopsy-depth	original:ccs-melanoma-staging original:ccs-melanoma-local original:ccs-melanoma-nodes
+skin.tumor	Cutaneous T-cell lymphoma and mycosis fungoides			
+skin.appendage	Alopecia			
+skin.appendage	Seborrheic dermatitis			
+skin.appendage	Tinea barbae			
+skin.appendage	Tinea capitis			
+skin.appendage	Nail disorders including ingrown nails			
+skin.appendage	Acne vulgaris			
+skin.appendage	Hidradenitis suppurativa			
+skin.appendage	Hyperhidrosis			
+skin.appendage	Ichthyosis			
+skin.appendage	Rosacea			
+skin.oral	Aphthous ulcers			
+skin.oral	Oral leukoplakia			
+skin.pigment	Albinism			
+skin.pigment	Lentigo			
+skin.injury	Animal bites			
+skin.injury	Sunburn and ultraviolet injury			
+skin.injury	Thermal burns and cutaneous wounds			
+skin.injury	Blast-related skin injury			
+skin.injury	Auricular hematoma and cauliflower ear			
+skin.injury	Keloids			
+skin.injury	Tattoo-related skin problems			
+skin.injury	Perniosis			
+skin.injury	Frostbite			
+skin.injury	Pressure injury			
+skin.congenital	Xeroderma pigmentosum			
+skin.congenital	Congenital nevi and other benign infant lesions			
+skin.drug	Drug eruptions		original:bh-lamo-rash	
+skin.drug	Local vaccine reactions			
+msk.inf	Dry and wet gangrene			
+msk.inf	Clostridial myonecrosis			
+msk.inf	Discitis			
+msk.inf	Infectious myositis			
+msk.inf	Necrotizing fasciitis			
+msk.inf	Osteomyelitis			
+msk.inf	Septic arthritis			
+msk.inf	Tuberculous spondylitis			
+msk.inf	Ankylosing spondylitis and inflammatory spinal ankylosis			
+msk.inf	Dermatomyositis			
+msk.inf	Polymyositis			
+msk.inf	Juvenile idiopathic arthritis			
+msk.inf	Rheumatoid arthritis			
+msk.inf	Felty syndrome			
+msk.inf	Psoriatic arthritis			
+msk.inf	Adhesive capsulitis			
+msk.inf	Bursitis			
+msk.inf	Fasciitis			
+msk.inf	Ganglion cyst			
+msk.inf	Osteochondritis dissecans			
+msk.inf	Tendinitis and supraspinatus tendinopathy			
+msk.inf	Enthesopathy			
+msk.inf	Temporomandibular joint disorders			
+msk.inf	Myofascial pain and fibrositis			
+msk.inf	Synovitis			
+msk.inf	Tenosynovitis			
+msk.inf	Other inflammatory myositis			
+msk.tumor	Osteoid osteoma			
+msk.tumor	Enchondroma			
+msk.tumor	Tenosynovial giant cell tumor			
+msk.tumor	Osteosarcoma			
+msk.tumor	Other bone and soft tissue sarcomas			
+msk.tumor	Leiomyosarcoma			
+msk.tumor	Rhabdomyosarcoma			
+msk.tumor	Bone metastases			
+msk.metabolic	Chondromalacia			
+msk.metabolic	Degenerative disc disease			
+msk.metabolic	Disc herniation			
+msk.metabolic	Legg–Calvé–Perthes disease		bank:cohort:msk:q-cf6be98f1d6b:v1	
+msk.metabolic	Osgood–Schlatter disease			
+msk.metabolic	Renal osteodystrophy			
+msk.metabolic	Osteomalacia			
+msk.metabolic	Osteonecrosis and bone infarction			
+msk.metabolic	Osteoporosis			
+msk.metabolic	Osteopenia			
+msk.metabolic	Paget disease of bone			
+msk.metabolic	Pathologic fracture			
+msk.metabolic	Radiculopathy			
+msk.metabolic	Degenerative spondylolisthesis and spondylosis			
+msk.metabolic	Gout		original:rx-thiazide-gout	original:fip-gout-confirm original:fip-gout-onset original:fip-gout-serum
+msk.metabolic	Calcium pyrophosphate arthritis			
+msk.metabolic	Joint effusion			
+msk.metabolic	Osteoarthritis			
+msk.metabolic	Dupuytren contracture			
+msk.metabolic	Heterotopic muscle ossification and calcification			
+msk.metabolic	Muscle wasting and atrophy			
+msk.metabolic	Rhabdomyolysis			original:rx-statin-rhabdo
+msk.trauma	Amputation and amputee care			
+msk.trauma	Low back pain			
+msk.trauma	Blast-related musculoskeletal trauma			
+msk.trauma	Compartment syndrome			
+msk.trauma	Hospital-acquired contractures			
+msk.trauma	Contusions			
+msk.trauma	Joint dislocation			
+msk.trauma	Fracture assessment			
+msk.trauma	Sprains and strains			
+msk.trauma	Scoliosis and kyphoscoliosis			
+msk.trauma	Rotator cuff injury			
+msk.trauma	Slipped capital femoral epiphysis			
+msk.trauma	Traumatic hip dislocation			
+msk.congenital	Achondroplasia and disproportionate short stature			
+msk.congenital	Limb patterning disorders and phocomelia			
+msk.congenital	Developmental dysplasia of the hip			
+msk.congenital	Hip dislocation in spinal muscular atrophy			
+msk.congenital	Genu valgum and genu varum			
+msk.congenital	Congenital foot deformities			
+msk.congenital	Osteogenesis imperfecta	original:gen-osteogenesis-imperfecta-collagen	original:gen-osteogenesis-imperfecta-pattern	original:gen-osteogenesis-imperfecta-hearing
+msk.congenital	McArdle disease	original:gen-glycogen-storage-disease-type-v-enzyme	original:gen-glycogen-storage-disease-type-v-wind	original:gen-glycogen-storage-disease-type-v-urine
+msk.congenital	Mitochondrial myopathies			
+msk.drug	Glucocorticoid myopathy			
+msk.drug	Statin-associated myopathy			original:rx-statin-rhabdo
+msk.drug	Cocaine-associated muscle injury			
+msk.drug	Zidovudine-associated myopathy			
+msk.drug	Malignant hyperthermia			
+male.inf	Balanitis			
+male.inf	Epididymitis			
+male.inf	Orchitis			
+male.inf	Prostatitis			
+male.inf	STI exposure and evaluation			
+male.inf	Chancroid			
+male.inf	Genital herpes			
+male.inf	Gonorrhea			
+male.inf	Anogenital HPV and condylomata			
+male.inf	Lymphogranuloma venereum			
+male.inf	Syphilis			
+male.inf	Trichomoniasis			
+male.inf	Chlamydial and other nongonococcal urethritis			
+male.inf	Autoimmune hypogonadism			
+male.tumor	Penile cancer			
+male.tumor	Prostate cancer			
+male.tumor	Testicular malignancy	original:s1-testis-tumor-afp original:s1-testis-tumor-hcg original:s1-testis-tumor-kinetics	original:ck-testis-tumor-scan original:ck-testis-tumor-route original:ck-testis-tumor-normal	original:ccs-testicular-before original:ccs-testicular-fertile original:ccs-testicular-trend
+male.tumor	Male breast cancer			
+male.regulatory	Erectile dysfunction	bank:usmle-step1:pharm-sildenafil-uses:v1		
+male.regulatory	Male-factor infertility	original:eh-and-low	original:eh-and-history	original:eh-and-avoid
+male.regulatory	Male sexual dysfunction			
+male.regulatory	Premature ejaculation			
+male.regulatory	Priapism			
+male.trauma	Benign prostatic hyperplasia	bank:usmle-step1:pharm-tamsulosin-uses:v1		
+male.trauma	Circumcision complications			
+male.trauma	Epididymal cyst			
+male.trauma	Hydrocele including neonatal hydrocele			
+male.trauma	Genital wounds and burns			
+male.trauma	Penile laceration and fracture			
+male.trauma	Peyronie disease			
+male.trauma	Phimosis			
+male.trauma	Scrotal laceration			
+male.trauma	Spermatocele			
+male.trauma	Testicular rupture and avulsion			
+male.trauma	Testicular torsion		original:ckscrot-torsion original:ckscrot-flow original:ckscrot-delay original:ckscrot-relief	
+male.trauma	Urethral disruption		original:ku-trauma-urethra	
+male.trauma	Varicocele			
+male.congenital	Hypospadias			
+male.congenital	Klinefelter syndrome			
+male.congenital	Cryptorchidism			
+male.drug	Alcohol-related sexual or reproductive effects			
+male.drug	Exogenous androgen and testosterone effects	original:eh-and-axis original:eh-and-low	original:eh-and-history	original:eh-and-avoid
+male.drug	Antipsychotic-associated sexual dysfunction			
+male.drug	Antidepressant-associated sexual dysfunction			original:bh-sert-sexual
+male.drug	Beta-blocker-associated erectile dysfunction			
+male.drug	Diuretic-associated erectile dysfunction			
+male.drug	Finasteride and dutasteride effects			
+male.drug	PDE5 inhibitor effects			
+male.drug	Cannabis-related reproductive effects			
+male.drug	Drugs affecting nitric oxide signaling			
+multi.inf	Brucellosis			
+multi.inf	Leptospirosis			
+multi.inf	Lyme disease			
+multi.inf	Melioidosis			
+multi.inf	Disseminated tuberculosis			
+multi.inf	Tularemia			
+multi.inf	Toxic shock syndrome			
+multi.inf	Q fever			
+multi.inf	Anaplasmosis			
+multi.inf	Ehrlichiosis			
+multi.inf	Rocky Mountain spotted fever and other rickettsioses			
+multi.inf	EBV infectious mononucleosis			
+multi.inf	Cytomegalovirus disease			
+multi.inf	Yellow fever			
+multi.inf	HHV-8-associated disease	original:im-ks-f		
+multi.inf	Blastomycosis			
+multi.inf	Systemic candidiasis			
+multi.inf	Coccidioidomycosis			
+multi.inf	Histoplasmosis			
+multi.inf	Schistosomiasis			
+multi.inf	Visceral leishmaniasis			
+multi.inf	Acute and chronic Chagas disease			
+multi.inf	Acute rheumatic fever		original:ckstrep-why	
+multi.inf	Systemic autoimmune vasculitis			
+multi.inf	Behçet disease			
+multi.inf	Eosinophilic granulomatosis with polyangiitis			
+multi.inf	Langerhans cell histiocytosis and eosinophilic granuloma			
+multi.inf	Anti-GBM disease		original:ku-cast-anti	
+multi.inf	IgA vasculitis			
+multi.inf	Kawasaki disease		bank:cohort:id:q-a10048116c70:v1	
+multi.inf	Mixed connective tissue disease			
+multi.inf	Microscopic polyangiitis			
+multi.inf	Polyarteritis nodosa			
+multi.inf	Autoimmune polyglandular syndrome type 1			
+multi.inf	Polymyalgia rheumatica			
+multi.inf	Giant cell arteritis			
+multi.inf	Raynaud phenomenon			
+multi.inf	Reactive arthritis			
+multi.inf	Systemic sclerosis			
+multi.inf	Sjögren syndrome			
+multi.inf	Systemic lupus erythematosus			
+multi.inf	Takayasu arteritis			
+multi.inf	Granulomatosis with polyangiitis			
+multi.inf	Familial Mediterranean fever			
+multi.inf	Sarcoidosis and Löfgren syndrome			
+multi.tumor	Ectopic ADH production			
+multi.tumor	Ectopic ACTH production			
+multi.tumor	Humoral hypercalcemia of malignancy			
+multi.tumor	Paraneoplastic erythrocytosis			
+multi.tumor	Nonbacterial thrombotic endocarditis			
+multi.tumor	Lambert–Eaton myasthenic syndrome			
+multi.tumor	Paraneoplastic cerebellar degeneration			
+multi.tumor	Limbic encephalitis			
+multi.tumor	Paraneoplastic sensory neuronopathy			
+multi.tumor	Anti-NMDA receptor encephalitis			
+multi.tumor	Malignancy-associated acanthosis nigricans			
+multi.tumor	Hypertrophic pulmonary osteoarthropathy			
+multi.tumor	Cancer-associated inflammatory myopathy			
+multi.tumor	Cancer-associated membranous nephropathy			
+multi.tumor	Fanconi anemia and inherited DNA repair defects			
+multi.tumor	Lynch syndrome		original:gut-gene-lynch	
+multi.symptom	Undifferentiated joint pain			
+multi.symptom	Undifferentiated chest pain			
+multi.symptom	Undifferentiated cough			
+multi.symptom	Dizziness and light-headedness			
+multi.symptom	Undifferentiated dyspnea			
+multi.symptom	Fatigue			
+multi.symptom	Fever of unknown origin			
+multi.symptom	Frailty			
+multi.symptom	Failure to thrive			
+multi.symptom	Hemoptysis			
+multi.symptom	Lymphedema			
+multi.symptom	Pain treatment and safe opioid prescribing			
+multi.symptom	Palpitations			
+multi.symptom	Pruritus			
+multi.symptom	Syncope and breath-holding spells			
+multi.symptom	Unintentional weight gain or loss		original:nut-weight-measure original:nut-weight-cause	original:nut-weight-percent original:nut-weight-fluid
+multi.nutrition	Kwashiorkor			
+multi.nutrition	Marasmus			
+multi.nutrition	Vitamin A disorders		original:well-preg-retinol	
+multi.nutrition	B-vitamin deficiencies			
+multi.nutrition	Thiamine deficiency including Wernicke–Korsakoff syndrome and beriberi			original:nut-refeed-vitamin
+multi.nutrition	Niacin deficiency			
+multi.nutrition	Pyridoxine deficiency and toxicity			
+multi.nutrition	Folate deficiency			
+multi.nutrition	Cobalamin deficiency and pernicious anemia			
+multi.nutrition	Scurvy			
+multi.nutrition	Vitamin D disorders and rickets			
+multi.nutrition	Vitamin E disorders			
+multi.nutrition	Vitamin K disorders			
+multi.nutrition	Mineral deficiency and toxicity	original:nut-zinc-copper	original:nut-zinc-history original:nut-copper-gait	original:nut-zinc-source
+multi.nutrition	Obesity			
+multi.nutrition	Enteral nutrition		original:nut-enteral-swallow	original:nut-enteral-reassess original:nut-par-wean
+multi.nutrition	Parenteral nutrition		original:nut-par-obstruction original:nut-par-bowel	original:nut-par-wean
+multi.exposure	Hypothermia			
+multi.exposure	Hyperthermia and heat stroke			
+multi.exposure	Ionizing radiation exposure			
+multi.exposure	Thermal burns			
+multi.exposure	Electrical injury and lightning			
+multi.exposure	High-altitude illness			
+multi.exposure	Diving and nitrogen narcosis			
+multi.exposure	Gulf War illness			
+multi.exposure	Gases and smoke inhalation			
+multi.exposure	Pesticide exposure			
+multi.exposure	Green tobacco sickness			
+multi.exposure	Anhydrous ammonia exposure			
+multi.exposure	Agent Orange exposure			
+multi.exposure	Volatile organic solvents			
+multi.exposure	Lead and other heavy metals			
+multi.exposure	Ethylene glycol poisoning			
+multi.exposure	Carbon tetrachloride exposure			
+multi.exposure	Methanol poisoning			
+multi.exposure	Bisphenol A exposure			
+multi.exposure	Principles of poisoning assessment and treatment			
+multi.exposure	Salicylate toxicity			
+multi.exposure	Acetaminophen toxicity			
+multi.venom	Hymenoptera stings			
+multi.venom	Scorpion envenomation			
+multi.venom	Snake envenomation			
+multi.venom	Spider envenomation			
+multi.venom	Jellyfish stings			
+multi.fluid	Assessment of volume status			
+multi.fluid	Dehydration			
+multi.fluid	Hypovolemia			
+multi.fluid	Volume overload			
+multi.fluid	Hyponatremia			
+multi.fluid	Hypernatremia			
+multi.fluid	Hypokalemia		original:ku-cis-k	original:ccs-dka-potassium
+multi.fluid	Hyperkalemia	original:htls-k	original:rx-epl-potassium	original:htls-ecg original:htls-monitor original:cv-hf-highk
+multi.fluid	Hypocalcemia	original:htls-ca	original:rx-cin-tetany original:rx-rankl-ckd original:per-seiz-ca	original:htls-silent
+multi.fluid	Hypercalcemia			
+multi.fluid	Hypophosphatemia	original:nut-refeed-atp	original:nut-refeed-plot	original:nut-refeed-normal original:nut-refeed-trend
+multi.fluid	Hyperphosphatemia	original:htls-ca		
+multi.fluid	Hypomagnesemia	original:ku-cis-mg	original:ku-cis-k	
+multi.fluid	Metabolic acidosis			
+multi.fluid	Metabolic alkalosis	original:bh-eat-purge		
+multi.fluid	Respiratory acidosis		original:pul-niv-acidosis	
+multi.fluid	Respiratory alkalosis			
+multi.fluid	Mixed acid–base disorders			
+multi.abuse	Child physical abuse and abusive head trauma			
+multi.abuse	Factitious disorder imposed on another			
+multi.abuse	Intimate partner violence			
+multi.abuse	Elder abuse			
+multi.abuse	Sexual assault			
+multi.trauma	Prioritization in multisystem trauma			
+multi.trauma	Multisystem blast injury			
+multi.shock	Cardiogenic shock			
+multi.shock	Hypovolemic shock		original:gut-hydrate-shock	
+multi.shock	Neurogenic shock			
+multi.shock	Septic shock			
+multi.shock	Sepsis			
+multi.shock	Bacteremia			
+multi.shock	Systemic inflammatory response syndrome			
+multi.shock	Refractory shock			
+multi.shock	Multiorgan dysfunction			
+multi.shock	Meningococcemia			
+multi.genetic	VACTERL and congenital anomaly associations			
+multi.genetic	Beckwith–Wiedemann syndrome			
+multi.genetic	Down syndrome		bank:cohort:paeds:q-4c86adeaedc4:v1	
+multi.genetic	Prader–Willi syndrome			
+multi.genetic	Alpha-1 antitrypsin deficiency			
+multi.genetic	Porphyrias			
+multi.genetic	Maple syrup urine disease	original:gen-maple-syrup-urine-disease-substrates original:gen-maple-syrup-urine-disease-block	original:gen-maple-syrup-urine-disease-case	
+multi.genetic	Urea cycle defects	original:gen-ornithine-transcarbamylase-deficiency-urea	original:gen-ornithine-transcarbamylase-deficiency-marker	original:gen-ornithine-transcarbamylase-deficiency-female
+multi.genetic	Fabry disease			
+multi.genetic	Tay–Sachs disease			
+multi.genetic	Glycogen storage diseases	original:gen-glycogen-storage-disease-type-i-reaction original:gen-glycogen-storage-disease-type-i-subtype original:gen-glycogen-storage-disease-type-v-enzyme	original:gen-glycogen-storage-disease-type-i-liver original:gen-glycogen-storage-disease-type-v-wind	original:gen-glycogen-storage-disease-type-v-urine
+multi.genetic	Mucopolysaccharidoses			
+multi.genetic	Amyloidosis			
+multi.genetic	Ehlers–Danlos syndromes			
+multi.genetic	Primary ciliary dyskinesia and Kartagener syndrome			
+multi.genetic	Marfan syndrome	original:gen-marfan-syndrome-protein	original:gen-marfan-syndrome-cluster	original:gen-marfan-syndrome-aorta
+multi.genetic	Cystic fibrosis	original:gen-cystic-fibrosis-duct	original:gen-cystic-fibrosis-meconium	original:gen-cystic-fibrosis-growth
+multi.genetic	Hereditary hemochromatosis	original:gen-hereditary-hemochromatosis-absorb	original:gen-hereditary-hemochromatosis-organs	original:gen-hereditary-hemochromatosis-penetrance
+multi.genetic	Wilson disease	original:gen-wilson-disease-transport	original:gen-wilson-disease-clues	original:gen-wilson-disease-family
+multi.genetic	Fragile X syndrome	original:gen-fragile-x-syndrome-silence	original:gen-fragile-x-syndrome-clues	
+multi.drug	Beta agonist-induced hypokalemia			
+multi.drug	Glucocorticoid-associated electrolyte disorders			
+multi.drug	Diuretic-associated electrolyte and acid–base disorders			
+multi.drug	Alcohol-associated electrolyte and acid–base disorders			
+multi.drug	Drug-associated polydipsia			
+multi.drug	Drug-induced SIADH			
+multi.drug	Drug-induced diabetes insipidus	original:bh-lith-water		

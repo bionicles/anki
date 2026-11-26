@@ -1150,6 +1150,57 @@ def agreement_figures():
         save(fig, "evidence_agreement_" + case)
 
 
+def immune_reports():
+    """Synthetic laboratory reports and idealized gated neutrophil fluorescence."""
+    panels = {
+        "classic": ("Complement activity", ("CH50", "AH50"), ("Absent", "Normal")),
+        "alt": ("Complement activity", ("CH50", "AH50"), ("Normal", "Absent")),
+        "both": ("Complement activity", ("CH50", "AH50"), ("Absent", "Absent")),
+        "normal": ("Complement activity", ("CH50", "AH50"), ("Normal", "Normal")),
+        "hiv_pending": ("HIV testing", ("HIV-1/2 Ag/Ab screen", "Antibody differentiation"),
+                        ("Reactive", "Negative")),
+        "hiv_false": ("HIV testing", ("HIV-1/2 Ag/Ab screen", "Antibody differentiation", "HIV-1 RNA"),
+                      ("Reactive", "Negative", "Not detected")),
+    }
+    for name, (title, analytes, results) in panels.items():
+        fig, ax = plt.subplots(figsize=(5.1, 2.4), layout="constrained")
+        ax.axis("off")
+        ax.set_title(f"{title}  •  simulated patient report", fontsize=12)
+        table = ax.table(cellText=list(zip(analytes, results)), colLabels=["Test", "Laboratory result"],
+                         cellLoc="left", colLoc="left", loc="center", colWidths=[0.52, 0.45])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        table.scale(1, 1.55)
+        save(fig, "immune_" + name)
+
+    for name, values in [("iga", (1120, 3, 122)), ("multi", (285, 5, 110))]:
+        fig, ax = plt.subplots(figsize=(5.1, 2.4), layout="constrained")
+        ax.axis("off")
+        ax.set_title("Serum immunoglobulins  •  simulated adult report", fontsize=12)
+        rows = list(zip(["IgG", "IgA", "IgM"], values, ["700–1600", "70–400", "40–230"]))
+        table = ax.table(cellText=rows, colLabels=["Analyte", "mg/dL", "Lab interval (mg/dL)"],
+                         cellLoc="center", loc="center", colWidths=[0.23, 0.23, 0.47])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        table.scale(1, 1.5)
+        save(fig, "immune_" + name)
+
+    x = np.linspace(0, 4, 400)
+    dim = np.exp(-0.5 * ((x - 0.8) / 0.21) ** 2)
+    bright = np.exp(-0.5 * ((x - 3.05) / 0.27) ** 2)
+    for name, response in [("low", dim), ("normal", bright), ("mosaic", 0.55 * dim + 0.45 * bright)]:
+        fig, axes_pair = plt.subplots(2, 1, sharex=True, figsize=(5.2, 3.5), layout="constrained")
+        for ax, label, curve in zip(axes_pair, ["Control", "Patient"], [bright, response]):
+            ax.fill_between(x, dim, color="#aaa", alpha=0.45, label="Resting")
+            ax.plot(x, curve, color=COLORS[0], lw=2.5, label="Stimulated")
+            ax.set(yticks=[], ylabel=label, ylim=(0, 1.15))
+        axes_pair[0].legend(loc="upper center", fontsize=8)
+        axes_pair[1].set_xlabel("DHR fluorescence (log scale, arbitrary units)")
+        axes_pair[1].set_xticks([0, 1, 2, 3, 4], ["1", "10", "100", "1,000", "10,000"])
+        fig.suptitle("Neutrophil fluorescence distributions  •  simulated")
+        save(fig, "immune_burst_" + name)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -1161,6 +1212,7 @@ def main():
     fetal_atrium_calipers()
     evidence_studies()
     evidence_reports()
+    immune_reports()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
