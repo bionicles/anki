@@ -2506,6 +2506,72 @@ def eye_injury_and_experiment_studies():
         save(fig, "acuteeye_" + name)
 
 
+def neuroinfection_studies():
+    """Draw simulated clinical records and data from model MCAT experiments."""
+    def record(name, title, columns, rows):
+        fig, ax = plt.subplots(figsize=(6.1, 2.65), layout="constrained")
+        ax.axis("off")
+        ax.set_title(title + "  •  simulated")
+        table = ax.table(cellText=rows, colLabels=columns, loc="center",
+                         cellLoc="center", bbox=[.01, .08, .98, .76])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for col in range(len(columns)):
+            table[0, col].set_facecolor("#e2edf1")
+        save(fig, "neuroinf_" + name)
+
+    for name, blood, csf in [("lowratio", 120, 24), ("normratio", 50, 30)]:
+        record(name, "Paired glucose measurements", ["Sample", "Glucose (mg/dL)"],
+               [["Blood", blood], ["CSF", csf]])
+    for name, wbc, differential, protein, ratio in [
+        ("viralcsf", 160, "88% lymphocytes", 65, "0.64"),
+        ("bacscsf", 1940, "91% neutrophils", 220, "0.19"),
+    ]:
+        record(name, "Lumbar puncture", ["CSF measurement", "Result"],
+               [["Leukocytes per µL", wbc], ["Differential", differential],
+                ["Protein (mg/dL)", protein], ["CSF / blood glucose", ratio]])
+    record("cryptpress", "Lumbar puncture in lateral decubitus",
+           ["Measurement", "Result"],
+           [["Opening pressure", "39 cm H₂O"], ["Leukocytes", "4/µL"]])
+    record("eoscount", "CSF cell count and differential", ["Measurement", "Result"],
+           [["Leukocytes", "200/µL"], ["Lymphocytes", "68%"],
+            ["Eosinophils", "20%"], ["Other leukocytes", "12%"]])
+    record("level", "Pinprick sensation on examination", ["Site", "Left", "Right"],
+           [["Hand", "Normal", "Normal"], ["Upper chest", "Normal", "Normal"],
+            ["Below umbilicus", "Reduced", "Reduced"], ["Foot", "Reduced", "Reduced"]])
+    record("pulse", "Heart rate in two model preparations",
+           ["Condition", "Before (beats/min)", "During (beats/min)"],
+           [["Vagal stimulation", "82", "62"], ["Sham stimulation", "80", "78"]])
+    record("receptor", "Hormone-responsive reporter (arbitrary units)",
+           ["Cell line", "Vehicle", "Hormone"], [["A", 2, 9], ["B", 5, 6]])
+    record("respfall", "Respiratory observations during myelitis",
+           ["Time", "Vital capacity (L)", "Room-air SpO₂"],
+           [["08:00", "2.8", "97%"], ["10:00", "2.0", "97%"], ["12:00", "1.2", "96%"]])
+    record("toxfail", "Serial right arm examination",
+           ["Day of therapy", "Shoulder abduction", "Elbow flexion"],
+           [[1, "3/5", "3/5"], [7, "3/5", "3/5"], [14, "2/5", "2/5"]])
+    record("msfever", "Course during a urinary tract infection",
+           ["Observation", "Temperature (°C)", "Right leg strength"],
+           [["Usual baseline", "36.8", "5/5"], ["During fever", "39.1", "4/5"],
+            ["After recovery", "36.9", "5/5"]])
+    fig, ax = axes("Time after stimulation (ms)", "Signal (offset traces)")
+    for t, y, label in [(2, 1.2, "Proximal"), (4, 0, "Distal")]:
+        ax.plot([0, t - .3, t, t + .35, t + .6, 6],
+                [y, y, y + .8, y - .1, y, y], label=label, lw=2)
+        ax.axvline(t, color="#999999", lw=.8, ls=":")
+    ax.set(title="Axonal recordings  •  simulated", yticks=[], xticks=range(7))
+    ax.legend(loc="upper right")
+    save(fig, "neuroinf_latency")
+    fig, ax = axes("Time after stimulus (ms)", "Fraction of own peak")
+    ax.plot([0, 2, 5, 10, 20, 35, 60, 80], [0, 0, 1, .84, .4, .09, 0, 0],
+            "o-", label="Cytosolic calcium")
+    ax.plot([0, 5, 10, 20, 35, 50, 65, 80], [0, 0, .08, .6, 1, .66, .22, 0],
+            "s--", label="Force")
+    ax.set(title="Single muscle twitch  •  simulated")
+    ax.legend()
+    save(fig, "neuroinf_twitch")
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -2536,6 +2602,7 @@ def main():
     clinical_otology_studies()
     visual_function_studies()
     eye_injury_and_experiment_studies()
+    neuroinfection_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()

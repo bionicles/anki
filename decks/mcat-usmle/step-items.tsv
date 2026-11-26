@@ -318,22 +318,22 @@ gi.drug	Drug-induced liver injury	original:gut-dili-formula original:gut-dili-a 
 gi.drug	Acetaminophen hepatotoxicity			
 gi.drug	Isoniazid hepatotoxicity			
 gi.drug	Drug-induced pancreatitis including thiazides			
-neuro.inf	Bacterial meningitis			
-neuro.inf	Viral meningitis			
-neuro.inf	Fungal meningitis			
-neuro.inf	Spirochetal meningitis and neurosyphilis			
-neuro.inf	Parasitic meningitis			
-neuro.inf	Herpesvirus encephalitis			
-neuro.inf	Arboviral encephalitis			
-neuro.inf	Other viral encephalitis			
-neuro.inf	Parasitic encephalitis			
-neuro.inf	Prion disease			
-neuro.inf	Botulism			
-neuro.inf	Tetanus			
-neuro.inf	HIV-related CNS disorders including PML			
-neuro.inf	Myasthenia gravis and thymoma	original:nmg-site	original:nmg-lid original:nmg-chest	original:nmg-bulbar original:nmg-iv
-neuro.inf	Multiple sclerosis			
-neuro.inf	Transverse myelitis			
+neuro.inf	Bacterial meningitis	original:neuroinf-bact-1-rule original:neuroinf-bact-1-case original:neuroinf-bact-1-transfer	original:neuroinf-bact-2-rule original:neuroinf-bact-2-case original:neuroinf-bact-2-transfer original:neuroinf-bact-2-rule-extra original:neuroinf-bact-2-case-extra original:neuroinf-bact-2-transfer-extra	original:neuroinf-bact-3-rule original:neuroinf-bact-3-case original:neuroinf-bact-3-transfer original:neuroinf-bact-3-rule-extra original:neuroinf-bact-3-case-extra original:neuroinf-bact-3-transfer-extra
+neuro.inf	Viral meningitis	original:neuroinf-viral-1-rule original:neuroinf-viral-1-case original:neuroinf-viral-1-transfer	original:neuroinf-viral-2-rule original:neuroinf-viral-2-case original:neuroinf-viral-2-transfer	original:neuroinf-viral-3-rule original:neuroinf-viral-3-case original:neuroinf-viral-3-transfer
+neuro.inf	Fungal meningitis	original:neuroinf-fung-1-rule original:neuroinf-fung-1-case original:neuroinf-fung-1-transfer	original:neuroinf-fung-2-rule original:neuroinf-fung-2-case original:neuroinf-fung-2-transfer	original:sysinf-coc-3-rule-extra original:sysinf-coc-3-case-extra original:sysinf-coc-3-other-extra original:neuroinf-fung-3-rule original:neuroinf-fung-3-case original:neuroinf-fung-3-transfer
+neuro.inf	Spirochetal meningitis and neurosyphilis	original:neuroinf-spiro-1-rule original:neuroinf-spiro-1-case original:neuroinf-spiro-1-transfer	original:neuroinf-spiro-2-rule original:neuroinf-spiro-2-case original:neuroinf-spiro-2-transfer	original:neuroinf-spiro-3-rule original:neuroinf-spiro-3-case original:neuroinf-spiro-3-transfer
+neuro.inf	Parasitic meningitis	original:neuroinf-parasmen-1-rule original:neuroinf-parasmen-1-case original:neuroinf-parasmen-1-transfer	original:neuroinf-parasmen-2-rule original:neuroinf-parasmen-2-case original:neuroinf-parasmen-2-transfer	original:neuroinf-parasmen-3-rule original:neuroinf-parasmen-3-case original:neuroinf-parasmen-3-transfer
+neuro.inf	Herpesvirus encephalitis	original:mgen-limb-1 original:neuroinf-hsv-1-case original:neuroinf-hsv-1-transfer	original:neuroinf-hsv-2-rule original:neuroinf-hsv-2-case original:neuroinf-hsv-2-transfer	original:mgen-limb-3 original:neuroinf-hsv-3-rule original:neuroinf-hsv-3-transfer
+neuro.inf	Arboviral encephalitis	original:neuroinf-arbo-1-rule original:neuroinf-arbo-1-case original:neuroinf-arbo-1-transfer	original:neuroinf-arbo-2-rule original:neuroinf-arbo-2-case original:neuroinf-arbo-2-transfer	original:neuroinf-arbo-3-rule original:neuroinf-arbo-3-case original:neuroinf-arbo-3-transfer
+neuro.inf	Other viral encephalitis	original:neuroinf-other-1-rule original:neuroinf-other-1-case original:neuroinf-other-1-transfer	original:neuroinf-other-2-rule original:neuroinf-other-2-case original:neuroinf-other-2-transfer	original:neuroinf-other-3-rule original:neuroinf-other-3-case original:neuroinf-other-3-transfer
+neuro.inf	Parasitic encephalitis	original:neuroinf-toxo-1-rule original:neuroinf-toxo-1-case original:neuroinf-toxo-1-transfer	original:neuroinf-toxo-2-rule original:neuroinf-toxo-2-case original:neuroinf-toxo-2-transfer	original:neuroinf-toxo-3-rule original:neuroinf-toxo-3-case original:neuroinf-toxo-3-transfer
+neuro.inf	Prion disease	original:neuroinf-prion-1-rule original:neuroinf-prion-1-case original:neuroinf-prion-1-transfer	original:neuroinf-prion-2-rule original:neuroinf-prion-2-case original:neuroinf-prion-2-transfer	original:neuroinf-prion-3-rule original:neuroinf-prion-3-case original:neuroinf-prion-3-transfer
+neuro.inf	Botulism	original:neuroinf-bot-1-rule original:neuroinf-bot-1-case original:neuroinf-bot-1-transfer	original:neuroinf-bot-2-rule original:neuroinf-bot-2-case original:neuroinf-bot-2-transfer	original:neuroinf-bot-3-rule original:neuroinf-bot-3-case original:neuroinf-bot-3-transfer
+neuro.inf	Tetanus	original:neuroinf-tet-1-rule original:neuroinf-tet-1-case original:neuroinf-tet-1-transfer	original:neuroinf-tet-2-rule original:neuroinf-tet-2-case original:neuroinf-tet-2-transfer	original:neuroinf-tet-3-rule original:neuroinf-tet-3-case original:neuroinf-tet-3-transfer
+neuro.inf	HIV-related CNS disorders including PML	original:neuroinf-pml-1-rule original:neuroinf-pml-1-case original:neuroinf-pml-1-transfer	original:neuroinf-pml-2-rule original:neuroinf-pml-2-case original:neuroinf-pml-2-transfer	original:neuroinf-pml-3-rule original:neuroinf-pml-3-case original:neuroinf-pml-3-transfer
+neuro.inf	Myasthenia gravis and thymoma	original:nmg-site original:neuroinf-mg-1-case original:neuroinf-mg-1-transfer	original:nmg-lid original:nmg-chest original:neuroinf-mg-2-case original:neuroinf-mg-2-transfer	original:nmg-bulbar original:nmg-iv original:neuroinf-mg-3-rule original:neuroinf-mg-3-case original:neuroinf-mg-3-rule-extra original:neuroinf-mg-3-transfer
+neuro.inf	Multiple sclerosis	original:neuroinf-ms-1-rule original:neuroinf-ms-1-case original:neuroinf-ms-1-transfer	original:neuroinf-ms-2-rule original:neuroinf-ms-2-case original:neuroinf-ms-2-transfer	original:eyevis-on-3-rule original:eyevis-on-3-case original:eyevis-on-3-eyher original:neuroinf-ms-3-rule original:neuroinf-ms-3-case original:neuroinf-ms-3-transfer
+neuro.inf	Transverse myelitis	original:neuroinf-tm-1-rule original:neuroinf-tm-1-case original:neuroinf-tm-1-transfer	original:neuroinf-tm-2-rule original:neuroinf-tm-2-case original:neuroinf-tm-2-transfer	original:neuroinf-tm-3-rule original:neuroinf-tm-3-case original:neuroinf-tm-3-transfer
 neuro.tumor	Meningioma			
 neuro.tumor	Neurofibromatosis		original:nnf-bilateral	original:nnf-child
 neuro.tumor	Glioblastoma			
