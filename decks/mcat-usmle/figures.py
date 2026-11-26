@@ -2572,6 +2572,100 @@ def neuroinfection_studies():
     save(fig, "neuroinf_twitch")
 
 
+def pleural_and_gas_exchange_studies():
+    """Draw simulated clinical records and data from model MCAT experiments."""
+    def record(name, title, columns, rows):
+        fig, ax = plt.subplots(figsize=(6.1, 2.65), layout="constrained")
+        ax.axis("off")
+        ax.set_title(title + "  •  simulated")
+        table = ax.table(cellText=rows, colLabels=columns, loc="center",
+                         cellLoc="center", bbox=[.01, .08, .98, .76])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for col in range(len(columns)):
+            table[0, col].set_facecolor("#e2edf1")
+        save(fig, "pleural_" + name)
+
+    for name, residual in [("hemoclear", "Trace fluid"), ("hemoremain", "Large collection")]:
+        record(name, "Follow-up after drainage of pleural blood",
+               ["Observation", "First hour", "Later assessment"],
+               [["Drain output (mL/h)", "180", "10"],
+                ["Pleural ultrasound", "Large collection", residual]])
+    record("chyllip", "Pleural fluid lipid measurements", ["Analyte", "Concentration"],
+           [["Triglycerides", "248 mg/dL"], ["Total cholesterol", "65 mg/dL"]])
+    record("hemohi", "Paired hematocrits", ["Specimen", "Hematocrit"],
+           [["Pleural fluid", "18%"], ["Peripheral blood", "30%"]])
+    for name, after, pressure in [("pzero", "After leak", 0), ("pback", "After drainage", -5)]:
+        record(name, "End-expiratory pressures (cm H₂O)",
+               ["State", "Alveolar pressure", "Pleural pressure"],
+               [["Before", 0, -5 if name == "pzero" else 0], [after, 0, pressure]])
+    fig, ax = axes("Model membrane", "Thickness (µm)")
+    ax.bar(["A", "B"], [1, 2], color=COLORS, width=.48)
+    ax.set(title="Equal area and oxygen gradient  •  simulated", ylim=(0, 2.3), yticks=[0, 1, 2])
+    save(fig, "pleural_thick")
+    record("hbcontent", "Arterial oxygen measurements", ["Patient", "PaO₂", "SaO₂", "Hemoglobin"],
+           [["A", "96 mm Hg", "98%", "15 g/dL"], ["B", "96 mm Hg", "98%", "6 g/dL"]])
+    record("co2trend", "Respiratory observations on oxygen",
+           ["Time", "SpO₂", "PaCO₂ (mm Hg)", "pH"],
+           [["09:00", "96%", 50, "7.33"], ["09:30", "96%", 66, "7.25"],
+            ["10:00", "97%", 78, "7.19"]])
+    fig, ax = axes("Forced expiratory time (s)", "Exhaled volume (L)")
+    time = np.linspace(0, 7, 170)
+    for rate, label, style in [(2.1, "A", "-"), (.65, "B", "--")]:
+        ax.plot(time, 4 * (1 - np.exp(-rate * time)), style, label=label, lw=2.5)
+    ax.axvline(1, color="0.5", lw=1, ls=":")
+    ax.set(title="Two forced expirations  •  simulated", xticks=range(8), ylim=(0, 4.4))
+    ax.legend(title="Curve")
+    save(fig, "pleural_airflow")
+    fig, ax = axes("Month", "Calendar year")
+    for row, active in enumerate([[0, 1, 2, 11], [0, 1, 2, 3]]):
+        ax.scatter(range(1, 13), [row] * 12, color="0.85", marker="s", s=65)
+        ax.scatter([m + 1 for m in active], [row] * len(active), color=COLORS[0], marker="s", s=65)
+    ax.set(title="Dark squares mark months with productive cough", xticks=range(1, 13),
+           yticks=[0, 1], yticklabels=["Year 1", "Year 2"], ylim=(-.6, 1.6))
+    save(fig, "pleural_coughpass")
+    record("lymphtab", "Fluid movement in one tissue bed",
+           ["Process", "Rate (mL/min)"],
+           [["Filtration into tissue", 12], ["Reabsorption into capillaries", 8],
+            ["Lymphatic drainage", 2]])
+    fig, ax = plt.subplots(figsize=(5.4, 2.8), layout="constrained")
+    ax.axis("off")
+    for start, end, width in [((.07, .50), (.46, .50), 5),
+                              ((.46, .50), (.86, .83), 3), ((.46, .50), (.86, .17), 3)]:
+        ax.annotate("", xy=end, xytext=start, xycoords="axes fraction",
+                    arrowprops=dict(arrowstyle="->", color=COLORS[0], lw=width))
+    for x, y, label in [(.24,.56,"Inlet: 12 mL/s"), (.76,.86,"A: 5 mL/s"), (.74,.07,"B: ?")]:
+        ax.text(x, y, label, transform=ax.transAxes, ha="center")
+    ax.set_title("Steady incompressible flow  •  model")
+    save(fig, "pleural_branchfig")
+    fig, ax = axes("Time (min)", "Oxygen transferred (µmol)")
+    for speed, label, marker in [(4, "A", "o-"), (2, "B", "s--")]:
+        ax.plot([0, 1, 2, 3], [speed * t for t in range(4)], marker, label=label)
+    ax.set(title="Cumulative oxygen transfer  •  simulated", xticks=range(4), yticks=range(0, 13, 2))
+    ax.legend(title="Membrane")
+    save(fig, "pleural_diffslope")
+    record("mix", "Dry ideal gas mixtures", ["Mixture", "O₂ fraction", "Total pressure"],
+           [["A", "0.20", "100 kPa"], ["B", "0.40", "50 kPa"]])
+    fig, ax = axes("Position in vessel bed", "Mean pressure (mm Hg)")
+    sites = ["Artery\n(inlet)", "Arteriole\n(inlet)", "Capillary\n(inlet)", "Venule\n(inlet)"]
+    ax.plot(range(4), [95, 85, 35, 20], "o-", color=COLORS[0], lw=2.4)
+    for i, value in enumerate([95, 85, 35, 20]):
+        ax.annotate(str(value), (i, value), xytext=(0, 6), textcoords="offset points", ha="center")
+    ax.set(title="Vascular bed pressure profile  •  simulated", xticks=range(4),
+           xticklabels=sites, ylim=(0, 110))
+    save(fig, "pleural_pressfall")
+
+
+def aspiration_courses():
+    """Generate two independent postoperative oxygen-requirement records."""
+    for name, flows in [("asprecover", [4, 2, 0, 0]), ("asprelapse", [4, 1, 0, 3])]:
+        fig, ax = axes("Hours after aspiration", "Nasal oxygen flow (L/min)")
+        ax.plot([0, 12, 24, 72], flows, "o-", lw=2.2, color=COLORS[0])
+        ax.set(title="Flow needed to maintain target SpO₂  •  simulated",
+               xticks=[0, 12, 24, 48, 72], yticks=range(5), ylim=(-.2, 4.6))
+        save(fig, "pleural_" + name)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -2603,6 +2697,8 @@ def main():
     visual_function_studies()
     eye_injury_and_experiment_studies()
     neuroinfection_studies()
+    pleural_and_gas_exchange_studies()
+    aspiration_courses()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()

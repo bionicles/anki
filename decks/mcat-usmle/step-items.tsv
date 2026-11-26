@@ -21,11 +21,11 @@ lung.inf	Nasal or sinus mucosal ulceration
 lung.inf	Hospital-acquired pneumonia			
 lung.inf	Ventilator-associated pneumonia			
 lung.inf	Community-acquired pneumonia		original:pul-culture-out original:pul-culture-icu	original:pul-viral-well original:pul-viral-sick
-lung.inf	Acute bronchiolitis		original:ckbronch-diag original:ckbronch-intake	
+lung.inf	Acute bronchiolitis	original:resppractice-bronchi-1-rule original:resppractice-bronchi-1-case original:resppractice-bronchi-1-transfer	original:ckbronch-diag original:ckbronch-intake original:ckbronch-image original:resppractice-bronchi-2-rule original:resppractice-bronchi-2-transfer	original:resppractice-bronchi-3-rule original:resppractice-bronchi-3-case original:resppractice-bronchi-3-transfer
 lung.inf	Organizing pneumonia			
 lung.inf	Pulmonary anthrax			
-lung.inf	Aspiration pneumonia			
-lung.inf	Aspiration pneumonitis			
+lung.inf	Aspiration pneumonia	original:resppractice-aspinf-1-rule original:resppractice-aspinf-1-case original:resppractice-aspinf-1-transfer	original:resppractice-aspinf-2-rule original:resppractice-aspinf-2-case original:resppractice-aspinf-2-transfer	original:resppractice-aspinf-3-rule original:resppractice-aspinf-3-case original:resppractice-aspinf-3-transfer
+lung.inf	Aspiration pneumonitis	original:resppractice-aspinf-1-rule original:resppractice-aspinf-1-case original:resppractice-aspinf-1-transfer	original:resppractice-aspchem-2-rule original:resppractice-aspchem-2-case original:resppractice-aspchem-2-transfer	original:resppractice-aspchem-3-rule original:resppractice-aspchem-3-case original:resppractice-aspchem-3-transfer
 lung.inf	Acute bronchitis			
 lung.inf	Bronchopneumonia			
 lung.inf	Pulmonary melioidosis			
@@ -45,11 +45,11 @@ lung.inf	Respiratory syncytial virus infection
 lung.inf	Pulmonary aspergillosis			
 lung.inf	Allergic bronchopulmonary aspergillosis			
 lung.inf	Aspergilloma			
-lung.inf	Histoplasmosis			
-lung.inf	Coccidioidomycosis			
-lung.inf	Pneumocystis pneumonia	original:pul-pcp-host original:pul-pcp-gradient	original:pul-pcp-clinical original:pul-pcp-first	original:pul-pcp-severe original:pul-pcp-mild
+lung.inf	Histoplasmosis	original:sysinf-his-1-rule original:sysinf-his-1-case original:sysinf-his-1-other	original:resppractice-his-2-rule original:resppractice-his-2-case original:resppractice-his-2-transfer	original:resppractice-his-3-rule original:resppractice-his-3-case original:resppractice-his-3-transfer
+lung.inf	Coccidioidomycosis	original:sysinf-coc-1-rule original:sysinf-coc-1-case original:sysinf-coc-1-other	original:sysinf-coc-2-rule original:sysinf-coc-2-case original:sysinf-coc-2-other	original:sysinf-coc-3-rule original:sysinf-coc-3-case original:sysinf-coc-3-other
+lung.inf	Pneumocystis pneumonia	original:pul-pcp-host original:pul-pcp-gradient	original:pul-pcp-clinical original:pul-pcp-first original:pul-pcp-glucan	original:pul-pcp-severe original:pul-pcp-mild original:pul-pcp-rule original:pul-pcp-prevent
 lung.inf	Pulmonary tuberculosis			
-lung.inf	Lung abscess			
+lung.inf	Lung abscess	original:resppractice-emp-1-transfer original:resppractice-emp-1-case original:resppractice-abs-1-rule	original:resppractice-abs-2-rule original:resppractice-abs-2-case original:resppractice-abs-2-transfer	original:resppractice-abs-3-rule original:resppractice-abs-3-case original:resppractice-abs-3-transfer
 lung.tumor	Vocal cord polyp			
 lung.tumor	Nasal polyp			
 lung.tumor	Juvenile respiratory papillomatosis			
@@ -67,11 +67,11 @@ lung.tumor	Bronchial carcinoid
 lung.tumor	Pleural mesothelioma			
 lung.tumor	Metastases to the lung			
 lung.tumor	Metastases to the pleura			
-lung.obstruct	Asthma and reactive airway disease	bank:usmle-step1:resp-asthma-exhalation-recognition:v1	original:ckasth-silent	original:ccs-asthma-recheck
-lung.obstruct	Bronchiectasis	original:pul-brx-structure original:pul-brx-feedback	original:pul-brx-ct original:pul-brx-confirm	original:pul-brx-clear original:pul-brx-rehab
-lung.obstruct	Chronic airflow obstruction and COPD	original:pul-spiro-ratioa	original:pul-spiro-obstruct original:pul-niv-acidosis	original:pul-niv-start original:pul-niv-compensated
-lung.obstruct	Chronic bronchitis			
-lung.obstruct	Emphysema	original:phil-lung-acini original:phil-lung-recoil	original:phil-lung-pattern	
+lung.obstruct	Asthma and reactive airway disease	bank:usmle-step1:resp-asthma-exhalation-recognition:v1 original:resppractice-asth-1-rule original:resppractice-asth-1-case original:resppractice-asth-1-transfer	original:ckasth-silent original:resppractice-asth-2-rule original:resppractice-asth-2-transfer	original:ccs-asthma-recheck original:resppractice-asth-3-rule original:resppractice-asth-3-transfer original:resppractice-asth-3-rule-extra original:resppractice-asth-3-case original:resppractice-asth-3-transfer-extra
+lung.obstruct	Bronchiectasis	original:pul-brx-structure original:pul-brx-feedback original:resppractice-bronx-1-case original:resppractice-bronx-1-transfer	original:pul-brx-ct original:pul-brx-confirm original:resppractice-bronx-2-rule original:resppractice-bronx-2-transfer	original:pul-brx-clear original:pul-brx-rehab original:resppractice-bronx-3-rule
+lung.obstruct	Chronic airflow obstruction and COPD	original:pul-spiro-ratioa original:pul-spiro-rule original:pul-spiro-ratiob	original:pul-spiro-obstruct original:pul-niv-acidosis original:pul-spiro-lower original:pul-spiro-preserved	original:pul-niv-start original:pul-niv-compensated original:pul-niv-rule original:pul-niv-trajectory original:pul-niv-improve original:pul-niv-decline
+lung.obstruct	Chronic bronchitis	original:resppractice-chronic-1-rule original:resppractice-chronic-1-case original:resppractice-chronic-1-transfer	original:resppractice-chronic-2-rule original:resppractice-chronic-2-case original:resppractice-chronic-2-transfer	original:resppractice-chronic-3-rule original:resppractice-chronic-3-case original:resppractice-chronic-3-transfer
+lung.obstruct	Emphysema	original:phil-lung-acini original:phil-lung-recoil original:mgen-aat-1-c original:resppractice-emph-1-transfer	original:phil-lung-pattern original:mgen-aat-2 original:resppractice-emph-2-rule original:resppractice-emph-2-rule-extra original:resppractice-emph-2-case original:resppractice-emph-2-transfer	original:mgen-aat-3 original:resppractice-emph-3-rule original:resppractice-emph-3-transfer
 lung.restrict	Pneumoconiosis across exposures			
 lung.restrict	Asbestosis			
 lung.restrict	Silicosis	original:pul-sil-material	original:pul-sil-history	original:pul-sil-prevent
@@ -93,19 +93,19 @@ lung.failure	Pulmonary thromboembolism	original:pul-pe-rv	original:pul-pe-below 
 lung.failure	Air embolism			
 lung.failure	Fat embolism			
 lung.failure	Respiratory failure related to enteral feeding			
-lung.structural	Gas-exchange impairment	original:pul-vq-dead	original:pul-va-wide	original:pul-oxygen-boundary
-lung.structural	Hypoventilation	original:pul-va-carbon	original:pul-va-gradient original:pul-ohs-awake	original:pul-ohs-discharge
-lung.structural	Hypoxia and hypoxemia	original:pul-pcp-gradient	original:pul-oxygen-rest	original:pul-oxygen-severe original:pul-oxygen-moderate
-lung.structural	Ventilation–perfusion mismatch	original:pul-vq-shunt original:pul-vq-dead	original:pul-vq-embolus original:pul-vq-plug	
-lung.pleura	Chylothorax			
-lung.pleura	Costochondritis			
-lung.pleura	Empyema	original:pul-pus-space	original:pul-pus-diagnosis	original:pul-pus-drain
-lung.pleura	Hemothorax			
-lung.pleura	Mediastinitis			
-lung.pleura	Pleural effusion	original:pul-fluid-hydro original:pul-fluid-leak	original:pul-fluid-negative original:pul-fluid-protein	original:pul-pleurinf-low original:pul-pleurinf-high
-lung.pleura	Pleuritis			
-lung.pleura	Pneumomediastinum			
-lung.pleura	Pneumothorax	bank:usmle-step1:respiratory-respiratory-mechanics-r3:v1 original:rad-space	original:rad-pneumo	original:rad-urgent
+lung.structural	Gas-exchange impairment	original:pul-vq-dead original:resppractice-gas-1-rule original:resppractice-gas-1-case original:resppractice-gas-1-transfer	original:pul-va-wide original:pul-va-gradient original:resppractice-gas-2-rule	original:pul-oxygen-boundary original:resppractice-gas-3-rule original:resppractice-gas-3-case original:resppractice-gas-3-transfer
+lung.structural	Hypoventilation	original:pul-va-carbon original:pul-va-eq original:pul-va-deep original:pul-va-shallow	original:pul-va-gradient original:pul-ohs-awake original:resppractice-hypov-2-rule original:resppractice-hypov-2-case original:resppractice-hypov-2-transfer	original:pul-ohs-discharge original:resppractice-hypov-3-rule original:resppractice-hypov-3-case original:resppractice-hypov-3-transfer
+lung.structural	Hypoxia and hypoxemia	original:pul-pcp-gradient original:resppractice-hypox-1-rule original:resppractice-hypox-1-case original:resppractice-hypox-1-transfer	original:pul-oxygen-rest original:resppractice-hypox-2-rule original:resppractice-hypox-2-case original:resppractice-hypox-2-transfer	original:pul-oxygen-severe original:pul-oxygen-moderate original:pul-oxygen-rule
+lung.structural	Ventilation–perfusion mismatch	original:pul-vq-shunt original:pul-vq-dead original:pul-vq-rule	original:pul-vq-embolus original:pul-vq-plug original:resppractice-vq-2-rule	original:resppractice-vq-3-rule original:resppractice-vq-3-case original:resppractice-vq-3-transfer
+lung.pleura	Chylothorax	original:resppractice-chyle-1-rule original:resppractice-chyle-1-case original:resppractice-chyle-1-transfer	original:resppractice-chyle-2-rule original:resppractice-chyle-2-case original:resppractice-chyle-2-transfer	original:resppractice-chyle-3-rule original:resppractice-chyle-3-case original:resppractice-chyle-3-transfer
+lung.pleura	Costochondritis	original:resppractice-cost-1-rule original:resppractice-cost-1-case original:resppractice-cost-1-transfer	original:resppractice-cost-2-rule original:resppractice-cost-2-case original:resppractice-cost-2-transfer	original:resppractice-cost-3-rule original:resppractice-cost-3-case original:resppractice-cost-3-transfer
+lung.pleura	Empyema	original:pul-pus-space original:resppractice-emp-1-case original:resppractice-emp-1-transfer	original:pul-pus-diagnosis original:pul-pleurinf-test original:resppractice-emp-2-rule	original:pul-pus-drain original:resppractice-emp-3-rule original:resppractice-emp-3-case original:resppractice-emp-3-transfer
+lung.pleura	Hemothorax	original:resppractice-hemo-1-rule original:resppractice-hemo-1-case original:resppractice-hemo-1-transfer	original:resppractice-hemo-2-rule original:resppractice-hemo-2-case original:resppractice-hemo-2-transfer	original:resppractice-hemo-3-rule original:resppractice-hemo-3-case original:resppractice-hemo-3-transfer original:resppractice-hemo-3-rule-extra original:resppractice-hemo-3-case-extra original:resppractice-hemo-3-transfer-extra
+lung.pleura	Mediastinitis	original:resppractice-medi-1-rule original:resppractice-medi-1-case original:resppractice-medi-1-transfer	original:resppractice-medi-2-rule original:resppractice-medi-2-case original:resppractice-medi-2-transfer	original:resppractice-medi-3-rule original:resppractice-medi-3-case original:resppractice-medi-3-transfer
+lung.pleura	Pleural effusion	original:pul-fluid-hydro original:pul-fluid-leak original:rad-fluid original:resppractice-fluid-1-rule	original:pul-fluid-negative original:pul-fluid-protein original:pul-fluid-one original:pul-fluid-absolute original:rad-effusion original:resppractice-fluid-2-rule original:resppractice-fluid-2-case original:resppractice-fluid-2-transfer	original:pul-pleurinf-low original:pul-pleurinf-high original:pul-pleurinf-rule original:pul-pleurinf-middle original:rad-ultrasound original:resppractice-fluid-3-rule original:resppractice-fluid-3-case original:resppractice-fluid-3-transfer
+lung.pleura	Pleuritis	original:resppractice-pleur-1-rule original:resppractice-pleur-1-case original:resppractice-pleur-1-transfer	original:resppractice-pleur-2-rule original:resppractice-pleur-2-case original:resppractice-pleur-2-transfer	original:resppractice-pleur-3-rule original:resppractice-pleur-3-case original:resppractice-pleur-3-transfer
+lung.pleura	Pneumomediastinum	original:resppractice-pmed-1-rule original:resppractice-pmed-1-case original:resppractice-pmed-1-transfer	original:resppractice-pmed-2-rule original:resppractice-pmed-2-case original:resppractice-pmed-2-transfer	original:resppractice-pmed-3-rule original:resppractice-pmed-3-case original:resppractice-pmed-3-transfer
+lung.pleura	Pneumothorax	bank:usmle-step1:respiratory-respiratory-mechanics-r3:v1 original:rad-space original:resppractice-ptx-1-rule original:resppractice-ptx-1-case original:resppractice-ptx-1-transfer	original:rad-pneumo original:resppractice-ptx-2-rule original:resppractice-ptx-2-transfer	original:rad-urgent original:resppractice-ptx-3-rule original:resppractice-ptx-3-case
 lung.trauma	Epistaxis			
 lung.trauma	Sinus barotrauma			
 lung.trauma	Laryngeal or pharyngeal obstruction		original:pul-loop-neck	
