@@ -4436,6 +4436,59 @@ def mcat_transfer_records():
                 [["4", "50%"], ["5", "91%"], ["6", "99%"]])
 
 
+def study_design_cases():
+    """Independent study displays for reading uncertainty, allocation and measurement."""
+    for key, estimates in [
+        ("forest1", [(0.74, 0.56, 0.98), (0.72, 0.59, 0.88), (0.91, 0.76, 1.09)]),
+        ("forest2", [(0.82, 0.68, 0.99), (0.96, 0.70, 1.32), (1.08, 0.88, 1.33)]),
+        ("concord", [(0.77, 0.66, 0.90), (0.79, 0.69, 0.90), (0.80, 0.68, 0.94)]),
+    ]:
+        fig, ax = axes("Risk ratio for complications (log scale)", "")
+        for y, (mid, lo, hi) in enumerate(estimates):
+            ax.hlines(y, lo, hi, color=COLORS[0], lw=2)
+            ax.plot(mid, y, "s", color=COLORS[0])
+        ax.axvline(1, color="#555", ls="--")
+        ax.set_xscale("log")
+        ax.set(xlim=(.49, 1.52), xticks=[.5, .65, .8, 1, 1.25, 1.5],
+               xticklabels=["0.5", "0.65", "0.8", "1", "1.25", "1.5"],
+               ylim=(2.5, -.5), yticks=[0, 1, 2], yticklabels=["Trial A", "Trial B", "Trial C"],
+               title="Independent trials • simulated 95% intervals")
+        ax.minorticks_off()
+        save(fig, "design_" + key, indexed=True)
+
+    fig, ax = axes("Symptomatic VTE risk difference (percentage points)", "")
+    ax.hlines(0, .54, 3.41, lw=3, color=COLORS[0])
+    ax.plot(1.97, 0, "s", color=COLORS[0])
+    for x, label in [(.54, "0.54"), (1.97, "1.97"), (3.41, "3.41")]:
+        ax.text(x, .12, label, ha="center")
+    ax.axvline(0, ls=":", color="#555", label="Equal risks")
+    ax.axvline(1, ls="--", color=COLORS[1], label="Noninferiority margin")
+    ax.set(xlim=(-.6, 4.1), ylim=(-.7, .9), yticks=[], title="CRISTAL • aspirin minus enoxaparin • 95% CI")
+    ax.legend(loc="lower right")
+    save(fig, "design_cristal", indexed=True)
+
+    study_table("design_registry", "Prespecified endpoint at 90 days",
+                ["Registered trials", "Completed", "Public results"], [["12", "12", "8"]])
+    study_table("design_credit", "Sessions with identical reminders",
+                ["Invitation", "Assigned", "Attended"], [["Public credit", "80", "36"], ["Private", "80", "24"]])
+
+    fig, ax = axes("Horizontal position (m)", "Height above finish (m)")
+    for height, color, name in [(2, COLORS[0], "Track A"), (1, COLORS[1], "Track B")]:
+        ax.plot([0, 4], [height, 0], lw=2.4, label=name, color=color)
+        ax.plot(0, height, "o", color=color)
+    ax.set(xlim=(-.4, 4.4), ylim=(-.2, 2.4), yticks=[0, 1, 2], title="Carts released from rest • schematic")
+    ax.legend()
+    save(fig, "design_tracks", indexed=True)
+
+    fig, ax = axes("Time (s)", "Position (m)")
+    t = np.linspace(0, 4, 150)
+    ax.plot(t, 4 - (t - 2)**2, color=COLORS[0], lw=2.3)
+    ax.plot([1.45, 2.55], [4, 4], ls="--", color=COLORS[1], label="Tangent at 2 s")
+    ax.set(xlim=(0, 4), ylim=(-.2, 4.6), title="Cart motion • simulated")
+    ax.legend()
+    save(fig, "design_turn", indexed=True)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -4522,6 +4575,7 @@ def main():
     angiodysplasia_study()
     mcat_science_and_society_records()
     mcat_transfer_records()
+    study_design_cases()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
