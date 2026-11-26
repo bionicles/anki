@@ -517,6 +517,116 @@ def reproductive():
         save(fig, "repro_uterus_" + code)
 
 
+def endocrine():
+    # The insulin panels use values drawn during symptoms, before any glucose was given.
+    for case, glucose, insulin, peptide, ketone, agent in [
+        ("a", 42, 19, 2.5, .3, "None detected"),
+        ("b", 39, 31, .12, .2, "None detected"),
+        ("c", 44, 24, 3.1, .2, "Glipizide detected"),
+    ]:
+        fig, ax = plt.subplots(figsize=(5.0, 2.9), layout="constrained")
+        ax.axis("off")
+        ax.set_title("Fasting plasma sample during symptoms", fontsize=12)
+        rows = [("Glucose", f"{glucose} mg/dL"), ("Insulin", f"{insulin} μU/mL"),
+                ("C-peptide", f"{peptide:g} ng/mL"), ("β-hydroxybutyrate", f"{ketone:g} mmol/L"),
+                ("Oral secretagogue screen", agent)]
+        table = ax.table(cellText=rows, colLabels=["Measurement", "Result"],
+                         cellLoc="left", colLoc="left", bbox=(0, .03, 1, .90))
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for (row, column), cell in table.get_celld().items():
+            cell.set_edgecolor("#cad5d7")
+            cell.set_facecolor("#d7e8eb" if row == 0 else "white")
+        save(fig, "endo_ins_" + case)
+
+    for case, glucose, ketones, ph in [
+        ("a", [455, 285, 182], [6.5, 4.8, 2.6], [7.11, 7.18, 7.25]),
+        ("b", [426, 256, 160], [5.2, 2.8, .4], [7.15, 7.22, 7.36]),
+    ]:
+        fig, panels = plt.subplots(3, 1, figsize=(5.2, 4.0), sharex=True, layout="constrained")
+        for ax, series, units, bounds in zip(panels, [glucose, ketones, ph],
+                ["Glucose\n(mg/dL)", "β-hydroxybutyrate\n(mmol/L)", "Venous pH"],
+                [(80,560), (0,8.5), (7.04,7.42)]):
+            ax.plot([0,3,6], series, "o-", color=COLORS[0])
+            ax.set(ylabel=units, ylim=bounds, xlim=(-.5,6.5))
+            ax.yaxis.label.set_size(8)
+            ax.grid(alpha=.18)
+            for hour, result in zip([0,3,6],series):
+                ax.annotate(str(result), (hour,result), xytext=(3,4), textcoords="offset points", fontsize=8)
+        panels[-1].set(xlabel="Hours of treatment", xticks=[0,3,6])
+        save(fig, "endo_dka_" + case)
+
+    for case, calcium, pth in [("a",11.7,53), ("b",12.8,4)]:
+        fig, panels = plt.subplots(2,1,figsize=(5.0,3.1),layout="constrained")
+        for ax, result, interval, limits, label in zip(panels, [calcium,pth],
+                [(8.6,10.2),(15,65)], [(7,14),(0,80)], ["Adjusted calcium (mg/dL)","Intact PTH (pg/mL)"]):
+            ax.axvspan(*interval,color="#c3dfd2")
+            ax.plot(result,.5,"D",color=COLORS[1])
+            ax.text(result,.79,str(result),ha="center",fontsize=9)
+            ax.set(xlabel=label, xlim=limits, ylim=(0,1), yticks=[])
+            for side in ("top","left","right"):
+                ax.spines[side].set_visible(False)
+        fig.suptitle("Paired blood draw • shading is the reference interval", fontsize=10)
+        save(fig, "endo_pth_" + case)
+
+    # Use the same scale in both schematics. Neither is a clinical scintigraph.
+    y, x = np.mgrid[-1.45:1.45:180j, -1.55:1.55:200j]
+    lobes = [((x-side*.54-.10*side*y)/.43)**2 + (y/.98)**2 < 1 for side in (-1,1)]
+    gland = (lobes[0] | lobes[1] | ((abs(x)<.55) & (abs(y+.17)<.10)))
+    for case, uptake in [("a",54),("b",37)]:
+        rng = np.random.default_rng(52 if case=="a" else 26)
+        activity = .06 + gland * (.76 if case=="a" else .08)
+        if case=="b":
+            activity += .80*np.exp(-((x-.57)**2+(y-.22)**2)/.095)
+        fig, ax = plt.subplots(figsize=(4.2,3.4),layout="constrained")
+        picture = ax.imshow(np.clip(activity+rng.normal(0,.035,x.shape),0,1),
+                            cmap="inferno", origin="lower", vmin=0, vmax=1)
+        bar = fig.colorbar(picture,ax=ax,ticks=[0,1],shrink=.68)
+        bar.ax.set_yticklabels(["Low","High"])
+        ax.set_title(f"Simulated thyroid study • 24-hour uptake {uptake}%",fontsize=11)
+        ax.set_xlabel("Local reference interval 10–30%",fontsize=9)
+        ax.set(xticks=[],yticks=[])
+        save(fig, "endo_uptake_" + case)
+
+    for case, values in [("a",[105,115,120,420,600]),("b",[112,119,125,128,134])]:
+        fig, ax = axes("Time relative to desmopressin (hours)", "Urine osmolality (mOsm/kg)")
+        ax.plot([-2,-1,0,1,2],values,"o-",color=COLORS[0])
+        ax.axvline(0,ls="--",lw=1,color="#555")
+        for hour in (0,2):
+            val=values[hour+2]
+            ax.annotate(str(val),(hour,val),xytext=(4,6),textcoords="offset points")
+        ax.set(xlim=(-2.25,2.3),ylim=(0,710),xticks=[-2,-1,0,1,2],
+               title="Supervised concentrating test")
+        ax.text(.04,665,"Dose after hour 0 sample",size=8)
+        save(fig, "endo_water_" + case)
+
+    for case, levels in [("a", [2.1, .84, .32, .11, .16]), ("b", [6.8, 6.1, 5.9, 6.4, 6.6])]:
+        times = [0, 30, 60, 90, 120]
+        fig, ax = axes("Minutes after oral glucose", "Growth hormone (μg/L)")
+        ax.plot(times, levels, "o-", color=COLORS[0])
+        ax.axhline(.4, ls="--", color="#773e24")
+        ax.set(xticks=times, ylim=(.07, 12), yscale="log",
+               yticks=[.1, .4, 1, 3, 10], yticklabels=["0.1","0.4","1","3","10"],
+               title="Adult GH suppression test • teaching assay")
+        ax.text(117, .46, "Lab criterion: nadir <0.4", ha="right", fontsize=8)
+        nadir = min(levels)
+        ax.annotate(str(nadir), (times[levels.index(nadir)], nadir), xytext=(4,-10),
+                    textcoords="offset points", fontsize=8)
+        save(fig, "endo_gh_" + case)
+
+    for case, heights in [("a", [111, 117, 119]), ("b", [108, 114, 120])]:
+        fig, ax = axes("Age (years)", "Standing height (cm)")
+        ax.plot([6, 7, 8], heights, "o-", color=COLORS[0])
+        ax.set(xticks=[6, 7, 8], ylim=(104, 125), xlim=(5.8, 8.25),
+               title="Serial measurements • prepubertal child")
+        for age, height in zip([6, 7, 8], heights):
+            ax.annotate(str(height), (age, height), xytext=(4, 5),
+                        textcoords="offset points", fontsize=9)
+        save(fig, "endo_growth_" + case)
+
+
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -528,6 +638,7 @@ def main():
     hematology()
     quality_and_communication()
     reproductive()
+    endocrine()
     plot("refeed", "Hours after starting nutrition", "Serum phosphate (mg/dL)",
          [0,12,24,36,48], {"Patient A": [3.2,2.9,2.4,1.8,1.6],
                             "Patient B": [3.1,3.2,3.0,3.1,3.1]})

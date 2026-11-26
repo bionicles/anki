@@ -561,3 +561,208 @@ USMLE Step 3	repro.tumor	Following a low-grade cervical screening abnormality	or
 USMLE Step 3	repro.tumor	Cervical precancer during pregnancy	original:rg2-pregcervix-rule	original:rg2-pregcervix-cin3	original:rg2-pregcervix-progress	New findings suspicious for invasion require immediate tissue reevaluation.	Documented
 USMLE Step 3	repro.tumor	Time postpartum colposcopy after antepartum precancer		original:rg2-pregcervix-postpartum			Documented
 USMLE Step 2 CK	repro.tumor	Cervical precancer during pregnancy	original:rg2-pregcervix-curette				Documented
+USMLE Step 1	endo.pancreas	Identifying the source of insulin during hypoglycemia	original:eh-ins-cleave	original:eh-ins-own	original:eh-ins-outside	C-peptide becomes suppressed despite persistent hyperinsulinemia.	Documented
+USMLE Step 2 CK	endo.pancreas	Identifying the source of insulin during hypoglycemia	original:eh-ins-screen	original:eh-ins-neg	original:eh-ins-drug	The secretagogue screen becomes positive despite a similar pattern of endogenous insulin secretion.	Documented
+USMLE Step 3	endo.pancreas	Identifying the source of insulin during hypoglycemia	original:eh-ins-during	original:eh-ins-local	original:eh-ins-hold	Suppressed C-peptide redirects attention from an incidental pancreatic lesion to external insulin.	Documented
+USMLE Step 1	endo.pancreas	Choosing treatment for hypoglycemia by swallowing safety	original:eh-rescue-help				Documented
+USMLE Step 2 CK	endo.pancreas	Choosing treatment for hypoglycemia by swallowing safety	original:ey-glucose	original:eh-rescue-po	original:eh-rescue-unable	Loss of consciousness makes oral glucose unsafe.	Documented
+USMLE Step 3	endo.pancreas	Reassess the response to oral glucose		original:eh-rescue-retest			Documented
+USMLE Step 3	endo.pancreas	Reassess therapy after a severe low		original:eh-rescue-plan			Documented
+USMLE Step 1	endo.pancreas	Recognizing adult-onset autoimmune diabetes	original:eh-type-slow				Documented
+USMLE Step 2 CK	endo.pancreas	Recognizing adult-onset autoimmune diabetes		original:eh-type-adult			Documented
+USMLE Step 3	endo.pancreas	Recognizing adult-onset autoimmune diabetes		original:eh-type-insulin			Documented
+USMLE Step 1	endo.pancreas	Calculating hypertonicity during a hyperglycemic crisis	original:eh-osm-formula	original:eh-osm-high	original:eh-osm-lower	With glucose held constant, lower measured sodium brings calculated effective osmolality below the usual hyperosmolar threshold.	Documented
+USMLE Step 2 CK	endo.pancreas	Calculating hypertonicity during a hyperglycemic crisis		original:ckdka-hhs	original:eh-osm-mixed	Marked ketonemia and acidemia accompany hypertonicity in the second patient.	Documented
+USMLE Step 3	endo.pancreas	Determining whether adult ketoacidosis has resolved	original:eh-dka-why	original:eh-dka-ongoing	original:eh-dka-done	Similar final glucose accompanies a different ketone concentration and venous pH.	Documented
+USMLE Step 1	endo.pancreas	Explain potassium redistribution in untreated ketoacidosis		original:eh-dka-k			Documented
+USMLE Step 2 CK	endo.pancreas	Interpret persistent acidosis after ketone clearance		original:eh-dka-saline			Documented
+USMLE Step 1	endo.pancreas	Timing retinal screening in adults with diabetes	original:eh-screen-latency				Documented
+USMLE Step 2 CK	endo.pancreas	Timing retinal screening in adults with diabetes	original:ey-diab	original:eh-screen-type2	original:eh-screen-type1	Clearly documented recent onset of type 1 diabetes changes the timing of the first eye examination.	Documented
+USMLE Step 3	endo.pancreas	Timing retinal screening in adults with diabetes		original:eh-screen-preg			Documented
+USMLE Step 2 CK	endo.pancreas	Confirming persistent albuminuria in diabetes	original:eh-kid-two				Documented
+USMLE Step 3	endo.pancreas	Confirming persistent albuminuria in diabetes	original:ey-urine	original:eh-kid-repeat	original:eh-kid-persist	Three stable-health measurements establish persistence after a single illness-associated result could not.	Documented
+USMLE Step 1	endo.pancreas	Discriminating functioning pancreatic neuroendocrine tumors		original:eh-net-gluc	original:eh-net-soma	A migrating rash changes to steatorrhea and gallstones despite diabetes in both patients.	Documented
+USMLE Step 2 CK	endo.pancreas	Identify an acid-secreting syndrome caused by gastrin excess		original:eh-net-gastrin			Documented
+USMLE Step 2 CK	endo.pancreas	Discriminating functioning pancreatic neuroendocrine tumors		original:eh-net-rash			Documented
+USMLE Step 1	endo.thyroid	Reading the distribution of thyroid tracer uptake	original:eh-uptake-trap	original:eh-uptake-diff	original:eh-uptake-hot	A single active focus replaces diffuse bilateral uptake on the independent simulated study.	Documented
+USMLE Step 2 CK	endo.thyroid	Reading the distribution of thyroid tracer uptake	original:ey-caff	original:axis-thy-uptake original:eh-uptake-focal	original:eh-uptake-graves	A diffuse high-uptake pattern replaces destructive thyroiditis with low uptake.	Documented
+USMLE Step 3	endo.thyroid	Reading the distribution of thyroid tracer uptake		original:axis-thy-therapy	original:eh-uptake-synth	Active hormone synthesis makes thionamides useful in the second condition.	Documented
+USMLE Step 1	endo.thyroid	Deciding when autoimmune thyroiditis requires replacement	original:eh-hash-antibodies				Documented
+USMLE Step 2 CK	endo.thyroid	Deciding when autoimmune thyroiditis requires replacement		original:eh-hash-high	original:eh-hash-goiter	Preserved TSH and free T4 indicate euthyroidism despite the same autoimmune background.	Documented
+USMLE Step 3	endo.thyroid	Deciding when autoimmune thyroiditis requires replacement		original:eh-hash-monitor	original:eh-hash-replace	The emergence of low free T4 with elevated TSH changes monitoring to replacement.	Documented
+USMLE Step 2 CK	endo.thyroid	Recognizing decompensated thyrotoxicosis and sequencing therapy		original:eh-storm-decomp			Documented
+USMLE Step 3	endo.thyroid	Recognizing decompensated thyrotoxicosis and sequencing therapy		original:eh-storm-urgency original:eh-storm-iodine			Documented
+USMLE Step 2 CK	endo.thyroid	Selecting a diagnostic test for a thyroid nodule		original:eh-nod-normal	original:eh-nod-low	Suppressed TSH adds a question of nodule function to anatomic assessment.	Documented
+USMLE Step 1	endo.thyroid	Determine why follicular carcinoma requires architecture for diagnosis		original:eh-nod-fol			Documented
+USMLE Step 3	endo.thyroid	Determine why follicular carcinoma requires architecture for diagnosis		original:eh-nod-sample			Documented
+USMLE Step 1	endo.thyroid	Identify the cell lineage of medullary thyroid carcinoma		original:eh-nod-origin			Documented
+USMLE Step 2 CK	endo.thyroid	Recognize aggressive anaplastic thyroid disease		original:eh-nod-rapid			Documented
+USMLE Step 1	endo.parathyroid	Interpreting PTH in the context of calcium	original:axis-pth-feedback	original:eh-pth-high	original:eh-pth-off	In hypercalcemia, the second sample has a suppressed rather than inappropriately preserved PTH.	Documented
+USMLE Step 2 CK	endo.parathyroid	Interpreting PTH in the context of calcium	original:ey-ca	original:axis-pth-bones original:eh-pth-fhh	original:eh-pth-cancer	Suppressed PTH in the second case leads to investigation of causes outside the parathyroids.	Documented
+USMLE Step 3	endo.parathyroid	Select definitive treatment for PTH-dependent hypercalcemia	original:axis-pth-definitive	original:eh-pth-stone	original:eh-pth-family	Genetically established familial hypocalciuric hypercalcemia changes the appropriateness of surgery.	Documented
+USMLE Step 1	endo.parathyroid	Recognizing and treating deficient parathyroid activity	original:eh-lowp-phos	original:eh-lowp-inap			Documented
+USMLE Step 2 CK	endo.parathyroid	Exclude magnesium deficiency before diagnosing permanent hypoparathyroidism		original:eh-lowp-mg			Documented
+USMLE Step 3	endo.parathyroid	Recognizing and treating deficient parathyroid activity	original:eh-lowp-target	original:eh-lowp-urine			Documented
+USMLE Step 1	endo.adrenal	Explain low attenuation on unenhanced adrenal CT	original:eh-inc-lipid				Documented
+USMLE Step 2 CK	endo.adrenal	Using unenhanced CT features to triage an adrenal incidentaloma	original:ey-cortis	original:eh-inc-simple	original:eh-inc-complex	Size, heterogeneity and high unenhanced attenuation remove the benign imaging classification.	Documented
+USMLE Step 3	endo.adrenal	Using unenhanced CT features to triage an adrenal incidentaloma	original:eh-inc-biopsy	original:eh-inc-known	original:eh-inc-isolated	A resectable primary adrenal malignancy is suspected in place of possible metastasis from a known cancer.	Documented
+USMLE Step 1	endo.adrenal	Localizing deficient cortisol production	original:ey-cort	original:endomech-primary	original:eh-cort-central	Low ACTH replaces high ACTH despite deficient cortisol in both cases.	Documented
+USMLE Step 2 CK	endo.adrenal	Localizing deficient cortisol production	original:eh-cort-aldo	original:eh-cort-pig	original:eh-cort-surgery	ACTH and clinical history shift the source of hypocortisolism from adrenal to pituitary.	Documented
+USMLE Step 1	endo.drug	Using morning cortisol to assess recovery after glucocorticoids	original:eh-withdraw-axis				Documented
+USMLE Step 2 CK	endo.drug	Using morning cortisol to assess recovery after glucocorticoids		original:eh-withdraw-skin			Documented
+USMLE Step 3	endo.drug	Using morning cortisol to assess recovery after glucocorticoids	original:eh-withdraw-dose	original:eh-withdraw-mid	original:eh-withdraw-clear	Morning cortisol moves from the indeterminate to the recovered range near the end of the taper.	Documented
+USMLE Step 3	endo.drug	Treat suspected crisis after recent glucocorticoid exposure		original:eh-withdraw-stress			Documented
+USMLE Step 1	endo.drug	Recognizing suppression of spermatogenesis by exogenous androgens	original:eh-and-axis	original:eh-and-low			Documented
+USMLE Step 2 CK	endo.drug	Recognizing suppression of spermatogenesis by exogenous androgens		original:eh-and-history			Documented
+USMLE Step 3	endo.drug	Recognizing suppression of spermatogenesis by exogenous androgens		original:eh-and-avoid			Documented
+USMLE Step 1	endo.men	Infer the genetic mechanism from an inherited endocrine tumor pattern	original:eh-men-menin	original:eh-men-ret	original:eh-men-loss	The tumor tissue and the mechanism shift from receptor activation to loss of a tumor suppressor.	Documented
+USMLE Step 2 CK	endo.men	Distinguishing inherited endocrine tumor syndromes	original:ey-men	original:eh-men-three	original:eh-men-twoa	Medullary thyroid carcinoma and pheochromocytoma replace pituitary and enteropancreatic tumors.	Documented
+USMLE Step 2 CK	endo.men	Recognize the MEN2B phenotype		original:eh-men-twob			Documented
+USMLE Step 1	endo.men	Using an identified familial variant to guide testing	original:eh-family-odds				Documented
+USMLE Step 3	endo.men	Using an identified familial variant to guide testing		original:eh-family-test			Documented
+USMLE Step 3	endo.men	Evaluate apparently sporadic medullary carcinoma for inherited RET risk		original:eh-family-ret			Documented
+USMLE Step 1	endo.men	Managing pheochromocytoma risk before thyroid surgery in MEN2		original:eh-order-source			Documented
+USMLE Step 2 CK	endo.men	Managing pheochromocytoma risk before thyroid surgery in MEN2		original:eh-order-both			Documented
+USMLE Step 3	endo.men	Managing pheochromocytoma risk before thyroid surgery in MEN2	original:eh-order-screen	original:eh-order-first	original:eh-order-negative	No adrenal tumor is present after appropriate screening.	Documented
+USMLE Step 1	endo.congenital	Recognizing salt-wasting congenital adrenal hyperplasia	original:eh-cah-path				Documented
+USMLE Step 1	endo.congenital	Connect fetal adrenal androgen excess to anatomy		original:eh-cah-androgen			Documented
+USMLE Step 2 CK	endo.congenital	Recognizing salt-wasting congenital adrenal hyperplasia		original:eh-cah-salt original:eh-cah-screen			Documented
+USMLE Step 3	endo.congenital	Select replacement for sodium loss in classic CAH		original:eh-cah-add			Documented
+USMLE Step 3	endo.congenital	Choose a route for stress coverage in classic CAH	original:ey-sick	original:eh-cah-ill	original:eh-cah-vomit	Persistent vomiting prevents reliable absorption of oral sick-day medication.	Documented
+USMLE Step 1	endo.congenital	Acting on an abnormal newborn thyroid screen	original:eh-ch-why	original:eh-ch-labs			Documented
+USMLE Step 2 CK	endo.congenital	Acting on an abnormal newborn thyroid screen		original:eh-ch-confirm			Documented
+USMLE Step 3	endo.congenital	Acting on an abnormal newborn thyroid screen		original:eh-ch-treat			Documented
+USMLE Step 3	endo.congenital	Monitor thyroid replacement during growth		original:eh-ch-monitor			Documented
+USMLE Step 1	endo.congenital	Inferring androgen action from pubertal and internal anatomy	original:eh-ais-signal	original:eh-ais-hair			Documented
+USMLE Step 1	endo.hypothalamus	Distinguishing functional hypothalamic suppression from structural disease	original:eh-hyp-def	original:rg-cycle-central	original:eh-hyp-anosmia	Lifelong anosmia and absent puberty favor a developmental deficiency over functional hypothalamic suppression.	Documented
+USMLE Step 2 CK	endo.hypothalamus	Distinguishing functional hypothalamic suppression from structural disease	original:ey-fha	original:rg-cycle-low	original:eh-hyp-mri	Severe headache and visual symptoms prompt structural investigation despite the energy-deficit history.	Documented
+USMLE Step 3	endo.hypothalamus	Distinguishing functional hypothalamic suppression from structural disease	original:eh-hyp-energy	original:eh-hyp-out	original:eh-hyp-in	Hypotension, bradycardia and electrolyte abnormalities make outpatient restoration alone insufficient.	Documented
+USMLE Step 1	endo.adrenal	Using pubertal progression to select observation or evaluation	original:eh-pub-axis				Documented
+USMLE Step 2 CK	endo.adrenal	Using pubertal progression to select observation or evaluation		original:eh-pub-early	original:eh-pub-fast	Rapid increase in Tanner stage and growth velocity ends observation.	Documented
+USMLE Step 3	endo.adrenal	Using pubertal progression to select observation or evaluation		original:eh-pub-lh			Documented
+USMLE Step 1	endo.pituitary	Prioritizing adrenal and visual threats during pituitary apoplexy	original:eh-apop-injury				Documented
+USMLE Step 2 CK	endo.pituitary	Prioritizing adrenal and visual threats during pituitary apoplexy		original:eh-apop-diplopia			Documented
+USMLE Step 2 CK	endo.pituitary	Select imaging when apoplexy is suspected		original:eh-apop-image			Documented
+USMLE Step 3	endo.pituitary	Prioritizing adrenal and visual threats during pituitary apoplexy	original:eh-apop-axis	original:eh-apop-bp			Documented
+USMLE Step 3	endo.pituitary	Reassess the need for decompression after stabilization		original:eh-apop-vision			Documented
+USMLE Step 1	endo.pituitary	Reconciling measured prolactin with clinical findings	original:eh-pro-loop				Documented
+USMLE Step 2 CK	endo.pituitary	Reconciling measured prolactin with clinical findings		original:eh-pro-mass	original:eh-pro-macro	A clinically silent elevation without a large mass raises macroprolactin instead of antigen excess.	Documented
+USMLE Step 1	endo.pituitary	Recognize how hyperprolactinemia impairs ovulation		original:eh-pro-fert			Documented
+USMLE Step 3	endo.pituitary	Choose whether to initiate a dopamine agonist		original:eh-pro-cab	original:eh-pro-psych	An asymptomatic drug effect replaces a symptomatic prolactinoma.	Documented
+USMLE Step 1	endo.pituitary	Distinguishing complete vasopressin deficiency from renal resistance	original:eh-water-response	original:eh-water-rise	original:eh-water-flat	Urine remains dilute after desmopressin in a separate concentrating test.	Documented
+USMLE Step 2 CK	endo.pituitary	Distinguishing complete vasopressin deficiency from renal resistance		original:eh-water-resist			Documented
+USMLE Step 1	endo.pituitary	Reading urine concentration during hypotonic hyponatremia	original:eh-siad-sense				Documented
+USMLE Step 2 CK	endo.pituitary	Reading urine concentration during hypotonic hyponatremia	original:ey-pp	original:eh-siad-wet	original:eh-siad-retain	The new patient has concentrated urine despite hypotonic plasma after alternative causes are excluded.	Documented
+USMLE Step 3	endo.pituitary	Reading urine concentration during hypotonic hyponatremia		original:eh-siad-mimic			Documented
+USMLE Step 1	endo.adrenal	Classifying primary aldosteronism before choosing treatment	original:axis-aldo-feedback				Documented
+USMLE Step 1	endo.adrenal	Explain potassium loss in autonomous aldosterone secretion		original:eh-aldo-source			Documented
+USMLE Step 2 CK	endo.adrenal	Classifying primary aldosteronism before choosing treatment		original:axis-aldo-potassium original:eh-aldo-renal			Documented
+USMLE Step 3	endo.adrenal	Classifying primary aldosteronism before choosing treatment	original:axis-aldo-side	original:eh-aldo-uni	original:axis-aldo-bilateral	Bilateral secretion changes a surgical plan to long-term receptor blockade.	Documented
+USMLE Step 1	endo.adrenal	Choosing physiologic tests for cortisol excess	original:axis-cushing-night	original:eh-cush-diurnal			Documented
+USMLE Step 2 CK	endo.adrenal	Review exogenous glucocorticoid exposure before screening for cortisol excess	original:axis-cushing-history				Documented
+USMLE Step 2 CK	endo.adrenal	Select a cortisol excess screening test appropriate to sleep schedule		original:eh-cush-test	original:eh-cush-shifts	Rotating sleep and work times undermine the usual clock-time saliva measurement.	Documented
+USMLE Step 3	endo.adrenal	Choosing physiologic tests for cortisol excess		original:eh-cush-two	original:axis-cushing-discord	Discordant testing and high clinical suspicion require further evaluation.	Documented
+USMLE Step 1	endo.pituitary	Recognizing clinical consequences of a suprasellar tumor		original:eh-mass-location			Documented
+USMLE Step 2 CK	endo.pituitary	Recognizing clinical consequences of a suprasellar tumor		original:eh-mass-region			Documented
+USMLE Step 3	endo.pituitary	Recognizing clinical consequences of a suprasellar tumor		original:eh-mass-vision			Documented
+USMLE Step 1	endo.men	Recognizing hereditary disease in bilateral adrenal tumors		original:eh-bilat-gross			Documented
+USMLE Step 2 CK	endo.men	Recognizing hereditary disease in bilateral adrenal tumors		original:eh-bilat-syndrome			Documented
+USMLE Step 1	endo.pituitary	Recognizing pituitary ischemia after obstetric hemorrhage		original:eh-sheehan-milk			Documented
+USMLE Step 2 CK	endo.pituitary	Recognizing pituitary ischemia after obstetric hemorrhage		original:eh-sheehan-dx			Documented
+USMLE Step 3	endo.pituitary	Protect adrenal function during emergency treatment of postpartum hypopituitarism		original:eh-sheehan-triage			Documented
+USMLE Step 1	endo.pituitary	Distinguishing growth hormone excess from deficiency	original:eh-gh-plates	original:eh-gh-child	original:eh-gh-adult	GH excess starts after growth plate closure rather than in a growing child.	Documented
+USMLE Step 2 CK	endo.pituitary	Distinguishing growth hormone excess from deficiency		original:axis-gh-screen			Documented
+USMLE Step 2 CK	endo.pituitary	Evaluate suspected isolated growth hormone deficiency		original:eh-gh-stim			Documented
+USMLE Step 1	endo.pancreas	Distinguishing peripheral nerve loss from limb ischemia in diabetes		original:eh-foot-fiber			Documented
+USMLE Step 2 CK	endo.pancreas	Distinguishing peripheral nerve loss from limb ischemia in diabetes		original:eh-foot-sensory	original:eh-foot-vascular	Exertional pain and perfusion abnormalities replace the symmetric sensory findings.	Documented
+USMLE Step 3	endo.pancreas	Distinguishing peripheral nerve loss from limb ischemia in diabetes		original:eh-foot-toe			Documented
+USMLE Step 3	endo.pancreas	Set a foot inspection interval when protective sensation is absent		original:eh-foot-inspect			Documented
+USMLE Step 1	endo.pancreas	Evaluating possible diabetic gastroparesis	original:eh-gastro-motor				Documented
+USMLE Step 2 CK	endo.pancreas	Evaluating possible diabetic gastroparesis		original:eh-gastro-test			Documented
+USMLE Step 3	endo.pancreas	Evaluating possible diabetic gastroparesis		original:eh-gastro-drug			Documented
+USMLE Step 1	endo.thyroid	Interpreting thyroid tests during severe nonthyroidal illness	original:eh-sick-t3				Documented
+USMLE Step 2 CK	endo.thyroid	Interpreting thyroid tests during severe nonthyroidal illness		original:eh-sick-pattern			Documented
+USMLE Step 3	endo.thyroid	Interpreting thyroid tests during severe nonthyroidal illness		original:eh-sick-no			Documented
+USMLE Step 3	endo.pituitary	Reassessing severe symptomatic hypotonic hyponatremia	original:eh-sodium-danger	original:eh-sodium-seizure	original:eh-sodium-stop	Severe neurologic symptoms resolve with a small initial sodium rise.	Documented
+USMLE Step 3	endo.pituitary	Monitor for overcorrection after a water diuresis		original:eh-sodium-diuresis			Documented
+USMLE Step 3	endo.pituitary	Decide whether glucocorticoid coverage must precede thyroid hormone	original:eh-pitseq-rule	original:axis-pit-sequence	original:eh-pitseq-intact	Testing documents intact adrenal reserve before central thyroid replacement.	Documented
+USMLE Step 1	endo.pituitary	Reading growth hormone suppression after oral glucose	original:eh-ogtt-nadir	original:eh-ogtt-supp	original:eh-ogtt-persist	The second GH nadir stays above the stated laboratory criterion.	Documented
+USMLE Step 2 CK	endo.pituitary	Reading growth hormone suppression after oral glucose	original:axis-gh-glucose	original:eh-ogtt-support	original:eh-ogtt-discord	In a separate glucose study, GH reaches the suppression threshold.	Documented
+USMLE Step 3	endo.pituitary	Interpret IGF-1 relative to the age-specific upper limit	original:ey-ref	original:eh-ogtt-ratio	original:eh-ogtt-border	The age-adjusted ratio becomes marginal and the clinical phenotype is equivocal.	Documented
+USMLE Step 1	endo.adrenal	Recognizing and evaluating a pediatric adrenal neural tumor	original:eh-nb-origin				Documented
+USMLE Step 2 CK	endo.adrenal	Recognizing and evaluating a pediatric adrenal neural tumor		original:eh-nb-mass			Documented
+USMLE Step 3	endo.adrenal	Recognizing and evaluating a pediatric adrenal neural tumor		original:eh-nb-stage			Documented
+USMLE Step 1	endo.pancreas	Interpreting low insulin during hypoglycemia in critical illness	original:eh-critical-liver				Documented
+USMLE Step 2 CK	endo.pancreas	Interpreting low insulin during hypoglycemia in critical illness		original:eh-critical-sick			Documented
+USMLE Step 3	endo.pancreas	Interpreting low insulin during hypoglycemia in critical illness		original:eh-critical-failed			Documented
+USMLE Step 3	endo.thyroid	Evaluating a threatened airway in aggressive thyroid cancer		original:eh-airway-voice	original:eh-airway-stridor	Stridor and respiratory distress change the immediate priority to airway stabilization.	Documented
+USMLE Step 1	endo.thyroid	Selecting a biochemical target for central hypothyroidism	original:axis-pit-tsh				Documented
+USMLE Step 2 CK	endo.thyroid	Localize low free T4 from the TSH response		original:axis-pit-axis	original:eh-thycentral-primary	A markedly elevated TSH with low free T4 shifts localization to the thyroid gland.	Documented
+USMLE Step 2 CK	endo.thyroid	Selecting a biochemical target for central hypothyroidism	original:rx-t4-secondary				Documented
+USMLE Step 3	endo.thyroid	Selecting a biochemical target for central hypothyroidism		original:acm-hypothyroid-monitor	original:eh-thycentral-central	Pituitary surgery disrupts TSH feedback, changing the biochemical replacement target.	Documented
+USMLE Step 1	endo.parathyroid	Assessing skeletal complications of primary hyperparathyroidism	original:eh-bone-site				Documented
+USMLE Step 2 CK	endo.parathyroid	Assessing skeletal complications of primary hyperparathyroidism		original:eh-bone-normal			Documented
+USMLE Step 3	endo.parathyroid	Assessing skeletal complications of primary hyperparathyroidism		original:eh-bone-fract			Documented
+USMLE Step 2 CK	endo.pituitary	Calculating change in urine concentration after desmopressin	original:ey-kidney	original:eh-waterpct-rate	original:eh-waterpct-small	Little change from a new pre-dose value gives a much smaller percentage rise.	Documented
+USMLE Step 1	endo.pancreas	Counting metabolic syndrome criteria without double counting	original:eh-met-count				Documented
+USMLE Step 2 CK	endo.pancreas	Counting metabolic syndrome criteria without double counting		original:eh-met-three	original:eh-met-two	Normal HDL in the second profile leaves two qualifying components rather than three.	Documented
+USMLE Step 1	endo.pancreas	Recognizing neurologic deterioration during a hyperglycemic crisis	original:eh-brain-shift				Documented
+USMLE Step 2 CK	endo.pancreas	Recognizing neurologic deterioration during a hyperglycemic crisis		original:eh-brain-change			Documented
+USMLE Step 3	endo.pancreas	Recognizing neurologic deterioration during a hyperglycemic crisis		original:eh-brain-action			Documented
+USMLE Step 1	endo.thyroid	Investigating elevated free thyroid hormones with nonsuppressed TSH	original:eh-tsh-rule				Documented
+USMLE Step 2 CK	endo.thyroid	Investigating elevated free thyroid hormones with nonsuppressed TSH		original:eh-tsh-source			Documented
+USMLE Step 3	endo.thyroid	Investigating elevated free thyroid hormones with nonsuppressed TSH		original:eh-tsh-verify			Documented
+USMLE Step 2 CK	endo.thyroid	Selecting thyroid treatment during an infertility evaluation		original:eh-fert-symptom	original:eh-fert-well	A euthyroid antibody-positive patient replaces a patient with overt hormone deficiency, changing the treatment indication.	Documented
+USMLE Step 2 CK	endo.pituitary	Evaluating endocrine deficits with a new sellar lesion in cancer		original:eh-mets-thirst			Documented
+USMLE Step 3	endo.pituitary	Evaluating endocrine deficits with a new sellar lesion in cancer		original:eh-mets-axes			Documented
+USMLE Step 1	endo.pancreas	Differentiate non-insulin causes of hypoglycemia on an unfamiliar critical sample					Awaiting review
+USMLE Step 1	endo.thyroid	Discriminate papillary and follicular lesions on an unfamiliar tissue specimen					Awaiting review
+USMLE Step 1	endo.pituitary	Evaluate an indeterminate response during a supervised polyuria workup					Awaiting review
+USMLE Step 2 CK	endo.pancreas	Differentiate non-insulin causes of hypoglycemia on an unfamiliar critical sample					Awaiting review
+USMLE Step 2 CK	endo.thyroid	Discriminate papillary and follicular lesions on an unfamiliar tissue specimen					Awaiting review
+USMLE Step 2 CK	endo.pituitary	Evaluate an indeterminate response during a supervised polyuria workup					Awaiting review
+USMLE Step 3	endo.pancreas	Differentiate non-insulin causes of hypoglycemia on an unfamiliar critical sample					Awaiting review
+USMLE Step 3	endo.thyroid	Discriminate papillary and follicular lesions on an unfamiliar tissue specimen					Awaiting review
+USMLE Step 3	endo.pituitary	Evaluate an indeterminate response during a supervised polyuria workup					Awaiting review
+USMLE Step 1	endo.pancreas	Recognizing diabetic glomerular injury on tissue	original:ex-renal-ratio	original:ex-renal-nodule			Documented
+USMLE Step 2 CK	endo.pancreas	Recognizing diabetic glomerular injury on tissue		original:ex-renal-prior			Documented
+USMLE Step 1	endo.thyroid	Recognizing and staging papillary thyroid carcinoma		original:ex-pap-route			Documented
+USMLE Step 2 CK	endo.thyroid	Recognizing and staging papillary thyroid carcinoma		original:ex-pap-architecture			Documented
+USMLE Step 3	endo.thyroid	Decide when papillary thyroid cancer surveillance remains appropriate	original:ey-tg	original:ex-pap-observe	original:ex-pap-node	A newly biopsy-confirmed nodal metastasis ends eligibility for active surveillance.	Documented
+USMLE Step 1	endo.thyroid	Distinguishing purely cystic from partly solid thyroid nodules	original:ex-cyst-simple				Documented
+USMLE Step 2 CK	endo.thyroid	Distinguishing purely cystic from partly solid thyroid nodules		original:ex-cyst-none	original:ex-cyst-solid	A suspicious solid component in a sufficiently large lesion changes the need for diagnostic sampling.	Documented
+USMLE Step 3	endo.thyroid	Manage a symptomatic purely cystic lesion		original:ex-cyst-relief	original:ex-cyst-recur	Recurrence after aspiration and persistent symptoms change the choice of nonsurgical intervention.	Documented
+USMLE Step 1	endo.thyroid	Treating overt thyroid dysfunction before pregnancy		original:ex-fertthy-mechanism			Documented
+USMLE Step 3	endo.thyroid	Treating overt thyroid dysfunction before pregnancy		original:ex-fertthy-restore			Documented
+USMLE Step 1	endo.pancreas	Recognizing the consequences of limited arterial supply in diabetes		original:ex-footv-calc			Documented
+USMLE Step 1	endo.pancreas	Discriminating causes of low glucose during systemic illness		original:ex-source-sepsis			Documented
+USMLE Step 2 CK	endo.pancreas	Discriminating causes of low glucose during systemic illness		original:ex-source-liver original:ex-source-external			Documented
+USMLE Step 3	endo.pancreas	Discriminating causes of low glucose during systemic illness		original:ex-source-shock			Documented
+USMLE Step 1	endo.pancreas	Matching pancreatic tumor syndromes to clinical evaluation		original:ex-pnetcare-whipple			Documented
+USMLE Step 2 CK	endo.pancreas	Matching pancreatic tumor syndromes to clinical evaluation		original:ex-pnetcare-somadx			Documented
+USMLE Step 3	endo.pancreas	Matching pancreatic tumor syndromes to clinical evaluation		original:ex-pnetcare-rashcare	original:ex-pnetcare-fatcare	A different secretory syndrome shifts testing from glucagon to somatostatin.	Documented
+USMLE Step 3	endo.pancreas	Preserving basal insulin and screening for complications		original:ex-glucosecare-npo original:ex-glucosecare-kid			Documented
+USMLE Step 3	endo.pancreas	Accounting for treatment when classifying metabolic risk		original:ex-metsynd-treat			Documented
+USMLE Step 1	endo.thyroid	Explaining the treatment sequence in thyroid storm	original:ex-stormmech-iodine				Documented
+USMLE Step 1	endo.thyroid	Identifying aggressive local invasion in thyroid malignancy		original:ex-cancerfast-nerve			Documented
+USMLE Step 1	endo.adrenal	Recognizing mixed steroid secretion by adrenal cortical tumors		original:ex-acc-zone			Documented
+USMLE Step 1	endo.pituitary	Assessing short stature from longitudinal growth	original:ex-retest-speed	original:ex-retest-slows	original:ex-retest-steady	A separate child’s repeated measurements give a normal rather than low annual height velocity.	Documented
+USMLE Step 2 CK	endo.pituitary	Assessing short stature from longitudinal growth		original:ex-retest-large			Documented
+USMLE Step 3	endo.pituitary	Assessing short stature from longitudinal growth	original:ey-growth	original:ex-retest-growth	original:ex-retest-tracking	A new trajectory maintains normal prepubertal velocity despite similarly short stature.	Documented
+USMLE Step 3	endo.pituitary	Localize a source of gigantism after biochemical confirmation		original:ex-retest-giant			Documented
+USMLE Step 2 CK	endo.adrenal	Localizing delayed puberty using gonadotropins	original:ex-pubdelay-when				Documented
+USMLE Step 3	endo.adrenal	Localizing delayed puberty using gonadotropins	original:ey-ret	original:ex-pubdelay-low	original:ex-pubdelay-smell	Low gonadotropins and anosmia change the localization from gonadal failure to central deficiency.	Documented
+USMLE Step 1	endo.pituitary	Evaluating prolactin effects on lactation and fertility		original:ex-gal-signal			Documented
+USMLE Step 2 CK	endo.pituitary	Evaluating prolactin effects on lactation and fertility		original:ex-gal-ovulation			Documented
+USMLE Step 3	endo.pituitary	Evaluating prolactin effects on lactation and fertility		original:ex-gal-goal			Documented
+USMLE Step 3	endo.congenital	Planning hormone care after gonadectomy in complete androgen insensitivity		original:ex-aiscare-post			Documented
+USMLE Step 1	endo.pituitary	Explaining water loss with a pituitary stalk metastasis		original:ex-pitmets-tract			Documented
+USMLE Step 1	endo.thyroid	Separating thyroid size from hormone status		original:ex-goiter-size			Documented
+USMLE Step 2 CK	endo.adrenal	Distinguishing a secreting adrenal nodule from an incidental adenoma		original:ex-apa-side			Documented
+USMLE Step 3	endo.adrenal	Distinguishing a secreting adrenal nodule from an incidental adenoma		original:ex-apa-adeno			Documented
+USMLE Step 2 CK	endo.thyroid	Evaluating a follicular-patterned thyroid aspirate		original:ex-follicle-limits			Documented
+USMLE Step 1	endo.pituitary	Identifying the secretory lineage of a pituitary tumor		original:ex-pitcell-line			Documented
+USMLE Step 1	endo.congenital	Using the mineralocorticoid phenotype to distinguish adrenal enzyme blocks	original:ey-salt	original:ey-vol	original:ey-htn	Opposite blood pressure and renin patterns reveal excess rather than deficient mineralocorticoid action.	Documented
+USMLE Step 2 CK	endo.congenital	Using the mineralocorticoid phenotype to distinguish adrenal enzyme blocks	original:ey-clue	original:eh-cah-salt	original:ey-pressure	Hypertension and 11-deoxycortisol accumulation change the enzyme diagnosis.	Documented
+USMLE Step 1	endo.drug	Estimating adrenal suppression after systemic steroid exposure	original:eh-withdraw-axis	original:ey-long	original:ey-short	A single three-day exposure replaces prolonged systemic treatment and makes sustained axis suppression unlikely.	Documented
+USMLE Step 2 CK	endo.drug	Estimating adrenal suppression after systemic steroid exposure	original:ey-taper	original:ey-chronic	original:ey-brief	An isolated short course can be stopped without testing, whereas an ongoing supraphysiologic regimen suppresses the axis.	Documented

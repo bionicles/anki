@@ -875,3 +875,85 @@ repro.drug	Opioid effects
 repro.drug	Spironolactone effects			
 repro.drug	SSRI effects	original:rg-ssri-effect	original:rg-ssri-new	original:rg-ssri-baseline original:rg-ssri-before original:rg2-add-drug
 repro.drug	Tricyclic antidepressant effects			
+endo.pancreas	Type 1 diabetes	bank:usmle-step1:endocrine-type-1-beta-cell:v1 bank:usmle-step1:endo-diabetes-types:v1 original:eh-type-slow	original:eh-screen-type1	original:ex-glucosecare-npo
+endo.pancreas	Slowly progressive adult-onset autoimmune diabetes	original:eh-type-slow	original:eh-type-adult	original:eh-type-insulin
+endo.pancreas	Type 2 diabetes	original:eh-screen-latency	original:eh-screen-type2	original:ex-glucosecare-kid
+endo.pancreas	Hyperosmolar hyperglycemic state	original:eh-osm-formula original:eh-osm-high original:eh-osm-lower	original:ckdka-hhs original:eh-osm-mixed	original:eh-brain-action
+endo.pancreas	Severe symptomatic hypoglycemia	original:eh-rescue-help	original:eh-rescue-po original:eh-rescue-unable original:ey-glucose	original:eh-rescue-retest original:eh-rescue-plan
+endo.pancreas	Diabetic ketoacidosis	bank:usmle-step1:endocrine-dka-ketogenesis:v1 original:eh-dka-k	original:ckdka-normal original:ckdka-ketones original:ckdka-serum original:eh-osm-mixed original:eh-dka-saline original:eh-brain-change	original:ccs-dka-potassium original:ccs-dka-sugar original:ccs-dka-bridge original:ccs-dka-discharge original:eh-dka-why original:eh-dka-ongoing original:eh-dka-done
+endo.pancreas	Cerebral edema in hyperglycemic crises	original:eh-brain-shift	original:eh-brain-change	original:eh-brain-action
+endo.pancreas	Electrolyte disturbances in diabetic emergencies	original:eh-dka-k	original:ckdka-serum original:eh-dka-saline	original:ccs-dka-potassium
+endo.pancreas	Diabetic gastroparesis	original:eh-gastro-motor	original:gut-empty-delay original:gut-empty-rule original:eh-gastro-test	original:gut-empty-short original:eh-gastro-drug
+endo.pancreas	Diabetic neuropathy	original:eh-foot-fiber	original:eh-foot-sensory	original:eh-foot-inspect
+endo.pancreas	Diabetic retinopathy	original:nret-traction original:eh-screen-latency	original:eh-screen-type2 original:eh-screen-type1 original:ey-diab	original:eh-screen-preg
+endo.pancreas	Peripheral vascular complications of diabetes	original:ex-footv-calc	original:eh-foot-vascular	original:eh-foot-toe
+endo.pancreas	Diabetic kidney disease	original:ex-renal-nodule original:ex-renal-ratio	original:eh-kid-two original:ex-renal-prior	original:eh-kid-repeat original:eh-kid-persist original:ex-glucosecare-kid original:ey-urine
+endo.pancreas	Metabolic syndrome	original:eh-met-count	original:eh-met-three original:eh-met-two	original:ex-metsynd-treat
+endo.pancreas	Insulinoma	original:ex-pnetcare-whipple	original:eh-ins-screen original:eh-ins-neg original:eh-ins-drug	original:eh-ins-during original:eh-ins-local original:eh-ins-hold
+endo.pancreas	Hypoglycemia from administered insulin	original:eh-ins-cleave original:eh-ins-outside	original:ex-source-external	original:eh-ins-hold
+endo.pancreas	Hypoglycemia in sepsis	original:ex-source-sepsis	original:eh-critical-sick	original:ex-source-shock
+endo.pancreas	Hypoglycemia with liver failure	original:eh-critical-liver	original:ex-source-liver	original:eh-critical-failed
+endo.pancreas	Glucagonoma	original:eh-net-gluc	original:eh-net-rash	original:ex-pnetcare-rashcare
+endo.pancreas	Hyperinsulinemic hypoglycemia	original:eh-ins-cleave original:eh-ins-own original:eh-ins-outside	original:eh-ins-screen original:eh-ins-neg original:eh-ins-drug	original:eh-ins-during original:eh-ins-local
+endo.pancreas	Somatostatinoma	original:eh-net-soma	original:ex-pnetcare-somadx	original:ex-pnetcare-fatcare
+endo.pancreas	Pancreatic neuroendocrine tumors	original:eh-net-gluc original:eh-net-soma	original:eh-net-gastrin original:eh-net-rash original:ex-pnetcare-somadx	original:ex-pnetcare-rashcare original:ex-pnetcare-fatcare
+endo.thyroid	Thyroid cyst	original:ex-cyst-simple	original:ex-cyst-none original:ex-cyst-solid	original:ex-cyst-relief original:ex-cyst-recur
+endo.thyroid	Thyroid nodule	original:eh-uptake-hot	original:eh-uptake-focal original:eh-nod-normal original:eh-nod-low original:ex-cyst-none original:ex-cyst-solid	original:eh-nod-sample
+endo.thyroid	Nonthyroidal illness	original:eh-sick-t3	original:eh-sick-pattern	original:eh-sick-no
+endo.thyroid	Euthyroid goiter	original:ex-goiter-size	original:eh-hash-goiter	original:eh-hash-monitor
+endo.thyroid	Primary hypothyroidism	original:ex-fertthy-mechanism	original:rx-t4-iron original:eh-hash-high original:eh-thycentral-primary original:eh-fert-symptom	original:acm-hypothyroid-need original:rx-t4-timing original:eh-hash-replace original:acm-hypothyroid-monitor original:ex-fertthy-restore
+endo.thyroid	Hyperthyroidism and thyrotoxicosis	original:eh-uptake-trap original:eh-uptake-diff original:eh-uptake-hot	original:axis-thy-uptake original:eh-uptake-graves original:eh-uptake-focal original:eh-storm-decomp original:eh-nod-low original:ey-caff	original:axis-thy-therapy original:eh-uptake-synth
+endo.thyroid	Thyroid storm	original:ex-stormmech-iodine	original:eh-storm-decomp	original:eh-storm-urgency original:eh-storm-iodine
+endo.thyroid	Thyroiditis	original:axis-thy-leak	original:axis-thy-uptake original:ey-caff	original:axis-thy-follow original:axis-thy-therapy
+endo.thyroid	Hashimoto thyroiditis	original:eh-hash-antibodies	original:eh-hash-high original:eh-hash-goiter	original:eh-hash-monitor original:eh-hash-replace
+endo.thyroid	Graves disease	original:eh-uptake-diff	original:eh-uptake-graves original:ey-caff	original:eh-uptake-synth
+endo.thyroid	Papillary thyroid carcinoma	original:ex-pap-route	original:ex-pap-architecture	original:ex-pap-observe original:ex-pap-node original:ey-tg
+endo.thyroid	Follicular thyroid carcinoma	original:eh-nod-fol	original:ex-follicle-limits	original:eh-nod-sample
+endo.thyroid	Medullary thyroid carcinoma	original:eh-men-ret original:eh-nod-origin	original:eh-men-twoa	original:eh-family-ret
+endo.thyroid	Anaplastic thyroid carcinoma	original:ex-cancerfast-nerve	original:eh-nod-rapid	original:eh-airway-voice original:eh-airway-stridor
+endo.thyroid	Central hypothyroidism	original:axis-pit-tsh	original:axis-pit-axis original:eh-thycentral-primary original:rx-t4-secondary	original:eh-thycentral-central
+endo.thyroid	Thyroid disease and infertility	original:ex-fertthy-mechanism	original:eh-fert-symptom original:eh-fert-well	original:ex-fertthy-restore
+endo.thyroid	Central hyperthyroidism	original:eh-tsh-rule	original:eh-tsh-source	original:eh-tsh-verify
+endo.parathyroid	Hyperparathyroidism	original:axis-pth-feedback original:eh-pth-high original:eh-pth-off original:eh-bone-site	original:axis-pth-bones original:eh-pth-cancer original:eh-pth-fhh original:eh-bone-normal original:ey-ca	original:axis-pth-definitive original:axis-pth-bone original:rx-cin-baseline original:eh-pth-stone original:eh-pth-family original:eh-bone-fract
+endo.parathyroid	Hypoparathyroidism	original:eh-lowp-phos original:eh-lowp-inap	original:eh-lowp-mg	original:eh-lowp-target original:eh-lowp-urine
+endo.parathyroid	Metabolic bone disease associated with parathyroid disorders	original:eh-bone-site	original:eh-bone-normal	original:axis-pth-bone original:eh-bone-fract
+endo.adrenal	Primary adrenal insufficiency	original:axis-ai-renin original:endomech-skin bank:usmle-step1:endocrine-primary-adrenal-electrolytes:v1 original:endomech-primary original:ey-cort	original:axis-ai-paired original:axis-ai-cause original:eh-cort-pig	original:axis-ai-dose-check original:ccs-adrenal-treat original:nald-adrenal
+endo.adrenal	Secondary adrenal insufficiency	bank:usmle-step1:endocrine-secondary-adrenal-axis:v1 original:eh-cort-central original:ey-cort	original:eh-cort-aldo original:eh-cort-surgery	original:axis-pit-sample original:axis-pit-sequence
+endo.adrenal	Hypocortisolism	original:endomech-primary original:eh-cort-central original:ey-cort	original:eh-cort-surgery original:eh-cort-pig	original:ccs-adrenal-vomit original:ccs-adrenal-fluid original:ccs-adrenal-treat
+endo.adrenal	Cushing syndrome	original:axis-cushing-night original:eh-cush-diurnal	original:axis-cushing-history original:eh-cush-test original:eh-cush-shifts	original:eh-cush-two original:axis-cushing-discord
+endo.adrenal	Aldosterone excess	original:axis-aldo-feedback original:eh-aldo-source	original:axis-aldo-potassium original:eh-aldo-renal	original:axis-aldo-side original:eh-aldo-uni original:axis-aldo-bilateral
+endo.adrenal	Adrenal neuroblastoma	original:eh-nb-origin	original:eh-nb-mass	original:eh-nb-stage
+endo.adrenal	Pheochromocytoma	original:axis-ppgl-order original:eh-bilat-gross	original:axis-ppgl-test original:axis-ppgl-posture original:eh-order-both	original:axis-ppgl-before original:axis-ppgl-after original:axis-ppgl-family original:eh-order-first original:eh-inc-biopsy
+endo.adrenal	Adrenocortical carcinoma	original:ex-acc-zone	original:eh-inc-complex	original:eh-inc-isolated
+endo.adrenal	Adrenal adenoma	original:eh-inc-lipid	original:eh-inc-simple original:ey-cortis	original:ex-apa-adeno
+endo.adrenal	Aldosterone-producing adenoma	bank:usmle-step1:endo-adrenal-cortex-zones:v1	original:ex-apa-side	original:axis-aldo-side original:eh-aldo-uni
+endo.adrenal	Adrenal incidentaloma	original:eh-inc-lipid	original:eh-inc-simple original:eh-inc-complex original:ey-cortis	original:eh-inc-biopsy original:eh-inc-known original:eh-inc-isolated original:ex-apa-adeno
+endo.adrenal	Delayed puberty	original:eh-hyp-anosmia	original:ex-pubdelay-when	original:ex-pubdelay-low original:ex-pubdelay-smell original:ey-ret
+endo.adrenal	Precocious puberty	original:eh-pub-axis	original:eh-pub-early original:eh-pub-fast	original:eh-pub-lh
+endo.adrenal	Endocrine hypertension	original:axis-aldo-feedback original:eh-aldo-source	original:axis-aldo-screen original:eh-aldo-renal	original:eh-aldo-uni original:axis-aldo-bilateral
+endo.pituitary	Acromegaly	original:axis-gh-igf original:rx-oct-gh original:eh-gh-plates original:eh-gh-adult original:eh-ogtt-nadir original:eh-ogtt-supp original:eh-ogtt-persist original:ex-pitcell-line	original:axis-gh-screen original:axis-gh-glucose original:eh-ogtt-support original:eh-ogtt-discord	original:axis-gh-locate original:axis-gh-field original:axis-gh-airway original:eh-ogtt-ratio original:eh-ogtt-border original:ey-ref
+endo.pituitary	Gigantism	original:eh-gh-plates original:eh-gh-child	original:ex-retest-large	original:ex-retest-giant
+endo.pituitary	Diabetes insipidus	original:eh-water-response original:eh-water-rise original:eh-water-flat original:ex-pitmets-tract	original:rx-v2-central original:eh-water-resist original:eh-waterpct-rate original:eh-waterpct-small original:eh-mets-thirst original:ey-kidney	original:axis-pit-polyuria original:rx-v2-symptoms
+endo.pituitary	Nonpuerperal galactorrhea	original:ex-gal-signal	original:bh-prolactin-amenorrhea	original:ex-gal-goal
+endo.pituitary	Multiple pituitary hormone deficiencies	original:eh-sheehan-milk	original:eh-sheehan-dx	original:eh-sheehan-triage original:eh-pitseq-rule original:axis-pit-sequence original:eh-pitseq-intact original:eh-mets-axes
+endo.pituitary	Pituitary apoplexy	original:eh-apop-injury	original:eh-apop-diplopia original:eh-apop-image	original:eh-apop-axis original:eh-apop-bp original:eh-apop-vision
+endo.pituitary	Postpartum pituitary ischemia	original:eh-sheehan-milk	original:eh-sheehan-dx	original:eh-sheehan-triage
+endo.pituitary	Growth hormone deficiency	original:ex-retest-speed original:ex-retest-slows original:ex-retest-steady	original:eh-gh-stim	original:ex-retest-growth original:ey-growth
+endo.pituitary	Short stature	original:ex-retest-speed original:ex-retest-slows original:ex-retest-steady	original:eh-mass-region	original:ex-retest-growth original:ex-retest-tracking original:ey-growth
+endo.pituitary	Inappropriate antidiuresis	original:eh-siad-sense	original:pul-sclc-sodium original:eh-siad-wet original:eh-siad-retain original:ey-pp	original:eh-siad-mimic original:eh-sodium-danger original:eh-sodium-seizure original:eh-sodium-stop original:eh-sodium-diuresis
+endo.pituitary	Pituitary adenoma	original:ex-pitcell-line	original:eh-pro-mass	original:ex-retest-giant
+endo.pituitary	Craniopharyngioma	original:eh-mass-location	original:eh-mass-region	original:eh-mass-vision
+endo.pituitary	Metastatic disease of the pituitary	original:ex-pitmets-tract	original:eh-mets-thirst	original:eh-mets-axes
+endo.pituitary	Prolactinoma and hyperprolactinemia	original:bh-prolactin-signal original:eh-pro-loop original:eh-pro-fert	original:bh-prolactin-amenorrhea original:eh-pro-mass original:eh-pro-macro original:ex-gal-ovulation	original:eh-pro-cab original:eh-pro-psych original:ex-gal-goal
+endo.pituitary	Infertility associated with hyperprolactinemia	original:eh-pro-fert	original:ex-gal-ovulation	original:ex-gal-goal
+endo.pituitary	Primary and central hypogonadism	original:axis-pit-gonad original:gen-turner-syndrome-gonads	original:gen-turner-syndrome-presentation	original:ex-pubdelay-low original:ex-pubdelay-smell
+endo.hypothalamus	Hypothalamic endocrine dysfunction	original:eh-hyp-def original:rg-cycle-central original:eh-hyp-anosmia	original:rg-cycle-low original:eh-hyp-mri original:ey-fha	original:eh-hyp-energy original:eh-hyp-out original:eh-hyp-in
+endo.men	Multiple endocrine neoplasia type 1	original:eh-men-menin original:eh-men-loss original:eh-family-odds	original:eh-men-three original:ey-men	original:eh-family-test
+endo.men	Multiple endocrine neoplasia type 2	original:eh-men-ret original:eh-family-odds original:eh-order-source original:eh-bilat-gross	original:eh-men-twoa original:eh-men-twob original:eh-order-both original:eh-bilat-syndrome original:ey-men	original:eh-family-ret original:eh-order-screen original:eh-order-first original:eh-order-negative
+endo.congenital	Differences of sex development	original:eh-cah-androgen original:eh-ais-signal	original:rg-dev-other	original:ex-aiscare-post
+endo.congenital	Congenital adrenal hyperplasia	original:eh-cah-path original:eh-cah-androgen original:ey-salt original:ey-vol original:ey-htn	original:eh-cah-salt original:eh-cah-screen original:ey-clue original:ey-pressure	original:eh-cah-add original:eh-cah-ill original:eh-cah-vomit original:ey-sick
+endo.congenital	Androgen insensitivity	original:rg-dev-androgen original:eh-ais-signal original:eh-ais-hair	original:rg-dev-other original:rg2-add-dev	original:ex-aiscare-post
+endo.congenital	Congenital hypothyroidism	original:eh-ch-why original:eh-ch-labs	original:eh-ch-confirm	original:eh-ch-treat original:eh-ch-monitor
+endo.drug	Drug-related endocrine effects	original:bh-lith-water original:bh-prolactin-signal	original:bh-prolactin-amenorrhea original:rx-sglt-gap original:rx-cin-tetany	original:rx-v2-symptoms original:rx-cin-baseline
+endo.drug	Exogenous glucocorticoid suppression of the adrenal axis	bank:usmle-step1:endocrine-tertiary-adrenal-withdrawal:v1 original:eh-withdraw-axis original:ey-long original:ey-short	original:eh-withdraw-skin original:ey-taper original:ey-chronic original:ey-brief	original:eh-withdraw-dose original:eh-withdraw-mid original:eh-withdraw-clear original:eh-withdraw-stress
+endo.drug	Anabolic androgen effects	original:eh-and-axis original:eh-and-low	original:eh-and-history	original:eh-and-avoid
