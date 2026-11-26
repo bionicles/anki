@@ -1936,28 +1936,28 @@ multi.inf	Schistosomiasis
 multi.inf	Visceral leishmaniasis			
 multi.inf	Acute and chronic Chagas disease			
 multi.inf	Acute rheumatic fever	original:inflam-arf-1-rule original:inflam-arf-1-case original:inflam-arf-1-other	original:ckstrep-why original:inflam-arf-2-rule original:inflam-arf-2-case original:inflam-arf-2-other	original:inflam-arf-3-rule original:inflam-arf-3-case original:inflam-arf-3-other
-multi.inf	Systemic autoimmune vasculitis			
-multi.inf	Behçet disease			
-multi.inf	Eosinophilic granulomatosis with polyangiitis			
-multi.inf	Langerhans cell histiocytosis and eosinophilic granuloma			
+multi.inf	Systemic autoimmune vasculitis	original:rheum-vas-1-rule original:rheum-vas-1-case original:rheum-vas-1-other	original:rheum-vas-2-rule original:rheum-vas-2-case original:rheum-vas-2-other	original:rheum-vas-3-rule original:rheum-vas-3-case original:rheum-vas-3-other
+multi.inf	Behçet disease	original:rheum-beh-1-rule original:rheum-beh-1-case original:rheum-beh-1-other	original:rheum-beh-2-rule original:rheum-beh-2-case original:rheum-beh-2-other	original:rheum-beh-3-rule original:rheum-beh-3-case original:rheum-beh-3-other
+multi.inf	Eosinophilic granulomatosis with polyangiitis	original:rheum-egpa-1-rule original:rheum-egpa-1-case original:rheum-egpa-1-other	original:rheum-egpa-2-rule original:rheum-egpa-2-case original:rheum-egpa-2-other	original:rheum-egpa-3-rule original:rheum-egpa-3-case original:rheum-egpa-3-other
+multi.inf	Langerhans cell histiocytosis and eosinophilic granuloma	original:rheum-lch-1-rule original:rheum-lch-1-case original:rheum-lch-1-other	original:rheum-lch-2-rule original:rheum-lch-2-case original:rheum-lch-2-other	original:rheum-lch-3-rule original:rheum-lch-3-case original:rheum-lch-3-other original:rheum-lch-3-rule-extra original:rheum-lch-3-case-extra original:rheum-lch-3-other-extra
 multi.inf	Anti-GBM disease	original:inflam-anti-1-rule original:inflam-anti-1-case original:inflam-anti-1-other	original:ku-cast-anti original:ku-cast-lup original:inflam-anti-2-rule	original:ku-cast-action original:inflam-anti-3-rule original:inflam-anti-3-case original:inflam-anti-3-other
-multi.inf	IgA vasculitis			
+multi.inf	IgA vasculitis	original:rheum-iga-1-rule original:rheum-iga-1-case original:rheum-iga-1-other	original:rheum-iga-2-rule original:rheum-iga-2-case original:rheum-iga-2-other	original:rheum-iga-3-rule original:rheum-iga-3-case original:rheum-iga-3-other
 multi.inf	Kawasaki disease	original:inflam-kawa-1-rule original:inflam-kawa-1-case original:inflam-kawa-1-other	bank:cohort:id:q-a10048116c70:v1 original:inflam-kawa-2-rule original:inflam-kawa-2-case original:inflam-kawa-2-other	original:inflam-kawa-3-rule original:inflam-kawa-3-case original:inflam-kawa-3-other
-multi.inf	Mixed connective tissue disease			
-multi.inf	Microscopic polyangiitis			
-multi.inf	Polyarteritis nodosa			
-multi.inf	Autoimmune polyglandular syndrome type 1			
-multi.inf	Polymyalgia rheumatica			
-multi.inf	Giant cell arteritis			
-multi.inf	Raynaud phenomenon			
-multi.inf	Reactive arthritis			
-multi.inf	Systemic sclerosis			
-multi.inf	Sjögren syndrome			
+multi.inf	Mixed connective tissue disease	original:rheum-mct-1-rule original:rheum-mct-1-case original:rheum-mct-1-other	original:rheum-mct-2-rule original:rheum-mct-2-case original:rheum-mct-2-other	original:rheum-mct-3-rule original:rheum-mct-3-case original:rheum-mct-3-other original:rheum-mct-3-rule-extra original:rheum-mct-3-case-extra original:rheum-mct-3-other-extra
+multi.inf	Microscopic polyangiitis	original:rheum-mpa-1-rule original:rheum-mpa-1-case original:rheum-mpa-1-other	original:rheum-mpa-2-rule original:rheum-mpa-2-case original:rheum-mpa-2-other	original:rheum-mpa-3-rule original:rheum-mpa-3-case original:rheum-mpa-3-other
+multi.inf	Polyarteritis nodosa	original:rheum-pan-1-rule original:rheum-pan-1-case original:rheum-pan-1-other	original:rheum-pan-2-rule original:rheum-pan-2-case original:rheum-pan-2-other	original:rheum-pan-3-rule original:rheum-pan-3-case original:rheum-pan-3-other
+multi.inf	Autoimmune polyglandular syndrome type 1	original:rheum-aps-1-rule original:rheum-aps-1-case original:rheum-aps-1-other	original:rheum-aps-2-rule original:rheum-aps-2-case original:rheum-aps-2-other	original:rheum-aps-3-rule original:rheum-aps-3-case original:rheum-aps-3-other
+multi.inf	Polymyalgia rheumatica	original:rheum-pmr-1-rule original:rheum-pmr-1-case original:rheum-pmr-1-other	original:rheum-pmr-2-rule original:rheum-pmr-2-case original:rheum-pmr-2-other	original:rheum-pmr-3-rule original:rheum-pmr-3-case original:rheum-pmr-3-other
+multi.inf	Giant cell arteritis	original:rheum-gca-1-rule original:rheum-gca-1-case original:rheum-gca-1-other	original:rheum-gca-2-rule original:rheum-gca-2-case original:rheum-gca-2-other	original:rheum-gca-3-rule original:rheum-gca-3-case original:rheum-gca-3-other
+multi.inf	Raynaud phenomenon	original:rheum-ray-1-rule original:rheum-ray-1-case original:rheum-ray-1-other original:rheum-image-loop-rule original:rheum-image-loop-normal original:rheum-image-loop-large	original:rheum-ray-2-rule original:rheum-ray-2-case original:rheum-ray-2-other	original:rheum-ray-3-rule original:rheum-ray-3-case original:rheum-ray-3-other
+multi.inf	Reactive arthritis	original:rheum-react-1-rule original:rheum-react-1-case original:rheum-react-1-other	original:rheum-react-2-rule original:rheum-react-2-case original:rheum-react-2-other	original:rheum-react-3-rule original:rheum-react-3-case original:rheum-react-3-other
+multi.inf	Systemic sclerosis	original:rheum-ssc-1-rule original:rheum-ssc-1-case original:rheum-ssc-1-other	original:rheum-ssc-2-rule original:rheum-ssc-2-case original:rheum-ssc-2-other	original:rheum-ssc-3-rule original:rheum-ssc-3-case original:rheum-ssc-3-other
+multi.inf	Sjögren syndrome	original:rheum-sj-1-rule original:rheum-sj-1-case original:rheum-sj-1-other	original:rheum-sj-2-rule original:rheum-sj-2-case original:rheum-sj-2-other original:rheum-sj-2-rule-extra original:rheum-sj-2-case-extra original:rheum-sj-2-other-extra	original:rheum-sj-3-rule original:rheum-sj-3-case original:rheum-sj-3-other
 multi.inf	Systemic lupus erythematosus	original:inflam-sle-1-rule original:inflam-sle-1-case original:inflam-sle-1-other	original:ku-cast-lup original:inflam-sle-2-rule original:inflam-sle-2-case original:inflam-sle-2-other	original:ku-lup-biopsy original:per-sle-med original:inflam-sle-3-rule original:inflam-sle-3-other
-multi.inf	Takayasu arteritis			
-multi.inf	Granulomatosis with polyangiitis			
-multi.inf	Familial Mediterranean fever			
-multi.inf	Sarcoidosis and Löfgren syndrome			
+multi.inf	Takayasu arteritis	original:rheum-tak-1-rule original:rheum-tak-1-case original:rheum-tak-1-other	original:rheum-tak-2-rule original:rheum-tak-2-case original:rheum-tak-2-other	original:rheum-tak-3-rule original:rheum-tak-3-case original:rheum-tak-3-other
+multi.inf	Granulomatosis with polyangiitis	original:rheum-gpa-1-rule original:rheum-gpa-1-case original:rheum-gpa-1-other	original:rheum-gpa-2-rule original:rheum-gpa-2-case original:rheum-gpa-2-other	original:rheum-gpa-3-rule original:rheum-gpa-3-case original:rheum-gpa-3-other
+multi.inf	Familial Mediterranean fever	original:rheum-fmf-1-rule original:rheum-fmf-1-case original:rheum-fmf-1-other	original:rheum-fmf-2-rule original:rheum-fmf-2-case original:rheum-fmf-2-other	original:rheum-fmf-3-rule original:rheum-fmf-3-case original:rheum-fmf-3-other
+multi.inf	Sarcoidosis and Löfgren syndrome	original:rheum-sar-1-rule original:rheum-sar-1-case original:rheum-sar-1-other original:rheum-sar-1-rule-extra original:rheum-sar-1-case-extra original:rheum-sar-1-other-extra original:rheum-image-hilar-gross	original:rheum-sar-2-rule original:rheum-sar-2-case original:rheum-sar-2-other original:rheum-image-hilar-rule original:rheum-image-hilar-normal original:rheum-image-hilar-full	original:rheum-sar-3-rule original:rheum-sar-3-case original:rheum-sar-3-other
 multi.tumor	Ectopic ADH production	original:pul-sclc-water original:mgen-adh-1-b original:mgen-adh-1-c	original:pul-sclc-sodium original:ey-pp original:mgen-adh-2-c	original:mgen-adh-3
 multi.tumor	Ectopic ACTH production	original:pul-sclc-acth	original:pul-sclc-cortisol original:pul-sclc-sodium original:mgen-acth-2-a	original:mgen-acth-3 original:mgen-acth-3-a original:mgen-acth-3-b
 multi.tumor	Humoral hypercalcemia of malignancy	original:mgen-pth-1 original:mgen-pth-1-b original:mgen-pth-1-c	original:eh-pth-cancer original:mgen-pth-2 original:mgen-pth-2-a original:mgen-pth-2-c	original:mgen-pth-3 original:mgen-pth-3-a original:mgen-pth-3-b original:mgen-pth-3-c

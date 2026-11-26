@@ -1999,6 +1999,116 @@ def systemic_inflammation_studies():
         save(fig, "inflam_cor_" + name)
 
 
+def multisystem_rheumatology_studies():
+    """Render simulated morphology, hemodynamics and longitudinal clinical observations."""
+    def report(name, title, columns, rows, widths):
+        fig, ax = plt.subplots(figsize=(6.6, 2.85), layout="constrained")
+        ax.axis("off")
+        ax.set_title(title + "  •  simulated", fontsize=12)
+        table = ax.table(cellText=rows, colLabels=columns, colWidths=widths,
+                         cellLoc="left", colLoc="left", bbox=[0, .02, 1, .85])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for col in range(len(columns)):
+            table[0, col].set_facecolor("#dcecf2")
+        save(fig, "rheum_" + name)
+
+    for name, later in [("titer", ["68", "1.0", "No casts"]),
+                        ("kidney", ["19", "2.7", "Red cell casts"])]:
+        report("anca_" + name, "Vasculitis surveillance",
+               ["Measurement", "Two weeks ago", "Now"],
+               [["PR3 antibody (assay units)", "18", later[0]],
+                ["Creatinine (mg/dL)", "1.0", later[1]],
+                ["Urine microscopy", "No casts", later[2]]], [.47, .26, .27])
+    # Identical loop boundaries and control in both stimuli. Only IgG signal varies.
+    for name, bright in [("pauci", False), ("linear", True)]:
+        fig, axs = plt.subplots(1, 2, figsize=(6.2, 2.65), layout="constrained")
+        fig.suptitle("Glomerular IgG immunofluorescence  •  schematic", fontsize=12)
+        theta = np.linspace(0, 2 * np.pi, 140)
+        for ax, title, positive in zip(axs, ["Positive control", "Patient"], [True, bright]):
+            ax.set(facecolor="#121b24", xlim=(-1.45, 1.45), ylim=(-1.02, 1.02),
+                   aspect="equal", xticks=[], yticks=[])
+            ax.set_title(title, fontsize=10)
+            for x, y, rx, ry in [(-.70, .37, .34, .31), (.0, .43, .32, .36),
+                                  (.69, .32, .32, .29), (-.42, -.30, .42, .34),
+                                  (.48, -.36, .39, .32)]:
+                ax.plot(x + rx * np.cos(theta), y + ry * np.sin(theta),
+                        color="#a1ffc6" if positive else "#34424c",
+                        lw=3 if positive else 1.2)
+        save(fig, "rheum_if_" + name)
+    for name, left in [("even", 122), ("low", 84)]:
+        fig, ax = plt.subplots(figsize=(5.7, 3.0), layout="constrained")
+        vals = [124, left, 136, 138]
+        bars = ax.bar(["Right arm", "Left arm", "Right leg", "Left leg"], vals, color=COLORS[0])
+        ax.bar_label(bars, padding=3)
+        ax.set(ylim=(0, 165), ylabel="Systolic pressure (mm Hg)",
+               title="Resting limb pressures  •  simulated")
+        save(fig, "rheum_bp_" + name)
+    for name, loss in [("norm", False), ("loss", True)]:
+        fig, ax = plt.subplots(figsize=(5.9, 2.45), layout="constrained")
+        ax.set(xlim=(0, 12), ylim=(0, 2.5), aspect="equal")
+        ax.axis("off")
+        ax.set_title("Distal nailfold capillary row  •  schematic", fontsize=12)
+        theta = np.linspace(0, np.pi, 60)
+        for i in range(11):
+            if loss and i in (3, 4, 5, 9):
+                continue
+            giant = loss and i in (2, 7)
+            x = i + 1
+            radius = .31 if giant else .12
+            height = 1.64 + .14 * np.sin(i)
+            line_x = [x + radius, *(x + radius * np.cos(theta)), x - radius]
+            line_y = [.40, *(height + radius * np.sin(theta)), .41]
+            ax.plot(line_x, line_y, color="#813c54", lw=5 if giant else 1.9,
+                    solid_capstyle="round")
+        save(fig, "rheum_cap_" + name)
+    for name, later in [("stable", ["112/70", "0.8"]), ("rise", ["182/108", "2.3"])]:
+        report("src_" + name, "Systemic sclerosis surveillance",
+               ["Measurement", "Last week", "Today"],
+               [["Blood pressure (mm Hg)", "110/68", later[0]],
+                ["Creatinine (mg/dL)", "0.8", later[1]]], [.48, .25, .27])
+    for name, vals in [("ild", ["58%", "48%", "Basal fibrosis", "No RV enlargement"]),
+                       ("ph", ["94%", "36%", "Minimal fibrosis", "RV enlargement; high RVSP"])]:
+        report("lung_" + name, "Pulmonary evaluation",
+               ["Measurement", "Observation"],
+               list(zip(["TLC (% predicted)", "DLCO (% predicted)", "High-resolution CT",
+                         "Echocardiography"], vals)), [.51, .49])
+    for name, vals in [("water", ["309", "87", "92", "Absent"]),
+                       ("solute", ["318", "645", "560", "Marked"])]:
+        report("di_" + name, "Paired serum and urine studies",
+               ["Measurement", "Result", "Reference / context"],
+               [[label, val, ref] for label, val, ref in zip(
+                   ["Serum osmolality (mOsm/kg)", "Urine osmolality (mOsm/kg)",
+                    "Serum glucose (mg/dL)", "Urine glucose"], vals,
+                   ["275–295", "Interpret with serum", "70–99 (fasting)", "Absent"])],
+               [.48, .15, .37])
+    report("aps_ca", "Endocrine studies", ["Measurement", "Result", "Lab interval"],
+           [["Ionized calcium (mmol/L)", "0.84", "1.12–1.32"],
+            ["Intact PTH (pg/mL)", "5", "15–65"], ["Potassium (mmol/L)", "4.2", "3.5–5.0"]],
+           [.49, .19, .32])
+    report("aps_ad", "Morning endocrine studies", ["Measurement", "Result", "Lab interval"],
+           [["Cortisol (µg/dL)", "1.4", "5–25"], ["ACTH (pg/mL)", "315", "10–60"],
+            ["Sodium (mmol/L)", "127", "135–145"], ["Potassium (mmol/L)", "5.8", "3.5–5.0"]],
+           [.48, .20, .32])
+    for name, vals in [("clear", [86, 4, 5]), ("persist", [86, 48, 53])]:
+        report("fmf_" + name, "Serum amyloid A (lab reference <10 mg/L)",
+               ["Visit", "Diary entry", "SAA (mg/L)"],
+               [[visit, state, val] for visit, state, val in
+                zip([1, 2, 3], ["Fever and serositis", "Well between attacks", "Well between attacks"], vals)],
+               [.17, .53, .30])
+    for name, urine in [("renal", ["6.5", "+24"]), ("gi", ["5.0", "−36"])]:
+        report("rta_" + name, "Acid-base evaluation", ["Measurement", "Result"],
+               [["Serum HCO₃⁻ (mmol/L)", 15], ["Serum anion gap (mmol/L)", 10],
+                ["Serum potassium (mmol/L)", "2.9"], ["Urine pH", urine[0]],
+                ["Urine anion gap (mmol/L)", urine[1]]], [.65, .35])
+    for name, vals in [("pre", [34, 9, "5.0"]), ("post", [34, 24, "2.0"])]:
+        report("rhc_" + name, "Right-heart catheterization",
+               ["Measurement", "Result"],
+               list(zip(["Mean pulmonary artery pressure (mm Hg)",
+                         "Pulmonary artery wedge pressure (mm Hg)",
+                         "Pulmonary vascular resistance (Wood units)"], vals)), [.76, .24])
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -2024,6 +2134,7 @@ def main():
     safeguarding_and_emergency_studies()
     environmental_exposure_studies()
     systemic_inflammation_studies()
+    multisystem_rheumatology_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
