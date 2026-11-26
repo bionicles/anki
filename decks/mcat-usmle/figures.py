@@ -1,10 +1,12 @@
 """Draw the original review stimuli from their numerical models."""
+from io import BytesIO
 from pathlib import Path
 
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
+from PIL import Image
 
 MEDIA = Path(__file__).resolve().parent / "media"
 COLORS = ["#145a74", "#a34418"]
@@ -18,8 +20,17 @@ def axes(x, y):
     return fig, ax
 
 
-def save(fig, name):
-    fig.savefig(MEDIA / f"med_{name}.png", dpi=145, facecolor="white")
+def save(fig, name, *, indexed=False):
+    path = MEDIA / f"med_{name}.png"
+    if indexed:
+        # Flat-color diagrams need few palette entries, even with antialiased labels.
+        with BytesIO() as buffer:
+            fig.savefig(buffer, format="png", dpi=145, facecolor="white")
+            buffer.seek(0)
+            with Image.open(buffer) as rendered:
+                rendered.convert("RGB").quantize(colors=128).save(path, optimize=True)
+    else:
+        fig.savefig(path, dpi=145, facecolor="white")
     plt.close(fig)
 
 
@@ -3912,6 +3923,125 @@ def acute_airway_records():
                  ["4 hours", "Absent", "Absent"]])
 
 
+def upper_respiratory_records():
+    """Simulated longitudinal measurements for two independent clinical decisions."""
+    fig, ax = axes("Day of illness", "Sinonasal symptom score (0–10)")
+    for label, score, style, color in [
+        ("A", [7, 8, 7, 5, 3, 2, 1, 0, 0], "o-", COLORS[0]),
+        ("B", [7, 7, 5, 3, 2, 2, 5, 7, 8], "s--", COLORS[1]),
+    ]:
+        ax.plot(range(1, 10), score, style, color=color, label=label)
+    ax.set(title="Adults with congestion and facial pressure • simulated", ylim=(-.3, 10),
+           xticks=range(1, 10))
+    ax.legend(title="Patient")
+    save(fig, "upperair_sinus")
+    study_table("upperair_peak", "Peak expiratory flow during a cold",
+                ["Personal best", "Yesterday", "Today"], [["400 L/min", "330 L/min", "200 L/min"]])
+
+
+def organic_reasoning_studies():
+    """Original measurements, Fischer projections and heteroaromatic structures."""
+    temp = np.linspace(25, 80, 160)
+    fig, ax = axes("Temperature (°C)", "Fraction unfolded")
+    for name, midpoint, color, style in [("Mutant", 50, COLORS[0], "-"),
+                                         ("Wild type", 60, COLORS[1], "--")]:
+        ax.plot(temp, 1/(1+np.exp(-(temp-midpoint)/3)), color=color, ls=style, label=name)
+    ax.axhline(.5, color="#444444", ls=":", lw=1)
+    ax.set(title="Thermal denaturation • simulated", xticks=range(30, 81, 5))
+    ax.legend()
+    save(fig, "orgstudy_fold", indexed=True)
+    ligand = np.linspace(0, 20, 150)
+    fig, ax = axes("Free ligand (μmol/L)", "Fraction of sites occupied")
+    for name, kd, color, style in [("A", 2, COLORS[0], "-"), ("B", 8, COLORS[1], "--")]:
+        ax.plot(ligand, ligand/(kd+ligand), color=color, ls=style, label=name)
+    ax.axhline(.5, color="#444444", ls=":", lw=1)
+    ax.set(title="Equilibrium binding • simulated", ylim=(0, 1), xticks=range(0, 21, 2))
+    ax.legend(title="Carrier")
+    save(fig, "orgstudy_binding", indexed=True)
+    fig, panels = plt.subplots(2, 1, figsize=(5, 3.1), sharex=True, layout="constrained")
+    for ax, name, peaks in zip(panels, ["A", "B"], [[(9.8, 1), (2.4, 2), (1.1, 3)], [(2.1, 3)]]):
+        ax.axhline(0, lw=.7, color="#555555")
+        for shift, height in peaks:
+            ax.vlines(shift, 0, height, color=COLORS[0], lw=2)
+        ax.set(yticks=[], ylim=(-.1, 3.5), ylabel="Unknown " + name)
+    panels[-1].set(xlabel="Chemical shift (ppm)", xlim=(11, 0), xticks=range(0, 12))
+    fig.suptitle("Proton NMR • illustrative peak positions only")
+    save(fig, "orgstudy_nmr", indexed=True)
+    fig, ax = axes("Time (min)", "Leaving group released (μmol/L)")
+    time = np.arange(5)
+    for label, rate, style, color in [("With amine", 6, "o-", COLORS[0]),
+                                      ("Buffer only", 2, "s--", COLORS[1])]:
+        ax.plot(time, rate*time, style, color=color, label=label)
+    ax.set(title="Activated ester assay • simulated", xticks=time, yticks=range(0, 25, 4))
+    ax.legend()
+    save(fig, "orgstudy_acyl", indexed=True)
+    fig, panels = plt.subplots(1, 2, figsize=(4.9, 2.9), layout="constrained")
+    for ax, n, label in zip(panels, (5, 6), ("A", "B")):
+        angles = np.pi/2 + np.arange(n)*2*np.pi/n
+        vertices = np.array([np.cos(angles), np.sin(angles)]).T
+        ax.plot(*np.vstack((vertices, vertices[0])).T, color="#25353d", lw=2)
+        # The five-membered N–H and six-membered N have different ring pi bonds.
+        for i in ([1, 3] if n==5 else [0, 2, 4]):
+            a, b = vertices[i], vertices[(i+1)%n]
+            inner = np.array([.85*a+.15*b, .15*a+.85*b])*.81
+            ax.plot(*inner.T, color="#25353d", lw=1.4)
+        ax.text(0, 1, "NH" if n==5 else "N", color=COLORS[0], fontsize=16, ha="center",
+                va="center", bbox=dict(facecolor="white", edgecolor="none", pad=1))
+        ax.set(aspect="equal", xlim=(-1.25, 1.25), ylim=(-1.2, 1.4), title="Nitrogen " + label)
+        ax.axis("off")
+    fig.suptitle("Neutral heteroaromatic rings")
+    save(fig, "orgstudy_rings", indexed=True)
+    fig, panels = plt.subplots(1, 2, figsize=(4.5, 3.25), layout="constrained")
+    for ax, pattern, label in zip(panels, ["RLRR", "LLRR"], ["A", "B"]):
+        ax.plot([0, 0], [.2, 4.7], color="#25353d")
+        for y, side in zip([4, 3, 2, 1], pattern):
+            ax.plot([-.43, .43], [y, y], color="#25353d")
+            ax.text(-.48, y, "HO" if side=="L" else "H", ha="right", va="center")
+            ax.text(.48, y, "OH" if side=="R" else "H", ha="left", va="center")
+        ax.text(0, 4.8, "CHO", ha="center", va="bottom")
+        ax.text(0, .15, "CH₂OH", ha="center", va="top")
+        ax.set(xlim=(-1.1, 1.1), ylim=(-.5, 5.45), title="Sugar " + label)
+        ax.axis("off")
+    fig.suptitle("Fischer projections • aldehyde at C1")
+    save(fig, "orgstudy_fischer", indexed=True)
+
+
+def severe_cap_trial():
+    """Observed primary mortality outcome of the CAPE COD randomized trial."""
+    study_table("lungfocus_captrial", "CAPE COD • ICU patients with severe CAP",
+                ["Group", "Deaths by day 28", "Participants", "Mortality"],
+                [["Hydrocortisone", 25, 400, "6.2%"], ["Placebo", 47, 395, "11.9%"]],
+                source="trial data")
+
+
+def pneumonia_distributions():
+    """Illustrative regional distributions of consolidation; not a radiograph."""
+    from matplotlib.patches import Ellipse, Polygon
+
+    fig, panels = plt.subplots(1, 2, figsize=(5.6, 3.15), layout="constrained")
+    outline = np.array([[.14, 1.69], [.41, 1.95], [.63, 1.76], [.90, 1.06],
+                        [1.03, .30], [.81, .17], [.31, .23], [.12, .45]])
+    for ax, name in zip(panels, ("A", "B")):
+        for side in (-1, 1):
+            ax.add_patch(Polygon(outline*[side, 1], closed=True,
+                                 facecolor="#f2f5f6", edgecolor="#354d58", lw=1.25))
+            ax.plot([0, 0, .36*side], [2.05, 1.57, 1.29], color="#607783")
+            for x, y in [(0.53, 1.59), (.72, .94), (.47, .60)]:
+                ax.plot([side*.36, side*x], [1.29, y], color="#607783", lw=1.35)
+        if name == "A":
+            ax.add_patch(Polygon([(.24, .71), (.92, .88), (1.01, .31),
+                                  (.80, .19), (.32, .25), (.15, .46)],
+                                 closed=True, facecolor=COLORS[1], alpha=.75))
+        else:
+            for x, y, width in [(-.52, 1.60, .30), (-.48, .62, .24), (.70, .96, .35),
+                                (.48, .58, .32), (-.70, .99, .26)]:
+                ax.add_patch(Ellipse((x,y), width, .18, angle=20, facecolor=COLORS[1], alpha=.8))
+        ax.set(aspect="equal", xlim=(-1.12, 1.12), ylim=(.06, 2.13), title="Pattern " + name)
+        ax.axis("off")
+    fig.suptitle("Shaded areas indicate consolidation • schematic")
+    save(fig, "lungbreadth_patches", indexed=True)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -3975,6 +4105,10 @@ def main():
     atomic_measurement_studies()
     rheumatic_af_outcomes()
     acute_airway_records()
+    upper_respiratory_records()
+    organic_reasoning_studies()
+    severe_cap_trial()
+    pneumonia_distributions()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
