@@ -2750,6 +2750,100 @@ def abdominal_emergency_studies():
            ["Buffer", "Initial pH", "Final pH"], [["A", "6.80", "6.72"], ["B", "6.80", "6.46"]])
 
 
+def hepatobiliary_studies():
+    """Draw simulated clinical records and data from model MCAT experiments."""
+    def record(name, title, columns, rows):
+        fig, ax = plt.subplots(figsize=(6.1, 2.65), layout="constrained")
+        ax.axis("off")
+        ax.set_title(title + "  •  simulated")
+        table = ax.table(cellText=rows, colLabels=columns, loc="center",
+                         cellLoc="center", bbox=[.01, .08, .98, .76])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for col in range(len(columns)):
+            table[0, col].set_facecolor("#e2edf1")
+        save(fig, "hepatobiliary_" + name)
+
+    record("persist", "Respiratory course in acute pancreatitis", ["Time from onset", "Respiratory organ failure"],
+           [["0 hours", "Present"], ["24 hours", "Present"], ["54 hours", "Still present"]])
+    record("mirreport", "Biliary imaging report", ["Structure", "Finding"],
+           [["Gallbladder neck", "Impacted stone"], ["Common hepatic duct", "Compressed beside the stone"],
+            ["Intrahepatic ducts", "Dilated"], ["Distal common duct", "Normal caliber"]])
+    for name, free in [("hvhigh", 6), ("hvlow", 13)]:
+        record(name, "Hepatic venous catheterization", ["Measurement", "Pressure"],
+               [["Wedged hepatic venous", "18 mm Hg"], ["Free hepatic venous", f"{free} mm Hg"]])
+    record("rotorlab", "Urinary coproporphyrin profile", ["Measurement", "Finding"],
+           [["Total coproporphyrins", "3 times upper limit"], ["Fraction of isomer I", "65%"]])
+    record("hempanel", "Blood tests for jaundice", ["Measurement", "Result"],
+           [["Total / direct bilirubin", "5.1 / 0.4 mg/dL"], ["Hemoglobin", "8.1 g/dL"],
+            ["Reticulocytes", "9%"], ["Alkaline phosphatase", "Within reference range"]])
+    record("cholpanel", "Blood tests for jaundice", ["Measurement", "Result"],
+           [["Total / direct bilirubin", "5.1 / 4.4 mg/dL"], ["Hemoglobin", "14.2 g/dL"],
+            ["Alkaline phosphatase", "5 × upper limit"], ["ALT", "1.5 × upper limit"]])
+    record("rhigh", "Liver tests at presentation", ["Analyte", "Result", "Upper limit"],
+           [["ALT", "640 U/L", "40 U/L"], ["Alkaline phosphatase", "240 U/L", "120 U/L"]])
+    record("pscmrcp", "MR cholangiography", ["Ducts assessed", "Observation"],
+           [["Intrahepatic", "Multiple short narrow segments"], ["Extrahepatic", "Irregular caliber and focal strictures"],
+            ["Common duct stone", "None identified"]])
+    record("pbcstudy", "Evaluation of persistent cholestasis", ["Study", "Result"],
+           [["MR cholangiography", "Smooth, patent large ducts"], ["Antimitochondrial antibody", "Strongly positive"]])
+    for name, score in [("lillea", "0.19"), ("lilleb", "0.71")]:
+        record(name, "Treatment response assessment", ["Time after starting prednisolone", "Lille score"],
+               [["Day 7", score]])
+    fig, ax = axes("Heartbeats after right atrial opacification", "Contrast intensity (relative)")
+    ax.plot(range(8), [1, .9, .8, .7, .6, .45, .3, .2], "o-", label="Right atrium")
+    ax.plot(range(8), [0, 0, 0, 0, 0, .25, .4, .42], "s--", label="Left atrium")
+    ax.set_title("Agitated-saline study  •  schematic")
+    ax.legend()
+    save(fig, "hepatobiliary_bubble")
+
+    for name, distal in [("cystblock", False), ("distblock", True)]:
+        fig, ax = plt.subplots(figsize=(5, 3.6), layout="constrained")
+        ax.set(xlim=(0, 8), ylim=(0, 6.4), aspect="equal")
+        ax.axis("off")
+        def channel(x, y):
+            ax.plot(x, y, lw=5, color=COLORS[0], solid_capstyle="round")
+        for x, y in [([1.5, 2.5, 4, 4], [5.5, 5, 4.3, .9]),
+                     ([2.3, 2.5], [5.9, 5]), ([5.2, 4.7, 4], [5.6, 5.1, 4.3]),
+                     ([5.8, 4.7], [5.35, 5.1])]:
+            channel(x, y)
+        ax.text(.25, 5.98, "Liver ducts")
+        if distal:
+            channel([3.55, 4], [3.1, 2.8])
+            ax.text(.1, 3.1, "Cystic duct stump")
+        else:
+            channel([2.15, 3, 4], [3.75, 3.45, 2.8])
+            from matplotlib.patches import Ellipse
+            ax.add_patch(Ellipse((1.73, 3.92), 1.3, .8, angle=22,
+                                 facecolor="#deebd5", edgecolor=COLORS[0], lw=2))
+            ax.text(.05, 4.55, "Gallbladder")
+        x, y = (4, 1.85) if distal else (3.1, 3.39)
+        ax.scatter([x], [y], marker="X", s=160, facecolor="#b44428", edgecolor="white", zorder=3)
+        ax.text(4, .42, "To duodenum", ha="center")
+        ax.set_title("Site of obstruction  •  schematic")
+        save(fig, "hepatobiliary_" + name)
+
+    record("genocount", "Genotyping results", ["Genotype", "Offspring"],
+           [["AA", "27"], ["Aa", "48"], ["aa", "25"]])
+    record("testcross", "Progeny of a single testcross", ["Phenotype", "Offspring"],
+           [["Tall", "49"], ["Short", "51"]])
+    record("hormone", "Cultured hepatocytes", ["Exposure", "Glucose released (nmol/h)"],
+           [["Vehicle", "6"], ["Hormone", "18"]])
+    for name, xname, yname, x, series in [
+        ("lipdiff", "Temperature (°C)", "Diffusion coefficient (µm²/s)", [15, 25, 35],
+         {"Preparation A": [.5, .8, 1.3], "Preparation B": [1.0, 1.7, 2.4]}),
+        ("fastgraph", "Hours of fasting", "Glucose output (arbitrary units)", [6, 12, 18, 24],
+         {"Glycogen breakdown": [8, 6, 4, 2], "New synthesis": [2, 4, 6, 7]}),
+        ("reserves", "Elapsed time (hours)", "Glycogen (arbitrary units)", [0, 4, 8],
+         {"Liver": [60, 38, 20], "Resting muscle": [60, 54, 50]})]:
+        fig, ax = axes(xname, yname)
+        for (label, values), style, color in zip(series.items(), STYLES, COLORS):
+            ax.plot(x, values, ls=style, color=color, marker="o", lw=2, label=label)
+        ax.set_xticks(x)
+        ax.legend()
+        save(fig, "hepatobiliary_" + name)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -2784,6 +2878,7 @@ def main():
     pleural_and_gas_exchange_studies()
     aspiration_courses()
     abdominal_emergency_studies()
+    hepatobiliary_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
