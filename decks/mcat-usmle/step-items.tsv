@@ -1084,3 +1084,93 @@ cv.drug	ACE inhibitor adverse effects	original:rx-ace-peptide	original:rx-ace-to
 cv.drug	Calcium channel blocker adverse effects		original:rx-aml-ankles original:rx-dilt-dual	
 cv.drug	Alpha-adrenergic blocker adverse effects			
 cv.drug	Minoxidil adverse effects			
+renal.inf	Xanthogranulomatous pyelonephritis	original:ku-xgp	original:ku-xgp-case	
+renal.inf	Perinephric abscess		original:ku-uro-peri	original:ku-uro-image
+renal.inf	Acute pyelonephritis	original:ku-uro-level	original:ku-uro-upper original:ku-uro-abscess original:ku-uro-peri	original:ku-ob-culture original:ku-uro-image original:ku-vur-febrile
+renal.inf	Pus in an obstructed collecting system		original:ku-ob-pyone	original:rad-sepsis original:ku-ob-finish original:ku-ob-culture
+renal.inf	Intrarenal abscess		original:ku-uro-abscess	original:ku-uro-image
+renal.inf	Genitourinary tuberculosis		original:ku-tb	
+renal.inf	Acute cystitis	original:ku-uro-level	original:ku-uro-lower	original:ku-asb-rule
+renal.inf	Asymptomatic bacteriuria in UTI evaluation			original:ku-asb-rule original:ku-asb-silent original:ku-asb-operate
+renal.inf	Chlamydial and other infectious urethritis	original:ku-ureth-cell	original:ku-ureth	original:ku-ureth-persist
+renal.inf	Alport syndrome	original:ku-alport-matrix	original:ku-alport-ear	original:ku-alport-test original:ku-alport-thin
+renal.inf	Hepatitis B-associated glomerular disease	original:ku-hb-immune	original:ku-hb-case	original:ku-hb-safe
+renal.inf	Hepatitis C-associated glomerular disease	original:ku-hc-cryo	original:ku-hc-immune	original:ku-hc-treat
+renal.inf	Inflammatory glomerular injury	original:renal-heme-casts original:ku-cast-place original:ku-cast-red original:ku-cast-comp	original:renal-filter-nephritic original:ku-cast-anti original:ku-cast-lup original:ku-psgn-time original:ku-hc-immune	original:ku-cast-action original:ku-htn-active
+renal.inf	Poststreptococcal glomerulonephritis		original:ku-psgn-time	
+renal.inf	IgA nephropathy	original:renal-iga-deposit	original:renal-iga-pattern original:renal-iga-biopsy	original:renal-iga-progress
+renal.inf	Lupus nephritis	original:ku-lup-wall	original:ku-cast-lup	original:ku-lup-biopsy
+renal.inf	Minimal change disease	original:ku-mcd-foot	original:ku-mcd-child	original:ku-mcd-adult
+renal.inf	Nephrotic syndrome	original:renal-filter-barrier original:renal-filter-oncotic original:ku-mcd-foot original:ku-hb-immune original:ku-rvt-risk	original:renal-filter-nephrotic original:ku-rvt-case original:ku-heroin-aa original:ku-mcd-child original:ku-hb-case original:ku-virus-rule	original:ku-mcd-adult
+renal.inf	Thin basement membrane nephropathy			original:ku-alport-thin
+renal.inf	Acute tubular injury and necrosis	original:ku-amino-site	original:ku-cast-atn	original:ku-atn-care
+renal.inf	Acute interstitial nephritis		original:ku-cast-wbc	original:ku-pen-stop
+renal.inf	Renal papillary necrosis	original:ku-pap	original:ku-pap-case	original:ku-pap-follow
+renal.inf	HIV-associated nephropathy		original:ku-hiv	original:ku-hiv-art
+renal.inf	Interstitial cystitis and bladder pain syndrome	original:ku-ic-pain	original:ku-ic	original:ku-ic-abx
+renal.tumor	Polycystic kidney disease	original:phil-kidney-cyst original:phil-liver-cysts	original:phil-kidney-case	original:phil-kidney-family
+renal.tumor	Wilms tumor	original:ku-wilms-hist original:ku-wilms-gene	original:ku-wilms-dx	original:ku-wilms-both
+renal.tumor	Renal cell carcinoma	original:phil-renal-solid original:ku-diagram-site	original:phil-renal-origin original:ku-mass-bilat original:ku-diagram-renal	original:ku-mass-preserve original:ku-mass-biopsy original:ku-mass-surveil
+renal.tumor	Hereditary kidney tumors	original:ku-wilms-gene	original:ku-mass-bilat	
+renal.tumor	Bladder cancer	original:ku-uro-lining original:ku-muscle-depth		original:ku-uro-bladder original:ku-uro-stage
+renal.tumor	Upper tract urothelial cancer	original:ku-uro-lining original:ku-pelvic-anatomy	original:ku-uro-pelvis original:ku-uro-modality original:ku-diagram-pelvis	original:ku-uro-bladder
+renal.urine	Dysuria	original:ku-ureth-cell	original:ku-uro-lower original:ku-uro-upper original:ku-ureth original:ku-ic	
+renal.urine	Hematuria	original:renal-heme-heme original:renal-heme-casts original:ku-cast-place original:ku-cast-red original:ku-pap	original:renal-heme-confirm original:renal-heme-source original:ku-trauma-bladder original:ku-alport-ear original:ku-tb original:ku-uro-pelvis original:ku-diagram-pelvis	original:renal-heme-low original:renal-heme-high original:renal-heme-anticoag original:renal-heme-repeat original:cv-aurule-select original:ku-pap-follow
+renal.urine	Oliguria	original:ku-aki-rate original:ku-aki-calc	original:ku-aki-duration original:ku-aki-sustain original:ku-aki-brief	original:ku-aki-now
+renal.urine	Anuria		original:ku-aki-anuria	original:ku-aki-cath
+renal.urine	Proteinuria	original:renal-stage-ratio original:renal-stage-dilution	original:renal-stage-a2 original:renal-stage-a3 original:ku-hiv	original:ku-lup-biopsy original:ku-single-monitor
+renal.regulatory	Acute kidney injury	original:ku-aki-rate original:ku-aki-calc original:ku-aki-lag original:ku-contrast-cause original:ku-nsaid-aff	original:ku-aki-duration original:ku-aki-sustain original:ku-aki-brief original:ku-aki-creat original:ku-aki-anuria original:ku-cast-atn original:ku-nsaid-risk	original:ku-aki-rule original:ku-aki-wait original:ku-aki-now original:ku-atn-care original:ku-li-sick
+renal.regulatory	Impaired renal filtration	original:ku-aki-lag	original:renal-stage-g3b	original:renal-stage-muscle
+renal.regulatory	Azotemia	original:ku-azo-def	original:ku-azo-case	original:ku-aki-wait
+renal.regulatory	Uremic syndrome	original:ku-azo-def		original:ku-aki-rule original:ku-uremia
+renal.regulatory	Chronic kidney disease	original:renal-stage-ratio original:ku-g5-stage	original:renal-stage-a2 original:renal-stage-a3 original:renal-stage-g3b original:ku-htn-track original:ku-g5-case	original:renal-stage-muscle original:renal-stage-risk original:ku-hyp-follow original:ku-g5-rule original:ku-g5-plan original:ku-g5-volume
+renal.regulatory	Kidney failure and kidney replacement therapy	original:ku-g5-stage	original:ku-g5-case	original:ku-uremia original:ku-g5-rule original:ku-g5-plan original:ku-g5-volume
+renal.regulatory	Cystinuria	original:ku-cys-mol original:ku-cys-reabs	original:ku-cys-id	original:ku-cys-fluid original:ku-cys-ph
+renal.regulatory	Generalized proximal tubular dysfunction (Fanconi syndrome)	original:ku-rta-prox original:ku-tdf-site	original:ku-rta-fan original:ku-tdf-check	original:ku-tdf-manage
+renal.regulatory	Hypertension-related kidney damage	original:ku-htn-vess	original:ku-htn-track	
+renal.regulatory	Kidney stones	original:ku-cys-mol	original:ku-rta-stone original:ku-cys-id	original:ku-rta-replace original:ku-cys-fluid original:ku-cys-ph original:ku-sulfa-crystal
+renal.regulatory	Ureteral stones	original:ku-ob-back	original:ku-ob-pyone original:ku-ob-small	original:ku-ob-finish
+renal.regulatory	Renal tubular acidosis	original:ku-rta-gap original:ku-rta-number original:ku-rta-principle original:ku-rta-distal original:ku-rta-prox original:ku-rta-four	original:ku-rta-select original:ku-rta-stone original:ku-rta-hyper original:ku-rta-fan	original:ku-rta-replace original:ku-rta-review original:ku-ampho-rta
+renal.vascular	Renal artery stenosis	original:cv-renal-sense original:cv-renal-efferent original:cv-renal-block original:cv-renal-other original:ku-fmd-basis	original:cv-renal-clue original:cv-renal-renin original:ku-fmd-beads original:ku-fmd-plaque	original:cv-renal-medical original:cv-renal-edema original:cv-renalrule-threshold original:cv-ace-small original:cv-ace-large original:ku-fmd-treat
+renal.vascular	Renal artery fibromuscular dysplasia	original:ku-fmd-basis	original:ku-fmd-beads	original:ku-fmd-treat
+renal.vascular	Atherosclerotic renovascular disease		original:ku-fmd-plaque	
+renal.vascular	Nephrosclerosis	original:ku-htn-vess		original:ku-htn-active
+renal.vascular	Renal vein thrombosis	original:ku-rvt-risk	original:ku-rvt-case	original:ku-rvt-treat
+renal.vascular	Renal infarction	original:ku-infarct-shape	original:ku-infarct-dx	original:ku-infarct-source
+renal.mechanical	Bladder rupture	original:ku-trauma-dome original:ku-trauma-space	original:ku-trauma-bladder	original:ku-trauma-rule original:ku-trauma-in original:ku-trauma-out
+renal.mechanical	Neurogenic bladder	original:ku-nb-pressure	original:ku-nb-uro	original:ku-nb-empty
+renal.mechanical	Postrenal obstruction	original:rad-calyx original:ku-ob-back original:ku-drain-rule original:ku-drain-one original:ku-drain-both	original:rad-hydroneph original:ku-puv-dx original:ku-ureter-scar original:ku-pelv original:ku-diagram-low original:ku-diagram-high	original:rad-sepsis original:ku-aki-cath original:ku-puv-start original:ku-ret-drain original:ku-diagram-empty
+renal.mechanical	Posterior urethral valves		original:ku-puv-dx	original:ku-puv-start
+renal.mechanical	Renal parenchymal laceration			original:ku-trauma-kid
+renal.mechanical	Traumatic renal vascular injury		original:ku-vas-trauma	
+renal.mechanical	Ureteral laceration or avulsion		original:ku-trauma-ureter	original:ku-ureter-new
+renal.mechanical	Urethral diverticulum		original:ku-div-case	original:ku-div-image
+renal.mechanical	Suspected traumatic urethral disruption		original:ku-trauma-urethra	
+renal.mechanical	Urethral obstruction or stricture		original:ku-ustrict-map original:ku-diagram-low	
+renal.mechanical	Ureteral stricture	original:ku-drain-one	original:ku-ureter-scar original:ku-diagram-high	
+renal.mechanical	Urethral prolapse		original:ku-prolapse	
+renal.mechanical	Pelvic organ prolapse affecting voiding		original:ku-pelv	original:ku-pelv-scan
+renal.mechanical	Urinary incontinence	original:ku-stress-basis original:ku-overflow-basis	original:ku-incon-stress original:ku-incon-urge original:ku-incon-ret original:ku-dup	original:ku-stress-train original:ku-urge-train
+renal.mechanical	Secondary enuresis	original:ku-wet-baseline	original:ku-wet	original:ku-wet-glucose
+renal.mechanical	Vesicoureteral reflux	original:ku-vur-flow original:ku-vur-anatomy	original:ku-hydro-vcug original:ku-vur-film	original:ku-vur-febrile
+renal.congenital	Duplicated collecting system or ureter		original:ku-dup	
+renal.congenital	Horseshoe kidney	original:ku-horse		
+renal.congenital	Congenital hydronephrosis and reflux	original:ku-vur-flow original:ku-vur-anatomy	original:ku-hydro-vcug original:ku-puv-dx original:ku-dyspl-dx original:ku-vur-film	
+renal.congenital	Renal agenesis	original:ku-agen-def original:ku-hyp		
+renal.congenital	Renal hypoplasia	original:ku-hyp		original:ku-hyp-follow
+renal.congenital	Renal dysplasia	original:ku-dyspl-def	original:ku-dyspl-dx	
+renal.congenital	Solitary functioning kidney	original:ku-agen-def original:ku-dyspl-def		original:ku-single-monitor
+renal.drug	ACE inhibitor effects on filtration	original:cv-ace-change original:cv-renal-block		original:cv-ace-small original:cv-ace-large
+renal.drug	Aminoglycoside kidney injury	original:ku-amino-site	original:ku-amino-level	original:ku-amino-review
+renal.drug	Amphotericin nephrotoxicity	original:ku-ampho-loss	original:ku-ampho-pattern	original:ku-ampho-rta
+renal.drug	Cisplatin nephrotoxicity	original:ku-cis-mg	original:ku-cis-k	original:ku-cis-prev
+renal.drug	Furosemide adverse renal and electrolyte effects	original:rx-loop-ions	original:rx-loop-weight	original:rx-loop-dig
+renal.drug	Gadolinium exposure and nephrogenic systemic fibrosis		original:ku-contrast-agent	original:ku-contrast-dial
+renal.drug	Heroin-associated kidney disease		original:ku-heroin-aa	original:ku-heroin-path
+renal.drug	Iodinated contrast and acute kidney injury	original:ku-contrast-cause		original:ku-contrast-rule original:ku-contrast-low original:ku-contrast-high
+renal.drug	Lithium-associated renal adverse effects	original:ku-li-resist	original:ku-li-dx	original:ku-li-nsaid original:ku-li-sick
+renal.drug	NSAID-associated kidney injury	original:ku-nsaid-aff	original:ku-nsaid-risk	original:ku-li-nsaid original:ku-nsaid-stop
+renal.drug	Penicillin-associated renal injury		original:ku-cast-wbc	original:ku-pen-stop
+renal.drug	Sulfonamide-associated renal effects	original:ku-sulfa-cryst	original:ku-sulfa-k	original:ku-sulfa-crystal
+renal.drug	Tenofovir nephrotoxicity	original:ku-tdf-site	original:ku-tdf-check	original:ku-tdf-manage
+renal.drug	Medication-induced urinary retention		original:ku-incon-ret	original:ku-ret-drain original:ku-diagram-empty

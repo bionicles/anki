@@ -773,10 +773,92 @@ def rhythm_studies():
         save(fig, "cvstudy_arrest_" + case)
 
 
+def renal_studies():
+    """Draw paired laboratory reports and hourly urine-output records."""
+    analytes = ["Serum Na (mEq/L)", "Serum Cl (mEq/L)", "Serum bicarbonate (mEq/L)",
+                "Blood pH", "Serum K (mEq/L)", "Urine pH", "Plasma glucose (mg/dL)",
+                "Urine glucose", "Phosphate handling"]
+    panels = {
+        "a": ["138", "112", "16", "7.29", "2.9", "6.6", "94", "Absent", "Appropriate"],
+        "b": ["139", "114", "15", "7.30", "3.0", "5.1", "89", "Present", "Renal wasting"],
+        "c": ["138", "112", "16", "7.31", "5.9", "5.1", "102", "Absent", "Appropriate"],
+    }
+    for case, values in panels.items():
+        fig, ax = plt.subplots(figsize=(5, 3.65), layout="constrained")
+        ax.axis("off")
+        table = ax.table(cellText=list(zip(analytes, values)), colLabels=["Measurement", "Result"],
+                         cellLoc="left", colLoc="left", colWidths=[.66, .32], loc="center")
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        table.scale(1, 1.29)
+        for (row, col), cell in table.get_celld().items():
+            cell.set_edgecolor("#cbd3d7")
+            if row == 0:
+                cell.set_facecolor("#e5eff3")
+                cell.set_text_props(weight="bold")
+        ax.set_title("Blood and urine · simultaneous samples", fontsize=13)
+        save(fig, "kidney_acid_" + case)
+
+    outputs = {"a": [21, 28, 20, 27, 19, 25, 30, 28],
+               "b": [18, 24, 20, 75, 74, 77, 70, 68]}
+    for case, volumes in outputs.items():
+        fig, ax = axes("Completed hourly interval", "Urine volume (mL)")
+        hours = np.arange(1, 9)
+        ax.bar(hours, volumes, color=COLORS[0], width=.68)
+        for hour, value in zip(hours, volumes):
+            ax.text(hour, value + 1.1, str(value), ha="center", fontsize=9)
+        ax.set(xticks=hours, ylim=(0, 90), title="Eight-hour bedside record · 70-kg adult")
+        save(fig, "kidney_output_" + case)
+
+
+def renal_anatomy():
+    """Simplified frontal diagrams of collecting-system continuity and drainage."""
+    from matplotlib.patches import Ellipse, FancyBboxPatch
+    for case in ("a", "b", "c", "d"):
+        fig, ax = plt.subplots(figsize=(5.6, 4.1), layout="constrained")
+        ax.set(xlim=(-3, 3), ylim=(-.2, 4.7), aspect="equal")
+        ax.axis("off")
+        ax.set_title("Urinary tract · frontal schematic")
+        # Anterior view. The labels use the patient's side.
+        for x, sign, label in [(-1.65, -1, "Right"), (1.65, 1, "Left")]:
+            ax.text(x, 4.22, label, ha="center")
+            ax.add_patch(Ellipse((x, 3.15), 1.32, 1.85, angle=-sign*10,
+                                 facecolor="#e7c0a6", edgecolor="#725441", lw=1.8))
+            dilated = case == "d" or (case == "c" and sign == 1)
+            ink = "#28647b"
+            width = 5 if dilated else 1.8
+            pelvis = x - sign*.24
+            ax.plot([pelvis, pelvis, x, x+sign*.18], [2.6, 3.12, 3.32, 3.55],
+                    lw=width, color=ink, solid_capstyle="round")
+            ax.plot([pelvis, x, x+sign*.19], [3.1, 3, 2.83], lw=width, color=ink)
+            ax.plot([pelvis, x+sign*.22], [3.12, 3.19], lw=width, color=ink)
+            ax.plot([pelvis, sign*.96, sign*.84], [2.66, 2.15, 1.23],
+                    color=ink, lw=width, solid_capstyle="round")
+            lower_width = 1.4 if case == "c" and sign == 1 else width
+            ax.plot([sign*.84, sign*.52], [1.23, .72], color=ink, lw=lower_width)
+            if sign == 1 and case in ("a", "b"):
+                center = (x+.48, 3.55) if case == "a" else (pelvis, 3.10)
+                ax.add_patch(Ellipse(center, .46 if case == "a" else .25,
+                                     .42 if case == "a" else .25, facecolor="#8e4259",
+                                     edgecolor="#50263a", zorder=5))
+        bulge = case == "d"
+        bladder = FancyBboxPatch((-.65, .27), 1.3, .62 if not bulge else 1.15,
+                                 boxstyle="round,pad=.03,rounding_size=.24",
+                                 facecolor="#b8dce4", edgecolor="#28647b", zorder=4)
+        ax.add_patch(bladder)
+        ax.plot([0, 0], [.3, 0], color="#28647b", lw=1.2 if bulge else 2)
+        if case in ("a", "b"):
+            ax.text(0, -.12, "Blue = urine pathway     Burgundy = lesion",
+                    ha="center", va="top", fontsize=9)
+        save(fig, "kidney_tract_" + case)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
     cardiovascular()
+    renal_studies()
+    renal_anatomy()
     cardiovascular_studies()
     vascular_anatomy()
     ventricular_loops()
