@@ -237,6 +237,32 @@ def mcat_science_coverage(blueprint, cards=(), transfers=()):
     return report
 
 
+def mcat_detail_coverage(blueprint, science):
+    """Credit an outline detail only for reviewed IDs and complete same-category case pairs."""
+    pairs = defaultdict(set)
+    categories = {row["Subtopic"].partition(" · ")[0] for row in science}
+    for row in science:
+        category = row["Subtopic"].partition(" · ")[0]
+        for column in MCAT_SCIENCE_SKILLS.values():
+            for pair in row[column + "PairIDs"].split(" | "):
+                if pair:
+                    pairs[category].add(pair)
+    report = []
+    for row in blueprint:
+        if (row["Exam"], row["Axis"]) != ("MCAT", "Outline detail"):
+            continue
+        category, _, detail = row["Domain"].partition(" · ")
+        if category not in categories or not detail:
+            raise ValueError(f"Unknown category or empty MCAT detail: {row['Domain']}")
+        ids = set(row["ReviewedCardIDs"].split())
+        matched = sorted(pair for pair in pairs[category] if set(pair.split()) <= ids)
+        report.append(dict(Category=category, Detail=detail, Outline=row["Outline"],
+                           MappedCards=str(len(ids)), CardIDs=" ".join(sorted(ids)),
+                           ChangedPairs=str(len(matched)), PairIDs=" | ".join(matched),
+                           NextAudit=row["NextAudit"]))
+    return report
+
+
 def reviewed_mcat_science(cards, blueprint):
     return mcat_science_coverage(blueprint, cards, table(ROOT/"mcat-transfer.tsv"))
 
@@ -286,6 +312,8 @@ def make(folder, prior):
     write_table(folder/"mcat-cars-coverage.tsv", list(cars[0]), cars)
     science = reviewed_mcat_science(rows, blueprint)
     write_table(folder/"mcat-science-coverage.tsv", list(science[0]), science)
+    details = mcat_detail_coverage(blueprint, science)
+    write_table(folder/"mcat-outline-details.tsv", list(details[0]), details)
     named = named_measurements()
     write_table(folder/"step-item-coverage.tsv", list(named[0]), named)
     decks={}; media=set(); objectives=defaultdict(list)
@@ -387,7 +415,9 @@ def verify(folder):
         assert row["Status"] in {"Partial","Unmapped","Verified"}
         assert bool(ids)==(row["Status"]!="Unmapped")
         assert all(k in keyed and keyed[k]["Exam"]==row["Exam"] for k in ids), row
-    assert table(folder/"mcat-science-coverage.tsv") == reviewed_mcat_science(expected, blueprint)
+    science = reviewed_mcat_science(expected, blueprint)
+    assert table(folder/"mcat-science-coverage.tsv") == science
+    assert table(folder/"mcat-outline-details.tsv") == mcat_detail_coverage(blueprint, science)
     assert table(folder/"mcat-cars-coverage.tsv") == mcat_cars_coverage(expected, blueprint)
     report, practice_tags = step_measurements(expected)
     assert table(folder/"step-coverage.tsv") == report
@@ -469,7 +499,7 @@ def current_build(folder, inputs):
     return info["inputs"] == inputs and info["outputs"] == files_in_release(folder)
 
 
-def display_gaps(items, science):
+def display_gaps(items, science, details=()):
     """Show the largest outstanding editorial workloads, with concrete examples."""
     def show(groups):
         ranked = sorted(groups.items(), key=lambda entry: (-len(entry[1]), entry[0]))
@@ -486,6 +516,21 @@ def display_gaps(items, science):
             if not int(row[column + "Cards"]):
                 groups[category].append(f"{topic} ({skill})")
     show(groups)
+    if details:
+        listed = {row["Category"] for row in details}
+        all_categories = {row["Subtopic"].partition(" · ")[0] for row in science}
+        missing = sorted(all_categories - listed)
+        print(f"MCAT outline detail inventory covers {len(listed)} of {len(all_categories)} categories")
+        if missing:
+            print("  Categories awaiting detailed inventory: " + ", ".join(missing))
+        for field, description in (("MappedCards", "a specifically linked question"),
+                                   ("ChangedPairs", "a linked changed-case pair")):
+            groups = defaultdict(list)
+            for row in details:
+                if not int(row[field]):
+                    groups[row["Category"]].append(row["Detail"])
+            print(f"MCAT indexed outline details without {description}")
+            show(groups)
     for exam in STEPS:
         breadth = defaultdict(list)
         depth = defaultdict(list)
@@ -522,7 +567,9 @@ def main():
         fcntl.flock(lock,fcntl.LOCK_EX if args.action in {"update","build"} else fcntl.LOCK_SH)
         if args.action=="gaps":
             cards, _ = deduplicate(records(RELEASE), alias_map(RELEASE))
-            display_gaps(named_measurements(), reviewed_mcat_science(cards, table(ROOT/"blueprint.tsv")))
+            blueprint = table(ROOT/"blueprint.tsv")
+            science = reviewed_mcat_science(cards, blueprint)
+            display_gaps(named_measurements(), science, mcat_detail_coverage(blueprint, science))
             return
         if args.action=="coverage":
             cards, _ = deduplicate(records(RELEASE), alias_map(RELEASE))
@@ -541,6 +588,13 @@ def main():
             for skill, column in MCAT_SCIENCE_SKILLS.items():
                 represented = sum(int(row[column + "Pairs"]) > 0 for row in science)
                 print(f"  {skill}: {represented}/{len(science)}")
+            details = mcat_detail_coverage(blueprint, science)
+            print("MCAT detailed outline review by indexed category")
+            for category in sorted({row["Category"] for row in details}):
+                rows = [row for row in details if row["Category"] == category]
+                linked = sum(int(row["MappedCards"]) > 0 for row in rows)
+                paired = sum(int(row["ChangedPairs"]) > 0 for row in rows)
+                print(f"  {category}: {len(rows)} details, {linked} linked, {paired} with changed cases")
             display(step_measurements(cards)[0], named_measurements())
             return
         if args.action=="test":verify(RELEASE);return

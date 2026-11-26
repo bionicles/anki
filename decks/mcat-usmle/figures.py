@@ -4687,6 +4687,86 @@ def obstetric_complication_studies():
     save(fig, "obloss_fold", indexed=True)
 
 
+def vascular_flow_studies():
+    """Draw venous physiology, junction measurements, trial results and metabolic data."""
+    for name, plateau in (("pump", 27), ("reflux", 78)):
+        fig, ax = axes("Time (s)", "Ankle venous pressure (mm Hg)")
+        time = np.linspace(0, 40, 400)
+        walking = time > 10
+        pressure = np.full(time.shape, 92.0)
+        elapsed = time[walking] - 10
+        pressure[walking] = plateau + (92 - plateau) * np.exp(-elapsed / 4)
+        pressure[walking] += 2 * np.sin(2 * np.pi * elapsed / 2)
+        ax.plot(time, pressure, color=COLORS[0], lw=2)
+        ax.axvline(10, color="#555555", ls=":")
+        ax.set(xlim=(0, 40), ylim=(0, 110), title="Quiet standing, then walking at 10 s")
+        save(fig, "vleg_" + name, indexed=True)
+
+    for name, distance in (("junction6", 6), ("junction2", 2)):
+        fig, ax = plt.subplots(figsize=(6.6, 3), layout="constrained")
+        ax.set(xlim=(-.9, 12), ylim=(-1.7, 3.4), title="Great saphenous vein • duplex map")
+        ax.axis("off")
+        ax.plot([0, 0], [-1.2, 2.5], color=COLORS[0], lw=8)
+        ax.plot([0, 11.6], [0, 0], color=COLORS[0], lw=6)
+        ax.plot([distance, 11.6], [0, 0], color=COLORS[1], lw=5)
+        ax.text(.35, 2.15, "Common femoral vein")
+        ax.text(.38, -.92, "Junction", ha="left")
+        ax.text(distance + .3, .48, "Proximal clot tip")
+        ax.annotate("", xy=(0, 1.05), xytext=(distance, 1.05),
+                    arrowprops=dict(arrowstyle="<->", color="#333333"))
+        ax.text(distance/2, 1.24, f"{distance} cm", ha="center")
+        ax.text(11.6, -.9, "To knee →", ha="right")
+        save(fig, "vleg_" + name, indexed=True)
+
+    study_table("vleg_evra", "Time to healing with compression",
+                ["Timing of superficial ablation", "Median time to healing"],
+                [["Early", "56 days"], ["Deferred", "82 days"]], source="EVRA")
+    study_table("vleg_calisto", "Primary composite events by day 47",
+                ["Randomized group", "With event", "Event rate"],
+                [["Fondaparinux", "13 of 1,502", "0.9%"], ["Placebo", "88 of 1,500", "5.9%"]],
+                source="CALISTO")
+    study_table("vleg_sat", "Paired forearm blood samples",
+                ["Site", "Arterial O₂ sat.", "Draining venous O₂ sat."],
+                [["Left arm", "98%", "68%"], ["Right arm", "98%", "91%"]])
+    study_table("vleg_fast", "Sources of hepatic glucose • relative rates",
+                ["Hours fasted", "Glycogen breakdown", "New glucose synthesis"],
+                [["8", "7", "3"], ["16", "5", "5"], ["24", "2", "6"]])
+    study_table("vleg_trace", "Carbon-13 tracer balance",
+                ["Substrate", "Input (μmol ¹³C)", "In CO₂ (μmol ¹³C)"],
+                [["Palmitate", "20", "12"], ["Alanine", "50", "20"]])
+
+    fig, ax = axes("Minutes after exercise", "Ankle–brachial index")
+    ax.plot([0, 1, 3, 5, 10], [1.02, .61, .70, .85, 1.0], "o-", color=COLORS[0])
+    ax.set(xticks=[0, 1, 3, 5, 10], xticklabels=["Rest", "1", "3", "5", "10"],
+           xlabel="Resting measurement and time after exercise (min)",
+           ylim=(.45, 1.15), title="Exercise arterial pressure study • simulated")
+    save(fig, "vleg_exercise", indexed=True)
+
+    fig, ax = plt.subplots(figsize=(3.8, 3.9), layout="constrained")
+    ax.set(xlim=(-1.5, 1.5), ylim=(-.7, 5.65), aspect="equal",
+           title="Fischer projection")
+    ax.axis("off")
+    ax.plot([0, 0], [.35, 4.65], color="#222222", lw=1.7)
+    ax.text(0, 5, "CHO", ha="center", va="center")
+    ax.text(0, 0, "CH₂OH", ha="center", va="center")
+    for y, left, right in [(4, "HO", "H"), (3, "H", "OH"),
+                           (2, "HO", "H"), (1, "HO", "H")]:
+        ax.plot([-.52, .52], [y, y], color="#222222", lw=1.7)
+        ax.text(-.65, y, left, ha="right", va="center")
+        ax.text(.65, y, right, ha="left", va="center")
+    save(fig, "vleg_fischer", indexed=True)
+
+    for name, top, bottom in (("aldor", "CHO", "CH₂OH"), ("aldos", "CH₂OH", "CHO")):
+        fig, ax = plt.subplots(figsize=(3.4, 3.1), layout="constrained")
+        ax.set(xlim=(-1.7, 1.7), ylim=(-1.4, 1.4), aspect="equal", title="Fischer projection")
+        ax.axis("off")
+        ax.plot([0, 0], [-.66, .66], lw=2, color="#222222")
+        ax.plot([-.6, .6], [0, 0], lw=2, color="#222222")
+        for x, y, label in ((0, .91, top), (0, -.91, bottom), (-.86, 0, "H"), (.92, 0, "OH")):
+            ax.text(x, y, label, ha="center", va="center", fontsize=14)
+        save(fig, "vleg_" + name, indexed=True)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -4779,6 +4859,7 @@ def main():
     reproductive_infection_studies()
     cerebrovascular_studies()
     obstetric_complication_studies()
+    vascular_flow_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()

@@ -84,6 +84,23 @@ class MCATCARSCoverageTest(unittest.TestCase):
 
 
 class MCATScienceCoverageTest(unittest.TestCase):
+    def test_outline_detail_requires_both_partners_in_the_same_category(self):
+        from deck import MCAT_SCIENCE_SKILLS, mcat_detail_coverage
+
+        def science(category, pairs):
+            row = {column + "PairIDs": "" for column in MCAT_SCIENCE_SKILLS.values()}
+            return dict(row, Subtopic=category + " · Energy", KnowledgePairIDs=pairs)
+
+        def detail(name, ids):
+            return dict(Exam="MCAT", Axis="Outline detail", Domain="1D · " + name,
+                        ReviewedCardIDs=ids, Outline="source", NextAudit="Review a different case")
+
+        reviewed = [science("1D", "a b | c d"), science("5E", "a c")]
+        rows = mcat_detail_coverage([detail("Paired", "a b c"), detail("Split", "a c"),
+                                     detail("Open", "")], reviewed)
+        self.assertEqual([row["MappedCards"] for row in rows], ["3", "2", "0"])
+        self.assertEqual([row["PairIDs"] for row in rows], ["a b", "", ""])
+
     def test_only_shared_evidence_counts_for_each_skill(self):
         from deck import MCAT_SCIENCE_SKILLS, mcat_science_coverage
 
