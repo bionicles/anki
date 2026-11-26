@@ -127,8 +127,16 @@ def render(row):
     fig=row["Figure"]
     if fig and (Path(fig).name!=fig or not (ROOT/"media"/fig).is_file()):
         raise ValueError("Unknown figure: "+fig)
+    media_html = ""
+    if fig:
+        if fig.endswith(".wav"):
+            media_html = "[sound:" + fig + "]"
+        elif fig.endswith(".png"):
+            media_html = '<div><img src="' + html.escape(fig, quote=True) + '"></div>'
+        else:
+            raise ValueError("Unsupported question media: " + fig)
     return [row["ID"],fmt(row["Prompt"]),choices,fmt(row["Answer"]),fmt(row["Reason"]),fmt(row["Source"]),fmt(row["License"]),
-            '<div><img src="'+html.escape(fig,quote=True)+'"></div>' if fig else ""]
+            media_html]
 
 
 def records(folder):
@@ -177,7 +185,9 @@ def make(folder, prior):
             source=r["ID"].split(":")[0]
             source="cohort" if source in {"bank","cohort"} else source
             tags=["exam::"+label(r["Exam"]),"section::"+label(r["Section"]),"topic::"+label(r["Topic"]),"source::"+label(source)]
-            if r["Figure"]:media.add(str(ROOT/"media"/r["Figure"]));tags.append("visual::question")
+            if r["Figure"]:
+                media.add(str(ROOT/"media"/r["Figure"]))
+                tags.append("listening::question" if r["Figure"].endswith(".wav") else "visual::question")
             tags.extend(sorted(practice_tags[r["ID"]]))
             fields=render(r);guid=genanki.guid_for("mcat-usmle/v1",r["ID"])
             decks[name].add_note(genanki.Note(model=model,fields=fields,guid=guid,tags=tags,due=n))
@@ -232,6 +242,14 @@ def verify(folder):
     report, practice_tags = step_measurements(expected)
     assert table(folder/"step-coverage.tsv") == report
     verify_imaging(expected)
+    sound_records = table(ROOT/"heart-sounds.tsv")
+    clips = {r["Clip"]: r for r in sound_records}
+    assert len(clips) == len(sound_records)
+    assert set(clips) == {p.stem for p in (ROOT/"media").glob("*.wav")}
+    for card in expected:
+        stem = Path(card["Figure"]).stem
+        if stem in clips:
+            assert clips[stem]["Record"] in card["Source"] and "ODC-By 1.0" in card["License"], card["ID"]
     coverage=table(folder/"coverage.tsv")
     mapped=[]
     for row in coverage:
@@ -239,7 +257,7 @@ def verify(folder):
         assert len(ids)==int(row["Cards"]) and all(all(row[k]==keyed[i][k] for k in ("Exam","Topic","Section")) for i in ids)
         mapped.extend(ids)
     assert Counter(mapped)==Counter(keyed.keys())
-    assert {r["Figure"] for r in expected if r["Figure"]}=={p.name for p in (ROOT/"media").glob("*.png")}
+    assert {r["Figure"] for r in expected if r["Figure"]}=={p.name for p in (ROOT/"media").iterdir() if p.suffix in {".png", ".wav"}}
     tsv=folder/(FILE+".tsv")
     with tsv.open(newline="") as f:
         for line in f:
@@ -259,6 +277,8 @@ def verify(folder):
                     assert {t.casefold() for t in n.tags}=={t.casefold() for t in export[key][-1].split()}, (key,n.tags,export[key][-1])
                     assert practice_tags[key] == {t for t in n.tags if t.startswith(("outline::", "practice::"))}
                     assert n["Question"] in c.question() and n["Answer"] in c.answer(), (key,n["Answer"],c.answer()[:500])
+                    if r["Figure"].endswith(".wav"):
+                        assert [t.filename for t in c.question_av_tags()] == [r["Figure"]], key
                     assert key not in result;result[key]=(n.id,cid)
                 assert result.keys()==keyed.keys()==export.keys()
                 return result
@@ -279,8 +299,8 @@ def file_hash(path):
 
 
 def build_inputs(lock):
-    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step_coverage.py", "intrapartum.py")]
-    paths.extend(sorted((ROOT / "media").glob("*.png")))
+    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step_coverage.py", "intrapartum.py", "figures.py", "heart-sounds.tsv", "heart_sounds.py")]
+    paths.extend(sorted(p for p in (ROOT / "media").iterdir() if p.suffix in {".png", ".wav"}))
     return {"sources": lock, "files": {p.relative_to(ROOT).as_posix(): file_hash(p) for p in paths}}
 
 

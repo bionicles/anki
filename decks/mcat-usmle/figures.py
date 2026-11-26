@@ -94,9 +94,44 @@ def mcat_chemistry():
     save(fig,"tlc")
 
 
+def cardiovascular():
+    # Idealized envelopes from two separate fictional Doppler examinations.
+    t = np.linspace(0, 1.8, 900)
+    for code, maximum, period in [("a", 4.5, .80), ("b", 3.0, .68)]:
+        phase = np.mod(t, period)
+        v = maximum * np.sin(np.pi*np.minimum(phase/.32, 1))**1.25
+        fig, ax = axes("Time (s)", "Aortic jet velocity (m/s)")
+        ax.plot(t, v, color=COLORS[0])
+        ax.set(ylim=(0,5), yticks=np.arange(0,5.1,.5), title="Simulated Doppler envelope")
+        save(fig, f"cv_jet_{code}")
+    for code, values in [("a",[1,1.12,1.15]), ("b",[1.2,1.55,1.8])]:
+        fig, ax = axes("Days since starting ACE inhibitor", "Creatinine (mg/dL)")
+        ax.plot([0,7,14],values,"o-",color=COLORS[0]); ax.set(xticks=[0,7,14],ylim=(.7,2.15))
+        for x,y in zip([0,7,14],values):
+            ax.annotate(f"{y:.2f}",(x,y),xytext=(0,8),textcoords="offset points",ha="center")
+        save(fig,f"cv_renal_{code}")
+    for code, sbp, dbp in [("a",[140,113,112],[80,70,68]), ("b",[132,130,128],[80,79,78])]:
+        fig, ax = axes("Position and time", "Blood pressure (mm Hg)")
+        for vals, label, color in [(sbp,"Systolic",COLORS[0]),(dbp,"Diastolic",COLORS[1])]:
+            ax.plot([0,1,3],vals,"o-",color=color,label=label)
+            for x,y in zip([0,1,3],vals):
+                ax.annotate(str(y),(x,y),xytext=(0,7),textcoords="offset points",ha="center")
+        ax.set(xticks=[0,1,3],xticklabels=["Supine","Standing, 1 min","Standing, 3 min"],ylim=(55,160))
+        ax.legend(loc="center right")
+        save(fig,f"cv_stand_{code}")
+    for code, previous, current in [("a",28,52),("b",58,55)]:
+        fig, ax = axes("Echocardiogram", "LV ejection fraction (%)")
+        ax.bar(["Earlier","Current"],[previous,current],width=.5,color=COLORS[0])
+        for x,y in enumerate([previous,current]):
+            ax.text(x,y+2,f"{y}%",ha="center")
+        ax.set(ylim=(0,75),title="Two examinations of the same patient")
+        save(fig,f"cv_ef_{code}")
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
+    cardiovascular()
     plot("refeed", "Hours after starting nutrition", "Serum phosphate (mg/dL)",
          [0,12,24,36,48], {"Patient A": [3.2,2.9,2.4,1.8,1.6],
                             "Patient B": [3.1,3.2,3.0,3.1,3.1]})

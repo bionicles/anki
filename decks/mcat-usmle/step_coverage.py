@@ -48,9 +48,9 @@ def measure(families, blueprint, depth, weights, cards):
                 if card_id not in by_id or by_id[card_id]["Exam"] != exam:
                     raise ValueError(f"Wrong Step or unpublished card: {key} {card_id}")
                 tags[card_id].add("practice::" + level.lower())
-        application_images = {by_id[k]["Figure"] for k in ids[1]} - {""}
-        if any(by_id[k]["Figure"] in application_images for k in ids[2]):
-            raise ValueError(f"Transfer uses the original application image: {key}")
+        application_media = {by_id[k]["Figure"].rsplit(".", 1)[0] for k in ids[1]} - {""}
+        if any(by_id[k]["Figure"].rsplit(".", 1)[0] in application_media for k in ids[2]):
+            raise ValueError(f"Transfer reuses the original application media: {key}")
         objectives[exam, family].append(row)
         evidence[exam, family].update(combined)
 
