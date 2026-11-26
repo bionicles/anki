@@ -158,6 +158,39 @@ def alias_map(folder):
     return {r["SourceID"]:r["CardID"] for r in table(file)} if file.exists() else {}
 
 
+MCAT_SCIENCE_SKILLS = {
+    "Scientific knowledge": "Knowledge",
+    "Scientific problem solving": "ProblemSolving",
+    "Research design": "ResearchDesign",
+    "Data and statistics": "DataInterpretation",
+}
+
+
+def mcat_science_coverage(blueprint):
+    """Cross-reference reviewed science subtopics and reasoning tasks by stable card ID."""
+    science = [r for r in blueprint if r["Exam"] == "MCAT"]
+    skill_ids = {r["Domain"]: set(r["ReviewedCardIDs"].split()) for r in science
+                 if r["Axis"] == "Reasoning" and r["Domain"] in MCAT_SCIENCE_SKILLS}
+    if skill_ids.keys() != MCAT_SCIENCE_SKILLS.keys():
+        raise ValueError("Incomplete MCAT science reasoning inventory")
+    report = []
+    for row in science:
+        if row["Axis"] != "Subtopic":
+            continue
+        topic_cards = set(row["ReviewedCardIDs"].split())
+        result = dict(Subtopic=row["Domain"], Outline=row["Outline"], MappedCards=str(len(topic_cards)))
+        classified = set()
+        for skill, column in MCAT_SCIENCE_SKILLS.items():
+            matches = topic_cards & skill_ids[skill]
+            classified.update(matches)
+            result[column + "Cards"] = str(len(matches))
+            result[column + "IDs"] = " ".join(sorted(matches))
+        result["UnclassifiedIDs"] = " ".join(sorted(topic_cards - classified))
+        result["NextAudit"] = row["NextAudit"]
+        report.append(result)
+    return report
+
+
 def step_measurements(cards):
     return measure(table(ROOT/"step-families.tsv"), table(ROOT/"blueprint.tsv"),
                    table(ROOT/"step-depth.tsv"), table(ROOT/"step-weights.tsv"), cards, table(ROOT/"step-items.tsv"))
@@ -178,6 +211,8 @@ def make(folder, prior):
     write_table(folder/"retired.tsv",["CardID"],[{"CardID":k} for k in sorted(retired)])
     report, practice_tags = step_measurements(rows)
     write_table(folder/"step-coverage.tsv", list(report[0]), report)
+    science = mcat_science_coverage(table(ROOT/"blueprint.tsv"))
+    write_table(folder/"mcat-science-coverage.tsv", list(science[0]), science)
     named = named_measurements()
     write_table(folder/"step-item-coverage.tsv", list(named[0]), named)
     decks={}; media=set(); objectives=defaultdict(list)
@@ -246,6 +281,7 @@ def verify(folder):
         assert row["Status"] in {"Partial","Unmapped","Verified"}
         assert bool(ids)==(row["Status"]!="Unmapped")
         assert all(k in keyed and keyed[k]["Exam"]==row["Exam"] for k in ids), row
+    assert table(folder/"mcat-science-coverage.tsv") == mcat_science_coverage(blueprint)
     report, practice_tags = step_measurements(expected)
     assert table(folder/"step-coverage.tsv") == report
     assert table(folder/"step-item-coverage.tsv") == named_measurements()
@@ -337,6 +373,11 @@ def main():
         fcntl.flock(lock,fcntl.LOCK_EX if args.action in {"update","build"} else fcntl.LOCK_SH)
         if args.action=="coverage":
             cards, _ = deduplicate(records(RELEASE), alias_map(RELEASE))
+            science = mcat_science_coverage(table(ROOT/"blueprint.tsv"))
+            print("MCAT science subtopics with reviewed evidence for each reasoning skill")
+            for skill, column in MCAT_SCIENCE_SKILLS.items():
+                represented = sum(int(row[column + "Cards"]) > 0 for row in science)
+                print(f"  {skill}: {represented}/{len(science)}")
             display(step_measurements(cards)[0], named_measurements())
             return
         if args.action=="test":verify(RELEASE);return

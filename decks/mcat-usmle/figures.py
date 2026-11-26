@@ -2255,6 +2255,118 @@ def clinical_otology_studies():
             ("Baseline air", [10, 10, 15, 20, 20, 20]), ("Current air", current)])
 
 
+def visual_function_studies():
+    """Render schematic eye examinations and simulated optics and psychophysics data."""
+    def record(name, title, columns, rows):
+        fig, ax = plt.subplots(figsize=(5.8, 2.7), layout="constrained")
+        ax.axis("off")
+        ax.set_title(title + "  •  simulated")
+        table = ax.table(cellText=rows, colLabels=columns, cellLoc="center",
+                         bbox=[.02, .1, .96, .73])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for col in range(len(columns)):
+            table[0, col].set_facecolor("#e2edf1")
+        save(fig, "eye_" + name)
+
+    record("pupil_l", "Equal illumination in alternating eyes",
+           ["Light on", "Right pupil", "Left pupil"],
+           [["Right eye", "2 mm", "2 mm"], ["Left eye", "4 mm", "4 mm"],
+            ["Right eye again", "2 mm", "2 mm"]])
+    record("ethacuity", "Best-corrected distance acuity",
+           ["Visit", "Right eye", "Left eye", "Both open"],
+           [["Baseline", "20/20", "20/20", "20/20"], ["Today", "20/60", "20/20", "20/20"]])
+    record("iop", "Applanation tonometry",
+           ["IOP (mm Hg)", "Before drops", "Week 1", "Week 3"],
+           [["Right (untreated)", "16", "15", "16"], ["Left (treated)", "15", "20", "29"]])
+    record("meridian", "Corneal optical power",
+           ["Principal meridian", "Measured power"],
+           [["Horizontal (180°)", "42.0 D"], ["Vertical (90°)", "45.0 D"]])
+    record("criterion", "Yes/no flash experiment",
+           ["Instructions", "Hits / 100 flashes", "False alarms / 100 blanks"],
+           [["Neutral", "58", "12"], ["Say seen if unsure", "78", "28"]])
+
+    for name, right, left in [("stablefield", [-4.2, -4.5, -4.1], [-3.5, -3.2, -3.6]),
+                              ("fallfield", [-3, -7.4, -13], [-2.5, -6.8, -11.5])]:
+        fig, ax = axes("Week of follow-up", "Mean deviation (dB)")
+        for j, (eye, series) in enumerate([("Right", right), ("Left", left)]):
+            ax.plot([0, 1, 2], series, STYLES[j], marker=["o", "s"][j], label=eye,
+                    color=COLORS[j], lw=2)
+        ax.set(title="Reliable automated visual fields  •  simulated", ylim=(-16, 0), xticks=[0, 1, 2])
+        ax.legend()
+        save(fig, "eye_" + name)
+
+    fig, ax = plt.subplots(figsize=(4, 4), layout="constrained")
+    line = np.linspace(-5, 5, 180)
+    for level in np.arange(-5, 5.1, .5):
+        warp = .55 * np.exp(-((line - .9) ** 2 + (level - .4) ** 2) / 1.2)
+        ax.plot(line, level + warp, color="#294651", lw=.8)
+        ax.plot(level + warp, line, color="#294651", lw=.8)
+    ax.plot(0, 0, "ko", ms=4)
+    ax.set(aspect="equal", title="Patient's monocular grid drawing")
+    ax.axis("off")
+    save(fig, "eye_grid")
+
+    for name, center_seen in [("island", True), ("centralmap", False)]:
+        fig, ax = plt.subplots(figsize=(4.3, 3.7), layout="constrained")
+        for y in range(-30, 31, 5):
+            for x in range(-30, 31, 5):
+                radius = np.hypot(x, y)
+                if radius <= 30:
+                    seen = (radius <= 10) == center_seen
+                    ax.plot(x, y, marker="o", ms=6, mec="#344a52", mfc="white" if seen else "#344a52")
+        ax.set(title="Single-eye field responses  •  simulated", xlabel="Horizontal position (degrees)",
+               ylabel="Vertical position (degrees)", aspect="equal", xticks=[-30, 0, 30], yticks=[-30, 0, 30])
+        ax.text(.5, -.21, "Open = seen     Filled = missed", ha="center", transform=ax.transAxes)
+        save(fig, "eye_" + name)
+
+    for name, focus, retina in [("myoray", 3.25, 4.2), ("mcathyper", 4.65, 3.65)]:
+        fig, ax = plt.subplots(figsize=(5.6, 2.8), layout="constrained")
+        ax.axhline(0, color="#999999", lw=.8, ls=":")
+        ax.plot([0, 0], [-1.25, 1.25], color="#438392", lw=5)
+        ax.plot([retina, retina], [-1.25, 1.25], color="#563550", lw=3)
+        for h in [-.85, -.42, .42, .85]:
+            ax.plot([-1.4, 0, retina], [h, h, h * (1 - retina / focus)], lw=1.5, color=COLORS[0])
+            if focus > retina:
+                ax.plot([retina, focus], [h * (1 - retina / focus), 0], ls="--", color=COLORS[0], lw=1)
+        ax.text(0, -1.45, "Eye optics", ha="center")
+        ax.text(retina, -1.45, "Retina", ha="center")
+        ax.set(xlim=(-1.6, 5), ylim=(-1.7, 1.55), title="Parallel light from the left  •  relaxed model eye")
+        ax.axis("off")
+        save(fig, "eye_" + name)
+
+    fig, ax = axes("1 / object distance (m⁻¹)", "1 / image distance (m⁻¹)")
+    x = np.array([.5, 1, 1.5, 2, 2.5, 3])
+    ax.plot([0, 3.25], [4, .75], color=COLORS[0], label="Fitted line")
+    ax.scatter(x, [3.48, 3.04, 2.47, 2.03, 1.49, 1.01], color=COLORS[1], label="Measurements")
+    ax.set(title="Converging lens bench  •  simulated", xlim=(0, 3.3), ylim=(0, 4.5))
+    ax.legend()
+    save(fig, "eye_bench")
+
+    fig, ax = axes("Flash intensity (arbitrary units)", "Trials reported seen (of 40)")
+    ax.plot([1, 2, 3, 4, 5, 6, 7], [1, 3, 9, 20, 32, 37, 39], "o-", color=COLORS[0])
+    ax.set(title="Monocular flash detection  •  simulated", yticks=[0, 10, 20, 30, 40])
+    save(fig, "eye_half")
+    fig, ax = axes("Flash intensity (arbitrary units)", "Trials reported seen (%)")
+    x = np.linspace(0, 10, 160)
+    for j, (label, mid) in enumerate([("Session A", 6), ("Session B", 3)]):
+        ax.plot(x, 100 / (1 + np.exp(-(x - mid) * 1.3)), STYLES[j], color=COLORS[j], label=label)
+    ax.set(title="Detection across sessions  •  simulated", yticks=[0, 25, 50, 75, 100])
+    ax.legend()
+    save(fig, "eye_sensshift")
+
+    for name, delay in [("darkrod", 8), ("darkcross", 5)]:
+        fig, ax = axes("Time in darkness (minutes)", "Detection threshold (relative units)")
+        t = np.arange(31)
+        cone = .10 + 1.8 * np.exp(-t / 1.55)
+        rod = .001 + 3.0 * np.exp(-np.maximum(t - delay, 0) / 1.46)
+        ax.semilogy(t, cone, lw=2, color=COLORS[0], label="Cone pathway")
+        ax.semilogy(t, rod, "--", lw=2, color=COLORS[1], label="Rod pathway")
+        ax.set(title="Peripheral light detection  •  teaching model", xticks=range(0, 31, 5))
+        ax.legend()
+        save(fig, "eye_" + name)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -2283,6 +2395,7 @@ def main():
     multisystem_rheumatology_studies()
     systemic_infection_studies()
     clinical_otology_studies()
+    visual_function_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()

@@ -39,3 +39,25 @@ class NamedDepthTest(unittest.TestCase):
 
         rows = [topic(0, 0, 0), topic(2, 0, 0), topic(3, 1, 0), topic(7, 3, 2)]
         self.assertEqual(practice_bands(rows), (1, 1, 1, 1))
+
+
+class MCATScienceCoverageTest(unittest.TestCase):
+    def test_only_shared_evidence_counts_for_each_skill(self):
+        from deck import MCAT_SCIENCE_SKILLS, mcat_science_coverage
+
+        def row(axis, name, evidence, exam="MCAT"):
+            return dict(Exam=exam, Axis=axis, Domain=name, ReviewedCardIDs=evidence,
+                        Outline="source", NextAudit="review")
+
+        rows = [row("Reasoning", skill, "") for skill in MCAT_SCIENCE_SKILLS]
+        rows[0]["ReviewedCardIDs"] = "a b"
+        rows[2]["ReviewedCardIDs"] = "b elsewhere"
+        rows += [row("Subtopic", "first", "a b c"), row("Subtopic", "empty", ""),
+                 row("Subtopic", "another exam", "a", exam="USMLE Step 1"),
+                 row("Reasoning", "CARS comprehension", "c")]
+        first, empty = mcat_science_coverage(rows)
+        self.assertEqual(first["MappedCards"], "3")
+        self.assertEqual(first["KnowledgeIDs"], "a b")
+        self.assertEqual(first["ResearchDesignIDs"], "b")
+        self.assertEqual(first["UnclassifiedIDs"], "c")
+        self.assertEqual(empty["DataInterpretationCards"], "0")

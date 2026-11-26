@@ -470,33 +470,33 @@ neuro.eye	Dacryocystitis
 neuro.eye	Endophthalmitis			
 neuro.eye	Hordeolum			
 neuro.eye	Iridocyclitis			
-neuro.eye	Optic neuritis			
+neuro.eye	Optic neuritis	original:eyevis-on-1-rule original:eyevis-on-1-case original:eyevis-on-1-eyher	original:ncrao-pale original:eyevis-on-2-rule original:eyevis-on-2-case	original:eyevis-on-3-rule original:eyevis-on-3-case original:eyevis-on-3-eyher original:eyevis-on-3-rule-extra original:eyevis-on-3-case-extra original:eyevis-on-3-eyher-extra
 neuro.eye	Periorbital cellulitis			
 neuro.eye	Uveitis			
 neuro.eye	Ocular melanoma			
-neuro.eye	Retinoblastoma			
-neuro.eye	Cataract			
+neuro.eye	Retinoblastoma	original:eyevis-retino-1-rule original:eyevis-retino-1-case original:eyevis-retino-1-eyher	original:eyevis-retino-2-rule original:eyevis-retino-2-case original:eyevis-retino-2-eyher	original:eyevis-retino-3-rule original:eyevis-retino-3-case original:eyevis-retino-3-eyher
+neuro.eye	Cataract	original:eyevis-cataract-1-rule original:eyevis-cataract-1-case original:eyevis-cataract-1-eyher	original:eyevis-cataract-2-rule original:eyevis-cataract-2-case original:eyevis-cataract-2-eyher	original:eyevis-cataract-3-rule original:eyevis-cataract-3-case original:eyevis-cataract-3-eyher
 neuro.eye	Glaucoma	original:nangle-drain	original:nangle-pain original:nangle-side	original:nangle-tonometry
 neuro.eye	Lacrimal system disorders			
 neuro.eye	Pterygium			
-neuro.eye	Presbyopia	original:s1-seenear-lens original:s1-seenear-correct		
-neuro.eye	Myopia			
-neuro.eye	Hyperopia			
-neuro.eye	Astigmatism			
-neuro.eye	Amblyopia			
-neuro.eye	Strabismus			
-neuro.eye	Hypertensive retinopathy			
-neuro.eye	Macular degeneration			
-neuro.eye	Papilledema			
-neuro.eye	Retinal detachment	original:nret-tear original:nret-traction	original:nret-periphery	original:nret-urgency
-neuro.eye	Retinitis pigmentosa			
-neuro.eye	Retinal artery occlusion or embolus	original:ncrao-bed	original:ncrao-pale	original:ncrao-triage original:ncrao-risk
-neuro.eye	Retinal hemorrhage			
-neuro.eye	Amaurosis fugax			
-neuro.eye	Carotid stenosis with ocular ischemia			
-neuro.eye	Central retinal vein occlusion			
+neuro.eye	Presbyopia	original:s1-seenear-lens original:s1-seenear-correct original:eyevis-pres-1-case original:eyevis-pres-1-eyher	original:eyevis-pres-2-rule original:eyevis-pres-2-case original:eyevis-pres-2-eyher	original:eyevis-pres-3-rule original:eyevis-pres-3-case original:eyevis-pres-3-eyher
+neuro.eye	Myopia	original:eyevis-myopia-1-rule original:eyevis-myopia-1-case original:eyevis-myopia-1-eyher	original:eyevis-myopia-2-rule original:eyevis-myopia-2-case original:eyevis-myopia-2-eyher	original:eyevis-myopia-3-rule original:eyevis-myopia-3-case original:eyevis-myopia-3-eyher
+neuro.eye	Hyperopia	original:eyevis-hyper-1-rule original:eyevis-hyper-1-case original:eyevis-hyper-1-eyher	original:eyevis-hyper-2-rule original:eyevis-hyper-2-case original:eyevis-hyper-2-eyher	original:eyevis-hyper-3-rule original:eyevis-hyper-3-case original:eyevis-hyper-3-eyher
+neuro.eye	Astigmatism	original:eyevis-astig-1-rule original:eyevis-astig-1-case original:eyevis-astig-1-eyher	original:eyevis-astig-2-rule original:eyevis-astig-2-case original:eyevis-astig-2-eyher	original:eyevis-astig-3-rule original:eyevis-astig-3-case original:eyevis-astig-3-eyher
+neuro.eye	Amblyopia	original:eyevis-amb-1-rule original:eyevis-amb-1-case original:eyevis-amb-1-eyher	original:eyevis-amb-2-rule original:eyevis-amb-2-case original:eyevis-amb-2-eyher	original:eyevis-amb-3-rule original:eyevis-amb-3-case original:eyevis-amb-3-eyher
+neuro.eye	Strabismus	original:eyevis-strab-1-rule original:eyevis-strab-1-case original:eyevis-strab-1-eyher	original:eyevis-strab-2-rule original:eyevis-strab-2-case original:eyevis-strab-2-eyher	original:eyevis-strab-3-rule original:eyevis-strab-3-case original:eyevis-strab-3-eyher
+neuro.eye	Hypertensive retinopathy	original:eyevis-htn-1-rule original:eyevis-htn-1-case original:eyevis-htn-1-eyher	original:eyevis-htn-2-rule original:eyevis-htn-2-case original:eyevis-htn-2-eyher	original:eyevis-htn-3-rule original:eyevis-htn-3-case original:eyevis-htn-3-eyher
+neuro.eye	Macular degeneration	original:eyevis-amd-1-rule original:eyevis-amd-1-case original:eyevis-amd-1-eyher	original:eyevis-amd-2-rule original:eyevis-amd-2-case original:eyevis-amd-2-eyher	original:eyevis-amd-3-rule original:eyevis-amd-3-case original:eyevis-amd-3-eyher original:eyevis-amd-3-rule-extra original:eyevis-amd-3-case-extra original:eyevis-amd-3-eyher-extra
+neuro.eye	Papilledema	original:eyevis-pap-1-rule original:eyevis-pap-1-case original:eyevis-pap-1-eyher	original:eyevis-pap-2-rule original:eyevis-pap-2-case original:eyevis-pap-2-eyher	original:eyevis-pap-3-rule original:eyevis-pap-3-case original:eyevis-pap-3-eyher
+neuro.eye	Retinal detachment	original:nret-tear original:nret-traction original:eyevis-detach-1-rule	original:nret-periphery original:nret-curtain original:eyevis-detach-2-rule	original:nret-urgency original:eyevis-detach-3-rule original:eyevis-detach-3-case original:eyevis-detach-3-eyher
+neuro.eye	Retinitis pigmentosa	original:eyevis-rp-1-rule original:eyevis-rp-1-case original:eyevis-rp-1-eyher	original:eyevis-rp-2-rule original:eyevis-rp-2-case original:eyevis-rp-2-eyher	original:eyevis-rp-3-rule original:eyevis-rp-3-case original:eyevis-rp-3-eyher
+neuro.eye	Retinal artery occlusion or embolus	original:ncrao-bed original:eyevis-cra-1-case original:eyevis-cra-1-eyher	original:ncrao-pale original:eyevis-cra-2-rule original:eyevis-cra-2-eyher	original:ncrao-triage original:ncrao-risk original:eyevis-cra-3-rule original:eyevis-cra-3-eyher
+neuro.eye	Retinal hemorrhage	original:eyevis-bleed-1-rule original:eyevis-bleed-1-case original:eyevis-bleed-1-eyher	original:eyevis-bleed-2-rule original:eyevis-bleed-2-case original:eyevis-bleed-2-eyher	original:eyevis-bleed-3-rule original:eyevis-bleed-3-case original:eyevis-bleed-3-eyher
+neuro.eye	Amaurosis fugax	original:eyevis-amau-1-rule original:eyevis-amau-1-case original:eyevis-amau-1-eyher	original:eyevis-amau-2-rule original:eyevis-amau-2-case original:eyevis-amau-2-eyher	original:eyevis-amau-3-rule original:eyevis-amau-3-case original:eyevis-amau-3-eyher
+neuro.eye	Carotid stenosis with ocular ischemia	original:eyevis-carot-1-rule original:eyevis-carot-1-case original:eyevis-carot-1-eyher	original:eyevis-carot-2-rule original:eyevis-carot-2-case original:eyevis-carot-2-eyher	original:eyevis-carot-3-rule original:eyevis-carot-3-case original:eyevis-carot-3-eyher
+neuro.eye	Central retinal vein occlusion	original:eyevis-rvo-1-rule original:eyevis-rvo-1-case original:eyevis-rvo-1-eyher	original:eyevis-rvo-2-rule original:eyevis-rvo-2-case original:eyevis-rvo-2-eyher	original:eyevis-rvo-3-rule original:eyevis-rvo-3-case original:eyevis-rvo-3-eyher
 neuro.eye	Visual impairment and blindness	original:nfield-half	original:nfield-complaint	original:nfield-read
-neuro.eye	Night blindness			
+neuro.eye	Night blindness	original:eyevis-night-1-rule original:eyevis-night-1-case original:eyevis-night-1-eyher	original:nutri-vita-2-rule original:eyevis-night-2-case original:eyevis-night-2-eyher	original:eyevis-night-3-rule original:eyevis-night-3-case original:eyevis-night-3-eyher
 neuro.eye	Periorbital bruising			
 neuro.eye	Ocular burns			
 neuro.eye	Corneal abrasion			
@@ -509,9 +509,9 @@ neuro.eye	Eye and eyelid laceration
 neuro.eye	Open globe		original:ckeye-globe original:ckeye-shield	
 neuro.eye	Orbital fracture			
 neuro.eye	Subconjunctival hemorrhage			
-neuro.eye	Ethambutol ocular toxicity			
-neuro.eye	Hydroxychloroquine ocular toxicity			
-neuro.eye	Glucocorticoid ocular effects			
+neuro.eye	Ethambutol ocular toxicity	original:eyevis-eth-1-rule original:eyevis-eth-1-case original:eyevis-eth-1-eyher	original:eyevis-eth-2-rule original:eyevis-eth-2-case original:eyevis-eth-2-eyher	original:eyevis-eth-3-rule original:eyevis-eth-3-case original:eyevis-eth-3-eyher
+neuro.eye	Hydroxychloroquine ocular toxicity	original:eyevis-hcq-1-rule original:eyevis-hcq-1-case original:eyevis-hcq-1-eyher	original:eyevis-hcq-2-rule original:eyevis-hcq-2-case original:eyevis-hcq-2-eyher	original:eyevis-hcq-3-rule original:eyevis-hcq-3-case original:eyevis-hcq-3-eyher
+neuro.eye	Glucocorticoid ocular effects	original:eyevis-steroid-1-rule original:eyevis-steroid-1-case original:eyevis-steroid-1-eyher	original:eyevis-steroid-2-rule original:eyevis-steroid-2-case original:eyevis-steroid-2-eyher	original:eyevis-steroid-3-rule original:eyevis-steroid-3-case original:eyevis-steroid-3-eyher
 neuro.ear	Auricular chondritis	original:ear-per-1-rule original:ear-per-1-case original:ear-per-1-other	original:ear-per-2-rule original:ear-per-2-case original:ear-per-2-other	original:ear-per-3-rule original:ear-per-3-case original:ear-per-3-other
 neuro.ear	Mastoiditis	original:ear-mast-1-rule original:ear-mast-1-case original:ear-mast-1-other	original:ear-mast-2-rule original:ear-mast-2-case original:ear-mast-2-other	original:ear-mast-3-rule original:ear-mast-3-case original:ear-mast-3-other
 neuro.ear	Otitis externa	original:ear-canal-1-rule original:ear-canal-1-case original:ear-canal-1-other	original:ear-canal-2-rule original:ear-canal-2-case original:ear-canal-2-other	original:ear-canal-3-rule original:ear-canal-3-case original:ear-canal-3-other
