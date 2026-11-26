@@ -5,7 +5,7 @@ STEPS = ("USMLE Step 1", "USMLE Step 2 CK", "USMLE Step 3")
 LEVELS = ("Foundation", "Application", "Transfer")
 
 
-def measure(families, blueprint, depth, weights, cards):
+def measure(families, blueprint, depth, weights, cards, details=()):
     by_id = {card["ID"]: card for card in cards}
     by_family = {row["Family"]: row for row in families}
     if len(families) != len(by_family):
@@ -26,6 +26,27 @@ def measure(families, blueprint, depth, weights, cards):
             seen_topics.add(topic)
             for item in topics[topic]:
                 evidence[item["Exam"], family].update(item["ReviewedCardIDs"].split())
+
+    # A named condition within a family has its own evidence for each Step.
+    # Preserve an empty denominator for systems without a fine-grained inventory.
+    named_items = defaultdict(set)
+    named_evidence = defaultdict(set)
+    for row in details:
+        family, item = row["Family"], row["Item"]
+        if family not in by_family or not item.strip() or item in named_items[family]:
+            raise ValueError(f"Unknown family or duplicate/empty outline item: {family} {item}")
+        named_items[family].add(item)
+        for exam, column in zip(STEPS, ("Step1IDs", "Step2CKIDs", "Step3IDs")):
+            ids = row[column].split()
+            if len(ids) != len(set(ids)) or any(k not in by_id or by_id[k]["Exam"] != exam for k in ids):
+                raise ValueError(f"Invalid outline item evidence: {exam} {family} {item}")
+            if ids:
+                named_evidence[exam, family].add(item)
+                evidence[exam, family].update(ids)
+    detailed_systems = {by_family[f]["System"] for f in named_items}
+    for family, row in by_family.items():
+        if row["System"] in detailed_systems and family not in named_items:
+            raise ValueError(f"Detailed system missing a family: {family}")
 
     seen_objectives = set()
     for row in depth:
@@ -85,6 +106,8 @@ def measure(families, blueprint, depth, weights, cards):
                 result[level+"Objectives"] = str(sum(bool(r[level+"IDs"]) for r in reviewed))
             result["ThreeLevelObjectives"] = str(sum(all(r[level+"IDs"] for level in LEVELS)
                                                      for r in reviewed))
+            result["NamedItemsInScope"] = str(len(named_items[family])) if family in named_items else ""
+            result["NamedItemsMapped"] = str(len(named_evidence[exam, family])) if family in named_items else ""
             result["CardIDs"] = " ".join(linked)
             report.append(result)
     return report, tags
@@ -102,3 +125,13 @@ def display(report):
         line(exam, rows)
         for system in dict.fromkeys(r["System"] for r in rows):
             line("  " + system, [r for r in rows if r["System"] == system])
+
+    audited = [row for row in report if row["NamedItemsInScope"]]
+    if audited:
+        print("Named outline items with linked evidence (systems inventoried in detail)")
+        for system in dict.fromkeys(row["System"] for row in audited):
+            for exam in STEPS:
+                rows = [r for r in audited if r["Exam"] == exam and r["System"] == system]
+                numerator = sum(int(r["NamedItemsMapped"]) for r in rows)
+                denominator = sum(int(r["NamedItemsInScope"]) for r in rows)
+                print(f"  {system} · {exam}: {numerator}/{denominator}")

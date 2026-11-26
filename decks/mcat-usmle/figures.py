@@ -128,10 +128,93 @@ def cardiovascular():
         save(fig,f"cv_ef_{code}")
 
 
+def respiratory():
+    for case, mpa, wedge, output in [("a", 30, 10, 4), ("b", 30, 22, 5), ("c", 40, 22, 4)]:
+        fig, ax = axes("Resting right-heart catheterization", "Pressure (mm Hg)")
+        bars = ax.bar(["Mean pulmonary artery", "Pulmonary artery wedge"], [mpa, wedge],
+                      color=COLORS, width=.5)
+        ax.bar_label(bars, padding=4)
+        ax.set(ylim=(0, 48), title=f"Simulated measurements · cardiac output {output} L/min")
+        save(fig, f"lung_ph_{case}")
+
+    # Positive flow is expiration. Negative flow is inspiration back toward TLC.
+    for case, fvc, peak, exp_limit, insp_limit in [
+        ("neck", 4.3, 7.2, 8, 1.6), ("chest", 3.9, 6.4, 2, 8),
+        ("fixed", 4.5, 7.4, 2.6, 2.1), ("scoop", 4.1, 4.5, 8, 8)
+    ]:
+        x = np.linspace(0, 1, 500)
+        fall = 2.4 if case == "scoop" else 1.05
+        expired = peak*np.where(x < .13, x/.13, ((1-x)/.87)**fall)
+        inspired = -4.7*np.sin(np.pi*x)**.65
+        fig, ax = axes("Volume expired from full inspiration (L)", "Flow (L/s)")
+        ax.axhline(0, color="0.4", lw=.8)
+        ax.plot(x*fvc, np.minimum(expired, exp_limit), color=COLORS[0], label="Expiration")
+        ax.plot(x*fvc, np.maximum(inspired, -insp_limit), color=COLORS[1], ls="--", label="Inspiration")
+        ax.set(xlim=(-.1,5),ylim=(-6,8.5),title="Simulated maximal flow–volume loop")
+        ax.legend(loc="upper right", fontsize=8)
+        save(fig, f"lung_loop_{case}")
+
+    # Identical axes allow direct comparison when studying separate fictional patients.
+    for case, volumes in [("a", [0, .90, 1.50, 2.25, 2.70, 3.00, 3.00]),
+                          ("b", [0, 1.50, 2.40, 2.88, 3.00, 3.00, 3.00])]:
+        fig, ax = axes("Time since start of forced expiration (s)", "Expired volume (L)")
+        ax.plot([0, .5, 1, 2, 3, 5, 6], volumes, "o-", color=COLORS[0])
+        ax.axvline(1, ls=":", color="0.4")
+        ax.set(xticks=range(7), ylim=(0, 3.4), yticks=np.arange(0, 3.1, .3),
+               title="Simulated forced expiration")
+        save(fig, f"lung_spiro_{case}")
+
+    for case, start, length, effort, period in [("a", 9, 15, True, 3.2), ("b", 11, 13, False, 3.6)]:
+        t = np.linspace(0, 34, 1361)
+        pause = (t >= start) & (t <= start + length)
+        signal = np.sin(2*np.pi*t/period)
+        fig, axs = plt.subplots(2, 1, sharex=True, figsize=(6.4, 3.4), layout="constrained")
+        for ax, label, y in zip(axs, ["Airflow", "Chest effort"],
+                                [np.where(pause, 0, signal), np.where(pause, 1.15 if effort else 0, 1)*signal]):
+            ax.plot(t, y, color=COLORS[0])
+            ax.axvspan(start, start+length, color="#e1e8eb", zorder=-1)
+            ax.set(ylabel=label, ylim=(-1.4, 1.4), yticks=[])
+        axs[0].set_title("Simulated adult sleep study")
+        axs[-1].set(xlabel="Time (s)", xlim=(0, 34))
+        save(fig, f"lung_sleep_{case}")
+
+    for case, peak, plateau in [("a", 38, 18), ("b", 39, 33)]:
+        fig, ax = axes("Time within one breath (s)", "Airway pressure (cm H₂O)")
+        ax.plot([0,.15,.15,.85,.85,1.25,1.25,1.45,1.8],
+                [8,8,8+peak-plateau,peak,plateau,plateau,14,8,8], color=COLORS[0], lw=2.4)
+        ax.axvspan(.85,1.25,color="#e1e8eb",zorder=-1)
+        ax.text(1.05, 2,"Hold",ha="center")
+        for x, y in [(.82,peak),(1.08,plateau)]:
+            ax.annotate(str(y),(x,y),xytext=(0,5),textcoords="offset points",ha="center")
+        ax.set(ylim=(0,46),title="Simulated passive volume-controlled breath")
+        save(fig, f"lung_hold_{case}")
+
+    for case, perfusion, ventilation in [("a", 0, 1.2), ("b", 1.4, 0)]:
+        fig, ax = axes("One lung region", "Flow (L/min)")
+        values = [ventilation, perfusion]
+        bars = ax.bar(["Alveolar ventilation", "Perfusion"], values, color=COLORS, width=.55)
+        ax.bar_label(bars, fmt="%.1f", padding=4)
+        ax.set(ylim=(0,1.8),title="Simulated regional measurements")
+        save(fig, f"lung_vq_{case}")
+
+    for case, ph, rr in [("a", [7.28,7.31,7.35],[32,27,22]),
+                         ("b", [7.29,7.25,7.20],[31,34,39])]:
+        fig, axs = plt.subplots(2,1,sharex=True,figsize=(5.7,3.9),layout="constrained")
+        for ax, label, values, lim in zip(axs, ["Arterial pH","Breaths/min"],[ph,rr],[(7.17,7.43),(17,44)]):
+            ax.plot([0,1,2],values,"o-",color=COLORS[0])
+            ax.set(ylabel=label,ylim=lim)
+            for x,y in enumerate(values):
+                ax.annotate(str(y),(x,y),xytext=(0,5),textcoords="offset points",ha="center")
+        axs[0].set_title("Simulated course during bilevel support")
+        axs[-1].set(xticks=[0,1,2],xlabel="Hours since NIV started")
+        save(fig, f"lung_niv_{case}")
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
     cardiovascular()
+    respiratory()
     plot("refeed", "Hours after starting nutrition", "Serum phosphate (mg/dL)",
          [0,12,24,36,48], {"Patient A": [3.2,2.9,2.4,1.8,1.6],
                             "Patient B": [3.1,3.2,3.0,3.1,3.1]})

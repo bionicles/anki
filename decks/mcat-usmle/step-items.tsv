@@ -1,0 +1,137 @@
+Family	Item	Step1IDs	Step2CKIDs	Step3IDs
+lung.inf	Acute upper respiratory infection and nasopharyngitis			
+lung.inf	Adenoviral respiratory infection			
+lung.inf	Coronavirus respiratory infection			
+lung.inf	Coxsackievirus upper respiratory infection			
+lung.inf	Influenza pneumonia, including influenza A, B and named subtypes			
+lung.inf	Parainfluenza respiratory infection			
+lung.inf	Rhinovirus upper respiratory infection			
+lung.inf	Sinusitis			
+lung.inf	Epiglottitis			
+lung.inf	Pertussis respiratory disease		bank:cohort:resp:q-e6aadc41a704:v1	
+lung.inf	Croup and acute laryngotracheitis			
+lung.inf	Acute laryngitis			
+lung.inf	Bacterial tracheitis		bank:cohort:resp:q-4afdbbb0b432:v1	
+lung.inf	Pharyngitis			
+lung.inf	Streptococcal throat infection			
+lung.inf	Tonsillitis			
+lung.inf	Peritonsillar abscess			
+lung.inf	Allergic or chronic rhinitis			
+lung.inf	Nasal or sinus mucosal ulceration			
+lung.inf	Hospital-acquired pneumonia			
+lung.inf	Ventilator-associated pneumonia			
+lung.inf	Community-acquired pneumonia		original:pul-culture-out original:pul-culture-icu	original:pul-viral-well original:pul-viral-sick
+lung.inf	Acute bronchiolitis		original:ckbronch-diag original:ckbronch-intake	
+lung.inf	Organizing pneumonia			
+lung.inf	Pulmonary anthrax			
+lung.inf	Aspiration pneumonia			
+lung.inf	Aspiration pneumonitis			
+lung.inf	Acute bronchitis			
+lung.inf	Bronchopneumonia			
+lung.inf	Pulmonary melioidosis			
+lung.inf	Chlamydophila pneumonia			
+lung.inf	Q fever pneumonia			
+lung.inf	Pulmonary tularemia			
+lung.inf	Haemophilus influenzae pneumonia			
+lung.inf	Klebsiella pneumonia			
+lung.inf	Legionella pneumonia			
+lung.inf	Moraxella pneumonia			
+lung.inf	Mycoplasma pneumonia			
+lung.inf	Pseudomonas pneumonia			
+lung.inf	Streptococcal pneumonia			
+lung.inf	Staphylococcal pneumonia including MSSA and MRSA			original:pul-culture-deesc
+lung.inf	Other gram-negative bacterial pneumonia			
+lung.inf	Respiratory syncytial virus infection			
+lung.inf	Pulmonary aspergillosis			
+lung.inf	Allergic bronchopulmonary aspergillosis			
+lung.inf	Aspergilloma			
+lung.inf	Histoplasmosis			
+lung.inf	Coccidioidomycosis			
+lung.inf	Pneumocystis pneumonia	original:pul-pcp-host original:pul-pcp-gradient	original:pul-pcp-clinical original:pul-pcp-first	original:pul-pcp-severe original:pul-pcp-mild
+lung.inf	Pulmonary tuberculosis			
+lung.inf	Lung abscess			
+lung.tumor	Vocal cord polyp			
+lung.tumor	Nasal polyp			
+lung.tumor	Juvenile respiratory papillomatosis			
+lung.tumor	Solitary pulmonary nodule			
+lung.tumor	Lip, oral cavity and pharyngeal cancers			
+lung.tumor	Other head and neck malignancies			
+lung.tumor	Laryngeal cancer			
+lung.tumor	Tracheal cancer			
+lung.tumor	Lung cancer across histologies (screening or evaluation)		original:pul-screen-years	original:pul-screen-eligible original:pul-screen-symptom
+lung.tumor	Squamous cell carcinoma of lung			
+lung.tumor	Lung adenocarcinoma			
+lung.tumor	Large cell lung carcinoma			
+lung.tumor	Small cell lung carcinoma	original:pul-sclc-water original:pul-sclc-acth	original:pul-sclc-cortisol original:pul-sclc-sodium	original:pul-sclc-stage
+lung.tumor	Bronchial carcinoid			
+lung.tumor	Pleural mesothelioma			
+lung.tumor	Metastases to the lung			
+lung.tumor	Metastases to the pleura			
+lung.obstruct	Asthma and reactive airway disease	bank:usmle-step1:resp-asthma-exhalation-recognition:v1	original:ckasth-silent	original:ccs-asthma-recheck
+lung.obstruct	Bronchiectasis	original:pul-brx-structure original:pul-brx-feedback	original:pul-brx-ct original:pul-brx-confirm	original:pul-brx-clear original:pul-brx-rehab
+lung.obstruct	Chronic airflow obstruction and COPD	original:pul-spiro-ratioa	original:pul-spiro-obstruct original:pul-niv-acidosis	original:pul-niv-start original:pul-niv-compensated
+lung.obstruct	Chronic bronchitis			
+lung.obstruct	Emphysema	original:phil-lung-acini original:phil-lung-recoil	original:phil-lung-pattern	
+lung.restrict	Pneumoconiosis across exposures			
+lung.restrict	Asbestosis			
+lung.restrict	Silicosis	original:pul-sil-material	original:pul-sil-history	original:pul-sil-prevent
+lung.restrict	Silo-filler lung disease			
+lung.restrict	Byssinosis			
+lung.restrict	Bagassosis			
+lung.restrict	Berylliosis			
+lung.restrict	Hypersensitivity pneumonitis	original:pul-hp-immune	original:pul-hp-birds original:pul-hp-bal	original:pul-hp-history original:pul-hp-uncertain
+lung.restrict	Hypereosinophilic syndromes			
+lung.restrict	Loeffler syndrome			
+lung.restrict	Usual interstitial pneumonia			
+lung.restrict	Desquamative interstitial pneumonia			
+lung.restrict	Nonspecific interstitial pneumonia			
+lung.failure	Acute respiratory distress syndrome	original:pul-ards-size	original:pul-ards-ratio	original:pul-ards-dose original:pul-ards-prone
+lung.failure	Pulmonary hypertension	original:pul-cdh-vessels original:pul-ph-a original:pul-ph-b	original:pul-cdh-echo original:pul-ph-pre original:pul-ph-post original:pul-ph-combined	original:acm-pe-symptom original:pul-ph-echo original:pul-ph-scan
+lung.failure	Pulmonary arteriovenous fistula			
+lung.failure	Pulmonary edema			
+lung.failure	Pulmonary thromboembolism	original:pul-pe-rv	original:pul-pe-below original:pul-pe-above	original:acm-pe-duration
+lung.failure	Air embolism			
+lung.failure	Fat embolism			
+lung.failure	Respiratory failure related to enteral feeding			
+lung.structural	Gas-exchange impairment	original:pul-vq-dead	original:pul-va-wide	original:pul-oxygen-boundary
+lung.structural	Hypoventilation	original:pul-va-carbon	original:pul-va-gradient original:pul-ohs-awake	original:pul-ohs-discharge
+lung.structural	Hypoxia and hypoxemia	original:pul-pcp-gradient	original:pul-oxygen-rest	original:pul-oxygen-severe original:pul-oxygen-moderate
+lung.structural	Ventilation–perfusion mismatch	original:pul-vq-shunt original:pul-vq-dead	original:pul-vq-embolus original:pul-vq-plug	
+lung.pleura	Chylothorax			
+lung.pleura	Costochondritis			
+lung.pleura	Empyema	original:pul-pus-space	original:pul-pus-diagnosis	original:pul-pus-drain
+lung.pleura	Hemothorax			
+lung.pleura	Mediastinitis			
+lung.pleura	Pleural effusion	original:pul-fluid-hydro original:pul-fluid-leak	original:pul-fluid-negative original:pul-fluid-protein	original:pul-pleurinf-low original:pul-pleurinf-high
+lung.pleura	Pleuritis			
+lung.pleura	Pneumomediastinum			
+lung.pleura	Pneumothorax	bank:usmle-step1:respiratory-respiratory-mechanics-r3:v1 original:rad-space	original:rad-pneumo	original:rad-urgent
+lung.trauma	Epistaxis			
+lung.trauma	Sinus barotrauma			
+lung.trauma	Laryngeal or pharyngeal obstruction		original:pul-loop-neck	
+lung.trauma	Tracheoesophageal fistula			
+lung.trauma	Tracheal stenosis		original:pul-loop-fixed	
+lung.trauma	Tracheomalacia			
+lung.trauma	Traumatic tracheal injury			
+lung.trauma	Upper airway foreign body			
+lung.trauma	Nasal or sinus injury including septal perforation			
+lung.trauma	Atelectasis			
+lung.trauma	Diaphragm or chest-wall injury	original:pul-flail-pain	original:pul-flail-motion	original:pul-flail-well original:pul-flail-fail
+lung.trauma	Drowning and nonfatal drowning			
+lung.trauma	Lower airway foreign body			
+lung.trauma	Penetrating chest wound			
+lung.trauma	Pulmonary contusion			original:pul-flail-fail
+lung.trauma	Obstructive sleep apnea	original:pul-sleep-persist	original:pul-sleep-obstruct	original:pul-osas-home original:pul-osas-negative
+lung.trauma	Central sleep apnea	original:pul-sleep-cease	original:pul-sleep-central	
+lung.trauma	Obesity hypoventilation syndrome	original:pul-ohs-comp	original:pul-ohs-awake original:pul-ohs-high	original:pul-ohs-stable original:pul-ohs-discharge
+lung.congenital	Bronchogenic cyst			
+lung.congenital	Other congenital pulmonary cysts			
+lung.congenital	Congenital diaphragmatic hernia	original:pul-cdh-small original:pul-cdh-vessels	original:pul-cdh-radiograph	original:pul-cdh-airway original:pul-cdh-repair
+lung.congenital	Pulmonary sequestration	original:pul-sequest-supply	original:pul-sequest-identify	original:pul-sequest-plan
+lung.congenital	Primary ciliary dyskinesia	original:pul-cilia-clear original:pul-cilia-laterality	original:pul-cilia-syndrome	original:pul-cilia-refer
+lung.drug	Bleomycin-associated lung injury	original:pul-bleo-progress	original:pul-bleo-clue	original:pul-bleo-hold
+lung.drug	Amiodarone-associated lung injury	original:pul-amio-tissue	original:pul-amio-drug	original:pul-amio-baseline original:pul-amio-new
+lung.drug	Adverse effects of high inspired oxygen			
+lung.drug	Acute tobacco or nicotine effects			
+lung.drug	Acute inhalant effects			
+lung.drug	Acute cocaine effects			

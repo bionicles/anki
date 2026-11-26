@@ -160,7 +160,7 @@ def alias_map(folder):
 
 def step_measurements(cards):
     return measure(table(ROOT/"step-families.tsv"), table(ROOT/"blueprint.tsv"),
-                   table(ROOT/"step-depth.tsv"), table(ROOT/"step-weights.tsv"), cards)
+                   table(ROOT/"step-depth.tsv"), table(ROOT/"step-weights.tsv"), cards, table(ROOT/"step-items.tsv"))
 
 
 def make(folder, prior):
@@ -299,7 +299,7 @@ def file_hash(path):
 
 
 def build_inputs(lock):
-    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step_coverage.py", "intrapartum.py", "figures.py", "heart-sounds.tsv", "heart_sounds.py")]
+    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step-items.tsv", "step_coverage.py", "intrapartum.py", "figures.py", "heart-sounds.tsv", "heart_sounds.py")]
     paths.extend(sorted(p for p in (ROOT / "media").iterdir() if p.suffix in {".png", ".wav"}))
     return {"sources": lock, "files": {p.relative_to(ROOT).as_posix(): file_hash(p) for p in paths}}
 
