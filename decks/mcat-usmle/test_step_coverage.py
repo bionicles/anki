@@ -105,6 +105,34 @@ class MCATScienceCoverageTest(unittest.TestCase):
         self.assertEqual(empty["DataInterpretationCards"], "0")
 
 
+    def test_changed_case_requires_distinct_evidence_and_reviewed_skill(self):
+        from deck import MCAT_SCIENCE_SKILLS, mcat_science_coverage
+
+        rows = [dict(Exam="MCAT", Axis="Reasoning", Domain=skill, ReviewedCardIDs="a b")
+                for skill in MCAT_SCIENCE_SKILLS]
+        rows.append(dict(Exam="MCAT", Axis="Subtopic", Domain="topic", ReviewedCardIDs="a b",
+                         Outline="source", NextAudit="review"))
+        cards = [dict(ID=i, Exam="MCAT", Prompt=prompt, Figure="") for i, prompt
+                 in [("a", "Study A\n\nFirst?"), ("b", "Study B\n\nSecond?")]]
+        pair = dict(Subtopic="topic", Skill="Research design", Decision="Compare controls",
+                    FirstID="a", TransferID="b", ChangedEvidence="Changed timing")
+        def score(cards, pairs):
+            return mcat_science_coverage(rows, cards, pairs)[0]
+        self.assertEqual(score(cards, [pair])["ResearchDesignPairIDs"], "a b")
+        for duplicate in ([pair, dict(pair, FirstID="b", TransferID="a")],
+                          [dict(pair, TransferID="a")], [dict(pair, Skill="unknown")],
+                          [dict(pair, ChangedEvidence=" ")], [dict(pair, FirstID="absent")]):
+            with self.assertRaises(ValueError):
+                score(cards, duplicate)
+        for changed in (dict(Prompt=cards[0]["Prompt"]), dict(Prompt="Study A\n\nSecond?"),
+                        dict(Figure="reused.png")):
+            with self.assertRaises(ValueError):
+                score([dict(cards[0], Figure="reused.png"), dict(cards[1], **changed)], [pair])
+        rows[2]["ReviewedCardIDs"] = "a"
+        with self.assertRaises(ValueError):
+            score(cards, [pair])
+
+
 class GapSummaryTest(unittest.TestCase):
     def test_unlinked_topics_do_not_also_count_in_linked_depth_gaps(self):
         from contextlib import redirect_stdout
@@ -115,7 +143,8 @@ class GapSummaryTest(unittest.TestCase):
             return dict(Exam="USMLE Step 1", Family="cv.valve", Item=name,
                         MappedCards=str(linked), ThreeLevelObjectives=str(full))
         science = [dict(Subtopic="4E · Test topic", KnowledgeCards="0",
-                        ProblemSolvingCards="2", ResearchDesignCards="0", DataInterpretationCards="1")]
+                        ProblemSolvingCards="2", ResearchDesignCards="0", DataInterpretationCards="1",
+                        KnowledgePairs="0", ProblemSolvingPairs="0", ResearchDesignPairs="0", DataInterpretationPairs="1")]
         output = StringIO()
         with redirect_stdout(output):
             display_gaps([topic("Unlinked", 0, 0), topic("Linked", 2, 0), topic("Full", 4, 1)], science)

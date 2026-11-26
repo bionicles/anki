@@ -196,19 +196,47 @@ def reasoning_evidence(card_ids, inventory):
     return result
 
 
-def mcat_science_coverage(blueprint):
-    """Cross-reference reviewed science subtopics and reasoning tasks by stable card ID."""
+def mcat_science_coverage(blueprint, cards=(), transfers=()):
+    """Cross-reference reviewed topics, skills and independently authored changed cases."""
     inventory = reasoning_inventory(blueprint, MCAT_SCIENCE_SKILLS)
+    topics = {r["Domain"]: r for r in blueprint if r["Exam"] == "MCAT" and r["Axis"] == "Subtopic"}
+    topic_ids = {name: set(row["ReviewedCardIDs"].split()) for name, row in topics.items()}
+    card_by_id = {card["ID"]: card for card in cards if card["Exam"] == "MCAT"}
+    pairs = defaultdict(dict)
+    for row in transfers:
+        topic, skill = row["Subtopic"], row["Skill"]
+        first, second = row["FirstID"], row["TransferID"]
+        column = MCAT_SCIENCE_SKILLS.get(skill)
+        ids = frozenset((first, second))
+        if (len(ids) != 2 or not row["Decision"].strip() or not row["ChangedEvidence"].strip()
+                or not column or not ids <= (topic_ids.get(topic, set()) & inventory[column] & card_by_id.keys())):
+            raise ValueError(f"Invalid MCAT transfer evidence for {topic}, {skill}: {first}, {second}")
+        group = pairs[topic, column]
+        a, b = card_by_id[first], card_by_id[second]
+        def normalized(value):
+            return " ".join(value.split()).casefold()
+        passage = normalized(a["Prompt"].rpartition("\n\n")[0])
+        if (ids in group or normalized(a["Prompt"]) == normalized(b["Prompt"])
+                or (a["Figure"] and a["Figure"] == b["Figure"])
+                or (passage and passage == normalized(b["Prompt"].rpartition("\n\n")[0]))):
+            raise ValueError(f"Repeated MCAT transfer evidence: {first}, {second}")
+        group[ids] = f"{first} {second}"
+
     report = []
-    for row in blueprint:
-        if row["Exam"] != "MCAT" or row["Axis"] != "Subtopic":
-            continue
-        topic_cards = set(row["ReviewedCardIDs"].split())
-        result = dict(Subtopic=row["Domain"], Outline=row["Outline"], MappedCards=str(len(topic_cards)))
-        result.update(reasoning_evidence(topic_cards, inventory))
+    for name, row in topics.items():
+        result = dict(Subtopic=name, Outline=row["Outline"], MappedCards=str(len(topic_ids[name])))
+        result.update(reasoning_evidence(topic_ids[name], inventory))
+        for column in inventory:
+            group = pairs[name, column]
+            result[column + "Pairs"] = str(len(group))
+            result[column + "PairIDs"] = " | ".join(group.values())
         result["NextAudit"] = row["NextAudit"]
         report.append(result)
     return report
+
+
+def reviewed_mcat_science(cards, blueprint):
+    return mcat_science_coverage(blueprint, cards, table(ROOT/"mcat-transfer.tsv"))
 
 
 def mcat_cars_coverage(cards, blueprint):
@@ -254,7 +282,7 @@ def make(folder, prior):
     blueprint = table(ROOT/"blueprint.tsv")
     cars = mcat_cars_coverage(rows, blueprint)
     write_table(folder/"mcat-cars-coverage.tsv", list(cars[0]), cars)
-    science = mcat_science_coverage(blueprint)
+    science = reviewed_mcat_science(rows, blueprint)
     write_table(folder/"mcat-science-coverage.tsv", list(science[0]), science)
     named = named_measurements()
     write_table(folder/"step-item-coverage.tsv", list(named[0]), named)
@@ -357,7 +385,7 @@ def verify(folder):
         assert row["Status"] in {"Partial","Unmapped","Verified"}
         assert bool(ids)==(row["Status"]!="Unmapped")
         assert all(k in keyed and keyed[k]["Exam"]==row["Exam"] for k in ids), row
-    assert table(folder/"mcat-science-coverage.tsv") == mcat_science_coverage(blueprint)
+    assert table(folder/"mcat-science-coverage.tsv") == reviewed_mcat_science(expected, blueprint)
     assert table(folder/"mcat-cars-coverage.tsv") == mcat_cars_coverage(expected, blueprint)
     report, practice_tags = step_measurements(expected)
     assert table(folder/"step-coverage.tsv") == report
@@ -422,7 +450,7 @@ def file_hash(path):
 
 
 def build_inputs(lock):
-    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step-items.tsv", "step_coverage.py", "intrapartum.py", "ptbxl.py", "ptbxl.tsv", "figures.py", "heart-sounds.tsv", "heart_sounds.py")]
+    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "mcat-transfer.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step-items.tsv", "step_coverage.py", "intrapartum.py", "ptbxl.py", "ptbxl.tsv", "figures.py", "heart-sounds.tsv", "heart_sounds.py")]
     paths.extend(sorted(p for p in (ROOT / "media").iterdir() if p.suffix in {".png", ".jpg", ".wav"}))
     return {"sources": lock, "files": {p.relative_to(ROOT).as_posix(): file_hash(p) for p in paths}}
 
@@ -470,6 +498,14 @@ def display_gaps(items, science):
         show(breadth)
         print(f"{exam} • linked topics without a three-card sequence, by family")
         show(depth)
+    print("MCAT science • represented topic–skill combinations without a reviewed changed case")
+    groups = defaultdict(list)
+    for row in science:
+        category, _, topic = row["Subtopic"].partition(" · ")
+        for skill, column in MCAT_SCIENCE_SKILLS.items():
+            if int(row[column + "Cards"]) and not int(row[column + "Pairs"]):
+                groups[category].append(f"{topic} ({skill})")
+    show(groups)
 
 
 def main():
@@ -483,7 +519,8 @@ def main():
     with (ROOT/"Justfile").open() as lock:
         fcntl.flock(lock,fcntl.LOCK_EX if args.action in {"update","build"} else fcntl.LOCK_SH)
         if args.action=="gaps":
-            display_gaps(named_measurements(), mcat_science_coverage(table(ROOT/"blueprint.tsv")))
+            cards, _ = deduplicate(records(RELEASE), alias_map(RELEASE))
+            display_gaps(named_measurements(), reviewed_mcat_science(cards, table(ROOT/"blueprint.tsv")))
             return
         if args.action=="coverage":
             cards, _ = deduplicate(records(RELEASE), alias_map(RELEASE))
@@ -493,10 +530,14 @@ def main():
             for skill, column in MCAT_CARS_SKILLS.items():
                 represented = sum(int(row[column + "Cards"]) > 0 for row in cars)
                 print(f"  {skill}: {represented}/{len(cars)}")
-            science = mcat_science_coverage(blueprint)
+            science = reviewed_mcat_science(cards, blueprint)
             print("MCAT science subtopics with reviewed evidence for each reasoning skill")
             for skill, column in MCAT_SCIENCE_SKILLS.items():
                 represented = sum(int(row[column + "Cards"]) > 0 for row in science)
+                print(f"  {skill}: {represented}/{len(science)}")
+            print("MCAT science subtopics with a reviewed changed case for each reasoning skill")
+            for skill, column in MCAT_SCIENCE_SKILLS.items():
+                represented = sum(int(row[column + "Pairs"]) > 0 for row in science)
                 print(f"  {skill}: {represented}/{len(science)}")
             display(step_measurements(cards)[0], named_measurements())
             return

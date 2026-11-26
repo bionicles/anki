@@ -4338,6 +4338,104 @@ def obstetric_pressure_record():
                 [["09:00", "165", "103"], ["09:08", "168", "104"], ["09:15", "166", "102"]])
 
 
+def anorectal_fold_patterns():
+    """Schematic end-on patterns of protruding rectal or hemorrhoidal tissue."""
+    from matplotlib.patches import Ellipse
+
+    for key in ("folds", "columns"):
+        fig, ax = plt.subplots(figsize=(3.5, 2.7), layout="constrained")
+        if key == "folds":
+            for width in (2.7, 2.15, 1.58, 1.0, .42):
+                ax.add_patch(Ellipse((0, 0), width, .68*width,
+                                     facecolor="#f2c4b1", edgecolor="#843e38", lw=2))
+        else:
+            for angle in (90, 210, 330):
+                rad = np.radians(angle)
+                center = (.65*np.cos(rad), .65*np.sin(rad))
+                ax.add_patch(Ellipse(center, 1.5, .95, angle=angle, facecolor="#f2c4b1",
+                                     edgecolor="#843e38", lw=2))
+        ax.set(xlim=(-1.6, 1.6), ylim=(-1.4, 1.4), aspect="equal",
+               title="Protruding tissue • schematic")
+        ax.axis("off")
+        save(fig, "bowelcase_" + key, indexed=True)
+
+
+def angiodysplasia_study():
+    """Mean combined red-cell and parenteral iron support in the OCEAN trial."""
+    study_table("bowelcase_ocean", "Mean support units over one year",
+                ["Group", "Red-cell + parenteral iron units"],
+                [["Octreotide", "11.0"], ["Standard care", "21.2"]],
+                source="OCEAN")
+
+
+def mcat_science_and_society_records():
+    """Independent teaching records and a shared, fictitious population study."""
+    fig, ax = axes("pH", "Fraction protonated")
+    ph = np.linspace(3, 9, 140)
+    ax.plot(ph, 1/(1+10**(ph-6)), color=COLORS[0], lw=2)
+    ax.axhline(.5, ls=":", lw=1, color="#555555")
+    ax.set(title="Histidine side chain • model", xticks=range(3, 10), yticks=[0,.25,.5,.75,1])
+    save(fig, "mcatmix_his", indexed=True)
+    records = [
+        ("meiosis", "Scored meiotic products", ["Markers", "Count"],
+         [["AB","88"], ["ab","82"], ["Ab","16"], ["aB","14"]]),
+        ("fitness", "One generation of snails", ["Type", "Parents", "Surviving offspring"],
+         [["A","20","40"], ["B","30","90"]]),
+        ("matrix", "Microscopic point counts", ["Field", "Cell", "Matrix"],
+         [["A","80","20"], ["B","35","65"]]),
+        ("track", "Cell tracking • complete observation", ["Event", "Count"],
+         [["One divides into two","3"], ["Cell enters field","5"], ["Cell exits or dies","0"]]),
+        ("lineage", "Recorded marker states", ["Parent", "Daughter 1", "Daughter 2"],
+         [["A","A","A"], ["B","B","A"]]),
+        ("visits", "Marker record • detection ≥5 units", ["Visit", "Reported units"],
+         [["1","9"], ["2","<5"], ["3","8"], ["4","12"]]),
+        ("activity", "Same ion and standard state", ["Sample", "Concentration", "Activity coefficient"],
+         [["A","0.020 mol/L","0.90"], ["B","0.020 mol/L","0.72"]]),
+        ("emotion", "Labels at matched arousal", ["Context", "Excitement", "Responses"],
+         [["Celebration","28","40"], ["Tense","12","40"]]),
+        ("pulse", "Heart rate (beats/min)", ["Participant", "Baseline", "Task", "10 min later"],
+         [["A","66","106","80"], ["B","78","118","80"]]),
+        ("identity", "Independently coded statements", ["Primary reference", "Statements"],
+         [["Personal attribute","42"], ["Group membership","18"]]),
+        ("feedback", "Academic self-concept • mean score", ["Feedback", "Before", "After"],
+         [["Frequent","4","6"], ["Comparison","5","6"]]),
+        ("credential", "Interpreter credential records", ["Clinic", "Credentialed", "Eligible"],
+         [["A","24","60"], ["B","18","30"]]),
+        ("meals", "Two definitions of a shared meal", ["Classification", "Interviews"],
+         [["Both definitions","22"], ["Broad definition only","12"], ["Neither","16"]]),
+        ("district", "Year before transit change", ["District", "Age (years)", "Residents", "Admissions"],
+         [["East","<65","500","20"], ["East","65+","500","100"],
+          ["West","<65","800","32"], ["West","65+","200","40"]]),
+        ("register", "Annual register • fixed boundary", ["Event", "Residents"],
+         [["Births","55"], ["Deaths","70"], ["Arrivals","160"], ["Departures","90"]]),
+        ("bus", "Median scheduled trip to clinic", ["District", "Before", "After"],
+         [["East","46 min","28 min"], ["West","24 min","25 min"]]),
+    ]
+    for key, title, columns, rows in records:
+        study_table("mcatmix_" + key, title, columns, rows)
+    from matplotlib.patches import FancyBboxPatch
+    fig, ax = plt.subplots(figsize=(3.9, 2.2), layout="constrained")
+    ax.add_patch(FancyBboxPatch((0, .4), 3, .8, boxstyle="round,pad=0,rounding_size=.4",
+                                facecolor="#ddeef1", edgecolor=COLORS[0], lw=2))
+    ax.plot([0, 1], [0, 0], lw=3, color="#242a30")
+    ax.text(.5, -.14, "1 µm", ha="center", va="top")
+    ax.set(aspect="equal", xlim=(-.35, 3.35), ylim=(-.42, 1.52), title="Cell and scale • schematic")
+    ax.axis("off")
+    save(fig, "mcatmix_rod", indexed=True)
+    fig, ax = axes("x component", "y component")
+    for x, color in [(-1, COLORS[0]), (1, COLORS[1])]:
+        ax.annotate("", (x, 1), (0, 0), arrowprops=dict(arrowstyle="-|>", color=color, lw=2))
+    ax.set(aspect="equal", xlim=(-1.4, 1.4), ylim=(-.25, 1.4), xticks=[-1,0,1],
+           yticks=[0,1], title="Bond-dipole vectors • arbitrary units")
+    save(fig, "mcatmix_vectors", indexed=True)
+
+
+def mcat_transfer_records():
+    study_table("mcatagain_acid", "Carboxyl side chain • model titration",
+                ["pH", "Fraction carrying charge −1"],
+                [["4", "50%"], ["5", "91%"], ["6", "99%"]])
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -4420,6 +4518,10 @@ def main():
     sensory_behavior_records()
     peripheral_nerve_records()
     obstetric_pressure_record()
+    anorectal_fold_patterns()
+    angiodysplasia_study()
+    mcat_science_and_society_records()
+    mcat_transfer_records()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
