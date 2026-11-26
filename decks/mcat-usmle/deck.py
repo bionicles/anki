@@ -194,6 +194,15 @@ def verify(folder):
     assert set("1A 1B 1C 1D 2A 2B 2C 3A 3B 4A 4B 4C 4D 4E 5A 5B 5C 5D 5E 6A 6B 6C 7A 7B 7C 8A 8B 8C 9A 9B 10A".split()) <= categories
     assert len({r["Section"] for r in expected if r["Exam"]=="MCAT"})==4
     assert {r["Section"] for r in expected if r["Exam"]=="USMLE Step 3"}=={"CCS Cases","Foundations of Independent Practice","Advanced Clinical Medicine"}
+    blueprint=table(ROOT/"blueprint.tsv")
+    assert {r["Exam"] for r in blueprint} == EXAMS
+    assert len({(r["Exam"],r["Axis"],r["Domain"]) for r in blueprint})==len(blueprint)
+    for row in blueprint:
+        ids=row["ReviewedCardIDs"].split()
+        assert row["Outline"].startswith("https://") and row["NextAudit"]
+        assert row["Status"] in {"Partial","Unmapped","Verified"}
+        assert bool(ids)==(row["Status"]!="Unmapped")
+        assert all(k in keyed and keyed[k]["Exam"]==row["Exam"] for k in ids), row
     coverage=table(folder/"coverage.tsv")
     mapped=[]
     for row in coverage:
@@ -240,7 +249,7 @@ def file_hash(path):
 
 
 def build_inputs(lock):
-    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json")]
+    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv")]
     paths.extend(sorted((ROOT / "media").glob("*.png")))
     return {"sources": lock, "files": {p.relative_to(ROOT).as_posix(): file_hash(p) for p in paths}}
 

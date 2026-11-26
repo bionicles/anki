@@ -67,6 +67,8 @@ def openstax(root, cfg, commit):
         raise ValueError(f"Review changed license for {book}: {license}")
     terms = {fold(t) for t in (ROOT / "terms.txt").read_text().splitlines() if t and not t.startswith("#")}
     credit = OS + " · " + cfg["authors"] + " and contributors · https://openstax.org/books/" + book + "/pages/preface"
+    reviewed = cfg.get("review_exercises", {})
+    found_exercises = set()
     chapters = set()
     for chapter in collection.findall(".//{*}subcollection"):
         title = chapter.findtext("{*}title")
@@ -87,22 +89,34 @@ def openstax(root, cfg, commit):
                 key = f"{book}:{mid}:{item.attrib['id']}"
                 yield note(key, "MCAT", cfg["section"], title, f"In {section.lower()}, what does “{term}” mean?",
                            "", meaning, "", base + "#" + item.attrib["id"], credit)
-            if book != "psychology-2e":
+            if book != "psychology-2e" and not reviewed:
                 continue
             for item in doc.findall(".//{*}exercise"):
+                exercise = mid + ":" + item.attrib["id"]
+                if book != "psychology-2e" and exercise not in reviewed:
+                    continue
                 problem = item.find("{*}problem")
                 if problem is None:
                     continue
                 paras = problem.findall("{*}para")
                 options = [simple(o) for o in problem.findall("{*}list/{*}item")]
-                key = simple(item.find("{*}solution")).strip(".").upper()
+                key = simple(item.find("{*}solution")).strip("().").upper()
                 if len(paras) != 1 or not options or not all(options) or not re.fullmatch("[A-E]", key):
                     continue
                 stem = simple(paras[0])
                 if not stem or ord(key)-65 >= len(options) or re.search(r"according to the (?:text|book)|this chapter|first (?:woman|person)|which year|^who (?:proposed|developed|created|of the following)|credited with the first",stem,re.I):
                     continue
-                yield note(f"{book}:{mid}:{item.attrib['id']}", "MCAT", cfg["section"], title, stem,
+                category = reviewed.get(exercise)
+                subject = cfg["section"]
+                topic = title
+                if category:
+                    found_exercises.add(exercise)
+                    subject = "Chemical and Physical Foundations" if category[0] in "45" else "Biological and Biochemical Foundations"
+                    topic = f"{category} · {title}"
+                yield note(f"{book}:{exercise}", "MCAT", subject, topic, stem,
                            "\n".join(options), options[ord(key)-65], "", base+"#"+item.attrib["id"], credit)
+    if set(reviewed) != found_exercises:
+        raise ValueError(f"Review changed or missing exercises in {book}: {set(reviewed) - found_exercises}")
     if chapters != set(cfg["chapters"]):
         raise ValueError(f"{book} curriculum changed; check chapter selections: {set(cfg['chapters']) - chapters}")
 

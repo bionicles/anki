@@ -1,0 +1,44 @@
+{
+  "anatomy-and-physiology-2e": {
+    "commit": "f273762340768a5f50e833c876e40b5a9c565da1",
+    "notes": 237,
+    "recipe": "4b49e269d282dab3749ac4702323e626748c22e63c97ed73590ee49b882321c9",
+    "repo": "openstax/osbooks-anatomy-physiology",
+    "sha256": "b11df29690cb9e22f7b38e24d4a5359802c94d2fb23cb90f90777f37f8e0adaf"
+  },
+  "biology-2e": {
+    "commit": "bc1be223bd23a00cc68efb6195dc183f4e1e228a",
+    "notes": 235,
+    "recipe": "2985eef0e231df58e3e49052dcaeac588b885c3aa0447468a771abf165458c38",
+    "repo": "openstax/osbooks-biology-bundle",
+    "sha256": "feb35c95ed89528063628be461f3e4e17853d04121f1db9e2346793427859f16"
+  },
+  "chemistry-2e": {
+    "commit": "78b742a7fed1379705c5d882cee1ebfab7f58dc9",
+    "notes": 95,
+    "recipe": "eaac275540d47094542ddf997dc01081b642d044d264df3bf901d74bcaad4db0",
+    "repo": "openstax/osbooks-chemistry-bundle",
+    "sha256": "32fae317d052a578ef3c64f5524fe6c3303e1e50936d633734c0b23f8ed836d4"
+  },
+  "cohort": {
+    "commit": "276ce7e9bff5296f5a7d88808bcfdee7c21fe5f5",
+    "notes": 689,
+    "recipe": "734e20bcfdc2fd663658d23c3c5d74e287f56bc5de1d3a721b15b0576152ba3a",
+    "repo": "todd866/cohort",
+    "sha256": "05cca05993e246ebfe0b759aafc7baae62aec2057faad9fe543bcdae076a7c4c"
+  },
+  "college-physics-2e": {
+    "commit": "66fcef29596e3a32818162b837dd0c85b754cbad",
+    "notes": 145,
+    "recipe": "dbe768a6e68aea9634d6a614aff8dc9cc125634dcd6b66b066236096f2afd65c",
+    "repo": "openstax/osbooks-college-physics-bundle",
+    "sha256": "402ae7c40c4c3d9ec01effab67e09fe1a8fa1b7e803e4a2c08e8cdbc847c5e53"
+  },
+  "psychology-2e": {
+    "commit": "43035bcc5dd238f2e236ef532a01f11d6a59fc9d",
+    "notes": 378,
+    "recipe": "fdc3fc4987f716eb568f33be5d7344caa326293944aa079874306e1767120c1e",
+    "repo": "openstax/osbooks-psychology",
+    "sha256": "ac7d4a70ba6a9597f146acd1be231f2162b3f9acf42417b709fc51881de48de0"
+  }
+}
