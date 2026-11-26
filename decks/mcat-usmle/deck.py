@@ -181,6 +181,23 @@ def make(folder, prior):
     return rows
 
 
+def verify_imaging(cards):
+    images = table(ROOT / "imaging.tsv")
+    credits = {row["Figure"]: row for row in images}
+    assert len(credits) == len(images)
+    assert set(credits) == {p.name for p in (ROOT / "media").glob("med_rad_*.png")}
+    for row in images:
+        assert re.fullmatch(r"[0-9a-f]{40}", row["SourceSHA1"]), row
+        assert row["Source"].startswith("https://commons.wikimedia.org/wiki/File:"), row
+        assert row["LicenseURL"].startswith("https://creativecommons.org/"), row
+    for card in cards:
+        if card["Figure"] in credits:
+            credit = credits[card["Figure"]]
+            assert credit["Source"] in card["Source"], card["ID"]
+            assert all(credit[k] and credit[k] in card["License"]
+                       for k in ("Creator", "License", "LicenseURL")), card["ID"]
+
+
 def verify(folder):
     import genanki
     from anki.collection import Collection
@@ -203,6 +220,7 @@ def verify(folder):
         assert row["Status"] in {"Partial","Unmapped","Verified"}
         assert bool(ids)==(row["Status"]!="Unmapped")
         assert all(k in keyed and keyed[k]["Exam"]==row["Exam"] for k in ids), row
+    verify_imaging(expected)
     coverage=table(folder/"coverage.tsv")
     mapped=[]
     for row in coverage:
@@ -249,7 +267,7 @@ def file_hash(path):
 
 
 def build_inputs(lock):
-    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv")]
+    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "specimens.tsv", "imaging.tsv")]
     paths.extend(sorted((ROOT / "media").glob("*.png")))
     return {"sources": lock, "files": {p.relative_to(ROOT).as_posix(): file_hash(p) for p in paths}}
 
