@@ -3238,6 +3238,130 @@ def coagulation_studies():
            [["H", "40", "$24,000"], ["L", "80", "$24,000"]])
 
 
+def study_table(name, title, columns, rows, source="simulated"):
+    fig, ax = plt.subplots(figsize=(6.1, 2.65), layout="constrained")
+    ax.axis("off")
+    ax.set_title(f"{title}  •  {source}")
+    table = ax.table(cellText=rows, colLabels=columns, loc="center",
+                     cellLoc="center", bbox=[.01, .08, .98, .76])
+    table.auto_set_font_size(False)
+    table.set_fontsize(10)
+    for col in range(len(columns)):
+        table[0, col].set_facecolor("#e2edf1")
+    save(fig, name)
+
+
+def blood_cell_studies():
+    """Render blood-cell cases, published trial comparisons and MCAT metabolism figures."""
+
+    def comparison(name, title, ylabel, groups, vals, ceiling):
+        fig, ax = axes("Trial group", ylabel)
+        bars = ax.bar(groups, vals, color=COLORS[:len(vals)], width=.55)
+        ax.bar_label(bars, labels=[f"{v:g}%" for v in vals], padding=3)
+        ax.set(ylim=(0,ceiling), title=title)
+        save(fig, "bloodcell_" + name)
+
+    comparison("pktrial", "Sustained hemoglobin response • ACTIVATE",
+               "Participants meeting endpoint (%)", ["Mitapivat", "Placebo"], [40,0], 100)
+    comparison("cytopv", "CV death or major thrombosis • CYTO-PV",
+               "Participants with an event (%)", ["Hct target <45%", "Hct target 45–50%"], [2.7,9.8], 13)
+    from matplotlib.patches import Circle
+    fig, panels = plt.subplots(1, 2, figsize=(5.5,2.3), layout="constrained")
+    for ax,title in zip(panels,["Cell A", "Cell B"]):
+        ax.set(aspect="equal", xlim=(-1.55,1.55), ylim=(-1.06,1.06), title=title)
+        ax.axis("off")
+    # Biconcave cross-section and sphere of equal volume. Radial integration
+    # of twice the half-thickness gives the model disc volume.
+    r = np.linspace(0, 1.4, 801)
+    u = r / r[-1]
+    h = np.sqrt(1-u*u) * (.24 + .84*u*u)
+    vol = 4 * np.pi * np.trapezoid(r*h, r)
+    x = np.r_[-r[:0:-1],r]
+    y = np.r_[h[:0:-1],h]
+    panels[0].fill_between(x, -y, y, color="#d98a85", edgecolor="#783534")
+    panels[1].add_patch(Circle((0,0),(3*vol/(4*np.pi))**(1/3),
+                               facecolor="#d98a85",edgecolor="#783534"))
+    fig.suptitle("Equal cell volumes • schematic cross sections")
+    save(fig, "bloodcell_shapes")
+    study_table("bloodcell_sideriron", "Iron studies", ["Test","Result","Laboratory interval"],
+           [["Iron saturation","78%","20–50%"],["Ferritin","490 µg/L","30–300 µg/L"]])
+    study_table("bloodcell_thala", "Hemoglobin fractions • untransfused adult", ["Fraction","Result","Lab interval"],
+           [["HbA","93.5%","95–98%"],["HbA₂","5.5%","2.0–3.5%"],["HbF","1.0%","0–2%"]])
+    for name,seg,band in [("wbcA",58,2),("wbcB",8,2)]:
+        study_table("bloodcell_" + name, "Manual differential", ["WBC","Segmented neutrophils","Bands"],
+               [["3,000/µL",f"{seg}%",f"{band}%"]])
+    for name,neut,lymph in [("leukA",85,10),("leukB",20,75)]:
+        study_table("bloodcell_" + name, "White-cell differential", ["WBC","Neutrophils","Lymphocytes"],
+               [["24,000/µL",f"{neut}%",f"{lymph}%"]])
+    days = np.arange(0, 43, 2)
+    cycle = np.maximum(.05, 2.4 - 2.55*np.exp(-((days-7)/3.3)**2)
+                                   - 2.55*np.exp(-((days-28)/3.3)**2))
+    persistent = .15 + .055*np.cos(days/4)
+    for key, vals in [("cycle",cycle),("persist",persistent)]:
+        fig, ax = axes("Day", "ANC (×10⁹/L)")
+        ax.plot(days, vals, "o-", lw=1.5, ms=3)
+        ax.axhline(.5, ls=":", color="0.5", label="0.5 ×10⁹/L")
+        ax.set(ylim=(0,3),xticks=[0,7,14,21,28,35,42],title="Serial differentials • simulated")
+        ax.legend()
+        save(fig, "bloodcell_" + key)
+    study_table("bloodcell_panret", "Adult CBC and reticulocytes", ["Measurement","Patient","Lab interval"],
+           [["Hemoglobin","7.0 g/dL","12–16"],["WBC","2,100/µL","4,000–11,000"],
+            ["Platelets","42,000/µL","150,000–400,000"],["Absolute reticulocytes","8,000/µL","25,000–100,000"]])
+    study_table("bloodcell_aplaanc", "Two patients with severe aplastic anemia", ["Measurement","Patient A","Patient B"],
+           [["Marrow cellularity","10%","10%"],["Platelets (/µL)","12,000","12,000"],
+            ["Reticulocytes (/µL)","15,000","15,000"],["ANC (/µL)","350","120"]])
+    study_table("bloodcell_couple", "Reaction over one minute", ["Preparation","ATP used (nmol)","Product (nmol)"],
+           [["A","25","24"],["B","25","0.2"]])
+    study_table("bloodcell_flux", "Liver glucose release from labeled lactate", ["Condition","Labeled glucose (nmol/min)"],
+           [["Baseline","2"],["After hormone","7"]])
+    study_table("bloodcell_citrate", "Citrate formed from labeled acetyl groups", ["Isotope class","Molecules per 100"],
+           [["M+0","30"],["M+1","0"],["M+2","70"]])
+    study_table("bloodcell_substrate", "Tracer carbon balance", ["Substrate","Label supplied","Label in CO₂"],
+           [["Palmitate","100 units","24 units"],["Alanine","100 units","36 units"]])
+    study_table("bloodcell_resp", "Isolated mitochondria • equal assay times", ["Condition","ATP produced (nmol)","O₂ used (nmol)"],
+           [["A","100","20"],["B","70","35"]])
+    study_table("bloodcell_pairs", "Free-energy changes (kJ/mol)", ["Pair","First reaction","Second reaction"],
+           [["A","+6","−2"],["B","+6","−11"]])
+    fig, ax = axes("Temperature (K)", "ΔG° (kJ/mol)")
+    temp = np.arange(250,551,5)
+    ax.plot(temp, 40 - .1*temp)
+    ax.axhline(0, ls=":", color="0.4")
+    ax.set(xticks=[250,300,350,400,450,500,550],title="Reaction at standard conditions • model")
+    save(fig, "bloodcell_therm")
+    fig, ax = axes("Time (s)", "Product concentration (mM)")
+    t = np.linspace(0,12,160)
+    for label, k, style in [("A",1.1,"-"),("B",.65,"--")]:
+        ax.plot(t, 5*(1-np.exp(-k*t)),style,lw=2,label=label)
+    ax.set(ylim=(0,6),title="Two closed reaction mixtures • simulated")
+    ax.legend()
+    save(fig, "bloodcell_plateau")
+
+
+def splenic_studies():
+    """Render clinical records for mechanical hemolysis and splenic sequestration."""
+
+    study_table("splenic_leak", "Follow-up after valve leak closure", ["Measurement","Before repair","Week 4","Reference"],
+           [["LDH (U/L)","1,450","1,320","120–250"],["Haptoglobin (mg/dL)","<10","<10","30–200"]])
+    study_table("splenic_splpool", "Cytopenias in portal hypertension", ["Finding","Result"],
+           [["Spleen length","19 cm"],["Platelets","84,000/µL"],["WBC","3,100/µL"],
+            ["Marrow","Preserved trilineage production"]])
+    study_table("splenic_splchange", "Change from chronic baseline", ["Observation","Baseline","Today"],
+           [["Platelets (/µL)","85,000","16,000"],["Hemoglobin (g/dL)","11.8","7.6"],
+            ["Schistocytes","Absent","Numerous"]])
+
+
+def blood_drug_studies():
+    """Render co-oximetry findings and a mitochondrial energetics experiment."""
+
+    study_table("blooddrug_coox", "Arterial sample during supplemental oxygen",
+           ["Measurement","Result"], [["PaO₂","225 mm Hg"],
+           ["Methemoglobin (co-oximetry)","29%"],["Carboxyhemoglobin","1%"]])
+    study_table("blooddrug_passage", "Mitochondrial experiment (six donors)",
+           ["Condition","O₂ (nmol/mg)","ATP (nmol/mg)","Relative ΔpH"],
+           [["Vehicle","20","100","1.0"],["U","30","60","0.4"],["I","5","15","0.3"]],
+           source="simulated")
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -3278,6 +3402,9 @@ def main():
     neonatal_and_mechanics_studies()
     nursery_studies()
     coagulation_studies()
+    blood_cell_studies()
+    splenic_studies()
+    blood_drug_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
