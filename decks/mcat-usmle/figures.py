@@ -1878,6 +1878,56 @@ def multisystem_symptom_studies():
         save(fig, "sympt_fat_" + name)
 
 
+def safeguarding_and_emergency_studies():
+    """Render fictional chart excerpts paired by a change in clinical evidence."""
+    def report(name, title, headers, rows, widths):
+        fig, ax = plt.subplots(figsize=(6.6, 2.65), layout="constrained")
+        ax.axis("off")
+        ax.set_title(title + "  •  simulated", fontsize=12)
+        table = ax.table(cellText=rows, colLabels=headers, colWidths=widths,
+                         cellLoc="left", colLoc="left", bbox=[0, .04, 1, .82])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for col in range(len(headers)):
+            table[0, col].set_facecolor("#dcecf2")
+        save(fig, "safecare_" + name)
+
+    for name, last in [("echo", "Quotes referring note about yesterday"),
+                       ("obs", "Saw a new spell at bedside just now")]:
+        report("reports_" + name, "Pediatric record excerpts",
+               ["Entry", "Documented observation"],
+               [["Caregiver, yesterday", "Saw an episode at home"],
+                ["Referring clinician", "Records caregiver's account"],
+                ["Bedside nurse, 10 a.m.", last]], [.40, .60])
+    for name, last in [("recover", ["Coordinated", "Swallows normally"]),
+                       ("worse", ["Uncoordinated", "Unable to clear saliva"])]:
+        report("sc_" + name, "Post-treatment bedside observations",
+               ["Time", "Movement", "Swallowing"],
+               [["Initial", "Uncoordinated", "Difficult"], ["Reassessment", *last]],
+               [.23, .34, .43])
+    for name, readings in [("stable", [["122/76", 88, "Alert"], ["120/74", 86, "Alert"],
+                                       ["122/74", 84, "Alert"]]),
+                           ("fall", [["94/62", 112, "Alert"], ["112/70", 100, "Alert"],
+                                     ["76/48", 138, "Confused"]])]:
+        report("tra_" + name, "Trauma resuscitation record",
+               ["Time (min)", "BP (mm Hg)", "Pulse (/min)", "Mental status"],
+               [[time, *values] for time, values in zip([0, 15, 30], readings)],
+               [.21, .26, .24, .29])
+    for name, distances in [("stay", [3, 3, 3]), ("move", [3, 7, 12])]:
+        fig, ax = plt.subplots(figsize=(5.7, 2.9), layout="constrained")
+        ax.plot([0, 30, 60], distances, marker="o", color="#186684", lw=2)
+        ax.set(xticks=[0, 30, 60], ylim=(0, 15), yticks=[0, 3, 6, 9, 12, 15],
+               title="Leading edge of limb swelling  •  simulated",
+               xlabel="Minutes after initial examination", ylabel="cm proximal to landmark")
+        ax.grid(axis="y", alpha=.25)
+        save(fig, "safecare_sn_" + name)
+    for name, last in [("labok", [205, 295]), ("labbad", [68, 95])]:
+        report("sn_" + name, "Serial laboratory results",
+               ["Analyte", "Initial", "2 hours", "Lab interval"],
+               [["Platelets (×10³/µL)", 210, last[0], "150–400"],
+                ["Fibrinogen (mg/dL)", 300, last[1], "200–400"]], [.36, .17, .18, .29])
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -1900,6 +1950,7 @@ def main():
     multisystem_genetic_studies()
     clinical_nutrition_studies()
     multisystem_symptom_studies()
+    safeguarding_and_emergency_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()

@@ -2029,11 +2029,11 @@ multi.exposure	Bisphenol A exposure
 multi.exposure	Principles of poisoning assessment and treatment			
 multi.exposure	Salicylate toxicity			
 multi.exposure	Acetaminophen toxicity			
-multi.venom	Hymenoptera stings			
-multi.venom	Scorpion envenomation			
-multi.venom	Snake envenomation			
-multi.venom	Spider envenomation			
-multi.venom	Jellyfish stings			
+multi.venom	Hymenoptera stings	original:safecare-bee-1-rule original:safecare-bee-1-case original:safecare-bee-1-other	original:safecare-bee-2-rule original:safecare-bee-2-case original:safecare-bee-2-other	original:safecare-bee-3-rule original:safecare-bee-3-case original:safecare-bee-3-other
+multi.venom	Scorpion envenomation	original:safecare-scorp-1-rule original:safecare-scorp-1-case original:safecare-scorp-1-other	original:safecare-scorp-2-rule original:safecare-scorp-2-case original:safecare-scorp-2-other	original:safecare-scorp-3-rule original:safecare-scorp-3-case original:safecare-scorp-3-other
+multi.venom	Snake envenomation	original:safecare-snake-1-rule original:safecare-snake-1-case original:safecare-snake-1-other	original:safecare-snake-2-rule original:safecare-snake-2-case original:safecare-snake-2-other	original:safecare-snake-3-rule original:safecare-snake-3-case original:safecare-snake-3-other
+multi.venom	Spider envenomation	original:safecare-spid-1-rule original:safecare-spid-1-case original:safecare-spid-1-other	original:safecare-spid-2-rule original:safecare-spid-2-case original:safecare-spid-2-other	original:safecare-spid-3-rule original:safecare-spid-3-case original:safecare-spid-3-other
+multi.venom	Jellyfish stings	original:safecare-jelly-1-rule original:safecare-jelly-1-case original:safecare-jelly-1-other	original:safecare-jelly-2-rule original:safecare-jelly-2-case original:safecare-jelly-2-other	original:safecare-jelly-3-rule original:safecare-jelly-3-case original:safecare-jelly-3-other
 multi.fluid	Assessment of volume status	original:msys-volume-1 original:msys-volume-1-a original:msys-volume-1-b original:msys-volume-1-c	original:rx-loop-weight original:prevcare-aweight-2 original:msys-volume-2 original:msys-volume-2-b original:msys-volume-2-c	original:msys-volume-3
 multi.fluid	Dehydration	original:gut-hydrate-transport original:msys-dehyd-1	original:gut-hydrate-shock original:msys-dehyd-2	original:gut-hydrate-oral original:gut-hydrate-rule original:gut-hydrate-iv
 multi.fluid	Hypovolemia	original:msys-hypovol-1	original:rx-loop-weight original:gut-hydrate-shock	original:gut-hydrate-iv original:gut-hydrate-rule original:gut-hydrate-oral original:ccs-adrenal-fluid
@@ -2052,13 +2052,13 @@ multi.fluid	Metabolic alkalosis	original:bh-eat-purge original:msys-malk-1-a ori
 multi.fluid	Respiratory acidosis	original:acid-chronic	original:pul-niv-acidosis	original:pul-niv-start original:pul-niv-rule original:pul-niv-compensated
 multi.fluid	Respiratory alkalosis	original:behavior-hyper-1 original:behavior-abg-a	original:behavior-alk-case	original:msys-ralk-3
 multi.fluid	Mixed acid–base disorders	original:msys-mixed-1 original:msys-mixed-1-b original:msys-mixed-1-c	original:msys-mixed-2 original:msys-mixed-2-b original:msys-mixed-2-c	original:msys-mixed-3 original:msys-mixed-3-a original:msys-mixed-3-b original:msys-mixed-3-c
-multi.abuse	Child physical abuse and abusive head trauma			
-multi.abuse	Factitious disorder imposed on another			
-multi.abuse	Intimate partner violence			
-multi.abuse	Elder abuse			
-multi.abuse	Sexual assault			
-multi.trauma	Prioritization in multisystem trauma			
-multi.trauma	Multisystem blast injury			
+multi.abuse	Child physical abuse and abusive head trauma	original:safecare-child-1-rule original:safecare-child-1-case original:safecare-child-1-other	original:safecare-child-2-rule original:safecare-child-2-case original:safecare-child-2-other	original:safecare-child-3-rule original:safecare-child-3-case original:safecare-child-3-other
+multi.abuse	Factitious disorder imposed on another	original:safecare-fab-1-rule original:safecare-fab-1-case original:safecare-fab-1-other	original:safecare-fab-2-rule original:safecare-fab-2-case original:safecare-fab-2-other	original:safecare-fab-3-rule original:safecare-fab-3-case original:safecare-fab-3-other
+multi.abuse	Intimate partner violence	original:prevcare-coercion-1 original:safecare-ipv-1-case original:safecare-ipv-1-other	original:prevcare-coercion-2 original:safecare-ipv-2-rule original:safecare-ipv-2-case original:safecare-ipv-2-other	original:prevcare-coercion-3 original:safecare-ipv-3-rule original:safecare-ipv-3-case original:safecare-ipv-3-other
+multi.abuse	Elder abuse	original:safecare-elder-1-rule original:safecare-elder-1-case original:safecare-elder-1-other	original:safecare-elder-2-rule original:safecare-elder-2-case original:safecare-elder-2-other	original:safecare-elder-3-rule original:safecare-elder-3-case original:safecare-elder-3-other
+multi.abuse	Sexual assault	original:safecare-assault-1-rule original:safecare-assault-1-case original:safecare-assault-1-other	original:safecare-assault-2-rule original:safecare-assault-2-case original:safecare-assault-2-other original:safecare-assault-2-rule-extra original:safecare-assault-2-case-extra original:safecare-assault-2-other-extra	original:prevcare-consent-3 original:safecare-assault-3-rule original:safecare-assault-3-case original:safecare-assault-3-other original:safecare-assault-3-rule-extra original:safecare-assault-3-case-extra original:safecare-assault-3-other-extra
+multi.trauma	Prioritization in multisystem trauma	original:safecare-tra-1-rule original:safecare-tra-1-case original:safecare-tra-1-other	original:hthreshold-first original:hblunt-stable original:hblunt-unstable	original:hblunt-resource original:hblunt-worse original:pul-flail-goal original:pul-flail-fail original:safecare-tra-3-rule original:safecare-tra-3-case original:safecare-tra-3-other
+multi.trauma	Multisystem blast injury	original:safecare-blast-1-rule original:safecare-blast-1-case original:safecare-blast-1-other	original:safecare-blast-2-rule original:safecare-blast-2-case original:safecare-blast-2-other	original:safecare-blast-3-rule original:safecare-blast-3-case original:safecare-blast-3-other
 multi.shock	Cardiogenic shock	original:msys-cardio-1 original:msys-cardio-1-b original:msys-cardio-1-c	original:msys-cardio-2 original:msys-cardio-2-a original:msys-cardio-2-b original:msys-cardio-2-c	original:cv3-hf-cold original:cv3-hf-rule original:cv3-hf-after
 multi.shock	Hypovolemic shock	original:msys-loss-1	original:gut-hydrate-shock	original:msys-loss-3
 multi.shock	Neurogenic shock	original:msys-neuro-1	original:msys-neuro-2	original:msys-neuro-3
