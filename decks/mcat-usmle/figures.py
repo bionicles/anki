@@ -3362,6 +3362,102 @@ def blood_drug_studies():
            source="simulated")
 
 
+def hematologic_neoplasm_studies():
+    """Draw quantitative study records used by the oncology and MCAT cases."""
+    for suffix, counts in [("a", [["0", "8.2", "6.4"], ["4", "8.5", "6.7"]]),
+                           ("b", [["0", "7.1", "2.0"], ["4", "7.2", "2.1"]])]:
+        study_table("onco_cll_" + suffix, "Peripheral blood and flow cytometry",
+                    ["Month", "Lymphocytes (10⁹/L)", "Clonal B cells (10⁹/L)"], counts)
+
+    for suffix, results in [
+        ("a", [["0", "0.06", "Taking as prescribed"], ["3", "0.4", "Taking as prescribed"],
+               ["4", "1.6", "Taking as prescribed"]]),
+        ("b", [["0", "0.04", "Taking as prescribed"], ["3", "0.05", "Coverage ends"],
+               ["4.5", "0.8", "Out of tablets for 6 weeks"]])]:
+        study_table("onco_cml_" + suffix, "CML monitoring record",
+                    ["Month", "BCR::ABL1 (% IS)", "Treatment history"], results)
+    study_table("onco_mds_a", "Marrow and peripheral blood", ["Measure", "Patient A", "Patient B"],
+                [["Marrow blasts (%)", "2", "8"], ["Hemoglobin (g/dL)", "9.2", "9.2"],
+                 ["Platelets (10⁹/L)", "92", "92"]])
+    study_table("onco_mds_b", "Monitoring during transfusion support",
+                ["Measure", "First visit", "Repeat visit"],
+                [["Hemoglobin (g/dL)", "7.6", "9.0"], ["Interval transfusion", "—", "2 RBC units"],
+                 ["Marrow blasts (%)", "3", "11"]])
+    study_table("onco_trial", "Early ibrutinib versus placebo in CLL",
+                ["Endpoint", "Randomized comparison"],
+                [["Symptomatic progression", "HR 0.276 (95% CI 0.188–0.407)"],
+                 ["5-year survival", "93.3% vs 93.6%"], ["Overall survival test", "P = 0.562"]],
+                source="CLL12")
+    study_table("onco_cohort", "Five-year overall survival in CLL12",
+                ["Cohort", "Baseline progression risk", "Survival (%)"],
+                [["Ibrutinib (randomized)", "Increased", "93.3"],
+                 ["Placebo (randomized)", "Increased", "93.6"],
+                 ["Observation (separate)", "Lower", "97.9"]], source="CLL12")
+    fig, ax = axes("DNA content per single cell", "Cells counted")
+    bars = ax.bar(["2C", ">2C to 3C", ">3C to <4C", "4C"], [55, 10, 15, 20],
+                  color=[COLORS[0], COLORS[1], COLORS[1], COLORS[0]])
+    ax.bar_label(bars, padding=2)
+    ax.set(ylim=(0, 65), title="DNA-content bins • simulated, n = 100")
+    save(fig, "onco_hist")
+    study_table("onco_growth", "Cells entering S phase (%)", ["Cells", "Mitogen", "Mitogen + R inhibitor"],
+                [["Wild type", "62", "12"], ["Constitutively active K", "75", "70"]])
+    plot("onco_repair", "Hours after UV exposure (simulated)", "Photoproducts per unit DNA",
+         [0, 2, 4, 8], {"Sample A": [100, 68, 32, 10], "Sample B": [100, 96, 90, 86]})
+    study_table("onco_chrom", "Accessibility signal (arbitrary units)", ["Locus", "Before", "After"],
+                [["A", "48", "46"], ["B", "15", "65"], ["C", "36", "34"]])
+    plot("onco_visc", "Pressure drop (kPa, simulated)", "Flow (mL/min)", [0, 1, 2, 3],
+         {"Fluid A": [0, 4, 8, 12], "Fluid B": [0, 2, 4, 6]})
+    study_table("onco_cycle", "Mean fractions of viable single cells",
+                ["Condition", "4C DNA (%)", "Mitotic marker positive (%)"],
+                [["Vehicle", "20", "5"], ["Compound X", "60", "6"]])
+
+
+def hematologic_infection_studies():
+    """Simulated records for clinical decisions in immune and infectious disorders."""
+    study_table("bloodimmune_deng_a", "Dengue at defervescence",
+                ["Measure", "First exam", "After initial fluid"],
+                [["Hematocrit (%)", "43", "50"], ["BP (mm Hg)", "92/68", "86/69"],
+                 ["Capillary refill (s)", "4", "4"], ["Overt bleeding", "None", "None"]])
+    study_table("bloodimmune_deng_b", "Dengue during resuscitation",
+                ["Measure", "First exam", "After initial fluid"],
+                [["Hematocrit (%)", "44", "31"], ["BP (mm Hg)", "90/66", "80/58"],
+                 ["Capillary refill (s)", "4", "5"], ["Overt bleeding", "None", "Hematemesis"]])
+    study_table("bloodimmune_sab", "Monitoring during antimicrobial therapy",
+                ["Measure", "At diagnosis", "48 hours later"],
+                [["Temperature (°C)", "39.0", "37.1"], ["Blood cultures", "S. aureus", "S. aureus"]])
+    study_table("bloodimmune_pnh", "Blood lineage flow cytometry",
+                ["Cells", "GPI-deficient (%)"], [["Red cells", "8"], ["Granulocytes", "52"],
+                 ["Monocytes", "50"]])
+    study_table("bloodimmune_ttp", "Pretreatment microangiopathy evaluation",
+                ["Test", "Result"], [["ADAMTS13 activity", "65% (reference 50–150%)"],
+                 ["Platelets", "45 × 10⁹/L"], ["Blood film", "Schistocytes"]])
+    study_table("bloodimmune_cryo", "Kidney function during a vasculitic flare",
+                ["Measure", "Day 1", "Day 6"], [["Creatinine (mg/dL)", "1.2", "3.0"],
+                 ["Urine microscopy", "Dysmorphic RBCs", "Red-cell casts"]])
+    study_table("bloodimmune_bland", "Kidney findings during cutaneous purpura",
+                ["Measure", "Baseline", "Today"], [["Creatinine (mg/dL)", "0.8", "0.8"],
+                 ["Urine RBCs (/HPF)", "0–1", "0–1"], ["Urine protein", "Negative", "Negative"]])
+
+
+def lymphoma_staging():
+    """Schematic nodal distributions above and below the diaphragm."""
+    for name, involved in [("a", {"Cervical", "Mediastinal"}),
+                           ("b", {"Cervical", "Inguinal"})]:
+        fig, ax = plt.subplots(figsize=(4.8, 3.6), layout="constrained")
+        ax.set(xlim=(-1, 5), ylim=(-0.8, 4.6), title="Nodal disease • schematic")
+        ax.axis("off")
+        ax.axhline(2.15, color="#425663", ls="--", lw=1)
+        ax.text(3.8, 2.27, "Diaphragm", ha="center", fontsize=9)
+        positions = [("Cervical", 4), ("Mediastinal", 3), ("Para-aortic", 1.35), ("Inguinal", .35)]
+        for label, y in positions:
+            active = label in involved
+            ax.scatter([.5], [y], s=150, marker="s" if active else "o",
+                       facecolors=COLORS[0] if active else "white", edgecolors=COLORS[0])
+            ax.text(.9, y, label, va="center")
+        ax.text(.45, -.45, "Filled square = involved region", va="center", fontsize=9)
+        save(fig, "depthcase_stage_" + name)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -3405,6 +3501,9 @@ def main():
     blood_cell_studies()
     splenic_studies()
     blood_drug_studies()
+    hematologic_neoplasm_studies()
+    hematologic_infection_studies()
+    lymphoma_staging()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()

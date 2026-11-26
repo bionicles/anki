@@ -32,6 +32,29 @@ class NamedDepthTest(unittest.TestCase):
         self.assertEqual(first["ThreeLevelObjectiveNames"], "One linked sequence")
         self.assertEqual(first["PairedObjectives"], "2")
 
+    def test_distinct_objectives_need_six_usable_cards(self):
+        family = {"Family": "blood.cells", "System": "Hematology"}
+        item = {"Family": "blood.cells", "Item": "Example", "Step1IDs": "f a t f2 a2 t2",
+                "Step2CKIDs": "", "Step3IDs": ""}
+
+        def objective(name, foundation, application, transfer):
+            return dict(Exam=STEPS[0], Family="blood.cells", ReviewState="Documented",
+                        Objective=name, FoundationIDs=foundation, ApplicationIDs=application,
+                        TransferIDs=transfer)
+
+        first = objective("First", "f f2", "a", "t")
+        second = objective("Second", "f", "a2", "t2")
+        result = measure_item_depth([family], [item], [first, second])
+        self.assertEqual(result[0]["TwoObjectiveNames"], "First | Second")
+        self.assertEqual(result[0]["TwoObjectiveCardIDs"], "f2 a t | f a2 t2")
+        self.assertEqual(result[1]["TwoObjectiveCardIDs"], "")
+
+        first = objective("First", "f", "a a2", "t")
+        second = objective("Second", "f", "a2", "t2 f2")
+        row = measure_item_depth([family], [item], [first, second])[0]
+        self.assertEqual(row["ThreeLevelObjectives"], "2")
+        self.assertEqual(row["TwoObjectiveCardIDs"], "")
+
     def test_bands_count_topics_once_despite_multiple_objectives(self):
         def topic(cards, paired, complete):
             return dict(MappedCards=str(cards), PairedObjectives=str(paired),

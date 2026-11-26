@@ -1,5 +1,6 @@
 """Measure documented USMLE practice against a fixed inventory of topic families."""
 from collections import defaultdict
+from itertools import combinations, product
 
 STEPS = ("USMLE Step 1", "USMLE Step 2 CK", "USMLE Step 3")
 LEVELS = ("Foundation", "Application", "Transfer")
@@ -113,6 +114,19 @@ def measure(families, blueprint, depth, weights, cards, details=()):
     return report, tags
 
 
+def distinct_objective_pair(complete):
+    """Find two reviewed objectives with six distinct card IDs, in level order."""
+    for (name, first), (other_name, second) in combinations(complete.items(), 2):
+        for triple in product(*(sorted(layer) for layer in first)):
+            # A validated objective already has disjoint IDs across its own levels.
+            remaining = [layer.difference(triple) for layer in second]
+            if all(remaining):
+                other_triple = [min(layer) for layer in remaining]
+                return (name + " | " + other_name,
+                        " ".join(triple) + " | " + " ".join(other_triple))
+    return "", ""
+
+
 def measure_item_depth(families, items, objectives):
     """Only count an evidence card when both editorial registers cite it."""
     systems = {row["Family"]: row["System"] for row in families}
@@ -130,7 +144,7 @@ def measure_item_depth(families, items, objectives):
             row = dict(Exam=exam, System=systems[family], Family=family, Item=item["Item"],
                        MappedCards=str(len(cited)), CardIDs=" ".join(sorted(cited)))
             linked = [set() for level in LEVELS]
-            paired, complete = [], []
+            paired, complete = [], {}
             for objective, layers in grouped[exam, family]:
                 overlaps = [cited & layer for layer in layers]
                 for matched, overlap in zip(linked, overlaps):
@@ -138,13 +152,14 @@ def measure_item_depth(families, items, objectives):
                 if overlaps[1] and overlaps[2]:
                     paired.append(objective)
                     if overlaps[0]:
-                        complete.append(objective)
+                        complete[objective] = overlaps
             for level, matched in zip(LEVELS, linked):
                 row[level+"IDs"] = " ".join(sorted(matched))
             row["PairedObjectives"] = str(len(paired))
             row["ThreeLevelObjectives"] = str(len(complete))
             row["PairedObjectiveNames"] = " | ".join(paired)
             row["ThreeLevelObjectiveNames"] = " | ".join(complete)
+            row["TwoObjectiveNames"], row["TwoObjectiveCardIDs"] = distinct_objective_pair(complete)
             report.append(row)
     return report
 
@@ -188,11 +203,12 @@ def display(report, item_report=()):
                 else:
                     print(f"{system:45}  Named topics not yet inventoried")
         print("¹ Linked to a card, with no documented application and changed case for the same objective.")
-        print("Named items across inventoried systems (mapped / paired cases / three levels)")
+        print("Named items across inventoried systems (mapped / paired cases / three levels / two objectives with six distinct cards)")
         for exam in STEPS:
             rows = [r for r in item_report if r["Exam"] == exam]
             counts = [sum(int(r[key]) > 0 for r in rows) for key in
                       ("MappedCards", "PairedObjectives", "ThreeLevelObjectives")]
+            counts.append(sum(bool(r["TwoObjectiveCardIDs"]) for r in rows))
             print(f"  {exam}: " + " / ".join(map(str, counts)) + f" of {len(rows)} named items")
 
     else:
