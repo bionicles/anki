@@ -3096,6 +3096,62 @@ def neonatal_and_mechanics_studies():
     save(fig, "neonatal_wave")
 
 
+def nursery_studies():
+    """Render neonatal case data, congenital CMV trial outcomes and MCAT study figures."""
+
+    def record(name, title, columns, rows, source="simulated"):
+        fig, ax = plt.subplots(figsize=(6.1, 2.65), layout="constrained")
+        ax.axis("off")
+        ax.set_title(f"{title}  •  {source}")
+        table = ax.table(cellText=rows, colLabels=columns, loc="center",
+                         cellLoc="center", bbox=[.01, .08, .98, .76])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for col in range(len(columns)):
+            table[0, col].set_facecolor("#e2edf1")
+        save(fig, "nursery_" + name)
+
+    for name, antibody in [("hbimmune", 65), ("hblow", 4)]:
+        record(name, "Postvaccination testing at ten months", ["Test", "Infant serum"],
+               [["HBsAg", "Negative"], ["Anti-HBs", f"{antibody} mIU/mL"]])
+    for name, infant in [("syhigh", 32), ("sylow", 16)]:
+        record(name, "Serum at delivery • same laboratory", ["Specimen", "Quantitative RPR"],
+               [["Mother", "1:8"], ["Infant", f"1:{infant}"]])
+    record("parvohigh", "Fetal ultrasound series", ["Gestational age", "MCA peak velocity", "Hydrops"],
+           [["21 weeks", "1.10 MoM", "Absent"], ["24 weeks", "1.80 MoM", "Present"]])
+    record("cmvstudy", "Valganciclovir duration trial", ["Outcome and time", "P value"],
+           [["Best-ear change, 6 mo (primary)", "0.41"],
+            ["Total-ear result, 12 mo (secondary)", "0.01"]], "Kimberlin et al.")
+    fig, ax = axes("Assigned treatment duration", "Evaluable ears (%)")
+    bars = ax.bar(["6 weeks", "6 months"], [57, 73], color=COLORS[:2], width=.55)
+    ax.bar_label(bars, fmt="%d%%")
+    ax.set(ylim=(0,100), title="Improved or normal hearing at 12 months")
+    save(fig, "nursery_cmvears")
+    fig, ax = axes("Temperature (°C)", "Fraction folded")
+    temp = np.arange(20, 91)
+    for midpoint, label, style in [(65, "A", "-"), (45, "B", "--")]:
+        ax.plot(temp, 1/(1 + np.exp((temp-midpoint)/4)), style, lw=2, label=label)
+    ax.axhline(.5, color="0.55", lw=1, ls=":")
+    ax.set_title("Thermal unfolding • simulated")
+    ax.legend(title="Preparation")
+    save(fig, "nursery_melt")
+    fig, ax = axes("Time (s)", "Corrected position (µm)")
+    ax.plot([0,2,4,6,8], [0,1,2,3,3], "o-")
+    ax.set(xticks=[0,2,4,6,8], yticks=[0,1,2,3], title="Motion along a track • simulated")
+    save(fig, "nursery_motor")
+    fig, ax = axes("Days after exposure", "Antibody concentration (a.u.)")
+    times = [0,2,4,6,8,10,12]
+    ax.plot(times, [0,0,0,1,2,3,4], "o-", label="A")
+    ax.plot(times, [1,3,7,11,14,16,16], "s--", label="B")
+    ax.set_title("Antigen-specific antibody • simulated")
+    ax.legend(title="Group")
+    save(fig, "nursery_antibody")
+    record("renal", "Renal balance of solute X", ["Period", "Filtered (mg/min)", "Excreted (mg/min)"],
+           [["A", "12", "7"], ["B", "10", "14"]])
+    record("screen", "Screening records", ["Clinic", "Eligible", "Completed"],
+           [["A", "200", "120"], ["B", "400", "180"]])
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -3134,6 +3190,7 @@ def main():
     postpartum_studies()
     gestational_exposure_studies()
     neonatal_and_mechanics_studies()
+    nursery_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
