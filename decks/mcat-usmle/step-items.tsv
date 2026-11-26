@@ -512,32 +512,32 @@ neuro.eye	Subconjunctival hemorrhage
 neuro.eye	Ethambutol ocular toxicity			
 neuro.eye	Hydroxychloroquine ocular toxicity			
 neuro.eye	Glucocorticoid ocular effects			
-neuro.ear	Auricular chondritis			
-neuro.ear	Mastoiditis			
-neuro.ear	Otitis externa			
-neuro.ear	Otitis media including serous or suppurative disease			
-neuro.ear	Otitis interna			
-neuro.ear	Necrotizing otitis externa			
-neuro.ear	Vestibular schwannoma	original:nnf-origin	original:nnf-bilateral	
-neuro.ear	NF2-related schwannomatosis		original:nnf-bilateral	original:nnf-child
-neuro.ear	Cholesteatoma			
+neuro.ear	Auricular chondritis	original:ear-per-1-rule original:ear-per-1-case original:ear-per-1-other	original:ear-per-2-rule original:ear-per-2-case original:ear-per-2-other	original:ear-per-3-rule original:ear-per-3-case original:ear-per-3-other
+neuro.ear	Mastoiditis	original:ear-mast-1-rule original:ear-mast-1-case original:ear-mast-1-other	original:ear-mast-2-rule original:ear-mast-2-case original:ear-mast-2-other	original:ear-mast-3-rule original:ear-mast-3-case original:ear-mast-3-other
+neuro.ear	Otitis externa	original:ear-canal-1-rule original:ear-canal-1-case original:ear-canal-1-other	original:ear-canal-2-rule original:ear-canal-2-case original:ear-canal-2-other	original:ear-canal-3-rule original:ear-canal-3-case original:ear-canal-3-other
+neuro.ear	Otitis media including serous or suppurative disease	original:ear-middle-1-rule original:ear-middle-1-case original:ear-middle-1-other	original:ear-middle-2-rule original:ear-middle-2-case original:ear-middle-2-other	original:ear-middle-3-rule original:ear-middle-3-case original:ear-middle-3-other
+neuro.ear	Otitis interna	original:ear-lab-1-rule original:ear-lab-1-case original:ear-lab-1-other	original:ear-lab-2-rule original:ear-lab-2-case original:ear-lab-2-other	original:ear-lab-3-rule original:ear-lab-3-case original:ear-lab-3-other
+neuro.ear	Necrotizing otitis externa	original:ear-invasive-1-rule original:ear-invasive-1-case original:ear-invasive-1-other	original:ear-invasive-2-rule original:ear-invasive-2-case original:ear-invasive-2-other	original:ear-invasive-3-rule original:ear-invasive-3-case original:ear-invasive-3-other
+neuro.ear	Vestibular schwannoma	original:nnf-origin original:ear-sch-1-case original:ear-sch-1-other	original:nnf-bilateral original:ear-sch-2-rule original:ear-sch-2-case	original:ear-sch-3-rule original:ear-sch-3-case original:ear-sch-3-other
+neuro.ear	NF2-related schwannomatosis	original:ear-nf-1-rule original:ear-nf-1-case original:ear-nf-1-other	original:nnf-bilateral original:ear-nf-2-rule original:ear-nf-2-other	original:nnf-child original:ear-nf-3-rule original:ear-nf-3-other
+neuro.ear	Cholesteatoma	original:ear-chol-1-rule original:ear-chol-1-case original:ear-chol-1-other	original:ear-chol-2-rule original:ear-chol-2-case original:ear-chol-2-other	original:ear-chol-3-rule original:ear-chol-3-case original:ear-chol-3-other
 neuro.ear	Hearing loss	original:nhear-conduct original:nhear-mix original:nhear-bone	original:nhear-paired original:nhear-mixed original:nhear-rule original:nhear-normal	original:nshl-salvage original:nhear-meaning original:nhear-expect original:nhear-restored
-neuro.ear	Noise-induced hearing loss			
-neuro.ear	Otosclerosis			
-neuro.ear	Tinnitus			
-neuro.ear	Ménière disease	original:nmen-fluid	original:nmen-episodes original:nmen-document	original:nmen-diary
-neuro.ear	Motion sickness			
-neuro.ear	Vertigo including benign positional vertigo		original:ndiz-episodic	original:ndiz-reposition
-neuro.ear	Barotrauma			
-neuro.ear	Ear canal foreign body			
-neuro.ear	Cerumen impaction			
-neuro.ear	Auricular laceration or avulsion			
-neuro.ear	Tympanic membrane perforation			
-neuro.ear	Eustachian tube dysfunction			
-neuro.ear	Antineoplastic ototoxicity including cisplatin			
-neuro.ear	Aminoglycoside ototoxicity			
-neuro.ear	Loop diuretic ototoxicity			
-neuro.ear	Salicylate ototoxicity			
+neuro.ear	Noise-induced hearing loss	original:ear-noise-1-rule original:ear-noise-1-case original:ear-noise-1-other	original:ear-noise-2-rule original:ear-noise-2-case original:ear-noise-2-other	original:ear-noise-3-rule original:ear-noise-3-case original:ear-noise-3-other
+neuro.ear	Otosclerosis	original:ear-otos-1-rule original:ear-otos-1-case original:ear-otos-1-other	original:ear-otos-2-rule original:ear-otos-2-case original:ear-otos-2-other	original:ear-otos-3-rule original:ear-otos-3-case original:ear-otos-3-other
+neuro.ear	Tinnitus	original:ear-tinn-1-rule original:ear-tinn-1-case original:ear-tinn-1-other	original:ear-tinn-2-rule original:ear-tinn-2-case original:ear-tinn-2-other	original:ear-tinn-3-rule original:ear-tinn-3-case original:ear-tinn-3-other
+neuro.ear	Ménière disease	original:nmen-fluid original:ear-men-1-case original:ear-men-1-other	original:nmen-episodes original:nmen-document original:ear-men-2-other	original:nmen-diary original:ear-men-3-rule original:ear-men-3-case original:ear-men-3-other
+neuro.ear	Motion sickness	original:ear-motion-1-rule original:ear-motion-1-case original:ear-motion-1-other	original:ear-motion-2-rule original:ear-motion-2-case original:ear-motion-2-other	original:ear-motion-3-rule original:ear-motion-3-case original:ear-motion-3-other
+neuro.ear	Vertigo including benign positional vertigo	original:ear-bppv-1-rule original:ear-bppv-1-case original:ear-bppv-1-other	original:ndiz-episodic original:ear-bppv-2-rule original:ear-bppv-2-other	original:ndiz-reposition original:ndiz-changed original:ear-bppv-3-rule
+neuro.ear	Barotrauma	original:ear-baro-1-rule original:ear-baro-1-case original:ear-baro-1-other	original:ear-baro-2-rule original:ear-baro-2-case original:ear-baro-2-other	original:ear-baro-3-rule original:ear-baro-3-case original:ear-baro-3-other
+neuro.ear	Ear canal foreign body	original:ear-foreign-1-rule original:ear-foreign-1-case original:ear-foreign-1-other	original:ear-foreign-2-rule original:ear-foreign-2-case original:ear-foreign-2-other	original:ear-foreign-3-rule original:ear-foreign-3-case original:ear-foreign-3-other
+neuro.ear	Cerumen impaction	original:ear-wax-1-rule original:ear-wax-1-case original:ear-wax-1-other	original:ear-wax-2-rule original:ear-wax-2-case original:ear-wax-2-other	original:ear-wax-3-rule original:ear-wax-3-case original:ear-wax-3-other
+neuro.ear	Auricular laceration or avulsion	original:ear-lac-1-rule original:ear-lac-1-case original:ear-lac-1-other	original:ear-lac-2-rule original:ear-lac-2-case original:ear-lac-2-other	original:ear-lac-3-rule original:ear-lac-3-case original:ear-lac-3-other
+neuro.ear	Tympanic membrane perforation	original:ear-perf-1-rule original:ear-perf-1-case original:ear-perf-1-other	original:ear-perf-2-rule original:ear-perf-2-case original:ear-perf-2-other	original:ear-perf-3-rule original:ear-perf-3-case original:ear-perf-3-other
+neuro.ear	Eustachian tube dysfunction	original:ear-et-1-rule original:ear-et-1-case original:ear-et-1-other	original:ear-et-2-rule original:ear-et-2-case original:ear-et-2-other	original:ear-et-3-rule original:ear-et-3-case original:ear-et-3-other
+neuro.ear	Antineoplastic ototoxicity including cisplatin	original:ear-cis-1-rule original:ear-cis-1-case original:ear-cis-1-other	original:ear-cis-2-rule original:ear-cis-2-case original:ear-cis-2-other	original:ear-cis-3-rule original:ear-cis-3-case original:ear-cis-3-other
+neuro.ear	Aminoglycoside ototoxicity	original:ear-gent-1-rule original:ear-gent-1-case original:ear-gent-1-other	original:ear-gent-2-rule original:ear-gent-2-case original:ear-gent-2-other	original:ear-gent-3-rule original:ear-gent-3-case original:ear-gent-3-other
+neuro.ear	Loop diuretic ototoxicity	original:ear-loop-1-rule original:ear-loop-1-case original:ear-loop-1-other	original:ear-loop-2-rule original:ear-loop-2-case original:ear-loop-2-other	original:ear-loop-3-rule original:ear-loop-3-case original:ear-loop-3-other
+neuro.ear	Salicylate ototoxicity	original:ear-sal-1-rule original:ear-sal-1-case original:ear-sal-1-other	original:environ-sal-2-other original:ear-sal-2-rule original:ear-sal-2-case	original:environ-sal-3-other original:ear-sal-3-rule original:ear-sal-3-case
 blood.inf	Bacterial disorders of blood			
 blood.inf	Viral hemorrhagic fevers (Ebola and Marburg)			
 blood.inf	Chikungunya			

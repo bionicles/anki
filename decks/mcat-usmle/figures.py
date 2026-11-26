@@ -2195,6 +2195,66 @@ def systemic_infection_studies():
                         ["Positive for Candida", *observations])), [.41, .59])
 
 
+def clinical_otology_studies():
+    """Render simulated single-ear audiometry and tympanometry for ear cases."""
+    for name, pressure in [("neg", -200), ("normal", 0), ("pressure_cold", -245), ("pressure_flight", 15)]:
+        fig, ax = axes("Ear canal pressure (daPa)", "Admittance (mL)")
+        sweep = np.linspace(-350, 200, 240)
+        ax.plot(sweep, 0.08 + 0.85 * np.exp(-0.5 * ((sweep - pressure) / 44) ** 2),
+                color=COLORS[0], lw=2.5)
+        ax.set(title="Tympanogram  •  simulated", ylim=(0, 1.2),
+               xticks=[-300, -200, -100, 0, 100, 200])
+        save(fig, "ear_" + name)
+
+    def audiogram(name, frequencies, series):
+        fig, ax = axes("Frequency (kHz)", "Threshold (dB HL)")
+        for j, (label, values) in enumerate(series):
+            ax.plot(frequencies, values, STYLES[j], marker=["o", "s"][j],
+                    mfc="white", lw=2, color=COLORS[j], label=label)
+        ax.set_xscale("log", base=2)
+        ax.set_xticks(frequencies, [f"{f:g}" for f in frequencies])
+        ax.minorticks_off()
+        ax.set(ylim=(80, -5), yticks=range(0, 81, 10), title="Pure-tone thresholds  •  simulated")
+        ax.legend(loc="lower left", fontsize=8)
+        save(fig, "ear_" + name)
+
+    routine = [.25, .5, 1, 2, 4]
+    for name, air, bone in [
+        ("gap", [45, 45, 40, 40, 40], [10, 10, 10, 15, 10]),
+        ("sn", [45, 45, 45, 55, 60], [40, 45, 40, 50, 55]),
+        ("family", [45, 40, 35, 35, 30], [5, 10, 10, 15, 10]),
+        ("worker", [40, 45, 35, 30, 35], [5, 10, 10, 5, 10]),
+        ("chemo", [35, 35, 30, 35, 25], [5, 5, 10, 10, 5]),
+        ("wax", [30, 40, 35, 40, 35], [0, 10, 5, 10, 5]),
+        ("cleared", [35, 40, 45, 55, 65], [35, 35, 45, 50, 65]),
+        ("tear", [30, 30, 25, 20, 15], [5, 5, 5, 5, 5]),
+        ("injury", [45, 50, 55, 65, 70], [45, 50, 50, 65, 65]),
+        ("salicylate", [35, 40, 35, 30, 30], [10, 10, 5, 5, 5]),
+    ]:
+        audiogram(name, routine, [("Air", air), ("Masked bone", bone)])
+
+    audiogram("notch", [.5, 1, 2, 3, 4, 6, 8], [
+        ("Air", [15, 15, 20, 35, 55, 40, 30]),
+        ("Masked bone", [10, 10, 15, 35, 50, np.nan, np.nan]),
+    ])
+    audiogram("airnotch", [.5, 1, 2, 3, 4, 6, 8], [
+        ("Air", [10, 10, 15, 35, 55, 40, 25])])
+    audiogram("operator", [.5, 1, 2, 3, 4, 6, 8], [
+        ("Air", [15, 15, 20, 40, 60, 45, 30])])
+    audiogram("low", [.25, .5, 1, 2, 4, 8], [
+        ("Between attacks", [15, 15, 15, 15, 20, 20]),
+        ("During symptoms", [50, 45, 30, 15, 20, 20]),
+    ])
+    audiogram("ciscurve", [.25, .5, 1, 2, 4, 8], [
+        ("Baseline air", [10, 10, 10, 15, 20, 20]),
+        ("Current air", [10, 10, 15, 20, 45, 65]),
+    ])
+    for name, current in [("shift", [10, 10, 15, 30, 30, 20]),
+                          ("isolated", [10, 10, 15, 30, 20, 20])]:
+        audiogram(name, [.5, 1, 2, 4, 6, 8], [
+            ("Baseline air", [10, 10, 15, 20, 20, 20]), ("Current air", current)])
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -2222,6 +2282,7 @@ def main():
     systemic_inflammation_studies()
     multisystem_rheumatology_studies()
     systemic_infection_studies()
+    clinical_otology_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
