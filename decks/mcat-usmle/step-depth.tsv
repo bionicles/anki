@@ -428,3 +428,136 @@ USMLE Step 3	social.policy	Investigate missed access to care among people leavin
 USMLE Step 1	social.safety	Recognize a framing effect with identical absolute risks		original:scframe-pair	original:scframe-real	Matching the descriptions leaves a genuine difference between the second pair of estimates.	Documented
 USMLE Step 2 CK	social.safety	Trace a monitoring failure across a telemetry transfer		original:sctele-signal	original:sctele-routed	The waveform is now visible but alert routing still points to the previous unit.	Documented
 USMLE Step 3	social.systems	Evaluate whether a staffing or scheduling intervention improves both safety and continuity					Awaiting review
+USMLE Step 1	repro.breastinf	Explain edema and oversupply during mastitis	original:rg-mast-swelling	original:rg-mast-pump			Documented
+USMLE Step 2 CK	repro.breastinf	Recognizing collections during lactational inflammation		original:rg-mast-local	original:rg-mast-drain	Early uncomplicated inflammation gives way to a drainable infection.	Documented
+USMLE Step 3	repro.breastinf	Counsel on feeding during lactational mastitis		original:rg-mast-milk			Documented
+USMLE Step 3	repro.breastinf	Recognizing collections during lactational inflammation		original:rg-mast-nonresp	original:rg-mast-pus	No organized collection after treatment prompts milk culture; newly demonstrated pus needs drainage.	Documented
+USMLE Step 1	repro.breasttumor	Determine whether ductal tumor cells invade stroma	original:rg-lumps-duct	original:rg-lumps-inside	original:rg-lumps-outside	A second duct shows malignant epithelial cells extending beyond the boundary into stroma.	Documented
+USMLE Step 2 CK	repro.breasttumor	Distinguishing focal breast lesions from their tissue and distribution		original:rg-lumps-move	original:rg-lumps-paper	A solid mobile fibroepithelial mass is replaced by a papillary lesion associated with spontaneous bloody discharge.	Documented
+USMLE Step 2 CK	repro.breasttumor	Recognize cyclical diffuse breast changes		original:rg-lumps-cyclic			Documented
+USMLE Step 1	repro.breasttumor	Investigating malignant changes affecting breast skin	original:rg-skin-lymph				Documented
+USMLE Step 2 CK	repro.breasttumor	Investigating malignant changes affecting breast skin	original:rg2-add-duct	original:rg-skin-peau	original:rg-skin-nipple	Diffuse rapid skin edema changes to persistent focal nipple scaling.	Documented
+USMLE Step 3	repro.breasttumor	Investigating malignant changes affecting breast skin		original:rg-skin-nobiopsy	original:rg-skin-rapid	An isolated nipple lesion changes to rapid diffuse breast involvement with regional adenopathy.	Documented
+USMLE Step 1	repro.breastinf	Interpreting a breast abnormality after local injury		original:rg-fat-oil			Documented
+USMLE Step 2 CK	repro.breastinf	Interpreting a breast abnormality after local injury		original:rg-fat-scar			Documented
+USMLE Step 1	repro.inf	Using bedside findings to distinguish causes of vaginitis	original:rg-vag-clue	original:rg-vag-hypha	original:rg-vag-odor	A normal pH with fungal forms changes to elevated pH with coated epithelial cells and characteristic discharge.	Documented
+USMLE Step 2 CK	repro.inf	Using bedside findings to distinguish causes of vaginitis	original:rg2-add-vag	original:rg-vag-motile	original:rg-vag-neg	A positive fresh wet mount changes to a negative delayed mount after a credible exposure.	Documented
+USMLE Step 3	repro.inf	Decide when and how to treat candidal vaginitis		original:rg-vag-nocure original:rg-vag-pregyeast			Documented
+USMLE Step 3	repro.inf	Prevent and detect trichomoniasis reinfection		original:rg-vag-partners original:rg-vag-repeat			Documented
+USMLE Step 1	repro.inf	Explain upper genital tract damage in PID	original:rg-pid-upper	original:rg-pid-scar			Documented
+USMLE Step 2 CK	repro.inf	Decide when to treat PID empirically		original:rg-pid-threshold original:rg-pid-negtest			Documented
+USMLE Step 2 CK	repro.inf	Choosing treatment setting and reassessment for PID		original:rg-pid-admit	original:rg-pid-complex	Ultrasound reveals a tubo-ovarian abscess despite stable vital signs.	Documented
+USMLE Step 3	repro.inf	Reassess a patient with PID and an IUD	original:rg2-add-pid	original:rg-pid-improve	original:rg-pid-stalled	Early response changes to persistent fever and tenderness after 72 hours of outpatient therapy.	Documented
+USMLE Step 1	repro.tumor	Managing a premalignant endometrial biopsy result	original:rg-ein-precursor				Documented
+USMLE Step 2 CK	repro.tumor	Managing a premalignant endometrial biopsy result		original:rg-ein-tissue			Documented
+USMLE Step 3	repro.tumor	Managing a premalignant endometrial biopsy result	original:rg2-add-ein	original:rg-ein-def	original:rg-ein-pres	A patient seeking definitive treatment is replaced by one choosing fertility preservation after cancer evaluation.	Documented
+USMLE Step 3	repro.tumor	Monitor response to uterus-preserving treatment	original:rg-ein-check				Documented
+USMLE Step 2 CK	repro.fertility	Timing an infertility evaluation	original:rg-fer-rule	original:rg-fer-wait	original:rg-fer-older	Age and time trying to conceive cross the threshold for an earlier workup.	Documented
+USMLE Step 3	repro.fertility	Timing an infertility evaluation		original:rg-fer-risk			Documented
+USMLE Step 3	repro.fertility	Evaluate both gamete contributors in parallel		original:rg-fer-semen			Documented
+USMLE Step 1	repro.fertility	Reading contrast passage in a tubal patency study	original:rg-spill-rule	original:rg-spill-both	original:rg-spill-one	A second contrast study shows free spill on just one side.	Documented
+USMLE Step 2 CK	repro.fertility	Interpret the level and significance of failure of tubal filling or spill		original:rg-spill-distal	original:rg-spill-prox	Distal failure of passage in one tube changes to an apparent bilateral proximal cutoff vulnerable to artifact.	Documented
+USMLE Step 3	repro.fertility	Select a study of tubal patency		original:rg-spill-hist			Documented
+USMLE Step 3	repro.fertility	Confirm suspected proximal tubal occlusion		original:rg-spill-confirm			Documented
+USMLE Step 1	repro.fertility	Timing and interpreting a luteal progesterone sample	original:rg-ovul-timing	original:rg-ovul-short	original:rg-ovul-long	A predictable 35-day cycle shifts the sampling window compared with a 25-day cycle.	Documented
+USMLE Step 2 CK	repro.fertility	Interpret biochemical evidence for ovulation		original:rg-ovul-level			Documented
+USMLE Step 3	repro.fertility	Identify limits of a single luteal progesterone		original:rg-ovul-quality			Documented
+USMLE Step 1	repro.fertility	Choosing contraception when migraine changes estrogen eligibility	original:rg-contra-type				Documented
+USMLE Step 2 CK	repro.fertility	Choosing contraception when migraine changes estrogen eligibility	original:rg2-add-mig	original:rg-contra-noaura	original:rg-contra-aura	Visual aura changes eligibility for a combined contraceptive.	Documented
+USMLE Step 3	repro.fertility	Choosing contraception when migraine changes estrogen eligibility		original:rg-contra-switch			Documented
+USMLE Step 1	repro.fertility	Starting regular contraception after emergency contraception	original:rg-em-receptor				Documented
+USMLE Step 2 CK	repro.fertility	Starting regular contraception after emergency contraception		original:rg-em-copper original:rg-em-late			Documented
+USMLE Step 3	repro.fertility	Starting regular contraception after emergency contraception	original:rg2-add-em	original:rg-em-upa	original:rg-em-lng	The emergency agent changes from ulipristal to levonorgestrel, removing the waiting interval.	Documented
+USMLE Step 1	repro.cycle	Localizing the cause of secondary amenorrhea	original:rg-cycle-feedback	original:rg-cycle-ovary	original:rg-cycle-central	FSH is low in the second panel despite similarly low estradiol, shifting localization centrally.	Documented
+USMLE Step 2 CK	repro.cycle	Recognize pregnancy risk despite absent periods	original:rg-cycle-preg	original:rg-cycle-androgen			Documented
+USMLE Step 2 CK	repro.cycle	Localizing the cause of secondary amenorrhea		original:rg-cycle-high	original:rg-cycle-low	The patient history and second lab panel favor central suppression over ovarian insufficiency.	Documented
+USMLE Step 3	repro.cycle	Investigate amenorrhea after uterine instrumentation		original:rg-cycle-uterus			Documented
+USMLE Step 2 CK	repro.menopause	Selecting evaluation for postmenopausal bleeding	original:rg-meno-rule	original:rg-meno-thin	original:rg-meno-again	Bleeding returns after an initially isolated low-risk episode with a fully visualized thin lining.	Documented
+USMLE Step 3	repro.menopause	Evaluate eligibility for observation after postmenopausal bleeding		original:rg-meno-access original:rg-meno-incomplete			Documented
+USMLE Step 1	repro.drug	Matching menopausal estrogen therapy to uterine status	original:rg-hormone-why				Documented
+USMLE Step 2 CK	repro.drug	Matching menopausal estrogen therapy to uterine status		original:rg-hormone-with	original:rg-hormone-without	A total hysterectomy removes the tissue that required progestogen.	Documented
+USMLE Step 3	repro.drug	Select a route that reaches the symptomatic tissue	original:rg-est-hot	original:rg-hormone-local	original:rg-hormone-system	Disruptive hot flashes become a treatment goal in addition to local vaginal symptoms.	Documented
+USMLE Step 1	repro.menopause	Recognizing tissue effects of declining ovarian estrogen		original:rg-est-dry			Documented
+USMLE Step 1	repro.menopause	Recognize and target vasomotor symptoms		original:rg-est-night			Documented
+USMLE Step 2 CK	repro.menopause	Recognizing tissue effects of declining ovarian estrogen		original:rg-est-atro			Documented
+USMLE Step 3	repro.menopause	Recognize and target vasomotor symptoms		original:rg-est-hot			Documented
+USMLE Step 1	repro.trauma	Recognizing and preserving a torsed adolescent ovary	original:rg-tors-supply				Documented
+USMLE Step 1	repro.trauma	Recognize a threatened vascular pedicle		original:rg-tors-pedicle			Documented
+USMLE Step 2 CK	repro.trauma	Recognizing and preserving a torsed adolescent ovary		original:rg-tors-present original:rg-tors-nomass			Documented
+USMLE Step 3	repro.trauma	Recognizing and preserving a torsed adolescent ovary	original:rg2-add-tor	original:rg-tors-dark	original:rg-tors-fall	Loss of structural integrity makes preservation technically impossible.	Documented
+USMLE Step 1	repro.trauma	Identify the organ beneath a vaginal wall prolapse	original:rg-support-front	original:rg-support-back			Documented
+USMLE Step 2 CK	repro.trauma	Localizing and managing a vaginal wall bulge		original:rg-support-void	original:rg-support-stool	The bulge shifts to the posterior compartment with obstructed defecation.	Documented
+USMLE Step 3	repro.trauma	Localizing and managing a vaginal wall bulge	original:rg2-add-prol	original:rg-support-device	original:rg-support-observe	The anatomic finding becomes incidental with no symptoms or complications.	Documented
+USMLE Step 1	repro.congenital	Differentiating causes of an absent uterus in primary amenorrhea	original:rg-dev-ovaries	original:rg-dev-mrkh	original:rg-dev-androgen	Absent uterus with testes and a 46,XY karyotype has a different developmental mechanism.	Documented
+USMLE Step 2 CK	repro.congenital	Differentiating causes of an absent uterus in primary amenorrhea	original:rg2-add-dev	original:rg-dev-dx	original:rg-dev-other	Sparse pubic hair and a male-range testosterone level change the differential diagnosis.	Documented
+USMLE Step 3	repro.congenital	Evaluate associated anomalies in Müllerian agenesis		original:rg-dev-renal			Documented
+USMLE Step 3	repro.congenital	Offer patient-directed management of vaginal agenesis		original:rg-dev-dilate			Documented
+USMLE Step 1	repro.congenital	Using internal and external uterine contours to classify a divided cavity	original:rg-shape-outer	original:rg-shape-cleft	original:rg-shape-smooth	A second divided uterine cavity has a smooth outer fundus instead of a deep cleft.	Documented
+USMLE Step 2 CK	repro.congenital	Select imaging of internal and external uterine contours		original:rg-shape-scan			Documented
+USMLE Step 2 CK	repro.congenital	Using internal and external uterine contours to classify a divided cavity	original:rg2-add-shape	original:rg-shape-interpret	original:rg-shape-partition	The second coronal view shows a maintained external contour despite a divided cavity.	Documented
+USMLE Step 3	repro.congenital	Select imaging of internal and external uterine contours		original:rg-shape-surgery			Documented
+USMLE Step 1	repro.trauma	Recognizing obstructed menstrual outflow at puberty	original:rg-outflow-blood				Documented
+USMLE Step 2 CK	repro.trauma	Recognizing obstructed menstrual outflow at puberty		original:rg-outflow-bulge			Documented
+USMLE Step 3	repro.trauma	Recognizing obstructed menstrual outflow at puberty		original:rg-outflow-avoid			Documented
+USMLE Step 1	repro.trauma	Evaluating loss of menstrual flow after uterine instrumentation		original:rg-adh-basal			Documented
+USMLE Step 2 CK	repro.trauma	Evaluating loss of menstrual flow after uterine instrumentation		original:rg-adh-scope			Documented
+USMLE Step 1	repro.sexual	Localizing the cause of pain with penetration	original:rg-sex-guard				Documented
+USMLE Step 2 CK	repro.sexual	Localizing the cause of pain with penetration		original:rg-sex-entrance	original:rg-sex-deep	Involuntary entry-muscle tightening changes to deep cyclic pelvic and bowel pain.	Documented
+USMLE Step 3	repro.sexual	Localizing the cause of pain with penetration		original:rg-sex-lube			Documented
+USMLE Step 1	repro.drug	Investigating sexual symptoms during SSRI treatment	original:rg-ssri-effect				Documented
+USMLE Step 2 CK	repro.drug	Investigating sexual symptoms during SSRI treatment		original:rg-ssri-new			Documented
+USMLE Step 3	repro.drug	Investigating sexual symptoms during SSRI treatment	original:rg2-add-drug	original:rg-ssri-baseline	original:rg-ssri-before	A chronology showing symptoms predated the first dose weakens medication attribution.	Documented
+USMLE Step 1	repro.sexual	Distinguishing orgasmic symptoms from loss of desire		original:rg-desire-which			Documented
+USMLE Step 2 CK	repro.sexual	Distinguishing orgasmic symptoms from loss of desire		original:rg-desire-des			Documented
+USMLE Step 1	repro.cycle	Evaluating cyclic pelvic pain for endometriosis	original:rg-endo-where				Documented
+USMLE Step 2 CK	repro.cycle	Evaluating cyclic pelvic pain for endometriosis		original:rg-endo-recognize original:rg-endo-scan			Documented
+USMLE Step 3	repro.cycle	Evaluating cyclic pelvic pain for endometriosis		original:rg-endo-normal original:rg-endo-empiric			Documented
+USMLE Step 1	repro.tumor	Explain why persistent high-risk infection promotes cancer	original:rg-hpv-time				Documented
+USMLE Step 1	repro.tumor	Distinguish what cytology and HPV testing detect		original:rg-hpv-cytol	original:rg-hpv-virus	Normal cellular morphology with a positive viral assay requires interpreting a different biological signal.	Documented
+USMLE Step 2 CK	repro.tumor	Interpreting high-risk HPV and cervical screening results		original:rg-hpv-cancer			Documented
+USMLE Step 3	repro.tumor	Interpreting high-risk HPV and cervical screening results		original:rg-hpv-vax			Documented
+USMLE Step 1	repro.tumor	Selecting therapy for a symptomatic uterine fibroid	original:rg-fib-origin				Documented
+USMLE Step 2 CK	repro.tumor	Selecting therapy for a symptomatic uterine fibroid		original:rg-fib-distor			Documented
+USMLE Step 3	repro.tumor	Selecting therapy for a symptomatic uterine fibroid		original:rg-fib-cavity	original:rg-fib-outside	An external subserosal fibroid cannot be reached by the cavity route used for an intracavitary lesion.	Documented
+USMLE Step 1	repro.tumor	Distinguishing ovarian cancer screening from diagnostic evaluation	original:rg-screen-harm				Documented
+USMLE Step 2 CK	repro.tumor	Distinguishing ovarian cancer screening from diagnostic evaluation		original:rg-screen-well	original:rg-screen-mass	New symptoms and a palpable mass change screening into diagnostic evaluation.	Documented
+USMLE Step 3	repro.tumor	Distinguishing ovarian cancer screening from diagnostic evaluation		original:rg-screen-family			Documented
+USMLE Step 1	repro.menopause	Distinguishing primary ovarian insufficiency from other causes of absent periods	original:rg-poi-age				Documented
+USMLE Step 2 CK	repro.menopause	Distinguishing primary ovarian insufficiency from other causes of absent periods		original:rg-poi-persist original:rg-poi-repeat			Documented
+USMLE Step 3	repro.menopause	Determine duration of hormone replacement in POI		original:rg-poi-therapy			Documented
+USMLE Step 3	repro.menopause	Counsel on contraception during ovarian insufficiency		original:rg-poi-protect			Documented
+USMLE Step 1	repro.cycle	Distinguishing PCOS from other causes of androgen excess	original:rg-pcos-cycles				Documented
+USMLE Step 2 CK	repro.cycle	Distinguishing PCOS from other causes of androgen excess		original:rg-pcos-dx	original:rg-pcos-rapid	Rapid virilization and markedly elevated testosterone change the differential.	Documented
+USMLE Step 3	repro.cycle	Choose initial ovulation induction in anovulatory PCOS		original:rg-pcos-induce			Documented
+USMLE Step 2 CK	repro.fertility	Knowing when permanent contraception is reliable	original:rg2-add-ster	original:rg-ster-immediate	original:rg-ster-later	Vasectomy leaves a clearance interval absent after laparoscopic tubal sterilization.	Documented
+USMLE Step 3	repro.fertility	Knowing when permanent contraception is reliable		original:rg-ster-barrier			Documented
+USMLE Step 2 CK	repro.inf	Selecting a diagnostic test for genital herpes		original:rg-herpes-lesion	original:rg-herpes-absent	No lesion is available for direct testing in a patient with a known affected partner.	Documented
+USMLE Step 3	repro.inf	Selecting a diagnostic test for genital herpes		original:rg-herpes-shed			Documented
+USMLE Step 1	repro.breasttumor	Reading a fibroepithelial breast specimen		original:rg-micro-tissue			Documented
+USMLE Step 2 CK	repro.breasttumor	Reading a fibroepithelial breast specimen		original:rg-micro-phyl			Documented
+USMLE Step 3	repro.breasttumor	Decide on complete excision for possible phyllodes tumor		original:rg-micro-phylsurg			Documented
+USMLE Step 2 CK	repro.fertility	Recognizing intraperitoneal spill on a clinical HSG		original:rg-actualhsg-interpret			Documented
+USMLE Step 3	repro.fertility	Recognizing intraperitoneal spill on a clinical HSG		original:rg-actualhsg-limits			Documented
+USMLE Step 1	repro.cycle	Reading the contents of an ovarian cyst on ultrasound		original:rg-ovimage-echo			Documented
+USMLE Step 2 CK	repro.cycle	Reading the contents of an ovarian cyst on ultrasound		original:rg-ovimage-suspect			Documented
+USMLE Step 3	repro.breasttumor	Counsel after a concordant benign fibroadenoma biopsy		original:rg-fel-observe			Documented
+USMLE Step 3	repro.breasttumor	Determine whether benign phyllodes tumor needs re-excision	original:rg2-add-ben	original:rg-fel-margin	original:rg-fel-residual	Suspected residual tissue after transection changes the decision about further excision.	Documented
+USMLE Step 1	repro.breasttumor	Interpret a new mammogram with suspicious calcifications					Awaiting review
+USMLE Step 1	repro.inf	Distinguish erosive vulvar disease from a vaginal infection					Awaiting review
+USMLE Step 1	repro.congenital	Distinguish a duplicated uterus and cervix from a bicornuate uterus on imaging					Awaiting review
+USMLE Step 2 CK	repro.breasttumor	Interpret a new mammogram with suspicious calcifications					Awaiting review
+USMLE Step 2 CK	repro.inf	Distinguish erosive vulvar disease from a vaginal infection					Awaiting review
+USMLE Step 2 CK	repro.congenital	Distinguish a duplicated uterus and cervix from a bicornuate uterus on imaging					Awaiting review
+USMLE Step 3	repro.breasttumor	Interpret a new mammogram with suspicious calcifications					Awaiting review
+USMLE Step 3	repro.inf	Distinguish erosive vulvar disease from a vaginal infection					Awaiting review
+USMLE Step 3	repro.congenital	Distinguish a duplicated uterus and cervix from a bicornuate uterus on imaging					Awaiting review
+USMLE Step 3	repro.cycle	Acute uterine bleeding in the emergency department	original:rg2-heavy-basis	original:rg2-heavy-stable	original:rg2-heavy-shock	Circulatory shock makes immediate resuscitation the priority.	Documented
+USMLE Step 3	repro.cycle	Escalate refractory acute uterine bleeding to procedural management		original:rg2-heavy-fail			Documented
+USMLE Step 3	repro.cycle	Preserve fertility during treatment for uterine bleeding		original:rg2-heavy-future			Documented
+USMLE Step 3	repro.cycle	Transition from acute bleeding control to maintenance		original:rg2-heavy-after			Documented
+USMLE Step 2 CK	repro.cycle	Acute uterine bleeding in the emergency department	original:rg2-heavy-rule				Documented
+USMLE Step 2 CK	repro.tumor	Following a low-grade cervical screening abnormality	original:rg2-cervix-basis	original:rg2-cervix-unknown	original:rg2-cervix-prior	A documented recent negative screening HPV test lowers risk enough for one-year follow-up.	Documented
+USMLE Step 3	repro.tumor	Following a low-grade cervical screening abnormality	original:rg2-cervix-history	original:rg2-cervix-cotest	original:rg2-cervix-paponly	The earlier screen was cytology alone, which changes the risk and calls for colposcopy.	Documented
+USMLE Step 3	repro.tumor	Cervical precancer during pregnancy	original:rg2-pregcervix-rule	original:rg2-pregcervix-cin3	original:rg2-pregcervix-progress	New findings suspicious for invasion require immediate tissue reevaluation.	Documented
+USMLE Step 3	repro.tumor	Time postpartum colposcopy after antepartum precancer		original:rg2-pregcervix-postpartum			Documented
+USMLE Step 2 CK	repro.tumor	Cervical precancer during pregnancy	original:rg2-pregcervix-curette				Documented

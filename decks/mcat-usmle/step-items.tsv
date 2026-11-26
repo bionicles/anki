@@ -771,3 +771,107 @@ social.finance	Deductibles, copayments and coinsurance	original:sccost-ded	origi
 social.finance	Out-of-network, in-network and preferred provider costs			original:sccost-network original:sccost-cap
 social.finance	Emergency services and EMTALA	original:scemtala-purpose	original:scemtala-pay original:scemtala-positive	original:scemtala-transfer original:scemtala-screenneg
 social.finance	Pay for performance		original:scpay-payment	original:scpay-case
+repro.breastinf	Breast abscess		bank:cohort:obs:q-931316265fb1:v1 original:rg-mast-drain	original:rg-mast-pus
+repro.breastinf	Inflammatory breast disorders	original:rg-mast-swelling original:rg-mast-pump	original:rg-mast-local	
+repro.breastinf	Breast fat necrosis	original:rg-fat-oil	original:rg-fat-scar	
+repro.breastinf	Mastitis	original:rg-mast-swelling original:rg-mast-pump	bank:cohort:obs:q-931316265fb1:v1 original:rg-mast-local original:rg-mast-drain	original:rg-mast-milk original:rg-mast-nonresp original:rg-mast-pus
+repro.breastinf	Nipple discharge		original:bh-prolactin-amenorrhea	
+repro.breasttumor	Solitary breast cyst			
+repro.breasttumor	Fibrocystic breast changes		original:rg-lumps-cyclic	
+repro.breasttumor	Fibroadenoma	original:rg-micro-tissue	original:rg-lumps-move	original:rg-fel-observe
+repro.breasttumor	Breast hypertrophy			
+repro.breasttumor	Intraductal papilloma		original:rg-lumps-paper	
+repro.breasttumor	Breast malignancy and screening	original:s1-breast-marker-her original:s1-breast-marker-er original:s1-breast-marker-triple original:rg-lumps-outside original:rg-skin-lymph	original:ck-breast-mass-discord original:rg-skin-peau	original:ccs-breast-mass-next original:ccs-breast-mass-match original:acm-breast-biology-target original:rg-skin-rapid
+repro.breasttumor	Ductal carcinoma in situ	original:rg-lumps-duct original:rg-lumps-inside original:rg-lumps-outside		
+repro.breasttumor	Paget disease of the nipple		original:rg-skin-nipple original:rg2-add-duct	original:rg-skin-nobiopsy
+repro.breasttumor	Phyllodes tumor		original:rg-micro-phyl	original:rg-micro-phylsurg original:rg-fel-margin original:rg-fel-residual original:rg2-add-ben
+repro.inf	Bacterial vaginosis	original:rg-vag-clue original:rg-vag-odor		
+repro.inf	Bartholin abscess			
+repro.inf	Pelvic cellulitis			
+repro.inf	Vulvovaginal candidiasis	original:rg-vag-hypha		original:rg-vag-nocure original:rg-vag-pregyeast
+repro.inf	Lichen sclerosus			
+repro.inf	Evaluation after sexually transmitted infection exposure		original:rg-herpes-absent	
+repro.inf	Cervicitis			
+repro.inf	Chancroid			
+repro.inf	Genital herpes		original:rg-herpes-lesion original:rg-herpes-absent	original:rg-herpes-shed
+repro.inf	Gonorrhea			
+repro.inf	Anogenital warts			
+repro.inf	Lymphogranuloma venereum			
+repro.inf	Chlamydial infection other than LGV			
+repro.inf	Pelvic inflammatory disease	original:rg-pid-upper original:rg-pid-scar	original:rg-pid-threshold original:rg-pid-admit original:rg-pid-complex original:rg-pid-negtest	original:rg-pid-improve original:rg-pid-stalled original:rg2-add-pid
+repro.inf	Perihepatitis associated with PID			
+repro.inf	Salpingitis and oophoritis	original:rg-pid-scar original:rg-pid-upper		
+repro.inf	Syphilis			
+repro.inf	Trichomoniasis		original:rg-vag-motile original:rg-vag-neg original:rg2-add-vag	original:rg-vag-partners original:rg-vag-repeat
+repro.inf	Urethritis			
+repro.inf	Vaginitis and vulvovaginitis	original:rg-vag-clue original:rg-vag-hypha original:rg-vag-odor	original:rg-vag-motile original:rg-vag-neg	
+repro.tumor	Abnormal cervical cytology	original:rg-hpv-cytol original:rg-hpv-virus	original:rg2-cervix-basis original:rg2-cervix-unknown original:rg2-cervix-prior	original:rg2-cervix-history original:rg2-cervix-cotest original:rg2-cervix-paponly
+repro.tumor	Benign ovarian neoplasm			
+repro.tumor	Endocervical polyp			
+repro.tumor	Endometrial polyp			
+repro.tumor	Uterine leiomyoma	original:rg-fib-origin	original:rg-fib-distor	original:rg-fib-cavity original:rg-fib-outside
+repro.tumor	Ovarian cyst	original:rg-ovimage-echo	original:rg-ovimage-suspect	
+repro.tumor	Cervical carcinoma	original:rg-hpv-time	original:rg-hpv-cancer	
+repro.tumor	Oncogenic HPV infection	original:rg-hpv-time original:rg-hpv-virus	original:rg-hpv-cancer	original:rg-hpv-vax
+repro.tumor	Cervical dysplasia		original:rg2-cervix-basis original:rg2-cervix-unknown original:rg2-cervix-prior original:rg2-pregcervix-curette	original:rg2-pregcervix-rule original:rg2-pregcervix-cin3 original:rg2-pregcervix-progress original:rg2-pregcervix-postpartum
+repro.tumor	Endometrial hyperplasia	original:rg-ein-precursor	original:rg-ein-tissue	original:rg-ein-def original:rg-ein-pres original:rg-ein-check original:rg2-add-ein
+repro.tumor	Endometrial malignancy	original:rg-ein-precursor	original:rg-ein-tissue	
+repro.tumor	Gestational trophoblastic disease			
+repro.tumor	Ovarian malignancy	original:rg-screen-harm	original:rg-screen-well original:rg-screen-mass	original:rg-screen-family
+repro.tumor	Vulvar dysplasia and malignancy			
+repro.fertility	Assisted reproduction			
+repro.fertility	Oral contraception	original:rg-contra-type	original:rg-contra-noaura original:rg-contra-aura original:rg2-add-mig	original:rg-contra-switch original:rg-em-upa original:rg-em-lng
+repro.fertility	Intrauterine contraception		original:rg-em-copper	
+repro.fertility	Diaphragm, cap and contraceptive sponge			
+repro.fertility	Contraceptive implant		original:ckcontr-remove	original:rg-contra-switch
+repro.fertility	Emergency contraception	original:rg-em-receptor	original:rg-em-copper original:rg-em-late	original:rg-em-upa original:rg-em-lng original:rg2-add-em
+repro.fertility	External and internal condoms			original:rg-ster-barrier
+repro.fertility	Infertility evaluation	original:rg-ovul-timing original:rg-ovul-short original:rg-ovul-long	original:rg-fer-rule original:rg-fer-wait original:rg-fer-older original:rg-ovul-level	original:rg-fer-risk original:rg-fer-semen original:rg-ovul-quality
+repro.fertility	Turner syndrome	original:gen-turner-syndrome-gonads	original:gen-turner-syndrome-presentation	original:gen-turner-syndrome-heart
+repro.fertility	Permanent contraception		original:rg-ster-immediate original:rg-ster-later original:rg2-add-ster	original:rg-ster-barrier
+repro.fertility	Tubal-factor infertility	original:rg-pid-scar original:rg-spill-rule original:rg-spill-both original:rg-spill-one	original:rg-spill-distal original:rg-spill-prox original:rg-actualhsg-interpret	original:rg-fer-risk original:rg-spill-hist original:rg-spill-confirm original:rg-actualhsg-limits
+repro.menopause	Primary ovarian insufficiency	original:rg-cycle-ovary original:rg-poi-age	original:rg-cycle-high original:rg-poi-persist original:rg-poi-repeat	original:rg-poi-therapy original:rg-poi-protect
+repro.menopause	Perimenopause			
+repro.menopause	Heavy menstrual bleeding before menopause			
+repro.menopause	Genitourinary atrophy after menopause	original:rg-est-dry	original:rg-est-atro	original:rg-hormone-local
+repro.menopause	Postmenopausal bleeding		original:rg-meno-rule original:rg-meno-thin original:rg-meno-again	original:rg-meno-access original:rg-meno-incomplete
+repro.menopause	Vasomotor symptoms	original:rg-est-night		original:rg-hormone-system original:rg-est-hot
+repro.cycle	Abnormal uterine bleeding		original:rg-fib-distor original:rg2-heavy-rule	original:rg2-heavy-basis original:rg2-heavy-stable original:rg2-heavy-shock original:rg2-heavy-fail original:rg2-heavy-future original:rg2-heavy-after
+repro.cycle	Primary amenorrhea	original:rg-dev-mrkh original:rg-dev-androgen	original:gen-turner-syndrome-presentation original:rg-dev-dx original:rg-dev-other original:rg-outflow-bulge	
+repro.cycle	Secondary amenorrhea and unrecognized pregnancy	original:rg-cycle-feedback original:rg-cycle-ovary original:rg-cycle-central	original:bh-prolactin-amenorrhea original:rg-cycle-preg original:rg-cycle-androgen original:rg-cycle-high original:rg-cycle-low	original:rg-cycle-uterus
+repro.cycle	Anovulation	original:rg-pcos-cycles		original:rg-pcos-induce
+repro.cycle	Dysmenorrhea		original:rg-endo-recognize	
+repro.cycle	Endometriosis	original:rg-endo-where original:rg-ovimage-echo	original:rg-sex-deep original:rg-endo-recognize original:rg-endo-scan original:rg-ovimage-suspect	original:rg-endo-normal original:rg-endo-empiric
+repro.cycle	Hirsutism and virilization		original:rg-pcos-dx original:rg-pcos-rapid	
+repro.cycle	Midcycle ovulatory pain			
+repro.cycle	Pelvic pain		original:rg-endo-recognize	
+repro.cycle	Polycystic ovary syndrome	original:rg-pcos-cycles	original:rg-pcos-dx original:rg-pcos-rapid	original:rg-pcos-induce
+repro.cycle	Postcoital bleeding			
+repro.cycle	Premenstrual syndrome			
+repro.sexual	Pain with intercourse	original:rg-sex-guard	original:rg-est-atro original:rg-sex-entrance original:rg-sex-deep	original:rg-sex-lube
+repro.sexual	Orgasmic dysfunction	original:rg-desire-which	original:rg-ssri-new	original:rg-ssri-before
+repro.sexual	Sexual interest or arousal disorder		original:rg-desire-des	
+repro.sexual	Involuntary pelvic floor tightening with penetration	original:rg-sex-guard	original:rg-sex-entrance	
+repro.trauma	Intrauterine adhesions	original:rg-adh-basal	original:rg-adh-scope	original:rg-cycle-uterus
+repro.trauma	Chronic uterine inversion			
+repro.trauma	Chronic pelvic pain syndrome			
+repro.trauma	Anterior vaginal wall prolapse involving the bladder	original:rg-support-front	original:rg-support-void	
+repro.trauma	Imperforate hymen	original:rg-outflow-blood	original:rg-outflow-bulge	original:rg-outflow-avoid
+repro.trauma	Reproductive tract injuries, wounds and burns			
+repro.trauma	Adnexal torsion	original:rg-tors-supply original:rg-tors-pedicle	original:rg-tors-present original:rg-tors-nomass	original:rg-tors-dark original:rg-tors-fall original:rg2-add-tor
+repro.trauma	Pelvic support defects			original:rg-support-device original:rg-support-observe original:rg2-add-prol
+repro.trauma	Posterior vaginal wall prolapse involving the rectum	original:rg-support-back	original:rg-support-stool	
+repro.trauma	Urethrocele			
+repro.congenital	Müllerian agenesis	original:rg-dev-ovaries original:rg-dev-mrkh original:rg-dev-androgen	original:rg-dev-dx original:rg-dev-other original:rg2-add-dev	original:rg-dev-renal original:rg-dev-dilate
+repro.congenital	Uterus didelphys			
+repro.congenital	Bicornuate uterus	original:rg-shape-outer original:rg-shape-cleft original:rg-shape-smooth	original:rg-shape-scan original:rg-shape-interpret original:rg-shape-partition original:rg2-add-shape	original:rg-shape-surgery
+repro.congenital	Short cervix			
+repro.drug	Antihistamine effects			
+repro.drug	H2-receptor blocker effects			
+repro.drug	Benzodiazepine effects			
+repro.drug	Beta-blocker effects			
+repro.drug	Menopausal hormone therapy effects	original:rg-hormone-why	original:rg-hormone-with original:rg-hormone-without	original:rg-hormone-local original:rg-hormone-system original:rg-est-hot
+repro.drug	Opioid effects			
+repro.drug	Spironolactone effects			
+repro.drug	SSRI effects	original:rg-ssri-effect	original:rg-ssri-new	original:rg-ssri-baseline original:rg-ssri-before original:rg2-add-drug
+repro.drug	Tricyclic antidepressant effects			

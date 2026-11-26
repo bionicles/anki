@@ -436,6 +436,87 @@ def quality_and_communication():
         save(fig,"soc_access_" + code)
 
 
+def reproductive():
+    from matplotlib.patches import Circle, Polygon
+
+    # The section marks cell type by color and dot so the boundary crossing
+    # can also be read in monochrome.
+    for code, invaded in [("a", False), ("b", True)]:
+        fig, ax = plt.subplots(figsize=(5.2, 3.3), layout="constrained")
+        ax.set_aspect("equal")
+        ax.set(xlim=(-1.6, 2.05), ylim=(-1.22, 1.25), title="Schematic breast duct in cross-section")
+        ax.axis("off")
+        ax.add_patch(Circle((0, 0), 1, facecolor="#f5e8df", edgecolor="none"))
+        angles = np.linspace(0, 2*np.pi, 220) if not invaded else np.linspace(.27, 2*np.pi-.27, 220)
+        ax.plot(np.cos(angles), np.sin(angles), color="#233339", lw=3)
+        coords = [(r*np.cos(t), r*np.sin(t)) for r, n in [(.76, 14), (.47, 9), (.17, 3)]
+                  for t in np.linspace(0, 2*np.pi, n, endpoint=False)]
+        if invaded:
+            coords += [(.95,.03), (1.15,.08), (1.32,-.02), (1.52,-.05)]
+        for x, y in coords:
+            ax.add_patch(Circle((x,y), .105, facecolor="#efab82", edgecolor="#7b3c24"))
+            ax.add_patch(Circle((x,y), .033, facecolor="#482a23"))
+        ax.annotate("Duct boundary", xy=(-.82,.57), xytext=(-1.52,1.05), fontsize=8,
+                    arrowprops={"arrowstyle":"-", "color":"#34434a"})
+        ax.text(1.07,.73,"Stroma",fontsize=9)
+        ax.text(-1.44,-1.15,"Dotted circles = atypical epithelial cells",fontsize=8)
+        save(fig, "repro_duct_" + code)
+
+    # Contrast outlines the lumen. Patient side is explicit in radiographic orientation.
+    for code, tubes in [("a", ("spill","spill")), ("b", ("spill","closed")), ("c", ("proximal","proximal"))]:
+        fig, ax = plt.subplots(figsize=(5.2, 3.1), layout="constrained")
+        ax.set_aspect("equal")
+        ax.set(xlim=(-2.55,2.55),ylim=(-1.0,1.55),title="Contrast study • end of injection")
+        ax.axis("off")
+        ax.add_patch(Polygon([(-.53,.54),(.53,.54),(.09,-.27),(.07,-.59),(-.07,-.59),(-.09,-.27)],
+                             closed=True,facecolor=COLORS[0]))
+        for sign, state in zip([-1,1],tubes):
+            ax.text(sign*1.65,1.15,"Patient’s " + ("right" if sign<0 else "left"),ha="center",fontsize=10)
+            if state=="proximal":
+                continue
+            x=np.array([.45,.68,.83,1,1.16,1.36,1.52,1.65])
+            y=[.5,.58,.70,.64,.79,.68,.51,.52]
+            ax.plot(sign*x,y,color=COLORS[0],lw=4,solid_capstyle="round")
+            if state=="spill":
+                for dx,dy in [(0,.03),(.15,-.12),(-.03,-.18),(.27,.09)]:
+                    ax.add_patch(Circle((sign*(1.75+dx),.45+dy),.085,color=COLORS[0],alpha=.68))
+        ax.text(0,-.88,"Schematic HSG  •  blue = contrast",ha="center",fontsize=9)
+        save(fig, "repro_hsg_" + code)
+
+    # A common early-follicular comparison interval is supplied for each assay.
+    for code, fsh, estradiol in [("a",56,12),("b",2,14)]:
+        fig, panels=plt.subplots(2,1,figsize=(5.2,3.0),layout="constrained")
+        fig.suptitle("Amenorrhea evaluation • teaching laboratory", fontsize=12)
+        for ax, label, ref, value, maximum in zip(panels,["FSH (IU/L)","Estradiol (pg/mL)"],
+                                                   [(3,10),(25,100)],[fsh,estradiol],[65,120]):
+            ax.axvspan(*ref,color="#b9d9c8",label="Follicular reference interval")
+            ax.plot(value,.52,"D",color=COLORS[1])
+            ax.text(value,.78,str(value),ha="center",va="center",fontsize=9)
+            ax.set(xlim=(0,maximum),ylim=(0,1),yticks=[],xlabel=label)
+            for side in ["left","right","top"]:
+                ax.spines[side].set_visible(False)
+        fig.text(.5,.015,"Shading = laboratory follicular reference interval",ha="center",fontsize=8)
+        # Leave room for the definition when rendered inside a small card.
+        fig.get_layout_engine().set(rect=(0,.07,1,.92))
+        save(fig, "repro_axis_" + code)
+
+    outer_smooth=[(-1.38,.78),(-1.18,.99),(-.65,1.08),(0,1.06),(.65,1.08),(1.18,.99),(1.38,.78)]
+    outer_cleft=[(-1.38,.72),(-1.18,1.08),(-.86,1.12),(-.62,1.01),(0,.15),(.62,1.01),(.86,1.12),(1.18,1.08),(1.38,.72)]
+    for code, outer in [("a",outer_cleft),("b",outer_smooth)]:
+        fig, ax=plt.subplots(figsize=(4.7,3.4),layout="constrained")
+        ax.set_aspect("equal")
+        ax.set(xlim=(-1.6,1.6),ylim=(-1.34,1.32),title="Coronal uterine anatomy • schematic")
+        ax.axis("off")
+        ax.add_patch(Polygon(outer+[(1.13,.03),(.36,-.74),(.20,-1.11),(-.20,-1.11),(-.36,-.74),(-1.13,.03)],
+                             closed=True,facecolor="#da9e92",edgecolor="#624846",lw=2))
+        for sign in [-1,1]:
+            ax.add_patch(Polygon([(sign*x,y) for x,y in [(1.06,.70),(.73,.59),(.14,-.03),(0,-.49),(.21,-.24),(.91,.37)]],
+                                 closed=True,facecolor="#fff5d8",edgecolor="#796b58",lw=1))
+        ax.plot([0,0],[-.47,-.98],color="#fff5d8",lw=3)
+        ax.text(0,-1.29,"Light regions = uterine cavity and canal",ha="center",fontsize=8)
+        save(fig, "repro_uterus_" + code)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -446,6 +527,7 @@ def main():
     neurologic_monitoring()
     hematology()
     quality_and_communication()
+    reproductive()
     plot("refeed", "Hours after starting nutrition", "Serum phosphate (mg/dL)",
          [0,12,24,36,48], {"Patient A": [3.2,2.9,2.4,1.8,1.6],
                             "Patient B": [3.1,3.2,3.0,3.1,3.1]})
