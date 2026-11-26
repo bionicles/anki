@@ -3458,6 +3458,109 @@ def lymphoma_staging():
         save(fig, "depthcase_stage_" + name)
 
 
+def communication_decision_records():
+    """Simulated decision aids and operative inventories for independent reviews."""
+    for name, risks in [("rhigh", [40, 20]), ("rlow", [10, 5])]:
+        study_table("visit_" + name, "One-year outcomes per 1,000 people",
+                    ["Outcome", "Usual care", "With treatment"],
+                    [["Stroke", *risks], ["Major bleed", 3, 8]])
+    for name, final, note in [("counta", 14, "No packing planned"),
+                              ("countb", 15, "Possible sponge seen in wound")]:
+        study_table("visit_" + name, "Closing sponge inventory",
+                    ["Record entry", "Quantity or finding"],
+                    [["First pack opened", 10], ["Second pack opened", 5],
+                     ["Recovered at final count", final], ["Team observation", note]])
+
+
+def medication_safety_records():
+    """Draw the order and documentation exhibits and two published study summaries."""
+    for name, supplied in [("dform", ["20 mg", "extended release"]),
+                           ("dstrength", ["40 mg", "immediate release"])]:
+        study_table("safecare_" + name, "Dispensing record for training medicine A",
+                    ["Source", "Strength per tablet", "Formulation"],
+                    [["Prescription", "20 mg", "immediate release"], ["Supplied", *supplied]])
+    for name, amount, vol in [("calc1", 300, 100), ("calc2", 200, 100)]:
+        study_table("safecare_" + name, "Training infusion preparation",
+                    ["Finished bag", "Amount"], [["Total drug (mg)", amount], ["Final volume (mL)", vol]])
+    study_table("safecare_copy_a", "Two signed skin assessments",
+                ["Signed", "Description", "Source of finding"],
+                [["Monday", "Blanching rash", "Bedside examination"],
+                 ["Tuesday", "Blanching rash", "Copied from Monday"]])
+    study_table("safecare_copy_b", "Laboratory result timeline",
+                ["Event", "Day"], [["Specimen collected", "Monday"], ["Result posted", "Thursday"]])
+    study_table("safecare_flag", "Validation of an electronic ordering signal",
+                ["Order sessions", "Count"], [["Evaluated positive flags", 223],
+                ["Confirmed wrong-patient events", 170]], source="Adelman et al.")
+    study_table("safecare_ipass", "Events per 100 pediatric admissions",
+                ["Event", "Before", "After"], [["Medical errors", 24.5, 18.8],
+                 ["Preventable adverse events", 4.7, 3.3]], source="I-PASS study")
+
+
+def social_psychology_studies():
+    """Simulated comparisons for independently graded MCAT questions."""
+    study_table("socialstudy_aud", "Accurate responses (%)", ["Task", "Alone", "With audience"],
+                [["Practiced", 80, 88], ["Unfamiliar", 65, 55]])
+    study_table("socialstudy_polar", "Private mean rating: −5 oppose to +5 favor",
+                ["Group", "Before discussion", "After discussion"],
+                [["A", "+2", "+1"], ["B", "−1", "−3"]])
+    study_table("socialstudy_threat", "Mean test scores • focal group",
+                ["Test framing", "Score out of 100"], [["Neutral", 74], ["Identity relevant", 68]])
+    fig, ax = plt.subplots(figsize=(5.4, 2.6), layout="constrained")
+    points = {"A": (0, 1), "B": (0, 0), "C": (1.2, .5), "D": (2.4, 1), "E": (2.4, 0)}
+    for left, right in [("A", "B"), ("A", "C"), ("B", "C"), ("C", "D"), ("C", "E"), ("D", "E")]:
+        ax.plot(*zip(points[left], points[right]), color="#65787c", lw=2)
+    for name, (x, y) in points.items():
+        ax.scatter(x, y, s=430, color=COLORS[0], zorder=2)
+        ax.text(x, y, name, va="center", ha="center", color="white", weight="bold")
+    ax.set(xlim=(-.4, 2.8), ylim=(-.35, 1.4), title="Collaboration ties • simulated")
+    ax.axis("off")
+    save(fig, "socialstudy_network")
+    study_table("socialstudy_model", "Participants demonstrating the target action (%)",
+                ["Group", "Spontaneous", "With incentive"], [["Observed model", 20, 75], ["No model", 8, 12]])
+    study_table("socialstudy_argument", "Endorsement after a message (%)",
+                ["Argument", "Low prestige", "High prestige"], [["Weak", 25, 38], ["Strong", 55, 64]])
+    study_table("socialstudy_public", "Switches to an incorrect answer (%)",
+                ["Peer responses", "Private answer", "Public answer"],
+                [["None shown", 5, 6], ["Unanimously wrong", 9, 30]])
+
+
+def goals_of_care_records():
+    """Simulated handoff and observation timelines."""
+    study_table("caregoals_vent", "Time-limited treatment trial", ["Record", "Documented finding"],
+                [["Patient's goal", "Recover from a reversible illness"],
+                 ["Review milestone", "Improving with less support"],
+                 ["At review", "Awake; passing breathing trials"]])
+    study_table("caregoals_times", "Expected inpatient death", ["Event", "Clock time"],
+                [["Last seen alive", "06:00"], ["Found unresponsive", "06:55"],
+                 ["Death pronounced after examination", "07:10"]])
+
+
+def quality_improvement_studies():
+    """Simulated quality reports, care timelines and weekly run charts."""
+    for suffix, returns in [("a", 9), ("b", 4)]:
+        study_table("quality_bal_" + suffix, "Discharge pilot", ["Measure", "Before", "During pilot"],
+                    [["Discharge time (hours)", 4, 3], ["Urgent returns", 4, returns],
+                     ["Eligible discharges", 100, 100]])
+    for suffix, steps in [("a", [("Yes", "Yes"), ("No", "No")]),
+                          ("b", [("Yes", "No"), ("No", "Yes")])]:
+        study_table("quality_bundle_" + suffix, "Two-step care bundle", ["Patient", "Step A", "Step B"],
+                    [[1, "Yes", "Yes"], [2, "Yes", "Yes"], [3, *steps[0]], [4, *steps[1]]])
+    baseline = [49, 51, 48, 52, 50, 50, 49, 51, 50, 50]
+    for suffix, followup in [("a", [48, 46, 47, 45, 46, 44]), ("b", [40, 52, 48, 51, 47, 53])]:
+        fig, ax = axes("Week", "Median wait (minutes)")
+        ax.plot(range(1, 17), baseline + followup, "o-", color=COLORS[0], markersize=4)
+        ax.axhline(50, ls="--", color="#954a26", label="Baseline median")
+        ax.axvline(10.5, ls=":", color="#444444", label="Pilot begins")
+        ax.set(title="Weekly waiting times • simulated", ylim=(39, 58), xticks=[1, 4, 7, 10, 13, 16])
+        ax.legend(loc="upper left", fontsize=8, ncols=2)
+        save(fig, "quality_run_" + suffix)
+    study_table("quality_core", "Process measure report", ["Clinician", "Met measure", "Eligible"],
+                [["A", 48, 60], ["B", 27, 30]])
+    for suffix, assessment in [("a", "09:10"), ("b", "08:15")]:
+        study_table("quality_wait_" + suffix, "Urgent clinic timeline", ["Event", "Clock time"],
+                    [["Arrival", "08:00"], ["Assessment", assessment], ["Result", "09:30"]])
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -3504,6 +3607,11 @@ def main():
     hematologic_neoplasm_studies()
     hematologic_infection_studies()
     lymphoma_staging()
+    communication_decision_records()
+    medication_safety_records()
+    social_psychology_studies()
+    goals_of_care_records()
+    quality_improvement_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
