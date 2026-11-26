@@ -1,0 +1,461 @@
+# One exam-relevant OpenStax glossary headword per line. Match case-insensitively.
+accuracy
+precision
+significant figures
+mole
+molar mass
+Avogadro’s number
+isotope
+mass number
+atomic number
+anion
+cation
+ionic bond
+covalent bond
+polar covalent bond
+electronegativity
+hydrogen bond
+dipole-dipole attraction
+dispersion force
+formal charge
+molecular geometry
+bond order
+hybridization
+sigma bond
+pi bond
+resonance
+ionization energy
+electron affinity
+valence electron
+orbital
+quantum number
+Pauli exclusion principle
+Hund’s rule
+empirical formula
+molecular formula
+limiting reactant
+theoretical yield
+percent yield
+molarity
+molality
+mole fraction
+dilution
+osmotic pressure
+semipermeable membrane
+solute
+solvent
+saturated solution
+colligative property
+vapor pressure
+Raoult’s law
+Henry’s law
+ideal gas
+partial pressure
+enthalpy
+entropy
+heat capacity
+specific heat capacity
+calorimetry
+exothermic process
+endothermic process
+Hess’s law
+state function
+activation energy
+catalyst
+reaction rate
+rate law
+rate constant
+reaction order
+half-life
+rate-determining step
+transition state
+dynamic equilibrium
+equilibrium constant
+reaction quotient
+Le Châtelier’s principle
+conjugate acid
+conjugate base
+amphiprotic
+buffer
+buffer capacity
+equivalence point
+end point
+titration
+solubility product
+common-ion effect
+oxidation
+reduction
+oxidizing agent
+reducing agent
+anode
+cathode
+electrolysis
+galvanic cell
+standard cell potential
+Gibbs free energy
+hydrocarbon
+alkane
+alkene
+alkyne
+alcohol
+aldehyde
+ketone
+carboxylic acid
+ester
+ether
+amine
+amide
+isomer
+functional group
+displacement
+velocity
+speed
+acceleration
+force
+net force
+inertia
+mass
+weight
+normal force
+friction
+work
+power
+kinetic energy
+potential energy
+conservative force
+mechanical advantage
+torque
+lever arm
+equilibrium
+density
+pressure
+gauge pressure
+absolute pressure
+buoyant force
+specific gravity
+Archimedes’ principle
+Pascal’s principle
+flow rate
+continuity equation
+Bernoulli’s principle
+viscosity
+laminar flow
+turbulence
+Poiseuille’s law
+surface tension
+capillary action
+diffusion
+osmosis
+temperature
+thermal equilibrium
+heat
+heat transfer
+conduction
+convection
+radiation
+specific heat
+latent heat
+heat engine
+efficiency
+amplitude
+frequency
+period
+wavelength
+resonance
+standing wave
+fundamental frequency
+harmonics
+interference
+diffraction
+Doppler effect
+intensity
+sound intensity level
+ultrasound
+electric charge
+electric field
+electric potential
+potential difference
+capacitance
+capacitor
+dielectric
+electric current
+resistance
+resistivity
+Ohm’s law
+electric power
+series
+parallel
+electromagnetic wave
+photon
+reflection
+refraction
+index of refraction
+total internal reflection
+critical angle
+focal length
+real image
+virtual image
+magnification
+converging lens
+diverging lens
+myopia
+hyperopia
+polarization
+constructive interference
+destructive interference
+amino acid
+polypeptide
+peptide bond
+primary structure
+secondary structure
+tertiary structure
+quaternary structure
+denaturation
+chaperone
+monosaccharide
+disaccharide
+polysaccharide
+glycosidic bond
+glycogen
+triglyceride
+phospholipid
+steroid
+fatty acid
+saturated fatty acid
+unsaturated fatty acid
+nucleotide
+nucleoside
+phosphodiester bond
+ribosome
+nucleus
+nucleolus
+mitochondrion
+lysosome
+peroxisome
+Golgi apparatus
+endoplasmic reticulum
+cytoskeleton
+microtubule
+microfilament
+tight junction
+gap junction
+desmosome
+plasma membrane
+fluid mosaic model
+facilitated diffusion
+active transport
+passive transport
+electrochemical gradient
+isotonic
+hypotonic
+hypertonic
+phagocytosis
+endocytosis
+exocytosis
+enzyme
+substrate
+active site
+cofactor
+coenzyme
+competitive inhibition
+feedback inhibition
+allosteric regulation
+ATP
+glycolysis
+fermentation
+substrate-level phosphorylation
+oxidative phosphorylation
+chemiosmosis
+citric acid cycle
+electron transport chain
+acetyl CoA
+homeostasis
+signal transduction
+second messenger
+ligand
+receptor
+protein kinase
+apoptosis
+mitosis
+meiosis
+crossing over
+homologous chromosomes
+sister chromatids
+haploid
+diploid
+nondisjunction
+allele
+genotype
+phenotype
+homozygous
+heterozygous
+codominance
+incomplete dominance
+independent assortment
+linkage
+epistasis
+helicase
+DNA polymerase
+RNA polymerase
+Okazaki fragment
+transcription
+translation
+codon
+anticodon
+intron
+exon
+promoter
+alternative splicing
+mutation
+frameshift mutation
+epithelial tissue
+connective tissue
+sarcomere
+actin
+myosin
+motor unit
+neuromuscular junction
+neuron
+axon
+dendrite
+myelin
+resting membrane potential
+action potential
+depolarization
+repolarization
+refractory period
+synapse
+neurotransmitter
+sympathetic division
+parasympathetic division
+hormone
+negative feedback
+positive feedback
+insulin
+glucagon
+aldosterone
+antidiuretic hormone
+cortisol
+erythrocyte
+hemoglobin
+hematocrit
+platelet
+plasma
+cardiac output
+stroke volume
+preload
+afterload
+systole
+diastole
+capillary
+alveolus
+surfactant
+tidal volume
+vital capacity
+residual volume
+nephron
+glomerulus
+glomerular filtration rate
+filtration
+reabsorption
+secretion
+bile
+peristalsis
+villus
+microvillus
+antigen
+antibody
+innate immunity
+adaptive immunity
+memory cell
+oocyte
+spermatogenesis
+fertilization
+implantation
+zygote
+operational definition
+hypothesis
+theory
+reliability
+validity
+random assignment
+random sampling
+control group
+experimental group
+dependent variable
+independent variable
+confounding variable
+confirmation bias
+correlation coefficient
+placebo effect
+longitudinal research
+cross-sectional research
+naturalistic observation
+informed consent
+absolute threshold
+difference threshold
+sensory adaptation
+signal detection theory
+bottom-up processing
+top-down processing
+selective attention
+inattentional blindness
+perception
+sensation
+circadian rhythm
+classical conditioning
+operant conditioning
+unconditioned stimulus
+conditioned stimulus
+extinction
+spontaneous recovery
+generalization
+discrimination
+positive reinforcement
+negative reinforcement
+punishment
+shaping
+observational learning
+working memory
+encoding
+retrieval
+recognition
+recall
+semantic memory
+episodic memory
+procedural memory
+retroactive interference
+proactive interference
+heuristic
+algorithm
+availability heuristic
+representativeness heuristic
+cognitive dissonance
+self-efficacy
+locus of control
+social norm
+conformity
+obedience
+groupthink
+group polarization
+social loafing
+diffusion of responsibility
+fundamental attribution error
+self-serving bias
+stereotype
+prejudice
+discrimination
+in-group
+out-group
+intrinsic motivation
+extrinsic motivation
+stressor
+coping
+habituation
+fluid intelligence
+crystallized intelligence
+attachment
+temperament
+self-concept
+role
+social support

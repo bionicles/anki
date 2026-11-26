@@ -1,6 +1,6 @@
 # Quantitative and Systematic Trading
 
-Import **Quant-Systematic-Trading.apkg** into Anki. The course has 678 short-answer cards across 138 objectives. Thirty harder objectives have eight to ten independently scheduled questions each. The other 108 have four. All 253 code-generated figures work offline. [Anki package](release/Quant-Systematic-Trading.apkg) · [Editable Anki export](release/Quant-Systematic-Trading.tsv) · [Objective-by-objective coverage](release/coverage.csv)
+Import **Quant-Systematic-Trading.apkg** into Anki. The course has 690 short-answer cards across 138 objectives. Thirty harder objectives have at least eight independently scheduled questions each. Twelve worked examples also have a separate follow-up on a calculation or decision. All 253 code-generated figures work offline. [Anki package](release/Quant-Systematic-Trading.apkg) · [Editable Anki export](release/Quant-Systematic-Trading.tsv) · [Objective-by-objective coverage](release/coverage.csv)
 
 **Try an execution question.** You have a bid resting in this FIFO queue. A market order sells 170 shares into the bid. With no cancellations or other changes, how many shares of your order remain?
 
@@ -25,13 +25,14 @@ Start with domain 01 if returns and position accounting are new to you. Each obj
 | `deck:"Quantitative and Systematic Trading" tag:objective::optiontree` | Eight questions on one-period replication, from a single terminal payoff to a new two-state tree. |
 | `deck:"Quantitative and Systematic Trading" tag:practice::step` | 96 short questions on individual operations and decisions within harder objectives. |
 | `deck:"Quantitative and Systematic Trading" tag:practice::transfer` | 30 questions with a chart and dataset unique to that card. Use this search for mixed practice after a delay. |
+| `deck:"Quantitative and Systematic Trading" tag:practice::worked_followup` | 12 short follow-ups on a distinct step from a worked answer. |
 | `deck:"Quantitative and Systematic Trading" tag:type::calculation` | Numerical exercises across the domains. |
 
 ### Working through a hard objective
 
-For a scalar Kalman filter, one card asks for the signed difference between the observation and prediction. A chart card asks how much of that difference enters the update at a stated gain. Another gives the correction and asks for the new estimate. Finally, a fresh chart shows two filters responding to the same price and asks which one trusted the observation more. Search `tag:objective::kalman` within the deck to see all eight.
+For a scalar Kalman filter, one card asks for the signed difference between the observation and prediction. A chart card asks how much of that difference enters the update at a stated gain. Another gives the correction and asks for the new estimate. Finally, a fresh chart shows two filters responding to the same price and asks which one trusted the observation more. Search `tag:objective::kalman` within the deck to see the full set.
 
-To check retention after a delay, try an example outside the review queue. Your predicted price is $90, the observation is $84 and the gain is one-third. Where does the updated estimate land?
+One independently scheduled follow-up asks for the final estimate from the raw observations. Your predicted price is $90, the observation is $84 and the gain is one-third. Where does the updated estimate land?
 
 <details><summary>Check your reasoning</summary>
 

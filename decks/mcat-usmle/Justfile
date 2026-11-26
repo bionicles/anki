@@ -1,0 +1,14 @@
+check-updates:
+    python3 -B deck.py check
+
+update:
+    uv run --no-project --with genanki==0.13.1 --with anki==26.9.4 python -B deck.py update
+
+build:
+    uv run --no-project --with genanki==0.13.1 --with anki==26.9.4 python -B deck.py build
+
+test:
+    uv run --no-project --with genanki==0.13.1 --with anki==26.9.4 python -B deck.py test
+
+figures:
+    uv run --no-project --with matplotlib==3.10.8 python -B figures.py

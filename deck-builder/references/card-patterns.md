@@ -11,6 +11,8 @@
 
 **Quantities and equations.** Specify the conditions, units, and the variable being solved for. Write Anki MathJax as `\(v = d/t\)` in a field and double the backslash in JSON. Put one short worked example on the answer side when it clarifies grading.
 
+A worked answer might say “a 20% rise takes $100 to $120, then a 20% fall loses $24.” If the first card grades the overall return, a learner can pass while still choosing the wrong base. A separate card can ask “After $100 gains 20%, how many dollars does the next 20% decline cost?” Grade **$24**. Put only the givens on the front, including in figure labels. Keep arithmetic that merely repeats an existing target in the explanation.
+
 **Images and sound.** Choose media that supplies evidence for the question. Crop to the relevant region while preserving orientation and scale. For a label test, use a genuinely masked prompt image and show the labeled original on reveal. A caption, alt text, or filename visible during review can give away the answer. For editable native image occlusion, use Anki's Image Occlusion editor or a tested exporter for its specific note schema.
 
 **Mathematical figures.** Generate quantitative plots from code and stated data. Use the point cloud, curve, matrix or graph as evidence for one inference. Give axes units, distinguish series without relying on color alone, and describe the available observations in alt text. Keep enough context for a phone screen. Verify the plotted answer from the underlying numbers and check the media in a real package import.

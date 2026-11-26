@@ -1,6 +1,6 @@
 # Anki deck builder and study decks
 
-Build flashcards for Anki from a JSON manifest or use the exam workflow to link cards to an exam outline. The repository includes six ready-to-import decks with editable text exports and coverage maps.
+Build flashcards for Anki from a JSON manifest or use the exam workflow to link cards to an exam outline. The repository includes seven ready-to-import decks with editable text exports and coverage maps.
 
 From the repository root, give your agent this prompt. Replace `$TEST` with the exam name.
 
@@ -8,9 +8,11 @@ From the repository root, give your agent this prompt. Replace `$TEST` with the 
 /goal use the ./deck-builder skill and build me an anki deck for $TEST
 ```
 
-The [deck-by-deck design review](decks/card-design-review.md) maps recall, reversals, cue variation and visual practice to the six decks. Try a candle-pattern question in the [CMT guide](decks/cmt/README.md#practice-reading-charts) or an option payoff in the [Series 65 guide](decks/series-65/README.md).
+The [deck-by-deck design review](decks/card-design-review.md) maps recall, reversals, cue variation and visual practice across the decks. Try a candle-pattern question in the [CMT guide](decks/cmt/README.md#practice-reading-charts) or an option payoff in the [Series 65 guide](decks/series-65/README.md).
 
-**Quantitative and Systematic Trading** covers 138 objectives in 16 domains, from point-in-time data through portfolio risk and execution. The 678 cards include 96 short subskill questions and 30 independent chart cases for the harder topics. Try the order-queue question and browse the curriculum in the [course guide](decks/quant-systematic-trading/README.md), or [download the Anki package](decks/quant-systematic-trading/release/Quant-Systematic-Trading.apkg).
+**Quantitative and Systematic Trading** covers 138 objectives in 16 domains, from point-in-time data through portfolio risk and execution. The 690 cards include 96 short subskill questions and 30 independent chart cases for the harder topics. Try the order-queue question and browse the curriculum in the [course guide](decks/quant-systematic-trading/README.md), or [download the Anki package](decks/quant-systematic-trading/release/Quant-Systematic-Trading.apkg).
+
+The **MCAT and USMLE** collection combines six versioned sources with original passage and case questions. Run `just update` in `decks/mcat-usmle` to refresh it. The OpenStax material carries noncommercial share-alike terms. [Import and update guide](decks/mcat-usmle/README.md) · [Licenses](decks/mcat-usmle/LICENSES.md)
 
 ## Tutorial
 
@@ -84,6 +86,7 @@ Use a new output directory for each build. For a standalone project with `just b
 | Chartered Market Technician | [Package](decks/cmt/release/CMT.apkg) | [TSV](decks/cmt/release/CMT.tsv) | [Coverage](decks/cmt/release/coverage.csv) | [Deck guide](decks/cmt/README.md) |
 | Frontier ML | [Package](decks/frontier-ml/release/Frontier-ML.apkg) | [TSV](decks/frontier-ml/release/Frontier-ML.tsv) | [Coverage](decks/frontier-ml/release/coverage.csv) | [Deck guide](decks/frontier-ml/README.md) |
 | Quantitative and Systematic Trading | [Package](decks/quant-systematic-trading/release/Quant-Systematic-Trading.apkg) | [TSV](decks/quant-systematic-trading/release/Quant-Systematic-Trading.tsv) | [Coverage](decks/quant-systematic-trading/release/coverage.csv) | [Course guide](decks/quant-systematic-trading/README.md) |
+| MCAT and all USMLE Steps | [Package](decks/mcat-usmle/release/MCAT-USMLE.apkg) | [TSV](decks/mcat-usmle/release/MCAT-USMLE.tsv) | [Coverage](decks/mcat-usmle/release/coverage.tsv) | [Course, sources and update commands](decks/mcat-usmle/README.md) |
 
 | Entry point | Inputs and outputs |
 | --- | --- |
