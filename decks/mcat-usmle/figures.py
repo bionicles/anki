@@ -4872,6 +4872,92 @@ def prenatal_visit_studies():
         save(fig, "previsit_" + name, indexed=True)
 
 
+
+def occupational_lung_studies():
+    """Render occupational spirometry, published respiratory outcomes and model-circuit data."""
+    for name, values in (("cotfall", (3.20, 2.80)), ("cotstable", (2.70, 2.70))):
+        fig, ax = axes("First shift after days away", "FEV₁ (L)")
+        ax.plot([0, 1], values, "o-", color=COLORS[0], lw=2.2)
+        for x, y in enumerate(values):
+            ax.annotate(f"{y:.2f}", (x, y), xytext=(0, 9),
+                        textcoords="offset points", ha="center")
+        ax.set(xticks=[0, 1], xticklabels=["Before shift", "After shift"], xlim=(-.3, 1.3),
+               ylim=(2.25, 3.55), title="Worker spirometry • simulated")
+        save(fig, "dustlung_" + name, indexed=True)
+    fig, ax = axes("Flow (mL/s)", "Pressure drop (kPa)")
+    for i, (label, resistance) in enumerate((("Circuit A", 4), ("Circuit B", 2))):
+        flow = np.array([0, 1, 2])
+        ax.plot(flow, resistance * flow, STYLES[i], marker=("o", "s")[i],
+                color=COLORS[i], lw=2, label=label)
+    ax.set(xticks=[0, 1, 2], yticks=range(0, 9, 2), title="Steady laminar flow • simulated")
+    ax.legend()
+    save(fig, "dustlung_resist", indexed=True)
+    study_table("dustlung_ipftrial", "Annual FVC slope", ["Randomized arm", "Adjusted mL/year"],
+                [["Nintedanib", "−114.7"], ["Placebo", "−239.9"]], source="INPULSIS-1")
+    fig, ax = axes("Surveys with an across-shift FEV₁ drop >5%", "Mean five-year FEV₁ loss (mL)")
+    bars = ax.bar(["Neither", "One", "Both"], [180, 224, 267], color=COLORS[0], width=.55)
+    ax.bar_label(bars, padding=2)
+    ax.set(ylim=(0, 305), title="Cotton worker cohort • Christiani et al.")
+    ax.text(.02, .96, "Group comparison: nonsignificant", fontsize=8,
+            va="top", transform=ax.transAxes)
+    save(fig, "dustlung_cohort", indexed=True)
+
+    fig, ax = plt.subplots(figsize=(5.4, 2.9), layout="constrained")
+    for y, label in [(1.25, "A"), (-1.25, "B")]:
+        ax.plot([1, 1, 5, 5], [0, y, y, 0], color=COLORS[0], lw=3)
+        ax.annotate("", (3.5, y), (2.5, y), arrowprops=dict(arrowstyle="->", lw=2))
+        ax.text(3, y+.13, label, ha="center")
+    ax.plot([0, 1], [0, 0], color=COLORS[0], lw=3)
+    ax.plot([5, 6], [0, 0], color=COLORS[0], lw=3)
+    ax.text(0, -.25, "Inlet")
+    ax.text(6, -.25, "Outlet", ha="right")
+    ax.set(xlim=(-.2, 6.2), ylim=(-1.6, 1.75), title="Two model vessels share pressure nodes")
+    ax.axis("off")
+    save(fig, "dustlung_parallel", indexed=True)
+
+    fig, ax = plt.subplots(figsize=(5, 2.5), layout="constrained")
+    xs = [0, 1.4, 2.5, 3.5, 4.6, 6]
+    wall = np.array([.7, .7, .31, .31, .7, .7])
+    ax.fill_between(xs, -wall, wall, color="#e3eff4")
+    ax.plot(xs, wall, color=COLORS[0], lw=2.5)
+    ax.plot(xs, -wall, color=COLORS[0], lw=2.5)
+    for x, y, label in [(1, .7, "A"), (3, .31, "B")]:
+        ax.plot([x, x], [y, 1.02], color=COLORS[1], lw=2)
+        ax.text(x, 1.08, label, ha="center", fontweight="bold")
+    ax.annotate("Flow", (2.1, 0), (.6, 0), va="center",
+                arrowprops=dict(arrowstyle="->", lw=2))
+    ax.set(xlim=(-.2, 6.2), ylim=(-1, 1.42), title="Static pressure taps • horizontal tube")
+    ax.axis("off")
+    save(fig, "dustlung_venturi", indexed=True)
+    fig, ax = axes("Static transpulmonary pressure (cm H₂O)", "Volume change (L)")
+    for i, (slope, label) in enumerate(((.12, "A"), (.04, "B"))):
+        pressure = np.array([0, 5, 10])
+        ax.plot(pressure, slope * pressure, STYLES[i], marker=("o", "s")[i],
+                color=COLORS[i], lw=2, label=label)
+    ax.set(xticks=[0, 5, 10], yticks=[0, .4, .8, 1.2], title="Static inflation • model lungs")
+    ax.legend()
+    save(fig, "dustlung_elastic", indexed=True)
+    fig, ax = plt.subplots(figsize=(4.6, 3), layout="constrained")
+    ax.fill_between([.2, 2.7], [0, 0], [.5, .5], color="#899aa4")
+    ax.plot([.2, .2, 2.7, 2.7], [1, 0, 0, 1], color=COLORS[0], lw=2)
+    ax.fill_between([1.65, 1.95], [.4, .4], [2.25, 2.25], color="#899aa4")
+    ax.plot([1.65, 1.65, 1.95, 1.95], [.27, 2.75, 2.75, .27], color=COLORS[0], lw=2)
+    ax.annotate("", xy=(1.3, 2.25), xytext=(1.3, .5), arrowprops=dict(arrowstyle="<->"))
+    ax.text(1.17, 1.35, "h", ha="right");ax.text(2.04, 2.53, "Vacuum", va="center")
+    ax.text(.25, .58, "Open to air", fontsize=9)
+    ax.set(aspect="equal", xlim=(0, 3.2), ylim=(-.15, 2.96), title="Liquid-column barometer")
+    ax.axis("off")
+    save(fig, "dustlung_barometer", indexed=True)
+
+    for name, values in (("fvc6", (72, 66)), ("fvc3", (48, 45))):
+        fig, ax = axes("Months since baseline", "FVC (% predicted)")
+        ax.plot([0, 9], values, "o-", color=COLORS[0], lw=2.2)
+        for x, y in zip((0, 9), values):
+            ax.annotate(str(y), (x, y), xytext=(0, 8), textcoords="offset points", ha="center")
+        ax.set(xticks=[0, 9], xlim=(-1, 10), ylim=(35, 85), title="Serial spirometry • fibrotic NSIP")
+        save(fig, "dustlung_" + name, indexed=True)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -4966,6 +5052,7 @@ def main():
     obstetric_complication_studies()
     vascular_flow_studies()
     prenatal_visit_studies()
+    occupational_lung_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
