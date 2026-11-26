@@ -1201,6 +1201,118 @@ def immune_reports():
         save(fig, "immune_burst_" + name)
 
 
+def musculoskeletal_reports():
+    reports = {
+        "dxa_low": ("Bone densitometry", ["Site", "T-score"],
+                    [("Lumbar spine", "−1.5"), ("Total hip", "−2.1"), ("Femoral neck", "−2.7")]),
+        "dxa_mid": ("Bone densitometry", ["Site", "T-score"],
+                    [("Lumbar spine", "−0.9"), ("Total hip", "−1.8"), ("Femoral neck", "−2.2")]),
+        "dxa_young": ("Lumbar spine densitometry", ["Reference comparison", "Score"],
+                      [("Young adult reference (T)", "−2.7"), ("Age-matched reference (Z)", "−2.1")]),
+        "press_rise": ("Limb perfusion measurements", ["Time", "Diastolic BP", "Compartment"],
+                       [("09:00", "72 mm Hg", "28 mm Hg"), ("09:30", "70 mm Hg", "38 mm Hg"),
+                        ("10:00", "70 mm Hg", "48 mm Hg")]),
+        "press_fall": ("Limb perfusion measurements", ["Time", "Diastolic BP", "Compartment"],
+                       [("13:10", "80 mm Hg", "33 mm Hg"), ("13:40", "68 mm Hg", "35 mm Hg"),
+                        ("14:10", "52 mm Hg", "34 mm Hg")]),
+        "joint_mixed": ("Synovial fluid report", ["Study", "Result"],
+                        [("Leukocytes", "42,000/µL"), ("Crystals", "Needles, negative birefringence"),
+                         ("Gram stain", "No organisms seen"), ("Bacterial culture", "Pending")]),
+        "joint_gram": ("Synovial fluid report", ["Study", "Result"],
+                       [("Leukocytes", "96,000/µL"), ("Gram stain", "Gram-positive cocci"),
+                        ("Crystals", "None seen"), ("Bacterial culture", "Pending")]),
+        "joint_cpp": ("Synovial fluid report", ["Study", "Result"],
+                      [("Shape", "Short rods and rhomboids"), ("Birefringence", "Weak, positive"),
+                       ("Bacterial culture", "Pending")]),
+        "statin_high": ("Patient with new dark urine", ["Laboratory test", "Measured", "Usual / baseline"],
+                        [("CK", "18,400 U/L", "40–200 U/L"), ("Creatinine", "2.3 mg/dL", "0.9 mg/dL*")]),
+    }
+    for name, (title, columns, rows) in reports.items():
+        fig, ax = plt.subplots(figsize=(6.1, 2.7), layout="constrained")
+        ax.axis("off")
+        ax.set_title(title + "  •  simulated report", fontsize=13)
+        table = ax.table(cellText=rows, colLabels=columns, cellLoc="center", loc="center")
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        table.scale(1, 1.6)
+        if name == "statin_high":
+            ax.text(0.99, 0.03, "* Patient's previous creatinine", ha="right", transform=ax.transAxes)
+        save(fig, "msk_" + name)
+
+    for name, active, passive in [("weak", [45, 35], [165, 75]), ("stiff", [65, 10], [75, 15])]:
+        fig, ax = plt.subplots(figsize=(5.4, 3.4), layout="constrained")
+        y = np.array([1, 0])
+        for offset, values, label, color in [(.17, active, "Active", COLORS[0]),
+                                             (-.17, passive, "Passive", COLORS[1])]:
+            bars = ax.barh(y + offset, values, height=.28, color=color, label=label)
+            ax.bar_label(bars, fmt="%g°", padding=3)
+        ax.set(yticks=y, yticklabels=["Elevation", "External rotation"], xlim=(0, 190),
+               xlabel="Range of motion (degrees)", title="Shoulder examination  •  simulated")
+        ax.legend(loc="lower right")
+        save(fig, "msk_rom_" + name)
+
+
+def musculoskeletal_studies():
+    for name, upper, lower in [("opposite", 14, -10), ("same", 26, 4)]:
+        fig, ax = plt.subplots(figsize=(5.1, 3.4), layout="constrained")
+        for y, angle, label in [(2, upper, "Superior"), (0, lower, "Inferior")]:
+            x = np.array([-1.4, 1.4])
+            dy = np.tan(np.deg2rad(angle)) * x
+            ax.plot(x, [y, y], "--", color="#777", lw=1)
+            ax.plot(x, y + dy, color=COLORS[0], lw=3)
+            ax.text(1.52, y, f"{label}\n{angle:+d}°", va="center", fontsize=11)
+        ax.set(xlim=(-1.6, 2.7), ylim=(-.6, 2.9), aspect="equal", title="Selected endplates  •  schematic")
+        ax.axis("off")
+        ax.text(-1.45, -.47, "Dashed lines = horizontal reference", fontsize=9)
+        save(fig, "msk_curve_" + name)
+
+    for name, negative in [("pos", False), ("neg", True)]:
+        fig, ax = plt.subplots(figsize=(5, 3.1), layout="constrained")
+        ax.set_facecolor("#b73973")
+        for cx, cy, vertical in [(1, 1.5, False), (2, 2.4, True), (3.2, .9, True),
+                                 (4.1, 2.15, False), (5.25, 1.25, True)]:
+            if negative:
+                shape = np.array([[-.70, 0], [0, .055], [.70, 0], [0, -.055]])
+            else:
+                shape = np.array([[-.60, -.12], [.30, -.12], [.60, .12], [-.30, .12]])
+            if vertical:
+                shape = np.column_stack([-shape[:, 1], shape[:, 0]])
+            color = "#f9d44c" if negative != vertical else "#77cfff"
+            ax.fill(shape[:, 0] + cx, shape[:, 1] + cy, fc=color, ec="#283741", lw=1)
+        ax.set(xlim=(0, 6), ylim=(0, 3.3), aspect="equal", xticks=[], yticks=[],
+               title="Compensated polarized light  •  schematic")
+        ax.set_xlabel("Slow axis of compensator   ⟷   horizontal")
+        save(fig, "msk_cryst_" + name)
+
+    for name, covered in [("a", 12), ("b", 7)]:
+        fig, ax = plt.subplots(figsize=(5.2, 3.2), layout="constrained")
+        head = plt.Circle((10, 0), 10, facecolor="#e4f2f6", edgecolor=COLORS[0], lw=2)
+        ax.add_patch(head)
+        ax.plot([covered, covered], [-10, 12], ls="--", color=COLORS[1])
+        ax.text(covered, 12.3, "Bony rim", ha="center", fontsize=9)
+        for y, end, label in [(0, covered, f"Covered: {covered} mm"), (-13, 20, "Entire head: 20 mm")]:
+            ax.annotate("", (end, y), (0, y), arrowprops={"arrowstyle": "<->", "lw": 1.8})
+            ax.text(end/2, y+1, label, ha="center", fontsize=9, backgroundcolor="white")
+        ax.set(xlim=(-2, 22), ylim=(-15, 15), aspect="equal", title="Femoral head coverage  •  coronal schematic")
+        ax.axis("off")
+        save(fig, "msk_cover_" + name)
+
+    fig, ax = axes("Time at constant workload (min)", "Heart rate (beats/min)")
+    ax.plot([0, 2, 4, 6, 8, 10, 12, 14], [80, 132, 158, 162, 139, 127, 124, 124],
+            marker="o", lw=2.4, color=COLORS[0])
+    ax.set_title("Constant-load exercise test  •  simulated")
+    ax.annotate("Symptoms ease", (10, 127), (8, 100), arrowprops={"arrowstyle": "->"})
+    save(fig, "msk_second_wind")
+
+    fig, (top, bottom) = plt.subplots(2, 1, figsize=(5.1, 3.7), sharex=True, layout="constrained")
+    minutes = [0, 2, 4, 6, 8]
+    top.plot(minutes, [37, 41, 48, 59, 72], marker="o", color=COLORS[0])
+    bottom.plot(minutes, [83, 94, 110, 124, 141], marker="s", color=COLORS[1])
+    top.set(ylabel="End-tidal CO₂\n(mm Hg)", title="Operating room trends  •  simulated")
+    bottom.set(ylabel="Heart rate\n(beats/min)", xlabel="Time (min)", xticks=minutes)
+    save(fig, "msk_mh_monitor")
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -1213,6 +1325,8 @@ def main():
     evidence_studies()
     evidence_reports()
     immune_reports()
+    musculoskeletal_reports()
+    musculoskeletal_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()

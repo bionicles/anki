@@ -1779,90 +1779,90 @@ skin.congenital	Xeroderma pigmentosum
 skin.congenital	Congenital nevi and other benign infant lesions			
 skin.drug	Drug eruptions		original:bh-lamo-rash	
 skin.drug	Local vaccine reactions			
-msk.inf	Dry and wet gangrene			
-msk.inf	Clostridial myonecrosis			
-msk.inf	Discitis			
-msk.inf	Infectious myositis			
-msk.inf	Necrotizing fasciitis			
-msk.inf	Osteomyelitis			
-msk.inf	Septic arthritis			
-msk.inf	Tuberculous spondylitis			
-msk.inf	Ankylosing spondylitis and inflammatory spinal ankylosis			
-msk.inf	Dermatomyositis			
-msk.inf	Polymyositis			
-msk.inf	Juvenile idiopathic arthritis			
-msk.inf	Rheumatoid arthritis			
-msk.inf	Felty syndrome			
-msk.inf	Psoriatic arthritis			
-msk.inf	Adhesive capsulitis			
-msk.inf	Bursitis			
-msk.inf	Fasciitis			
-msk.inf	Ganglion cyst			
-msk.inf	Osteochondritis dissecans			
-msk.inf	Tendinitis and supraspinatus tendinopathy			
-msk.inf	Enthesopathy			
-msk.inf	Temporomandibular joint disorders			
-msk.inf	Myofascial pain and fibrositis			
-msk.inf	Synovitis			
-msk.inf	Tenosynovitis			
-msk.inf	Other inflammatory myositis			
-msk.tumor	Osteoid osteoma			
-msk.tumor	Enchondroma			
-msk.tumor	Tenosynovial giant cell tumor			
-msk.tumor	Osteosarcoma			
-msk.tumor	Other bone and soft tissue sarcomas			
-msk.tumor	Leiomyosarcoma			
-msk.tumor	Rhabdomyosarcoma			
-msk.tumor	Bone metastases			
-msk.metabolic	Chondromalacia			
-msk.metabolic	Degenerative disc disease			
-msk.metabolic	Disc herniation			
-msk.metabolic	Legg–Calvé–Perthes disease		bank:cohort:msk:q-cf6be98f1d6b:v1	
-msk.metabolic	Osgood–Schlatter disease			
-msk.metabolic	Renal osteodystrophy			
-msk.metabolic	Osteomalacia			
-msk.metabolic	Osteonecrosis and bone infarction			
-msk.metabolic	Osteoporosis			
-msk.metabolic	Osteopenia			
-msk.metabolic	Paget disease of bone			
-msk.metabolic	Pathologic fracture			
-msk.metabolic	Radiculopathy			
-msk.metabolic	Degenerative spondylolisthesis and spondylosis			
-msk.metabolic	Gout		original:rx-thiazide-gout	original:fip-gout-confirm original:fip-gout-onset original:fip-gout-serum
-msk.metabolic	Calcium pyrophosphate arthritis			
-msk.metabolic	Joint effusion			
-msk.metabolic	Osteoarthritis			
-msk.metabolic	Dupuytren contracture			
-msk.metabolic	Heterotopic muscle ossification and calcification			
-msk.metabolic	Muscle wasting and atrophy			
-msk.metabolic	Rhabdomyolysis			original:rx-statin-rhabdo
-msk.trauma	Amputation and amputee care			
-msk.trauma	Low back pain			
-msk.trauma	Blast-related musculoskeletal trauma			
-msk.trauma	Compartment syndrome			
-msk.trauma	Hospital-acquired contractures			
-msk.trauma	Contusions			
-msk.trauma	Joint dislocation			
-msk.trauma	Fracture assessment			
-msk.trauma	Sprains and strains			
-msk.trauma	Scoliosis and kyphoscoliosis			
-msk.trauma	Rotator cuff injury			
-msk.trauma	Slipped capital femoral epiphysis			
-msk.trauma	Traumatic hip dislocation			
-msk.congenital	Achondroplasia and disproportionate short stature			
-msk.congenital	Limb patterning disorders and phocomelia			
-msk.congenital	Developmental dysplasia of the hip			
-msk.congenital	Hip dislocation in spinal muscular atrophy			
-msk.congenital	Genu valgum and genu varum			
-msk.congenital	Congenital foot deformities			
-msk.congenital	Osteogenesis imperfecta	original:gen-osteogenesis-imperfecta-collagen	original:gen-osteogenesis-imperfecta-pattern	original:gen-osteogenesis-imperfecta-hearing
-msk.congenital	McArdle disease	original:gen-glycogen-storage-disease-type-v-enzyme	original:gen-glycogen-storage-disease-type-v-wind	original:gen-glycogen-storage-disease-type-v-urine
-msk.congenital	Mitochondrial myopathies			
-msk.drug	Glucocorticoid myopathy			
-msk.drug	Statin-associated myopathy			original:rx-statin-rhabdo
-msk.drug	Cocaine-associated muscle injury			
-msk.drug	Zidovudine-associated myopathy			
-msk.drug	Malignant hyperthermia			
+msk.inf	Dry and wet gangrene	original:msk-dry-f	original:msk-dry-change	original:msk-dry-stable
+msk.inf	Clostridial myonecrosis	original:msk-gas-target	original:msk-gas-case	original:msk-gas-def
+msk.inf	Discitis	original:msk-disc-site	original:msk-disc-mri	original:msk-disc-f original:msk-disc-a original:msk-disc-t original:msk-disc-blood
+msk.inf	Infectious myositis	original:msk-pyo-site	original:msk-pyo-mri original:msk-nec-comp original:msk-deep-base	original:msk-pyo-drain original:msk-deep-choice
+msk.inf	Necrotizing fasciitis	original:msk-nec-layer	original:msk-nec-early original:msk-nec-comp original:msk-deep-base	original:msk-nec-scan
+msk.inf	Osteomyelitis	original:msk-disc-site	original:msk-disc-mri original:msk-osteo-first	original:msk-disc-f original:msk-disc-a original:msk-disc-t original:msk-disc-blood original:msk-osteo-crp
+msk.inf	Septic arthritis	original:msk-joint-fluid-loc original:msk-joint-specific original:msk-joint-organism	original:ckjoint-fever original:ckjoint-sample original:ckjoint-unstable original:msk-joint-why original:msk-joint-lab	original:ccs-joint-aspirate original:ccs-joint-unstable original:ccs-joint-response original:msk-joint-f original:msk-joint-positive
+msk.inf	Tuberculous spondylitis	original:msk-tb-shape	original:msk-tb-spine	original:msk-tb-ask
+msk.inf	Ankylosing spondylitis and inflammatory spinal ankylosis	original:msk-enth-f	original:msk-ax-a	original:msk-ax-eye original:msk-enth-review
+msk.inf	Dermatomyositis	original:msk-dm-f	original:msk-dm-a	original:msk-dm-swallow
+msk.inf	Polymyositis	original:msk-pm-f	original:msk-pm-a	original:msk-pm-change
+msk.inf	Juvenile idiopathic arthritis	original:msk-jia-eye	original:msk-jia-screen	original:msk-jia-follow
+msk.inf	Rheumatoid arthritis	original:msk-syn-f original:msk-ra-hand	original:msk-ra-a original:msk-ra-pattern original:msk-inflam-base	original:msk-ra-rx original:msk-syn-delay
+msk.inf	Felty syndrome	original:msk-felty-risk	original:msk-felty	original:msk-felty-check
+msk.inf	Psoriatic arthritis	original:msk-psa-dac	original:msk-psa-a original:msk-psa-film original:msk-inflam-base	original:msk-psa-nails
+msk.inf	Adhesive capsulitis	original:msk-frozen-f	original:msk-frozen-a original:msk-frozen-comp	original:msk-frozen-vs
+msk.inf	Bursitis	original:msk-bursa-f	original:msk-bursa-knee	original:msk-bursa-red
+msk.inf	Fasciitis	original:msk-fascia-span	original:msk-fascia-heel	original:msk-fascia-start
+msk.inf	Ganglion cyst	original:msk-gang-fill	original:msk-gang-mass	original:msk-gang-observe
+msk.inf	Osteochondritis dissecans	original:msk-ocd-tissue	original:msk-ocd-lock	original:msk-ocd-stable
+msk.inf	Tendinitis and supraspinatus tendinopathy	original:msk-tendon-a	original:msk-tendon-case	original:msk-tendon-rehab
+msk.inf	Enthesopathy	original:msk-enth-f	original:msk-enth-heel	original:msk-enth-review
+msk.inf	Temporomandibular joint disorders	original:msk-tmj-unit	original:msk-tmj-pain	original:msk-tmj-click original:msk-tmj-inv
+msk.inf	Myofascial pain and fibrositis	original:msk-myofasc-refer	original:msk-myofasc-a	original:msk-myofasc-red
+msk.inf	Synovitis	original:msk-joint-fluid-loc original:msk-syn-f	original:msk-ra-a	original:msk-syn-delay
+msk.inf	Tenosynovitis	original:msk-sheath-space	original:msk-sheath-finger	original:msk-sheath-call
+msk.inf	Other inflammatory myositis	original:msk-myo-prox original:msk-dm-f original:msk-pm-f	original:msk-myo-ck	original:msk-dm-swallow original:msk-pm-change
+msk.tumor	Osteoid osteoma	original:msk-oid-f original:msk-oid-table original:msk-slide-base original:msk-slide-oid	original:msk-oid-ct original:msk-tum-ct	original:msk-oid-next
+msk.tumor	Enchondroma	original:msk-ench-tissue original:msk-ench-hist	original:msk-ench-hand original:msk-ench-x	original:msk-ench-review original:msk-tum-defer original:msk-ench-base
+msk.tumor	Tenosynovial giant cell tumor	original:msk-tgct-origin	original:msk-tgct-mass	original:msk-tgct-follow
+msk.tumor	Osteosarcoma	original:msk-os-f original:msk-os-anat original:msk-sarc-edge original:msk-os-hist original:msk-slide-base original:msk-slide-os	original:msk-os-a original:msk-sarc-imaging	original:msk-os-tract original:msk-os-biopsy original:msk-os-lung
+msk.tumor	Other bone and soft tissue sarcomas	original:msk-sarc-edge	original:msk-sarc-deep original:msk-sarc-imaging original:msk-tum-first	original:msk-os-tract original:msk-os-biopsy original:msk-sarc-core original:msk-lei-stage
+msk.tumor	Leiomyosarcoma	original:msk-lei-line	original:msk-lei-case	original:msk-lei-stage
+msk.tumor	Rhabdomyosarcoma	original:msk-rhab-line	original:msk-rhab-orbit	original:msk-rhab-team
+msk.tumor	Bone metastases	original:msk-mets-mech	original:msk-mets-case	original:msk-mets-time original:msk-mets-change original:msk-mets-rule
+msk.metabolic	Chondromalacia	original:msk-chond-f	original:msk-chond-case	original:msk-chond-rehab
+msk.metabolic	Degenerative disc disease	original:msk-discdeg-f	original:msk-spond-x	original:msk-disc-incid
+msk.metabolic	Disc herniation	original:msk-herniate-f	original:msk-root-herniate	original:msk-root-red
+msk.metabolic	Legg–Calvé–Perthes disease	original:msk-perth-f	bank:cohort:msk:q-cf6be98f1d6b:v1 original:msk-perth-x original:msk-perth-a	original:msk-perth-seq original:msk-perth-knee
+msk.metabolic	Osgood–Schlatter disease	original:msk-osgood-f	original:msk-osgood-a	original:msk-osgood-red
+msk.metabolic	Renal osteodystrophy	original:msk-renal-turn	original:msk-renal-dxa	original:msk-renal-biop
+msk.metabolic	Osteomalacia	original:msk-mala-f original:msk-matrix-base original:msk-matrix-case	original:msk-mala-case	original:msk-mala-cause
+msk.metabolic	Osteonecrosis and bone infarction	original:msk-perth-f	original:msk-perth-x original:msk-avn-mri	original:msk-avn-stage
+msk.metabolic	Osteoporosis	original:msk-dxa-t original:msk-dxa-z original:msk-matrix-change	original:wp-dxa original:wp-risk original:msk-dxa-base original:msk-dxa-a original:msk-dxa-tcase original:msk-dxa-young	original:wp-path original:msk-dxa-serial original:msk-dxa-device original:msk-frag-prior original:msk-dxa-f original:msk-dxa-loss
+msk.metabolic	Osteopenia	original:msk-dxa-t	original:msk-dxa-base original:msk-dxa-a original:msk-dxa-tcase	original:msk-frag-prior
+msk.metabolic	Paget disease of bone	original:msk-paget-turn original:msk-paget-film	original:msk-paget-case original:msk-paget-x	original:msk-paget-extent original:msk-paget-quiet
+msk.metabolic	Pathologic fracture	original:msk-path-f	original:msk-path-film	original:msk-path-safety
+msk.metabolic	Radiculopathy	original:msk-root-f	original:msk-root-herniate	original:msk-root-red original:msk-myofasc-red
+msk.metabolic	Degenerative spondylolisthesis and spondylosis	original:msk-spond-slip	original:msk-spond-x	original:msk-spond-walk
+msk.metabolic	Gout	original:msk-gout-f original:msk-cryst-t	original:rx-thiazide-gout original:msk-gout-case original:msk-polar-base	original:fip-gout-confirm original:fip-gout-onset original:fip-gout-serum original:msk-gout-retest original:msk-fluid-cryst
+msk.metabolic	Calcium pyrophosphate arthritis	original:msk-cpp-f original:msk-cryst-a	original:msk-cpp-x original:msk-cpp-a original:msk-gout-transfer original:msk-polar-base	original:msk-cpp-cryst
+msk.metabolic	Joint effusion	original:msk-fluid-f	original:msk-fluid-wbc	original:msk-fluid-cryst original:msk-cpp-cryst
+msk.metabolic	Osteoarthritis	original:msk-oa-gap	original:msk-oa-x original:msk-oa-alt	original:msk-perth-seq original:msk-oa-move
+msk.metabolic	Dupuytren contracture	original:msk-dup-f	original:msk-dup-case	original:msk-dup-table
+msk.metabolic	Heterotopic muscle ossification and calcification	original:msk-hetero-f	original:msk-hetero-a	original:msk-hetero-biop
+msk.metabolic	Muscle wasting and atrophy	original:msk-waste-f	original:msk-waste-local	original:msk-waste-rehab
+msk.metabolic	Rhabdomyolysis	original:msk-rhab-f	original:rx-statin-muscle original:msk-cocaine-muscle original:msk-rhab-urine original:msk-rhab-contrast original:msk-rhab-pigment	original:rx-statin-rhabdo original:gen-glycogen-storage-disease-type-v-urine original:msk-mcard-dark original:msk-rhab-k original:msk-rhab-fluid original:msk-cocaine-now
+msk.trauma	Amputation and amputee care	original:msk-amp-local	original:msk-amp-pain	original:msk-amp-knee
+msk.trauma	Low back pain	original:msk-back-saddle	original:msk-back-a original:msk-back-t	original:msk-back-refer
+msk.trauma	Blast-related musculoskeletal trauma	original:msk-blast-communication	original:msk-blast-urgent	original:msk-blast-open
+msk.trauma	Compartment syndrome	original:msk-cs-f original:msk-cs-grad original:msk-cs-a original:msk-cs-t	original:msk-cs-case	original:ccs-leg-passive original:ccs-leg-pulse original:ccs-leg-definitive original:msk-cs-monitor original:msk-cs-good original:msk-cs-which original:msk-cs-overt
+msk.trauma	Hospital-acquired contractures	original:msk-contract-f	original:msk-contract-pass	original:msk-contract-a original:msk-amp-knee
+msk.trauma	Contusions	original:msk-bruise-f	original:msk-bruise-vs	original:msk-bruise-change
+msk.trauma	Joint dislocation	original:msk-hip-nerve original:msk-hip-x original:msk-align-base original:msk-align-slip	original:rad-joint original:rad-nerve original:msk-hip-pos original:msk-hip-scan original:msk-hip-pros	original:rad-check original:msk-hip-reduce original:msk-hip-after
+msk.trauma	Fracture assessment	original:rad-radius original:rad-pole original:msk-occ-plain original:msk-blast-communication original:msk-align-base	original:rad-colles original:rad-scaphoid original:rad-transfer original:msk-occ-initial original:msk-occ-a original:msk-occ-t original:msk-ankle-f original:msk-ankle-a original:msk-ankle-t original:msk-blast-urgent	original:rad-negative original:msk-blast-open original:msk-neuro-doc
+msk.trauma	Sprains and strains	original:msk-sprain-f	original:msk-ankle-f original:msk-ankle-a original:msk-ankle-t	original:msk-ankle-rehab
+msk.trauma	Scoliosis and kyphoscoliosis	original:msk-scol-f	original:msk-scol-a original:msk-scol-t original:msk-scol-rule	original:msk-scol-grow
+msk.trauma	Rotator cuff injury	original:msk-cuff-f	original:msk-cuff-a original:msk-cuff-t original:msk-cuff-compare	original:msk-cuff-refer
+msk.trauma	Slipped capital femoral epiphysis	original:msk-scfe-physis original:msk-scfe-film original:msk-align-slip	original:msk-scfe-case original:msk-scfe-stab original:msk-scfe-a original:msk-scfe-t	original:msk-scfe-sport original:msk-slip-return
+msk.trauma	Traumatic hip dislocation	original:msk-hip-nerve original:msk-hip-x	original:msk-hip-pos original:msk-hip-scan	original:msk-hip-reduce original:msk-hip-after
+msk.congenital	Achondroplasia and disproportionate short stature	original:gen-achondroplasia-growth	original:gen-achondroplasia-limbs	original:msk-ach-danger
+msk.congenital	Limb patterning disorders and phocomelia	original:msk-limb-f	original:msk-limb-case	original:msk-limb-med
+msk.congenital	Developmental dysplasia of the hip	original:msk-ddh-f original:msk-ddh-cover original:msk-ddh-frac original:msk-ddh-calc-a original:msk-ddh-calc-t	original:msk-ddh-age original:msk-ddh-a original:msk-ddh-t	original:msk-ddh-early original:msk-ddh-exam original:msk-ddh-rule
+msk.congenital	Hip dislocation in spinal muscular atrophy	original:msk-sma-contain	original:msk-sma-hip	original:msk-sma-goals
+msk.congenital	Genu valgum and genu varum	original:msk-genu-dir	original:msk-genu-phys	original:msk-genu-asym original:msk-genu-base original:msk-genu-follow
+msk.congenital	Congenital foot deformities	original:msk-foot-f	original:msk-foot-rigid	original:msk-foot-brace
+msk.congenital	Osteogenesis imperfecta	original:gen-osteogenesis-imperfecta-collagen original:msk-oi-matrix	original:gen-osteogenesis-imperfecta-pattern original:msk-oi-mild	original:gen-osteogenesis-imperfecta-hearing
+msk.congenital	McArdle disease	original:gen-glycogen-storage-disease-type-v-enzyme original:msk-mcard-curve	original:gen-glycogen-storage-disease-type-v-wind original:msk-mcard-work	original:gen-glycogen-storage-disease-type-v-urine original:msk-mcard-dark
+msk.congenital	Mitochondrial myopathies	original:msk-mito-f	original:msk-mito-cluster	original:msk-mito-family
+msk.drug	Glucocorticoid myopathy	original:msk-steroid-f	original:msk-steroid-a	original:msk-steroid-rx
+msk.drug	Statin-associated myopathy	original:msk-statin-marker	original:rx-statin-muscle original:msk-statin-screen original:msk-statin-f original:msk-statin-severe	original:rx-statin-rhabdo original:msk-statin-recur original:msk-statin-persist original:msk-statin-base
+msk.drug	Cocaine-associated muscle injury	original:msk-cocaine-heat	original:msk-cocaine-muscle	original:msk-cocaine-now
+msk.drug	Zidovudine-associated myopathy	original:msk-azt-mito	original:msk-azt-muscle	original:msk-azt-weak
+msk.drug	Malignant hyperthermia	original:msk-mh-ca original:msk-mh-gas original:msk-mh-class original:msk-mh-app original:msk-mh-transfer	original:msk-mh-a original:msk-mh-wait	original:msk-mh-agent original:msk-mh-repeat original:msk-mh-avoid original:msk-mh-local original:msk-mh-plan original:msk-mh-stage
 male.inf	Balanitis			
 male.inf	Epididymitis			
 male.inf	Orchitis			
