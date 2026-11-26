@@ -2367,6 +2367,145 @@ def visual_function_studies():
         save(fig, "eye_" + name)
 
 
+def eye_injury_and_experiment_studies():
+    """Draw simulated clinical records and data from model MCAT experiments."""
+    def record(name, title, columns, rows):
+        fig, ax = plt.subplots(figsize=(6.1, 2.65), layout="constrained")
+        ax.axis("off")
+        ax.set_title(title + "  •  simulated")
+        table = ax.table(cellText=rows, colLabels=columns, loc="center",
+                         cellLoc="center", bbox=[.01, .08, .98, .76])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for col in range(len(columns)):
+            table[0, col].set_facecolor("#e2edf1")
+        save(fig, "acuteeye_" + name)
+
+    for name, values in [("rebound", ["11.0", "7.2", "8.5"]),
+                         ("neutral", ["10.5", "7.2", "7.2"])]:
+        record(name, "Ocular surface checks", ["Sample time", "Surface pH"],
+               [[time, value] for time, value in zip(
+                   ["Before irrigation", "At pause", "5 minutes later"], values)])
+
+    for name, levels, pressures in [
+        ("clearhyp", ["2 mm", "1 mm", "Trace"], [17, 16, 15]),
+        ("rehyp", ["2 mm", "1 mm", "4 mm"], [16, 17, 32]),
+    ]:
+        record(name, "Closed-globe injury follow-up", ["Day", "Blood layer", "IOP (mm Hg)"],
+               list(zip([1, 2, 4], levels, pressures)))
+
+    for name, motion, position, vision in [
+        ("preexam", "Full and painless", "No proptosis", "20/20"),
+        ("orbitexam", "Painful, limited", "Proptosis", "20/40"),
+    ]:
+        record(name, "Affected eye examination", ["Function", "Finding"],
+               [["Distance acuity", vision], ["Eye movements", motion], ["Globe position", position]])
+
+    for name, heights in [("melstable", [1.2, 1.2, 1.2]), ("melgrow", [1.4, 2.0, 2.8])]:
+        fig, ax = axes("Follow-up (months)", "Lesion thickness (mm)")
+        ax.plot([0, 6, 12], heights, "o-", color=COLORS[0], lw=2)
+        ax.set(title="Serial ocular ultrasound  •  simulated", xticks=[0, 6, 12], ylim=(0, 3.5))
+        save(fig, "acuteeye_" + name)
+    record("uveiticpressure", "Treated eye at follow-up", ["Visit", "Aqueous cell grade", "IOP (mm Hg)"],
+           [["Initial", "3+", "14"], ["Week 2", "1+", "21"], ["Week 4", "Trace", "30"]])
+    record("ptergrowth", "Corneal follow-up", ["Visit", "Extension past limbus", "Refractive cylinder"],
+           [["Initial", "1.5 mm", "0.50 D"], ["Month 8", "2.2 mm", "1.25 D"],
+            ["Month 16", "3.1 mm", "2.00 D"]])
+
+    def experiment(name, title, xlabel, ylabel, x, series):
+        fig, ax = axes(xlabel, ylabel)
+        for i, (label, y) in enumerate(series):
+            ax.plot(x, y, STYLES[i], marker=["o", "s"][i], lw=2, label=label, color=COLORS[i])
+        ax.set_title(title + "  •  simulated")
+        ax.legend()
+        save(fig, "acuteeye_" + name)
+
+    experiment("flow", "Steady laminar flow", "Pressure difference (kPa)", "Flow (mL/s)",
+               [0, 1, 2, 3], [("Tube A", [0, 2, 4, 6]), ("Tube B", [0, 1, 2, 3])])
+    t = np.arange(0, 5.5, .5)
+    experiment("rc", "Discharge through equal resistors", "Time (s)", "Voltage / initial voltage",
+               t, [("Capacitor A", np.exp(-t)), ("Capacitor B", np.exp(-t / 2.5))])
+    experiment("buffer", "Acid added to equal buffer volumes", "Strong acid added (mmol)", "pH",
+               [0, .5, 1, 1.5], [("Sample A", [7.00, 6.96, 6.91, 6.87]),
+                                  ("Sample B", [7.00, 6.85, 6.68, 6.40])])
+    experiment("vap", "Equilibrium above pure liquids", "Temperature (°C)", "Vapor pressure (kPa)",
+               [20, 25, 30, 35], [("Liquid X", [2.3, 3.1, 4.2, 5.6]),
+                                   ("Liquid Y", [5.9, 7.9, 10.5, 13.8])])
+    record("dual", "Within-participant visual search", ["Condition", "Mean accuracy"],
+           [["Search alone", "92%"], ["Search plus tone monitoring", "80%"]])
+    record("cont", "Picture occurrence by cue", ["Group", "P(picture | tone)", "P(picture | no tone)"],
+           [["A", "0.80", "0.20"], ["B", "0.50", "0.50"]])
+    fig, ax = axes("Trial (F = familiar, N = novel)", "Orienting duration (s)")
+    ax.plot(range(1, 8), [8, 6, 4, 2, 1, 9, 7], "o-", lw=2, color=COLORS[0])
+    ax.set(xticks=range(1, 8), xticklabels=["1 F", "2 F", "3 F", "4 F", "5 F", "6 N", "7 F"],
+           ylim=(0, 10), title="Orienting during repeated sounds  •  simulated")
+    save(fig, "acuteeye_hab")
+
+    from matplotlib.patches import Ellipse, Polygon
+
+    # Cross sections use the same reference anatomy so the learner can compare the lens position.
+    for name, lens_x, lens_y, tilt in [("lens_front", -.77, 0, 0), ("lens_back", .54, -.61, -30)]:
+        fig, ax = plt.subplots(figsize=(5.6, 3.25), layout="constrained")
+        ax.add_patch(Ellipse((0, 0), 2.9, 2.15, facecolor="#f0f5f7", edgecolor="#42525d", lw=2))
+        arc = np.linspace(-1.05, 1.05, 70)
+        ax.plot(-1.45 * np.cos(arc), 1.075 * np.sin(arc), color="#238497", lw=3.5)
+        for sign in [-1, 1]:
+            ax.plot([-.43, -.43], [sign * .94, sign * .32], lw=7, color="#946731")
+        ax.add_patch(Ellipse((lens_x, lens_y), .32, .8, angle=tilt,
+                             facecolor="#b8dbe6", edgecolor="#215a75", lw=2))
+        ax.annotate("Lens", xy=(lens_x, lens_y), xytext=(.98, .85), ha="center",
+                    arrowprops=dict(arrowstyle="->", color="#3e4950"))
+        ax.annotate("Iris", xy=(-.43, -.64), xytext=(.0, -1.22), ha="center",
+                    arrowprops=dict(arrowstyle="->", color="#3e4950"))
+        ax.text(-1.55, 0, "Cornea", rotation=90, va="center", ha="center", color="#176173")
+        ax.set(title="Injured eye in cross section  •  schematic", aspect="equal",
+               xlim=(-1.7, 1.55), ylim=(-1.34, 1.14))
+        ax.axis("off")
+        save(fig, "acuteeye_" + name)
+
+    # Locations are projected onto the face. The medial canthus is next to the nose.
+    for name, point, callout in [("sacsite", (.94, -.21), (1.25, -.94)),
+                                 ("glandsite", (-.80, .58), (-.85, 1.03))]:
+        fig, ax = plt.subplots(figsize=(5.4, 3.3), layout="constrained")
+        x = np.linspace(-1, .82, 110)
+        arch = np.sin(np.pi * (x + 1) / 1.82)
+        ax.fill_between(x, -.26 * arch, .35 * arch, color="#edf4f5")
+        ax.plot(x, -.26 * arch, color="#53616a", lw=2)
+        ax.plot(x, .35 * arch, color="#53616a", lw=2)
+        ax.add_patch(Ellipse((-.10, .04), .50, .49, facecolor="#74a0a6", edgecolor="#486873"))
+        ax.add_patch(Ellipse((-.10, .04), .17, .17, color="#344a52"))
+        ax.plot([1.18, 1.31, 1.44], [.52, -.19, -.65], lw=2, color="#8f786b")
+        ax.text(1.36, -.8, "Nose", ha="center", fontsize=9)
+        ax.add_patch(Ellipse(point, .25, .20, fc="#e6a183", ec="#953f26", lw=2))
+        ax.annotate("Tender swelling", point, xytext=callout, ha="center", fontsize=10,
+                    arrowprops=dict(arrowstyle="->", color="#953f26"))
+        ax.set(title="Site of maximal swelling  •  schematic", aspect="equal",
+               xlim=(-1.6, 1.85), ylim=(-1.1, 1.17))
+        ax.axis("off")
+        save(fig, "acuteeye_" + name)
+
+    for name, onto_cornea in [("limbus_cross", True), ("limbus_spared", False)]:
+        fig, ax = plt.subplots(figsize=(5.2, 3.05), layout="constrained")
+        x = np.linspace(-1.8, 1.8, 150)
+        arch = np.cos(np.pi * x / 3.6)
+        ax.fill_between(x, -.69 * arch, .72 * arch, color="#f4f4eb", ec="#59636a", lw=2)
+        ax.add_patch(Ellipse((0, 0), 1.33, 1.33, fc="#86a8ad", ec="#365468", lw=2.0))
+        ax.add_patch(Ellipse((0, 0), .47, .47, fc="#344a52"))
+        if onto_cornea:
+            ax.add_patch(Polygon([(-1.49, -.18), (-.34, .04), (-1.38, .22)],
+                                 closed=True, fc="#d59d92", ec="#9f6058", lw=1.5))
+            for y in [-.13, -.04, .11]:
+                ax.plot([-1.34, -.93, -.52], [y, y * .62, .04], lw=1, color="#a45146")
+        else:
+            ax.add_patch(Ellipse((-.94, .03), .38, .22, fc="#daca81", ec="#9e8855", lw=1.5))
+        ax.annotate("Limbus", xy=(.53, .40), xytext=(1.24, .7), ha="center",
+                    arrowprops=dict(arrowstyle="->", color="#43555f"))
+        ax.set(title="Anterior ocular surface  •  schematic", aspect="equal",
+               xlim=(-1.95, 1.95), ylim=(-.88, .98))
+        ax.axis("off")
+        save(fig, "acuteeye_" + name)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -2396,6 +2535,7 @@ def main():
     systemic_infection_studies()
     clinical_otology_studies()
     visual_function_studies()
+    eye_injury_and_experiment_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()

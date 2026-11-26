@@ -462,23 +462,23 @@ neuro.drug	Neuroleptic malignant syndrome		original:bh-motor-nms
 neuro.drug	Psychotropic or antidepressant poisoning			
 neuro.drug	Serotonin syndrome		original:bh-sert-clonus	
 neuro.drug	Tardive dyskinesia	original:bh-motor-tardive		original:bh-schiztx-tardive
-neuro.eye	Blepharitis			
-neuro.eye	Chalazion			
-neuro.eye	Chorioretinitis			
-neuro.eye	Conjunctivitis and keratoconjunctivitis			
-neuro.eye	Dacryocystitis			
-neuro.eye	Endophthalmitis			
-neuro.eye	Hordeolum			
-neuro.eye	Iridocyclitis			
+neuro.eye	Blepharitis	original:acuteeye-bleph-1-rule original:acuteeye-bleph-1-case original:acuteeye-bleph-1-transfer	original:acuteeye-bleph-2-rule original:acuteeye-bleph-2-case original:acuteeye-bleph-2-transfer	original:acuteeye-bleph-3-rule original:acuteeye-bleph-3-case original:acuteeye-bleph-3-transfer
+neuro.eye	Chalazion	original:acuteeye-chal-1-rule original:acuteeye-chal-1-case original:acuteeye-chal-1-transfer	original:acuteeye-chal-2-rule original:acuteeye-chal-2-case original:acuteeye-chal-2-transfer	original:acuteeye-chal-3-rule original:acuteeye-chal-3-case original:acuteeye-chal-3-transfer
+neuro.eye	Chorioretinitis	original:acuteeye-chor-1-rule original:acuteeye-chor-1-case original:acuteeye-chor-1-transfer	original:acuteeye-chor-2-rule original:acuteeye-chor-2-case original:acuteeye-chor-2-transfer	original:acuteeye-chor-3-rule original:acuteeye-chor-3-case original:acuteeye-chor-3-transfer
+neuro.eye	Conjunctivitis and keratoconjunctivitis	original:acuteeye-conj-1-rule original:acuteeye-conj-1-case original:acuteeye-conj-1-transfer	original:acuteeye-conj-2-rule original:acuteeye-conj-2-case original:acuteeye-conj-2-transfer	original:acuteeye-conj-3-rule original:acuteeye-conj-3-case original:acuteeye-conj-3-transfer
+neuro.eye	Dacryocystitis	original:acuteeye-sac-1-rule original:acuteeye-sac-1-case original:acuteeye-sac-1-transfer	original:acuteeye-sac-2-rule original:acuteeye-sac-2-case original:acuteeye-sac-2-transfer	original:acuteeye-sac-3-rule original:acuteeye-sac-3-case original:acuteeye-sac-3-transfer
+neuro.eye	Endophthalmitis	original:acuteeye-endo-1-rule original:acuteeye-endo-1-case original:acuteeye-endo-1-transfer	original:acuteeye-endo-2-rule original:acuteeye-endo-2-case original:acuteeye-endo-2-transfer	original:acuteeye-endo-3-rule original:acuteeye-endo-3-case original:acuteeye-endo-3-transfer
+neuro.eye	Hordeolum	original:acuteeye-sty-1-rule original:acuteeye-sty-1-case original:acuteeye-sty-1-transfer	original:acuteeye-sty-2-rule original:acuteeye-sty-2-case original:acuteeye-sty-2-transfer	original:acuteeye-sty-3-rule original:acuteeye-sty-3-case original:acuteeye-sty-3-transfer
+neuro.eye	Iridocyclitis	original:acuteeye-irit-1-rule original:acuteeye-irit-1-case original:acuteeye-irit-1-transfer	original:acuteeye-irit-2-rule original:acuteeye-irit-2-case original:acuteeye-irit-2-transfer	original:acuteeye-irit-3-rule original:acuteeye-irit-3-case original:acuteeye-irit-3-transfer
 neuro.eye	Optic neuritis	original:eyevis-on-1-rule original:eyevis-on-1-case original:eyevis-on-1-eyher	original:ncrao-pale original:eyevis-on-2-rule original:eyevis-on-2-case	original:eyevis-on-3-rule original:eyevis-on-3-case original:eyevis-on-3-eyher original:eyevis-on-3-rule-extra original:eyevis-on-3-case-extra original:eyevis-on-3-eyher-extra
-neuro.eye	Periorbital cellulitis			
-neuro.eye	Uveitis			
-neuro.eye	Ocular melanoma			
+neuro.eye	Periorbital cellulitis	original:acuteeye-pre-1-rule original:acuteeye-pre-1-case original:acuteeye-pre-1-transfer	original:acuteeye-pre-2-rule original:acuteeye-pre-2-case original:acuteeye-pre-2-transfer	original:acuteeye-pre-3-rule original:acuteeye-pre-3-case original:acuteeye-pre-3-transfer
+neuro.eye	Uveitis	original:acuteeye-uve-1-rule original:acuteeye-uve-1-case original:acuteeye-uve-1-transfer	original:acuteeye-uve-2-rule original:acuteeye-uve-2-case original:acuteeye-uve-2-transfer	original:acuteeye-uve-3-rule original:acuteeye-uve-3-case original:acuteeye-uve-3-transfer
+neuro.eye	Ocular melanoma	original:acuteeye-mel-1-rule original:acuteeye-mel-1-case original:acuteeye-mel-1-transfer	original:acuteeye-mel-2-rule original:acuteeye-mel-2-case original:acuteeye-mel-2-transfer	original:acuteeye-mel-3-rule original:acuteeye-mel-3-case original:acuteeye-mel-3-transfer
 neuro.eye	Retinoblastoma	original:eyevis-retino-1-rule original:eyevis-retino-1-case original:eyevis-retino-1-eyher	original:eyevis-retino-2-rule original:eyevis-retino-2-case original:eyevis-retino-2-eyher	original:eyevis-retino-3-rule original:eyevis-retino-3-case original:eyevis-retino-3-eyher
 neuro.eye	Cataract	original:eyevis-cataract-1-rule original:eyevis-cataract-1-case original:eyevis-cataract-1-eyher	original:eyevis-cataract-2-rule original:eyevis-cataract-2-case original:eyevis-cataract-2-eyher	original:eyevis-cataract-3-rule original:eyevis-cataract-3-case original:eyevis-cataract-3-eyher
-neuro.eye	Glaucoma	original:nangle-drain	original:nangle-pain original:nangle-side	original:nangle-tonometry
-neuro.eye	Lacrimal system disorders			
-neuro.eye	Pterygium			
+neuro.eye	Glaucoma	original:nangle-drain original:nangle-nerve original:acuteeye-glauc-1-case	original:nangle-pain original:nangle-side original:acuteeye-glauc-2-rule	original:nangle-tonometry original:nangle-time original:acuteeye-glauc-3-rule
+neuro.eye	Lacrimal system disorders	original:acuteeye-duct-1-rule original:acuteeye-duct-1-case original:acuteeye-duct-1-transfer	original:acuteeye-duct-2-rule original:acuteeye-duct-2-case original:acuteeye-duct-2-transfer	original:acuteeye-duct-3-rule original:acuteeye-duct-3-case original:acuteeye-duct-3-transfer
+neuro.eye	Pterygium	original:acuteeye-pter-1-rule original:acuteeye-pter-1-case original:acuteeye-pter-1-transfer	original:acuteeye-pter-2-rule original:acuteeye-pter-2-case original:acuteeye-pter-2-transfer	original:acuteeye-pter-3-rule original:acuteeye-pter-3-case original:acuteeye-pter-3-transfer
 neuro.eye	Presbyopia	original:s1-seenear-lens original:s1-seenear-correct original:eyevis-pres-1-case original:eyevis-pres-1-eyher	original:eyevis-pres-2-rule original:eyevis-pres-2-case original:eyevis-pres-2-eyher	original:eyevis-pres-3-rule original:eyevis-pres-3-case original:eyevis-pres-3-eyher
 neuro.eye	Myopia	original:eyevis-myopia-1-rule original:eyevis-myopia-1-case original:eyevis-myopia-1-eyher	original:eyevis-myopia-2-rule original:eyevis-myopia-2-case original:eyevis-myopia-2-eyher	original:eyevis-myopia-3-rule original:eyevis-myopia-3-case original:eyevis-myopia-3-eyher
 neuro.eye	Hyperopia	original:eyevis-hyper-1-rule original:eyevis-hyper-1-case original:eyevis-hyper-1-eyher	original:eyevis-hyper-2-rule original:eyevis-hyper-2-case original:eyevis-hyper-2-eyher	original:eyevis-hyper-3-rule original:eyevis-hyper-3-case original:eyevis-hyper-3-eyher
@@ -495,20 +495,20 @@ neuro.eye	Retinal hemorrhage	original:eyevis-bleed-1-rule original:eyevis-bleed-
 neuro.eye	Amaurosis fugax	original:eyevis-amau-1-rule original:eyevis-amau-1-case original:eyevis-amau-1-eyher	original:eyevis-amau-2-rule original:eyevis-amau-2-case original:eyevis-amau-2-eyher	original:eyevis-amau-3-rule original:eyevis-amau-3-case original:eyevis-amau-3-eyher
 neuro.eye	Carotid stenosis with ocular ischemia	original:eyevis-carot-1-rule original:eyevis-carot-1-case original:eyevis-carot-1-eyher	original:eyevis-carot-2-rule original:eyevis-carot-2-case original:eyevis-carot-2-eyher	original:eyevis-carot-3-rule original:eyevis-carot-3-case original:eyevis-carot-3-eyher
 neuro.eye	Central retinal vein occlusion	original:eyevis-rvo-1-rule original:eyevis-rvo-1-case original:eyevis-rvo-1-eyher	original:eyevis-rvo-2-rule original:eyevis-rvo-2-case original:eyevis-rvo-2-eyher	original:eyevis-rvo-3-rule original:eyevis-rvo-3-case original:eyevis-rvo-3-eyher
-neuro.eye	Visual impairment and blindness	original:nfield-half	original:nfield-complaint	original:nfield-read
+neuro.eye	Visual impairment and blindness	original:nfield-half original:acuteeye-low-1-rule original:acuteeye-low-1-case original:acuteeye-low-1-transfer	original:nfield-complaint original:acuteeye-low-2-rule original:acuteeye-low-2-case original:acuteeye-low-2-transfer	original:nfield-read original:acuteeye-low-3-rule original:acuteeye-low-3-case original:acuteeye-low-3-transfer
 neuro.eye	Night blindness	original:eyevis-night-1-rule original:eyevis-night-1-case original:eyevis-night-1-eyher	original:nutri-vita-2-rule original:eyevis-night-2-case original:eyevis-night-2-eyher	original:eyevis-night-3-rule original:eyevis-night-3-case original:eyevis-night-3-eyher
-neuro.eye	Periorbital bruising			
-neuro.eye	Ocular burns			
-neuro.eye	Corneal abrasion			
-neuro.eye	Corneal ulcer		original:ckeye-cornea	
-neuro.eye	Dislocated lens			
-neuro.eye	Ocular foreign body			
-neuro.eye	Hyphema			
-neuro.eye	Injury to the optic nerve or pathways	original:nfield-mono original:nfield-temporal	original:nfield-reverse	original:nfield-sudden
-neuro.eye	Eye and eyelid laceration			
-neuro.eye	Open globe		original:ckeye-globe original:ckeye-shield	
-neuro.eye	Orbital fracture			
-neuro.eye	Subconjunctival hemorrhage			
+neuro.eye	Periorbital bruising	original:acuteeye-bruis-1-rule original:acuteeye-bruis-1-case original:acuteeye-bruis-1-transfer	original:acuteeye-bruis-2-rule original:acuteeye-bruis-2-case original:acuteeye-bruis-2-transfer	original:acuteeye-bruis-3-rule original:acuteeye-bruis-3-case original:acuteeye-bruis-3-transfer
+neuro.eye	Ocular burns	original:acuteeye-burn-1-rule original:acuteeye-burn-1-case original:acuteeye-burn-1-transfer	original:acuteeye-burn-2-rule original:acuteeye-burn-2-case original:acuteeye-burn-2-transfer	original:acuteeye-burn-3-rule original:acuteeye-burn-3-case original:acuteeye-burn-3-transfer
+neuro.eye	Corneal abrasion	original:acuteeye-abr-1-rule original:acuteeye-abr-1-case original:acuteeye-abr-1-transfer	original:acuteeye-abr-2-rule original:acuteeye-abr-2-case original:acuteeye-abr-2-transfer	original:acuteeye-abr-3-rule original:acuteeye-abr-3-case original:acuteeye-abr-3-transfer
+neuro.eye	Corneal ulcer	original:acuteeye-ulcer-1-rule original:acuteeye-ulcer-1-case original:acuteeye-ulcer-1-transfer	original:ckeye-cornea original:acuteeye-ulcer-2-rule original:acuteeye-ulcer-2-transfer	original:acuteeye-ulcer-3-rule original:acuteeye-ulcer-3-case original:acuteeye-ulcer-3-transfer
+neuro.eye	Dislocated lens	original:acuteeye-lens-1-rule original:acuteeye-lens-1-case original:acuteeye-lens-1-transfer	original:acuteeye-lens-2-rule original:acuteeye-lens-2-case original:acuteeye-lens-2-transfer	original:acuteeye-lens-3-rule original:acuteeye-lens-3-case original:acuteeye-lens-3-transfer
+neuro.eye	Ocular foreign body	original:acuteeye-fb-1-rule original:acuteeye-fb-1-case original:acuteeye-fb-1-transfer	original:acuteeye-fb-2-rule original:acuteeye-fb-2-case original:acuteeye-fb-2-transfer	original:acuteeye-fb-3-rule original:acuteeye-fb-3-case original:acuteeye-fb-3-transfer
+neuro.eye	Hyphema	original:acuteeye-hyp-1-rule original:acuteeye-hyp-1-case original:acuteeye-hyp-1-transfer	original:acuteeye-hyp-2-rule original:acuteeye-hyp-2-case original:acuteeye-hyp-2-transfer	original:acuteeye-hyp-3-rule original:acuteeye-hyp-3-case original:acuteeye-hyp-3-transfer
+neuro.eye	Injury to the optic nerve or pathways	original:nfield-mono original:nfield-temporal original:nfield-side original:acuteeye-path-1-rule	original:nfield-reverse original:acuteeye-path-2-rule original:acuteeye-path-2-case original:acuteeye-path-2-transfer	original:nfield-sudden original:acuteeye-path-3-rule original:acuteeye-path-3-case original:acuteeye-path-3-transfer
+neuro.eye	Eye and eyelid laceration	original:acuteeye-lid-1-rule original:acuteeye-lid-1-case original:acuteeye-lid-1-transfer	original:acuteeye-lid-2-rule original:acuteeye-lid-2-case original:acuteeye-lid-2-transfer	original:acuteeye-lid-3-rule original:acuteeye-lid-3-case original:acuteeye-lid-3-transfer
+neuro.eye	Open globe	original:acuteeye-globe-1-rule original:acuteeye-globe-1-case original:acuteeye-globe-1-transfer	original:ckeye-globe original:ckeye-shield original:acuteeye-globe-2-rule original:acuteeye-globe-2-transfer	original:acuteeye-globe-3-rule original:acuteeye-globe-3-case original:acuteeye-globe-3-transfer
+neuro.eye	Orbital fracture	original:acuteeye-floor-1-rule original:acuteeye-floor-1-case original:acuteeye-floor-1-transfer	original:acuteeye-floor-2-rule original:acuteeye-floor-2-case original:acuteeye-floor-2-transfer	original:acuteeye-floor-3-rule original:acuteeye-floor-3-case original:acuteeye-floor-3-transfer
+neuro.eye	Subconjunctival hemorrhage	original:acuteeye-subcon-1-rule original:acuteeye-subcon-1-case original:acuteeye-subcon-1-transfer	original:acuteeye-subcon-2-rule original:acuteeye-subcon-2-case original:acuteeye-subcon-2-transfer	original:acuteeye-subcon-3-rule original:acuteeye-subcon-3-case original:acuteeye-subcon-3-transfer
 neuro.eye	Ethambutol ocular toxicity	original:eyevis-eth-1-rule original:eyevis-eth-1-case original:eyevis-eth-1-eyher	original:eyevis-eth-2-rule original:eyevis-eth-2-case original:eyevis-eth-2-eyher	original:eyevis-eth-3-rule original:eyevis-eth-3-case original:eyevis-eth-3-eyher
 neuro.eye	Hydroxychloroquine ocular toxicity	original:eyevis-hcq-1-rule original:eyevis-hcq-1-case original:eyevis-hcq-1-eyher	original:eyevis-hcq-2-rule original:eyevis-hcq-2-case original:eyevis-hcq-2-eyher	original:eyevis-hcq-3-rule original:eyevis-hcq-3-case original:eyevis-hcq-3-eyher
 neuro.eye	Glucocorticoid ocular effects	original:eyevis-steroid-1-rule original:eyevis-steroid-1-case original:eyevis-steroid-1-eyher	original:eyevis-steroid-2-rule original:eyevis-steroid-2-case original:eyevis-steroid-2-eyher	original:eyevis-steroid-3-rule original:eyevis-steroid-3-case original:eyevis-steroid-3-eyher
