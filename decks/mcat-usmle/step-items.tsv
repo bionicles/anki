@@ -1587,109 +1587,109 @@ dev.older	Polypharmacy		original:ck-falls-pills	original:ccs-falls-taper
 dev.older	Driving safety			
 dev.older	Caregiver strain			
 dev.older	Vaccination in older adulthood			
-bh.psychosis	Brief psychotic disorder			
-bh.psychosis	Delusional disorder			
-bh.psychosis	Psychosis from a medical condition			
-bh.psychosis	Schizophrenia	bank:usmle-step1:pharm-clozapine-uses:v1 bank:usmle-step1:pharm-risperidone-uses:v1	original:bh-psychosis-negative original:bh-schiztx-resist	original:bh-schiztx-depot
-bh.psychosis	Schizoaffective disorder			
-bh.psychosis	Substance-induced psychosis			
-bh.anxiety	Acute stress disorder			
-bh.anxiety	Generalized anxiety disorder		original:bh-general-domains	original:bh-general-therapy
-bh.anxiety	Anxiety from a medical condition			
-bh.anxiety	Social anxiety	original:bh-social-cue	original:bh-social-performance	
-bh.anxiety	Hyperventilation syndrome			
-bh.anxiety	Obsessive-compulsive disorder	bank:usmle-step1:pharm-fluoxetine-uses:v1	original:bh-ocd-intrusive original:bh-ocd-ritual	original:bh-ocd-exposure
-bh.anxiety	Panic disorder	original:bh-panic-loop	original:bh-panic-course	original:bh-panic-intero
-bh.anxiety	Agoraphobia			
-bh.anxiety	Specific phobia			
-bh.anxiety	Posttraumatic stress disorder		original:bh-trauma-avoid original:bh-trauma-duration	original:bh-traumatx-first original:bh-traumatx-benzo
-bh.anxiety	Selective mutism			
-bh.anxiety	Separation anxiety			
-bh.anxiety	Substance-induced anxiety			
-bh.anxiety	Trichotillomania			
-bh.mood	Major depressive disorder	bank:usmle-step1:pharm-sertraline-uses:v1		
-bh.mood	Psychotic depression			
-bh.mood	Seasonal pattern of depression			
-bh.mood	Postpartum depression and screening			
-bh.mood	Postpartum psychosis			original:ccs-mood-identify original:ccs-mood-setting original:ccs-mood-safety
-bh.mood	Cyclothymia			
-bh.mood	Persistent depressive disorder			
-bh.mood	Bipolar mania		original:bh-bipolar-psychotic	
-bh.mood	Bipolar depression			
-bh.mood	Bipolar mixed features			
-bh.mood	Premenstrual syndrome			
-bh.mood	Premenstrual dysphoric disorder		original:bh-pmdd-pattern	original:bh-pmdd-diary
-bh.mood	Mood disorder due to a medical condition		original:bh-depress-medical	
-bh.mood	Substance- or medication-induced mood disorder			
-bh.mood	Suicidal ideation, attempt and risk assessment		original:bh-safety-next	original:bh-safety-immediate original:bh-safety-plan original:bh-safety-contract
-bh.somatic	Body dysmorphic disorder			
-bh.somatic	Functional neurologic symptom disorder			
-bh.somatic	Functional seizures		original:bh-func-capture	original:bh-func-explain original:bh-func-dual
-bh.somatic	Dissociative disorders			
-bh.somatic	Illness anxiety disorder		original:bh-somatic-illanx	
-bh.somatic	Malingering		original:bh-fact-incentive	
-bh.somatic	Somatic symptom disorder including predominant pain		original:bh-somatic-required	original:bh-somatic-continuity
-bh.factitious	Factitious disorder imposed on self	original:bh-fact-intent		
-bh.eating	Anorexia nervosa			
-bh.eating	Binge-eating disorder		original:bh-eat-binge	
-bh.eating	Bulimia nervosa	original:bh-eat-purge	original:bh-eat-weight	
-bh.eating	Other specified or unspecified eating disorders			
-bh.eating	Gambling disorder		original:bh-gamble-chase	
-bh.eating	Kleptomania			
-bh.eating	Pyromania			
-bh.child	Reactive attachment disorder			
-bh.child	Attention-deficit/hyperactivity disorder			original:bh-child-preschool original:bh-child-goals
-bh.child	Speech sound and language disorders			
-bh.child	Specific learning disorder and dyslexia			
-bh.child	Intellectual disability			
-bh.child	Developmental delay and school difficulties			
-bh.child	Fetal alcohol syndrome			
-bh.child	Oppositional defiant disorder			
-bh.child	Conduct disorder			
-bh.child	Autism spectrum disorder		original:bh-autism-timing original:bh-asd-pattern	original:bh-autism-positive original:bh-asd-tailor
-bh.child	Rett syndrome			
-bh.child	Childhood-onset psychosis			
-bh.child	Enuresis			
-bh.child	Encopresis			
-bh.child	Tic disorders and Tourette syndrome		original:bh-tic-tourette original:bh-tic-motor	
-bh.personality	Antisocial personality disorder			
-bh.personality	Avoidant personality disorder		original:bh-person-avoid	
-bh.personality	Borderline personality disorder		original:bh-border-pattern	original:bh-border-dbt
-bh.personality	Dependent personality disorder		original:bh-person-depend	
-bh.personality	Histrionic personality disorder			
-bh.personality	Narcissistic personality disorder		original:bh-person-grand	
-bh.personality	Obsessive-compulsive personality disorder		original:bh-person-order	
-bh.personality	Paranoid personality disorder			
-bh.personality	Schizoid personality disorder		original:bh-person-schizoid	
-bh.stress	Adjustment disorder		original:bh-adjust-stressor	
-bh.stress	Normal grief			
-bh.stress	Prolonged grief		original:bh-grief-duration	original:bh-grief-context
-bh.stress	Parent–child relationship problems			
-bh.stress	Psychosocial stressors			
-bh.stress	Transference			
-bh.stress	Personality traits and coping			
-bh.sexual	Gender dysphoria		original:bh-gender-criterion	original:bh-gender-goals
-bh.sexual	Psychosexual dysfunction			original:bh-sert-sexual
-bh.substance	Alcohol use disorder			original:bh-alcohol-after original:bh-acamp-kidney
-bh.substance	Alcohol intoxication			
-bh.substance	Alcohol withdrawal		bank:cohort:psych:q-77eb1e7793e5:v1 original:bh-alcohol-timeline original:bh-alcohol-previous	original:bh-alcohol-first original:bh-alcohol-scale
-bh.substance	Nicotine dependence and withdrawal			
-bh.substance	Varenicline in smoking cessation	original:bh-varen-partial		
-bh.substance	Cannabis use disorder, intoxication and withdrawal			
-bh.substance	Hallucinogen-related disorders including intoxication			
-bh.substance	Inhalant-related disorders			
-bh.substance	Opioid use disorder including heroin and prescription opioids		original:bh-oud-maintenance	original:bh-oud-discharge original:bh-oud-detox
-bh.substance	Opioid intoxication			original:bh-opant-recur
-bh.substance	Opioid withdrawal	original:bh-oud-induce original:bh-nalt-withdraw		
-bh.substance	Sedative-hypnotic use disorder and intoxication			
-bh.substance	Sedative-hypnotic withdrawal			
-bh.substance	Cocaine-related disorders			
-bh.substance	Methamphetamine-related disorders			
-bh.substance	Stimulant withdrawal			
-bh.substance	MDMA-related disorders			
-bh.substance	PCP-related disorders			
-bh.substance	Synthetic cathinone-related disorders			
-bh.substance	Polysubstance use and intoxication			
+bh.psychosis	Brief psychotic disorder	original:behavior-brief-1	original:behavior-brief-2	original:behavior-brief-3
+bh.psychosis	Delusional disorder	original:behavior-del-1	original:behavior-del-2	original:behavior-del-3
+bh.psychosis	Psychosis from a medical condition	original:behavior-medpsych-1 original:behavior-secondary-rule	original:behavior-medpsych-2 original:behavior-secondary-med	original:behavior-medpsych-3
+bh.psychosis	Schizophrenia	bank:usmle-step1:pharm-clozapine-uses:v1 bank:usmle-step1:pharm-risperidone-uses:v1 original:behavior-schiz-1	original:bh-psychosis-negative original:bh-schiztx-resist original:behavior-schiz-2	original:bh-schiztx-depot original:behavior-schiz-3
+bh.psychosis	Schizoaffective disorder	original:behavior-schaf-1 original:behavior-psych-axis original:behavior-psych-only original:behavior-psych-out	original:behavior-schaf-2 original:behavior-psych-rule original:behavior-psych-in original:behavior-psych-outside	original:behavior-schaf-3 original:behavior-psych-coll original:behavior-psych-remit original:behavior-psych-remain
+bh.psychosis	Substance-induced psychosis	original:behavior-substpsych-1	original:behavior-substpsych-2	original:behavior-substpsych-3
+bh.anxiety	Acute stress disorder	original:behavior-acute-1 original:behavior-tra-short original:behavior-tra-long	original:bh-trauma-duration original:behavior-acute-2 original:behavior-tra-clock	original:behavior-acute-3 original:behavior-tra-rule original:behavior-tra-recover
+bh.anxiety	Generalized anxiety disorder	original:behavior-gad-1	original:bh-general-domains	original:bh-general-therapy
+bh.anxiety	Anxiety from a medical condition	original:behavior-medanx-1	original:behavior-medanx-2	original:behavior-medanx-3
+bh.anxiety	Social anxiety	original:bh-social-cue	original:bh-social-performance original:behavior-social-2	original:behavior-social-3
+bh.anxiety	Hyperventilation syndrome	original:behavior-hyper-1 original:behavior-abg-a original:behavior-abg-b	original:behavior-hyper-2 original:behavior-abg-rule original:behavior-alk-case original:behavior-acid-case	original:behavior-hyper-3
+bh.anxiety	Obsessive-compulsive disorder	bank:usmle-step1:pharm-fluoxetine-uses:v1 original:behavior-ocd-1	original:bh-ocd-intrusive original:bh-ocd-ritual original:behavior-ocd-2 original:behavior-perinatal-obs	original:bh-ocd-exposure original:behavior-ocd-3
+bh.anxiety	Panic disorder	original:bh-panic-loop original:behavior-panic-1	original:bh-panic-course	original:bh-panic-intero
+bh.anxiety	Agoraphobia	original:behavior-agor-1	original:behavior-agor-2	original:behavior-agor-3
+bh.anxiety	Specific phobia	original:behavior-phobia-1	original:behavior-phobia-2	original:behavior-phobia-3
+bh.anxiety	Posttraumatic stress disorder	original:behavior-ptsd-1 original:behavior-tra-short original:behavior-tra-long	original:bh-trauma-avoid original:bh-trauma-duration original:behavior-ptsd-2 original:behavior-tra-clock	original:bh-traumatx-first original:bh-traumatx-benzo original:behavior-ptsd-3 original:behavior-tra-rule original:behavior-tra-recover
+bh.anxiety	Selective mutism	original:behavior-mut-1	original:behavior-mut-2	original:behavior-mut-3
+bh.anxiety	Separation anxiety	original:behavior-sep-1	original:behavior-sep-2	original:behavior-sep-3
+bh.anxiety	Substance-induced anxiety	original:behavior-subanx-1	original:behavior-subanx-2	original:behavior-subanx-3
+bh.anxiety	Trichotillomania	original:behavior-pull-1	original:behavior-pull-2	original:behavior-pull-3
+bh.mood	Major depressive disorder	bank:usmle-step1:pharm-sertraline-uses:v1 original:behavior-mdd-1	original:behavior-mdd-2	original:behavior-mdd-3
+bh.mood	Psychotic depression	original:behavior-psychdep-1 original:behavior-psych-axis original:behavior-psych-only original:behavior-psych-out	original:behavior-psychdep-2 original:behavior-psych-rule original:behavior-psych-in original:behavior-psych-outside	original:behavior-psychdep-3 original:behavior-psych-coll original:behavior-psych-remit original:behavior-psych-remain
+bh.mood	Seasonal pattern of depression	original:behavior-season-1	original:behavior-season-2	original:behavior-season-3
+bh.mood	Postpartum depression and screening	original:behavior-ppd-1	original:behavior-ppd-2	original:behavior-ppd-3
+bh.mood	Postpartum psychosis	original:behavior-ppp-1	original:behavior-ppp-2 original:behavior-perinatal-obs	original:ccs-mood-identify original:ccs-mood-setting original:ccs-mood-safety original:behavior-ppp-3
+bh.mood	Cyclothymia	original:behavior-cycl-1	original:behavior-cycl-2	original:behavior-cycl-3
+bh.mood	Persistent depressive disorder	original:behavior-persist-1	original:behavior-persist-2	original:behavior-persist-3
+bh.mood	Bipolar mania	original:behavior-mania-1	original:bh-bipolar-psychotic original:behavior-mania-2	original:behavior-mania-3
+bh.mood	Bipolar depression	original:behavior-bipdep-1	original:bh-bipolar-two	original:behavior-bipdep-3
+bh.mood	Bipolar mixed features	original:behavior-mixed-1	original:behavior-mixed-2	original:behavior-mixed-3
+bh.mood	Premenstrual syndrome	original:behavior-pms-1 original:behavior-cycle-rule original:behavior-cycle-off original:behavior-cycle-on	original:behavior-pms-2 original:behavior-cycle-cyclic original:behavior-cycle-base	original:behavior-pms-3 original:behavior-cycle-eval
+bh.mood	Premenstrual dysphoric disorder	original:behavior-pmdd-1 original:behavior-cycle-rule original:behavior-cycle-off original:behavior-cycle-on	original:bh-pmdd-pattern original:behavior-pmdd-2 original:behavior-cycle-cyclic original:behavior-cycle-base	original:bh-pmdd-diary original:behavior-pmdd-3 original:behavior-cycle-eval original:behavior-cycle-treat original:behavior-cycle-revise
+bh.mood	Mood disorder due to a medical condition	original:behavior-medmood-1	original:bh-depress-medical	original:behavior-medmood-3
+bh.mood	Substance- or medication-induced mood disorder	original:behavior-drugmood-1	original:behavior-drugmood-2	original:behavior-drugmood-3
+bh.mood	Suicidal ideation, attempt and risk assessment	original:behavior-risk-1	original:bh-safety-next original:behavior-risk-2	original:bh-safety-immediate original:bh-safety-plan original:bh-safety-contract
+bh.somatic	Body dysmorphic disorder	original:behavior-bdd-1	original:behavior-bdd-2	original:behavior-bdd-3
+bh.somatic	Functional neurologic symptom disorder	original:behavior-fnd-1	original:behavior-fnd-2	original:behavior-fnd-3
+bh.somatic	Functional seizures	original:behavior-fseiz-1	original:bh-func-capture original:behavior-fseiz-2 original:behavior-event-rule original:behavior-event-cap	original:bh-func-explain original:bh-func-dual original:behavior-fseiz-3 original:behavior-event-indi original:behavior-event-dual
+bh.somatic	Dissociative disorders	original:behavior-diss-1 original:behavior-diss-real	original:behavior-diss-2 original:behavior-diss-world original:behavior-diss-gap original:behavior-diss-fdn	original:behavior-diss-3
+bh.somatic	Illness anxiety disorder	original:behavior-ill-1 original:behavior-ill-case original:behavior-som-case	original:bh-somatic-illanx	original:behavior-ill-3
+bh.somatic	Malingering	original:behavior-mal-1 original:behavior-fact-ext	original:bh-fact-incentive	original:behavior-mal-3
+bh.somatic	Somatic symptom disorder including predominant pain	original:behavior-som-1 original:behavior-ill-case original:behavior-som-case	original:bh-somatic-required original:behavior-som-2	original:bh-somatic-continuity original:behavior-som-3
+bh.factitious	Factitious disorder imposed on self	original:bh-fact-intent original:behavior-fact-1 original:behavior-fact-ext	original:behavior-fact-2 original:behavior-fact-rule original:behavior-fact-insuf	original:behavior-fact-3 original:behavior-fact-safe original:behavior-fact-stable original:behavior-fact-acute
+bh.eating	Anorexia nervosa	original:behavior-anorex-1 original:behavior-ref-ins original:behavior-ref-decline original:behavior-ref-flat	original:behavior-anorex-2 original:behavior-weight-rule original:behavior-weight-ill original:behavior-weight-well	original:bh-eattx-medical original:behavior-anorex-3
+bh.eating	Binge-eating disorder	original:behavior-binge-1	original:bh-eat-binge	original:behavior-binge-3
+bh.eating	Bulimia nervosa	original:bh-eat-purge	original:bh-eat-weight	original:behavior-bul-3 original:behavior-ed-base original:behavior-ed-routine original:behavior-ed-unstable
+bh.eating	Other specified or unspecified eating disorders	original:behavior-osfed-1 original:behavior-ref-ins original:behavior-ref-decline original:behavior-ref-flat	original:behavior-osfed-2 original:behavior-weight-rule original:behavior-weight-ill original:behavior-weight-well	original:behavior-osfed-3
+bh.eating	Gambling disorder	original:behavior-gamb-1	original:bh-gamble-chase original:behavior-gamb-2	original:bh-gamble-conceal
+bh.eating	Kleptomania	original:behavior-klep-1	original:behavior-klep-2	original:behavior-klep-3
+bh.eating	Pyromania	original:behavior-pyro-1	original:behavior-pyro-2	original:behavior-pyro-3
+bh.child	Reactive attachment disorder	original:behavior-attach-1	original:behavior-attach-2	original:behavior-attach-3
+bh.child	Attention-deficit/hyperactivity disorder	original:behavior-adhd-1	original:behavior-adhd-2	original:bh-child-preschool original:bh-child-goals
+bh.child	Speech sound and language disorders	original:behavior-speech-1	original:behavior-speech-2	original:behavior-speech-3
+bh.child	Specific learning disorder and dyslexia	original:behavior-learn-1	original:behavior-learn-2	original:behavior-learn-3
+bh.child	Intellectual disability	original:behavior-intel-1	original:behavior-intel-2	original:behavior-intel-3
+bh.child	Developmental delay and school difficulties	original:behavior-delay-1	original:behavior-delay-2	original:behavior-delay-3
+bh.child	Fetal alcohol syndrome	original:behavior-fas-1	original:behavior-fas-2	original:behavior-fas-3
+bh.child	Oppositional defiant disorder	original:behavior-odd-1	original:behavior-odd-2	original:behavior-odd-3
+bh.child	Conduct disorder	original:behavior-conduct-1	original:behavior-conduct-2	original:behavior-conduct-3
+bh.child	Autism spectrum disorder	original:behavior-autism-1	original:bh-autism-timing original:bh-asd-pattern original:behavior-autism-2	original:bh-autism-positive original:bh-asd-tailor
+bh.child	Rett syndrome	original:behavior-rett-1	original:behavior-rett-2	original:behavior-rett-3
+bh.child	Childhood-onset psychosis	original:behavior-childpsy-1	original:behavior-childpsy-2	original:behavior-childpsy-3
+bh.child	Enuresis	original:behavior-enur-1	original:behavior-enur-2	original:behavior-enur-3
+bh.child	Encopresis	original:behavior-enco-1	original:behavior-enco-2	original:behavior-enco-3
+bh.child	Tic disorders and Tourette syndrome	original:behavior-tic-1 original:behavior-tic-a original:behavior-tic-b	original:bh-tic-tourette original:bh-tic-motor original:behavior-tic-rule	original:behavior-tic-3 original:behavior-tic-imp original:behavior-tic-watch
+bh.personality	Antisocial personality disorder	original:behavior-antisoc-1	original:behavior-antisoc-2	original:behavior-antisoc-3
+bh.personality	Avoidant personality disorder	original:behavior-avoid-1	original:bh-person-avoid original:behavior-rel-rule	original:behavior-avoid-3
+bh.personality	Borderline personality disorder	original:behavior-border-1	original:bh-border-pattern	original:bh-border-dbt
+bh.personality	Dependent personality disorder	original:behavior-depend-1	original:bh-person-depend	original:behavior-depend-3
+bh.personality	Histrionic personality disorder	original:behavior-hist-1	original:behavior-hist-2	original:behavior-hist-3
+bh.personality	Narcissistic personality disorder	original:behavior-narc-1 original:behavior-trait-rule original:behavior-trait-state original:behavior-trait-long	original:bh-person-grand	original:behavior-narc-3
+bh.personality	Obsessive-compulsive personality disorder	original:behavior-ocpd-1	original:bh-person-order	original:behavior-ocpd-3
+bh.personality	Paranoid personality disorder	original:behavior-paranoid-1	original:behavior-paranoid-2	original:behavior-paranoid-3
+bh.personality	Schizoid personality disorder	original:behavior-schizoid-1	original:bh-person-schizoid original:behavior-rel-rule	original:behavior-schizoid-3 original:behavior-rel-baseline original:behavior-rel-steady
+bh.stress	Adjustment disorder	original:behavior-adjust-1	original:bh-adjust-stressor	original:behavior-adjust-3
+bh.stress	Normal grief	original:behavior-normal-1	original:behavior-normal-2 original:behavior-grief-rule	original:behavior-normal-3 original:behavior-grief-rule3 original:behavior-grief-good original:behavior-grief-hard
+bh.stress	Prolonged grief	original:behavior-prolong-1 original:behavior-grief-ad original:behavior-grief-youth	original:bh-grief-duration original:behavior-prolong-2 original:behavior-grief-rule	original:bh-grief-context original:behavior-prolong-3 original:behavior-grief-rule3 original:behavior-grief-good original:behavior-grief-hard
+bh.stress	Parent–child relationship problems	original:behavior-parent-1	original:behavior-parent-2	original:behavior-parent-3
+bh.stress	Psychosocial stressors	original:behavior-stress-1	original:behavior-stress-2	original:behavior-stress-3
+bh.stress	Transference	original:behavior-trans-1	original:behavior-trans-2	original:behavior-trans-3
+bh.stress	Personality traits and coping	original:behavior-cope-1	original:behavior-cope-2	original:behavior-cope-3
+bh.sexual	Gender dysphoria	original:behavior-gender-1	original:bh-gender-criterion	original:bh-gender-goals
+bh.sexual	Psychosexual dysfunction	original:behavior-sexual-1 original:behavior-sex-phase original:behavior-sex-org original:behavior-sex-des	original:behavior-sexual-2 original:behavior-ed-rule original:behavior-ed-all original:behavior-pain-site	original:bh-sert-sexual original:behavior-sexual-3 original:behavior-pde-rule original:behavior-pde-fit original:behavior-pain-dry original:behavior-pain-bleed
+bh.substance	Alcohol use disorder	original:behavior-aud-1	original:behavior-aud-2	original:bh-alcohol-after original:bh-acamp-kidney original:behavior-aud-3
+bh.substance	Alcohol intoxication	original:behavior-alci-1	original:behavior-alci-2	original:behavior-alci-3
+bh.substance	Alcohol withdrawal	original:behavior-alcw-1	bank:cohort:psych:q-77eb1e7793e5:v1 original:bh-alcohol-timeline original:bh-alcohol-previous original:behavior-alcw-2	original:bh-alcohol-first original:bh-alcohol-scale original:behavior-alcw-3
+bh.substance	Nicotine dependence and withdrawal	original:behavior-nic-1	original:behavior-nic-2	original:behavior-nic-3
+bh.substance	Varenicline in smoking cessation	original:bh-varen-partial	original:behavior-varen-2	original:behavior-varen-3
+bh.substance	Cannabis use disorder, intoxication and withdrawal	original:behavior-can-1	original:behavior-can-2	original:behavior-can-3
+bh.substance	Hallucinogen-related disorders including intoxication	original:behavior-hall-1	original:behavior-hall-2	original:behavior-hall-3
+bh.substance	Inhalant-related disorders	original:behavior-inhal-1	original:behavior-inhal-2	original:behavior-inhal-3
+bh.substance	Opioid use disorder including heroin and prescription opioids	original:bh-oud-induce	original:bh-oud-maintenance original:behavior-oud-2	original:bh-oud-discharge original:bh-oud-detox original:behavior-oud-3
+bh.substance	Opioid intoxication	original:behavior-opi-1 original:behavior-op-curve original:behavior-op-recur	original:behavior-opi-2 original:behavior-op-poles original:behavior-op-slow original:behavior-op-fast	original:bh-opant-recur original:behavior-opi-3 original:behavior-op-obs-a original:behavior-op-obs-b
+bh.substance	Opioid withdrawal	original:bh-oud-induce original:bh-nalt-withdraw original:behavior-opw-1	original:behavior-opw-2 original:behavior-op-poles original:behavior-op-slow original:behavior-op-fast	original:bh-oud-detox
+bh.substance	Sedative-hypnotic use disorder and intoxication	original:behavior-sed-1	original:behavior-sed-2	original:behavior-sed-3
+bh.substance	Sedative-hypnotic withdrawal	original:behavior-sedw-1	original:behavior-sedw-2	original:behavior-sedw-3
+bh.substance	Cocaine-related disorders	original:behavior-coke-1	original:behavior-coke-2	original:behavior-coke-3
+bh.substance	Methamphetamine-related disorders	original:behavior-meth-1	original:behavior-meth-2	original:behavior-meth-3
+bh.substance	Stimulant withdrawal	original:behavior-stimw-1	original:behavior-stimw-2	original:behavior-stimw-3
+bh.substance	MDMA-related disorders	original:behavior-mdma-1	original:behavior-mdma-2	original:behavior-mdma-3
+bh.substance	PCP-related disorders	original:behavior-pcp-1	original:behavior-pcp-2	original:behavior-pcp-3
+bh.substance	Synthetic cathinone-related disorders	original:behavior-cath-1	original:behavior-cath-2	original:behavior-cath-3
+bh.substance	Polysubstance use and intoxication	original:behavior-poly-1 original:behavior-op-curve original:behavior-op-recur	original:behavior-poly-2	original:behavior-poly-3
 skin.inf	Cellulitis	original:derm-cell-1	original:derm-cell-2	original:derm-cell-3
 skin.inf	Erysipelas	original:derm-ery-1	original:derm-ery-2	original:derm-ery-3
 skin.inf	Impetigo	original:derm-imp-1	original:derm-imp-2 original:derm-imp-rule original:derm-imp-wide	original:derm-imp-3 original:derm-imp-rationale original:derm-imp-limited

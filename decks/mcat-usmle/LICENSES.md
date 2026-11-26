@@ -20,6 +20,8 @@ The combined medical study package includes work with different licenses. Distri
 
 **Diagnostic imaging** comes from 84 individually credited images, including dermatology photographs, radiographs, CT, MRI, ultrasound, endoscopy, histology, blood and bone marrow films, and gross specimens on Wikimedia Commons. Each figure retains the license given by its contributor. The ledger identifies the original file, contributor, source URL, license, original file SHA-1, optional crop and output dimensions. To reproduce a PNG, verify the original checksum, apply the fractional crop if present and resize proportionally to fit 920 × 760. The image credit also appears on every card that uses it. [Image sources and licenses](imaging.tsv)
 
+**Behavioral-health figures.** Twelve original figures use simulated mood, psychosis and tic timelines, menstrual symptom diaries, arterial blood gases, phosphate measurements and respiratory observations. The renderer is `behavioral_courses()` in `figures.py`.
+
 **Dermatology figures.** Nine original figures use simulated temperature diaries, individual lesion durations, skin-examination areas and adult burn surveys. The renderer is `cutaneous_studies()` in `figures.py`. Eleven clinical photographs and micrographs have their own attributions. [Image sources and licenses](imaging.tsv)
 
 **Musculoskeletal figures.** Nineteen original diagrams, plots and laboratory reports use simulated measurements. The renderer is in `musculoskeletal_reports()` and `musculoskeletal_studies()` in `figures.py`. Fifteen patient images are recorded separately in the diagnostic imaging ledger. [Image sources and licenses](imaging.tsv)

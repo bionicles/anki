@@ -1362,6 +1362,77 @@ def cutaneous_studies():
         save(fig, "skin_burn_" + name)
 
 
+def behavioral_courses():
+    """Render independent, simulated clinical records for course interpretation."""
+    def intervals(name, title, xlabel, xmax, labels, spans, ticks):
+        fig, ax = axes(xlabel, "")
+        for row, periods in enumerate(spans):
+            for start, finish in periods:
+                ax.barh(row, finish - start, left=start, height=0.35,
+                        color=COLORS[row % len(COLORS)])
+        ax.set(yticks=range(len(labels)), yticklabels=labels, ylim=(len(labels)-0.5, -0.5),
+               xlim=(0, xmax), xticks=ticks, title=title)
+        ax.set_axisbelow(True)
+        save(fig, "bh_" + name)
+
+    for name, mood_start, voices_end in [("a", 0, 6), ("b", 4, 10)]:
+        intervals("course_" + name, "Complete illness record  •  simulated",
+                  "Weeks since illness onset", 12, ["Major depression", "Hallucinations"],
+                  [[(mood_start, 12)], [(0, voices_end)]], range(0, 13, 2))
+
+    for name, vocals in [("a", [(12, 16)]), ("b", [])]:
+        intervals("tic_" + name, "All recorded tics since onset  •  simulated",
+                  "Months since first tic", 18, ["Eye blinking", "Shoulder jerk", "Throat clearing"],
+                  [[(0, 10), (14, 18)] if name == "b" else [(0, 10)],
+                   [(2, 11), (16, 18)] if name == "b" else [(2, 11)], vocals], range(0, 19, 2))
+
+    for name, baseline in [("a", 0.4), ("b", 2.7)]:
+        days = np.arange(1, 61)
+        cycle_day = (days - 1) % 28 + 1
+        scores = baseline + (4.6-baseline) * np.clip((cycle_day - 18)/7, 0, 1)
+        scores += 0.15*np.sin(days*1.6)
+        fig, ax = axes("Diary day", "Mood symptom burden\n(0 = none, 5 = severe)")
+        ax.plot(days, scores, lw=2.4, color=COLORS[0])
+        for start in [1, 29, 57]:
+            ax.axvspan(start, start + 4, color=COLORS[1], alpha=.17,
+                       label="Menstrual bleeding" if start == 1 else None)
+        ax.set(ylim=(0, 5.2), xlim=(1, 60), xticks=[1, 7, 14, 21, 29, 35, 42, 49, 57],
+               title="Two-cycle daily mood diary  •  simulated")
+        ax.legend(loc="upper left", fontsize=8)
+        save(fig, "bh_cycle_" + name)
+
+    for name, ph, co2, hco3 in [("a", "7.51", "27", "21"), ("b", "7.26", "23", "10")]:
+        fig, ax = plt.subplots(figsize=(5.2, 2.5), layout="constrained")
+        ax.axis("off")
+        ax.set_title("Arterial blood gas  •  simulated")
+        table = ax.table(cellText=[["pH", ph, "7.35–7.45"], ["PaCO₂ (mm Hg)", co2, "35–45"],
+                                   ["HCO₃⁻ (mmol/L)", hco3, "22–26"]],
+                         colLabels=["Measurement", "Result", "Reference interval"],
+                         cellLoc="left", colLoc="left", bbox=[0, 0.05, 1, 0.85])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for col in range(3):
+            table[0, col].set_facecolor("#dcecf2")
+        save(fig, "bh_abg_" + name)
+
+    for name, phosphate in [("a", [3.3, 2.8, 2.0, 1.3]), ("b", [3.2, 3.3, 3.1, 3.2])]:
+        fig, ax = axes("Hours since feeds began", "Serum phosphate (mg/dL)")
+        ax.axhspan(2.5, 4.5, alpha=.13, color=COLORS[0], label="Adult reference interval")
+        ax.plot([0, 8, 16, 24], phosphate, marker="o", lw=2.4, color=COLORS[1])
+        ax.set(ylim=(0.8, 4.9), xticks=[0, 8, 16, 24], title="Adult nutritional rehabilitation  •  simulated")
+        ax.legend(loc="upper right", fontsize=8)
+        save(fig, "bh_phos_" + name)
+
+    for name, values in [("a", [5, 14, 15, 14]), ("b", [5, 15, 11, 6])]:
+        fig, ax = axes("Minutes after naloxone", "Respiratory rate (breaths/min)")
+        ax.plot([0, 3, 10, 20], values, marker="o", lw=2.4, color=COLORS[0])
+        ax.set(xticks=[0, 3, 10, 20], yticks=[3, 6, 9, 12, 15, 18], ylim=(2, 20),
+               title="Observed breathing after opioid reversal  •  simulated")
+        ax.text(0.98, 0.07, "Depth at 20 min: " + ("adequate" if name == "a" else "shallow"),
+                transform=ax.transAxes, ha="right", fontsize=9, backgroundcolor="white")
+        save(fig, "bh_resp_" + name)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -1377,6 +1448,7 @@ def main():
     musculoskeletal_reports()
     musculoskeletal_studies()
     cutaneous_studies()
+    behavioral_courses()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
