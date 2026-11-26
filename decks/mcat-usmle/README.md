@@ -1,6 +1,6 @@
 # MCAT and USMLE
 
-Open **File → Import** in Anki and select `decks/mcat-usmle/release/MCAT-USMLE.apkg`. Select the exam you are currently preparing for under **MCAT and USMLE**. The package contains 14,262 cards across four exams. This is a supplemental release. The coverage audit is open for all four exams. Each subdeck has its own subject or task grouping. Every card carries a source and license on its back. [Anki package](release/MCAT-USMLE.apkg) · [Editable TSV](release/MCAT-USMLE.tsv) · [Topic counts and card IDs](release/coverage.tsv) · [Official outline mappings and gaps](blueprint.tsv)
+Open **File → Import** in Anki and select `decks/mcat-usmle/release/MCAT-USMLE.apkg`. Select the exam you are currently preparing for under **MCAT and USMLE**. The package contains 14,573 cards across four exams. This is a supplemental release. The coverage audit is open for all four exams. Each subdeck has its own subject or task grouping. Every card carries a source and license on its back. [Anki package](release/MCAT-USMLE.apkg) · [Editable TSV](release/MCAT-USMLE.tsv) · [Topic counts and card IDs](release/coverage.tsv) · [Official outline mappings and gaps](blueprint.tsv)
 
 **Try a Step 3 case.** Ascitic fluid from a febrile patient with cirrhosis contains 800 nucleated cells/mm³, of which 50% are neutrophils. What is the absolute neutrophil count?
 
@@ -14,18 +14,20 @@ Open **File → Import** in Anki and select `decks/mcat-usmle/release/MCAT-USMLE
 
 | Exam | Cards | Material |
 | --- | ---: | --- |
-| MCAT | 1,956 | All four sections and all 31 numbered science content categories have cards. Twenty-three original CARS passages support 109 independently graded questions. Seventeen science passages test experimental interpretation. Spectral windows, Fischer projections and a TLC plate give practice reading chemical data. Selected OpenStax exercises add application practice alongside glossary recall. |
-| USMLE Step 1 | 4,280 | Mechanisms, clinical stems, tissue identification and interpretation of physiological curves and ECGs. The coverage check below explains the remaining gaps. |
-| USMLE Step 2 CK | 4,005 | Cases on diagnosis, investigation, prevention and treatment. Examples include differentiating inherited disorders, evaluating a new mass, interpreting a rhythm strip, recognizing refeeding syndrome, distinguishing head CT findings and evaluating medication-induced movement disorders. |
-| USMLE Step 3 | 4,021 | 381 Foundations of Independent Practice cards, 3,269 Advanced Clinical Medicine cards and 371 decisions across 132 CCS-style case topics. An original research abstract and advertisement support ten questions. Additional cards ask learners to interpret published trial results, distinguish a surrogate from a clinical outcome and weigh benefit at the patient’s baseline risk. |
+| MCAT | 1,984 | All four sections and all 31 numbered science content categories have cards. Twenty-four original CARS passages support 115 independently graded questions. Eighteen science passages test experimental interpretation. Spectral windows, Fischer projections and a TLC plate give practice reading chemical data. Selected OpenStax exercises add application practice alongside glossary recall. |
+| USMLE Step 1 | 4,380 | Mechanisms, clinical stems, tissue identification and interpretation of physiological curves and ECGs. The coverage check below explains the remaining gaps. |
+| USMLE Step 2 CK | 4,091 | Cases on diagnosis, investigation, prevention and treatment. Examples include differentiating inherited disorders, evaluating a new mass, interpreting a rhythm strip, recognizing refeeding syndrome, distinguishing head CT findings and evaluating medication-induced movement disorders. |
+| USMLE Step 3 | 4,118 | 429 Foundations of Independent Practice cards, 3,318 Advanced Clinical Medicine cards and 371 decisions across 132 CCS-style case topics. An original research abstract and advertisement support ten questions. Additional cards ask learners to interpret published trial results, distinguish a surrogate from a clinical outcome and weigh benefit at the patient’s baseline risk. |
 
-The outline map includes 150 finer MCAT science topic groups, along with the numbered categories, reasoning skills and clinical mappings. All 4,635 entries have partial coverage. For example, questions on alkene configuration can show whether a learner can assign priorities on a drawing. They leave open how the learner handles an unfamiliar molecule. The map links each reviewed objective to card IDs, the relevant official specifications and a concrete gap for further review. For example, it lists separate Step 1, Step 2 CK and Step 3 evidence for AV conduction disorders. The topic inventory lists every shipped card. Subject coverage, unfamiliar passage practice and performance on timed questions are separate things to check. The CCS cards let you rehearse individual decisions. The official simulator also tests order entry, sequencing, passage of time and response to evolving findings. This package has not undergone independent clinician or test-prep review. [Outline map](blueprint.tsv) · [Card inventory](release/coverage.tsv) · [AAMC outline](https://students-residents.aamc.org/prepare-mcat-exam/whats-mcat-exam-pdf-outline) · [USMLE Step 3 practice materials](https://www.usmle.org/exam-resources/step-3-materials)
+The outline map includes 150 finer MCAT science topic groups, along with the numbered categories, reasoning skills and clinical mappings. All 4,761 entries have partial coverage. For example, questions on alkene configuration can show whether a learner can assign priorities on a drawing. They leave open how the learner handles an unfamiliar molecule. The map links each reviewed objective to card IDs, the relevant official specifications and a concrete gap for further review. For example, it lists separate Step 1, Step 2 CK and Step 3 evidence for AV conduction disorders. The topic inventory lists every shipped card. Subject coverage, unfamiliar passage practice and performance on timed questions are separate things to check. The CCS cards let you rehearse individual decisions. The official simulator also tests order entry, sequencing, passage of time and response to evolving findings. This package has not undergone independent clinician or test-prep review. [Outline map](blueprint.tsv) · [Card inventory](release/coverage.tsv) · [AAMC outline](https://students-residents.aamc.org/prepare-mcat-exam/whats-mcat-exam-pdf-outline) · [USMLE Step 3 practice materials](https://www.usmle.org/exam-resources/step-3-materials)
 
 ## Which MCAT science skills can you practice in each topic?
 
 The science scorecard has one row for each of the 150 finer topics and four columns for reasoning skills. A card earns credit in a column when its ID appears in both the topic review and the skill review. For example, one flash-detection question asks for the intensity seen on half the trials. Another asks which control trials would reveal false alarms. They count toward data interpretation and research design respectively. Each cell exposes the reviewed card IDs. Cards awaiting a reasoning classification appear under `UnclassifiedIDs`. [MCAT science scorecard](release/mcat-science-coverage.tsv) · [AAMC scientific inquiry and reasoning skills](https://students-residents.aamc.org/scientific-inquiry-and-reasoning-skills/scientific-inquiry-reasoning-skills-skill-1-knowledge-scientific-concepts-and-principles)
 
-Of 150 topics, 131 have at least one card with a reviewed reasoning classification and 117 have reviewed practice in all four skills. For example, one new question asks how to isolate tube radius when warm and cold water have different viscosities. Another asks learners to distinguish an association between two cues from a response to repeated exposure. The individual counts are 125 for scientific knowledge, 121 for problem solving, 119 for research design and 122 for data interpretation. A topic can contribute to several columns. A zero flags an unverified topic–skill combination. The scorecard measures available practice and does not estimate exam weighting or student performance. CARS has its own passage and reasoning mappings. [Editorial evidence](blueprint.tsv)
+Of 150 topics, 137 have at least one card with a reviewed reasoning classification and 125 have reviewed practice in all four skills. For example, one new question asks how to isolate tube radius when warm and cold water have different viscosities. Another asks learners to distinguish an association between two cues from a response to repeated exposure. The individual counts are 133 for scientific knowledge, 128 for problem solving, 126 for research design and 128 for data interpretation. A topic can contribute to several columns. A zero flags an unverified topic–skill combination. The scorecard measures available practice and does not estimate exam weighting or student performance. CARS has its own passage and reasoning mappings. [Editorial evidence](blueprint.tsv)
+
+All five topics in sensory perception (6A) and all five in individual influences on behavior (7A) now have practice in each reasoning skill. In one experiment, shape similarity favors seeing columns while shorter gaps favor seeing rows. Separate questions ask which cue favors columns, how spacing changes reported grouping, and how to test the contribution of shape. The figure and results are original teaching data. [MCAT science scorecard](release/mcat-science-coverage.tsv)
 
 All five topics in category 6B have a reviewed question in each reasoning skill. In a simulated infant speech experiment, one card asks why the acoustic step size must be matched across conditions. Another asks what recovery of sucking can establish about perception before an infant can report hearing a difference. Sleep, problem solving and memory questions use separate study records. [Topic and skill evidence](release/mcat-science-coverage.tsv)
 
@@ -55,13 +57,15 @@ All six mechanics topics under MCAT category 4A have questions in each of the fo
 
 ## How much sustained CARS reading is available?
 
+In *The weight of a bowl*, visitors lift two bowls made from the same drawing. Six questions ask what handling lets them learn about each object and which conclusions would carry over to a reproduction made from another material. [CARS passage scorecard](release/mcat-cars-coverage.tsv)
+
 In *Buying at dawn*, a fishing town auctions its catch anonymously. Six questions ask what a price change can establish, what an afternoon inspection would settle, and whether those findings would transfer to a different market. [CARS passage scorecard](release/mcat-cars-coverage.tsv)
 
 Two CARS passages ask how a floor plan changes the reading of a witness’s claim, and what an interview attendance ledger can reveal about applicants’ costs. Each has two questions on comprehension, two on reasoning within the passage and two on applying the argument to new evidence.
 
 In *The repeated word*, an editor must decide whether to restore a word that appeared twice in a manuscript. Six questions ask what a photograph reveals, how the actors’ readings bear on the editor’s claim, and which inference would change if an author-corrected proof turned up. [CARS passage scorecard](release/mcat-cars-coverage.tsv)
 
-The 23 distinct passage texts support 109 questions. Thirteen passages run 476–526 words and have six questions each. Two passages run 183–184 words, and eight brief drills run 53–71 words. All 23 include comprehension, reasoning within the text and reasoning beyond the text. The scorecard counts a passage once even though the text appears on every question. Its word count excludes the question and options. Repeated reviews of a familiar passage cannot measure performance on an unseen timed passage. [Passage lengths, skill counts and card IDs](release/mcat-cars-coverage.tsv) · [AAMC CARS framework](https://students-residents.aamc.org/prepare-mcat-exam/whats-mcat-exam-pdf-outline)
+The 24 distinct passage texts support 115 questions. Fourteen passages run 476–526 words and have six questions each. Two passages run 183–184 words, and eight brief drills run 53–71 words. All 24 include comprehension, reasoning within the text and reasoning beyond the text. The scorecard counts a passage once even though the text appears on every question. Its word count excludes the question and options. Repeated reviews of a familiar passage cannot measure performance on an unseen timed passage. [Passage lengths, skill counts and card IDs](release/mcat-cars-coverage.tsv) · [AAMC CARS framework](https://students-residents.aamc.org/prepare-mcat-exam/whats-mcat-exam-pdf-outline)
 
 ## How much of each Step can you practice?
 
@@ -71,8 +75,8 @@ The audit starts with 174 topic families indexed to the 18 areas of the 2026 USM
 | --- | ---: | ---: | ---: |
 | At least one reviewed card linked to the family | 174 | 174 | 174 |
 | At least one objective with an applied case | 136 | 162 | 163 |
-| At least one objective revisited on a different case | 124 | 149 | 141 |
-| At least one objective with a foundation, application and different case | 120 | 123 | 132 |
+| At least one objective revisited on a different case | 125 | 149 | 141 |
+| At least one objective with a foundation, application and different case | 121 | 124 | 132 |
 
 ### How much practice does an individual condition get?
 
@@ -82,10 +86,10 @@ From this directory, run `just gaps` to see the three families with the most top
 
 | Named topics out of 2,097 | Step 1 | Step 2 CK | Step 3 |
 | --- | ---: | ---: | ---: |
-| At least one specifically linked card | 1,688 | 1,769 | 1,740 |
-| At least one application and changed case for the same objective | 862 | 940 | 918 |
-| At least one full sequence for the same objective | 850 | 878 | 885 |
-| Two different objectives, each with its own three-card sequence | 39 | 50 | 71 |
+| At least one specifically linked card | 1,708 | 1,785 | 1,760 |
+| At least one application and changed case for the same objective | 916 | 989 | 970 |
+| At least one full sequence for the same objective | 904 | 930 | 937 |
+| Two different objectives, each with its own three-card sequence | 43 | 57 | 77 |
 
 The last row asks whether a learner can practice a second decision about the same condition. For example, the Step 2 CK Hodgkin lymphoma cards cover both choosing adequate biopsy tissue and staging disease from the distribution of involved nodes. To earn credit, two reviewed objectives must each have a foundation, an application and a changed case. All six cards must have different IDs and link to that condition on the same Step. The scorecard lists the two objective names and an example set of six IDs in level order. A topic with more qualifying objectives still counts once. [Inspect the named-topic evidence](release/step-item-coverage.tsv)
 
@@ -229,11 +233,13 @@ The inventory indexes 126 skills across nine families on printed pages 36–38 o
 | Deepest documented practice for each skill | Step 1 | Step 2 CK | Step 3 |
 | --- | ---: | ---: | ---: |
 | No question linked yet | 0 | 0 | 0 |
-| Linked question without a qualifying case pair | 118 | 112 | 115 |
-| Application and changed case, prerequisite still missing | 1 | 6 | 2 |
-| Prerequisite, application and changed case on one objective | 7 | 8 | 9 |
+| Linked question without a qualifying case pair | 89 | 86 | 88 |
+| Application and changed case, prerequisite still missing | 1 | 5 | 2 |
+| Prerequisite, application and changed case on one objective | 36 | 35 | 36 |
 
-The expansion adds 368 questions, including 44 that use 30 code-generated figures. Two of the figures redraw published aggregate results. In the Diabetes Prevention Program, learners compare rates expressed per 100 person-years and explain what additional data are needed for a three-year NNT. In SPRINT, they read a composite event rate and judge whether the figure alone supports a claim about stroke. Each decision has a separate card. The other figures use teaching data. [Original DPP report](https://doi.org/10.1056/NEJMoa012512) · [Original SPRINT report](https://doi.org/10.1056/NEJMoa1511939)
+All 29 named statistical interpretation topics now have a foundation, an application and a changed case on each Step. A Step 3 pair asks whether unobserved outcomes can reverse a trial result. For one intervention arm, the eight missing outcomes could raise its event risk from 6% to 14%, above the observed control risk of 10%. In the other trial even the worst case for the intervention stays below control. Other cards use causal diagrams, power curves and the published CAST outcomes to practice reading clinical claims. [Topic-level evidence](release/step-item-coverage.tsv) · [CAST report](https://pubmed.ncbi.nlm.nih.gov/2473403/)
+
+The earlier expansion added 368 questions, including 44 that use 30 code-generated figures. Two of the figures redraw published aggregate results. In the Diabetes Prevention Program, learners compare rates expressed per 100 person-years and explain what additional data are needed for a three-year NNT. In SPRINT, they read a composite event rate and judge whether the figure alone supports a claim about stroke. Each decision has a separate card. The other figures use teaching data. [Original DPP report](https://doi.org/10.1056/NEJMoa012512) · [Original SPRINT report](https://doi.org/10.1056/NEJMoa1511939)
 
 For an example of changed-case practice, a Step 2 CK learner reads a Kaplan–Meier curve that crosses 0.5 at eight months. A second cohort finishes follow-up with the curve still above 0.5, so the median cannot be reported as a number. In Anki Browse, search `tag:outline::stats::population tag:practice::transfer`. Independent interpretation of a new paper or advertising claim remains a separate learner assessment. [Objectives, card IDs and changed evidence](step-depth.tsv)
 
@@ -243,10 +249,12 @@ The inventory lists 158 conditions and tasks across the seven families on printe
 
 | Deepest documented practice for each topic | Step 1 | Step 2 CK | Step 3 |
 | --- | ---: | ---: | ---: |
-| No question linked yet | 49 | 24 | 26 |
-| Linked question without a qualifying case pair | 42 | 49 | 58 |
-| Application and changed case, prerequisite still missing | 0 | 9 | 4 |
-| Prerequisite, application and changed case on one objective | 67 | 76 | 70 |
+| No question linked yet | 46 | 24 | 24 |
+| Linked question without a qualifying case pair | 39 | 44 | 54 |
+| Application and changed case, prerequisite still missing | 0 | 8 | 4 |
+| Prerequisite, application and changed case on one objective | 73 | 82 | 76 |
+
+Acute fatty liver, intrahepatic cholestasis, gestational hypertension, preeclampsia, eclampsia and HELLP syndrome each have a full sequence on all three Steps. A postpartum blood-pressure record shows why a persistently severe systolic pressure calls for urgent treatment even when diastolic pressure stays below 110 mm Hg. Another case distinguishes recurrent seizure prevention from treating respiratory depression during magnesium therapy. [Objective register](step-depth.tsv) · [ACOG guidance on acute severe hypertension](https://doi.org/10.1097/AOG.0000000000003075)
 
 All 45 indexed newborn topics have a prerequisite, an application and a changed case on each Step. These include neonatal resuscitation, surfactant deficiency, brachial plexus injury, immune hemolysis, feeding difficulty and neonatal seizures. Two delivery-room cards show the same reliable right-hand oxygen saturation of 82%. The infant is five minutes old in one case and ten minutes old in the other. The learner has to interpret the reading against the target for that minute. Two clinical films ask learners to recognize diffuse granular lung opacity in a premature infant and to locate a tube in a blind upper esophageal pouch. [Named newborn topics](release/step-item-coverage.tsv) · [AHA and AAP neonatal resuscitation guidance](https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/neonatal-resuscitation/) · [Clinical image credits](imaging.tsv)
 
@@ -401,9 +409,11 @@ Each Step has questions in all 18 families, but a count of individual conditions
 
 | Nervous system and special senses practice | Step 1 | Step 2 CK | Step 3 |
 | --- | ---: | ---: | ---: |
-| Individual topics with a linked question | 120/220 | 125/220 | 119/220 |
-| Individual topics with a prerequisite, application and changed case for one objective | 92/220 | 92/220 | 92/220 |
-| Families with a prerequisite, application and changed case for one objective | 4/18 | 4/18 | 5/18 |
+| Individual topics with a linked question | 137/220 | 141/220 | 137/220 |
+| Individual topics with a prerequisite, application and changed case for one objective | 111/220 | 111/220 | 111/220 |
+| Families with a prerequisite, application and changed case for one objective | 5/18 | 5/18 | 5/18 |
+
+All 19 named cranial and peripheral nerve topics have a three-card sequence on every Step. Pupil diagrams ask learners to identify which pupil fails to dilate in darkness or constrict in bright light. One ulnar nerve study shows marked slowing across the elbow. In the other, slowing is similar in both segments, so the velocities alone cannot localize an elbow lesion. A separate case tests why a reactive pupil cannot justify deferring evaluation of an acute partial third-nerve palsy. [Named-topic evidence](release/step-item-coverage.tsv) · [Patel and Burdon on acquired third-nerve palsy](https://pmc.ncbi.nlm.nih.gov/articles/PMC8727561/)
 
 All 16 topics in the nervous-system infection and immune-mediated disease family have a full sequence on each Step. The 147 new questions include three clinical MR images. One pair of cases starts with positive Toxoplasma IgG in a patient with advanced HIV. Multiple enhancing mass lesions support presumptive cerebral toxoplasmosis. Asymmetric white matter abnormalities without mass effect shift the differential toward PML. Fourteen additional MCAT cards use physiology experiments to practice interpreting data and choosing controls. Search `tag:outline::neuro::inf` in Anki Browse. [Neurology objectives](step-depth.tsv) · [NIH guidance on toxoplasma encephalitis](https://clinicalinfo.hiv.gov/en/guidelines/hiv-clinical-guidelines-adult-and-adolescent-opportunistic-infections/toxoplasmosis) · [Image credits](imaging.tsv)
 
@@ -429,7 +439,7 @@ Ten patient recordings let you practice locating a murmur between S1 and S2 or a
 
 ### Step 1 coverage check
 
-The original 610 cards included 570 Cohort items and 40 original questions. The current 4,280 include 3,710 originals. To practice tissue interpretation, 18 cards show nine unlabeled crops from microscope images. For example, one airway card asks you to identify the epithelial lining. A separately scheduled card asks how its apical surface helps clear particles. A further set of CDC images shows seven gross specimens and two liver micrographs, including an opened aorta, bilateral cystic kidneys and a stomach tumor. Other cards ask you to interpret ECG recordings and physiological or pharmacological plots. The endocrine and cardiovascular questions now connect drug targets to laboratory patterns and adverse effects. Each prescribing-information question cites the label for the product it describes. The new imaging questions include a normal head CT and examples of bleeding in four compartments. One card asks which vessels a subdural hematoma commonly injures. Another asks the learner to identify the collection on CT. In behavioral health, the new scenarios distinguish acute dystonia, akathisia and tardive dyskinesia by their time course and the patient’s movements. Important open gaps include recognition on unfamiliar specimens, imaging at other axial levels, and differentiation of secondary causes of psychiatric symptoms. [Card inventory](release/coverage.tsv) · [Official Step 1 specifications](https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications)
+The original 610 cards included 570 Cohort items and 40 original questions. The current 4,380 include 3,810 originals. To practice tissue interpretation, 18 cards show nine unlabeled crops from microscope images. For example, one airway card asks you to identify the epithelial lining. A separately scheduled card asks how its apical surface helps clear particles. A further set of CDC images shows seven gross specimens and two liver micrographs, including an opened aorta, bilateral cystic kidneys and a stomach tumor. Other cards ask you to interpret ECG recordings and physiological or pharmacological plots. The endocrine and cardiovascular questions now connect drug targets to laboratory patterns and adverse effects. Each prescribing-information question cites the label for the product it describes. The new imaging questions include a normal head CT and examples of bleeding in four compartments. One card asks which vessels a subdural hematoma commonly injures. Another asks the learner to identify the collection on CT. In behavioral health, the new scenarios distinguish acute dystonia, akathisia and tardive dyskinesia by their time course and the patient’s movements. Important open gaps include recognition on unfamiliar specimens, imaging at other axial levels, and differentiation of secondary causes of psychiatric symptoms. [Card inventory](release/coverage.tsv) · [Official Step 1 specifications](https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications)
 
 The Step 1 Communication section contains 50 cards, with another 32 in Communication and safety. The 70 Anatomy cards from Cohort are still classified as recall. USMLE assigns 6–9% of Step 1 to communication and interpersonal skills and explicitly includes interpretation of graphic material and specimens. A learner can encounter the name of a disease, recall its mechanism and still struggle to recognize a new clinical presentation. The audit records which of those tasks each reviewed card actually exercises. [Outline map](blueprint.tsv) · [USMLE system, competency and discipline weights](https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications)
 

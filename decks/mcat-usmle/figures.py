@@ -4189,6 +4189,155 @@ def cognition_records():
     save(fig, "cogread_infant", indexed=True)
 
 
+def trial_interpretation_records():
+    """Teaching models of statistical uncertainty, selection and causal structure."""
+    from statistics import NormalDist
+
+    normal = NormalDist()
+    critical = normal.inv_cdf(.975)
+    effects = np.linspace(0, .65, 150)
+    fig, ax = axes("True difference (population SDs)", "Rejection probability")
+    for n, color, style in [(30, COLORS[0], "--"), (120, COLORS[1], "-")]:
+        shifts = effects * np.sqrt(n / 2)
+        power = [normal.cdf(-critical - mu) + normal.cdf(mu - critical) for mu in shifts]
+        ax.plot(effects, power, ls=style, color=color, label=f"{n} per arm")
+    ax.set(title="Two-sided z test • known common variance", ylim=(0, 1.04))
+    ax.legend()
+    save(fig, "trialread_power", indexed=True)
+
+    fig, ax = axes("Standardized test statistic under the null", "Density")
+    z = np.linspace(-4, 4, 600)
+    density = np.exp(-z**2 / 2) / np.sqrt(2 * np.pi)
+    ax.plot(z, density, color=COLORS[0], label="Both designs")
+    for boundary in [-critical, critical]:
+        ax.axvline(boundary, color=COLORS[1], ls="--", lw=1)
+    ax.fill_between(z, 0, density, where=abs(z)>=critical, color=COLORS[1])
+    ax.set(title="Two-sided 5% tests • null distributions", xticks=[-3, -1.96, 0, 1.96, 3])
+    ax.legend()
+    save(fig, "trialread_powernull", indexed=True)
+
+    for key, low, mean, high in [("small", .6, 1.2, 1.8), ("large", 3.4, 4.3, 5.2)]:
+        fig, ax = axes("Mean symptom benefit (points)", "")
+        ax.errorbar(mean, 0, xerr=[[mean-low], [high-mean]], fmt="o", capsize=6,
+                    color=COLORS[0], label="Mean and 95% CI")
+        ax.axvline(3, color=COLORS[1], ls="--", label="Worthwhile benefit")
+        ax.axvline(0, color="#444444", lw=1)
+        ax.set(title="Between-group comparison • simulated", yticks=[], ylim=(-1, 1),
+               xlim=(-1, 6), xticks=range(-1, 7))
+        ax.legend(loc="upper left")
+        save(fig, "trialread_" + key, indexed=True)
+
+    for key, events, missing, controls in [("missA", 6, 8, 10), ("missB", 4, 4, 12)]:
+        study_table("trialread_" + key, "Final binary outcome",
+                    ["Arm", "Allocated", "Known events", "Unknown"],
+                    [["Intervention", "100", str(events), str(missing)],
+                     ["Control", "100", str(controls), "0"]])
+    for key, rows in [
+        ("strataA", [["Mild", "2 / 20", "8 / 80"], ["Severe", "32 / 80", "8 / 20"]]),
+        ("strataB", [["Mild", "5 / 100", "10 / 100"], ["Severe", "25 / 100", "30 / 100"]]),
+    ]:
+        study_table("trialread_" + key, "Events / patients in each severity stratum",
+                    ["Severity", "Treated", "Comparison"], rows)
+    for key, top, edges in [
+        ("backdoor", "Baseline severity", [(0, 1), (0, 2), (1, 2)]),
+        ("mediator", "Intermediate response", [(1, 0), (0, 2), (1, 2)]),
+    ]:
+        fig, ax = plt.subplots(figsize=(4.5, 2.8), layout="constrained")
+        xy = [(.5, .83), (.18, .2), (.82, .2)]
+        nodes = [ax.text(x, y, label, ha="center", va="center",
+                         bbox=dict(boxstyle="round,pad=.42", fc="#eef5f6", ec=COLORS[0]))
+                 for (x, y), label in zip(xy, [top, "Treatment", "Outcome"])]
+        for start, end in edges:
+            ax.annotate("", xy=xy[end], xytext=xy[start],
+                        arrowprops=dict(arrowstyle="-|>", lw=1.6, color=COLORS[1],
+                                        patchA=nodes[start].get_bbox_patch(),
+                                        patchB=nodes[end].get_bbox_patch(),
+                                        shrinkA=4, shrinkB=4))
+        ax.set(xlim=(0, 1), ylim=(0, 1), title="Assumed causal diagram")
+        ax.axis("off")
+        save(fig, "trialread_" + key, indexed=True)
+    for key, values in [("doseA", [3, 5, 9, 15]), ("doseB", [4, 10, 16, 7])]:
+        fig, ax = axes("Exposure category", "Observed event risk (%)")
+        ax.plot(["None", "Low", "Moderate", "High"], values, "o-", color=COLORS[0])
+        ax.set(title="Exposure and outcome • simulated cohort", ylim=(0, 20), yticks=range(0, 21, 5))
+        save(fig, "trialread_" + key, indexed=True)
+    study_table("trialread_cast", "Arrhythmic death or nonfatal cardiac arrest",
+                ["Assignment", "Events", "Participants"],
+                [["Encainide or flecainide", "33", "730"], ["Placebo", "9", "725"]],
+                source="CAST, 1989")
+
+
+def sensory_behavior_records():
+    """Synthetic psychophysics and behavioral-study displays."""
+    position = np.linspace(0, 100, 240)
+    fig, ax = axes("Distance from base toward apex (%)", "Relative displacement")
+    for center, label, color, style in [(24, "Tone A", COLORS[0], "-"), (75, "Tone B", COLORS[1], "--")]:
+        ax.plot(position, np.exp(-.5 * ((position-center)/9)**2), ls=style, color=color, label=label)
+    ax.set(title="Cochlear response profiles • schematic", xticks=range(0, 101, 25))
+    ax.legend()
+    save(fig, "percept_cochlea", indexed=True)
+
+    fig, ax = plt.subplots(figsize=(3.8, 3.0), layout="constrained")
+    for col in range(8):
+        ax.scatter(np.full(4, col*.47), np.arange(4), marker="o" if col%2==0 else "s",
+                   s=45, facecolors="none", edgecolors=COLORS[0], linewidths=1.6)
+    ax.set(xlim=(-.35, 3.65), ylim=(-.35, 3.35), aspect="equal", title="Array • narrow horizontal gaps")
+    ax.axis("off")
+    save(fig, "percept_array", indexed=True)
+    study_table("percept_rowvotes", "Perceived grouping", ["Horizontal gaps", "Reported rows"],
+                [["Narrow", "68%"], ["Wide", "32%"]])
+    study_table("percept_flavor", "Identification accuracy", ["Task", "Open nose", "Nose occluded"],
+                [["Flavor identity", "85%", "45%"], ["Basic taste", "92%", "90%"]])
+    study_table("percept_trait", "Six-month test–retest correlation", ["Measure", "Correlation"],
+                [["Trait inventory", "0.76"], ["Momentary rating", "0.24"]])
+    study_table("percept_ocd", "Symptom severity • lower is better", ["Participant", "Baseline", "Follow-up"],
+                [["A", "25", "15"], ["B", "32", "24"]])
+    study_table("percept_play", "Mean free-choice play (minutes)", ["Group", "Before", "After"],
+                [["Promised reward", "8", "5"], ["Comparison", "8", "7"]])
+
+
+def peripheral_nerve_records():
+    """Paired bedside findings and electrodiagnostic records; all are simulated."""
+    for key, bright, dark in [("dark", (2.5, 3), (3, 5.5)), ("light", (2, 5), (5.5, 6))]:
+        fig, ax = plt.subplots(figsize=(4.5, 3.0), layout="constrained")
+        for y, vals in [(1, bright), (0, dark)]:
+            for x, diameter in enumerate(vals):
+                ax.scatter(x, y, s=300, facecolor="#d9e7e9", edgecolor=COLORS[0])
+                ax.scatter(x, y, s=6 * diameter**2, facecolor="#202733", edgecolor="none")
+                ax.text(x, y-.26, f"{diameter:g} mm", ha="center", va="center", fontsize=9)
+        ax.set(xticks=[0, 1], xticklabels=["Patient's right", "Patient's left"],
+               yticks=[0, 1], yticklabels=["Dark", "Bright"], xlim=(-.5, 1.5), ylim=(-.45, 1.4),
+               title="Pupil diameters • simulated")
+        ax.tick_params(length=0)
+        for spine in ax.spines.values():
+            spine.set_visible(False)
+        save(fig, "nerveloc_" + key, indexed=True)
+    for key, rows in [
+        ("gazeR", [["Left", "Poor adduction", "Abducting nystagmus"], ["Right", "Full abduction", "Full adduction"]]),
+        ("gazeL", [["Left", "Full adduction", "Full abduction"], ["Right", "Abducting nystagmus", "Poor adduction"]]),
+    ]:
+        study_table("nerveloc_" + key, "Horizontal gaze examination",
+                    ["Target moves", "Patient's right eye", "Patient's left eye"], rows)
+    fig, ax = axes("Time (hours)", "Vital capacity (mL/kg)")
+    ax.plot([0, 2, 4, 6, 8], [38, 39, 37, 38, 39], "o-", color=COLORS[0])
+    ax.set(title="Bedside spirometry • simulated", xticks=range(0, 9, 2),
+           yticks=range(30, 45, 2), ylim=(29, 45))
+    for x, y in zip([0, 2, 4, 6, 8], [38, 39, 37, 38, 39]):
+        ax.annotate(str(y), (x, y), xytext=(0, 7), textcoords="offset points", ha="center")
+    save(fig, "nerveloc_vc", indexed=True)
+    for key, velocities in [("elbow", [58, 36]), ("diffuse", [35, 34])]:
+        study_table("nerveloc_" + key, "Ulnar motor study",
+                    ["Segment", "Velocity (m/s)"],
+                    [["Forearm", str(velocities[0])], ["Across elbow", str(velocities[1])]])
+
+
+def obstetric_pressure_record():
+    """Serial blood pressure and time in a simulated postpartum assessment."""
+    study_table("oborgan_severebp", "Postpartum blood pressure",
+                ["Time", "Systolic (mm Hg)", "Diastolic (mm Hg)"],
+                [["09:00", "165", "103"], ["09:08", "168", "104"], ["09:15", "166", "102"]])
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -4267,6 +4416,10 @@ def main():
     skin_patch_record()
     skin_treatment_evidence()
     cognition_records()
+    trial_interpretation_records()
+    sensory_behavior_records()
+    peripheral_nerve_records()
+    obstetric_pressure_record()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
