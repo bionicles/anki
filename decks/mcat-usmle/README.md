@@ -1,6 +1,6 @@
 # MCAT and USMLE
 
-Open **File → Import** in Anki and select `decks/mcat-usmle/release/MCAT-USMLE.apkg`. Select the exam you are currently preparing for under **MCAT and USMLE**. The package contains 7,273 cards across four exams. This is a supplemental release. The coverage audit is open for all four exams. Each subdeck has its own subject or task grouping. Every card carries a source and license on its back. [Anki package](release/MCAT-USMLE.apkg) · [Editable TSV](release/MCAT-USMLE.tsv) · [Topic counts and card IDs](release/coverage.tsv) · [Official outline mappings and gaps](blueprint.tsv)
+Open **File → Import** in Anki and select `decks/mcat-usmle/release/MCAT-USMLE.apkg`. Select the exam you are currently preparing for under **MCAT and USMLE**. The package contains 7,560 cards across four exams. This is a supplemental release. The coverage audit is open for all four exams. Each subdeck has its own subject or task grouping. Every card carries a source and license on its back. [Anki package](release/MCAT-USMLE.apkg) · [Editable TSV](release/MCAT-USMLE.tsv) · [Topic counts and card IDs](release/coverage.tsv) · [Official outline mappings and gaps](blueprint.tsv)
 
 **Try a Step 3 case.** Ascitic fluid from a febrile patient with cirrhosis contains 800 nucleated cells/mm³, of which 50% are neutrophils. What is the absolute neutrophil count?
 
@@ -15,11 +15,11 @@ Open **File → Import** in Anki and select `decks/mcat-usmle/release/MCAT-USMLE
 | Exam | Cards | Material |
 | --- | ---: | --- |
 | MCAT | 1,412 | All four sections and all 31 numbered science content categories have cards. Twelve original CARS passages support 42 independently graded questions. Seven science passages test experimental interpretation. Spectral windows, Fischer projections and a TLC plate give practice reading chemical data. Selected OpenStax exercises add application practice alongside glossary recall. |
-| USMLE Step 1 | 2,144 | Mechanisms, clinical stems, tissue identification and interpretation of physiological curves and ECGs. The coverage check below explains the remaining gaps. |
-| USMLE Step 2 CK | 1,926 | Cases on diagnosis, investigation, prevention and treatment. Examples include differentiating inherited disorders, evaluating a new mass, interpreting a rhythm strip, recognizing refeeding syndrome, distinguishing head CT findings and evaluating medication-induced movement disorders. |
-| USMLE Step 3 | 1,791 | 210 Foundations of Independent Practice cards, 1,414 Advanced Clinical Medicine cards and 167 decisions across 56 CCS-style case topics. An original research abstract and advertisement support ten questions. Additional cards ask learners to interpret published trial results, distinguish a surrogate from a clinical outcome and weigh benefit at the patient’s baseline risk. |
+| USMLE Step 1 | 2,243 | Mechanisms, clinical stems, tissue identification and interpretation of physiological curves and ECGs. The coverage check below explains the remaining gaps. |
+| USMLE Step 2 CK | 2,020 | Cases on diagnosis, investigation, prevention and treatment. Examples include differentiating inherited disorders, evaluating a new mass, interpreting a rhythm strip, recognizing refeeding syndrome, distinguishing head CT findings and evaluating medication-induced movement disorders. |
+| USMLE Step 3 | 1,885 | 210 Foundations of Independent Practice cards, 1,508 Advanced Clinical Medicine cards and 167 decisions across 56 CCS-style case topics. An original research abstract and advertisement support ten questions. Additional cards ask learners to interpret published trial results, distinguish a surrogate from a clinical outcome and weigh benefit at the patient’s baseline risk. |
 
-The outline map includes 150 finer MCAT science topic groups, along with the numbered categories, reasoning skills and clinical mappings. All 2,233 entries have partial coverage. For example, questions on alkene configuration can show whether a learner can assign priorities on a drawing. They leave open how the learner handles an unfamiliar molecule. The map links each reviewed objective to card IDs, the relevant official specifications and a concrete gap for further review. For example, it lists separate Step 1, Step 2 CK and Step 3 evidence for AV conduction disorders. The topic inventory lists every shipped card. Subject coverage, unfamiliar passage practice and performance on timed questions are separate things to check. The CCS cards let you rehearse individual decisions. The official simulator also tests order entry, sequencing, passage of time and response to evolving findings. This package has not undergone independent clinician or test-prep review. [Outline map](blueprint.tsv) · [Card inventory](release/coverage.tsv) · [AAMC outline](https://students-residents.aamc.org/prepare-mcat-exam/whats-mcat-exam-pdf-outline) · [USMLE Step 3 practice materials](https://www.usmle.org/exam-resources/step-3-materials)
+The outline map includes 150 finer MCAT science topic groups, along with the numbered categories, reasoning skills and clinical mappings. All 2,311 entries have partial coverage. For example, questions on alkene configuration can show whether a learner can assign priorities on a drawing. They leave open how the learner handles an unfamiliar molecule. The map links each reviewed objective to card IDs, the relevant official specifications and a concrete gap for further review. For example, it lists separate Step 1, Step 2 CK and Step 3 evidence for AV conduction disorders. The topic inventory lists every shipped card. Subject coverage, unfamiliar passage practice and performance on timed questions are separate things to check. The CCS cards let you rehearse individual decisions. The official simulator also tests order entry, sequencing, passage of time and response to evolving findings. This package has not undergone independent clinician or test-prep review. [Outline map](blueprint.tsv) · [Card inventory](release/coverage.tsv) · [AAMC outline](https://students-residents.aamc.org/prepare-mcat-exam/whats-mcat-exam-pdf-outline) · [USMLE Step 3 practice materials](https://www.usmle.org/exam-resources/step-3-materials)
 
 ## How much of each Step can you practice?
 
@@ -28,9 +28,9 @@ The audit starts with 174 topic families indexed to the 18 areas of the 2026 USM
 | Families out of 174 | Step 1 | Step 2 CK | Step 3 |
 | --- | ---: | ---: | ---: |
 | At least one reviewed card linked to the family | 167 | 169 | 166 |
-| At least one objective with an applied case | 106 | 146 | 147 |
-| At least one objective revisited on a different case | 90 | 130 | 122 |
-| At least one objective with a foundation, application and different case | 82 | 89 | 109 |
+| At least one objective with an applied case | 109 | 148 | 149 |
+| At least one objective revisited on a different case | 93 | 133 | 124 |
+| At least one objective with a foundation, application and different case | 85 | 92 | 112 |
 
 ### How much practice does an individual condition get?
 
@@ -38,9 +38,22 @@ The named-topic scorecard contains 2,097 conditions or clinical tasks indexed ac
 
 | Named topics out of 2,097 | Step 1 | Step 2 CK | Step 3 |
 | --- | ---: | ---: | ---: |
-| At least one specifically linked card | 1,091 | 1,227 | 1,143 |
-| At least one application and changed case for the same objective | 109 | 199 | 181 |
-| At least one full sequence for the same objective | 91 | 117 | 125 |
+| At least one specifically linked card | 1,160 | 1,293 | 1,207 |
+| At least one application and changed case for the same objective | 121 | 211 | 194 |
+| At least one full sequence for the same objective | 103 | 129 | 138 |
+
+### Well-patient care across the lifespan
+
+All 76 topics on printed page 3 of the USMLE outline now have a linked question on each Step. The 287 additional cards cover growth, development, preventive visits, injury prevention, function and support across four age groups. Each group has at least one objective with a prerequisite, an application and a changed case on every Step. The table counts how many individual topics reach each level. [Official USMLE outline, printed page 3](https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf#page=4) · [Cards and qualifying objectives by topic](release/step-item-coverage.tsv)
+
+| Deepest documented practice for each well-patient topic | Step 1 | Step 2 CK | Step 3 |
+| --- | ---: | ---: | ---: |
+| No question linked yet | 0 | 0 | 0 |
+| Linked question without a qualifying case pair | 63 | 63 | 60 |
+| Application and changed case, prerequisite still missing | 0 | 0 | 1 |
+| Prerequisite, application and changed case on one objective | 13 | 13 | 15 |
+
+Thirty-two questions ask learners to read one of 14 code-generated patient records or food labels. For example, two boys have normal head circumference at birth. By six months one still tracks the median and the other's confirmed measurements cross P97. Step 1 asks the learner to read each chart. Step 2 CK asks what the trajectory warrants. A separate Step 3 case adds vomiting and a bulging fontanelle to change the urgency. In Anki Browse, search `tag:outline::dev::child tag:visual::question` for the plotted cases. [WHO head circumference standards](https://www.who.int/tools/child-growth-standards/standards/head-circumference-for-age) · [NICE guidance on head size and referral](https://www.nice.org.uk/guidance/ng127/chapter/Recommendations-for-children-aged-under-16)
 
 ### Male and transgender reproductive system
 
@@ -98,11 +111,11 @@ Thirty-eight questions use 15 licensed clinical images and 19 code-generated fig
 
 The 53 immunity topics each have a question on all three Steps. Four topics on Step 1, seven on Step 2 CK and eight on Step 3 have a full practice sequence. For example, the Step 1 learner reads two simulated neutrophil oxidative-burst plots. In the first patient the stimulated cells remain dim. In a second patient they shift into the control range, which changes the interpretation. Search `tag:outline::immune::def tag:visual::question` in Anki Browse. The 200 original immunity questions include eleven code-generated plots and laboratory reports. [Official immune system outline](https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf#page=5) · [Clinical interpretation of the oxidative burst](https://www.ncbi.nlm.nih.gov/books/NBK99496/)
 
-The six areas below account for 585 indexed topics. Each cell counts topics with at least one specifically linked question on that Step. The 24 new preventive-care questions cover infant sleep, delayed puberty, teen driving, adult screening and fall prevention. Earlier cards also contribute. A question on a child with slowing linear growth pairs with a separately scheduled case in which short stature accompanies normal growth velocity. [Questions and gaps by topic](release/step-item-coverage.tsv)
+The six areas below account for 585 indexed topics. Each cell counts topics with at least one specifically linked question on that Step. A question on a child with slowing linear growth pairs with a separately scheduled case in which short stature accompanies normal growth velocity. [Questions and gaps by topic](release/step-item-coverage.tsv)
 
 | Outline area | Indexed topics | Step 1 linked | Step 2 CK linked | Step 3 linked |
 | --- | ---: | ---: | ---: | ---: |
-| Well-patient care | 76 | 7 | 10 | 12 |
+| Well-patient care | 76 | 76 | 76 | 76 |
 | Behavioral health | 103 | 103 | 103 | 103 |
 | Skin | 89 | 89 | 89 | 89 |
 | Musculoskeletal system | 84 | 84 | 84 | 84 |
@@ -255,7 +268,7 @@ Ten patient recordings let you practice locating a murmur between S1 and S2 or a
 
 ### Step 1 coverage check
 
-The original 610 cards included 570 Cohort items and 40 original questions. The current 2,144 include 1,574 originals. To practice tissue interpretation, 18 cards show nine unlabeled crops from microscope images. For example, one airway card asks you to identify the epithelial lining. A separately scheduled card asks how its apical surface helps clear particles. A further set of CDC images shows seven gross specimens and two liver micrographs, including an opened aorta, bilateral cystic kidneys and a stomach tumor. Other cards ask you to interpret ECG recordings and physiological or pharmacological plots. The endocrine and cardiovascular questions now connect drug targets to laboratory patterns and adverse effects. Each prescribing-information question cites the label for the product it describes. The new imaging questions include a normal head CT and examples of bleeding in four compartments. One card asks which vessels a subdural hematoma commonly injures. Another asks the learner to identify the collection on CT. In behavioral health, the new scenarios distinguish acute dystonia, akathisia and tardive dyskinesia by their time course and the patient’s movements. Important open gaps include recognition on unfamiliar specimens, imaging at other axial levels, and differentiation of secondary causes of psychiatric symptoms. [Card inventory](release/coverage.tsv) · [Official Step 1 specifications](https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications)
+The original 610 cards included 570 Cohort items and 40 original questions. The current 2,243 include 1,673 originals. To practice tissue interpretation, 18 cards show nine unlabeled crops from microscope images. For example, one airway card asks you to identify the epithelial lining. A separately scheduled card asks how its apical surface helps clear particles. A further set of CDC images shows seven gross specimens and two liver micrographs, including an opened aorta, bilateral cystic kidneys and a stomach tumor. Other cards ask you to interpret ECG recordings and physiological or pharmacological plots. The endocrine and cardiovascular questions now connect drug targets to laboratory patterns and adverse effects. Each prescribing-information question cites the label for the product it describes. The new imaging questions include a normal head CT and examples of bleeding in four compartments. One card asks which vessels a subdural hematoma commonly injures. Another asks the learner to identify the collection on CT. In behavioral health, the new scenarios distinguish acute dystonia, akathisia and tardive dyskinesia by their time course and the patient’s movements. Important open gaps include recognition on unfamiliar specimens, imaging at other axial levels, and differentiation of secondary causes of psychiatric symptoms. [Card inventory](release/coverage.tsv) · [Official Step 1 specifications](https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications)
 
 The Step 1 Communication section contains 50 cards, with another 32 in Communication and safety. The 70 Anatomy cards from Cohort are still classified as recall. USMLE assigns 6–9% of Step 1 to communication and interpersonal skills and explicitly includes interpretation of graphic material and specimens. A learner can encounter the name of a disease, recall its mechanism and still struggle to recognize a new clinical presentation. The audit records which of those tasks each reviewed card actually exercises. [Outline map](blueprint.tsv) · [USMLE system, competency and discipline weights](https://www.usmle.org/exam-resources/step-1-materials/step-1-content-outline-and-specifications)
 

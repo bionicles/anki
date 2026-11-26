@@ -1511,82 +1511,82 @@ immune.drug	Infliximab and infection risk	original:im-inf-f	original:im-inf-a	or
 immune.drug	Omalizumab and anaphylaxis	original:im-oma-f	original:im-oma-a	original:im-oma-rescue
 immune.drug	Rituximab and hepatitis B reactivation	original:im-rit-f	original:im-rit-a	original:im-rit-core
 immune.drug	Vaccine adverse events	original:im-vac-f	original:im-vac-ground original:im-vac-a original:im-vac-t	original:ccs-ana-recognize original:ccs-ana-route original:im-vac-pre original:im-vac-base original:im-vac-faint original:im-vac-shock
-dev.child	Linear growth and constitutional growth delay	original:ex-retest-speed original:ex-retest-slows original:ex-retest-steady		original:ex-retest-growth original:ex-retest-tracking original:ey-growth
-dev.child	Weight gain and growth faltering		original:well-growth-shape	original:well-growth-transition
-dev.child	Head circumference			
-dev.child	Normal voiding and stooling			
-dev.child	Primary nocturnal enuresis			
-dev.child	Age-appropriate physical examination			
-dev.child	Childhood screening		original:bh-autism-timing	original:bh-autism-positive original:acm-milestone-repeat original:acm-milestone-access original:acm-milestone-monitor original:acm-milestone-plan
-dev.child	Normal sleep and safe infant sleep	original:wp-surface original:per-sleep-back	original:wp-roll original:wp-seat original:per-sleep-ref	original:wp-swaddle original:wp-blanket original:per-sleep-room
-dev.child	Teething			
-dev.child	Gross and fine motor milestones			
-dev.child	Speech and language milestones			
-dev.child	Cognitive milestones			
-dev.child	Social development			
-dev.child	Anticipatory guidance			
-dev.child	Feeding and nutrition		original:well-infant-dose original:well-iron-first original:well-safefood-milk	original:well-infant-concentration original:well-iron-family original:well-safefood-honey
-dev.child	Physical activity			
-dev.child	Travel health			
-dev.child	Firearm injury prevention			
-dev.child	Water safety			
-dev.child	Child passenger restraints			
-dev.child	Routine childhood immunization			
-dev.child	Coping with illness			
-dev.child	Supporting family adherence			
-dev.adolescent	Growth velocity and constitutional delay	original:wp-age	original:wp-history	original:wp-redflag
-dev.adolescent	Weight and nutrition			
-dev.adolescent	Pubertal development	original:wp-androgen	original:ex-pubdelay-when original:wp-breast original:wp-history	original:wp-late original:ex-pubdelay-low original:ex-pubdelay-smell
-dev.adolescent	Age-appropriate physical examination			
-dev.adolescent	Pubertal gynecomastia			
-dev.adolescent	Autonomy and identity development			
-dev.adolescent	Sleep needs			
-dev.adolescent	Abstract reasoning			
-dev.adolescent	Role confusion and sexual identity			
-dev.adolescent	Anticipatory guidance			
-dev.adolescent	Exercise			
-dev.adolescent	Preventive and travel visits			
-dev.adolescent	Helmet use			
-dev.adolescent	Seat belts and distracted driving	original:wp-pass	original:wp-peers original:wp-belt	original:wp-practice
-dev.adolescent	Sexual health and consent			
-dev.adolescent	Screening for reproductive or sexual coercion			
-dev.adolescent	Routine adolescent immunization			
-dev.adolescent	Coping with illness			
-dev.adolescent	Supporting adherence			
-dev.adult	Weight change			
-dev.adult	Adult physical examination			
-dev.adult	Age- and risk-based screening	original:wp-rest	original:wp-risk original:wp-dxa original:wp-cuff original:ckprevent-conf original:cv-bp-white original:cv-bp-masked	original:wp-path original:wp-device original:acm-prev-bp
-dev.adult	Sleep			
-dev.adult	Cognitive development			
-dev.adult	Intimacy and isolation			
-dev.adult	Anticipatory guidance			
-dev.adult	Adult nutrition			
-dev.adult	Adult exercise			
-dev.adult	Preventive and travel medicine			
-dev.adult	Injury risk reduction			
-dev.adult	Adult vaccination			
-dev.adult	Coping with illness			
-dev.adult	Supporting treatment adherence			
-dev.older	Changes in weight			
-dev.older	Height loss and spinal compression			
-dev.older	Skin fragility and bruising			
-dev.older	Age-appropriate physical examination			
-dev.older	Thermoregulation			
-dev.older	Bladder and bowel changes			
-dev.older	Changes in sleep			
-dev.older	Mobility and motor function			
-dev.older	Normal cognitive aging			
-dev.older	Integrity, despair and life review			
-dev.older	Anticipatory guidance			
-dev.older	Nutrition in older adulthood			
-dev.older	Exercise in older adulthood	original:wp-training		original:ccs-falls-gait original:wp-program
-dev.older	Preventive and travel care			
-dev.older	Fall risk		original:ck-falls-history original:ck-falls-posture original:ck-falls-mobility original:ck-falls-pills original:ck-falls-environment	original:ccs-falls-injury original:ccs-falls-gait original:ccs-falls-taper original:ccs-falls-follow original:wp-program original:wp-multi original:cv-stand-meds
-dev.older	General health and functional assessment			
-dev.older	Polypharmacy		original:ck-falls-pills	original:ccs-falls-taper
-dev.older	Driving safety			
-dev.older	Caregiver strain			
-dev.older	Vaccination in older adulthood			
+dev.child	Linear growth and constitutional growth delay	original:ex-retest-speed original:ex-retest-slows original:ex-retest-steady	original:wp-history original:prevcare-linear-2	original:ex-retest-growth original:ex-retest-tracking original:ey-growth
+dev.child	Weight gain and growth faltering	original:prevcare-weight-1	original:well-growth-shape original:prevcare-weight-2	original:well-growth-transition original:prevcare-weight-3
+dev.child	Head circumference	original:prevcare-head-1 original:prevcare-head-1-a original:prevcare-head-1-b original:prevcare-head-1-c	original:prevcare-head-2 original:prevcare-head-2-b original:prevcare-head-2-c	original:prevcare-head-3 original:prevcare-head-3-a original:prevcare-head-3-b
+dev.child	Normal voiding and stooling	original:prevcare-void-1	original:prevcare-void-2	original:prevcare-void-3
+dev.child	Primary nocturnal enuresis	original:behavior-enur-1	original:behavior-enur-2 original:prevcare-bedwet-2	original:behavior-enur-3 original:prevcare-bedwet-3
+dev.child	Age-appropriate physical examination	original:prevcare-exam-1	original:prevcare-exam-2	original:prevcare-exam-3
+dev.child	Childhood screening	original:prevcare-screen-1	original:bh-autism-timing original:ck-dev-screen-nine original:ck-dev-screen-concern original:ck-dev-screen-positive	original:bh-autism-positive original:acm-milestone-repeat original:acm-milestone-access original:acm-milestone-monitor original:acm-milestone-plan
+dev.child	Normal sleep and safe infant sleep	original:wp-surface original:per-sleep-back	original:wp-roll original:wp-seat original:per-sleep-ref	original:wp-swaddle original:wp-blanket original:per-sleep-room original:prevcare-sleep-3
+dev.child	Teething	original:prevcare-teeth-1	original:prevcare-teeth-2	original:prevcare-teeth-3
+dev.child	Gross and fine motor milestones	original:s1-infant-pincer original:s1-infant-sitting	original:prevcare-motor-2	original:prevcare-motor-3
+dev.child	Speech and language milestones	original:s1-infant-word original:s1-infant-lost original:prevcare-speech-1	original:prevcare-speech-2	original:prevcare-speech-3
+dev.child	Cognitive milestones	original:prevcare-cognitive-1	original:prevcare-cognitive-2	original:prevcare-cognitive-3
+dev.child	Social development	original:prevcare-social-1	original:prevcare-social-2	original:prevcare-social-3
+dev.child	Anticipatory guidance	original:prevcare-guide-1	original:prevcare-guide-2	original:prevcare-guide-3
+dev.child	Feeding and nutrition	original:prevcare-feed-1	original:well-infant-dose original:well-iron-first original:well-safefood-milk original:prevcare-feed-2	original:well-infant-concentration original:well-iron-family original:well-safefood-honey original:prevcare-feed-3
+dev.child	Physical activity	original:prevcare-activity-1	original:prevcare-activity-2	original:prevcare-activity-3
+dev.child	Travel health	original:prevcare-travel-1 original:prevcare-travel-1-b original:prevcare-travel-1-c	original:prevcare-travel-2 original:prevcare-travel-2-a original:prevcare-travel-2-c	original:prevcare-travel-3 original:prevcare-travel-3-a original:prevcare-travel-3-c
+dev.child	Firearm injury prevention	original:prevcare-fire-1	original:prevcare-fire-2	original:prevcare-fire-3
+dev.child	Water safety	original:prevcare-water-1	original:prevcare-water-2	original:prevcare-water-3
+dev.child	Child passenger restraints	original:prevcare-car-1 original:prevcare-car-1-b original:prevcare-car-1-c	original:prevcare-car-2 original:prevcare-car-2-a original:prevcare-car-2-c	original:prevcare-car-3 original:prevcare-car-3-a original:prevcare-car-3-c
+dev.child	Routine childhood immunization	original:prevcare-vax-1	original:prevcare-vax-2	original:prevcare-vax-3
+dev.child	Coping with illness	original:prevcare-cope-1	original:prevcare-cope-2	original:prevcare-cope-3
+dev.child	Supporting family adherence	original:prevcare-family-1	original:prevcare-family-2	original:prevcare-family-3
+dev.adolescent	Growth velocity and constitutional delay	original:wp-age original:prevcare-tlinear-1	original:wp-history	original:wp-redflag original:prevcare-tlinear-3
+dev.adolescent	Weight and nutrition	original:prevcare-tnut-1	original:prevcare-tnut-2	original:behavior-osfed-3
+dev.adolescent	Pubertal development	original:wp-androgen original:prevcare-puberty-1	original:ex-pubdelay-when original:wp-breast original:wp-history	original:wp-late original:ex-pubdelay-low original:ex-pubdelay-smell
+dev.adolescent	Age-appropriate physical examination	original:prevcare-texam-1	original:prevcare-texam-2	original:prevcare-texam-3
+dev.adolescent	Pubertal gynecomastia	original:prevcare-gyne-1 original:prevcare-gyne-1-b original:prevcare-gyne-1-c	original:prevcare-gyne-2 original:prevcare-gyne-2-a original:prevcare-gyne-2-c	original:prevcare-gyne-3 original:prevcare-gyne-3-a original:prevcare-gyne-3-b
+dev.adolescent	Autonomy and identity development	original:prevcare-auto-1	original:prevcare-auto-2	original:prevcare-auto-3
+dev.adolescent	Sleep needs	original:prevcare-tsleep-1 original:prevcare-tsleep-1-b original:prevcare-tsleep-1-c	original:prevcare-tsleep-2 original:prevcare-tsleep-2-b original:prevcare-tsleep-2-c	original:prevcare-tsleep-3 original:prevcare-tsleep-3-a original:prevcare-tsleep-3-b original:prevcare-tsleep-3-c
+dev.adolescent	Abstract reasoning	original:prevcare-abstract-1	original:prevcare-abstract-2	original:prevcare-abstract-3
+dev.adolescent	Role confusion and sexual identity	original:prevcare-identity-1	original:prevcare-identity-2	original:prevcare-identity-3
+dev.adolescent	Anticipatory guidance	original:prevcare-tguide-1	original:prevcare-tguide-2	original:prevcare-tguide-3
+dev.adolescent	Exercise	original:prevcare-texercise-1	original:prevcare-texercise-2	original:prevcare-texercise-3
+dev.adolescent	Preventive and travel visits	original:prevcare-ttravel-1	original:prevcare-ttravel-2	original:prevcare-ttravel-3
+dev.adolescent	Helmet use	original:prevcare-helmet-1	original:prevcare-helmet-2	original:prevcare-helmet-3
+dev.adolescent	Seat belts and distracted driving	original:wp-pass original:prevcare-tdrive-1 original:prevcare-tdrive-1-b original:prevcare-tdrive-1-c	original:wp-peers original:wp-belt original:prevcare-tdrive-2 original:prevcare-tdrive-2-a original:prevcare-tdrive-2-c	original:wp-practice original:prevcare-tdrive-3 original:prevcare-tdrive-3-a original:prevcare-tdrive-3-b original:prevcare-tdrive-3-c
+dev.adolescent	Sexual health and consent	original:prevcare-consent-1	original:prevcare-consent-2	original:prevcare-consent-3
+dev.adolescent	Screening for reproductive or sexual coercion	original:prevcare-coercion-1	original:prevcare-coercion-2	original:prevcare-coercion-3
+dev.adolescent	Routine adolescent immunization	original:prevcare-tvax-1	original:prevcare-tvax-2	original:prevcare-tvax-3
+dev.adolescent	Coping with illness	original:prevcare-tcope-1	original:prevcare-tcope-2	original:prevcare-tcope-3
+dev.adolescent	Supporting adherence	original:prevcare-tadh-1	original:prevcare-tadh-2	original:prevcare-tadh-3
+dev.adult	Weight change	original:prevcare-aweight-1	original:prevcare-aweight-2	original:prevcare-aweight-3
+dev.adult	Adult physical examination	original:prevcare-aexam-1	original:prevcare-aexam-2	original:acm-prev-bp
+dev.adult	Age- and risk-based screening	original:wp-rest original:prevcare-ascreen-1	original:wp-risk original:wp-dxa original:wp-cuff original:ckprevent-conf original:cv-bp-white original:cv-bp-masked original:gut-crc-risk original:gut-crc-symptoms	original:wp-path original:wp-device original:acm-prev-bp original:gut-crc-pos original:gut-crc-rule original:gut-crc-neg original:acm-prev-fit
+dev.adult	Sleep	original:prevcare-asleep-1	original:prevcare-asleep-2	original:prevcare-asleep-3
+dev.adult	Cognitive development	original:prevcare-acog-1	original:prevcare-acog-2	original:prevcare-acog-3
+dev.adult	Intimacy and isolation	original:prevcare-intim-1	original:prevcare-intim-2	original:prevcare-intim-3
+dev.adult	Anticipatory guidance	original:prevcare-aguide-1	original:prevcare-aguide-2	original:prevcare-aguide-3
+dev.adult	Adult nutrition	original:prevcare-anut-1 original:prevcare-anut-1-a original:prevcare-anut-1-b original:prevcare-anut-1-c	original:prevcare-anut-2 original:prevcare-anut-2-b original:prevcare-anut-2-c	original:prevcare-anut-3 original:prevcare-anut-3-a original:prevcare-anut-3-b original:prevcare-anut-3-c
+dev.adult	Adult exercise	original:prevcare-aexercise-1 original:prevcare-aexercise-1-b original:prevcare-aexercise-1-c	original:prevcare-aexercise-2 original:prevcare-aexercise-2-a original:prevcare-aexercise-2-c	original:prevcare-aexercise-3 original:prevcare-aexercise-3-a original:prevcare-aexercise-3-c
+dev.adult	Preventive and travel medicine	original:prevcare-atravel-1	original:prevcare-atravel-2	original:prevcare-atravel-3
+dev.adult	Injury risk reduction	original:prevcare-ainjury-1	original:prevcare-ainjury-2	original:prevcare-ainjury-3
+dev.adult	Adult vaccination	original:prevcare-avac-1 original:prevcare-avac-1-b original:prevcare-avac-1-c	original:prevcare-avac-2 original:prevcare-avac-2-a original:prevcare-avac-2-c	original:uro-wound-3 original:prevcare-avac-3 original:prevcare-avac-3-a original:prevcare-avac-3-c
+dev.adult	Coping with illness	original:behavior-cope-1	original:behavior-cope-2	original:behavior-cope-3
+dev.adult	Supporting treatment adherence	original:prevcare-aadh-1	original:prevcare-aadh-2	original:prevcare-aadh-3
+dev.older	Changes in weight	original:prevcare-owt-1	original:prevcare-owt-2	original:prevcare-owt-3
+dev.older	Height loss and spinal compression	original:prevcare-oheight-1	original:prevcare-oheight-2	original:prevcare-oheight-3
+dev.older	Skin fragility and bruising	original:prevcare-oskin-1	original:prevcare-oskin-2	original:prevcare-oskin-3
+dev.older	Age-appropriate physical examination	original:prevcare-oexam-1 original:prevcare-oexam-1-a original:prevcare-oexam-1-b original:prevcare-oexam-1-c	original:prevcare-oexam-2 original:prevcare-oexam-2-a original:prevcare-oexam-2-b original:prevcare-oexam-2-c	original:prevcare-oexam-3 original:prevcare-oexam-3-b original:prevcare-oexam-3-c
+dev.older	Thermoregulation	original:prevcare-temp-1	original:prevcare-temp-2	original:prevcare-temp-3
+dev.older	Bladder and bowel changes	original:prevcare-bladder-1	original:prevcare-bladder-2	original:prevcare-bladder-3
+dev.older	Changes in sleep	original:prevcare-osleep-1	original:prevcare-osleep-2	original:prevcare-osleep-3
+dev.older	Mobility and motor function	original:prevcare-mob-1	original:ck-falls-mobility original:prevcare-mob-2	original:ccs-falls-gait
+dev.older	Normal cognitive aging	original:prevcare-ocog-1	original:prevcare-ocog-2	original:prevcare-ocog-3
+dev.older	Integrity, despair and life review	original:prevcare-review-1	original:prevcare-review-2	original:prevcare-review-3
+dev.older	Anticipatory guidance	original:prevcare-oguide-1	original:prevcare-oguide-2	original:prevcare-oguide-3
+dev.older	Nutrition in older adulthood	original:prevcare-onut-1	original:prevcare-onut-2	original:prevcare-onut-3
+dev.older	Exercise in older adulthood	original:wp-training original:prevcare-oact-1	original:prevcare-oact-2	original:ccs-falls-gait original:wp-program original:prevcare-oact-3
+dev.older	Preventive and travel care	original:prevcare-otravel-1	original:prevcare-otravel-2	original:prevcare-otravel-3
+dev.older	Fall risk	original:prevcare-falls-1	original:ck-falls-history original:ck-falls-posture original:ck-falls-mobility original:ck-falls-pills original:ck-falls-environment	original:ccs-falls-injury original:ccs-falls-gait original:ccs-falls-taper original:ccs-falls-follow original:wp-program original:wp-multi original:cv-stand-meds
+dev.older	General health and functional assessment	original:prevcare-functional-1 original:prevcare-functional-1-b original:prevcare-functional-1-c	original:prevcare-functional-2 original:prevcare-functional-2-a original:prevcare-functional-2-c	original:prevcare-functional-3 original:prevcare-functional-3-b original:prevcare-functional-3-c
+dev.older	Polypharmacy	original:prevcare-poly-1	original:ck-falls-pills original:prevcare-poly-2	original:ccs-falls-taper original:prevcare-poly-3
+dev.older	Driving safety	original:prevcare-driving-1	original:prevcare-driving-2	original:prevcare-driving-3
+dev.older	Caregiver strain	original:prevcare-caregiver-1	original:prevcare-caregiver-2	original:prevcare-caregiver-3
+dev.older	Vaccination in older adulthood	original:prevcare-ovac-1 original:prevcare-ovac-1-a original:prevcare-ovac-1-b original:prevcare-ovac-1-c	original:prevcare-ovac-2 original:prevcare-ovac-2-a original:prevcare-ovac-2-c	original:prevcare-ovac-3 original:prevcare-ovac-3-a original:prevcare-ovac-3-b
 bh.psychosis	Brief psychotic disorder	original:behavior-brief-1	original:behavior-brief-2	original:behavior-brief-3
 bh.psychosis	Delusional disorder	original:behavior-del-1	original:behavior-del-2	original:behavior-del-3
 bh.psychosis	Psychosis from a medical condition	original:behavior-medpsych-1 original:behavior-secondary-rule	original:behavior-medpsych-2 original:behavior-secondary-med	original:behavior-medpsych-3

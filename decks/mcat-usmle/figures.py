@@ -1501,6 +1501,81 @@ def urology_studies():
         save(fig, "male_psa_" + name)
 
 
+def preventive_care_studies():
+    """Draw practice records. Only the boys' reference percentiles are population data."""
+    # WHO Child Growth Standards, simplified head circumference-for-age table for boys.
+    months = [0, 2, 4, 6, 9, 12]
+    for name, child in [("rise", [34.5, 39.5, 43.4, 46.6]),
+                        ("track", [34.6, 39.1, 41.7, 43.4])]:
+        fig, ax = axes("Age (months)", "Head circumference (cm)")
+        for label, values, style in [
+            ("P3", [32.1, 36.9, 39.4, 41.0, 42.6, 43.6], ":"),
+            ("Median", [34.5, 39.1, 41.6, 43.3, 45.0, 46.1], "-"),
+            ("P97", [36.9, 41.3, 43.9, 45.6, 47.4, 48.5], "--"),
+        ]:
+            ax.plot(months, values, ls=style, lw=1.7, color="#526677", label=label)
+        ax.plot(months[:4], child, "o-", color=COLORS[1], lw=2.2, label="Patient")
+        ax.annotate(f"{child[-1]:.1f}", (6, child[-1]), xytext=(5, -11),
+                    textcoords="offset points", color=COLORS[1])
+        ax.set(title="Head growth  •  term boy, simulated record", xticks=months)
+        ax.legend(loc="lower right", fontsize=8, ncol=2)
+        save(fig, "dev_hc_" + name)
+
+    for name, hours in [("short", [6, 6.5, 6, 6.5, 6, 9, 9.5]),
+                        ("full", [8.5, 8, 9, 8.5, 8, 9, 9.5])]:
+        fig, ax = axes("", "Actual sleep (hours)")
+        days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+        ax.bar(days, hours, color=COLORS[0])
+        for day, duration in enumerate(hours):
+            ax.text(day, duration + .12, f"{duration:g}", ha="center", fontsize=9)
+        ax.set(title="Adolescent sleep diary  •  simulated week", ylim=(0, 10.5))
+        save(fig, "dev_sleep_" + name)
+
+    def record(name, title, columns, rows, widths):
+        fig, ax = plt.subplots(figsize=(5.5, 2.7), layout="constrained")
+        ax.axis("off")
+        ax.set_title(title, fontsize=13)
+        table = ax.table(cellText=rows, colLabels=columns, colWidths=widths,
+                         cellLoc="left", colLoc="left", bbox=[0, .05, 1, .84])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for col in range(len(columns)):
+            table[0, col].set_facecolor("#dcecf2")
+        save(fig, "dev_" + name)
+
+    for name, moderate, vigorous, strength in [("high", 100, 30, 1), ("low", 90, 10, 2)]:
+        record("activity_" + name, "Adult weekly activity  •  simulated log",
+               ["Activity", "Week total"],
+               [["Moderate aerobic activity", f"{moderate} min"],
+                ["Vigorous aerobic activity", f"{vigorous} min"],
+                ["Strength training", f"{strength} day" if strength == 1 else f"{strength} days"]],
+               [.63, .37])
+
+    for name, pressures in [
+        ("sys", ["144/78", "120/74", "120/74"]),
+        ("dia", ["138/80", "126/68", "126/68"]),
+        ("small", ["132/78", "124/74", "124/74"]),
+        ("sx", ["138/80", "130/74", "126/74"]),
+    ]:
+        record("bp_" + name, "Postural blood pressure  •  simulated test",
+               ["Position and elapsed time", "BP (mm Hg)"],
+               list(zip(["Supine after 5 min", "Standing at 1 min", "Standing at 3 min"], pressures)),
+               [.63, .37])
+
+    tasks = ["Bathing", "Dressing", "Taking medicines", "Paying bills"]
+    for name, assisted in [("bills", "Paying bills"), ("bath", "Bathing")]:
+        record("func_" + name, "Usual daily function  •  simulated interview",
+               ["Task", "Current performance"],
+               [[task, "Needs help" if task == assisted else "Independent"] for task in tasks],
+               [.5, .5])
+
+    for name, first, second, a, b in [("soup", "A", "B", 300, 450), ("soup_alt", "C", "D", 260, 480)]:
+        record(name, "Two packaged soups  •  simulated labels",
+               ["Label entry", "Soup " + first, "Soup " + second],
+               [["Servings per container", "2", "1"], ["Sodium per serving", f"{a} mg", f"{b} mg"]],
+               [.52, .24, .24])
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -1518,6 +1593,7 @@ def main():
     cutaneous_studies()
     behavioral_courses()
     urology_studies()
+    preventive_care_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
