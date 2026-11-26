@@ -135,46 +135,46 @@ lung.drug	Adverse effects of high inspired oxygen
 lung.drug	Acute tobacco or nicotine effects			
 lung.drug	Acute inhalant effects			
 lung.drug	Acute cocaine effects			
-gi.inf	C. difficile colitis		original:gut-cdiff-eligible original:gut-cdiff-carriage	original:gut-cdiff-repeat original:gut-cdiff-relapse
-gi.inf	Acute bacterial gastroenteritis and traveler's diarrhea			
-gi.inf	Staphylococcal foodborne illness			
-gi.inf	Diarrheagenic E. coli			
-gi.inf	Listerial enteritis			
-gi.inf	Yersinia enterocolitis			
-gi.inf	Campylobacter enteritis			
-gi.inf	Cholera			
-gi.inf	Salmonella enteritis			
-gi.inf	Shigella enteritis			
-gi.inf	Hepatic abscess			
-gi.inf	Subhepatic or subphrenic abscess			
+gi.inf	C. difficile colitis	original:gutimmune-diff-1-rule original:gutimmune-diff-1-case original:gutimmune-diff-1-transfer	original:gut-cdiff-eligible original:gut-cdiff-carriage original:gutimmune-diff-2-rule	original:gut-cdiff-repeat original:gut-cdiff-relapse original:gut-idbasis-rule
+gi.inf	Acute bacterial gastroenteritis and traveler's diarrhea	original:enteric-trav-1-rule original:enteric-trav-1-case original:enteric-trav-1-transfer	original:enteric-trav-2-rule original:enteric-trav-2-case original:enteric-trav-2-transfer	original:enteric-trav-3-rule original:enteric-trav-3-case original:enteric-trav-3-transfer
+gi.inf	Staphylococcal foodborne illness	original:enteric-stfood-1-rule original:enteric-stfood-1-case original:enteric-stfood-1-transfer	original:enteric-stfood-2-rule original:enteric-stfood-2-case original:enteric-stfood-2-transfer	original:enteric-stfood-3-rule original:enteric-stfood-3-case original:enteric-stfood-3-transfer
+gi.inf	Diarrheagenic E. coli	original:enteric-ecoli-1-case original:enteric-ecoli-1-transfer original:hhus-triad original:gimon-ecoli-1-rule original:gimon-ecoli-1-case original:gimon-ecoli-1-transfer	original:enteric-ecoli-2-rule original:enteric-ecoli-2-transfer original:hhus-child original:gimon-ecoli-2-rule original:gimon-ecoli-2-case original:gimon-ecoli-2-transfer	original:enteric-ecoli-3-rule original:enteric-ecoli-3-case original:hhus-urine original:gimon-ecoli-3-rule original:gimon-ecoli-3-case original:gimon-ecoli-3-transfer
+gi.inf	Listerial enteritis	original:gutimmune-list-1-rule original:gutimmune-list-1-case original:gutimmune-list-1-transfer	original:gutimmune-list-2-rule original:gutimmune-list-2-case original:gutimmune-list-2-transfer	original:gutimmune-list-3-rule original:gutimmune-list-3-case original:gutimmune-list-3-transfer
+gi.inf	Yersinia enterocolitis	original:enteric-yers-1-rule original:enteric-yers-1-case original:enteric-yers-1-transfer	original:enteric-yers-2-rule original:enteric-yers-2-case original:enteric-yers-2-transfer	original:enteric-yers-3-rule original:enteric-yers-3-case original:enteric-yers-3-transfer
+gi.inf	Campylobacter enteritis	original:enteric-camp-1-rule original:enteric-camp-1-case original:enteric-camp-1-transfer	original:enteric-camp-2-rule original:enteric-camp-2-case original:enteric-camp-2-transfer	original:enteric-camp-3-rule original:enteric-camp-3-case original:enteric-camp-3-transfer
+gi.inf	Cholera	original:enteric-chol-1-rule original:enteric-chol-1-case original:enteric-chol-1-transfer original:gimon-chol-1-rule original:gimon-chol-1-case original:gimon-chol-1-transfer	original:enteric-chol-2-rule original:enteric-chol-2-case original:enteric-chol-2-transfer original:gimon-chol-2-rule original:gimon-chol-2-case original:gimon-chol-2-transfer	original:enteric-chol-3-rule original:enteric-chol-3-case original:enteric-chol-3-transfer original:gimon-chol-3-rule original:gimon-chol-3-case original:gimon-chol-3-transfer
+gi.inf	Salmonella enteritis	original:enteric-sal-1-rule original:enteric-sal-1-case original:enteric-sal-1-transfer	original:enteric-sal-2-rule original:enteric-sal-2-case original:enteric-sal-2-transfer	original:enteric-sal-3-rule original:enteric-sal-3-case original:enteric-sal-3-transfer
+gi.inf	Shigella enteritis	original:enteric-shig-1-rule original:enteric-shig-1-case original:enteric-shig-1-transfer	original:enteric-shig-2-rule original:enteric-shig-2-case original:enteric-shig-2-transfer	original:enteric-shig-3-rule original:enteric-shig-3-case original:enteric-shig-3-transfer
+gi.inf	Hepatic abscess	original:gilocal-labs-1-rule original:gilocal-labs-1-case original:gilocal-labs-1-transfer	original:gilocal-labs-2-rule original:gilocal-labs-2-case original:gilocal-labs-2-transfer	original:gilocal-labs-3-rule original:gilocal-labs-3-case original:gilocal-labs-3-transfer
+gi.inf	Subhepatic or subphrenic abscess	original:gilocal-subabs-1-rule original:gilocal-subabs-1-case original:gilocal-subabs-1-transfer	original:gilocal-subabs-2-rule original:gilocal-subabs-2-case original:gilocal-subabs-2-transfer	original:gilocal-subabs-3-rule original:gilocal-subabs-3-case original:gilocal-subabs-3-transfer
 gi.inf	Primary bacterial peritonitis	original:acuteabd-sbp-1-rule original:acuteabd-sbp-1-case original:acuteabd-sbp-1-transfer	original:acuteabd-sbp-2-rule original:acuteabd-sbp-2-case original:acuteabd-sbp-2-transfer	original:ccs-liver-negative original:gut-fluidrule-pmns original:gut-fluidrule-negative original:ccs-liver-sample original:ccs-liver-pmn original:acuteabd-sbp-3-rule original:acuteabd-sbp-3-case original:acuteabd-sbp-3-transfer
 gi.inf	Secondary peritonitis	original:acuteabd-peri-1-rule original:acuteabd-peri-1-case original:acuteabd-peri-1-transfer	original:acuteabd-peri-2-rule original:acuteabd-peri-2-case original:acuteabd-peri-2-transfer	original:acuteabd-peri-3-rule original:acuteabd-peri-3-case original:acuteabd-peri-3-transfer
-gi.inf	Cytomegalovirus esophagitis			
-gi.inf	Herpes simplex esophagitis			
-gi.inf	Hepatitis A	bank:usmle-step1:micro-hav-clinical-recognition:v1		
-gi.inf	Hepatitis B	original:gut-hbv-core original:gut-hbv-surface	original:gut-hbv-acute original:gut-hbv-resolved	original:gut-hbv-react original:gut-hbv-sus
-gi.inf	Hepatitis C			
-gi.inf	Hepatitis D			
-gi.inf	Hepatitis E			
-gi.inf	Coxsackievirus enteritis or colitis			
-gi.inf	Echovirus enteritis or colitis			
-gi.inf	Rotavirus enteritis			
-gi.inf	Mumps			
-gi.inf	Herpetic gingivostomatitis			
-gi.inf	Oral candidiasis			
-gi.inf	Cryptosporidiosis			
-gi.inf	Cyclosporiasis			
-gi.inf	Amebiasis			
-gi.inf	Giardiasis			
-gi.inf	Cystoisosporiasis			
-gi.inf	Strongyloidiasis			
-gi.inf	Autoimmune hepatitis			
-gi.inf	Celiac disease	original:gut-cel-villi original:gut-cel-iron	original:gut-cel-confirm original:gut-celimg-interpret	original:gut-cel-persist original:gut-cel-diet
-gi.inf	Eosinophilic esophagitis	original:gut-eoe-layer	original:gut-eoe-biopsy original:gut-eoeimg-rings	original:gut-eoe-dilate
-gi.inf	Crohn disease and granulomatous or regional enteritis	original:gut-ibd-fistula	original:gut-ibd-skip original:gut-ibd-tract	
-gi.inf	Microscopic colitis (collagenous and lymphocytic)			
-gi.inf	Ulcerative colitis	original:gut-ibd-ulcerative	original:gut-ibd-continuous original:gut-ibdimg-polyps	original:gut-uc-time original:gut-uc-perforation
-gi.inf	Toxic megacolon			
+gi.inf	Cytomegalovirus esophagitis	original:gutinfect-cmves-1-rule original:gutinfect-cmves-1-case original:gutinfect-cmves-1-transfer	original:gutinfect-cmves-2-rule original:gutinfect-cmves-2-case original:gutinfect-cmves-2-transfer	original:gutinfect-cmves-3-rule original:gutinfect-cmves-3-case original:gutinfect-cmves-3-transfer
+gi.inf	Herpes simplex esophagitis	original:gutinfect-hsves-1-rule original:gutinfect-hsves-1-case original:gutinfect-hsves-1-transfer	original:gutinfect-hsves-2-rule original:gutinfect-hsves-2-case original:gutinfect-hsves-2-transfer	original:gutinfect-hsves-3-rule original:gutinfect-hsves-3-case original:gutinfect-hsves-3-transfer
+gi.inf	Hepatitis A	bank:usmle-step1:micro-hav-clinical-recognition:v1 original:gutinfect-hav-1-rule original:gutinfect-hav-1-case original:gutinfect-hav-1-transfer	original:gutinfect-hav-2-rule original:gutinfect-hav-2-case original:gutinfect-hav-2-transfer	original:gutinfect-hav-3-rule original:gutinfect-hav-3-case original:gutinfect-hav-3-transfer
+gi.inf	Hepatitis B	original:gut-hbv-core original:gut-hbv-surface original:gutinfect-hbv-1-case original:gutinfect-hbv-1-transfer original:per-hbv-pass original:nursery-hb-1-case original:nursery-hb-1-transfer	original:gut-hbv-acute original:gut-hbv-resolved original:gutinfect-hbv-2-rule original:gut-hbv-vacc original:nursery-hb-2-rule original:per-hbv-born original:nursery-hb-2-transfer	original:gut-hbv-react original:gut-hbv-sus original:gutinfect-hbv-3-rule original:per-hbv-test original:nursery-hb-3-case original:nursery-hb-3-transfer
+gi.inf	Hepatitis C	original:gutinfect-hcv-1-rule original:gutinfect-hcv-1-case original:gutinfect-hcv-1-transfer	original:gutinfect-hcv-2-rule original:gutinfect-hcv-2-case original:gutinfect-hcv-2-transfer	original:gutinfect-hcv-3-rule original:gutinfect-hcv-3-case original:gutinfect-hcv-3-transfer
+gi.inf	Hepatitis D	original:gutinfect-hdv-1-rule original:gutinfect-hdv-1-case original:gutinfect-hdv-1-transfer	original:gutinfect-hdv-2-rule original:gutinfect-hdv-2-case original:gutinfect-hdv-2-transfer	original:gutinfect-hdv-3-rule original:gutinfect-hdv-3-case original:gutinfect-hdv-3-transfer
+gi.inf	Hepatitis E	original:gutinfect-hev-1-rule original:gutinfect-hev-1-case original:gutinfect-hev-1-transfer	original:gutinfect-hev-2-rule original:gutinfect-hev-2-case original:gutinfect-hev-2-transfer	original:gutinfect-hev-3-rule original:gutinfect-hev-3-case original:gutinfect-hev-3-transfer
+gi.inf	Coxsackievirus enteritis or colitis	original:gilocal-cox-1-rule original:gilocal-cox-1-case original:gilocal-cox-1-transfer	original:gilocal-cox-2-rule original:gilocal-cox-2-case original:gilocal-cox-2-transfer	original:gilocal-cox-3-rule original:gilocal-cox-3-case original:gilocal-cox-3-transfer
+gi.inf	Echovirus enteritis or colitis	original:gilocal-echo-1-rule original:gilocal-echo-1-case original:gilocal-echo-1-transfer	original:gilocal-echo-2-rule original:gilocal-echo-2-case original:gilocal-echo-2-transfer	original:gilocal-echo-3-rule original:gilocal-echo-3-case original:gilocal-echo-3-transfer
+gi.inf	Rotavirus enteritis	original:gilocal-rota-1-rule original:gilocal-rota-1-case original:gilocal-rota-1-transfer	original:gilocal-rota-2-rule original:gilocal-rota-2-case original:gilocal-rota-2-transfer	original:gilocal-rota-3-rule original:gilocal-rota-3-case original:gilocal-rota-3-transfer original:im-scid-vax
+gi.inf	Mumps	original:gilocal-parot-1-rule original:gilocal-parot-1-case original:gilocal-parot-1-transfer	original:gilocal-parot-2-rule original:gilocal-parot-2-case original:gilocal-parot-2-transfer original:uro-orch-2	original:gilocal-parot-3-rule original:gilocal-parot-3-case original:neuroinf-other-3-case
+gi.inf	Herpetic gingivostomatitis	original:gilocal-ging-1-rule original:gilocal-ging-1-case original:gilocal-ging-1-transfer	original:gilocal-ging-2-rule original:gilocal-ging-2-case original:gilocal-ging-2-transfer	original:gilocal-ging-3-rule original:gilocal-ging-3-case original:gilocal-ging-3-transfer
+gi.inf	Oral candidiasis	original:nursery-thrush-1-rule original:nursery-thrush-1-case original:nursery-thrush-1-transfer	original:gilocal-oral-2-rule original:gilocal-oral-2-transfer original:derm-leuk-wipe	original:gilocal-oral-3-rule original:gilocal-oral-3-case original:gilocal-oral-3-transfer original:nursery-thrush-3-rule original:nursery-thrush-3-case original:nursery-thrush-3-transfer
+gi.inf	Cryptosporidiosis	original:gutinfect-cry-1-rule original:gutinfect-cry-1-case original:gutinfect-cry-1-transfer	original:gutinfect-cry-2-rule original:gutinfect-cry-2-case original:gutinfect-cry-2-transfer	original:gutinfect-cry-3-rule original:gutinfect-cry-3-case original:gutinfect-cry-3-transfer
+gi.inf	Cyclosporiasis	original:gutinfect-cyc-1-rule original:gutinfect-cyc-1-case original:gutinfect-cyc-1-transfer	original:gutinfect-cyc-2-rule original:gutinfect-cyc-2-case original:gutinfect-cyc-2-transfer	original:gutinfect-cyc-3-rule original:gutinfect-cyc-3-case original:gutinfect-cyc-3-transfer
+gi.inf	Amebiasis	original:gutinfect-ame-1-rule original:gutinfect-ame-1-case original:gutinfect-ame-1-transfer	original:gutinfect-ame-2-rule original:gutinfect-ame-2-case original:gutinfect-ame-2-transfer	original:gutinfect-ame-3-rule original:gutinfect-ame-3-case original:gutinfect-ame-3-transfer
+gi.inf	Giardiasis	original:gutinfect-gia-1-rule original:gutinfect-gia-1-case original:gutinfect-gia-1-transfer	original:gutinfect-gia-2-rule original:gutinfect-gia-2-case original:gutinfect-gia-2-transfer	original:gutinfect-gia-3-rule original:gutinfect-gia-3-case original:gutinfect-gia-3-transfer
+gi.inf	Cystoisosporiasis	original:gutinfect-cysto-1-rule original:gutinfect-cysto-1-case original:gutinfect-cysto-1-transfer	original:gutinfect-cysto-2-rule original:gutinfect-cysto-2-case original:gutinfect-cysto-2-transfer	original:gutinfect-cysto-3-rule original:gutinfect-cysto-3-case original:gutinfect-cysto-3-transfer
+gi.inf	Strongyloidiasis	original:gutinfect-strong-1-rule original:gutinfect-strong-1-case original:gutinfect-strong-1-transfer	original:gutinfect-strong-2-rule original:gutinfect-strong-2-case original:gutinfect-strong-2-transfer	original:gutinfect-strong-3-rule original:gutinfect-strong-3-case original:gutinfect-strong-3-transfer
+gi.inf	Autoimmune hepatitis	original:gutimmune-aih-1-rule original:gutimmune-aih-1-case original:gutimmune-aih-1-transfer	original:gutimmune-aih-2-rule original:gutimmune-aih-2-case original:gutimmune-aih-2-transfer	original:gutimmune-aih-3-rule original:gutimmune-aih-3-case original:gutimmune-aih-3-transfer
+gi.inf	Celiac disease	original:gut-cel-villi original:gut-cel-iron original:gut-celimg-blunt original:histology-04-1	original:gut-cel-confirm original:gut-celimg-interpret original:gut-cel-baseline original:ckcel-first original:ckcel-iga	original:gut-cel-persist original:gut-cel-diet original:gutimmune-cel-3-rule
+gi.inf	Eosinophilic esophagitis	original:gut-eoe-layer original:gutimmune-eoe-1-case original:gutimmune-eoe-1-transfer	original:gut-eoe-biopsy original:gut-eoeimg-rings original:gutimmune-eoe-2-rule original:gutimmune-eoe-2-transfer	original:gut-eoe-dilate original:gutimmune-eoe-3-rule original:gut-eoe-response
+gi.inf	Crohn disease and granulomatous or regional enteritis	original:gut-ibd-fistula original:gutimmune-cro-1-rule original:gutimmune-cro-1-transfer	original:gut-ibd-skip original:gut-ibd-tract original:gutimmune-cro-2-rule original:gut-ibd-continuous	original:gutimmune-cro-3-rule original:gutimmune-cro-3-case original:gutimmune-cro-3-transfer
+gi.inf	Microscopic colitis (collagenous and lymphocytic)	original:gutimmune-mic-1-rule original:gutimmune-mic-1-case original:gutimmune-mic-1-transfer	original:gutimmune-mic-2-rule original:gutimmune-mic-2-case original:gutimmune-mic-2-transfer	original:gutimmune-mic-3-rule original:gutimmune-mic-3-case original:gutimmune-mic-3-transfer
+gi.inf	Ulcerative colitis	original:gut-ibd-ulcerative original:gutimmune-uc-1-case original:gutimmune-uc-1-transfer	original:gut-ibd-continuous original:gut-ibdimg-polyps original:gutimmune-uc-2-rule original:gutimmune-uc-2-transfer original:gut-uc-mimic	original:gut-uc-time original:gut-uc-perforation original:gutimmune-uc-3-rule original:gut-uc-initial
+gi.inf	Toxic megacolon	original:gutimmune-toxic-1-rule original:gutimmune-toxic-1-case original:gutimmune-toxic-1-transfer	original:gutimmune-toxic-2-rule original:gutimmune-toxic-2-case original:gutimmune-toxic-2-transfer	original:gutimmune-toxic-3-rule original:gutimmune-toxic-3-case original:gutimmune-toxic-3-transfer
 gi.tumor	Benign gastric polyps and cysts			
 gi.tumor	Benign small intestinal neoplasms and cysts			
 gi.tumor	Colonic, rectal or anal polyps			

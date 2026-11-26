@@ -4042,6 +4042,83 @@ def pneumonia_distributions():
     save(fig, "lungbreadth_patches", indexed=True)
 
 
+def diarrhea_timelines():
+    study_table("enteric_meal", "After a shared meal", ["Group", "Onset", "Main symptom", "Course"],
+                [["A", "2 hours", "Vomiting", "Well next day"], ["B", "3 days", "Bloody stool", "Fever on day 4"]])
+
+
+def gene_expression_records():
+    """Original teaching records for melting, pulse–chase and gel interpretation."""
+    temp = np.linspace(50, 92, 180)
+    fig, ax = axes("Temperature (°C)", "Fraction separated")
+    for name, mid, color, style in [("A", 64, COLORS[0], "-"), ("B", 76, COLORS[1], "--")]:
+        ax.plot(temp, 1/(1+np.exp(-(temp-mid)/2)), color=color, ls=style, label=name)
+    ax.set(xticks=range(52, 93, 4), title="Duplex melting • simulated")
+    ax.axhline(.5, ls=":", lw=1, color="#555555")
+    ax.legend(title="Duplex")
+    save(fig, "genread_melt", indexed=True)
+    study_table("genread_chase", "Label recovered in short DNA fragments",
+                ["Sample", "End of pulse", "After chase"], [["A", "75%", "8%"], ["B", "74%", "70%"]])
+    fig, ax = axes("Hours after chase begins", "Labeled protein remaining (%)")
+    times = np.arange(0, 9)
+    for name, half, st, color in [("A", 2, "o-", COLORS[0]), ("B", 4, "s--", COLORS[1])]:
+        ax.plot(times, 100*.5**(times/half), st, label=name, color=color)
+    ax.set(title="Protein pulse–chase • simulated", xticks=range(0, 9, 2), yticks=range(0, 101, 25))
+    ax.legend(title="Cell type")
+    save(fig, "genread_protein", indexed=True)
+    fig, ax = plt.subplots(figsize=(4.0, 2.9), layout="constrained")
+    ax.set(xlim=(-.6, 2.05), ylim=(0, 5.1))
+    ax.axis("off")
+    for i, bp in enumerate([200, 400, 600, 1000]):
+        y=.65+i
+        ax.plot([.1, .65], [y, y], lw=4, color=COLORS[0])
+        ax.text(.03, y, str(bp), va="center", ha="right")
+    ax.plot([1.1, 1.65], [2.65, 2.65], lw=4, color=COLORS[1])
+    ax.text(.37, 4.35, "Reference (bp)", ha="center")
+    ax.text(1.38, 4.35, "Sample X", ha="center")
+    ax.set_title("Linear DNA fragments • schematic gel")
+    save(fig, "genread_gel", indexed=True)
+
+
+def gi_liver_studies():
+    study_table("gutinfect_hbv", "HBV screening results", ["Patient", "HBsAg", "Anti-HBs", "Total anti-HBc"],
+                [["A", "Negative", "Positive", "Negative"], ["B", "Negative", "Positive", "Positive"]])
+    study_table("gutinfect_hcv", "HCV testing record", ["Patient", "Anti-HCV", "HCV RNA"],
+                [["A", "Reactive", "Undetected"], ["B", "Reactive", "Detected"]])
+
+
+def gi_localization_and_trial():
+    """Original anatomical schematic and published randomized trial medians."""
+    from matplotlib.patches import Ellipse, Polygon
+
+    fig, ax = plt.subplots(figsize=(5.2, 3), layout="constrained")
+    ax.set(xlim=(0, 10), ylim=(0, 6), aspect="equal")
+    ax.axis("off")
+    ax.add_patch(Polygon([(1, 2.4), (1.5, 3.65), (3, 4.2), (4.5, 4.35),
+                          (6, 4.05), (7.4, 3.45), (6, 2.6), (3.2, 1.4), (1.4, 1.3)],
+                         closed=True, facecolor="#e6bc9d", edgecolor="#624637"))
+    ax.plot([.7, 1.5, 3, 4.5, 6, 7.7], [3.8, 4.6, 5.15, 5.25, 4.9, 3.85],
+            color=COLORS[0], lw=3)
+    ax.text(7.15, 4.65, "Diaphragm", color=COLORS[0])
+    ax.text(5.1, 3.15, "Liver", ha="center")
+    for x, y, label in [(2.6, 2.85, "A"), (4.3, 4.79, "B")]:
+        ax.add_patch(Ellipse((x, y), 1.05, .53, facecolor="#fff3bb", edgecolor="#684c0e"))
+        ax.text(x, y, label, ha="center", va="center", weight="bold")
+    ax.set_title("Right upper quadrant • schematic")
+    save(fig, "gilocal_anatomy", indexed=True)
+    study_table("gilocal_trial", "Early treatment of oral HSV", ["Median duration", "Acyclovir", "Placebo"],
+                [["Oral lesions", "4 days", "10 days"], ["Difficulty drinking", "3 days", "6 days"]],
+                source="Amir et al., 1997")
+
+
+def gi_monitoring_records():
+    study_table("gimon_hus", "After bloody diarrhea", ["Time", "Hgb (g/dL)", "Plt (×10³/µL)", "Cr (mg/dL)"],
+                [["Day 2", "12.6", "260", "0.5"], ["Day 6", "9.0", "68", "1.9"]])
+    study_table("gimon_balance", "Two-hour fluid measurements", ["Interval", "Intake", "Stool", "Urine"],
+                [["A", "1500 mL", "2300 mL", "100 mL"], ["B", "1500 mL", "1150 mL", "150 mL"]],
+                source="no emesis")
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -4109,6 +4186,11 @@ def main():
     organic_reasoning_studies()
     severe_cap_trial()
     pneumonia_distributions()
+    diarrhea_timelines()
+    gene_expression_records()
+    gi_liver_studies()
+    gi_localization_and_trial()
+    gi_monitoring_records()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()

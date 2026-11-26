@@ -1,6 +1,7 @@
 """Build, check, or refresh the combined course. All imports use a disposable Anki profile."""
 import argparse
 from collections import Counter, defaultdict
+from contextlib import closing
 import csv
 import fcntl
 import gzip
@@ -10,6 +11,7 @@ import json
 from pathlib import Path
 import re
 import shutil
+import sqlite3
 import subprocess
 import tempfile
 from zipfile import ZIP_DEFLATED, ZipFile
@@ -284,7 +286,17 @@ def make(folder, prior):
     with tempfile.TemporaryFile() as raw:
         package.write_to_file(raw)
         with ZipFile(raw) as source, ZipFile(folder / (FILE + ".apkg"), "w", ZIP_DEFLATED) as output:
+            # Longer notes and passages span fewer SQLite pages at this size.
+            # Repack the generated database before ZIP compression.
+            with tempfile.TemporaryDirectory() as scratch:
+                db_path = source.extract("collection.anki2", scratch)
+                with closing(sqlite3.connect(db_path)) as database:
+                    database.execute("PRAGMA page_size = 16384")
+                    database.execute("VACUUM")
+                output.write(db_path, "collection.anki2", compresslevel=9)
             for name in source.namelist():
+                if name == "collection.anki2":
+                    continue
                 with source.open(name) as entry, output.open(name, "w") as target:
                     shutil.copyfileobj(entry, target)
     return rows
