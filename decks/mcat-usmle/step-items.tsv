@@ -1690,95 +1690,95 @@ bh.substance	MDMA-related disorders
 bh.substance	PCP-related disorders			
 bh.substance	Synthetic cathinone-related disorders			
 bh.substance	Polysubstance use and intoxication			
-skin.inf	Cellulitis			
-skin.inf	Erysipelas			
-skin.inf	Impetigo			
-skin.inf	Staphylococcal scalded skin syndrome			
-skin.inf	Cutaneous abscess and carbuncle			
-skin.inf	Cutaneous anthrax			
-skin.inf	Folliculitis			
-skin.inf	Infected pilonidal disease			
-skin.inf	Staphylococcal skin infection including MRSA			
-skin.inf	Cutaneous mycobacterial infection and leprosy			
-skin.inf	Scarlet fever		bank:cohort:id:q-aa32a11438af:v1 bank:cohort:paeds:q-2294851f2f87:v1	
-skin.inf	Cutaneous herpes simplex			
-skin.inf	Herpes zoster			
-skin.inf	Ramsay Hunt syndrome			
-skin.inf	Molluscum contagiosum		bank:cohort:derm:q-6831a3607696:v1	
-skin.inf	Hand-foot-and-mouth disease		bank:cohort:derm:q-c259d8812082:v1	
-skin.inf	Herpangina			
-skin.inf	Erythema infectiosum			
-skin.inf	Varicella			
-skin.inf	Rubella			
-skin.inf	Measles	bank:usmle-step1:micro-measles-clinical-recognition:v1		
-skin.inf	Roseola			
-skin.inf	Common warts			
-skin.inf	Cutaneous candidiasis			
-skin.inf	Tinea corporis and superficial dermatophytosis			
-skin.inf	Diaper dermatitis			
-skin.inf	Onychomycosis			
-skin.inf	Cutaneous larva migrans			
-skin.inf	Cutaneous leishmaniasis			
-skin.inf	Scabies			
-skin.inf	Pediculosis			
-skin.inf	Arthropod bites including bedbugs			
-skin.inf	Psoriasis			
-skin.inf	Lichen planus and lichenoid dermatoses			
-skin.inf	Allergic contact dermatitis	original:im-iv-f original:im-iv-app	original:im-iv-a	original:im-iv-rx
-skin.inf	Irritant contact dermatitis			
-skin.inf	Plant dermatitis			
-skin.inf	Epidermolysis bullosa			
-skin.inf	Dermatitis herpetiformis			
-skin.inf	Pemphigus			
-skin.inf	Bullous pemphigoid			
-skin.inf	Pyoderma gangrenosum			
-skin.inf	Erythema nodosum			
-skin.inf	Atopic dermatitis			
-skin.inf	Pityriasis rosea			
-skin.inf	Urticaria			
-skin.inf	Stevens–Johnson syndrome			
-skin.inf	Erythema multiforme			
-skin.inf	Toxic epidermal necrolysis			
-skin.inf	Vitiligo			
-skin.tumor	Actinic keratosis			
-skin.tumor	Epidermoid and other cutaneous cysts			
-skin.tumor	Hemangioma			
-skin.tumor	Lipoma			
-skin.tumor	Melanocytic nevi			
-skin.tumor	Seborrheic keratosis			
-skin.tumor	Xanthoma			
-skin.tumor	Basal cell carcinoma			
-skin.tumor	Cutaneous squamous cell carcinoma			
-skin.tumor	Melanoma including genital sites	original:s1-skin-mel-evolve original:s1-skin-mel-asym original:s1-skin-mel-size	original:ck-mel-biopsy-sample original:ck-mel-biopsy-depth	original:ccs-melanoma-staging original:ccs-melanoma-local original:ccs-melanoma-nodes
-skin.tumor	Cutaneous T-cell lymphoma and mycosis fungoides			
-skin.appendage	Alopecia			
-skin.appendage	Seborrheic dermatitis			
-skin.appendage	Tinea barbae			
-skin.appendage	Tinea capitis			
-skin.appendage	Nail disorders including ingrown nails			
-skin.appendage	Acne vulgaris			
-skin.appendage	Hidradenitis suppurativa			
-skin.appendage	Hyperhidrosis			
-skin.appendage	Ichthyosis			
-skin.appendage	Rosacea			
-skin.oral	Aphthous ulcers			
-skin.oral	Oral leukoplakia			
-skin.pigment	Albinism			
-skin.pigment	Lentigo			
-skin.injury	Animal bites			
-skin.injury	Sunburn and ultraviolet injury			
-skin.injury	Thermal burns and cutaneous wounds			
-skin.injury	Blast-related skin injury			
-skin.injury	Auricular hematoma and cauliflower ear			
-skin.injury	Keloids			
-skin.injury	Tattoo-related skin problems			
-skin.injury	Perniosis			
-skin.injury	Frostbite			
-skin.injury	Pressure injury			
-skin.congenital	Xeroderma pigmentosum			
-skin.congenital	Congenital nevi and other benign infant lesions			
-skin.drug	Drug eruptions		original:bh-lamo-rash	
-skin.drug	Local vaccine reactions			
+skin.inf	Cellulitis	original:derm-cell-1	original:derm-cell-2	original:derm-cell-3
+skin.inf	Erysipelas	original:derm-ery-1	original:derm-ery-2	original:derm-ery-3
+skin.inf	Impetigo	original:derm-imp-1	original:derm-imp-2 original:derm-imp-rule original:derm-imp-wide	original:derm-imp-3 original:derm-imp-rationale original:derm-imp-limited
+skin.inf	Staphylococcal scalded skin syndrome	original:derm-ss-1	original:derm-ss-2	original:derm-ss-3
+skin.inf	Cutaneous abscess and carbuncle	original:derm-abs-1	original:derm-abs-2	original:derm-abs-3
+skin.inf	Cutaneous anthrax	original:derm-anth-1	original:derm-anth-2	original:derm-anth-3
+skin.inf	Folliculitis	original:derm-fol-1	original:derm-fol-2	original:derm-fol-3
+skin.inf	Infected pilonidal disease	original:derm-pil-1	original:derm-pil-2	original:derm-pil-3
+skin.inf	Staphylococcal skin infection including MRSA	original:derm-mrsa-1	original:derm-mrsa-2	original:derm-mrsa-3
+skin.inf	Cutaneous mycobacterial infection and leprosy	original:derm-lep-1	original:derm-lep-2	original:derm-lep-3
+skin.inf	Scarlet fever	original:derm-scar-1	bank:cohort:id:q-aa32a11438af:v1 bank:cohort:paeds:q-2294851f2f87:v1 original:derm-scar-2	original:derm-scar-3
+skin.inf	Cutaneous herpes simplex	original:derm-hsv-1	original:derm-hsv-2	original:derm-hsv-3
+skin.inf	Herpes zoster	original:derm-zost-1	original:derm-zost-2	original:derm-zost-3
+skin.inf	Ramsay Hunt syndrome	original:derm-ram-1	original:derm-ram-2	original:derm-ram-3
+skin.inf	Molluscum contagiosum	original:derm-moll-1	bank:cohort:derm:q-6831a3607696:v1 original:derm-moll-2	original:derm-moll-3
+skin.inf	Hand-foot-and-mouth disease	original:derm-hf-1	bank:cohort:derm:q-c259d8812082:v1 original:derm-hf-2	original:derm-hf-3
+skin.inf	Herpangina	original:derm-herp-1	original:derm-herp-2	original:derm-herp-3
+skin.inf	Erythema infectiosum	original:derm-parv-1	original:derm-parv-2	original:derm-parv-3
+skin.inf	Varicella	original:derm-var-1	original:derm-var-2	original:derm-var-3
+skin.inf	Rubella	original:derm-rub-1	original:derm-rub-2	original:derm-rub-3
+skin.inf	Measles	bank:usmle-step1:micro-measles-clinical-recognition:v1 original:derm-meas-1 original:derm-fever-meas	original:derm-meas-2 original:derm-rose-time original:derm-meas-curve	original:derm-meas-3
+skin.inf	Roseola	original:derm-rose-1 original:derm-fever-rose	original:derm-rose-2 original:derm-rose-time original:derm-rose-curve	original:derm-rose-3
+skin.inf	Common warts	original:derm-wart-1	original:derm-wart-2	original:derm-wart-3
+skin.inf	Cutaneous candidiasis	original:derm-cand-1	original:derm-cand-2	original:derm-cand-3
+skin.inf	Tinea corporis and superficial dermatophytosis	original:derm-tinea-1	original:derm-tinea-2	original:derm-tinea-3
+skin.inf	Diaper dermatitis	original:derm-diap-1	original:derm-diap-2	original:derm-diap-3
+skin.inf	Onychomycosis	original:derm-onych-1	original:derm-onych-2	original:derm-onych-3
+skin.inf	Cutaneous larva migrans	original:derm-clm-1	original:derm-clm-2	original:derm-clm-3
+skin.inf	Cutaneous leishmaniasis	original:derm-leish-1	original:derm-leish-2	original:derm-leish-3
+skin.inf	Scabies	original:derm-scab-1	original:derm-scab-2	original:derm-scab-3
+skin.inf	Pediculosis	original:derm-lice-1	original:derm-lice-2 original:derm-lice-rule original:derm-lice-active	original:derm-lice-3 original:derm-lice-rule3 original:derm-lice-live
+skin.inf	Arthropod bites including bedbugs	original:derm-bed-1	original:derm-bed-2	original:derm-bed-3
+skin.inf	Psoriasis	original:derm-psor-1	original:derm-psor-2	original:derm-psor-3
+skin.inf	Lichen planus and lichenoid dermatoses	original:derm-lichen-1	original:derm-lichen-2	original:derm-lichen-3
+skin.inf	Allergic contact dermatitis	original:im-iv-f original:im-iv-app original:derm-acd-1	original:im-iv-a original:derm-acd-2	original:im-iv-rx original:derm-acd-3
+skin.inf	Irritant contact dermatitis	original:derm-icd-1	original:derm-icd-2	original:derm-icd-3
+skin.inf	Plant dermatitis	original:derm-plant-1	original:derm-plant-2	original:derm-plant-3
+skin.inf	Epidermolysis bullosa	original:derm-epib-1	original:derm-epib-2	original:derm-epib-3
+skin.inf	Dermatitis herpetiformis	original:derm-dh-1	original:derm-dh-2	original:derm-dh-3
+skin.inf	Pemphigus	original:derm-pem-1 original:derm-pem-plane original:derm-pem-axis	original:derm-pem-2 original:derm-if-basics original:derm-if-a	original:derm-pem-3
+skin.inf	Bullous pemphigoid	original:derm-bp-1 original:derm-pem-axis original:derm-bp-ab	original:derm-bp-2 original:derm-if-basics original:derm-if-b	original:derm-bp-3
+skin.inf	Pyoderma gangrenosum	original:derm-pyo-1	original:derm-pyo-2	original:derm-pyo-3
+skin.inf	Erythema nodosum	original:derm-en-1	original:derm-en-2	original:derm-en-3
+skin.inf	Atopic dermatitis	original:derm-ecz-1	original:derm-ecz-2	original:derm-ecz-3
+skin.inf	Pityriasis rosea	original:derm-pity-1	original:derm-pity-2	original:derm-pity-3
+skin.inf	Urticaria	original:derm-urt-1 original:derm-wheal-a original:derm-wheal-b	original:derm-urt-2 original:derm-wheal-rule original:derm-wheal-fixed	original:derm-urt-3
+skin.inf	Stevens–Johnson syndrome	original:derm-sjs-1 original:derm-det-a	original:derm-sjs-2 original:derm-det-cut original:derm-det-mid	original:derm-sjs-3
+skin.inf	Erythema multiforme	original:derm-em-1	original:derm-em-2	original:derm-em-3
+skin.inf	Toxic epidermal necrolysis	original:derm-ten-1 original:derm-det-b	original:derm-ten-2 original:derm-det-cut original:derm-det-mid original:derm-det-hi	original:derm-ten-3
+skin.inf	Vitiligo	original:derm-vit-1	original:derm-vit-2	original:derm-vit-3
+skin.tumor	Actinic keratosis	original:derm-ak-1	original:derm-ak-2	original:derm-ak-3
+skin.tumor	Epidermoid and other cutaneous cysts	original:derm-cyst-1	original:derm-cyst-2	original:derm-cyst-3
+skin.tumor	Hemangioma	original:derm-hem-1	original:derm-hem-2	original:derm-hem-3 original:derm-hem-risk original:derm-hem-low original:derm-hem-high
+skin.tumor	Lipoma	original:derm-lip-1	original:derm-lip-2	original:derm-lip-3
+skin.tumor	Melanocytic nevi	original:derm-nev-1	original:derm-nev-2	original:derm-nev-3
+skin.tumor	Seborrheic keratosis	original:derm-sk-1	original:derm-sk-2	original:derm-sk-3
+skin.tumor	Xanthoma	original:derm-xan-1	original:derm-xan-2	original:derm-xan-3
+skin.tumor	Basal cell carcinoma	original:derm-bcc-1	original:derm-bcc-2	original:derm-bcc-3
+skin.tumor	Cutaneous squamous cell carcinoma	original:derm-scc-1	original:derm-scc-2	original:derm-scc-3
+skin.tumor	Melanoma including genital sites	original:s1-skin-mel-evolve original:s1-skin-mel-asym original:s1-skin-mel-size original:derm-mel-1	original:ck-mel-biopsy-sample original:ck-mel-biopsy-depth original:derm-mel-2	original:ccs-melanoma-staging original:ccs-melanoma-local original:ccs-melanoma-nodes original:derm-mel-3
+skin.tumor	Cutaneous T-cell lymphoma and mycosis fungoides	original:derm-ctcl-1	original:derm-ctcl-2	original:derm-ctcl-3
+skin.appendage	Alopecia	original:derm-alo-1	original:derm-alo-2	original:derm-alo-3
+skin.appendage	Seborrheic dermatitis	original:derm-seb-1	original:derm-seb-2	original:derm-seb-3
+skin.appendage	Tinea barbae	original:derm-barb-1	original:derm-barb-2	original:derm-barb-3
+skin.appendage	Tinea capitis	original:derm-cap-1	original:derm-cap-2	original:derm-cap-3
+skin.appendage	Nail disorders including ingrown nails	original:derm-nail-1	original:derm-nail-2	original:derm-nail-3
+skin.appendage	Acne vulgaris	original:derm-acne-1	original:derm-acne-2	original:derm-acne-3
+skin.appendage	Hidradenitis suppurativa	original:derm-hs-1	original:derm-hs-2	original:derm-hs-3
+skin.appendage	Hyperhidrosis	original:derm-sweat-1	original:derm-sweat-2	original:derm-sweat-3
+skin.appendage	Ichthyosis	original:derm-ich-1	original:derm-ich-2	original:derm-ich-3
+skin.appendage	Rosacea	original:derm-ros-1	original:derm-ros-2	original:derm-ros-3
+skin.oral	Aphthous ulcers	original:derm-apht-1	original:derm-apht-2	original:derm-apht-3
+skin.oral	Oral leukoplakia	original:derm-leuk-1	original:derm-leuk-2 original:derm-leuk-rule original:derm-leuk-wipe	original:derm-leuk-3
+skin.pigment	Albinism	original:derm-alb-1	original:derm-alb-2	original:derm-alb-3
+skin.pigment	Lentigo	original:derm-lent-1	original:derm-lent-2	original:derm-lent-3
+skin.injury	Animal bites	original:derm-bite-1	original:derm-bite-2	original:derm-bite-3
+skin.injury	Sunburn and ultraviolet injury	original:derm-sun-1 original:derm-burn-a	original:derm-sun-2	original:derm-sun-3
+skin.injury	Thermal burns and cutaneous wounds	original:derm-thermal-1 original:derm-burn-a original:derm-burn-b	original:derm-thermal-2 original:derm-burn-basic original:derm-burn-two original:derm-burn-limb	original:derm-thermal-3 original:derm-burn-ref original:derm-burn-size
+skin.injury	Blast-related skin injury	original:derm-blast-1	original:derm-blast-2	original:derm-blast-3
+skin.injury	Auricular hematoma and cauliflower ear	original:derm-ear-1	original:derm-ear-2	original:derm-ear-3
+skin.injury	Keloids	original:derm-kel-1	original:derm-kel-2	original:derm-kel-3
+skin.injury	Tattoo-related skin problems	original:derm-tat-1	original:derm-tat-2	original:derm-tat-3
+skin.injury	Perniosis	original:derm-pern-1	original:derm-pern-2	original:derm-pern-3
+skin.injury	Frostbite	original:derm-frost-1	original:derm-frost-2	original:derm-frost-3 original:derm-frost-rule original:derm-frost-safe
+skin.injury	Pressure injury	original:derm-press-1 original:derm-press-rule original:derm-press-fat original:derm-press-bone	original:derm-press-2 original:derm-press-base original:derm-press-obsc	original:derm-press-3 original:derm-press-stab original:derm-press-inf
+skin.congenital	Xeroderma pigmentosum	original:derm-xp-1	original:derm-xp-2	original:derm-xp-3
+skin.congenital	Congenital nevi and other benign infant lesions	original:derm-cmn-1	original:derm-cmn-2	original:derm-cmn-3
+skin.drug	Drug eruptions	original:derm-drug-1	original:bh-lamo-rash original:derm-drug-2	original:derm-drug-3
+skin.drug	Local vaccine reactions	original:derm-vac-1	original:derm-vac-2	original:derm-vac-3 original:derm-vac-rule original:derm-vac-local original:derm-vac-shock
 msk.inf	Dry and wet gangrene	original:msk-dry-f	original:msk-dry-change	original:msk-dry-stable
 msk.inf	Clostridial myonecrosis	original:msk-gas-target	original:msk-gas-case	original:msk-gas-def
 msk.inf	Discitis	original:msk-disc-site	original:msk-disc-mri	original:msk-disc-f original:msk-disc-a original:msk-disc-t original:msk-disc-blood

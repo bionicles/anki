@@ -1313,6 +1313,55 @@ def musculoskeletal_studies():
     save(fig, "msk_mh_monitor")
 
 
+def cutaneous_studies():
+    """Draw independent simulated observations for skin interpretation cards."""
+    for name, temperatures, onset in [
+        ("a", [39.5, 40.0, 39.8, 37.0, 36.9, 37.1], 4),
+        ("b", [38.0, 38.6, 39.2, 40.1, 39.7, 38.8], 4),
+    ]:
+        fig, ax = axes("Day of illness", "Temperature (°C)")
+        days = range(1, len(temperatures) + 1)
+        ax.plot(days, temperatures, marker="o", lw=2.5, color=COLORS[0])
+        ax.axvline(onset, color=COLORS[1], ls="--", label="Rash first observed")
+        ax.set(xticks=list(days), ylim=(36.3, 40.7), title="Temperature diary  •  simulated")
+        ax.legend(loc="lower left")
+        save(fig, "skin_fever_" + name)
+
+    for name, intervals in [("a", [(0, 5), (6, 14), (17, 23)]),
+                            ("b", [(0, 36), (12, 19), (22, 29)])]:
+        fig, ax = axes("Hours since first lesion appeared", "")
+        for row, (start, end) in enumerate(intervals):
+            ax.plot([start, end], [row, row], marker="|", markersize=14, lw=4, color=COLORS[0])
+            ax.text((start + end) / 2, row + 0.15, f"{start}–{end} h", ha="center", fontsize=10)
+        ax.set(yticks=[0, 1, 2], yticklabels=["Left wrist", "Right hip", "Left calf"],
+               xlim=(-2, 39), ylim=(-0.4, 2.6), title="Time each lesion was visible  •  simulated")
+        save(fig, "skin_wheal_" + name)
+
+    for name, quantities in [("a", [4, 3, 28]), ("b", [19, 15, 8]), ("c", [10, 8, 20])]:
+        fig, ax = axes("Percentage of total body surface", "")
+        bars = ax.barh(["Detached", "Detachable", "Fixed erythema"], quantities,
+                       color=[COLORS[0], "#467987", "#999999"])
+        ax.bar_label(bars, labels=[f"{q}%" for q in quantities], padding=5)
+        ax.invert_yaxis()
+        ax.set(xlim=(0, 35), title="Skin examination  •  nonoverlapping areas")
+        save(fig, "skin_detach_" + name)
+
+    for name, regions in [
+        ("a", [("Entire right arm", "Partial thickness"), ("Entire anterior trunk", "Superficial")]),
+        ("b", [("Entire left arm", "Full thickness"), ("Entire right leg", "Partial thickness")]),
+    ]:
+        fig, ax = plt.subplots(figsize=(5.1, 2.2), layout="constrained")
+        ax.axis("off")
+        ax.set_title("Adult burn survey  •  simulated", pad=6)
+        table = ax.table(cellText=regions, colLabels=["Region involved", "Depth on examination"],
+                         cellLoc="left", colLoc="left", bbox=[0, 0.05, 1, 0.85])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for col in range(2):
+            table[0, col].set_facecolor("#dcecf2")
+        save(fig, "skin_burn_" + name)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -1327,6 +1376,7 @@ def main():
     immune_reports()
     musculoskeletal_reports()
     musculoskeletal_studies()
+    cutaneous_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
