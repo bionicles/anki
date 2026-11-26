@@ -307,6 +307,22 @@ def verify_imaging(cards):
                        for k in ("Creator", "License", "LicenseURL")), card["ID"]
 
 
+def verify_ptbxl(cards):
+    records = table(ROOT / "ptbxl.tsv")
+    credits = {row["Figure"]: row for row in records}
+    assert len(credits) == len(records)
+    assert set(credits) == {p.name for p in (ROOT / "media").glob("med_ptbxl_*.png")}
+    used = set()
+    for card in cards:
+        figure = card["Figure"]
+        if figure in credits:
+            row = credits[figure]
+            assert row["Record"] in card["Source"] and "10.13026/kfzx-aw45" in card["Source"]
+            assert "https://creativecommons.org/licenses/by/4.0/" in card["License"]
+            used.add(figure)
+    assert used == set(credits)
+
+
 def verify(folder):
     import genanki
     from anki.collection import Collection
@@ -336,6 +352,7 @@ def verify(folder):
     assert table(folder/"step-item-coverage.tsv") == named_measurements()
     assert {r["Family"] for r in table(ROOT/"step-families.tsv")} == {r["Family"] for r in table(ROOT/"step-items.tsv")}, "A Step family is missing from the named-topic inventory"
     verify_imaging(expected)
+    verify_ptbxl(expected)
     sound_records = table(ROOT/"heart-sounds.tsv")
     clips = {r["Clip"]: r for r in sound_records}
     assert len(clips) == len(sound_records)
@@ -393,7 +410,7 @@ def file_hash(path):
 
 
 def build_inputs(lock):
-    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step-items.tsv", "step_coverage.py", "intrapartum.py", "figures.py", "heart-sounds.tsv", "heart_sounds.py")]
+    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step-items.tsv", "step_coverage.py", "intrapartum.py", "ptbxl.py", "ptbxl.tsv", "figures.py", "heart-sounds.tsv", "heart_sounds.py")]
     paths.extend(sorted(p for p in (ROOT / "media").iterdir() if p.suffix in {".png", ".wav"}))
     return {"sources": lock, "files": {p.relative_to(ROOT).as_posix(): file_hash(p) for p in paths}}
 

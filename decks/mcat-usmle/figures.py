@@ -3698,6 +3698,115 @@ def posterior_lead_study():
                 [["V7", "+1.5 mm"], ["V8", "+2.0 mm"], ["V9", "+1.5 mm"]])
 
 
+def atrial_and_ventricular_rhythm_studies():
+    """Original timing diagrams and simulated rhythm assessments."""
+    p_times = [.2, 1., 1.47, 2.27, 3.07]
+    fig, ax = axes("Time (s)", "")
+    for times, level, color in [(p_times, 1, COLORS[0]), (np.array(p_times) + .16, 0, COLORS[1])]:
+        ax.vlines(times, level - .13, level + .13, color=color, lw=3)
+    for number, x in enumerate(p_times, 1):
+        ax.text(x, 1.2, str(number), ha="center")
+    ax.set(xlim=(0, 3.5), ylim=(-.4, 1.55), yticks=[0, 1], yticklabels=["QRS onset", "P onset"],
+           title="Atrial and ventricular events • simulated")
+    save(fig, "rhythm_pac")
+    for name, rate in [("fast", 126), ("slow", 78)]:
+        study_table("rhythm_mat_" + name, "Single-lead atrial observations", ["Finding", "Observation"],
+                    [["Atrial rate", f"{rate}/min"], ["P shapes", "Three distinct contours"],
+                     ["P–P intervals", "Irregular"], ["Between P waves", "Isoelectric intervals"]])
+    for name, pulse, bp, state in [("pulse", "Present", "68/40 mm Hg", "Confused"),
+                                   ("arrest", "Absent", "No waveform", "Unresponsive")]:
+        study_table("rhythm_vt_" + name, "Bedside assessment during tachycardia", ["Observation", "Finding"],
+                    [["Central pulse", pulse], ["Arterial pressure", bp], ["Mental status", state]])
+    study_table("rhythm_delta", "Sinus rhythm measurements", ["Finding", "Observation"],
+                [["PR interval", "90 ms"], ["QRS onset", "Slurred upstroke"], ["QRS duration", "128 ms"]])
+
+
+def conduction_and_device_studies():
+    """Simulated PR sequences, P/QRS timing and paired right/lateral QRS views."""
+    for name, durations in [("wenck", ["160", "200", "240", "No QRS", "160"]),
+                            ("mobitz", ["170", "170", "170", "No QRS", "170"])]:
+        study_table("conduct_" + name, "Consecutive sinus impulses", ["P wave", "PR interval (ms)"],
+                    [[str(i), duration] for i, duration in enumerate(durations, 1)])
+    for name, atrial in [("sinpause", [.25, 1.05, 3.45, 4.25]),
+                         ("avpause", [.25, 1.05, 1.85, 2.65, 3.45, 4.25])]:
+        ventricular = np.array([.25, 1.05, 3.45, 4.25]) + .17
+        fig, ax = axes("Time (s)", "")
+        for times, level, color in [(atrial, 1, COLORS[0]), (ventricular, 0, COLORS[1])]:
+            ax.vlines(times, level - .15, level + .15, color=color, lw=3)
+        ax.set(xlim=(0, 4.7), ylim=(-.45, 1.45), yticks=[0, 1], yticklabels=["QRS onset", "P onset"],
+               title="Atrial and ventricular events • simulated")
+        save(fig, "conduct_" + name)
+    # The knots specify an idealized QRS only. Both leads use identical axes.
+    for name, duration, leads in [
+            ("left", 158, [[0, .13, -.40, -.96, -.88, -.77, -.47, 0],
+                           [0, .31, .70, .91, .75, .91, .62, 0]]),
+            ("right", 150, [[0, .33, -.47, -.30, .52, .91, .42, 0],
+                            [0, .83, .97, .38, -.31, -.46, -.33, 0]])]:
+        fig, panels = plt.subplots(2, 1, figsize=(5.3, 3.5), layout="constrained", sharex=True)
+        t = np.array([0, .12, .25, .39, .53, .69, .85, 1]) * duration
+        for ax, lead, values in zip(panels, ["V1", "V6"], leads):
+            ax.plot([-40, *t, duration+45], [0, *values, 0], color=COLORS[0], lw=2.5)
+            ax.axhline(0, color="#666666", alpha=.3, lw=.7)
+            ax.set(ylim=(-1.2, 1.2), ylabel=lead + " (mV)", yticks=[-1, 0, 1])
+            ax.grid(alpha=.18)
+        panels[0].set_title("Ventricular depolarization • schematic")
+        panels[-1].set_xlabel("Time from QRS onset (ms)")
+        save(fig, "conduct_" + name)
+
+
+def wave_and_signaling_studies():
+    """Original simulated studies of sound, infrared absorption, lenses and cell signals."""
+    distances = np.array([1, 2, 3])
+    fig, ax = axes("One-way distance (cm)", "Echo round-trip time (μs)")
+    for slope, name, color, marker in [(10, "Gel A", COLORS[0], "o"), (15, "Gel B", COLORS[1], "s")]:
+        ax.plot(distances, slope*distances, marker=marker, color=color, lw=2, label=name)
+    ax.set(title="Ultrasound in two gels • simulated", xticks=distances, yticks=range(0, 51, 5), ylim=(0, 50))
+    ax.legend()
+    save(fig, "wavesignal_echo")
+    wavenumber = np.linspace(1500, 1850, 351)
+    fig, ax = axes("Wavenumber (cm⁻¹)", "Absorbance (relative units)")
+    for height, name, color, linestyle in [(.13, "A", COLORS[0], "--"), (.78, "B", COLORS[1], "-")]:
+        y = .08 + height * np.exp(-.5*((wavenumber-1710)/10)**2)
+        ax.plot(wavenumber, y, linestyle=linestyle, lw=2, color=color, label=name)
+    ax.set(title="Infrared absorption window • simulated", xlim=(1850, 1500), ylim=(0, 1))
+    ax.legend()
+    save(fig, "wavesignal_ir")
+    fig, ax = axes("1 / object distance (m⁻¹)", "1 / image distance (m⁻¹)")
+    inverse_distance = np.array([1, 2, 3, 4])
+    ax.plot([0, 4.5], [5, .5], color=COLORS[0], label="Fit")
+    ax.scatter(inverse_distance, 5-inverse_distance, color=COLORS[1], label="Measurements", zorder=3)
+    ax.set(xlim=(-.1, 4.7), ylim=(0, 5.5), title="Converging lens • simulated")
+    ax.legend()
+    save(fig, "wavesignal_lens")
+    fig, ax = axes("Membrane potential (mV)", "Outward current (pA)")
+    voltage = np.arange(-120, -39, 10)
+    ax.plot(voltage, (voltage+80)*.5, "o-", color=COLORS[0])
+    ax.axhline(0, linestyle=":", color="#555555")
+    ax.set(title="Isolated channel current • simulated", xticks=voltage)
+    save(fig, "wavesignal_ion")
+    study_table("wavesignal_lipid", "Prostaglandin output • relative units", ["Preparation", "Vehicle", "Free arachidonic acid"],
+                [["A (inhibited)", 1, 8], ["B (inhibited)", 1, 1]])
+    study_table("wavesignal_axis", "Thyroid hormone secretion • relative units", ["Preparation", "Baseline", "After TSH"],
+                [["A", 2, 8], ["B", 2, 2.1]])
+
+
+def rhythm_trial_results():
+    """Published endpoints from REVERT and RACE II."""
+    study_table("rhevidence_revert", "Sinus rhythm one minute after intervention",
+                ["Assigned maneuver", "Sinus rhythm", "Analyzed"], [["Standard", 37, 214], ["Modified", 93, 214]],
+                source="REVERT")
+    study_table("rhevidence_race_rates", "Composite outcome at three years",
+                ["Rate-control strategy", "Estimated incidence"], [["Lenient", "12.9%"], ["Strict", "14.9%"]],
+                source="RACE II")
+    fig, ax = axes("Difference in risk (percentage points), lenient minus strict", "")
+    ax.axvline(0, color="#555555", linestyle="--", label="Equal risks")
+    ax.errorbar(-2, 0, xerr=[[5.6], [5.5]], fmt="o", capsize=5, color=COLORS[0])
+    ax.text(-2, .26, "−2.0 (90% CI −7.6 to +3.5)", ha="center")
+    ax.set(xlim=(-10, 8), ylim=(-.8, .8), yticks=[], title="Composite outcome at three years • RACE II")
+    ax.legend(loc="lower right")
+    save(fig, "rhevidence_race_ci")
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -3753,6 +3862,10 @@ def main():
     electric_membrane_studies()
     ventricular_failure_studies()
     posterior_lead_study()
+    atrial_and_ventricular_rhythm_studies()
+    conduction_and_device_studies()
+    wave_and_signaling_studies()
+    rhythm_trial_results()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
