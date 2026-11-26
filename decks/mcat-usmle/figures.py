@@ -1433,6 +1433,74 @@ def behavioral_courses():
         save(fig, "bh_resp_" + name)
 
 
+def urology_studies():
+    """Render simulated patient measurements used in reproductive-system cases."""
+    def lab_panel(name, title, rows, reference="Reference"):
+        fig, ax = plt.subplots(figsize=(5.25, 2.45), layout="constrained")
+        ax.axis("off")
+        ax.set_title(title + "  •  simulated")
+        table = ax.table(cellText=rows, colLabels=["Measurement", "Result", reference],
+                         colWidths=[0.47, 0.26, 0.27], cellLoc="left", colLoc="left",
+                         bbox=[0, 0.05, 1, 0.83])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for col in range(3):
+            table[0, col].set_facecolor("#dcecf2")
+        save(fig, "male_" + name)
+
+    for name, lh, fsh in [("a", "21", "26"), ("b", "0.6", "0.8")]:
+        lab_panel("axis_" + name, "Morning hormone results confirmed on repeat",
+                  [["Testosterone (ng/dL)", "145", "300–900"],
+                   ["LH (IU/L)", lh, "1.5–9.3"], ["FSH (IU/L)", fsh, "1.4–18"]])
+
+    for name, volume, count, motility in [("a", "2.0", "24", "50"), ("b", "0.8", "30", "25")]:
+        lab_panel("semen_" + name, "Semen analysis  •  complete collection",
+                  [["Volume", volume, "mL"], ["Concentration", count, "million/mL"],
+                   ["Total motility", motility, "%"]], reference="Units")
+
+    for name, ph, oxygen, co2 in [("a", "7.12", "18", "78"), ("b", "7.40", "97", "40")]:
+        lab_panel("gas_" + name, "Initial corporal gas before intervention",
+                  [["pH", ph, "7.35–7.45"], ["PO₂ (mm Hg)", oxygen, "80–100"],
+                   ["PCO₂ (mm Hg)", co2, "35–45"]], reference="Arterial range")
+
+    for name, initial, final in [("a", 32, 8), ("b", 16, 8)]:
+        fig, ax = axes("Months after treatment", "RPR dilution titer")
+        ax.plot([0, 6], [initial, final], marker="o", lw=2.4, color=COLORS[0])
+        ax.set_yscale("log", base=2)
+        dilutions = [2, 4, 8, 16, 32, 64]
+        ax.set(yticks=dilutions, yticklabels=[f"1:{d}" for d in dilutions],
+               xticks=[0, 6], xlim=(-0.5, 6.5), ylim=(1.8, 70),
+               title="Quantitative RPR  •  same assay and laboratory")
+        save(fig, "male_rpr_" + name)
+
+    for name, values in [("a", [160, 80, 40, 20]), ("b", [160, 84, 83, 115])]:
+        fig, ax = axes("Days after orchiectomy", "Serum AFP (ng/mL)")
+        ax.plot([0, 6, 12, 18], values, marker="o", lw=2.4, color=COLORS[0])
+        for x, y in zip([0, 6, 12, 18], values):
+            ax.annotate(str(y), (x, y), xytext=(0, 7), textcoords="offset points", ha="center")
+        ax.set(xticks=[0, 6, 12, 18], ylim=(0, 195), title="Serial tumor marker  •  simulated")
+        save(fig, "male_afp_" + name)
+
+    for name, left in [("a", [10, 11]), ("b", [10, 15])]:
+        fig, ax = axes("Months after initial ultrasound", "Testicular volume (mL)")
+        for values, label, marker, color in [(left, "Left (varicocele)", "o", COLORS[0]),
+                                             ([14, 16], "Right", "s", COLORS[1])]:
+            ax.plot([0, 6], values, label=label, marker=marker, lw=2.4, color=color)
+            for x, y in zip([0, 6], values):
+                ax.annotate(str(y), (x, y), xytext=(8 if x else -8, 0),
+                            textcoords="offset points", va="center", ha="left" if x else "right")
+        ax.set(xlim=(-0.8, 6.8), xticks=[0, 6], ylim=(6, 18),
+               title="Serial ultrasound volumes  •  simulated")
+        ax.legend(loc="lower right", fontsize=8)
+        save(fig, "male_vol_" + name)
+
+    for name, values in [("a", [4.0, 2.0, 2.0, 2.8, 3.0]), ("b", [4.0, 2.1, 2.0, 2.0, 2.0])]:
+        fig, ax = axes("Months on continuous finasteride", "Serum PSA (ng/mL)")
+        ax.plot([0, 6, 12, 18, 21], values, marker="o", lw=2.4, color=COLORS[0])
+        ax.set(xticks=[0, 6, 12, 18, 21], ylim=(1.5, 4.5), title="PSA after starting therapy  •  simulated")
+        save(fig, "male_psa_" + name)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -1449,6 +1517,7 @@ def main():
     musculoskeletal_studies()
     cutaneous_studies()
     behavioral_courses()
+    urology_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()

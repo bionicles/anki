@@ -1863,56 +1863,56 @@ msk.drug	Statin-associated myopathy	original:msk-statin-marker	original:rx-stati
 msk.drug	Cocaine-associated muscle injury	original:msk-cocaine-heat	original:msk-cocaine-muscle	original:msk-cocaine-now
 msk.drug	Zidovudine-associated myopathy	original:msk-azt-mito	original:msk-azt-muscle	original:msk-azt-weak
 msk.drug	Malignant hyperthermia	original:msk-mh-ca original:msk-mh-gas original:msk-mh-class original:msk-mh-app original:msk-mh-transfer	original:msk-mh-a original:msk-mh-wait	original:msk-mh-agent original:msk-mh-repeat original:msk-mh-avoid original:msk-mh-local original:msk-mh-plan original:msk-mh-stage
-male.inf	Balanitis			
-male.inf	Epididymitis			
-male.inf	Orchitis			
-male.inf	Prostatitis			
-male.inf	STI exposure and evaluation			
-male.inf	Chancroid			
-male.inf	Genital herpes			
-male.inf	Gonorrhea			
-male.inf	Anogenital HPV and condylomata			
-male.inf	Lymphogranuloma venereum			
-male.inf	Syphilis			
-male.inf	Trichomoniasis			
-male.inf	Chlamydial and other nongonococcal urethritis			
-male.inf	Autoimmune hypogonadism			
-male.tumor	Penile cancer			
-male.tumor	Prostate cancer			
-male.tumor	Testicular malignancy	original:s1-testis-tumor-afp original:s1-testis-tumor-hcg original:s1-testis-tumor-kinetics	original:ck-testis-tumor-scan original:ck-testis-tumor-route original:ck-testis-tumor-normal	original:ccs-testicular-before original:ccs-testicular-fertile original:ccs-testicular-trend
-male.tumor	Male breast cancer			
-male.regulatory	Erectile dysfunction	bank:usmle-step1:pharm-sildenafil-uses:v1		
-male.regulatory	Male-factor infertility	original:eh-and-low	original:eh-and-history	original:eh-and-avoid
-male.regulatory	Male sexual dysfunction			
-male.regulatory	Premature ejaculation			
-male.regulatory	Priapism			
-male.trauma	Benign prostatic hyperplasia	bank:usmle-step1:pharm-tamsulosin-uses:v1		
-male.trauma	Circumcision complications			
-male.trauma	Epididymal cyst			
-male.trauma	Hydrocele including neonatal hydrocele			
-male.trauma	Genital wounds and burns			
-male.trauma	Penile laceration and fracture			
-male.trauma	Peyronie disease			
-male.trauma	Phimosis			
-male.trauma	Scrotal laceration			
-male.trauma	Spermatocele			
-male.trauma	Testicular rupture and avulsion			
-male.trauma	Testicular torsion		original:ckscrot-torsion original:ckscrot-flow original:ckscrot-delay original:ckscrot-relief	
-male.trauma	Urethral disruption		original:ku-trauma-urethra	
-male.trauma	Varicocele			
-male.congenital	Hypospadias			
-male.congenital	Klinefelter syndrome			
-male.congenital	Cryptorchidism			
-male.drug	Alcohol-related sexual or reproductive effects			
-male.drug	Exogenous androgen and testosterone effects	original:eh-and-axis original:eh-and-low	original:eh-and-history	original:eh-and-avoid
-male.drug	Antipsychotic-associated sexual dysfunction			
-male.drug	Antidepressant-associated sexual dysfunction			original:bh-sert-sexual
-male.drug	Beta-blocker-associated erectile dysfunction			
-male.drug	Diuretic-associated erectile dysfunction			
-male.drug	Finasteride and dutasteride effects			
-male.drug	PDE5 inhibitor effects			
-male.drug	Cannabis-related reproductive effects			
-male.drug	Drugs affecting nitric oxide signaling			
+male.inf	Balanitis	original:uro-bal-1	original:uro-bal-2	original:uro-bal-3
+male.inf	Epididymitis	original:uro-epi-1 original:uro-epi-loc	original:uro-epi-2 original:uro-epi-scan	original:uro-epi-3
+male.inf	Orchitis	original:uro-orch-1	original:uro-orch-2 original:uro-orch-scan	original:uro-orch-3
+male.inf	Prostatitis	original:uro-pro-1	original:uro-pro-2	original:uro-pro-3
+male.inf	STI exposure and evaluation	original:uro-expose-1	original:uro-expose-2 original:uro-trans-site	original:uro-expose-3
+male.inf	Chancroid	original:uro-chan-1	original:uro-chan-2	original:uro-chan-3
+male.inf	Genital herpes	original:uro-hsv-1	original:rg-herpes-lesion	original:uro-hsv-3
+male.inf	Gonorrhea	original:uro-gc-1	original:ku-ureth original:uro-gc-base original:uro-gc-fail original:uro-trans-site	original:uro-gc-3 original:uro-gc-rule original:uro-gc-urine
+male.inf	Anogenital HPV and condylomata	original:uro-hpv-1	original:uro-hpv-2	original:uro-hpv-3
+male.inf	Lymphogranuloma venereum	original:uro-lgv-1	original:uro-lgv-2	original:uro-lgv-3
+male.inf	Syphilis	original:im-jh-f original:uro-syph-1 original:uro-rpr-rule original:uro-rpr-a original:uro-rpr-b	original:uro-syph-2 original:uro-rpr-base original:uro-rpr-major original:uro-rpr-minor	original:uro-syph-3
+male.inf	Trichomoniasis	original:uro-trich-1	original:uro-trich-2	original:uro-trich-3
+male.inf	Chlamydial and other nongonococcal urethritis	original:uro-ngu-1	original:ku-ureth original:uro-ngu-2	original:uro-ngu-3
+male.inf	Autoimmune hypogonadism	original:uro-auto-1 original:uro-auto-high original:uro-auto-low	original:uro-auto-2 original:uro-auto-rule original:uro-auto-central	original:uro-auto-3
+male.tumor	Penile cancer	original:uro-pen-1	original:uro-pen-2	original:uro-pen-3
+male.tumor	Prostate cancer	original:uro-pros-1 original:uro-pros-hist original:uro-trans-organ	original:uro-pros-2 original:uro-psa-base original:uro-psa-persist	original:uro-pros-3 original:uro-trans-psa
+male.tumor	Testicular malignancy	original:s1-testis-tumor-afp original:s1-testis-tumor-hcg original:s1-testis-tumor-kinetics original:uro-test-1 original:uro-semi-cells original:uro-semi-afp	original:ck-testis-tumor-scan original:ck-testis-tumor-route original:ck-testis-tumor-normal original:uro-solid-fdn original:uro-cyst-solid	original:ccs-testicular-before original:ccs-testicular-fertile original:ccs-testicular-trend original:uro-afp-rule original:uro-afp-fall original:uro-afp-rise original:uro-mass-rule original:uro-mass-solid
+male.tumor	Male breast cancer	original:uro-breast-1	original:uro-breast-2	original:uro-breast-3
+male.regulatory	Erectile dysfunction	bank:usmle-step1:pharm-sildenafil-uses:v1 original:uro-ed-1	original:uro-ed-2	original:behavior-pde-rule original:behavior-pde-fit original:uro-ed-3
+male.regulatory	Male-factor infertility	original:eh-and-low original:uro-fert-1 original:uro-fert-rule original:uro-fert-ob original:uro-fert-prod original:uro-semen-total original:uro-semen-a original:uro-semen-b	original:eh-and-history original:uro-fert-2 original:uro-fert-base original:uro-fert-duct original:uro-motile-rule original:uro-motile-a original:uro-motile-b	original:eh-and-avoid original:uro-fert-3 original:uro-fert-rule3 original:uro-fert-later original:uro-fert-ga original:uro-semen-repeat
+male.regulatory	Male sexual dysfunction	original:uro-sexual-1	original:uro-sexual-2	original:uro-sexual-3 original:uro-ssri-new
+male.regulatory	Premature ejaculation	original:uro-early-1	original:uro-early-2	original:uro-early-3
+male.regulatory	Priapism	original:uro-priap-1 original:uro-gas-rule original:uro-gas-low original:uro-gas-high	original:uro-priap-2 original:uro-gas-base original:uro-gas-ischemic original:uro-gas-non	original:uro-priap-3 original:uro-priap-time original:uro-priap-observe
+male.trauma	Benign prostatic hyperplasia	bank:usmle-step1:pharm-tamsulosin-uses:v1 original:uro-bph-1	original:uro-bph-2	original:uro-bph-3
+male.trauma	Circumcision complications	original:uro-circ-1	original:uro-circ-2	original:uro-circ-3
+male.trauma	Epididymal cyst	original:uro-ecyst-1	original:uro-ecyst-2 original:uro-cyst-plan	original:uro-ecyst-3 original:uro-mass-rule original:uro-mass-solid
+male.trauma	Hydrocele including neonatal hydrocele	original:uro-hydro-1 original:uro-hyd-loc	original:uro-hydro-2 original:uro-cyst-solid	original:uro-hydro-3
+male.trauma	Genital wounds and burns	original:uro-wound-1	original:uro-wound-2 original:uro-wound-frag	original:uro-wound-3
+male.trauma	Penile laceration and fracture	original:uro-fract-1	original:uro-fract-2	original:uro-fract-3
+male.trauma	Peyronie disease	original:uro-peyr-1	original:uro-peyr-2	original:uro-peyr-3
+male.trauma	Phimosis	original:uro-phim-1	original:uro-phim-2	original:uro-phim-3
+male.trauma	Scrotal laceration	original:uro-scrot-1	original:uro-scrot-2 original:uro-wound-frag	original:uro-scrot-3
+male.trauma	Spermatocele	original:uro-sperm-1	original:uro-sperm-2 original:uro-cyst-plan	original:uro-sperm-3 original:uro-mass-rule
+male.trauma	Testicular rupture and avulsion	original:uro-rupt-1	original:uro-rupt-2 original:uro-wound-frag original:uro-rupt-av	original:uro-rupt-3
+male.trauma	Testicular torsion	original:uro-tors-1 original:uro-tor-mech original:uro-tor-abs original:uro-tor-part	original:ckscrot-torsion original:ckscrot-flow original:ckscrot-delay original:ckscrot-relief original:uro-tors-rule	original:uro-tors-3 original:uro-tors-rule3 original:uro-tors-dead original:uro-tors-viable
+male.trauma	Urethral disruption	original:uro-ure-1	original:ku-trauma-urethra	original:uro-ure-3
+male.trauma	Varicocele	original:uro-var-1 original:uro-var-loc	original:uro-var-2 original:uro-var-scan	original:uro-var-3 original:uro-var-rule original:uro-var-persist original:uro-var-even
+male.congenital	Hypospadias	original:uro-hypo-1 original:uro-hyp-ab original:uro-hyp-dors	original:uro-hypo-2	original:uro-hypo-3 original:uro-hyp-base original:uro-hyp-iso
+male.congenital	Klinefelter syndrome	original:uro-kline-1	original:uro-kline-2	original:uro-kline-3
+male.congenital	Cryptorchidism	original:uro-crypt-1 original:uro-crypt-a original:uro-crypt-b	original:uro-crypt-2 original:uro-crypt-rule original:uro-crypt-early	original:uro-crypt-3 original:uro-crypt-rule3 original:uro-crypt-down original:uro-crypt-up original:uro-hyp-base original:uro-crypt-newborn
+male.drug	Alcohol-related sexual or reproductive effects	original:uro-alco-1	original:uro-alco-2	original:uro-alco-3
+male.drug	Exogenous androgen and testosterone effects	original:eh-and-axis original:eh-and-low	original:eh-and-history	original:eh-and-avoid original:uro-fert-rule3 original:uro-fert-later
+male.drug	Antipsychotic-associated sexual dysfunction	original:bh-prolactin-signal original:uro-aps-1	original:uro-aps-2	original:uro-aps-3
+male.drug	Antidepressant-associated sexual dysfunction	original:behavior-sex-org	original:uro-ssri-2	original:bh-sert-sexual original:uro-ssri-3 original:uro-ssri-time original:uro-med-baseline original:uro-ssri-new
+male.drug	Beta-blocker-associated erectile dysfunction	original:uro-beta-1	original:uro-beta-2	original:uro-beta-3
+male.drug	Diuretic-associated erectile dysfunction	original:uro-diur-1	original:uro-diur-2	original:uro-diur-3
+male.drug	Finasteride and dutasteride effects	original:uro-fin-1 original:uro-fin-rule original:uro-fin-calc original:uro-fin-new	original:uro-fin-2 original:uro-fin-nadir original:uro-fin-trend original:uro-fin-flat	original:uro-fin-3 original:uro-fin-follow original:uro-fin-stable
+male.drug	PDE5 inhibitor effects	original:uro-pde-1 original:uro-no-fdn original:uro-no-make original:uro-no-keep	original:uro-pde-2	original:behavior-sexual-3 original:behavior-pde-rule original:behavior-pde-fit
+male.drug	Cannabis-related reproductive effects	original:uro-weed-1	original:uro-weed-2	original:uro-weed-3
+male.drug	Drugs affecting nitric oxide signaling	original:uro-no-1 original:uro-no-fdn original:uro-no-make original:uro-no-keep	original:uro-no-2	original:behavior-pde-rule original:behavior-sexual-3 original:uro-no-3
 multi.inf	Brucellosis			
 multi.inf	Leptospirosis			
 multi.inf	Lyme disease			
