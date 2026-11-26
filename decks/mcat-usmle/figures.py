@@ -244,12 +244,88 @@ def gastrointestinal():
         save(fig,f"gi_barium_{code}")
 
 
+def special_senses():
+    from matplotlib.patches import Circle, Wedge
+
+    # Angles describe visual space viewed by the patient, independent of eye.
+    right, left = (-90, 90), (90, 270)
+    fields = {
+        "a": (right, right), "b": (left, left), "c": (left, right),
+        "d": ((0, 360), None), "e": ((0, 90), (0, 90)),
+        "f": ((180, 270), (180, 270)),
+    }
+    for code, sectors in fields.items():
+        fig, panels = plt.subplots(1, 2, figsize=(5.2, 3.0))
+        fig.subplots_adjust(top=.82, bottom=.20, wspace=.10)
+        for ax, eye, sector in zip(panels, ("Left eye", "Right eye"), sectors):
+            ax.add_patch(Circle((0, 0), 1, facecolor="white", edgecolor="none"))
+            if sector:
+                ax.add_patch(Wedge((0, 0), 1, *sector, facecolor="#526679"))
+            ax.add_patch(Circle((0, 0), 1, fill=False, edgecolor="#263746", lw=1.5))
+            ax.plot([-1, 1], [0, 0], ":", color="#91a2af")
+            ax.plot([0, 0], [-1, 1], ":", color="#91a2af")
+            ax.set(xlim=(-1.1, 1.1), ylim=(-1.1, 1.1), aspect="equal", title=eye)
+            ax.axis("off")
+        fig.text(.5, .04, "Patient’s view  •  Shaded area = field lost", ha="center")
+        save(fig, "field_" + code)
+
+    # Synthetic, single-ear thresholds. Slight horizontal symbol offsets keep
+    # coincident or near-coincident measurements legible on narrow screens.
+    audiograms = {
+        "a": ([45, 45, 45, 50, 50], [5, 5, 10, 10, 10]),
+        "b": ([20, 30, 45, 60, 70], [20, 30, 45, 55, 65]),
+        "c": ([65, 65, 70, 80, 85], [30, 35, 40, 45, 50]),
+        "d": ([15, 15, 15, 15, 20], [10, 10, 10, 10, 15]),
+    }
+    for code, (air, bone) in audiograms.items():
+        fig, ax = axes("Frequency (Hz)", "Threshold (dB HL)")
+        x = np.arange(5)
+        ax.plot(x-.025, air, "o-", color=COLORS[0], mfc="white", label="Air")
+        ax.plot(x+.025, bone, "s--", color=COLORS[1], mfc="white", label="Masked bone")
+        ax.set(xticks=x, xticklabels=["250", "500", "1000", "2000", "4000"],
+               ylim=(95, -10), yticks=np.arange(-10, 100, 10), title="Single-ear pure-tone thresholds")
+        ax.legend(loc="lower left")
+        save(fig, "audio_" + code)
+
+
+def neurologic_monitoring():
+    # Teaching traces emphasize bilateral versus unilateral onset. The zero
+    # crossing and one-second bracket stay fixed across both recordings.
+    t = np.linspace(-.7, 1.8, 1800)
+    phase = (t + .03) % (1/3)
+    cycle = np.exp(-((phase-.05)/.013)**2) - .50*np.exp(-((phase-.16)/.054)**2)
+    for code, bilateral in [("a", True), ("b", False)]:
+        fig, ax = plt.subplots(figsize=(5.5, 2.65), layout="constrained")
+        for base, active, color in [(1.8, True, COLORS[0]), (0, bilateral, COLORS[1])]:
+            baseline = .07*np.sin(2*np.pi*9*t + base) + .035*np.cos(2*np.pi*6*t)
+            trace = np.where((t>=0) & active, cycle, baseline)
+            ax.plot(t, base+trace, color=color, lw=1.4)
+        ax.axvspan(0, 1.8, color="#d5dee6", alpha=.32, zorder=0)
+        ax.plot([.15, .15, 1.15, 1.15], [3, 3.09, 3.09, 3], lw=1.3, color="black")
+        ax.text(.65, 3.13, "1 second", ha="center", fontsize=9)
+        ax.set(xlim=(-.7, 1.8), ylim=(-.7, 3.55), yticks=[1.8,0],
+               yticklabels=["Left frontal", "Right frontal"], xlabel="Time from onset (seconds)",
+               title="Schematic homologous EEG channels")
+        ax.spines[["top","right","left"]].set_visible(False)
+        save(fig, "neeg_" + code)
+
+    for code, values in [("a", [32, 28, 21, 15]), ("b", [34, 33, 35, 34])]:
+        fig, ax = axes("Time from first assessment (h)", "Vital capacity (mL/kg)")
+        ax.plot([0, 2, 4, 6], values, "o-", color=COLORS[0], lw=2)
+        for hour, value in zip([0, 2, 4, 6], values):
+            ax.annotate(str(value), (hour, value), xytext=(0, 7), textcoords="offset points", ha="center")
+        ax.set(xticks=[0,2,4,6], ylim=(0, 42), title="Serial bedside vital capacity")
+        save(fig, "nvc_" + code)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
     cardiovascular()
     respiratory()
     gastrointestinal()
+    special_senses()
+    neurologic_monitoring()
     plot("refeed", "Hours after starting nutrition", "Serum phosphate (mg/dL)",
          [0,12,24,36,48], {"Patient A": [3.2,2.9,2.4,1.8,1.6],
                             "Patient B": [3.1,3.2,3.0,3.1,3.1]})

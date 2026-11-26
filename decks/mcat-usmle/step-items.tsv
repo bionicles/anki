@@ -318,3 +318,223 @@ gi.drug	Drug-induced liver injury	original:gut-dili-formula original:gut-dili-a	
 gi.drug	Acetaminophen hepatotoxicity			
 gi.drug	Isoniazid hepatotoxicity			
 gi.drug	Drug-induced pancreatitis including thiazides			
+neuro.inf	Bacterial meningitis			
+neuro.inf	Viral meningitis			
+neuro.inf	Fungal meningitis			
+neuro.inf	Spirochetal meningitis and neurosyphilis			
+neuro.inf	Parasitic meningitis			
+neuro.inf	Herpesvirus encephalitis			
+neuro.inf	Arboviral encephalitis			
+neuro.inf	Other viral encephalitis			
+neuro.inf	Parasitic encephalitis			
+neuro.inf	Prion disease			
+neuro.inf	Botulism			
+neuro.inf	Tetanus			
+neuro.inf	HIV-related CNS disorders including PML			
+neuro.inf	Myasthenia gravis and thymoma	original:nmg-site	original:nmg-lid original:nmg-chest	original:nmg-bulbar original:nmg-iv
+neuro.inf	Multiple sclerosis			
+neuro.inf	Transverse myelitis			
+neuro.tumor	Meningioma			
+neuro.tumor	Neurofibromatosis		original:nnf-bilateral	original:nnf-child
+neuro.tumor	Glioblastoma			
+neuro.tumor	Astrocytomas	original:ntsc-mass		original:ntsc-ventricle
+neuro.tumor	Medulloblastoma	original:nposterior-csf	original:nposterior-pressure	original:nposterior-stage
+neuro.tumor	Primary CNS lymphoma			
+neuro.tumor	Metastatic nervous system tumors		original:ncord-new	original:ncord-steroid
+neuro.vascular	Arteriovenous malformation			
+neuro.vascular	Ectatic cerebral vessels			
+neuro.vascular	Transient ischemic attack			
+neuro.vascular	Cerebral arterial infarction	original:nmedulla-crossed original:nmedulla-medial	original:nmedulla-bulbar	original:nfield-sudden
+neuro.vascular	Cerebral embolism		original:nembol-hidden	original:nembol-delayed original:nembol-esus
+neuro.vascular	Intraparenchymal hemorrhage		original:rad-intra	
+neuro.vascular	Subarachnoid hemorrhage		original:rad-sah	original:rad-hydro
+neuro.vascular	Traumatic intracranial hemorrhage	original:rad-vein	original:rad-epidural	original:rad-deteriorate
+neuro.vascular	Cerebral aneurysm			
+neuro.vascular	Carotid atherosclerosis or occlusion			
+neuro.vascular	Carotid dissection			
+neuro.vascular	Vertebral artery insufficiency or dissection			
+neuro.vascular	Subclavian steal			
+neuro.vascular	Vascular dementia			
+neuro.vascular	Hypertensive encephalopathy			
+neuro.vascular	Posterior reversible encephalopathy syndrome			
+neuro.vascular	Cerebral venous sinus thrombosis			
+neuro.spine	Cauda equina syndrome			
+neuro.spine	Spinal cord infarction			
+neuro.spine	Spinal cord compression	original:ncord-level	original:ncord-new	original:ncord-steroid original:ncord-ct
+neuro.spine	Cord transection with paraplegia or quadriplegia			
+neuro.spine	Autonomic dysreflexia			
+neuro.spine	Cervical spinal stenosis			
+neuro.spine	Lumbar spinal stenosis			
+neuro.spine	Syringomyelia			
+neuro.nerve	Cranial nerve injury			
+neuro.nerve	Bell palsy			
+neuro.nerve	Abnormal pupil size or asymmetry			
+neuro.nerve	Internuclear ophthalmoplegia			
+neuro.nerve	Nystagmus and abnormal eye movements			
+neuro.nerve	Vestibular neuritis			
+neuro.nerve	Labyrinthitis			
+neuro.nerve	Ptosis		original:nmg-lid	
+neuro.nerve	Horner syndrome	original:nmedulla-horner		
+neuro.nerve	Peripheral nerve or brachial plexus injury			
+neuro.nerve	Carpal tunnel			
+neuro.nerve	Cubital tunnel			
+neuro.nerve	Tarsal tunnel			
+neuro.nerve	Peroneal nerve entrapment			
+neuro.nerve	Mononeuritis			
+neuro.nerve	Guillain–Barré syndrome	original:ngbs-csf	original:ngbs-weak original:ngbs-early	original:ngbs-treat
+neuro.nerve	Miller Fisher syndrome		original:ngbs-fisher	
+neuro.nerve	Inherited peripheral neuropathy including Charcot–Marie–Tooth			
+neuro.nerve	Herpes zoster			
+neuro.pain	Complex regional pain syndrome			
+neuro.pain	Fibromyalgia			
+neuro.pain	Postherpetic neuralgia			
+neuro.pain	Phantom limb pain			
+neuro.pain	Thalamic pain			
+neuro.pain	Trigeminal neuralgia	original:ntri-nerve	original:ntri-touch original:ntri-image	original:ntri-drug original:ntri-surgery
+neuro.degeneration	Alzheimer disease			
+neuro.degeneration	Frontotemporal dementia			
+neuro.degeneration	Progressive supranuclear palsy			
+neuro.degeneration	Lewy body disease	original:ndlb-protein	original:ndlb-hall original:ndlb-years	original:ndlb-sensitive
+neuro.degeneration	Mild cognitive impairment			
+neuro.global	Altered consciousness			
+neuro.global	Delirium	original:ndel-time	original:ndel-quiet	original:ndel-both original:ndel-deesc
+neuro.global	Coma			
+neuro.global	Brain death			
+neuro.muscle	Amyotrophic lateral sclerosis			
+neuro.muscle	Spinal muscular atrophy	original:gen-spinal-muscular-atrophy-localize	original:gen-spinal-muscular-atrophy-infant	
+neuro.muscle	Dystrophinopathies	original:gen-duchenne-and-becker-muscular-dystrophy-severity	original:gen-duchenne-and-becker-muscular-dystrophy-gowers	original:gen-duchenne-and-becker-muscular-dystrophy-heart
+neuro.muscle	Myotonic dystrophy			
+neuro.muscle	Muscle channelopathies including hypokalemic periodic paralysis			
+neuro.movement	Acute dystonia	original:bh-motor-dystonia		
+neuro.movement	Adult tic disorders			
+neuro.movement	Essential tremor			
+neuro.movement	Huntington disease			
+neuro.movement	Parkinson disease	original:npar-brady	original:npar-initial original:npar-off	original:npar-npo
+neuro.movement	Parkinson disease dementia		original:ndlb-years	
+neuro.metabolic	Adrenoleukodystrophy	original:nald-organelle	original:nald-school	original:nald-adrenal
+neuro.metabolic	Metabolic encephalopathy	original:nhep-glia	original:nhep-number	original:nhep-bleed
+neuro.episodic	Migraine			
+neuro.episodic	Mixed headache			
+neuro.episodic	Tension-type headache			
+neuro.episodic	Stabbing headache			
+neuro.episodic	Cluster headache			
+neuro.episodic	Medication or caffeine withdrawal headache			
+neuro.episodic	Generalized tonic-clonic seizures and convulsive status	original:nstatus-time	original:nstatus-line	original:nstatus-persist
+neuro.episodic	Focal seizures		original:nabsence-mismatch	
+neuro.episodic	Absence seizures	original:nabsence-pattern	original:nabsence-spell	original:nabsence-eeg
+neuro.episodic	Febrile seizures			
+neuro.sleep	Narcolepsy and cataplexy	original:nnarc-tone	original:nnarc-laugh original:nnarc-test	original:nnarc-schedule
+neuro.sleep	Circadian rhythm sleep-wake disorders			
+neuro.sleep	Primary insomnia			
+neuro.sleep	Sleep terrors			
+neuro.sleep	Sleepwalking			
+neuro.sleep	REM sleep behavior disorder			original:ndlb-sleep
+neuro.sleep	Restless legs syndrome			
+neuro.trauma	Hypoxic-ischemic brain injury			
+neuro.trauma	Epidural hematoma	original:rad-suture	original:rad-epidural	original:rad-deteriorate
+neuro.trauma	Subdural hematoma	original:rad-vein	original:rad-subdural	
+neuro.trauma	Spinal epidural or subdural hematoma			
+neuro.trauma	Traumatic intraparenchymal hemorrhage			
+neuro.trauma	Traumatic subarachnoid hemorrhage			
+neuro.trauma	Cerebral edema	original:rad-edema		
+neuro.trauma	Idiopathic intracranial hypertension			
+neuro.trauma	Torticollis and cervical dystonia			
+neuro.trauma	Hydrocephalus	original:nposterior-fourth	original:nposterior-pressure	original:rad-hydro
+neuro.trauma	Normal-pressure hydrocephalus			
+neuro.trauma	Concussion and postconcussion syndrome		original:ntbi-delay	original:ntbi-deteriorate original:ntbi-motor
+neuro.trauma	Chronic traumatic encephalopathy and other traumatic brain syndromes			
+neuro.congenital	Friedreich ataxia			
+neuro.congenital	Neural tube defects	original:s1-folate-timing	original:ck-folate-prevention-reason	original:acm-folate-counsel
+neuro.congenital	Spina bifida			
+neuro.congenital	Holoprosencephaly			
+neuro.congenital	Anencephaly			
+neuro.congenital	Microcephaly			
+neuro.congenital	Sturge–Weber syndrome			
+neuro.congenital	Tuberous sclerosis	original:ntsc-mass	original:ntsc-spots	original:ntsc-ventricle original:ntsc-renal
+neuro.congenital	Von Hippel–Lindau disease			
+neuro.congenital	Congenital obstructive hydrocephalus and Chiari malformations			
+neuro.drug	Acute dystonic reaction	original:bh-motor-dystonia		
+neuro.drug	Drug-induced meningitis			
+neuro.drug	Drug-induced peripheral neuropathy			
+neuro.drug	Akathisia	original:bh-motor-akathisia		
+neuro.drug	Drug-induced parkinsonism			
+neuro.drug	Neuroleptic malignant syndrome		original:bh-motor-nms	
+neuro.drug	Psychotropic or antidepressant poisoning			
+neuro.drug	Serotonin syndrome		original:bh-sert-clonus	
+neuro.drug	Tardive dyskinesia	original:bh-motor-tardive		original:bh-schiztx-tardive
+neuro.eye	Blepharitis			
+neuro.eye	Chalazion			
+neuro.eye	Chorioretinitis			
+neuro.eye	Conjunctivitis and keratoconjunctivitis			
+neuro.eye	Dacryocystitis			
+neuro.eye	Endophthalmitis			
+neuro.eye	Hordeolum			
+neuro.eye	Iridocyclitis			
+neuro.eye	Optic neuritis			
+neuro.eye	Periorbital cellulitis			
+neuro.eye	Uveitis			
+neuro.eye	Ocular melanoma			
+neuro.eye	Retinoblastoma			
+neuro.eye	Cataract			
+neuro.eye	Glaucoma	original:nangle-drain	original:nangle-pain original:nangle-side	original:nangle-tonometry
+neuro.eye	Lacrimal system disorders			
+neuro.eye	Pterygium			
+neuro.eye	Presbyopia	original:s1-seenear-lens original:s1-seenear-correct		
+neuro.eye	Myopia			
+neuro.eye	Hyperopia			
+neuro.eye	Astigmatism			
+neuro.eye	Amblyopia			
+neuro.eye	Strabismus			
+neuro.eye	Hypertensive retinopathy			
+neuro.eye	Macular degeneration			
+neuro.eye	Papilledema			
+neuro.eye	Retinal detachment	original:nret-tear original:nret-traction	original:nret-periphery	original:nret-urgency
+neuro.eye	Retinitis pigmentosa			
+neuro.eye	Retinal artery occlusion or embolus	original:ncrao-bed	original:ncrao-pale	original:ncrao-triage original:ncrao-risk
+neuro.eye	Retinal hemorrhage			
+neuro.eye	Amaurosis fugax			
+neuro.eye	Carotid stenosis with ocular ischemia			
+neuro.eye	Central retinal vein occlusion			
+neuro.eye	Visual impairment and blindness	original:nfield-half	original:nfield-complaint	original:nfield-read
+neuro.eye	Night blindness			
+neuro.eye	Periorbital bruising			
+neuro.eye	Ocular burns			
+neuro.eye	Corneal abrasion			
+neuro.eye	Corneal ulcer		original:ckeye-cornea	
+neuro.eye	Dislocated lens			
+neuro.eye	Ocular foreign body			
+neuro.eye	Hyphema			
+neuro.eye	Injury to the optic nerve or pathways	original:nfield-mono original:nfield-temporal	original:nfield-reverse	original:nfield-sudden
+neuro.eye	Eye and eyelid laceration			
+neuro.eye	Open globe		original:ckeye-globe original:ckeye-shield	
+neuro.eye	Orbital fracture			
+neuro.eye	Subconjunctival hemorrhage			
+neuro.eye	Ethambutol ocular toxicity			
+neuro.eye	Hydroxychloroquine ocular toxicity			
+neuro.eye	Glucocorticoid ocular effects			
+neuro.ear	Auricular chondritis			
+neuro.ear	Mastoiditis			
+neuro.ear	Otitis externa			
+neuro.ear	Otitis media including serous or suppurative disease			
+neuro.ear	Otitis interna			
+neuro.ear	Necrotizing otitis externa			
+neuro.ear	Vestibular schwannoma	original:nnf-origin	original:nnf-bilateral	
+neuro.ear	NF2-related schwannomatosis		original:nnf-bilateral	original:nnf-child
+neuro.ear	Cholesteatoma			
+neuro.ear	Hearing loss	original:nhear-conduct original:nhear-mix	original:nhear-paired original:nhear-mixed	original:nshl-salvage
+neuro.ear	Noise-induced hearing loss			
+neuro.ear	Otosclerosis			
+neuro.ear	Tinnitus			
+neuro.ear	Ménière disease	original:nmen-fluid	original:nmen-episodes original:nmen-document	original:nmen-diary
+neuro.ear	Motion sickness			
+neuro.ear	Vertigo including benign positional vertigo		original:ndiz-episodic	original:ndiz-reposition
+neuro.ear	Barotrauma			
+neuro.ear	Ear canal foreign body			
+neuro.ear	Cerumen impaction			
+neuro.ear	Auricular laceration or avulsion			
+neuro.ear	Tympanic membrane perforation			
+neuro.ear	Eustachian tube dysfunction			
+neuro.ear	Antineoplastic ototoxicity including cisplatin			
+neuro.ear	Aminoglycoside ototoxicity			
+neuro.ear	Loop diuretic ototoxicity			
+neuro.ear	Salicylate ototoxicity			

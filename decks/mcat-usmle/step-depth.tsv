@@ -99,9 +99,9 @@ USMLE Step 3	neuro.muscle	Identify a surveillance need in dystrophinopathy	origi
 USMLE Step 1	cv.ischemia	Localize coronary supply from the infarct territory on a new ECG					Awaiting review
 USMLE Step 2 CK	cv.ischemia	Distinguish posterior infarction from anterior ischemia using additional leads					Awaiting review
 USMLE Step 3	cv.ischemia	Identify mechanical complications after infarction from a changing exam					Awaiting review
-USMLE Step 1	neuro.vascular	Localize lateral medullary versus medial medullary injury from affected tracts					Awaiting review
-USMLE Step 2 CK	neuro.vascular	Distinguish posterior circulation stroke from peripheral vertigo on examination					Awaiting review
-USMLE Step 3	neuro.vascular	Select secondary stroke prevention when atrial fibrillation is identified on delayed monitoring					Awaiting review
+USMLE Step 1	neuro.vascular	Localize lateral medullary versus medial medullary injury from affected tracts	original:nmedulla-tract original:nmedulla-voice	original:nmedulla-crossed	original:nmedulla-medial	Crossed pain deficits and dysphagia give way to impaired position sense, hemiparesis and ipsilateral tongue weakness.	Documented
+USMLE Step 2 CK	neuro.vascular	Distinguish posterior circulation stroke from peripheral vertigo on examination	original:ndiz-elig	original:ndiz-skew	original:ndiz-episodic original:ndiz-gait	Brief triggered symptoms require positional testing; continuous symptoms without nystagmus shift emphasis to gait.	Documented
+USMLE Step 3	neuro.vascular	Select secondary stroke prevention when atrial fibrillation is identified on delayed monitoring	original:nembol-rule	original:nembol-delayed	original:nembol-esus original:nembol-valve	Monitoring remains negative in one patient; a mechanical valve changes the eligible anticoagulant in another.	Documented
 USMLE Step 1	ob.labor	Predict how fetal malpresentation changes the presenting diameter					Awaiting review
 USMLE Step 2 CK	ob.labor	Determine candidacy for external cephalic version					Awaiting review
 USMLE Step 3	ob.labor	Choose a delivery strategy after failed external cephalic version					Awaiting review
@@ -251,3 +251,50 @@ USMLE Step 3	gi.congenital	Apply the AAP direct-bilirubin referral threshold at 
 USMLE Step 3	gi.upper	Choose the initial evaluation for dysphagia	original:gut-swallow-rule	original:gut-swallow-oropharynx	original:gut-swallow-esophagus	Progressive retrosternal solid-food dysphagia with weight loss replaces initiation difficulty and aspiration symptoms.	Documented
 USMLE Step 3	gi.peritoneum	Determine whether cirrhotic ascites warrants empiric SBP treatment	original:gut-fluidrule-pmns	original:ccs-liver-negative	original:gut-fluidrule-negative	The clinically well second patient has a negative culture and a neutrophil count below the treatment threshold.	Documented
 USMLE Step 3	gi.symptom	Choose the initial rehydration route in diarrhea	original:gut-hydrate-rule	original:gut-hydrate-oral	original:gut-hydrate-iv	Poor perfusion and altered mental status in the second patient require IV resuscitation.	Documented
+USMLE Step 1	neuro.eye	Localize visual pathway injury from separate monocular fields	original:nfield-cross	original:nfield-chiasm	original:nfield-mono original:nfield-side	Monocular extinction and loss of the same left hemifield in both eyes replace the temporal loss in each eye.	Documented
+USMLE Step 1	neuro.eye	Infer optic radiation involvement from the quadrant lost		original:nfield-temporal	original:nfield-parietal	The missing upper right quadrant becomes the lower left quadrant after surgery at a different site.	Documented
+USMLE Step 2 CK	neuro.eye	Localize binocular visual loss before assigning its cause	original:nfield-separate	original:nfield-sellar	original:nfield-reverse	A known pituitary lesion remains present, but the abrupt homonymous pattern moves the localization behind the chiasm.	Documented
+USMLE Step 3	neuro.eye	Choose the response to a visual field change	original:nfield-read	original:nfield-sudden	original:nfield-follow	Acute focal field loss changes to planned quantitative surveillance after chiasmal decompression.	Documented
+USMLE Step 1	neuro.ear	Identify mechanisms of impaired sound transmission from paired thresholds	original:nhear-bone	original:nhear-conduct	original:nhear-mix	Masked bone thresholds become abnormal while an air–bone gap persists.	Documented
+USMLE Step 2 CK	neuro.ear	Classify hearing loss on a single-ear audiogram	original:nhear-rule	original:nhear-paired	original:nhear-mixed original:nhear-normal	A substantial air–bone gap develops in one case; both thresholds are near normal in another.	Documented
+USMLE Step 3	neuro.ear	Interpret residual hearing sensitivity after a conductive component changes	original:nhear-meaning	original:nhear-expect	original:nhear-restored	The mixed pre-treatment pattern is replaced by measured near-normal thresholds after a procedure.	Documented
+USMLE Step 3	neuro.ear	Select therapy in idiopathic sudden sensorineural hearing loss		original:nshl-early	original:nshl-salvage	Incomplete recovery at three weeks changes the patient from the initial to the salvage treatment window.	Documented
+USMLE Step 1	neuro.inf	Explain impaired transmission in myasthenia gravis	original:nmg-site original:nmg-enzyme				Documented
+USMLE Step 2 CK	neuro.inf	Identify fatigable extraocular weakness		original:nmg-lid			Documented
+USMLE Step 3	neuro.inf	Recognize deterioration in generalized myasthenia		original:nmg-bulbar			Documented
+USMLE Step 1	neuro.tumor	Explain a posterior fossa tumor's effect on CSF pathways		original:nposterior-fourth			Documented
+USMLE Step 2 CK	neuro.tumor	Recognize symptomatic CSF obstruction		original:nposterior-pressure			Documented
+USMLE Step 3	neuro.tumor	Choose staging imaging for medulloblastoma		original:nposterior-stage			Documented
+USMLE Step 1	neuro.spine	Localize motor and sensory dysfunction to the spinal cord	original:ncord-level				Documented
+USMLE Step 2 CK	neuro.spine	Recognize when metastatic cord compression needs emergency imaging		original:ncord-new	original:ncord-delay	An earlier reassuring study loses relevance when bladder dysfunction and new weakness develop.	Documented
+USMLE Step 3	neuro.spine	Adapt initial steroid management in suspected malignant cord compression		original:ncord-steroid	original:ncord-stop	Imaging excludes the suspected diagnosis and removes the indication for empiric steroids.	Documented
+USMLE Step 1	neuro.nerve	Read change in respiratory muscle function from serial spirometry		original:ngbsv-read			Documented
+USMLE Step 2 CK	neuro.nerve	Recognize Guillain–Barré syndrome despite variable early findings		original:ngbs-weak	original:ngbs-early original:ngbs-fisher	Normal early CSF changes interpretation of a negative test; ophthalmoplegia and ataxia suggest a variant.	Documented
+USMLE Step 3	neuro.nerve	Act on respiratory reserve and airway protection in acute neuropathy	original:ngbs-breath	original:ngbsv-fall	original:ngbsv-stable	A separate patient has stable serial values and preserved cough and swallowing.	Documented
+USMLE Step 1	neuro.pain	Map brief trigeminal pain to a sensory division	original:ntri-nerve				Documented
+USMLE Step 2 CK	neuro.pain	Recognize the clinical pattern of trigeminal neuralgia		original:ntri-touch			Documented
+USMLE Step 3	neuro.pain	Select therapy for disabling trigeminal neuralgia	original:ntri-drug	original:ntri-surgery			Documented
+USMLE Step 1	neuro.degeneration	Identify the protein underlying Lewy pathology	original:ndlb-protein				Documented
+USMLE Step 2 CK	neuro.degeneration	Distinguish dementia with Lewy bodies from Parkinson disease dementia		original:ndlb-hall	original:ndlb-years	Parkinson disease precedes dementia by nine years rather than developing in the same year.	Documented
+USMLE Step 3	neuro.degeneration	Anticipate treatment sensitivity in Lewy body dementia		original:ndlb-sensitive			Documented
+USMLE Step 1	neuro.global	Describe the time course and attention deficit of delirium	original:ndel-time				Documented
+USMLE Step 2 CK	neuro.global	Identify hypoactive delirium in an inpatient		original:ndel-quiet			Documented
+USMLE Step 3	neuro.global	Manage an acute change in cognition on a dementia baseline		original:ndel-both			Documented
+USMLE Step 1	neuro.movement	Recognize decrement on repetitive movement		original:npar-brady			Documented
+USMLE Step 2 CK	neuro.movement	Recognize medication wearing off in Parkinson disease		original:npar-off			Documented
+USMLE Step 3	neuro.movement	Preserve dopaminergic treatment during hospitalization		original:npar-hospital	original:npar-npo	Oral delivery becomes impossible after surgery so timely treatment requires a route or regimen change.	Documented
+USMLE Step 1	neuro.metabolic	Explain very-long-chain fatty acid accumulation	original:nald-organelle				Documented
+USMLE Step 2 CK	neuro.metabolic	Identify adrenoleukodystrophy from neurologic and adrenal findings		original:nald-school			Documented
+USMLE Step 3	neuro.metabolic	Recognize adrenal decompensation in adrenoleukodystrophy		original:nald-adrenal			Documented
+USMLE Step 1	neuro.episodic	Interpret frequency and distribution of childhood absence discharges	original:nabsence-pattern	original:neegread-count			Documented
+USMLE Step 2 CK	neuro.episodic	Distinguish typical absence from focal impaired-awareness seizures		original:neegread-pattern	original:neegread-focus original:nabsence-mismatch	The independent recording begins unilaterally; a different child's prolonged spell has postictal confusion.	Documented
+USMLE Step 3	neuro.episodic	Escalate therapy for persistent convulsive status epilepticus		original:nstatus-persist	original:nstatus-escalate	Failure of a second-line IV agent raises the need for refractory status management in critical care.	Documented
+USMLE Step 1	neuro.sleep	Describe cataplexy	original:nnarc-tone				Documented
+USMLE Step 2 CK	neuro.sleep	Identify cataplexy in a sleepy patient		original:nnarc-laugh			Documented
+USMLE Step 3	neuro.sleep	Assess readiness for MSLT interpretation		original:nnarc-schedule			Documented
+USMLE Step 1	neuro.congenital	Explain a mechanism of hydrocephalus in tuberous sclerosis	original:ntsc-mass				Documented
+USMLE Step 2 CK	neuro.congenital	Recognize multisystem findings in tuberous sclerosis		original:ntsc-spots			Documented
+USMLE Step 3	neuro.congenital	Recognize symptomatic ventricular obstruction in tuberous sclerosis		original:ntsc-ventricle			Documented
+USMLE Step 2 CK	neuro.trauma	Interpret delayed symptoms after mild head injury		original:ntbi-delay			Documented
+USMLE Step 3	neuro.trauma	Identify danger signs following concussion		original:ntbi-deteriorate			Documented
+USMLE Step 3	neuro.drug	Treat disabling tardive dyskinesia		original:bh-schiztx-tardive			Documented
