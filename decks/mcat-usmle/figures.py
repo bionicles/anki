@@ -2844,6 +2844,145 @@ def hepatobiliary_studies():
         save(fig, "hepatobiliary_" + name)
 
 
+def postpartum_studies():
+    """Draw postpartum teaching records, published trial estimates and MCAT experiments."""
+    from matplotlib.patches import Circle, Rectangle
+
+    def record(name, title, columns, rows, source="simulated"):
+        fig, ax = plt.subplots(figsize=(6.1, 2.7), layout="constrained")
+        ax.axis("off")
+        ax.set_title(f"{title}  •  {source}")
+        table = ax.table(cellText=rows, colLabels=columns, loc="center",
+                         cellLoc="center", bbox=[.01, .08, .98, .76])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for col in range(len(columns)):
+            table[0, col].set_facecolor("#e2edf1")
+        save(fig, "postpartum_" + name)
+
+    record("intake", "Newborn at five days", ["Finding", "Observation"],
+           [["Weight, day 0 → 3 → 5", "3.40 → 3.18 → 3.25 kg"],
+            ["Observed feeding", "Alert, audible swallows"], ["Last 24 hours", "6 wet diapers, 4 yellow stools"]])
+    record("lochiadiary", "Patient bleeding diary", ["Day after birth", "Observed discharge"],
+           [["2", "Moderate, red"], ["6", "Lighter, pink-brown"], ["10", "Scant, pale"]])
+    for name, edv, esv in [("eflow", 160, 104), ("efhigh", 120, 48)]:
+        record(name, "Left ventricular volume measurements", ["Timing", "Volume"],
+               [["End diastole", f"{edv} mL"], ["End systole", f"{esv} mL"]])
+    record("moodcourse", "New parent's symptom diary", ["Day after birth", "Diary entry"],
+           [["3", "Tearful several times, accepting help"], ["7", "Occasional brief tearfulness"],
+            ["13", "Mood back to usual"]])
+    for name, now in [("txaearly", "09:40"), ("txalate", "11:35")]:
+        record(name, "Postpartum hemorrhage record", ["Event", "Time today"],
+               [["Birth", "08:00"], ["Current assessment", now],
+                ["Tranexamic acid administered", "None"]])
+    for name, pulse in [("lossstable", 84), ("losstachy", 114)]:
+        record(name, "Twenty minutes after a vaginal birth", ["Measurement", "Current value"],
+               [["Measured cumulative loss", "360 mL"], ["Blood pressure", "118/76 mm Hg"],
+                ["Pulse", f"{pulse}/min"]])
+    for name, flow in [("rvascular", "Internal vascular flow"), ("ravascular", "No flow detected within mass")]:
+        record(name, "Postpartum pelvic ultrasound", ["Finding", "Observation"],
+               [["Gray scale", "Focal endometrial mass"], ["Color Doppler", flow]])
+    for name, tip in [("increta", 1.75), ("percreta", .58)]:
+        fig, ax = plt.subplots(figsize=(5.6, 3.1), layout="constrained")
+        ax.set(xlim=(0, 6.8), ylim=(0, 3.8), aspect="equal")
+        ax.axis("off")
+        ax.add_patch(Rectangle((.2, 1), 4.15, 2, facecolor="#e9c5b2", edgecolor="none"))
+        ax.add_patch(Rectangle((.2, 3), 4.15, .42, facecolor="#ecdfbb", edgecolor="none"))
+        ax.plot([.2, 4.35], [1, 1], color="#663d36", lw=2)
+        ax.text(4.48, 3.16, "Placental side", va="center")
+        ax.text(4.48, 2.18, "Myometrium", va="center")
+        ax.text(4.48, 1, "Serosa", va="center")
+        color = "#823a68"
+        ax.plot([1.9, 1.9, 2.15, 2.15], [3.32, 2.86, 2.55, tip], lw=6, color=color)
+        ax.plot([2.15, 2.63, 2.78], [2.48, 2.24, 2.02], lw=4, color=color)
+        ax.plot([2.15, 1.65], [2.35, 2.05], lw=4, color=color)
+        ax.text(.36, 3.1, "Villi", color=color, weight="bold")
+        ax.set_title("Placental bed  •  schematic section")
+        save(fig, "postpartum_" + name)
+
+    record("emotive", "E-MOTIVE after vaginal birth", ["Composite outcome", "Participants with event"],
+           [["Usual care", "4.3%"], ["Early detection and treatment bundle", "1.6%"]],
+           source="published results")
+    fig, ax = plt.subplots(figsize=(6.6, 3), layout="constrained")
+    labels = ["Death or hysterectomy\n(all participants)", "Bleeding death\n(treated within 3 h)"]
+    for y, estimate, low, high in [(1, .97, .87, 1.09), (0, .69, .52, .91)]:
+        ax.errorbar(estimate, y, xerr=[[estimate-low], [high-estimate]],
+                    fmt="o", lw=2, color=COLORS[0], capsize=5)
+    ax.axvline(1, color="#595959", ls="--", lw=1)
+    ax.set(yticks=[1, 0], yticklabels=labels, ylim=(-.5, 1.5), xlim=(.45, 1.16),
+           xlabel="Risk ratio for tranexamic acid vs placebo (95% CI)",
+           title="WOMAN trial  •  published estimates")
+    save(fig, "postpartum_woman")
+
+    record("polar", "Secondary oocytes in culture", ["Condition", "Second polar body", "Total oocytes"],
+           [["No sperm", "4", "40"], ["Sperm exposure", "30", "40"]])
+    fig, panels = plt.subplots(1, 3, figsize=(6.5, 2.7), layout="constrained")
+    for ax, label in zip(panels, ["A", "B", "C"]):
+        ax.set(xlim=(-1.2, 1.2), ylim=(-1.2, 1.2), aspect="equal", title=label)
+        ax.axis("off")
+        ax.add_patch(Circle((0, 0), 1, fc="#f3eee4", ec="#666", lw=1.3))
+    # A central section through the compact morula, before cavitation.
+    for row, count in enumerate([3, 4, 5, 4, 3]):
+        y = (row - 2) * .34
+        for column in range(count):
+            x = (column - (count - 1) / 2) * .39
+            panels[0].add_patch(Circle((x, y), .21, fc="#b4cfc8", ec=COLORS[0], lw=1))
+    panels[1].add_patch(Circle((0, 0), .82, fc="#fcfaf0", ec=COLORS[0]))
+    for theta in np.linspace(0, 2*np.pi, 18, endpoint=False):
+        panels[1].add_patch(Circle((.89*np.cos(theta), .89*np.sin(theta)),
+                                   .13, fc="#b4cfc8", ec=COLORS[0], lw=.75))
+    for x, y in [(-.6, .26), (-.45, .45), (-.38, .22), (-.56, .06)]:
+        panels[1].add_patch(Circle((x, y), .16, fc="#b4cfc8", ec=COLORS[0]))
+    for x in [-.44, .44]:
+        panels[2].add_patch(Circle((x, 0), .49, fc="#b4cfc8", ec=COLORS[0]))
+    fig.suptitle("Mammalian embryonic stages  •  schematics")
+    save(fig, "postpartum_stages")
+    record("fate", "Transcripts per matched cell sample", ["Transcript", "Culture A", "Culture B"],
+           [["Muscle marker", "2", "44"], ["Reference", "20", "20"]])
+    fig, ax = axes("Minutes after ligand added", "Intracellular cAMP (relative units)")
+    x = [0, 1, 2, 4, 6]
+    ax.plot(x, [1, 3, 6, 4, 2], "o-", label="Ligand")
+    ax.plot(x, [1, 1.1, 1.2, 1.1, 1], "s--", label="Ligand + blocker")
+    ax.set_xticks(x)
+    ax.legend()
+    ax.set_title("Gland-cell response  •  simulated")
+    save(fig, "postpartum_camp")
+    record("ox", "Hormone measurements", ["Normalized signal", "Tissue A", "Tissue B"],
+           [["Precursor mRNA", "95", "2"], ["Stored peptide", "32", "91"]])
+
+
+def gestational_exposure_studies():
+    """Draw comparative prenatal growth, dosimetry and cohort reports."""
+    def record(name, title, columns, rows, source="simulated"):
+        fig, ax = plt.subplots(figsize=(5.9, 2.6), layout="constrained")
+        ax.axis("off")
+        ax.set_title(f"{title}  •  {source}")
+        table = ax.table(cellText=rows, colLabels=columns, loc="center",
+                         cellLoc="center", bbox=[.015, .08, .97, .76])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for col in range(len(columns)):
+            table[0, col].set_facecolor("#e2edf1")
+        save(fig, "gestexposure_" + name)
+
+    for name, weight, ac in [("fgrlow", "6th", "8th"), ("fgrnormal", "45th", "48th")]:
+        record(name, "Third-trimester growth scan", ["Measurement", "Percentile for gestational age"],
+               [["Estimated fetal weight", weight], ["Abdominal circumference", ac]])
+    for name, dose in [("radev", "200 mGy"), ("radlow", "1 mGy")]:
+        record(name, "Physicist's exposure reconstruction", ["Parameter", "Estimate"],
+               [["Timing after conception", "8 days"], ["Absorbed dose to embryo", dose]])
+    for name, label, value, lo, hi in [
+        ("sscrude", "All pregnancies, unadjusted", 1.25, 1.13, 1.38),
+        ("ssadjust", "Depression cohort, adjusted", 1.06, .93, 1.22)]:
+        fig, ax = plt.subplots(figsize=(5.7, 2.55), layout="constrained")
+        ax.axvline(1, ls="--", color="#585858")
+        ax.errorbar(value, 0, xerr=[[value-lo], [hi-value]], fmt="o", capsize=6, color=COLORS[0], lw=2)
+        ax.set(xlim=(.85, 1.45), ylim=(-.7, .7), yticks=[],
+               xlabel="Risk ratio for any cardiac defect (95% CI)", title=label)
+        ax.text(value, .2, f"{value:.2f} ({lo:.2f}–{hi:.2f})", ha="center")
+        save(fig, "gestexposure_" + name)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -2879,6 +3018,8 @@ def main():
     aspiration_courses()
     abdominal_emergency_studies()
     hepatobiliary_studies()
+    postpartum_studies()
+    gestational_exposure_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
