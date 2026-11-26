@@ -4522,6 +4522,24 @@ def airway_tumor_studies():
                 ["Holder", "Gross rate (µmol/min)"], [["Impermeable sheet", "1"], ["Membrane A", "5"], ["Membrane B", "3"]])
 
 
+def shift_safety_studies():
+    study_table("safesys_hours", "Intern serious errors per 1,000 patient-days",
+                ["Schedule", "Error rate"], [["Traditional", "136.0"], ["Intervention", "100.1"]],
+                source="ICU trial, 2004")
+    study_table("safesys_workload", "Pediatric ICU schedules",
+                ["Schedule", "Patients per resident", "Errors per 1,000 pt-days"],
+                [["Control", "6.7", "79.0"], ["No 24-hour shifts", "8.8", "97.1"]],
+                source="ROSTERS, 2020")
+    study_table("safesys_attention", "Visual search accuracy", ["Task", "Correct", "Trials"],
+                [["Search only", "45", "50"], ["Search and tone monitoring", "72", "90"]])
+    study_table("safesys_sleep", "Overnight sleep record", ["Interval", "Minutes"],
+                [["Recording", "480"], ["Awake", "80"], ["REM sleep", "60"]])
+    study_table("safesys_census", "Coverage at evening handoff", ["Unit census", "Assigned clinicians"],
+                [["24 patients", "4 clinicians"]])
+    study_table("safesys_relief", "Coverage after redeployment", ["Unit census", "Assigned clinicians"],
+                [["21 patients", "3 clinicians"]])
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -4610,6 +4628,7 @@ def main():
     mcat_transfer_records()
     study_design_cases()
     airway_tumor_studies()
+    shift_safety_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
