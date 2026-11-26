@@ -1928,6 +1928,77 @@ def safeguarding_and_emergency_studies():
                 ["Fibrinogen (mg/dL)", 300, last[1], "200–400"]], [.36, .17, .18, .29])
 
 
+def environmental_exposure_studies():
+    """Render fictional examination records and laboratory courses for environmental illness."""
+    def report(name, title, columns, rows, widths):
+        fig, ax = plt.subplots(figsize=(6.5, 2.8), layout="constrained")
+        ax.axis("off")
+        ax.set_title(title + "  •  simulated", fontsize=12)
+        table = ax.table(cellText=rows, colLabels=columns, colWidths=widths,
+                         cellLoc="left", colLoc="left", bbox=[0, .03, 1, .84])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for col in range(len(columns)):
+            table[0, col].set_facecolor("#dcecf2")
+        save(fig, "environ_" + name)
+
+    for name, depths in [("a", ["Superficial", "Superficial partial", "Superficial"]),
+                         ("b", ["Superficial partial", "Superficial", "Deep partial"])]:
+        report("tbsa_" + name, "Adult burn survey",
+               ["Nonoverlapping region", "Area (% body surface)", "Depth"],
+               [[region, area, depth] for region, area, depth in
+                zip(["A", "B", "C"], [10, 8, 3], depths)], [.34, .33, .33])
+    for name, last in [("ok", ["<10", "310", "1.2"]), ("ill", ["<10", "1,240", "2.4"])]:
+        report("nac_" + name, "Acetylcysteine monitoring",
+               ["Laboratory result", "Earlier", "End of planned course"],
+               [["Acetaminophen (µg/mL)", "32", last[0]], ["ALT (U/L)", "800", last[1]],
+                ["INR", "1.7", last[2]]], [.40, .27, .33])
+    for name, method in [("cap", "Capillary fingerstick"), ("ven", "Venipuncture")]:
+        report("lead_" + name, "Childhood lead screening",
+               ["Report field", "Result"], [["Collection method", method],
+               ["Whole blood lead", "12 µg/dL"], ["Previous result", "None"]], [.50, .50])
+    for name, values in [("early", ["7.49", "30", "22", "11"]),
+                         ("mixed", ["7.45", "20", "13", "24"])]:
+        report("sal_" + name, "Arterial gas and serum chemistry",
+               ["Measurement", "Result", "Reference interval"],
+               [[label, value, ref] for label, value, ref in zip(
+                   ["Arterial pH", "PaCO₂ (mm Hg)", "Bicarbonate (mmol/L)", "Anion gap (mmol/L)"],
+                   values, ["7.35–7.45", "35–45", "22–26", "8–12"])], [.43, .20, .37])
+    for name, course in [("better", ["7.38", "7.44", "Alert", "Alert"]),
+                         ("worse", ["7.38", "7.23", "Alert", "Confused"])]:
+        report("sal_" + name, "Salicylate treatment observations",
+               ["Measurement", "Initial", "Reassessment"],
+               [["Serum salicylate (mg/dL)", 58, 44], ["Arterial pH", *course[:2]],
+                ["Mental status", *course[2:]]], [.49, .23, .28])
+    for name, values in [("walk", ["Keeps pace", "Breathing comfortably", "Clear", "90% / 91%"]),
+                         ("rest", ["Falls behind", "Breathless seated", "Crackles", "72% / 91%"])]:
+        report("alt_" + name, "Clinical observations at 3,500 m",
+               ["Assessment", "Observation"],
+               list(zip(["Hiking with group", "After resting", "Lung examination",
+                         "SpO₂ (patient / companion)"], values)), [.55, .45])
+    fig, ax = plt.subplots(figsize=(5.9, 3), layout="constrained")
+    ax.plot([2, 8, 14, 20], [2.1, 1.6, 1.0, .5], marker="o", color=COLORS[0], lw=2)
+    ax.set(xticks=[2, 8, 14, 20], ylim=(0, 2.5), xlabel="Hours after suspected exposure",
+           ylabel="Absolute lymphocytes (×10⁹/L)", title="Serial differential counts  •  simulated")
+    ax.grid(axis="y", alpha=.25)
+    save(fig, "environ_rad_alc")
+
+
+def systemic_inflammation_studies():
+    """Plot simulated pediatric coronary z scores from consecutive clinical assessments."""
+    for name, last in [("norm", 1.2), ("rise", 3.1)]:
+        fig, ax = plt.subplots(figsize=(5.8, 3.1), layout="constrained")
+        ax.plot([1, 2], [1.4, last], marker="o", color=COLORS[0], lw=2)
+        for x, y in [(1, 1.4), (2, last)]:
+            ax.annotate(f"{y:+.1f}", (x, y), xytext=(0, 8),
+                        textcoords="offset points", ha="center")
+        ax.set(xlim=(.65, 2.35), ylim=(0, 4), xticks=[1, 2],
+               xticklabels=["Initial echo", "Follow-up echo"],
+               ylabel="Proximal LAD z score", title="Coronary echocardiography  •  simulated")
+        ax.grid(axis="y", alpha=.25)
+        save(fig, "inflam_cor_" + name)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -1951,6 +2022,8 @@ def main():
     clinical_nutrition_studies()
     multisystem_symptom_studies()
     safeguarding_and_emergency_studies()
+    environmental_exposure_studies()
+    systemic_inflammation_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()

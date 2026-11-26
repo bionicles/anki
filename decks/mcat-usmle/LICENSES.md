@@ -24,6 +24,8 @@ The combined medical study package includes work with different licenses. Distri
 
 **Behavioral-health figures.** Twelve original figures use simulated mood, psychosis and tic timelines, menstrual symptom diaries, arterial blood gases, phosphate measurements and respiratory observations. The renderer is `behavioral_courses()` in `figures.py`.
 
+**Environmental medicine and inflammation figures.** Thirteen original environmental medicine charts and two pediatric coronary plots use fictional observations. The renderers are `environmental_exposure_studies()` and `systemic_inflammation_studies()` in `figures.py`. Each card cites the clinical guidance used to interpret the figure.
+
 **Safeguarding and emergency care figures.** Ten original figures depict fictional clinical records, examination trends and laboratory measurements. The renderer is `safeguarding_and_emergency_studies()` in `figures.py`. The questions cite their clinical sources.
 
 **Multisystem symptom figures.** Twenty-two original figures use fictional observations, monitor logs, diaries, laboratory results and growth records. The renderer is `multisystem_symptom_studies()` in `figures.py`. Clinical sources appear on the question backs.

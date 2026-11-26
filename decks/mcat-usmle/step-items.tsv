@@ -1935,14 +1935,14 @@ multi.inf	Histoplasmosis
 multi.inf	Schistosomiasis			
 multi.inf	Visceral leishmaniasis			
 multi.inf	Acute and chronic Chagas disease			
-multi.inf	Acute rheumatic fever		original:ckstrep-why	
+multi.inf	Acute rheumatic fever	original:inflam-arf-1-rule original:inflam-arf-1-case original:inflam-arf-1-other	original:ckstrep-why original:inflam-arf-2-rule original:inflam-arf-2-case original:inflam-arf-2-other	original:inflam-arf-3-rule original:inflam-arf-3-case original:inflam-arf-3-other
 multi.inf	Systemic autoimmune vasculitis			
 multi.inf	Behçet disease			
 multi.inf	Eosinophilic granulomatosis with polyangiitis			
 multi.inf	Langerhans cell histiocytosis and eosinophilic granuloma			
-multi.inf	Anti-GBM disease		original:ku-cast-anti	
+multi.inf	Anti-GBM disease	original:inflam-anti-1-rule original:inflam-anti-1-case original:inflam-anti-1-other	original:ku-cast-anti original:ku-cast-lup original:inflam-anti-2-rule	original:ku-cast-action original:inflam-anti-3-rule original:inflam-anti-3-case original:inflam-anti-3-other
 multi.inf	IgA vasculitis			
-multi.inf	Kawasaki disease		bank:cohort:id:q-a10048116c70:v1	
+multi.inf	Kawasaki disease	original:inflam-kawa-1-rule original:inflam-kawa-1-case original:inflam-kawa-1-other	bank:cohort:id:q-a10048116c70:v1 original:inflam-kawa-2-rule original:inflam-kawa-2-case original:inflam-kawa-2-other	original:inflam-kawa-3-rule original:inflam-kawa-3-case original:inflam-kawa-3-other
 multi.inf	Mixed connective tissue disease			
 multi.inf	Microscopic polyangiitis			
 multi.inf	Polyarteritis nodosa			
@@ -1953,7 +1953,7 @@ multi.inf	Raynaud phenomenon
 multi.inf	Reactive arthritis			
 multi.inf	Systemic sclerosis			
 multi.inf	Sjögren syndrome			
-multi.inf	Systemic lupus erythematosus			
+multi.inf	Systemic lupus erythematosus	original:inflam-sle-1-rule original:inflam-sle-1-case original:inflam-sle-1-other	original:ku-cast-lup original:inflam-sle-2-rule original:inflam-sle-2-case original:inflam-sle-2-other	original:ku-lup-biopsy original:per-sle-med original:inflam-sle-3-rule original:inflam-sle-3-other
 multi.inf	Takayasu arteritis			
 multi.inf	Granulomatosis with polyangiitis			
 multi.inf	Familial Mediterranean fever			
@@ -2007,28 +2007,28 @@ multi.nutrition	Mineral deficiency and toxicity	original:nut-zinc-copper origina
 multi.nutrition	Obesity	original:prevcare-aweight-1 original:nutri-ob-1-rule original:nutri-ob-1-case original:nutri-ob-1-other	original:nut-weight-bmi original:nutri-ob-2-rule original:nutri-ob-2-case original:nutri-ob-2-other	original:nutri-ob-3-rule original:nutri-ob-3-case original:nutri-ob-3-other
 multi.nutrition	Enteral nutrition	original:nutri-ent-1-rule original:nutri-ent-1-case original:nutri-ent-1-other	original:nut-enteral-swallow original:nut-enteral-oral original:nutri-ent-2-rule	original:nut-enteral-reassess original:nut-par-wean original:nutri-ent-3-rule original:nutri-ent-3-case original:nutri-ent-3-other original:nutri-ent-3-rule-extra original:nutri-ent-3-case-extra original:nutri-ent-3-other-extra
 multi.nutrition	Parenteral nutrition	original:nutri-par-1-rule original:nutri-par-1-case original:nutri-par-1-other	original:nut-par-obstruction original:nut-par-bowel original:nut-enteral-swallow original:nutri-par-2-rule	original:nut-par-wean original:nutri-par-3-case original:nutri-par-3-other
-multi.exposure	Hypothermia			
-multi.exposure	Hyperthermia and heat stroke			
-multi.exposure	Ionizing radiation exposure			
-multi.exposure	Thermal burns			
-multi.exposure	Electrical injury and lightning			
-multi.exposure	High-altitude illness			
-multi.exposure	Diving and nitrogen narcosis			
-multi.exposure	Gulf War illness			
-multi.exposure	Gases and smoke inhalation			
-multi.exposure	Pesticide exposure			
-multi.exposure	Green tobacco sickness			
-multi.exposure	Anhydrous ammonia exposure			
-multi.exposure	Agent Orange exposure			
-multi.exposure	Volatile organic solvents			
-multi.exposure	Lead and other heavy metals			
-multi.exposure	Ethylene glycol poisoning			
-multi.exposure	Carbon tetrachloride exposure			
-multi.exposure	Methanol poisoning			
-multi.exposure	Bisphenol A exposure			
-multi.exposure	Principles of poisoning assessment and treatment			
-multi.exposure	Salicylate toxicity			
-multi.exposure	Acetaminophen toxicity			
+multi.exposure	Hypothermia	original:environ-cold-1-rule original:environ-cold-1-case original:environ-cold-1-other	original:environ-cold-2-rule original:environ-cold-2-case original:environ-cold-2-other	original:environ-cold-3-rule original:environ-cold-3-case original:environ-cold-3-other
+multi.exposure	Hyperthermia and heat stroke	original:environ-heat-1-rule original:environ-heat-1-case original:environ-heat-1-other	original:environ-heat-2-rule original:environ-heat-2-case original:environ-heat-2-other	original:prevcare-temp-3 original:environ-heat-3-rule original:environ-heat-3-case original:environ-heat-3-other
+multi.exposure	Ionizing radiation exposure	original:environ-rad-1-rule original:environ-rad-1-case original:environ-rad-1-other	original:environ-rad-2-rule original:environ-rad-2-case original:environ-rad-2-other	original:environ-rad-3-rule original:environ-rad-3-case original:environ-rad-3-other
+multi.exposure	Thermal burns	original:environ-burn-1-rule original:environ-burn-1-case original:environ-burn-1-other	original:environ-burn-2-rule original:environ-burn-2-case original:environ-burn-2-other	original:environ-burn-3-rule original:environ-burn-3-case original:environ-burn-3-other
+multi.exposure	Electrical injury and lightning	original:environ-elec-1-rule original:environ-elec-1-case original:environ-elec-1-other	original:environ-elec-2-rule original:environ-elec-2-case original:environ-elec-2-other	original:environ-elec-3-rule original:environ-elec-3-case original:environ-elec-3-other
+multi.exposure	High-altitude illness	original:environ-alt-1-rule original:environ-alt-1-case original:environ-alt-1-other	original:environ-alt-2-rule original:environ-alt-2-case original:environ-alt-2-other	original:environ-alt-3-rule original:environ-alt-3-case original:environ-alt-3-other
+multi.exposure	Diving and nitrogen narcosis	original:environ-dive-1-rule original:environ-dive-1-case original:environ-dive-1-other	original:environ-dive-2-rule original:environ-dive-2-case original:environ-dive-2-other	original:environ-dive-3-rule original:environ-dive-3-case original:environ-dive-3-other
+multi.exposure	Gulf War illness	original:environ-gulf-1-rule original:environ-gulf-1-case original:environ-gulf-1-other	original:environ-gulf-2-rule original:environ-gulf-2-case original:environ-gulf-2-other	original:environ-gulf-3-rule original:environ-gulf-3-case original:environ-gulf-3-other
+multi.exposure	Gases and smoke inhalation	original:prevcare-ainjury-1 original:environ-co-1-rule original:environ-co-1-case original:environ-co-1-other	original:prevcare-ainjury-2 original:environ-co-2-rule original:environ-co-2-case original:environ-co-2-other original:environ-co-2-rule-extra original:environ-co-2-case-extra original:environ-co-2-other-extra	original:prevcare-ainjury-3 original:environ-co-3-rule original:environ-co-3-case original:environ-co-3-other
+multi.exposure	Pesticide exposure	original:environ-op-1-rule original:environ-op-1-case original:environ-op-1-other	original:environ-op-2-rule original:environ-op-2-case original:environ-op-2-other	original:environ-op-3-rule original:environ-op-3-case original:environ-op-3-other
+multi.exposure	Green tobacco sickness	original:environ-tob-1-rule original:environ-tob-1-case original:environ-tob-1-other	original:environ-tob-2-rule original:environ-tob-2-case original:environ-tob-2-other	original:environ-tob-3-rule original:environ-tob-3-case original:environ-tob-3-other
+multi.exposure	Anhydrous ammonia exposure	original:environ-am-1-rule original:environ-am-1-case original:environ-am-1-other	original:environ-am-2-rule original:environ-am-2-case original:environ-am-2-other	original:environ-am-3-rule original:environ-am-3-case original:environ-am-3-other
+multi.exposure	Agent Orange exposure	original:environ-orange-1-rule original:environ-orange-1-case original:environ-orange-1-other	original:environ-orange-2-rule original:environ-orange-2-case original:environ-orange-2-other	original:environ-orange-3-rule original:environ-orange-3-case original:environ-orange-3-other
+multi.exposure	Volatile organic solvents	original:environ-voc-1-rule original:environ-voc-1-case original:environ-voc-1-other	original:environ-voc-2-rule original:environ-voc-2-case original:environ-voc-2-other	original:environ-voc-3-rule original:environ-voc-3-case original:environ-voc-3-other
+multi.exposure	Lead and other heavy metals	original:environ-lead-1-rule original:environ-lead-1-case original:environ-lead-1-other original:environ-lead-1-rule-extra original:environ-lead-1-case-extra original:environ-lead-1-other-extra	original:environ-lead-2-rule original:environ-lead-2-case original:environ-lead-2-other original:environ-lead-2-rule-extra original:environ-lead-2-case-extra original:environ-lead-2-other-extra	original:environ-lead-3-rule original:environ-lead-3-case original:environ-lead-3-other original:environ-lead-3-rule-extra original:environ-lead-3-case-extra original:environ-lead-3-other-extra
+multi.exposure	Ethylene glycol poisoning	original:environ-eg-1-rule original:environ-eg-1-case original:environ-eg-1-other	original:environ-eg-2-rule original:environ-eg-2-case original:environ-eg-2-other	original:environ-eg-3-rule original:environ-eg-3-case original:environ-eg-3-other
+multi.exposure	Carbon tetrachloride exposure	original:environ-ct-1-rule original:environ-ct-1-case original:environ-ct-1-other	original:environ-ct-2-rule original:environ-ct-2-case original:environ-ct-2-other	original:environ-ct-3-rule original:environ-ct-3-case original:environ-ct-3-other
+multi.exposure	Methanol poisoning	original:environ-meth-1-rule original:environ-meth-1-case original:environ-meth-1-other	original:environ-meth-2-rule original:environ-meth-2-case original:environ-meth-2-other	original:environ-meth-3-rule original:environ-meth-3-case original:environ-meth-3-other
+multi.exposure	Bisphenol A exposure	original:environ-bpa-1-rule original:environ-bpa-1-case original:environ-bpa-1-other	original:environ-bpa-2-rule original:environ-bpa-2-case original:environ-bpa-2-other	original:environ-bpa-3-rule original:environ-bpa-3-case original:environ-bpa-3-other
+multi.exposure	Principles of poisoning assessment and treatment	original:environ-pc-1-rule original:environ-pc-1-case original:environ-pc-1-other	original:environ-pc-2-rule original:environ-pc-2-case original:environ-pc-2-other	original:environ-pc-3-rule original:environ-pc-3-case original:environ-pc-3-other
+multi.exposure	Salicylate toxicity	original:environ-sal-1-rule original:environ-sal-1-case original:environ-sal-1-other	original:environ-sal-2-rule original:environ-sal-2-case original:environ-sal-2-other	original:environ-sal-3-rule original:environ-sal-3-case original:environ-sal-3-other
+multi.exposure	Acetaminophen toxicity	original:environ-apap-1-rule original:environ-apap-1-case original:environ-apap-1-other	original:environ-apap-2-rule original:environ-apap-2-case original:environ-apap-2-other	original:environ-apap-3-rule original:environ-apap-3-case original:environ-apap-3-other
 multi.venom	Hymenoptera stings	original:safecare-bee-1-rule original:safecare-bee-1-case original:safecare-bee-1-other	original:safecare-bee-2-rule original:safecare-bee-2-case original:safecare-bee-2-other	original:safecare-bee-3-rule original:safecare-bee-3-case original:safecare-bee-3-other
 multi.venom	Scorpion envenomation	original:safecare-scorp-1-rule original:safecare-scorp-1-case original:safecare-scorp-1-other	original:safecare-scorp-2-rule original:safecare-scorp-2-case original:safecare-scorp-2-other	original:safecare-scorp-3-rule original:safecare-scorp-3-case original:safecare-scorp-3-other
 multi.venom	Snake envenomation	original:safecare-snake-1-rule original:safecare-snake-1-case original:safecare-snake-1-other	original:safecare-snake-2-rule original:safecare-snake-2-case original:safecare-snake-2-other	original:safecare-snake-3-rule original:safecare-snake-3-case original:safecare-snake-3-other
