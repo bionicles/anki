@@ -23,6 +23,8 @@ RELEASE = ROOT / "release"
 NAME = "MCAT and USMLE"
 FILE = "MCAT-USMLE"
 MODELFIELDS = ["CardID","Question","Choices","Answer","Explanation","Source","License","Figure"]
+IMAGE_SUFFIXES = (".png", ".jpg", ".webp")
+MEDIA_SUFFIXES = {*IMAGE_SUFFIXES, ".wav"}
 EXAMS = {"MCAT","USMLE Step 1","USMLE Step 2 CK","USMLE Step 3"}
 
 
@@ -134,7 +136,7 @@ def render(row):
     if fig:
         if fig.endswith(".wav"):
             media_html = "[sound:" + fig + "]"
-        elif fig.endswith((".png", ".jpg")):
+        elif fig.endswith(IMAGE_SUFFIXES):
             media_html = '<div><img src="' + html.escape(fig, quote=True) + '"></div>'
         else:
             raise ValueError("Unsupported question media: " + fig)
@@ -408,7 +410,7 @@ def verify(folder):
         assert len(ids)==int(row["Cards"]) and all(all(row[k]==keyed[i][k] for k in ("Exam","Topic","Section")) for i in ids)
         mapped.extend(ids)
     assert Counter(mapped)==Counter(keyed.keys())
-    assert {r["Figure"] for r in expected if r["Figure"]}=={p.name for p in (ROOT/"media").iterdir() if p.suffix in {".png", ".jpg", ".wav"}}
+    assert {r["Figure"] for r in expected if r["Figure"]}=={p.name for p in (ROOT/"media").iterdir() if p.suffix in MEDIA_SUFFIXES}
     tsv=folder/(FILE+".tsv")
     with tsv.open(newline="") as f:
         for line in f:
@@ -451,7 +453,7 @@ def file_hash(path):
 
 def build_inputs(lock):
     paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "mcat-transfer.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step-items.tsv", "step_coverage.py", "intrapartum.py", "ptbxl.py", "ptbxl.tsv", "figures.py", "heart-sounds.tsv", "heart_sounds.py")]
-    paths.extend(sorted(p for p in (ROOT / "media").iterdir() if p.suffix in {".png", ".jpg", ".wav"}))
+    paths.extend(sorted(p for p in (ROOT / "media").iterdir() if p.suffix in MEDIA_SUFFIXES))
     return {"sources": lock, "files": {p.relative_to(ROOT).as_posix(): file_hash(p) for p in paths}}
 
 

@@ -4574,6 +4574,75 @@ def reproductive_infection_studies():
     save(fig, "gynex_extract", indexed=True)
 
 
+def cerebrovascular_studies():
+    """Draw simulated flow records and the published ARUBA and CREST-2 outcomes."""
+    fig, ax = plt.subplots(figsize=(5.7, 3), layout="constrained")
+    ax.set(xlim=(-.4, 6.4), ylim=(-.5, 3.8))
+    ax.axis("off")
+    # The cervical branch connects to the arm side of the obstruction.
+    ax.fill_between([0, .9, 1.2, 1.45, 1.7, 6],
+                    [-.11, -.11, -.025, -.025, -.11, -.11],
+                    [.11, .11, .025, .025, .11, .11], color=COLORS[0])
+    ax.plot([3.5, 3.5], [0, 2.65], color=COLORS[0], lw=6)
+    ax.text(0, .37, "Aorta", ha="center")
+    ax.text(1.25, -.32, "Stenosis", ha="center")
+    ax.text(5.45, .38, "Left arm\n55 mmHg", ha="center")
+    ax.text(3.67, 1.53, "Left vertebral artery", va="center")
+    ax.text(3.5, 2.85, "Vertebrobasilar circulation\n80 mmHg", ha="center")
+    ax.set_title("Exercise pressure measurements • simplified anatomy")
+    save(fig, "nvas_steal", indexed=True)
+
+    t = np.linspace(0, 3, 301)
+    wave = 15 + 23 * np.maximum(np.sin(2 * np.pi * t), 0) ** 3 + 3 * np.sin(2 * np.pi * t - .7)
+    for name, velocity in [("reverse", -wave), ("forward", .85 * wave)]:
+        fig, ax = axes("Time (s)", "Vertebral flow velocity (cm/s)")
+        ax.axhline(0, color="#333333", lw=1)
+        ax.plot(t, velocity, color=COLORS[0], lw=2.3)
+        ax.set(xlim=(0, 3), ylim=(-50, 50), title="Simulated Doppler • positive = toward brain")
+        save(fig, "nvas_" + name, indexed=True)
+
+    study_table("nvas_aruba", "Death or symptomatic stroke", ["Strategy", "Per 100 patient-years"],
+                [["Medical management", "3.39"], ["Medical + intervention", "12.32"]],
+                source="ARUBA follow-up")
+    study_table("nvas_stent", "Four-year primary endpoint", ["Medical therapy", "Stent + medical therapy"],
+                [["6.0%", "2.8%"]], source="CREST-2 stenting trial")
+    study_table("nvas_parallel", "Four-year primary endpoint",
+                ["Randomized trial", "Medical arm", "Procedure + medical"],
+                [["Stenting", "6.0%", "2.8%"], ["Endarterectomy", "5.3%", "3.7%"]], source="CREST-2")
+    study_table("nvas_map", "Initial monitored treatment", ["Time", "Mean arterial pressure"],
+                [["Baseline", "160 mmHg"], ["Reassessment", "128 mmHg"]])
+    study_table("nvas_pretreat", "BP during acute stroke evaluation",
+                ["Time", "Systolic", "Diastolic"],
+                [["Before adjustment", "198 mmHg", "122 mmHg"], ["Reassessment", "179 mmHg", "114 mmHg"]])
+    study_table("nvas_repair", "Skin-cell lesion counts", ["Sample", "Initial", "After six hours"],
+                [["A", "100", "40"], ["B", "40", "20"]])
+
+    temperature = np.linspace(50, 90, 241)
+    fig, ax = axes("Temperature (°C)", "Fraction remaining duplex")
+    ax.plot(temperature, 1 / (1 + np.exp((temperature - 70) / 3)), color=COLORS[0], lw=2.4)
+    ax.axhline(.5, color="#666666", ls="--", lw=1)
+    ax.set(xlim=(50, 90), ylim=(0, 1), yticks=[0, .25, .5, .75, 1],
+           title="Equilibrium DNA melting • simulated")
+    save(fig, "nvas_melt", indexed=True)
+
+    study_table("nvas_core", "Acute perfusion imaging • volume estimates",
+                ["Tissue measurement", "Volume"], [["Delayed perfusion", "80 mL"], ["Estimated core", "20 mL"]])
+
+    fig, ax = plt.subplots(figsize=(5.6, 2.6), layout="constrained")
+    x = np.linspace(0, 8, 321)
+    diameter = 4 - 3 * np.exp(-((x - 2.5) / .65) ** 2)
+    ax.fill_between(x, -diameter / 2, diameter / 2, color="#d1e6ed")
+    ax.plot(x, diameter / 2, color=COLORS[0])
+    ax.plot(x, -diameter / 2, color=COLORS[0])
+    for position, width, label in [(2.5, 1, "Minimum: 1.0 mm"), (6.1, 4, "Distal reference: 4.0 mm")]:
+        ax.annotate("", (position, width / 2), (position, -width / 2),
+                    arrowprops=dict(arrowstyle="<->", color="#222222"))
+        ax.text(position, 2.5, label, ha="center", va="center")
+    ax.set(xlim=(0, 8), ylim=(-2.5, 3), title="Internal carotid lumen • schematic")
+    ax.axis("off")
+    save(fig, "nvas_nascet", indexed=True)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -4664,6 +4733,7 @@ def main():
     airway_tumor_studies()
     shift_safety_studies()
     reproductive_infection_studies()
+    cerebrovascular_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()
