@@ -2666,6 +2666,90 @@ def aspiration_courses():
         save(fig, "pleural_" + name)
 
 
+def abdominal_emergency_studies():
+    """Draw simulated clinical records and data from model MCAT experiments."""
+    def record(name, title, columns, rows):
+        fig, ax = plt.subplots(figsize=(6.1, 2.65), layout="constrained")
+        ax.axis("off")
+        ax.set_title(title + "  •  simulated")
+        table = ax.table(cellText=rows, colLabels=columns, loc="center",
+                         cellLoc="center", bbox=[.01, .08, .98, .76])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for col in range(len(columns)):
+            table[0, col].set_facecolor("#e2edf1")
+        save(fig, "abdomen_" + name)
+
+    for name, cells, percent in [("pmna", 640, 50), ("pmnb", 900, 20)]:
+        record(name, "Ascitic fluid analysis", ["Measurement", "Result"],
+               [["Nucleated cells", f"{cells}/mm³"], ["Neutrophils", f"{percent}%"]])
+    record("sbpfall", "Absolute ascitic neutrophil counts", ["Time", "Neutrophils per mm³"],
+           [["Before treatment", "1,200"], ["48 hours", "600"]])
+    record("diffuse", "Postoperative abdominal CT",
+           ["Structure", "Finding"], [["Small bowel", "Mild diffuse dilatation"],
+           ["Colon", "Gas visible to rectum"], ["Focal transition", "None seen"]])
+    record("transition", "CT after recurrent postoperative vomiting",
+           ["Region", "Finding"], [["Proximal small bowel", "Dilated loops"],
+           ["Distal ileum", "Abrupt change in caliber"], ["Beyond the change", "Collapsed bowel"]])
+    record("pylchem", "Preoperative venous chemistry",
+           ["Analyte", "Result"], [["Chloride", "84 mmol/L"],
+           ["Bicarbonate", "38 mmol/L"], ["Potassium", "3.0 mmol/L"]])
+    record("gallct", "CT in a patient with vomiting and distension", ["Site", "Finding"],
+           [["Small bowel", "Dilated proximal loops"], ["Distal ileal transition", "Laminated stone in lumen"],
+            ["Biliary tree", "Gas in bile ducts"]])
+    record("trauma", "Observation after abdominal impact", ["Time", "BP (mm Hg)", "Exam"],
+           [["Arrival", "118/76", "Localized tenderness"], ["2 hours", "108/64", "Pain increasing"],
+            ["4 hours", "84/50", "Diffuse rigidity"]])
+    record("pressure", "After an episode of systemic hypoperfusion", ["Observation", "Finding"],
+           [["BP during procedure", "70/38 mm Hg"], ["Later symptoms", "Left-sided cramps, red stool"],
+            ["CT distribution", "Segment at splenic flexure"]])
+    record("resolve", "Hospital course after colonic ischemia", ["Time", "Abdominal exam", "BP (mm Hg)"],
+           [["Arrival", "Left-sided tenderness", "99/64"], ["Six hours", "Less tender, soft", "119/70"]])
+    fig, ax = axes("Time after injection (min)", "Activity (relative units)")
+    times = [0, 5, 10, 15, 20, 25]
+    for label, vals, style in [("Stomach", [0, 1, 4, 6, 8, 9], "o-"),
+                               ("Focus A", [0, .8, 3.6, 5.3, 6.7, 7.8], "s--"),
+                               ("Focus B", [0, 0, 0, .1, 2, 4], "^:")]:
+        ax.plot(times, vals, style, label=label, lw=2)
+    ax.set_title("Sequential pertechnetate activity  •  simulated")
+    ax.legend()
+    save(fig, "abdomen_meckcurve")
+    for name, diameters in [("onepoint", [3.4, 3.4, 3.4, .65, .8, .8, .8]),
+                            ("twopoint", [1.0, .55, 3.3, 3.4, 3.3, .55, 1.0])]:
+        fig, ax = plt.subplots(figsize=(5.3, 2.8), layout="constrained")
+        positions = np.arange(len(diameters))
+        radius = np.asarray(diameters) / 2
+        ax.fill_between(positions, -radius, radius, color="#dcecf0", edgecolor=COLORS[0], lw=2)
+        ax.set(xlim=(-.1, 6.1), ylim=(-2, 2), xticks=[0, 6],
+               xticklabels=["Proximal", "Distal"], yticks=[], xlabel="Distance along bowel",
+               title="Lumen profile along a bowel segment  •  schematic")
+        for edge in ["top", "right", "left"]:
+            ax.spines[edge].set_visible(False)
+        save(fig, "abdomen_" + name)
+    fig, ax = axes("Time (min)", "Fatty acids released (µmol)")
+    for vals, marker, label in [([0, 6, 12, 16], "o-", "Finely dispersed"),
+                                ([0, 2, 4, 6], "s--", "Coarse droplets")]:
+        ax.plot([0, 1, 2, 3], vals, marker, label=label, lw=2)
+    ax.set(title="Lipase assay  •  simulated", xticks=range(4), yticks=range(0, 17, 2))
+    ax.legend()
+    save(fig, "abdomen_lipcurve")
+    record("blankrate", "Product in an enzyme assay", ["Condition", "At 0 min", "At 4 min"],
+           [["Active enzyme", "2 µmol", "18 µmol"], ["No active enzyme", "2 µmol", "6 µmol"]])
+    fig, ax = axes("Substrate concentration (mM)", "Initial rate (µmol/min)")
+    concentrations = np.linspace(0, 20, 201)
+    for km, label, style in [(1, "A", "-"), (4, "B", "--")]:
+        ax.plot(concentrations, 10 * concentrations / (km + concentrations), style, label=label, lw=2)
+    ax.axhline(10, color="0.45", ls=":", label="Common maximum")
+    ax.axhline(5, color="0.65", ls="-.", label="Half-maximum")
+    ax.set(title="Initial-rate curves  •  simulated", ylim=(0, 11), xticks=[0, 1, 4, 10, 15, 20])
+    ax.legend(loc="lower right")
+    save(fig, "abdomen_km")
+    record("glucose", "Apical glucose uptake in a model",
+           ["Sodium gradient", "Uptake (nmol/min)"], [["Present", 9], ["Removed", 2]])
+    record("buff", "Response to a matched acid challenge",
+           ["Buffer", "Initial pH", "Final pH"], [["A", "6.80", "6.72"], ["B", "6.80", "6.46"]])
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -2699,6 +2783,7 @@ def main():
     neuroinfection_studies()
     pleural_and_gas_exchange_studies()
     aspiration_courses()
+    abdominal_emergency_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()

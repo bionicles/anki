@@ -147,8 +147,8 @@ gi.inf	Salmonella enteritis
 gi.inf	Shigella enteritis			
 gi.inf	Hepatic abscess			
 gi.inf	Subhepatic or subphrenic abscess			
-gi.inf	Primary bacterial peritonitis			original:ccs-liver-negative original:gut-fluidrule-pmns original:gut-fluidrule-negative
-gi.inf	Secondary peritonitis			
+gi.inf	Primary bacterial peritonitis	original:acuteabd-sbp-1-rule original:acuteabd-sbp-1-case original:acuteabd-sbp-1-transfer	original:acuteabd-sbp-2-rule original:acuteabd-sbp-2-case original:acuteabd-sbp-2-transfer	original:ccs-liver-negative original:gut-fluidrule-pmns original:gut-fluidrule-negative original:ccs-liver-sample original:ccs-liver-pmn original:acuteabd-sbp-3-rule original:acuteabd-sbp-3-case original:acuteabd-sbp-3-transfer
+gi.inf	Secondary peritonitis	original:acuteabd-peri-1-rule original:acuteabd-peri-1-case original:acuteabd-peri-1-transfer	original:acuteabd-peri-2-rule original:acuteabd-peri-2-case original:acuteabd-peri-2-transfer	original:acuteabd-peri-3-rule original:acuteabd-peri-3-case original:acuteabd-peri-3-transfer
 gi.inf	Cytomegalovirus esophagitis			
 gi.inf	Herpes simplex esophagitis			
 gi.inf	Hepatitis A	bank:usmle-step1:micro-hav-clinical-recognition:v1		
@@ -218,32 +218,32 @@ gi.upper	Zenker and other esophageal diverticula
 gi.upper	Esophageal or adjacent abscess without sinus			
 gi.upper	Reflux esophagitis and GERD	bank:usmle-step1:pharm-omeprazole-gerd:v1		
 gi.upper	Pill esophagitis	original:gut-pill-contact	original:gut-pill-pain	original:gut-pill-action original:gut-pill-prevent
-gi.upper	Mallory–Weiss tear			
+gi.upper	Mallory–Weiss tear	original:acuteabd-mall-1-rule original:acuteabd-mall-1-case original:acuteabd-mall-1-transfer	original:acuteabd-mall-2-rule original:acuteabd-mall-2-case original:acuteabd-mall-2-transfer	original:acuteabd-mall-3-rule original:acuteabd-mall-3-case original:acuteabd-mall-3-transfer
 gi.upper	Paraesophageal or hiatal hernia			
 gi.upper	Esophageal stenosis or stricture	original:gut-eoe-layer		original:gut-eoe-dilate
 gi.bowel	Dyspepsia or hyperacidity			
 gi.bowel	Gastric ulcer		original:gut-bleedimg-gastric	original:gut-ulcer-clean
 gi.bowel	Gastritis			
-gi.bowel	Peptic ulcer disease	original:gut-ulcer-bleed	original:gut-ulcer-risk	original:gut-ulcer-vessel original:gut-hp-valid
-gi.bowel	Perforated peptic ulcer			
+gi.bowel	Peptic ulcer disease	original:gut-ulcer-bleed original:acuteabd-pud-1-case original:acuteabd-pud-1-transfer	original:gut-ulcer-risk original:gut-hp-active original:gut-bleedimg-duod original:gut-bleedimg-gastric original:acuteabd-pud-2-case original:acuteabd-pud-2-transfer	original:gut-ulcer-vessel original:gut-hp-valid original:gut-ulcer-again original:gut-hp-rule original:gut-hp-early original:gut-ulcer-rule original:gut-bleedimg-act original:gut-ulcer-clean original:acuteabd-pud-3-rule original:acuteabd-pud-3-transfer
+gi.bowel	Perforated peptic ulcer	original:acuteabd-ulc-1-rule original:acuteabd-ulc-1-case original:acuteabd-ulc-1-transfer	original:rad-perforate original:acuteabd-ulc-2-rule original:acuteabd-ulc-2-transfer	original:acuteabd-ulc-3-rule original:acuteabd-ulc-3-case original:acuteabd-ulc-3-transfer
 gi.bowel	Gastroparesis	original:gut-empty-retained	original:gut-empty-delay original:gut-empty-pass	original:gut-empty-short
-gi.bowel	Appendicitis	original:gut-app-pain	original:gut-app-rule original:gut-app-enlarged original:gut-app-abscess	original:gut-app-discuss original:gut-app-peritonitis
+gi.bowel	Appendicitis	original:gut-app-pain original:acuteabd-app-1-case original:acuteabd-app-1-transfer	original:gut-app-rule original:gut-app-enlarged original:gut-app-abscess	original:gut-app-discuss original:gut-app-peritonitis original:acuteabd-app-3-rule
 gi.bowel	Angiodysplasia			
-gi.bowel	Diverticulosis			
-gi.bowel	Diverticulitis		original:gut-div-confirm	original:gut-div-mild original:gut-div-abscess
+gi.bowel	Diverticulosis	original:acuteabd-divosis-1-rule original:acuteabd-divosis-1-case original:acuteabd-divosis-1-transfer	original:acuteabd-divosis-2-rule original:acuteabd-divosis-2-case original:acuteabd-divosis-2-transfer	original:acuteabd-divosis-3-rule original:acuteabd-divosis-3-case original:acuteabd-divosis-3-transfer
+gi.bowel	Diverticulitis	original:acuteabd-divit-1-rule original:acuteabd-divit-1-case original:acuteabd-divit-1-transfer	original:gut-div-confirm original:acuteabd-divit-2-rule original:acuteabd-divit-2-transfer	original:gut-div-mild original:gut-div-abscess original:gut-div-risk original:gut-div-scope
 gi.bowel	Duodenitis			
 gi.bowel	Duodenal ulcer		original:gut-bleedimg-duod	original:gut-ulcer-vessel
 gi.bowel	Noninfectious gastroenteritis or colitis			
-gi.bowel	Hirschsprung disease			
+gi.bowel	Hirschsprung disease	original:acuteabd-hir-1-rule original:acuteabd-hir-1-case original:acuteabd-hir-1-transfer	original:acuteabd-hir-2-rule original:acuteabd-hir-2-case original:acuteabd-hir-2-transfer	original:acuteabd-hir-3-rule original:acuteabd-hir-3-case original:acuteabd-hir-3-transfer
 gi.bowel	Intestinal impaction			
-gi.bowel	Intestinal obstruction or stricture	original:gut-adh-closed original:rad-level	original:rad-sbo original:gut-adh-fail	original:gut-adh-urgent
-gi.bowel	Intussusception	original:gut-int-mechanism	original:gut-int-target original:gut-int-test	original:gut-int-stable original:gut-int-periton
+gi.bowel	Intestinal obstruction or stricture	original:gut-adh-closed original:rad-level original:acuteabd-obs-1-rule original:acuteabd-obs-1-case original:acuteabd-obs-1-transfer	original:rad-sbo original:gut-adh-fail original:gut-adh-predict original:acuteabd-obs-2-rule original:acuteabd-obs-2-transfer	original:gut-adh-urgent original:gut-adhbasis-rule original:gut-adh-safe
+gi.bowel	Intussusception	original:gut-int-mechanism original:acuteabd-int-1-case original:acuteabd-int-1-transfer	original:gut-int-target original:gut-int-test original:acuteabd-int-2-rule original:acuteabd-int-2-transfer	original:gut-int-stable original:gut-int-periton original:gut-int-rule
 gi.bowel	Irritable bowel syndrome		original:gut-ibs-pattern original:gut-ibs-calpro	original:gut-ibs-alarm
-gi.bowel	Acute mesenteric ischemia	original:gut-mes-source original:gut-mes-lowflow	original:gut-mes-cta original:gut-mes-lactate	original:gut-mes-peritoneum
-gi.bowel	Ischemic colitis			
-gi.bowel	Necrotizing enterocolitis			
-gi.bowel	Paralytic ileus			
-gi.bowel	Intestinal volvulus	original:gut-ped-twist	original:gut-ped-rotation	
+gi.bowel	Acute mesenteric ischemia	original:gut-mes-source original:gut-mes-lowflow original:acuteabd-mes-1-case	original:gut-mes-cta original:gut-mes-lactate original:acuteabd-mes-2-rule original:acuteabd-mes-2-transfer	original:gut-mes-peritoneum original:acuteabd-mes-3-rule original:acuteabd-mes-3-case
+gi.bowel	Ischemic colitis	original:acuteabd-colon-1-rule original:acuteabd-colon-1-case original:acuteabd-colon-1-transfer	original:acuteabd-colon-2-rule original:acuteabd-colon-2-case original:acuteabd-colon-2-transfer	original:acuteabd-colon-3-rule original:acuteabd-colon-3-case original:acuteabd-colon-3-transfer
+gi.bowel	Necrotizing enterocolitis	original:acuteabd-nec-1-rule original:acuteabd-nec-1-case original:acuteabd-nec-1-transfer	original:acuteabd-nec-2-rule original:acuteabd-nec-2-case original:acuteabd-nec-2-transfer	original:acuteabd-nec-3-rule original:acuteabd-nec-3-case original:acuteabd-nec-3-transfer
+gi.bowel	Paralytic ileus	original:acuteabd-ileus-1-rule original:acuteabd-ileus-1-case original:acuteabd-ileus-1-transfer	original:acuteabd-ileus-2-rule original:acuteabd-ileus-2-case original:acuteabd-ileus-2-transfer	original:acuteabd-ileus-3-rule original:acuteabd-ileus-3-case original:acuteabd-ileus-3-transfer
+gi.bowel	Intestinal volvulus	original:gut-ped-twist original:acuteabd-volv-1-rule original:acuteabd-volv-1-case original:acuteabd-volv-1-transfer	original:gut-ped-rotation original:acuteabd-volv-2-rule original:acuteabd-volv-2-case original:acuteabd-volv-2-transfer	original:acuteabd-volv-3-rule original:acuteabd-volv-3-case original:acuteabd-volv-3-transfer original:acuteabd-volv-3-rule-extra original:acuteabd-volv-3-case-extra original:acuteabd-volv-3-transfer-extra
 gi.bowel	Malnutrition and malabsorption	original:gut-cel-iron original:gut-epi-fat	original:gut-epi-low	original:gut-epi-monitor
 gi.bowel	Lactose intolerance	original:gut-lact-defect	original:gut-lact-symptomatic original:gut-lact-asymptomatic	
 gi.bowel	Short bowel syndrome			
@@ -252,7 +252,7 @@ gi.bowel	Anal fissure
 gi.bowel	Anal fistula			
 gi.bowel	Anorectal ulcer			
 gi.bowel	Fecal incontinence			
-gi.bowel	Rectal or anal bleeding			
+gi.bowel	Rectal or anal bleeding	original:acuteabd-bleed-1-rule original:acuteabd-bleed-1-case original:acuteabd-bleed-1-transfer	original:acuteabd-bleed-2-rule original:acuteabd-bleed-2-case original:acuteabd-bleed-2-transfer	original:acuteabd-bleed-3-rule original:acuteabd-bleed-3-case original:acuteabd-bleed-3-transfer
 gi.bowel	Proctitis			
 gi.bowel	Hemorrhoids			
 gi.bowel	Rectal prolapse			
@@ -277,7 +277,7 @@ gi.liver	Choledocholithiasis	original:gut-stone-level	original:gut-stone-high or
 gi.liver	Cholelithiasis	original:rad-shadow	original:rad-stones	original:rad-symptomatic
 gi.liver	Acute cholecystitis		original:ckruq-functional original:ckruq-murphy	
 gi.liver	Parenteral nutrition-associated cholestasis			
-gi.liver	Gallstone ileus			
+gi.liver	Gallstone ileus	original:acuteabd-gall-1-rule original:acuteabd-gall-1-case original:acuteabd-gall-1-transfer	original:acuteabd-gall-2-rule original:acuteabd-gall-2-case original:acuteabd-gall-2-transfer	original:acuteabd-gall-3-rule original:acuteabd-gall-3-case original:acuteabd-gall-3-transfer
 gi.liver	Mirizzi syndrome			
 gi.liver	Primary biliary cholangitis			
 gi.liver	Primary sclerosing cholangitis			
@@ -289,27 +289,27 @@ gi.pancreas	Pancreatic duct obstruction
 gi.pancreas	Pancreatic exocrine insufficiency	original:gut-epi-fat original:gut-epi-vit	original:gut-epi-low original:gut-epi-border	original:gut-epi-time original:gut-epi-monitor
 gi.peritoneum	Ascites	original:gut-asc-formula original:gut-asc-a original:gut-asc-b	original:gut-asc-portal original:gut-asc-heart original:gut-asc-cut original:gut-asc-low	original:gut-asc-new original:ccs-liver-sample
 gi.trauma	Abdominal wall defects			
-gi.trauma	Postsurgical adhesions	original:gut-adh-cause	original:gut-adh-predict original:gut-adh-fail	original:gut-adh-safe original:gut-adh-urgent
+gi.trauma	Postsurgical adhesions	original:gut-adh-cause original:gut-adh-closed original:acuteabd-adh-1-case	original:gut-adh-predict original:gut-adh-fail original:acuteabd-adh-2-rule	original:gut-adh-safe original:gut-adh-urgent original:gut-adhbasis-rule
 gi.trauma	Digestive complications of surgery	original:nut-dump-early	original:nut-dump-timing	original:nut-dump-food
 gi.trauma	Post-gastric surgery syndromes	original:nut-dump-late	original:nut-dump-timing	original:nut-dump-food
 gi.trauma	Blind loop syndrome			
-gi.trauma	Duodenal tear			
+gi.trauma	Duodenal tear	original:acuteabd-duo-1-rule original:acuteabd-duo-1-case original:acuteabd-duo-1-transfer	original:acuteabd-duo-2-rule original:acuteabd-duo-2-case original:acuteabd-duo-2-transfer	original:acuteabd-duo-3-rule original:acuteabd-duo-3-case original:acuteabd-duo-3-transfer
 gi.trauma	Gastrointestinal foreign body			
 gi.trauma	Inguinal hernia			
 gi.trauma	Femoral hernia			
 gi.trauma	Abdominal wall hernia			
 gi.trauma	Open abdominal wound			
-gi.trauma	Hollow viscus perforation	original:rad-freeair	original:rad-perforate	original:gut-uc-perforation
-gi.trauma	Blunt abdominal trauma			
-gi.trauma	Esophageal rupture or Boerhaave syndrome			
+gi.trauma	Hollow viscus perforation	original:rad-freeair original:rad-level original:acuteabd-hollow-1-rule	original:rad-perforate original:acuteabd-hollow-2-rule original:acuteabd-hollow-2-transfer	original:gut-uc-perforation original:acuteabd-hollow-3-rule original:acuteabd-hollow-3-case original:acuteabd-hollow-3-transfer
+gi.trauma	Blunt abdominal trauma	original:acuteabd-blunt-1-rule original:acuteabd-blunt-1-case original:acuteabd-blunt-1-transfer	original:acuteabd-blunt-2-rule original:acuteabd-blunt-2-case original:acuteabd-blunt-2-transfer	original:acuteabd-blunt-3-rule original:acuteabd-blunt-3-case original:acuteabd-blunt-3-transfer
+gi.trauma	Esophageal rupture or Boerhaave syndrome	original:acuteabd-eso-1-rule original:acuteabd-eso-1-case original:acuteabd-eso-1-transfer	original:resppractice-pmed-2-transfer original:acuteabd-eso-2-rule original:acuteabd-eso-2-transfer	original:resppractice-medi-3-rule original:resppractice-medi-3-case original:resppractice-medi-3-transfer original:resppractice-pmed-3-transfer
 gi.trauma	Umbilical hernia			
 gi.congenital	Annular pancreas			
 gi.congenital	Biliary atresia	original:gut-ba-color	original:gut-ba-test original:gut-ba-persist	original:gut-ba-urgent original:gut-crib-below
 gi.congenital	Cleft lip or palate			
 gi.congenital	Esophageal atresia			
-gi.congenital	Intestinal malrotation	original:gut-ped-twist	original:gut-ped-rotation	
-gi.congenital	Meckel diverticulum			
-gi.congenital	Hypertrophic pyloric stenosis	original:gut-ped-bile	original:gut-ped-pylorus original:gut-pedimg-muscle	
+gi.congenital	Intestinal malrotation	original:gut-ped-twist original:acuteabd-mal-1-case original:acuteabd-mal-1-transfer	original:gut-ped-rotation original:gut-ped-pylorus original:acuteabd-mal-2-rule	original:gut-ped-emergency original:acuteabd-mal-3-rule original:acuteabd-mal-3-case
+gi.congenital	Meckel diverticulum	original:acuteabd-meck-1-rule original:acuteabd-meck-1-case original:acuteabd-meck-1-transfer	original:acuteabd-meck-2-rule original:acuteabd-meck-2-case original:acuteabd-meck-2-transfer	original:acuteabd-meck-3-rule original:acuteabd-meck-3-case original:acuteabd-meck-3-transfer
+gi.congenital	Hypertrophic pyloric stenosis	original:gut-ped-bile original:acuteabd-pyl-1-rule original:acuteabd-pyl-1-case original:acuteabd-pyl-1-transfer	original:gut-ped-pylorus original:gut-pedimg-muscle original:acuteabd-pyl-2-rule original:acuteabd-pyl-2-transfer	original:acuteabd-pyl-3-rule original:acuteabd-pyl-3-case original:acuteabd-pyl-3-transfer
 gi.congenital	Tracheoesophageal fistula			
 gi.drug	Motility changes with chronic laxative use			
 gi.drug	Opioid-induced dysmotility	original:gut-opio-motility	original:gut-opio-med	original:gut-opio-resist
