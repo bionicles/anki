@@ -167,29 +167,66 @@ MCAT_SCIENCE_SKILLS = {
 }
 
 
+MCAT_CARS_SKILLS = {
+    "CARS comprehension": "Comprehension",
+    "CARS reasoning within a text": "WithinText",
+    "CARS reasoning beyond a text": "BeyondText",
+}
+
+
+def reasoning_inventory(blueprint, skills):
+    rows = {r["Domain"]: set(r["ReviewedCardIDs"].split()) for r in blueprint
+            if r["Exam"] == "MCAT" and r["Axis"] == "Reasoning" and r["Domain"] in skills}
+    if rows.keys() != skills.keys():
+        raise ValueError(f"Missing MCAT reasoning rows: {sorted(skills.keys() - rows.keys())}")
+    return {column: rows[skill] for skill, column in skills.items()}
+
+
+def reasoning_evidence(card_ids, inventory):
+    result = {}
+    classified = set()
+    for column, skill_ids in inventory.items():
+        matches = card_ids & skill_ids
+        classified.update(matches)
+        result[column + "Cards"] = str(len(matches))
+        result[column + "IDs"] = " ".join(sorted(matches))
+    result["UnclassifiedIDs"] = " ".join(sorted(card_ids - classified))
+    return result
+
+
 def mcat_science_coverage(blueprint):
     """Cross-reference reviewed science subtopics and reasoning tasks by stable card ID."""
-    science = [r for r in blueprint if r["Exam"] == "MCAT"]
-    skill_ids = {r["Domain"]: set(r["ReviewedCardIDs"].split()) for r in science
-                 if r["Axis"] == "Reasoning" and r["Domain"] in MCAT_SCIENCE_SKILLS}
-    if skill_ids.keys() != MCAT_SCIENCE_SKILLS.keys():
-        raise ValueError("Incomplete MCAT science reasoning inventory")
+    inventory = reasoning_inventory(blueprint, MCAT_SCIENCE_SKILLS)
     report = []
-    for row in science:
-        if row["Axis"] != "Subtopic":
+    for row in blueprint:
+        if row["Exam"] != "MCAT" or row["Axis"] != "Subtopic":
             continue
         topic_cards = set(row["ReviewedCardIDs"].split())
         result = dict(Subtopic=row["Domain"], Outline=row["Outline"], MappedCards=str(len(topic_cards)))
-        classified = set()
-        for skill, column in MCAT_SCIENCE_SKILLS.items():
-            matches = topic_cards & skill_ids[skill]
-            classified.update(matches)
-            result[column + "Cards"] = str(len(matches))
-            result[column + "IDs"] = " ".join(sorted(matches))
-        result["UnclassifiedIDs"] = " ".join(sorted(topic_cards - classified))
+        result.update(reasoning_evidence(topic_cards, inventory))
         result["NextAudit"] = row["NextAudit"]
         report.append(result)
     return report
+
+
+def mcat_cars_coverage(cards, blueprint):
+    """Count distinct passage text once, regardless of how many questions repeat it."""
+    inventory = reasoning_inventory(blueprint, MCAT_CARS_SKILLS)
+    passages = defaultdict(list)
+    for card in cards:
+        if card["Exam"] == "MCAT" and card["Section"] == "Critical Analysis and Reasoning Skills":
+            passage, _, _ = card["Prompt"].rpartition("\n\n")
+            passages[passage.strip()].append(card)
+    report = []
+    for passage, questions in passages.items():
+        ids = {card["ID"] for card in questions}
+        topics = sorted({card["Topic"] for card in questions})
+        name = " | ".join(topics) if passage else "No passage text identified"
+        result = dict(Passage=name, PassageWords=str(len(passage.split())),
+                      Questions=str(len(ids)), QuestionIDs=" ".join(sorted(ids)))
+        result.update(reasoning_evidence(ids, inventory))
+        report.append(result)
+    return sorted(report, key=lambda r: (r["Passage"], r["QuestionIDs"]))
 
 
 def step_measurements(cards):
@@ -212,7 +249,10 @@ def make(folder, prior):
     write_table(folder/"retired.tsv",["CardID"],[{"CardID":k} for k in sorted(retired)])
     report, practice_tags = step_measurements(rows)
     write_table(folder/"step-coverage.tsv", list(report[0]), report)
-    science = mcat_science_coverage(table(ROOT/"blueprint.tsv"))
+    blueprint = table(ROOT/"blueprint.tsv")
+    cars = mcat_cars_coverage(rows, blueprint)
+    write_table(folder/"mcat-cars-coverage.tsv", list(cars[0]), cars)
+    science = mcat_science_coverage(blueprint)
     write_table(folder/"mcat-science-coverage.tsv", list(science[0]), science)
     named = named_measurements()
     write_table(folder/"step-item-coverage.tsv", list(named[0]), named)
@@ -290,6 +330,7 @@ def verify(folder):
         assert bool(ids)==(row["Status"]!="Unmapped")
         assert all(k in keyed and keyed[k]["Exam"]==row["Exam"] for k in ids), row
     assert table(folder/"mcat-science-coverage.tsv") == mcat_science_coverage(blueprint)
+    assert table(folder/"mcat-cars-coverage.tsv") == mcat_cars_coverage(expected, blueprint)
     report, practice_tags = step_measurements(expected)
     assert table(folder/"step-coverage.tsv") == report
     assert table(folder/"step-item-coverage.tsv") == named_measurements()
@@ -381,7 +422,13 @@ def main():
         fcntl.flock(lock,fcntl.LOCK_EX if args.action in {"update","build"} else fcntl.LOCK_SH)
         if args.action=="coverage":
             cards, _ = deduplicate(records(RELEASE), alias_map(RELEASE))
-            science = mcat_science_coverage(table(ROOT/"blueprint.tsv"))
+            blueprint = table(ROOT/"blueprint.tsv")
+            cars = [r for r in mcat_cars_coverage(cards, blueprint) if int(r["PassageWords"])]
+            print("CARS passages with reviewed evidence for each reasoning skill")
+            for skill, column in MCAT_CARS_SKILLS.items():
+                represented = sum(int(row[column + "Cards"]) > 0 for row in cars)
+                print(f"  {skill}: {represented}/{len(cars)}")
+            science = mcat_science_coverage(blueprint)
             print("MCAT science subtopics with reviewed evidence for each reasoning skill")
             for skill, column in MCAT_SCIENCE_SKILLS.items():
                 represented = sum(int(row[column + "Cards"]) > 0 for row in science)

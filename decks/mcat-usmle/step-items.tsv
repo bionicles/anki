@@ -578,8 +578,8 @@ blood.cells	Congenital methemoglobinemia
 blood.cells	Sickle cell disease	original:gen-sickle-cell-disease-polymer	original:hacute-chest original:hhb-sc	original:hacute-lung original:hhb-donor original:hhb-confirm
 blood.cells	Sideroblastic anemia			
 blood.cells	Thalassemias	original:gen-beta-thalassemia-globin	original:gen-beta-thalassemia-age	original:gen-beta-thalassemia-iron original:hhb-confirm
-blood.cells	Acute blood loss anemia	original:ery-retic		
-blood.cells	Chronic blood loss anemia		original:ckiron-loss original:ckiron-early	original:hiron-mixed
+blood.cells	Acute blood loss anemia	original:ery-retic original:transfusion-loss-1-rule original:transfusion-loss-1-case original:transfusion-loss-1-transfer	original:transfusion-loss-2-rule original:transfusion-loss-2-case original:transfusion-loss-2-transfer	original:transfusion-loss-3-rule original:transfusion-loss-3-case original:transfusion-loss-3-transfer
+blood.cells	Chronic blood loss anemia	original:transfusion-chronic-1-rule original:transfusion-chronic-1-case original:transfusion-chronic-1-transfer	original:ckiron-loss original:ckiron-early original:transfusion-chronic-2-case	original:hiron-mixed original:transfusion-chronic-3-rule original:transfusion-chronic-3-case original:transfusion-chronic-3-transfer
 blood.cells	Aplastic anemia		original:hmarrow-marrow	original:hmarrow-invest
 blood.cells	Leukopenia			
 blood.cells	Neutropenia	original:hanc-calc	original:hanc-worked	original:hanc-first
@@ -591,29 +591,29 @@ blood.cells	Immune thrombocytopenia	original:hitp-immune	original:hitp-isol	orig
 blood.cells	Leukocytosis		original:hcml-different	
 blood.cells	Polycythemia vera	original:hpv-drive	original:hpv-jak	
 blood.cells	Secondary erythrocytosis			original:hpv-hypox
-blood.clot	Disseminated intravascular coagulation	original:hdic-consume original:hdic-synthesis original:hdic-recover	original:hdic-shock original:hfrag-rule original:hdic-other	original:hdic-reverse original:hdic-repeat
-blood.clot	Congenital hemophilia A	original:gen-hemophilia-factor	original:hmix-factor	
-blood.clot	Congenital hemophilia B	original:gen-hemophilia-factor	original:hmix-factor	
-blood.clot	Hypofibrinogenemia	original:hdic-consume	original:hdic-shock	
-blood.clot	Von Willebrand disease	original:hvwd-panel	original:hvwd-normal	original:hvwd-stress
-blood.clot	Qualitative platelet dysfunction			
-blood.clot	Heparin-induced thrombocytopenia		original:ckhit-pattern	original:ccs-hit-choice original:ccs-hit-warfarin
-blood.clot	Hyperhomocysteinemia			
-blood.clot	Hypoplasminogenemia			
-blood.clot	Antithrombin deficiency			
-blood.clot	Protein C deficiency			
-blood.clot	Protein S deficiency			
-blood.clot	Factor V Leiden	original:hvl-resist	original:hvl-assay	original:hvl-carrier
-blood.clot	Anticardiolipin antibodies			original:haps-twelve
-blood.clot	Lupus anticoagulant	original:haps-paradox	original:haps-panel	
-blood.clot	Prothrombin G20210A			
-blood.clot	ABO-incompatible transfusion	original:hcross-abo		original:hcross-identity
-blood.clot	Rh-incompatible transfusion			
-blood.clot	Delayed hemolytic transfusion reaction	original:htrans-delayed	original:htrans-days	original:htrans-future
-blood.clot	Acute transfusion reactions	original:hcross-abo	original:hcross-reg	original:ccs-blood-stop
-blood.clot	Septic transfusion reaction		original:hseptic-platelet	original:hseptic-notify
-blood.clot	Transfusion-related acute lung injury	original:htrans-lung	original:htrans-leak	original:htrans-permeable
-blood.clot	Anaphylactic transfusion reaction including anti-IgA		original:hanaph-wheeze	original:hanaph-washed
+blood.clot	Disseminated intravascular coagulation	original:hdic-consume original:hdic-synthesis original:hdic-recover	original:hdic-shock original:hfrag-rule original:hdic-other	original:hdic-reverse original:hdic-repeat original:transfusion-dic-3-rule original:transfusion-dic-3-case original:transfusion-dic-3-transfer
+blood.clot	Congenital hemophilia A	original:gen-hemophilia-factor original:transfusion-hema-1-rule original:transfusion-hema-1-case original:transfusion-hema-1-transfer	original:hmix-factor original:transfusion-hema-2-case original:transfusion-hema-2-transfer	original:transfusion-hema-3-rule original:transfusion-hema-3-case original:transfusion-hema-3-transfer
+blood.clot	Congenital hemophilia B	original:gen-hemophilia-factor original:transfusion-hemb-1-case original:transfusion-hemb-1-transfer	original:hmix-factor original:transfusion-hema-2-transfer original:transfusion-hema-2-case	original:transfusion-hemb-3-rule original:transfusion-hemb-3-case original:transfusion-hemb-3-transfer
+blood.clot	Hypofibrinogenemia	original:hdic-consume original:transfusion-fib-1-rule original:transfusion-fib-1-case original:transfusion-fib-1-transfer	original:hdic-shock original:transfusion-fib-2-rule original:transfusion-fib-2-case original:transfusion-fib-2-transfer	original:transfusion-fib-3-rule original:transfusion-fib-3-case original:transfusion-fib-3-transfer
+blood.clot	Von Willebrand disease	original:hvwd-panel original:transfusion-vw-1-case original:transfusion-vw-1-transfer	original:hvwd-normal original:transfusion-vw-2-case original:transfusion-vw-2-transfer	original:hvwd-stress original:transfusion-vw-3-rule original:transfusion-vw-3-case original:transfusion-vw-3-transfer
+blood.clot	Qualitative platelet dysfunction	original:transfusion-plate-1-rule original:transfusion-plate-1-case original:transfusion-plate-1-transfer	original:transfusion-plate-2-rule original:transfusion-plate-2-case original:transfusion-plate-2-transfer	original:transfusion-plate-3-rule original:transfusion-plate-3-case original:transfusion-plate-3-transfer
+blood.clot	Heparin-induced thrombocytopenia	original:transfusion-hit-1-rule original:transfusion-hit-1-case original:transfusion-hit-1-transfer	original:ckhit-pattern original:transfusion-hit-2-rule original:transfusion-hit-2-case original:transfusion-hit-2-transfer	original:ccs-hit-choice original:ccs-hit-warfarin original:transfusion-hit-3-rule original:transfusion-hit-3-case original:transfusion-hit-3-transfer
+blood.clot	Hyperhomocysteinemia	original:transfusion-hcy-1-rule original:transfusion-hcy-1-case original:transfusion-hcy-1-transfer	original:transfusion-hcy-2-rule original:transfusion-hcy-2-case original:transfusion-hcy-2-transfer	original:transfusion-hcy-3-rule original:transfusion-hcy-3-case original:transfusion-hcy-3-transfer
+blood.clot	Hypoplasminogenemia	original:transfusion-plg-1-rule original:transfusion-plg-1-case original:transfusion-plg-1-transfer	original:transfusion-plg-2-rule original:transfusion-plg-2-case original:transfusion-plg-2-transfer	original:transfusion-plg-3-rule original:transfusion-plg-3-case original:transfusion-plg-3-transfer
+blood.clot	Antithrombin deficiency	original:transfusion-at-1-rule original:transfusion-at-1-case original:transfusion-at-1-transfer	original:transfusion-at-2-rule original:transfusion-at-2-case original:transfusion-at-2-transfer	original:transfusion-at-3-rule original:transfusion-at-3-case original:transfusion-at-3-transfer
+blood.clot	Protein C deficiency	original:transfusion-pc-1-rule original:transfusion-pc-1-case original:transfusion-pc-1-transfer	original:transfusion-pc-2-rule original:transfusion-pc-2-case original:transfusion-pc-2-transfer	original:transfusion-pc-3-rule original:transfusion-pc-3-case original:transfusion-pc-3-transfer
+blood.clot	Protein S deficiency	original:transfusion-ps-1-rule original:transfusion-ps-1-case original:transfusion-ps-1-transfer	original:transfusion-ps-2-rule original:transfusion-ps-2-case original:transfusion-ps-2-transfer	original:transfusion-ps-3-rule original:transfusion-ps-3-case original:transfusion-ps-3-transfer
+blood.clot	Factor V Leiden	original:hvl-resist original:transfusion-fvl-1-case original:transfusion-fvl-1-transfer	original:hvl-assay original:transfusion-fvl-2-rule original:transfusion-fvl-2-transfer	original:hvl-carrier original:transfusion-fvl-3-case original:transfusion-fvl-3-transfer
+blood.clot	Anticardiolipin antibodies	original:transfusion-acl-1-rule original:transfusion-acl-1-case original:transfusion-acl-1-transfer	original:transfusion-acl-2-rule original:transfusion-acl-2-case original:transfusion-acl-2-transfer	original:haps-twelve original:transfusion-acl-3-case original:transfusion-acl-3-transfer
+blood.clot	Lupus anticoagulant	original:haps-paradox original:transfusion-la-1-case original:transfusion-la-1-transfer	original:haps-panel original:transfusion-la-2-case original:transfusion-la-2-transfer	original:transfusion-la-3-rule original:transfusion-la-3-case original:transfusion-la-3-transfer
+blood.clot	Prothrombin G20210A	original:transfusion-f2-1-rule original:transfusion-f2-1-case original:transfusion-f2-1-transfer	original:transfusion-f2-2-rule original:transfusion-f2-2-case original:transfusion-f2-2-transfer	original:transfusion-f2-3-rule original:transfusion-f2-3-case original:transfusion-f2-3-transfer
+blood.clot	ABO-incompatible transfusion	original:hcross-abo original:transfusion-abo-1-case original:transfusion-abo-1-transfer	original:transfusion-abo-2-case original:transfusion-abo-2-transfer original:hcross-reg	original:hcross-identity original:ccs-blood-stop original:ccs-blood-identity original:ccs-blood-unit
+blood.clot	Rh-incompatible transfusion	original:transfusion-rh-1-rule original:transfusion-rh-1-case original:transfusion-rh-1-transfer	original:transfusion-rh-2-rule original:transfusion-rh-2-case original:transfusion-rh-2-transfer	original:transfusion-rh-3-rule original:transfusion-rh-3-case original:transfusion-rh-3-transfer
+blood.clot	Delayed hemolytic transfusion reaction	original:htrans-delayed original:transfusion-delay-1-case original:transfusion-delay-1-transfer	original:htrans-days original:transfusion-delay-2-rule original:transfusion-delay-2-transfer	original:htrans-future original:transfusion-delay-3-rule original:transfusion-delay-3-case
+blood.clot	Acute transfusion reactions	original:hcross-abo original:transfusion-acute-1-rule original:transfusion-acute-1-case original:transfusion-acute-1-transfer original:htrans-hydro original:htrans-lung	original:hcross-reg original:transfusion-acute-2-rule original:transfusion-acute-2-case original:transfusion-acute-2-transfer original:hbridge-mechanism original:htrans-leak original:htrans-fluid	original:ccs-blood-stop original:transfusion-acute-3-case original:transfusion-acute-3-transfer original:htrans-over original:htrans-permeable original:hbridge-rule
+blood.clot	Septic transfusion reaction	original:transfusion-sepsis-1-rule original:transfusion-sepsis-1-case original:transfusion-sepsis-1-transfer	original:hseptic-platelet original:transfusion-sepsis-2-rule original:transfusion-sepsis-2-transfer	original:hseptic-notify original:transfusion-sepsis-3-case original:transfusion-sepsis-3-transfer
+blood.clot	Transfusion-related acute lung injury	original:htrans-lung original:transfusion-trali-1-case original:htrans-hydro	original:htrans-leak original:hbridge-mechanism original:htrans-fluid	original:htrans-permeable original:hbridge-rule original:htrans-over
+blood.clot	Anaphylactic transfusion reaction including anti-IgA	original:transfusion-allergy-1-rule original:transfusion-allergy-1-case original:transfusion-allergy-1-transfer	original:hanaph-wheeze original:transfusion-allergy-2-rule original:transfusion-allergy-2-transfer	original:hanaph-washed original:transfusion-allergy-3-rule original:transfusion-allergy-3-case original:hanaph-screen
 blood.injury	Mechanical or cardiac valve hemolysis	original:hvalve-shear	original:hvalve-leak	original:hvalve-trend
 blood.injury	Splenic rupture or laceration		original:hblunt-stable original:hblunt-unstable original:hthreshold-first	original:hblunt-blush original:hblunt-worse original:hblunt-resource
 blood.injury	Splenic infarction	original:hinfar-ischemia	original:hinfar-height	

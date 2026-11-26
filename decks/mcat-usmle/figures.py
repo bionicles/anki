@@ -3152,6 +3152,92 @@ def nursery_studies():
            [["A", "200", "120"], ["B", "400", "180"]])
 
 
+def coagulation_studies():
+    """Render simulated hematology and MCAT studies and published bleeding-trial outcomes."""
+
+    def record(name, title, columns, rows, source="simulated"):
+        fig, ax = plt.subplots(figsize=(6.1, 2.65), layout="constrained")
+        ax.axis("off")
+        ax.set_title(f"{title}  •  {source}")
+        table = ax.table(cellText=rows, colLabels=columns, loc="center",
+                         cellLoc="center", bbox=[.01, .08, .98, .76])
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
+        for col in range(len(columns)):
+            table[0, col].set_facecolor("#e2edf1")
+        save(fig, "coag_" + name)
+
+    for name, recipient, unit in [("aboerr", "O positive", "A positive"),
+                                  ("abook", "A positive", "O positive")]:
+        record(name, "Red-cell transfusion record", ["Specimen", "ABO and RhD"],
+               [["Recipient", recipient], ["Donor red cells", unit]])
+    for name, viii, ix in [("ha", "1", "98"), ("hb", "96", "1")]:
+        record(name, "Plasma activity and antigen", ["Assay", "Patient (%)", "Reference (%)"],
+               [["Factor VIII activity", viii, "50–150"], ["Factor IX activity", ix, "50–150"],
+                ["VWF antigen", "95", "50–150"], ["VWF activity", "91", "50–150"]])
+    record("vwratio", "VWF testing at baseline health", ["Test", "Result (IU/dL)"],
+           [["VWF antigen", "60"], ["Platelet-dependent VWF activity", "24"]])
+    record("glanz", "Platelet function panel", ["Agonist", "Response"],
+           [["ADP", "Absent"], ["Collagen", "Absent"], ["Arachidonic acid", "Absent"],
+            ["Ristocetin", "Preserved"]])
+    fig, ax = axes("Day of heparin exposure", "Platelets (thousands/µL)")
+    ax.plot([0,2,4,5,6,7], [295,301,288,241,162,102], "o-")
+    ax.set(ylim=(0,350), title="Serial platelet counts • simulated")
+    save(fig, "coag_hitcount")
+    record("cbs", "Amino-acid evaluation", ["Analyte", "Patient (µmol/L)", "Lab reference"],
+           [["Total homocysteine", "182", "5–15"], ["Methionine", "112", "15–45"]])
+    for name, weeks in [("acl8", 8), ("acl14", 14)]:
+        record(name, "Anticardiolipin IgG • same assay", ["Time after first draw", "Laboratory category"],
+               [["Baseline", "High positive"], [f"Week {weeks}", "High positive"]])
+    record("loss", "After hemorrhage control", ["Time", "Hemoglobin", "Crystalloid since control"],
+           [["At control", "12.1 g/dL", "None"], ["Two hours later", "10.3 g/dL", "2 L"]])
+    fig, ax = axes("Assigned transfusion threshold", "Estimated six-week survival (%)")
+    bars = ax.bar(["Hb <7 g/dL", "Hb <9 g/dL"], [95,91], color=COLORS[:2], width=.55)
+    ax.bar_label(bars, fmt="%d%%")
+    ax.set(ylim=(0,106), title="Acute upper GI bleeding • Villanueva et al.")
+    save(fig, "coag_survive")
+    record("ionprod", "Silver chloride • Ksp = 1.8 × 10⁻¹⁰", ["Sample", "Ion product Q"],
+           [["A", "1.0 × 10⁻¹¹"], ["B", "5.0 × 10⁻¹⁰"]])
+    # Solve charge balance for a monoprotic acid titrated with strong base.
+    volumes = np.linspace(0, 30, 301)
+    ph = []
+    ka = 10**-4.8
+    for volume in volumes:
+        acid_total = 0.1 * 20 / (20 + volume)
+        sodium = 0.1 * volume / (20 + volume)
+        lo, hi = 0., 14.
+        for _ in range(55):
+            mid = (lo + hi) / 2
+            h = 10**-mid
+            if h + sodium > acid_total * ka / (ka + h) + 1e-14 / h:
+                lo = mid
+            else:
+                hi = mid
+        ph.append((lo + hi) / 2)
+    fig, ax = axes("Strong base added (mL)", "pH")
+    ax.plot(volumes, ph, lw=2)
+    ax.axvline(20, color=COLORS[1], ls="--", label="Equivalence")
+    ax.plot(10, ph[100], "o", color=COLORS[0])
+    ax.annotate(f"pH {ph[100]:.1f}", xy=(10,ph[100]), xytext=(8,7),
+                arrowprops={"arrowstyle":"->"})
+    ax.set(ylim=(0,14), xticks=[0,5,10,15,20,25,30], title="Titration of a weak acid • simulated")
+    ax.legend()
+    save(fig, "coag_titr")
+    fig, ax = axes("Chase time (min)", "Labeled protein (relative units)")
+    times = [0,5,10,20,30,40]
+    ax.plot(times, [90,82,63,25,10,3], "o-", label="ER")
+    ax.plot(times, [3,10,29,56,41,21], "s--", label="Golgi")
+    ax.set_title("Secretory protein pulse–chase • simulated")
+    ax.legend()
+    save(fig, "coag_pulse")
+    record("cilia", "Ciliary motion", ["Measurement", "Control", "Treated"],
+           [["Cilia per cell", "42", "42"], ["Mean beats per second", "12", "3"]])
+    record("committee", "Committee decisions", ["Group", "Seats", "Submitted", "Adopted"],
+           [["A", "12", "10", "2"], ["B", "4", "10", "8"]])
+    record("allocation", "Employee development budget", ["Job grade", "Employees", "Annual funds"],
+           [["H", "40", "$24,000"], ["L", "80", "$24,000"]])
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -3191,6 +3277,7 @@ def main():
     gestational_exposure_studies()
     neonatal_and_mechanics_studies()
     nursery_studies()
+    coagulation_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()

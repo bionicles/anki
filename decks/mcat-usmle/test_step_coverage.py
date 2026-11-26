@@ -41,6 +41,25 @@ class NamedDepthTest(unittest.TestCase):
         self.assertEqual(practice_bands(rows), (1, 1, 1, 1))
 
 
+class MCATCARSCoverageTest(unittest.TestCase):
+    def test_repeated_passage_and_unclassified_question(self):
+        from deck import MCAT_CARS_SKILLS, mcat_cars_coverage
+
+        blueprint = [dict(Exam="MCAT", Axis="Reasoning", Domain=skill, ReviewedCardIDs="")
+                     for skill in MCAT_CARS_SKILLS]
+        blueprint[0]["ReviewedCardIDs"] = "a science"
+        blueprint[1]["ReviewedCardIDs"] = "b"
+        def question(key, passage, section="Critical Analysis and Reasoning Skills"):
+            return dict(ID=key, Exam="MCAT", Section=section, Topic="Shared topic",
+                        Prompt=passage + "\n\nQuestion " + key)
+        cards = [question("a", "One passage."), question("b", "One passage."),
+                 question("c", "A different passage."), question("science", "One passage.", "Other")]
+        first, second = mcat_cars_coverage(cards, blueprint)
+        self.assertEqual((first["PassageWords"], first["Questions"], first["QuestionIDs"]), ("2", "2", "a b"))
+        self.assertEqual((first["ComprehensionIDs"], first["WithinTextIDs"]), ("a", "b"))
+        self.assertEqual((second["PassageWords"], second["UnclassifiedIDs"]), ("3", "c"))
+
+
 class MCATScienceCoverageTest(unittest.TestCase):
     def test_only_shared_evidence_counts_for_each_skill(self):
         from deck import MCAT_SCIENCE_SKILLS, mcat_science_coverage
