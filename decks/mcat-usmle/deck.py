@@ -638,6 +638,12 @@ def display_gaps(items, science, details=()):
         show(groups)
         independent = sum(bool(r["TwoIndependentPairIDs"]) for r in details)
         print(f"MCAT indexed decisions with two case pairs using four distinct cards: {independent}/{len(details)}")
+        groups = defaultdict(list)
+        for row in details:
+            if int(row["ChangedPairs"]) and not row["TwoIndependentPairIDs"]:
+                groups[row["Category"]].append(row["Detail"])
+        print("MCAT decisions with one case pair awaiting a second independent pair, by category")
+        show(groups)
         for field, description in (("MappedCards", "a specifically linked question"),
                                    ("ChangedPairs", "a linked changed-case pair")):
             groups = defaultdict(list)
@@ -670,13 +676,18 @@ def display_gaps(items, science, details=()):
     show(groups)
 
     for column, description in (
-        ("ThreeLevelObjectives", "Named topics lacking a full sequence on all three USMLE Steps"),
+        ("ThreeLevelObjectives", "Named topics with no full sequence on any USMLE Step"),
         ("MappedCards", "Named topics without a linked card on any USMLE Step"),
     ):
         missing = defaultdict(set)
         for row in items:
             if not int(row[column]):
                 missing[row["Family"], row["Item"]].add(row["Exam"])
+        if column == "ThreeLevelObjectives":
+            print(f"Named topics missing a full sequence on at least one USMLE Step • {len(missing)}")
+            for count in range(1, len(STEPS) + 1):
+                total = sum(len(exams) == count for exams in missing.values())
+                print(f"  Missing on {count} of {len(STEPS)} Steps • {total}")
         groups = defaultdict(list)
         for (family, item), exams in missing.items():
             if exams == set(STEPS):

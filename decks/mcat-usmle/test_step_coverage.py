@@ -256,7 +256,10 @@ class GapSummaryTest(unittest.TestCase):
         output = StringIO()
         with redirect_stdout(output):
             display_gaps(rows, [])
-        self.assertIn("Named topics lacking a full sequence on all three USMLE Steps • 2", output.getvalue())
+        self.assertIn("Named topics missing a full sequence on at least one USMLE Step • 3", output.getvalue())
+        self.assertIn("  Missing on 1 of 3 Steps • 1", output.getvalue())
+        self.assertIn("  Missing on 3 of 3 Steps • 2", output.getvalue())
+        self.assertIn("Named topics with no full sequence on any USMLE Step • 2", output.getvalue())
         self.assertEqual(output.getvalue().splitlines()[-2:], [
             "Named topics without a linked card on any USMLE Step • 1",
             "  neuro.spine (1) — Myelopathy",

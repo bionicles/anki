@@ -44,6 +44,24 @@ def plot(name, xname, yname, x, curves):
     save(fig, name)
 
 
+def behavioral_health_studies():
+    """Show simulated clinical and sampling records alongside published study comparisons."""
+    study_table("behavioral_phos", "Early nutritional rehabilitation", ["Blood draw", "Phosphate (mg/dL)"],
+                [["Before feeding", "3.4"], ["48 hours later", "1.5"]], indexed=True)
+    for key, chloride, bicarbonate in [("vomit", 87, 42), ("stool", 114, 16)]:
+        study_table("behavioral_" + key, "Serum chemistry", ["Analyte", "mmol/L"],
+                    [["Sodium", 140], ["Chloride", chloride], ["Bicarbonate", bicarbonate]], indexed=True)
+    for key, second in [("a", [3, 5, 7]), ("b", [6, 4, 2])]:
+        study_table("behavioral_rank_" + key, "Mean state rating by period", ["Participant", "First", "Second"],
+                    [[name, first, later] for name, first, later in zip("ABC", [2, 4, 6], second)], indexed=True)
+    study_table("behavioral_variation", "Selected variance components",
+                ["Source", "Extraversion", "Agreeableness"],
+                [["Between people", "19%", "27%"], ["Residual within person", "48%", "40%"]],
+                "Fleeson, Table 3", indexed=True)
+    study_table("behavioral_dbt", "Discontinued treatment", ["Trial arm", "Number", "Reported rate"],
+                [["Standard DBT", "8", "24%"], ["DBT-I", "16", "48%"]], "Linehan et al.", indexed=True)
+
+
 def organ_and_skin_studies():
     """Display published thermal and clinical outcomes and two simulated urine collections."""
     for key, label, values in [
@@ -7115,6 +7133,7 @@ def main():
     mcat_changed_evidence()
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
+    behavioral_health_studies()
     organ_and_skin_studies()
     mcat_protein_structures()
     cardiovascular()
