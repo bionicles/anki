@@ -4959,6 +4959,46 @@ def occupational_lung_studies():
 
 
 
+def renal_medication_studies():
+    """Clinical sampling times, published kidney outcomes and simulated ion data."""
+    fig, ax = axes("Hours from first infusion start", "")
+    ax.grid(False)
+    ax.set(xlim=(-.35, 8.9), ylim=(-.55, .9), yticks=[], xticks=[0, 1, 2, 4, 6, 8])
+    ax.axhline(0, color="0.6", lw=1)
+    for start in (0, 8):
+        ax.plot([start, start + .5], [0, 0], color=COLORS[0], lw=9,
+                solid_capstyle="butt")
+    ax.annotate("Blood drawn", xy=(1, .04), xytext=(2.3, .5),
+                arrowprops={"arrowstyle": "->"}, ha="center")
+    ax.text(4, -.25, "Blue bars = 30-minute IV infusions", ha="center")
+    ax.set_title("Gentamicin administration and sampling")
+    save(fig, "rxkid_gent", indexed=True)
+
+    for name, labels, values, ylabel, title, limit in [
+        ("walsh", ["Conventional", "Liposomal"], [34, 19], "Patients (%)",
+         "Amphotericin B: creatinine twice the upper limit of normal", 50),
+        ("eos", ["Sensitivity", "Specificity"], [30.8, 68.2], "Percent",
+         "Urine eosinophils at a 1% cutoff vs kidney biopsy", 100),
+    ]:
+        fig, ax = axes("", ylabel)
+        bars = ax.bar(labels, values, color=COLORS, width=.52, zorder=2)
+        ax.bar_label(bars, labels=[f"{v:g}%" for v in values], padding=3)
+        ax.set_ylim(0, limit)
+        ax.set_title(title, fontsize=10)
+        save(fig, "rxkid_" + name, indexed=True)
+
+    fig, ax = plt.subplots(figsize=(4.5, 1.85), layout="constrained")
+    ax.axis("off")
+    grid = ax.table(cellText=[["A", "1.0", "2.0"], ["B", "2.0", "3.0"]],
+                    colLabels=["Mixture", "M²⁺ (mmol/L)", "X⁻ (mmol/L)"],
+                    loc="center", cellLoc="center")
+    grid.auto_set_font_size(False)
+    grid.set_fontsize(11)
+    grid.scale(1, 1.6)
+    ax.set_title("Initial free-ion concentrations")
+    save(fig, "rxkid_mix", indexed=True)
+
+
 def renal_pathology_and_inheritance():
     """Schematic tumor depth and simulated genotype/phenotype observations."""
     for name, depth, shoulder in [("bl1", 1.4, .95), ("bl2", 2.55, 1.55)]:
@@ -5231,6 +5271,7 @@ def main():
     vascular_flow_studies()
     prenatal_visit_studies()
     occupational_lung_studies()
+    renal_medication_studies()
     renal_pathology_and_inheritance()
     renal_vascular_studies()
     renal_filtration_and_obstruction()
