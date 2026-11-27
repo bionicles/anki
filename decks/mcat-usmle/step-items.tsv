@@ -430,19 +430,19 @@ neuro.sleep	Sleep terrors
 neuro.sleep	Sleepwalking			
 neuro.sleep	REM sleep behavior disorder			original:ndlb-sleep
 neuro.sleep	Restless legs syndrome			
-neuro.trauma	Hypoxic-ischemic brain injury			
-neuro.trauma	Epidural hematoma	original:rad-suture	original:rad-epidural	original:rad-deteriorate
-neuro.trauma	Subdural hematoma	original:rad-vein	original:rad-subdural	
-neuro.trauma	Spinal epidural or subdural hematoma			
-neuro.trauma	Traumatic intraparenchymal hemorrhage			
-neuro.trauma	Traumatic subarachnoid hemorrhage			
-neuro.trauma	Cerebral edema	original:rad-edema		
-neuro.trauma	Idiopathic intracranial hypertension			
-neuro.trauma	Torticollis and cervical dystonia			
-neuro.trauma	Hydrocephalus	original:nposterior-fourth	original:nposterior-pressure	original:rad-hydro
-neuro.trauma	Normal-pressure hydrocephalus			
-neuro.trauma	Concussion and postconcussion syndrome		original:ntbi-delay	original:ntbi-deteriorate original:ntbi-motor
-neuro.trauma	Chronic traumatic encephalopathy and other traumatic brain syndromes			
+neuro.trauma	Hypoxic-ischemic brain injury	original:neurotrauma-global-1-rule original:neurotrauma-global-1-case original:neurotrauma-global-1-changed	original:neurotrauma-global-2-rule original:neurotrauma-global-2-case original:neurotrauma-global-2-changed	original:neurotrauma-global-3-rule original:neurotrauma-global-3-case original:neurotrauma-global-3-changed
+neuro.trauma	Epidural hematoma	original:rad-suture original:neurotrauma-epid-1-case original:neurotrauma-epid-1-changed	original:rad-epidural original:neurotrauma-epid-2-rule original:rad-subdural	original:rad-deteriorate original:neurotrauma-epid-3-rule original:neurotrauma-epid-3-changed
+neuro.trauma	Subdural hematoma	original:rad-vein original:neurotrauma-subd-1-rule original:neurotrauma-subd-1-changed	original:rad-subdural original:nvas-trauma-2-rule original:neurotrauma-subd-2-changed	original:nvas-trauma-3-rule original:neurotrauma-subd-3-case original:nvas-trauma-3-transfer
+neuro.trauma	Spinal epidural or subdural hematoma	original:neurotrauma-spine-1-rule original:neurotrauma-spine-1-case original:neurotrauma-spine-1-changed	original:neurotrauma-spine-2-rule original:neurotrauma-spine-2-case original:neurotrauma-spine-2-changed	original:neurotrauma-spine-3-rule original:neurotrauma-spine-3-case original:neurotrauma-spine-3-changed
+neuro.trauma	Traumatic intraparenchymal hemorrhage	original:neurotrauma-cont-1-rule original:neurotrauma-cont-1-case original:neurotrauma-cont-1-changed	original:neurotrauma-cont-2-rule original:neurotrauma-cont-2-case original:neurotrauma-cont-2-changed	original:neurotrauma-cont-3-rule original:neurotrauma-cont-3-case original:neurotrauma-cont-3-changed
+neuro.trauma	Traumatic subarachnoid hemorrhage	original:neurotrauma-sah-1-rule original:neurotrauma-sah-1-case original:neurotrauma-sah-1-changed	original:neurotrauma-sah-2-rule original:neurotrauma-sah-2-case original:neurotrauma-sah-2-changed	original:neurotrauma-sah-3-rule original:neurotrauma-sah-3-case original:neurotrauma-sah-3-changed
+neuro.trauma	Cerebral edema	original:rad-edema original:neurotrauma-edema-1-rule original:neurotrauma-edema-1-changed	original:neurotrauma-edema-2-rule original:neurotrauma-edema-2-case original:neurotrauma-edema-2-changed	original:neurotrauma-edema-3-rule original:neurotrauma-edema-3-case original:neurotrauma-edema-3-changed
+neuro.trauma	Idiopathic intracranial hypertension	original:eyevis-pap-1-rule original:neurotrauma-iih-1-case original:eyevis-pap-1-eyher	original:eyevis-pap-2-rule original:eyevis-pap-2-case original:eyevis-pap-2-eyher	original:eyevis-pap-3-rule original:eyevis-pap-3-case original:eyevis-pap-3-eyher
+neuro.trauma	Torticollis and cervical dystonia	original:neurotrauma-neck-1-rule original:neurotrauma-neck-1-case original:neurotrauma-neck-1-changed	original:neurotrauma-neck-2-rule original:neurotrauma-neck-2-case original:neurotrauma-neck-2-changed	original:neurotrauma-neck-3-rule original:neurotrauma-neck-3-case original:neurotrauma-neck-3-changed
+neuro.trauma	Hydrocephalus	original:nposterior-fourth original:neurotrauma-hydro-1-rule original:neurotrauma-hydro-1-case original:neurotrauma-hydro-1-changed original:neurocourse-hydro-1-rule original:neurocourse-hydro-1-case original:neurocourse-hydro-1-changed	original:nposterior-pressure original:neurotrauma-hydro-2-rule original:neurotrauma-hydro-2-changed original:neurocourse-hydro-2-rule original:neurocourse-hydro-2-case original:neurocourse-hydro-2-changed	original:rad-hydro original:neurotrauma-hydro-3-rule original:neurotrauma-hydro-3-changed original:neurotrauma-shunt-image original:neurotrauma-shunt-stable original:neurotrauma-shunt-infect original:neurocourse-hydro-3-rule original:neurocourse-hydro-3-case original:neurocourse-hydro-3-changed
+neuro.trauma	Normal-pressure hydrocephalus	original:neurotrauma-nph-1-rule original:neurotrauma-nph-1-case original:neurotrauma-nph-1-changed	original:neurotrauma-nph-2-rule original:neurotrauma-nph-2-case original:neurotrauma-nph-2-changed	original:neurotrauma-nph-3-rule original:neurotrauma-nph-3-case original:neurotrauma-nph-3-changed original:neurotrauma-pens-effect original:neurotrauma-pens-ci original:neurotrauma-pens-sham
+neuro.trauma	Concussion and postconcussion syndrome	original:neurotrauma-concussion-1-rule original:neurotrauma-concussion-1-case original:neurotrauma-concussion-1-changed original:neurocourse-concussion-1-rule original:neurocourse-concussion-1-case original:neurocourse-concussion-1-changed	original:ntbi-delay original:neurotrauma-concussion-2-rule original:neurotrauma-concussion-2-changed original:neurocourse-concussion-2-rule original:neurocourse-concussion-2-case original:neurocourse-concussion-2-changed	original:ntbi-deteriorate original:ntbi-motor original:neurotrauma-concussion-3-rule original:neurocourse-concussion-3-rule original:neurocourse-concussion-3-case original:neurocourse-concussion-3-changed
+neuro.trauma	Chronic traumatic encephalopathy and other traumatic brain syndromes	original:neurotrauma-cte-1-rule original:neurotrauma-cte-1-case original:neurotrauma-cte-1-changed	original:neurotrauma-cte-2-rule original:neurotrauma-cte-2-case original:neurotrauma-cte-2-changed	original:neurotrauma-cte-3-rule original:neurotrauma-cte-3-case original:neurotrauma-cte-3-changed
 neuro.congenital	Friedreich ataxia			
 neuro.congenital	Neural tube defects	original:s1-folate-timing	original:ck-folate-prevention-reason	original:acm-folate-counsel
 neuro.congenital	Spina bifida			

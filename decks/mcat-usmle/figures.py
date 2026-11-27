@@ -4959,6 +4959,60 @@ def occupational_lung_studies():
 
 
 
+def trauma_and_neural_signals():
+    """Draw simulated contusions, CSF pathways and cell recordings, plus the PENS trial result."""
+    for name, volumes in [("contstable", [6, 6, 6]), ("contgrow", [4, 11, 22])]:
+        fig, ax = axes("Hours after injury", "Hemorrhagic volume (mL)")
+        ax.plot([1, 4, 8], volumes, "o-", color=COLORS[0], linewidth=2)
+        ax.set(xticks=[1, 4, 8], ylim=(0, 25), title="Serial CT estimates")
+        save(fig, "neurotrauma_" + name, indexed=True)
+
+    for name, sizes in [("aqueduct", [1.0, 1.0, .8, .4]), ("monro", [1.0, .4, .4, .4])]:
+        from matplotlib.patches import Ellipse
+        fig, ax = plt.subplots(figsize=(5.0, 3.2), layout="constrained")
+        ax.set(xlim=(-2.4, 2.4), ylim=(-.44, 2.9), aspect="equal",
+               title="Ventricular size relative to baseline")
+        ax.axis("off")
+        coords = [(-1.05, 2.0), (1.05, 2.0), (0, 1.1), (0, .15)]
+        for start, end in [(0, 2), (1, 2), (2, 3)]:
+            x, y = zip(coords[start], coords[end])
+            ax.plot(x, y, color="#64748b", zorder=1)
+        for (x, y), size, label in zip(coords, sizes, ["Left lateral", "Right lateral", "Third", "Fourth"]):
+            ax.add_patch(Ellipse((x, y), size, size * .65, facecolor="#a6d7e5",
+                                 edgecolor=COLORS[0], linewidth=2, zorder=2))
+            ax.add_patch(Ellipse((x, y), .4, .26, facecolor="none", edgecolor="#182c34",
+                                 linestyle=":", linewidth=1.3, zorder=3))
+            if y > 1.5:
+                ax.text(x, y + .42, label, ha="center", va="center")
+            else:
+                ax.text(x + .65, y, label, ha="left", va="center")
+        ax.text(-2.3, -.40, "Dotted outline = baseline size", fontsize=9)
+        save(fig, "neurotrauma_" + name, indexed=True)
+
+    fig, ax = axes("Time (ms)", "Membrane potential (mV)")
+    xs = np.array([-.5, -.18, 0, .28, .5, .8])
+    for peak, label, color, style in [(1, "Site A", COLORS[0], "-"), (3, "Site B", COLORS[1], "--")]:
+        ax.plot([0, *(xs + peak), 4.4], [-70, -70, -52, 32, -42, -78, -70, -70],
+                style, color=color, label=label, linewidth=2.1)
+    ax.set(xticks=[0, 1, 2, 3, 4], title="Same axon, sites 30 mm apart")
+    ax.legend()
+    save(fig, "neurotrauma_axon", indexed=True)
+
+    fig, ax = axes("Membrane potential (mV)", "Net current (pA)")
+    ax.axhline(0, color="#6b7280", lw=1)
+    ax.plot([30, 40, 50, 60, 70], [-16, -8, 0, 8, 16], "o-", color=COLORS[0])
+    ax.set(xticks=[30, 40, 50, 60, 70], yticks=[-16, -8, 0, 8, 16], title="Voltage-clamp recording")
+    save(fig, "neurotrauma_reverse", indexed=True)
+
+    fig, ax = plt.subplots(figsize=(5.0, 2.0), layout="constrained")
+    ax.axvline(0, color="#555", linestyle="--", linewidth=1.1)
+    ax.errorbar(.21, 0, xerr=[[.09], [.10]], fmt="o", color=COLORS[0], capsize=6)
+    ax.set(xlim=(-.06, .36), ylim=(-1, 1), yticks=[], xticks=[0, .1, .2, .3],
+           xlabel="Open minus placebo setting (m/s), 95% CI",
+           title="PENS trial · Difference in three-month gait velocity change")
+    save(fig, "neurotrauma_pens", indexed=True)
+
+
 def mood_course_and_arousal():
     """Independent clinical timelines, a trial outcome and a simulated physiology study."""
     for name, xlabel, end, ticks, tracks in [
@@ -5649,6 +5703,7 @@ def main():
     vascular_flow_studies()
     prenatal_visit_studies()
     occupational_lung_studies()
+    trauma_and_neural_signals()
     mood_course_and_arousal()
     immunodeficiency_and_learning()
     hiv_and_circuit_studies()
