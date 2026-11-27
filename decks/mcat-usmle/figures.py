@@ -5018,6 +5018,29 @@ def kinetic_equilibrium_studies():
     save(fig, "cvdrug_rates", indexed=True)
 
 
+def demographic_and_ulcer_studies():
+    for name, left, right in [
+        ("young", [27, 23, 18, 14, 10, 6], [26, 22, 18, 14, 11, 7]),
+        ("older", [12, 14, 16, 22, 20, 14], [12, 14, 17, 22, 20, 17]),
+    ]:
+        fig, ax = axes("Residents (thousands)", "Age group (years)")
+        y = np.arange(6)
+        ax.barh(y, -np.array(left), color=COLORS[0], label="Male")
+        ax.barh(y, right, color=COLORS[1], label="Female")
+        ax.set(yticks=y, yticklabels=["0–14", "15–29", "30–44", "45–59", "60–74", "75+"],
+               xticks=[-30, -20, -10, 0, 10, 20, 30],
+               xticklabels=["30", "20", "10", "0", "10", "20", "30"],
+               xlim=(-31, 31), title="Age distribution of simulated residents")
+        ax.legend(loc="upper center", ncol=2, bbox_to_anchor=(0.5, -0.23))
+        save(fig, "demopattern_" + name, indexed=True)
+
+    fig, ax = axes("", "13-month recurrent bleeding incidence (%)")
+    bars = ax.bar(["Celecoxib + placebo", "Celecoxib + esomeprazole"], [8.9, 0], color=COLORS)
+    ax.bar_label(bars, labels=["8.9%", "0%"], padding=4)
+    ax.set(ylim=(0, 11), title="After a healed NSAID-associated ulcer bleed")
+    save(fig, "gidrug_bleeding", indexed=True)
+
+
 def myocardial_and_bonding_studies():
     for name, values in [("low", [200, 150]), ("athlete", [200, 80])]:
         fig, ax = axes("", "Left ventricular volume (mL)")
@@ -6135,6 +6158,7 @@ def main():
     kinetic_equilibrium_studies()
     cardiovascular_drug_studies()
     myocardial_and_bonding_studies()
+    demographic_and_ulcer_studies()
     spine_and_separation_studies()
     abdominal_wall_and_equity_studies()
     congenital_and_identity_studies()
