@@ -5018,6 +5018,54 @@ def kinetic_equilibrium_studies():
     save(fig, "cvdrug_rates", indexed=True)
 
 
+def tumor_and_gene_evidence():
+    fig, ax = axes("", "Median survival (months)")
+    values = [15.3, 21.7]
+    bars = ax.bar([0, 1], values, color=COLORS)
+    ax.set(xticks=[0, 1], xticklabels=["Radiotherapy", "Radiotherapy + TMZ"],
+           ylim=(0, 26), title="MGMT-methylated subgroup · Hegi et al.")
+    ax.bar_label(bars, fmt="%.1f", padding=3)
+    save(fig, "genestudy_survival", indexed=True)
+
+    fig, ax = axes("", "Normalized accessibility")
+    x = np.arange(4)
+    ax.bar(x - .18, [3, 3, 8, 4], width=.36, color=COLORS[0], label="Before")
+    ax.bar(x + .18, [4, 6, 2, 4], width=.36, color=COLORS[1], hatch="//", label="After")
+    ax.set(xticks=x, xticklabels=["Promoter A", "Promoter B", "Promoter C", "Reference"],
+           ylim=(0, 10), title="Simulated promoter accessibility")
+    ax.legend(loc="upper right", ncol=2)
+    save(fig, "genestudy_access", indexed=True)
+
+    fig, ax = plt.subplots(figsize=(3.7, 3.2), layout="constrained")
+    ax.set(xlim=(0, 3), ylim=(4.6, 0), title="Simulated DNA gel")
+    ax.set_facecolor("#273641")
+    ax.set_xticks([1, 2], ["Marker", "Sample Y"])
+    ax.xaxis.tick_top()
+    ax.set_yticks([1, 2, 3.1, 4.1], ["1,200", "900", "600", "400"])
+    ax.set_ylabel("Marker length (bp)")
+    for y in [1, 2, 3.1, 4.1]:
+        ax.plot([.7, 1.3], [y, y], color="white", lw=4)
+    ax.plot([1.7, 2.3], [2, 2], color="white", lw=4)
+    save(fig, "genestudy_gel", indexed=True)
+
+    for n, duplexes in enumerate([["HL", "HL"], ["HL", "LL", "HL", "LL"]]):
+        fig, ax = plt.subplots(figsize=(4.2, 2.4), layout="constrained")
+        for i, pair in enumerate(duplexes):
+            x = i * 1.25
+            for j, strand in enumerate(pair):
+                heavy = strand == "H"
+                ax.plot([x, x + .85], [1.05 - .15*j] * 2,
+                        color=COLORS[int(heavy)], ls="-" if heavy else "--", lw=3)
+            ax.text(x + .42, .66, str(i + 1), ha="center")
+        ax.plot([], [], "-", color=COLORS[1], lw=3, label="Heavy strand")
+        ax.plot([], [], "--", color=COLORS[0], lw=3, label="Light strand")
+        ax.legend(loc="lower center", ncol=2, frameon=False, fontsize=9)
+        ax.set(xlim=(-.25, (len(duplexes)-1)*1.25 + 1.1), ylim=(0, 1.5),
+               title="Strand labels in daughter duplexes")
+        ax.axis("off")
+        save(fig, "genestudy_density" + str(n), indexed=True)
+
+
 def pain_and_sensation():
     fig, ax = axes("Vibration amplitude (µm)", "Trials detected (%)")
     ax.plot([0, 2, 4, 6, 8, 10, 12], [0, 5, 20, 50, 80, 95, 100], "o-", color=COLORS[0])
@@ -6224,6 +6272,7 @@ def main():
     cardiovascular_drug_studies()
     myocardial_and_bonding_studies()
     demographic_and_ulcer_studies()
+    tumor_and_gene_evidence()
     pain_and_sensation()
     neuroendocrine_measurements()
     spine_and_separation_studies()
