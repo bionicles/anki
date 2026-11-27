@@ -390,7 +390,7 @@ def mcat_chemistry():
     for label, center, style, color in [("A",240,"-",COLORS[0]),("B",310,"--",COLORS[1])]:
         ax.plot(x, .75*np.exp(-.5*((x-center)/13)**2), ls=style, color=color, label=label, lw=2.4)
     ax.legend()
-    save(fig, "uv")
+    save_lossless(fig, "uv")
 
     fig, panels = plt.subplots(1, 2, figsize=(5.4, 2.7), layout="constrained")
     for i, ax in enumerate(panels):
@@ -1961,7 +1961,7 @@ def musculoskeletal_studies():
             marker="o", lw=2.4, color=COLORS[0])
     ax.set_title("Constant-load exercise test  •  simulated")
     ax.annotate("Symptoms ease", (10, 127), (8, 100), arrowprops={"arrowstyle": "->"})
-    save(fig, "msk_second_wind")
+    save_lossless(fig, "msk_second_wind")
 
     fig, (top, bottom) = plt.subplots(2, 1, figsize=(5.1, 3.7), sharex=True, layout="constrained")
     minutes = [0, 2, 4, 6, 8]
@@ -3098,7 +3098,7 @@ def eye_injury_and_experiment_studies():
     ax.plot(range(1, 8), [8, 6, 4, 2, 1, 9, 7], "o-", lw=2, color=COLORS[0])
     ax.set(xticks=range(1, 8), xticklabels=["1 F", "2 F", "3 F", "4 F", "5 F", "6 N", "7 F"],
            ylim=(0, 10), title="Orienting during repeated sounds  •  simulated")
-    save(fig, "acuteeye_hab")
+    save_lossless(fig, "acuteeye_hab")
 
     from matplotlib.patches import Ellipse, Polygon
 
@@ -3275,7 +3275,7 @@ def pleural_and_gas_exchange_studies():
     ax.axvline(1, color="0.5", lw=1, ls=":")
     ax.set(title="Two forced expirations  •  simulated", xticks=range(8), ylim=(0, 4.4))
     ax.legend(title="Curve")
-    save(fig, "pleural_airflow")
+    save_lossless(fig, "pleural_airflow")
     fig, ax = axes("Month", "Calendar year")
     for row, active in enumerate([[0, 1, 2, 11], [0, 1, 2, 3]]):
         ax.scatter(range(1, 13), [row] * 12, color="0.85", marker="s", s=65)
@@ -3312,7 +3312,7 @@ def pleural_and_gas_exchange_studies():
         ax.annotate(str(value), (i, value), xytext=(0, 6), textcoords="offset points", ha="center")
     ax.set(title="Vascular bed pressure profile  •  simulated", xticks=range(4),
            xticklabels=sites, ylim=(0, 110))
-    save(fig, "pleural_pressfall")
+    save_lossless(fig, "pleural_pressfall")
 
 
 def aspiration_courses():
@@ -3793,7 +3793,7 @@ def nursery_studies():
     ax.axhline(.5, color="0.55", lw=1, ls=":")
     ax.set_title("Thermal unfolding • simulated")
     ax.legend(title="Preparation")
-    save(fig, "nursery_melt")
+    save_lossless(fig, "nursery_melt")
     fig, ax = axes("Time (s)", "Corrected position (µm)")
     ax.plot([0,2,4,6,8], [0,1,2,3,3], "o-")
     ax.set(xticks=[0,2,4,6,8], yticks=[0,1,2,3], title="Motion along a track • simulated")
@@ -4301,7 +4301,7 @@ def electric_membrane_studies():
         ax.plot(t, plateau * (1 - np.exp(-t/time_constant)), style, label=label, color=color, lw=2.3)
     ax.set(xlim=(0, 50), ylim=(0, 10.5), xticks=range(0, 51, 5), title="Passive membrane response • simulated")
     ax.legend()
-    save(fig, "electric_pulse")
+    save_lossless(fig, "electric_pulse")
     study_table("electric_flow", "Isolated organ perfusion", ["Run", "Inlet (mm Hg)", "Outlet (mm Hg)", "Flow (mL/min)"],
                 [["A", 45, 25, 5], ["B", 65, 25, 5]])
 
@@ -4421,7 +4421,7 @@ def wave_and_signaling_studies():
         ax.plot(distances, slope*distances, marker=marker, color=color, lw=2, label=name)
     ax.set(title="Ultrasound in two gels • simulated", xticks=distances, yticks=range(0, 51, 5), ylim=(0, 50))
     ax.legend()
-    save(fig, "wavesignal_echo")
+    save_lossless(fig, "wavesignal_echo")
     wavenumber = np.linspace(1500, 1850, 351)
     fig, ax = axes("Wavenumber (cm⁻¹)", "Absorbance (relative units)")
     for height, name, color, linestyle in [(.13, "A", COLORS[0], "--"), (.78, "B", COLORS[1], "-")]:
@@ -4582,7 +4582,7 @@ def upper_respiratory_records():
     ax.set(title="Adults with congestion and facial pressure • simulated", ylim=(-.3, 10),
            xticks=range(1, 10))
     ax.legend(title="Patient")
-    save(fig, "upperair_sinus")
+    save_lossless(fig, "upperair_sinus")
     study_table("upperair_peak", "Peak expiratory flow during a cold",
                 ["Personal best", "Yesterday", "Today"], [["400 L/min", "330 L/min", "200 L/min"]])
 
@@ -7697,7 +7697,61 @@ def respiratory_case_figures():
     save_lossless(fig, "ccsreassess_laplace")
 
 
+def cognition_course_figures():
+    fig, ax = axes("Recorded state", "Minutes")
+    bars = ax.bar(["Awake", "N1", "N2", "N3", "REM"], [60, 30, 165, 90, 75],
+                  color=["#777"] + [COLORS[0]]*4)
+    ax.bar_label(bars, padding=2)
+    ax.set(title="Simulated overnight recording", ylim=(0, 190))
+    save_lossless(fig, "cogcourse_stages")
+
+    fig, ax = axes("After the first correct recall", "Pairs recalled one week later (%)")
+    bars = ax.bar(range(4), [80, 80, 36, 33], color=[COLORS[0]]*2 + [COLORS[1]]*2)
+    ax.bar_label(bars, labels=["≈80%", "≈80%", "36%", "33%"], padding=2)
+    ax.set(xticks=range(4), xticklabels=["Study +\ntest", "Test\nonly", "Study\nonly", "Neither"],
+           title="Word-pair retention · Karpicke & Roediger (2008)", ylim=(0, 102))
+    save_lossless(fig, "cogcourse_retrieval")
+
+    fig, ax = axes("Time from conditioning input A (min)", "Test response (% of own baseline)")
+    t = [-20, -10, 0, 10, 20, 40, 60]
+    for i, series in enumerate(([99, 101, 100, 148, 145, 143, 144], [100, 99, 101, 102, 99, 101, 100])):
+        ax.plot(t, series, STYLES[i], marker=["o", "s"][i], color=COLORS[i], label=["Input A", "Input B"][i])
+    ax.axvline(0, color="#555", lw=1, ls=":")
+    ax.set(title="Simulated test responses from two independent inputs", ylim=(75, 158))
+    ax.legend()
+    save_lossless(fig, "cogcourse_inputs")
+
+    fig, ax = axes("Study environment", "Words recalled (of 15)")
+    x = np.arange(2)
+    for i, (label, counts) in enumerate([("Test in silence", [12, 7]), ("Test in noise", [8, 11])]):
+        bars = ax.bar(x + (i-.5)*.36, counts, .36, label=label, color=COLORS[i])
+        ax.bar_label(bars, padding=2)
+    ax.set(xticks=x, xticklabels=["Studied in silence", "Studied in noise"],
+           title="Simulated recall experiment", ylim=(0, 17))
+    ax.legend(ncol=2, loc="upper center")
+    save_lossless(fig, "cogcourse_context")
+
+    fig, ax = axes("Hospital care group", "Patients developing delirium (%)")
+    bars = ax.bar(["Matched usual care", "Prevention unit"], [15.0, 9.9], width=.55, color=COLORS)
+    ax.bar_label(bars, labels=["15.0%", "9.9%"], padding=3)
+    ax.set(title="Prospectively matched older inpatients · Inouye et al.", ylim=(0, 19))
+    save_lossless(fig, "cogcourse_delirium")
+
+    fig, panels = plt.subplots(1, 2, figsize=(6.2, 3.5), sharey=True, layout="constrained")
+    for i, ax in enumerate(panels):
+        y = np.arange(1, 8)
+        starts = 3 + (0*y if i == 0 else (y-1)*.75)
+        ax.barh(y, [8]*7, left=starts, color=COLORS[i], height=.55)
+        ax.set(title=["Individual A", "Individual B"][i], xlabel="Local clock time",
+               xticks=[0, 4, 8, 12, 16], xticklabels=["00", "04", "08", "12", "16"], xlim=(0,17))
+        ax.grid(axis="x", alpha=.2)
+    panels[0].set(yticks=np.arange(1, 8), ylabel="Diary day", ylim=(7.6, .4))
+    fig.suptitle("Simulated sleep diaries · bars mark reported sleep")
+    save_lossless(fig, "cogcourse_diary")
+
+
 def main():
+    cognition_course_figures()
     respiratory_case_figures()
     nutrition_practice()
     ccs_flow_figures()
@@ -7913,7 +7967,7 @@ def main():
     fig, ax = axes("Time after treatment starts (hours)", "Fraction of initial concentration (%)")
     for i, (label, y) in enumerate([("Glucose", [100, 67, 50, 46, 45]), ("Beta-hydroxybutyrate", [100, 84, 62, 36, 12])]):
         ax.plot([0, 2, 4, 6, 8], y, STYLES[i], marker="o", color=COLORS[i], lw=2.4, label=label)
-    ax.legend(); save(fig, "ketones")
+    ax.legend(); save_lossless(fig, "ketones")
     plot("egfr", "Time after first visit (months)", "eGFR (mL/min/1.73 m²)", [0, 1, 3, 4],
          {"Patient A": [54, 52, 55, 53], "Patient B": [45, 72, 80, 76]})
 

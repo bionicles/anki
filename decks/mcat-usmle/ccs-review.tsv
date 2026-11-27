@@ -607,3 +607,55 @@ original:ccsreassess-cord-b	Therapy Sequencing
 original:ccsreassess-copd-open	Monitoring Timing
 original:ccsreassess-eyes-surface	Therapy
 original:ccsreassess-eyes-defect	Therapy
+original:ccsfollow-ccs-mood-identify-b	Location
+original:ccsfollow-bh-alcohol-after-a	Monitoring
+original:ccsfollow-maternalmed-app-3-case-a	Monitoring
+original:ccsfollow-axis-aldo-bilateral-b	Therapy
+original:ccsfollow-cv3-ali-after-b	Therapy
+original:ccsfollow-wallstudy-ccs-bleed-b	Therapy
+original:ccsfollow-airinj-ccs-sept-change-b	Timing
+original:ccsfollow-ccs-leg-definitive-b	Diagnosis
+original:ccsfollow-gut-var-antibiotic-b	Therapy
+original:ccsfollow-sleepstudy-feb-home-b	Diagnosis Timing
+original:ccsfollow-ccs-hit-choice-b	Therapy
+original:ccsfollow-ccs-liver-negative-b	Diagnosis
+original:ccsfollow-ccs-joint-aspirate-open	Diagnosis
+original:ccsfollow-ccs-falls-follow-open	Diagnosis
+original:ccsfollow-ccs-melanoma-local-b	Diagnosis
+original:ccsfollow-bloodimmune-sab-3-case-b	Monitoring
+original:ccsfollow-bhmood-extra-follow-b	Location Timing
+original:ccsfollow-axis-gh-airway-b	Diagnosis
+original:ccsfollow-vlegs-ccs-confirm-a	Monitoring
+original:ccsfollow-eh-cah-add-open	Monitoring
+original:ccsfollow-ccs-ana-adjunct-a	Therapy Timing
+original:ccsfollow-lungcourse-ccs-airway-b	Timing
+original:ccsfollow-lungbreadth-inv-3-case-b	Diagnosis
+original:ccsfollow-gutimmune-list-3-case-open	Diagnosis
+original:ccsfollow-nut-refeed-baseline-b	Therapy Monitoring
+original:ccsfollow-blooddrug-war-3-case-open	Diagnosis
+original:ccsfollow-axis-pit-polyuria-b	Therapy Sequencing
+original:ccsfollow-valvefollow-my-3-case-b	Monitoring
+original:ccsfollow-ccs-stroke-clock-a	Diagnosis
+original:ccsfollow-ccs-stroke-clock-b	Diagnosis Timing
+original:ccsfollow-maternalmed-stone-3-case-open	Diagnosis
+original:ccsfollow-gynex-ccs-culture-a	Location
+original:ccsfollow-upperair-pta-3-case-b	Location
+original:ccsfollow-airinj-ccs-lower-film-b	Therapy Timing
+original:ccsfollow-defstudy-extra-blood-b	Sequencing
+original:ccsfollow-bloodimmune-vhf-3-case-a	Therapy Monitoring
+original:ccsfollow-ccs-af-aspirin-b	Therapy
+original:ccsfollow-ccs-blood-identity-b	Therapy
+original:ccsfollow-hivstudy-extra-pressure-a	Therapy
+original:ccsfollow-renalinfect-extra-follow-b	Monitoring
+original:ccsfollow-motortrial-mci-hist-b	Therapy
+original:ccsfollow-neurotrauma-shunt-image-a	Monitoring
+original:ccsfollow-nursery-tet-3-case-a	Therapy
+original:ccsfollow-nursery-hsv-3-case-open	Diagnosis
+original:ccsfollow-bloodimmune-mal-3-case-b	Therapy
+original:ccsfollow-eh-withdraw-clear-open	Diagnosis
+original:ccsfollow-eh-sodium-diuresis-b	Therapy Monitoring
+original:ccsfollow-rhevidence-preccs-3-case-b	Therapy
+original:ccsfollow-ccs-sepsis-culture-b	Diagnosis
+original:ccsfollow-ccs-testicular-before-b	Monitoring
+original:ccsfollow-born-resus-compress-open	Monitoring
+original:ccsfollow-ccs-neonatal-age-b	Therapy
