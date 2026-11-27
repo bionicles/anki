@@ -6915,7 +6915,14 @@ def mcat_changed_evidence():
                 indexed=True)
 
 
+def bph_trial():
+    study_table("bph_progression", "Clinical progression", ["Assigned treatment", "Events per 100 person-years"],
+                [["Placebo", "4.5"], ["Doxazosin", "2.7"], ["Finasteride", "2.9"],
+                 ["Doxazosin + finasteride", "1.5"]], source="MTOPS", indexed=True)
+
+
 def main():
+    bph_trial()
     mcat_changed_evidence()
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
