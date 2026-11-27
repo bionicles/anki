@@ -4959,6 +4959,73 @@ def occupational_lung_studies():
 
 
 
+def congenital_and_identity_studies():
+    """Draw original spinal schematics, longitudinal studies and the MOMS trial comparison."""
+    from matplotlib.patches import Ellipse
+
+    for name, exposed in [("meningo", False), ("myelo", True)]:
+        fig, ax = plt.subplots(figsize=(5.0, 3.3), layout="constrained")
+        ax.set(xlim=(-2.6, 2.6), ylim=(-1.1, 2.6), aspect="equal",
+               title="Spinal defect in cross-section • posterior at top")
+        ax.axis("off")
+        # A posterior sac communicates with the spinal canal through the bony gap.
+        x = [-.40, -.45, -.74, -.87, -.75, -.42, 0, .42, .75, .87, .74, .45, .40,
+              .76, .83, .55, 0, -.55, -.83, -.76, -.40]
+        y = [.42, .83, 1.10, 1.48, 1.82, 2.04, 2.11, 2.04, 1.82, 1.48, 1.10,
+             .83, .42, .20, -.22, -.54, -.65, -.54, -.22, .20, .42]
+        ax.fill(x, y, facecolor="#d7ecf2", edgecolor="#317288", linewidth=2)
+        ax.plot([-.44, -.84, -1.04, -.86, -.5, 0, .5, .86, 1.04, .84, .44],
+                [.50, .36, -.10, -.52, -.77, -.87, -.77, -.52, -.10, .36, .50],
+                color="#696866", linewidth=8, solid_capstyle="butt")
+        neural_y = 1.47 if exposed else -.10
+        ax.add_patch(Ellipse((0, neural_y), .51, .29, facecolor="#bc591d", edgecolor="#793510"))
+        if exposed:
+            ax.plot([0, -.05, -.17, -.31], [1.42, 1.03, .65, .27], color="#bc591d", lw=2)
+        for label, xy, pos in [("Neural tissue", (.20, neural_y), (1.38, neural_y+.12)),
+                               ("Bony arch", (-.95, -.13), (-1.45, -.55)),
+                               ("Meningeal sac", (-.73, 1.81), (-1.35, 2.14))]:
+            ax.annotate(label, xy, xytext=pos, ha="left" if pos[0]>0 else "right",
+                        va="center", fontsize=9, arrowprops=dict(arrowstyle="-", color="#444"))
+        save(fig, "congenstudy_" + name, indexed=True)
+
+    for name, zscores in [("smallbirth", [-2.65, -2.61, -2.56, -2.62]),
+                          ("smalllater", [.15, -.65, -1.64, -2.81])]:
+        fig, ax = axes("Age (months)", "Head circumference z score")
+        ax.axhline(-2, color="#666", linestyle=":", label="−2 SD reference")
+        ax.plot([0, 2, 4, 6], zscores, "o-", color=COLORS[0], label="Infant")
+        ax.set(xticks=[0, 2, 4, 6], ylim=(-3.5, 1.5), title="Serial measurements • term infant")
+        ax.legend()
+        save(fig, "congenstudy_" + name, indexed=True)
+
+    for name, a, b in [("stiff", [5, 7, 9, 11], [5, 14, 23, 32]),
+                       ("flex", [6, 16, 26, 36], [6, 9, 12, 15])]:
+        fig, ax = axes("Volume added (mL)", "Detrusor pressure (cm H₂O)")
+        for vals, label, style, color in [(a, "A", "o-", COLORS[0]), (b, "B", "s--", COLORS[1])]:
+            ax.plot([0, 30, 60, 90], vals, style, color=color, label="Bladder " + label)
+        ax.set(xticks=[0, 30, 60, 90], ylim=(0, 42), title="Controlled filling measurements")
+        ax.legend()
+        save(fig, "congenstudy_" + name, indexed=True)
+
+    fig, ax = axes("Assigned repair", "Received a CSF shunt (%)")
+    bars = ax.bar(["Prenatal", "Postnatal"], [40, 82], color=COLORS, width=.55)
+    ax.bar_label(bars, labels=["40%", "82%"], padding=3)
+    ax.set(ylim=(0, 100), title="MOMS trial • actual shunt placement by 12 months")
+    save(fig, "congenstudy_moms", indexed=True)
+
+    fig, ax = axes("Assessment", "Mean self-concept score")
+    ax.plot([0, 1], [2, 4], "o-", color=COLORS[0], label="Group A")
+    ax.plot([0, 1], [4, 6], "s--", color=COLORS[1], label="Group B")
+    ax.set(xticks=[0, 1], xticklabels=["Before", "After"], yticks=range(1, 8),
+           ylim=(.5, 7.5), xlim=(-.2, 1.2), title="Self-concept in two mentoring groups")
+    ax.legend()
+    save(fig, "congenstudy_equalgain", indexed=True)
+
+    for name, rows in [("switches", [["A at visit 1", 20, 10], ["B at visit 1", 10, 20]]),
+                       ("stays", [["A at visit 1", 30, 0], ["B at visit 1", 0, 30]])]:
+        study_table("congenstudy_" + name, "Preferred identity label • paired respondents",
+                    ["Initial response", "A at visit 2", "B at visit 2"], rows, indexed=True)
+
+
 def motor_and_inheritance_studies():
     """Draw clinical records, inheritance diagrams and the Clarity AD and ENDEAR results."""
     for name, durations in [("qrsrecover", [158, 138, 106, 92]),
@@ -5850,6 +5917,7 @@ def main():
     vascular_flow_studies()
     prenatal_visit_studies()
     occupational_lung_studies()
+    congenital_and_identity_studies()
     motor_and_inheritance_studies()
     sleep_and_headache_studies()
     trauma_and_neural_signals()
