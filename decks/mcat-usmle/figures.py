@@ -44,6 +44,74 @@ def plot(name, xname, yname, x, curves):
     save(fig, name)
 
 
+def mcat_protein_structures():
+    """Show deposited Cα traces and disulfides identified by sulfur–sulfur distance."""
+    import csv
+    from itertools import combinations
+
+    with (MEDIA.parent / "protein-coordinates.tsv").open() as handle:
+        records = list(csv.DictReader(handle, delimiter="\t"))
+    for name, top, bottom in [("ser", "COOH", "CH₂OH"), ("dser", "CH₂OH", "COOH")]:
+        fig, ax = plt.subplots(figsize=(3.6, 3), layout="constrained")
+        ax.set(xlim=(-1.8, 1.8), ylim=(-1.45, 1.45), aspect="equal", title="Fischer projection")
+        ax.axis("off")
+        ax.plot([0, 0], [-.65, .65], color="#333", lw=2)
+        ax.plot([-.58, .58], [0, 0], color="#333", lw=2)
+        for x, y, group in [(0, .91, top), (0, -.91, bottom), (-.98, 0, "H₂N"), (.86, 0, "H")]:
+            ax.text(x, y, group, ha="center", va="center", fontsize=15)
+        save(fig, "fold_" + name, indexed=True)
+
+    for name, midpoint, exponents in [("binding", 4, (1, 3)), ("binding_b", 6, (3, 1))]:
+        ligand = np.linspace(0, midpoint * 3, 241)
+        fig, ax = axes("Free ligand (µM)", "Fraction of binding sites occupied")
+        for i, exponent in enumerate(exponents):
+            fraction = ligand ** exponent / (midpoint ** exponent + ligand ** exponent)
+            ax.plot(ligand, fraction, STYLES[i], color=COLORS[i], label=("Protein A", "Protein B")[i], lw=2.5)
+        ax.set(xticks=np.linspace(0, midpoint * 3, 7), ylim=(0, 1.03), title="Equilibrium binding · simulated")
+        ax.legend()
+        save(fig, "fold_" + name, indexed=True)
+
+    study_table("fold_kinetics_b", "Second enzyme preparation", ["Preparation", "Km (mM)", "Vmax (µM/s)"],
+                [["X", "3", "75"], ["Y", "8", "40"]], indexed=True)
+    study_table("fold_kinetics", "Initial-rate fits", ["Condition", "Km (mM)", "Vmax (µM/s)"],
+                [["A", "4", "60"], ["B", "2", "30"], ["C", "4", "30"]],
+                indexed=True)
+    for pdb, title in [("4INS", "Porcine insulin"), ("7RSA", "Bovine ribonuclease A")]:
+        atoms = {(r["Chain"], int(r["Residue"]), r["Atom"]): np.array(
+                    [float(r[k]) for k in ("X", "Y", "Z")])
+                for r in records if r["PDB"] == pdb}
+        sulfurs = [key for key in atoms if key[2] == "SG"]
+        bonds = [(a, b) for a, b in combinations(sulfurs, 2)
+                 if np.linalg.norm(atoms[a] - atoms[b]) < 2.2]
+        assert len(bonds) == {"4INS": 3, "7RSA": 4}[pdb]
+        fig = plt.figure(figsize=(6.2, 3.45), layout="constrained")
+        spatial = fig.add_subplot(121, projection="3d", proj_type="ortho")
+        key = fig.add_subplot(122)
+        for color, chain in zip(COLORS, sorted({k[0] for k in atoms})):
+            trace = [v for (c, n, atom), v in sorted(atoms.items()) if c == chain and atom == "CA"]
+            spatial.plot(*np.array(trace).T, color=color, lw=2, label=f"Chain {chain}")
+        for a, b in bonds:
+            for side in (a, b):
+                xyz = [atoms[(*side[:2], atom)] for atom in ("CA", "CB", "SG")]
+                spatial.plot(*np.array(xyz).T, color="#808080", lw=1)
+            spatial.plot(*np.array([atoms[a], atoms[b]]).T, color="#a56b00", lw=4)
+        spatial.view_init(elev=17, azim=-54)
+        spatial.set_box_aspect(np.ptp(np.array(list(atoms.values())), axis=0))
+        spatial.set_axis_off()
+        spatial.legend(loc="lower left", fontsize=9, frameon=False)
+        key.axis("off")
+        data = [[f"{a[0]} · {a[1]}", f"{b[0]} · {b[1]}"] for a, b in bonds]
+        grid = key.table(cellText=data, colLabels=["End 1", "End 2"], cellLoc="center",
+                         loc="center", bbox=[.04,.21,.92,.6])
+        grid.auto_set_font_size(False)
+        grid.set_fontsize(10)
+        for col in range(2):
+            grid[0,col].set_facecolor("#e2edf1")
+        key.set_title("Cysteines joined by S–S\n(chain · residue)", fontsize=11)
+        fig.suptitle(f"{title}   ·   PDB {pdb}")
+        save(fig, "fold_" + pdb.lower(), indexed=True)
+
+
 def mcat_chemistry():
     # Idealized spectral windows. The axes distinguish absorption from transmission.
     fig, ax = axes("Wavenumber (cm⁻¹)", "Transmittance (%)")
@@ -529,6 +597,9 @@ def reproductive():
 
 
 def endocrine():
+    study_table("fold_wisdm", "Median time below 70 mg/dL", ["Assigned group", "Baseline", "Follow-up"],
+                [["CGM", "5.1%", "2.7%"], ["Standard monitoring", "4.7%", "4.9%"]],
+                source="WISDM (2020)", indexed=True)
     # The insulin panels use values drawn during symptoms, before any glucose was given.
     for case, glucose, insulin, peptide, ketone, agent in [
         ("a", 42, 19, 2.5, .3, "None detected"),
@@ -6521,6 +6592,7 @@ def main():
     mcat_changed_evidence()
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
+    mcat_protein_structures()
     cardiovascular()
     renal_studies()
     renal_anatomy()

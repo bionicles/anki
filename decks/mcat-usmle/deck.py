@@ -301,6 +301,12 @@ def visual_source_coverage(cards, blueprint, named):
     """Inventory the front images on explicitly mapped questions, including topics with none."""
     figures = {r["ID"]: r["Figure"] for r in cards if r["Figure"].endswith(IMAGE_SUFFIXES)}
     credited = {r["Figure"] for ledger in ("imaging.tsv", "specimens.tsv") for r in table(ROOT / ledger)}
+    for pdb in {row["PDB"] for row in table(ROOT / "protein-coordinates.tsv")}:
+        filename = f"med_fold_{pdb.lower()}.png"
+        references = [card for card in cards if card["Figure"] == filename]
+        assert references and all(f"https://www.rcsb.org/structure/{pdb}" in card["Source"]
+                                  and "CC0 1.0" in card["License"] for card in references), pdb
+        credited.add(filename)
     topics = [("MCAT", r["Domain"].split(" · ")[0], r["Domain"], r["ReviewedCardIDs"])
               for r in blueprint if r["Exam"] == "MCAT" and r["Axis"] == "Subtopic"]
     topics.extend((r["Exam"], r["Family"], r["Item"], r["CardIDs"]) for r in named)
@@ -509,7 +515,7 @@ def file_hash(path):
 
 
 def build_inputs(lock):
-    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "mcat-transfer.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step-items.tsv", "step_coverage.py", "intrapartum.py", "ptbxl.py", "ptbxl.tsv", "figures.py", "heart-sounds.tsv", "heart_sounds.py")]
+    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "mcat-transfer.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step-items.tsv", "step_coverage.py", "intrapartum.py", "ptbxl.py", "ptbxl.tsv", "figures.py", "heart-sounds.tsv", "heart_sounds.py", "protein-coordinates.tsv")]
     paths.extend(sorted(p for p in (ROOT / "media").iterdir() if p.suffix in MEDIA_SUFFIXES))
     return {"sources": lock, "files": {p.relative_to(ROOT).as_posix(): file_hash(p) for p in paths}}
 
