@@ -4959,6 +4959,70 @@ def occupational_lung_studies():
 
 
 
+def immunodeficiency_and_learning():
+    """Draw immune test results, two illustrative tissue patterns and study outcomes."""
+    from matplotlib.patches import Circle, Ellipse
+    fig, ax = plt.subplots(figsize=(5.0, 2.5), layout="constrained")
+    ax.axis("off")
+    ax.set_title("Immune evaluation at 14 months", fontsize=14)
+    panel = ax.table(cellText=[["CD19+ B cells", "<1% of lymphocytes"],
+                               ["T-cell count", "Within age range"],
+                               ["IgG, IgA, IgM", "All below age range"]],
+                     colLabels=["Test", "Finding"], cellLoc="center",
+                     bbox=[.02, .09, .96, .77])
+    panel.set_fontsize(11)
+    save(fig, "defstudy_bcells", indexed=True)
+
+    for name, suppurative in [("abscess", True), ("gran", False)]:
+        fig, ax = plt.subplots(figsize=(5.0, 2.6), layout="constrained")
+        ax.set(aspect="equal", xlim=(-1.7, 3.9), ylim=(-1.35, 1.4))
+        ax.axis("off")
+        ax.set_title("Schematic tissue section", fontsize=13)
+        ax.add_patch(Ellipse((0, 0), 2.9, 2.18,
+                             facecolor="#fdf0d6", edgecolor="#9c7161", lw=2))
+        if suppurative:
+            for x, y in [(-.82,.2),(-.26,.63),(.57,.31),(.69,-.44),(-.44,-.50)]:
+                ax.add_patch(Circle((x,y), .21, facecolor="#e5d9ed", edgecolor="#927d9f"))
+                for dx, dy in [(-.07,.04),(.02,-.04),(.09,.04)]:
+                    ax.add_patch(Circle((x+dx,y+dy), .065, facecolor="#6b427c"))
+            for x, y in [(-.7,.63),(.05,.07),(.05,-.38),(.5,.7),(-.75,-.31)]:
+                ax.plot(x,y,"x",color="#937b60",ms=4)
+            ax.annotate("Neutrophil", xy=(.59,.31), xytext=(1.7,.6),
+                        arrowprops={"arrowstyle":"->"}, va="center")
+            ax.annotate("Cellular debris", xy=(.07,-.38), xytext=(1.7,-.52),
+                        arrowprops={"arrowstyle":"->"}, va="center")
+        else:
+            for angle in np.linspace(0, 2*np.pi, 11, endpoint=False):
+                x, y = 1.04*np.cos(angle), .78*np.sin(angle)
+                ax.add_patch(Ellipse((x,y), .50, .29, angle=np.degrees(angle)+90,
+                                     facecolor="#d7b49f",edgecolor="#95665b"))
+                ax.add_patch(Circle((x,y), .078,facecolor="#795683"))
+            ax.add_patch(Ellipse((0,0),1.04,.76,facecolor="#d4a899",edgecolor="#95665b"))
+            for x,y in [(-.28,.02),(-.11,.17),(.12,.15),(.27,-.03)]:
+                ax.add_patch(Circle((x,y), .078,facecolor="#795683"))
+            ax.annotate("Macrophages", xy=(.96,.32), xytext=(1.7,.64),
+                        arrowprops={"arrowstyle":"->"}, va="center")
+            ax.annotate("Giant cell", xy=(.25,0), xytext=(1.7,-.53),
+                        arrowprops={"arrowstyle":"->"}, va="center")
+        save(fig, "defstudy_" + name, indexed=True)
+
+    fig, ax = axes("Status at transplantation after age 3.5 months", "Five-year survival (%)")
+    bars = ax.bar(["Never infected", "Resolved infection", "Active infection"],
+                  [90,82,50], width=.59, color=[COLORS[0], "#708897", COLORS[1]])
+    ax.set(ylim=(0,105), title="SCID transplant cohort, 2000–2009")
+    ax.bar_label(bars, padding=3)
+    save(fig, "defstudy_cohort", indexed=True)
+
+    fig, ax = axes("Argument quality", "Audience endorsement (%)")
+    for j, (label, value) in enumerate([("Low prestige",30),("High prestige",50)]):
+        ax.plot([0,1], [value,value], STYLES[j], marker=["o","s"][j], color=COLORS[j],
+                lw=2.3, label=label)
+    ax.set(xticks=[0,1], xticklabels=["Weak","Strong"], xlim=(-.2,1.2), ylim=(0,80),
+           title="Simulated message experiment")
+    ax.legend(loc="upper center",ncol=2)
+    save(fig, "defstudy_arguments", indexed=True)
+
+
 def hiv_and_circuit_studies():
     """Display serial observations, paired laboratory findings, trial risks and a circuit."""
     fig, ax = axes("Month", "CD4 cells/µL")
@@ -5538,6 +5602,7 @@ def main():
     vascular_flow_studies()
     prenatal_visit_studies()
     occupational_lung_studies()
+    immunodeficiency_and_learning()
     hiv_and_circuit_studies()
     immunotherapy_and_electricity()
     immune_reaction_and_fuel_studies()
