@@ -4959,6 +4959,38 @@ def occupational_lung_studies():
 
 
 
+def renal_filtration_and_obstruction():
+    """Simulated traces and ureter diagrams used for paired localization questions."""
+    hours = np.arange(25)
+    for name, baseline, target in [("fall", 1, 2.5), ("recover", 3, 1)]:
+        fig, ax = axes("Hours after change in filtration", "Serum creatinine (mg/dL)")
+        evolving = target + (baseline - target) * np.exp(-hours / 12)
+        steady = np.full(25, baseline)
+        curves = (steady, evolving) if name == "fall" else (evolving, steady)
+        for label, values, color, style in zip(("A", "B"), curves, COLORS, STYLES):
+            ax.plot(hours, values, color=color, ls=style, lw=2.5, label="Curve " + label)
+        ax.set(xlim=(0, 24), xticks=[0, 6, 12, 18, 24], ylim=(0.6, 3.5))
+        ax.legend()
+        save(fig, "renaltrend_" + name, indexed=True)
+
+    for name, stone in [("distal", (2.15, 0.85)), ("proximal", (1.68, 3.3))]:
+        fig, ax = plt.subplots(figsize=(3.8, 3.4), layout="constrained")
+        ax.set(xlim=(0, 4), ylim=(0, 4.3), aspect="equal")
+        ax.axis("off")
+        ax.plot([0.5, 1, 1.55, 1.68], [3.9, 3.6, 3.55, 3.3], lw=3, color=COLORS[0])
+        ax.plot([0.5, 1, 1.55], [3.2, 3.5, 3.55], lw=3, color=COLORS[0])
+        ax.plot([1.68, 1.72, 1.9, 2.15], [3.3, 2.65, 1.85, 0.85], lw=3, color=COLORS[0])
+        ax.add_patch(plt.matplotlib.patches.Ellipse((2.45, 0.65), 1.3, 0.55,
+                     facecolor="none", edgecolor=COLORS[0], linewidth=2))
+        ax.text(1.4, 3.98, "Collecting system", fontsize=11)
+        ax.text(0.6, 2.0, "Ureter", fontsize=11)
+        ax.text(2.45, 0.14, "Bladder", ha="center", fontsize=11)
+        ax.scatter(*stone, s=95, color=COLORS[1], zorder=3)
+        ax.annotate("Stone", xy=stone, xytext=(3.05, stone[1]+0.35),
+                    arrowprops={"arrowstyle": "->"}, fontsize=11)
+        save(fig, "renaltrend_" + name, indexed=True)
+
+
 def respiratory_injury_studies():
     """Draw simulated clinical and behavioral records and the NoPAC trial estimate."""
     for name, sinus, ambient in (("squeeze", 110, 125), ("reverse", 120, 110)):
@@ -5105,6 +5137,7 @@ def main():
     vascular_flow_studies()
     prenatal_visit_studies()
     occupational_lung_studies()
+    renal_filtration_and_obstruction()
     respiratory_injury_studies()
     hypothesis_error_regions()
     agreement_figures()
