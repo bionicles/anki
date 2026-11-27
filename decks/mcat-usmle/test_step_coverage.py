@@ -127,6 +127,18 @@ class MCATScienceCoverageTest(unittest.TestCase):
         self.assertEqual([row["MappedCards"] for row in rows], ["3", "2", "0"])
         self.assertEqual([row["PairIDs"] for row in rows], ["a b", "", ""])
 
+    def test_second_pair_requires_four_distinct_cards_on_the_same_detail(self):
+        from deck import MCAT_SCIENCE_SKILLS, mcat_detail_coverage
+
+        topic = {col + "PairIDs": "" for col in MCAT_SCIENCE_SKILLS.values()}
+        topic.update(Subtopic="3B · Transport", KnowledgePairIDs="a b | a c | b d")
+        rows = [dict(Exam="MCAT", Axis="Outline detail", Domain="3B · " + detail,
+                     ReviewedCardIDs=ids, Outline="source", NextAudit="review")
+                for detail, ids in [("Overlapping", "a b c"), ("Independent", "a b c d")]]
+        overlap, independent = mcat_detail_coverage(rows, [topic])
+        self.assertEqual(overlap["TwoIndependentPairIDs"], "")
+        self.assertEqual(independent["TwoIndependentPairIDs"], "a c | b d")
+
     def test_detail_in_one_topic_does_not_cover_neighbors(self):
         from deck import MCAT_SCIENCE_SKILLS, mcat_topics_without_indexed_pairs
 

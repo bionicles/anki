@@ -2,6 +2,7 @@
 import argparse
 from collections import Counter, defaultdict
 from contextlib import closing
+from itertools import combinations
 import csv
 import fcntl
 import gzip
@@ -256,9 +257,13 @@ def mcat_detail_coverage(blueprint, science):
             raise ValueError(f"Unknown category or empty MCAT detail: {row['Domain']}")
         ids = set(row["ReviewedCardIDs"].split())
         matched = sorted(pair for pair in pairs[category] if set(pair.split()) <= ids)
+        # Two rows that reuse the same case cannot supply four retrieval opportunities.
+        independent = next((f"{left} | {right}" for left, right in combinations(matched, 2)
+                            if set(left.split()).isdisjoint(right.split())), "")
         report.append(dict(Category=category, Detail=detail, Outline=row["Outline"],
                            MappedCards=str(len(ids)), CardIDs=" ".join(sorted(ids)),
                            ChangedPairs=str(len(matched)), PairIDs=" | ".join(matched),
+                           TwoIndependentPairIDs=independent,
                            NextAudit=row["NextAudit"]))
     return report
 
@@ -586,6 +591,8 @@ def display_gaps(items, science, details=()):
             groups[category].append(topic)
         print("MCAT topic groups awaiting a pair linked to an indexed detail")
         show(groups)
+        independent = sum(bool(r["TwoIndependentPairIDs"]) for r in details)
+        print(f"MCAT indexed decisions with two case pairs using four distinct cards: {independent}/{len(details)}")
         for field, description in (("MappedCards", "a specifically linked question"),
                                    ("ChangedPairs", "a linked changed-case pair")):
             groups = defaultdict(list)

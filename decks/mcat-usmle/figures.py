@@ -596,6 +596,46 @@ def reproductive():
         save(fig, "repro_uterus_" + code)
 
 
+def organ_system_practice():
+    """Draw cell morphology and matched oxygen-binding and growth scenarios."""
+    from matplotlib.patches import Circle, FancyBboxPatch
+
+    for name, spherical in [("cocci", True), ("rods", False)]:
+        fig, ax = plt.subplots(figsize=(4.5, 2.1), layout="constrained")
+        ax.set(aspect="equal", xlim=(-2.7, 2.7), ylim=(-1, 1))
+        for x in [-1.6, -.8, 0, .8, 1.6]:
+            if spherical:
+                cell = Circle((x, 0), .4)
+            else:
+                cell = FancyBboxPatch((x-.4, -.19), .8, .38,
+                                      boxstyle="round,pad=0,rounding_size=0.19")
+            cell.set(facecolor="#cce6eb", edgecolor="#245267", linewidth=2)
+            ax.add_patch(cell)
+        ax.axis("off")
+        ax.set_title("Schematic field · individual cell outlines")
+        save(fig, "orgsys_" + name, indexed=True)
+
+    fig, ax = plt.subplots(figsize=(5.2, 3.2), layout="constrained")
+    pressure = np.linspace(0, 100, 251)
+    for half, name, color, style in [(27, "A", COLORS[0], "-"), (36, "B", COLORS[1], "--")]:
+        saturation = 100 * pressure**2.7 / (half**2.7 + pressure**2.7)
+        ax.plot(pressure, saturation, color=color, linestyle=style, label=name, lw=2)
+    ax.axvline(40, color="#555555", ls=":", lw=1)
+    ax.set(xlabel="Oxygen tension (mm Hg)", ylabel="Hemoglobin saturation (%)",
+           xlim=(0, 100), ylim=(0, 102), title="Simulated oxygen-binding curves")
+    ax.legend(title="Sample")
+    save(fig, "orgsys_affinity", indexed=True)
+
+    for suffix, vals in [("steady", [135, 140, 145]), ("slowing", [135, 140, 141])]:
+        fig, ax = plt.subplots(figsize=(4.7, 3), layout="constrained")
+        ax.plot([11, 12, 13], vals, marker="o", color=COLORS[0], lw=2)
+        for age, height in zip([11, 12, 13], vals):
+            ax.annotate(str(height), (age, height), xytext=(0, 8), textcoords="offset points", ha="center")
+        ax.set(xlabel="Age (years)", ylabel="Standing height (cm)", xticks=[11, 12, 13],
+               xlim=(10.8, 13.2), ylim=(132, 149), title="Simulated annual height record")
+        save(fig, "adogrowth_" + suffix, indexed=True)
+
+
 def biomolecular_figures():
     """Draw the oxygen substituents at the tested center and reported study endpoints."""
     for suffix, top in [("hemi", "OH"), ("acetal", "OCH₃")]:
@@ -6938,6 +6978,7 @@ def main():
     child_development()
     older_muscle()
     biomolecular_figures()
+    organ_system_practice()
     plot("refeed", "Hours after starting nutrition", "Serum phosphate (mg/dL)",
          [0,12,24,36,48], {"Patient A": [3.2,2.9,2.4,1.8,1.6],
                             "Patient B": [3.1,3.2,3.0,3.1,3.1]})
