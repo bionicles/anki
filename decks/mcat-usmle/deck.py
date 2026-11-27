@@ -571,6 +571,12 @@ def ccs_coverage(cards, reviews, pathways):
         row["RelatedDecisions"] = " | ".join(p["Decision"] for p in linked[topic])
         row["PathwayCardIDs"] = " | ".join(" ".join(p[k] for k in ("OpeningID", "FirstOutcomeID", "ChangedOutcomeID"))
                                             for p in linked[topic])
+        # A cross-topic pathway can legitimately contribute one decision to a heading.
+        # Count full practice here only if both alternative outcomes are in this heading.
+        local = set(ids)
+        outcome_pairs = {(p["FirstOutcomeID"], p["ChangedOutcomeID"]) for p in linked[topic]
+                         if {p["FirstOutcomeID"], p["ChangedOutcomeID"]} <= local}
+        row["LocalOutcomePairIDs"] = " | ".join(" ".join(pair) for pair in sorted(outcome_pairs))
         report.append(row)
     return report, tags
 
@@ -591,6 +597,8 @@ def display_ccs(rows):
     decisions = {d for r in rows for d in r["PathwayCardIDs"].split(" | ") if d}
     missing = sum(len(r["UnreviewedIDs"].split()) for r in rows)
     print(f"  Reviewed opening decisions with two changed outcomes: {len(decisions)}")
+    paired = sum(bool(r["LocalOutcomePairIDs"]) for r in rows)
+    print(f"  Topics with both alternative outcome cards in the heading: {paired}/{len(rows)}")
     print(f"  Cards awaiting domain review: {missing}")
 
 

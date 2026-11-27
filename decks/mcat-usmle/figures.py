@@ -7657,7 +7657,48 @@ def nutrition_practice():
     save_lossless(fig, "nutritionlab_hall")
 
 
+def respiratory_case_figures():
+    # Separate panels retain clinical units and make each trajectory independently readable.
+    for name, fibrinogen, platelets in [
+        ("fibrinogen", [170, 118, 66], [86, 79, 82]),
+        ("platelets", [218, 221, 230], [53, 29, 12]),
+    ]:
+        fig, panels = plt.subplots(2, 1, figsize=(5.1, 4.1), sharex=True, layout="constrained")
+        fig.suptitle("Simulated APL induction · serial coagulation results")
+        for ax, series, unit, color in zip(panels, [fibrinogen, platelets],
+                                           ["Fibrinogen (mg/dL)", "Platelets (10³/µL)"], COLORS):
+            ax.plot([0, 4, 8], series, "o-", color=color, lw=2)
+            ax.set(ylabel=unit, ylim=(0, max(series)*1.35), xticks=[0, 4, 8])
+            ax.grid(alpha=.18)
+            ax.annotate(str(series[-1]), (8, series[-1]), xytext=(-6, 9),
+                        textcoords="offset points", ha="right")
+        panels[-1].set_xlabel("Hours after first sample")
+        save_lossless(fig, "ccsreassess_" + name)
+
+    fig, ax = axes("Position during trial ventilation", "Day-28 mortality (%)")
+    bars = ax.bar(["Supine", "Prone"], [32.8, 16.0], width=.55, color=COLORS)
+    ax.bar_label(bars, labels=["32.8%", "16.0%"], padding=3)
+    ax.set(title="PROSEVA · randomized severe ARDS trial", ylim=(0, 40))
+    save_lossless(fig, "ccsreassess_ards_trial")
+
+    fig, ax = axes("Flow", "Volume per minute (mL/min)")
+    bars = ax.bar(["Net capillary input", "Lymph drainage"], [8, 5], width=.52, color=COLORS)
+    ax.bar_label(bars, padding=3)
+    ax.set(title="Simulated tissue bed · constant flows", ylim=(0, 10))
+    save_lossless(fig, "ccsreassess_fluid_flow")
+
+    fig, ax = axes("Airspace radius (model units)", "Distending pressure (model units)")
+    radii = np.linspace(1, 4, 80)
+    for i, tension in enumerate((2, 4)):
+        ax.plot(radii, 2*tension/radii, STYLES[i], lw=2.3, color=COLORS[i],
+                label=["Interface A", "Interface B"][i])
+    ax.set(title="Spherical airspace with one air–liquid interface", xticks=[1, 2, 3, 4])
+    ax.legend()
+    save_lossless(fig, "ccsreassess_laplace")
+
+
 def main():
+    respiratory_case_figures()
     nutrition_practice()
     ccs_flow_figures()
     meal_iron_figure()

@@ -558,3 +558,52 @@ original:endocases-shock-course-changed	Diagnosis Therapy Timing
 original:endocases-critical-sample-opening	Diagnosis Timing
 original:endocases-critical-sample-first	Diagnosis Timing
 original:endocases-critical-sample-changed	Diagnosis Location Sequencing
+original:ccsreassess-breast-b	Monitoring
+original:ccsreassess-thyroid-airway-open	Diagnosis
+original:ccsreassess-thiamine-b	Therapy
+original:ccsreassess-apl-products-a	Therapy
+original:ccsreassess-apl-products-b	Therapy
+original:ccsreassess-diarrhea-kidney-a	Monitoring
+original:ccsreassess-diarrhea-kidney-b	Location Timing
+original:ccsreassess-stone-open	Diagnosis
+original:ccsreassess-stone-a	Therapy Timing
+original:ccsreassess-pprom-open	Monitoring
+original:ccsreassess-alpha-a	Sequencing
+original:ccsreassess-alpha-b	Therapy Sequencing
+original:ccsreassess-rehydration-open	Diagnosis
+original:ccsreassess-ten-a	Monitoring
+original:ccsreassess-ten-b	Location Timing
+original:ccsreassess-ace-open	Therapy Timing
+original:ccsreassess-ace-a	Monitoring
+original:ccsreassess-neutropenia-a	Location Timing
+original:ccsreassess-apl-result-a	Therapy
+original:ccsreassess-brue-open	Diagnosis
+original:ccsreassess-brue-b	Diagnosis Location
+original:ccsreassess-hives-b	Therapy Timing
+original:ccsreassess-ttp-b	Diagnosis
+original:ccsreassess-component-open	Sequencing
+original:ccsreassess-pancytopenia-open	Diagnosis
+original:ccsreassess-melanoma-a	Diagnosis
+original:ccsreassess-melanoma-b	Diagnosis
+original:ccsreassess-ttp-sample-a	Diagnosis
+original:ccsreassess-parotitis-a	Diagnosis Timing
+original:ccsreassess-parotitis-b	Diagnosis Timing
+original:ccsreassess-adhesions-open	Monitoring
+original:ccsreassess-asplenia-open	Monitoring
+original:ccsreassess-asplenia-a	Therapy Timing
+original:ccsreassess-burkitt-open	Diagnosis Sequencing
+original:ccsreassess-methemoglobin-a	Monitoring
+original:ccsreassess-hus-a	Therapy
+original:ccsreassess-newborn-airway-open	Monitoring
+original:ccsreassess-ulcer-open	Diagnosis
+original:ccsreassess-ulcer-a	Therapy
+original:ccsreassess-eyes-a	Timing
+original:ccsreassess-thyroid-drug-a	Diagnosis
+original:ccsreassess-apl-syndrome-a	Therapy
+original:ccsreassess-pituitary-a	Monitoring
+original:ccsreassess-seizure-open	Therapy Timing
+original:ccsreassess-transfusion-open	Sequencing
+original:ccsreassess-cord-b	Therapy Sequencing
+original:ccsreassess-copd-open	Monitoring Timing
+original:ccsreassess-eyes-surface	Therapy
+original:ccsreassess-eyes-defect	Therapy

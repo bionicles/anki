@@ -77,6 +77,11 @@ class CCSTest(unittest.TestCase):
         self.assertEqual(report[1]["LocationIDs"], "")
         self.assertEqual(report[1]["PathwayCardIDs"], "0 1 2")
         self.assertIn("ccs_case::fever", tags["2"])
+        self.assertTrue(all(not row["LocalOutcomePairIDs"] for row in report))
+        regrouped = [dict(c, Topic="Return") if c["ID"] == "1" else c for c in cards]
+        report, _ = ccs_coverage(regrouped, reviews, [course])
+        self.assertEqual({r["Topic"]: r["LocalOutcomePairIDs"] for r in report},
+                         {"Return": "1 2", "Start": ""})
         with self.assertRaises(ValueError):
             ccs_coverage(cards, reviews, [dict(course, ChangedOutcomeID="0")])
         cards[1]["Figure"] = cards[2]["Figure"] = "shared.webp"
