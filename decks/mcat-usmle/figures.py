@@ -4959,6 +4959,40 @@ def occupational_lung_studies():
 
 
 
+def spine_and_separation_studies():
+    """Plot simulated blood pressure and chromatography records and the Nordsten-DS estimate."""
+    for name, context, values in [
+        ("rise", ["Usual seated", "Headache", "Repeat"], [94, 136, 138]),
+        ("fall", ["Supine", "Seated 1 min", "Seated 3 min"], [116, 92, 86]),
+    ]:
+        fig, ax = axes("Observation", "Systolic blood pressure (mm Hg)")
+        ax.plot(context, values, "o-", color=COLORS[0])
+        for i, value in enumerate(values):
+            ax.annotate(str(value), (i, value), xytext=(0, 7), textcoords="offset points", ha="center")
+        ax.set(ylim=(65, 158), xlim=(-.2, 2.2), title="Blood pressure record • high spinal injury")
+        save(fig, "spinestudy_" + name, indexed=True)
+
+    time = np.linspace(0, 12, 420)
+    for name, width in [("resolved", .32), ("overlap", 1.10)]:
+        fig, ax = axes("Retention time (min)", "Detector response (arbitrary units)")
+        response = (np.exp(-.5 * ((time-4.8)/width)**2)
+                    + .9 * np.exp(-.5 * ((time-7.2)/width)**2))
+        ax.plot(time, response, color=COLORS[0], linewidth=2.3)
+        ax.set(xlim=(0, 12), ylim=(-.03, 1.25), title="Two-analyte mixture • simulated detector trace")
+        save(fig, "spinestudy_" + name, indexed=True)
+
+    fig, ax = axes("Responder difference (percentage points)", "")
+    ax.axvline(-15, color=COLORS[1], linestyle="--", label="Prespecified boundary (−15)")
+    ax.axvline(0, color="#777", linestyle=":", label="Equal response rates")
+    ax.errorbar(.4, 0, xerr=[[11.6], [11.5]], fmt="o", color=COLORS[0],
+                capsize=6, linewidth=2.3)
+    ax.text(.4, .18, "+0.4 (95% CI −11.2 to +11.9)", ha="center", fontsize=9)
+    ax.set(yticks=[], xlim=(-22, 19), ylim=(-.7, .85),
+           title="Nordsten-DS • decompression alone minus fusion")
+    ax.legend(loc="lower center", fontsize=8)
+    save(fig, "spinestudy_nord", indexed=True)
+
+
 def abdominal_wall_and_equity_studies():
     """Show groin landmarks, reported INCA outcomes and simulated population comparisons."""
     from matplotlib.patches import Ellipse
@@ -5961,6 +5995,7 @@ def main():
     vascular_flow_studies()
     prenatal_visit_studies()
     occupational_lung_studies()
+    spine_and_separation_studies()
     abdominal_wall_and_equity_studies()
     congenital_and_identity_studies()
     motor_and_inheritance_studies()
