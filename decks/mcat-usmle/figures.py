@@ -596,6 +596,32 @@ def reproductive():
         save(fig, "repro_uterus_" + code)
 
 
+def child_development():
+    """Plot measured newborn weight loss and windows of motor milestone attainment."""
+    fig, ax = axes("Age after delivery (hours)", "Median loss from birth weight (%)")
+    for mode, hours, loss, style in [
+        ("Vaginal", [24, 48, 72], [4.2, 7.1, 6.4], "-o"),
+        ("Cesarean", [24, 48, 72, 96], [4.9, 8.0, 8.6, 5.8], "--s"),
+    ]:
+        ax.plot(hours, loss, style, lw=2, label=mode)
+    ax.set(xticks=[24, 48, 72, 96], ylim=(0, 10), title="Exclusively breastfed newborns · Flaherman et al.")
+    ax.legend()
+    save(fig, "child_weight_loss", indexed=True)
+
+    fig, ax = plt.subplots(figsize=(6.5, 3.5), layout="constrained")
+    skills = ["Sit unsupported", "Stand with assistance", "Hands-and-knees crawl",
+              "Walk with assistance", "Stand alone", "Walk alone"]
+    starts = [3.8, 4.8, 5.2, 6.0, 6.9, 8.2]
+    ends = [9.2, 11.4, 13.5, 13.7, 16.9, 17.6]
+    for i, (start, end) in enumerate(zip(starts, ends, strict=True)):
+        ax.plot([start, end], [i, i], "o-", lw=2, color=COLORS[0])
+        ax.text(start - .35, i, f"{start:.1f}", ha="right", va="center", fontsize=9)
+        ax.text(end + .35, i, f"{end:.1f}", va="center", fontsize=9)
+    ax.set(yticks=range(6), yticklabels=skills, xlim=(1.5, 19.5), ylim=(5.5, -.5),
+           xlabel="Age of first attainment (months)", title="1st to 99th percentile · WHO Motor Development Study")
+    save(fig, "child_motor_windows", indexed=True)
+
+
 def atomic_evidence():
     """Render teaching spectra, orbital occupancies and radioactive tracer decay."""
     from matplotlib.patches import Rectangle
@@ -6843,6 +6869,7 @@ def main():
     population_health()
     musculoskeletal_recovery()
     atomic_evidence()
+    child_development()
     plot("refeed", "Hours after starting nutrition", "Serum phosphate (mg/dL)",
          [0,12,24,36,48], {"Patient A": [3.2,2.9,2.4,1.8,1.6],
                             "Patient B": [3.1,3.2,3.0,3.1,3.1]})
