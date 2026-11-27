@@ -4959,6 +4959,73 @@ def occupational_lung_studies():
 
 
 
+def sleep_and_headache_studies():
+    """Render original patient diaries, a cognition experiment and two published comparisons."""
+    for name, responses in [("ltp", [99, 101, 100, 164, 154, 151, 150]),
+                            ("transient", [100, 99, 101, 160, 122, 102, 99])]:
+        fig, ax = axes("Minutes relative to conditioning", "Test response (% of baseline)")
+        ax.plot([-15, -10, -5], responses[:3], "o-", color=COLORS[0])
+        ax.plot([2, 15, 30, 45], responses[3:], "o-", color=COLORS[0])
+        ax.axvline(0, linestyle="--", color="#68747a", linewidth=1.3)
+        ax.axhline(100, linestyle=":", color="#68747a", linewidth=1)
+        ax.set(ylim=(75, 180), xticks=[-15, 0, 15, 30, 45],
+               title="Fixed test stimulus · conditioning train at 0 min")
+        save(fig, "sleepstudy_" + name, indexed=True)
+
+    for name, migraine, pressure in [
+        ("distinct", [1, 5, 10], [2, 4, 7, 8]),
+        ("overlap", [1, 3, 6, 9], [2, 3, 4, 6, 7, 8]),
+    ]:
+        fig, ax = axes("Day of observation", "")
+        for y, days, color, marker in [(1, migraine, COLORS[0], "o"), (0, pressure, COLORS[1], "s")]:
+            ax.scatter(days, [y] * len(days), c=color, marker=marker, s=64)
+        ax.set(yticks=[0, 1], yticklabels=["Pressure-type", "Migraine"],
+               xticks=range(1, 11), ylim=(-.6, 1.6), xlim=(.6, 10.4),
+               title="Headache diary · one mark per type per date")
+        save(fig, "sleepstudy_" + name, indexed=True)
+
+    fig, ax = axes("Time of day", "Day of bout")
+    for day, start, minutes in [(1, 1.0, 60), (2, 1.2, 55), (3, 1.0, 70),
+                                (4, 1.35, 65), (5, 1.1, 60)]:
+        ax.broken_barh([(start, minutes / 60)], (day - .3, .6), facecolors=COLORS[0])
+    ax.set(xlim=(0, 6), xticks=range(7), xticklabels=[f"{h:02d}:00" for h in range(7)],
+           ylim=(5.6, .4), yticks=range(1, 6), title="Recorded painful intervals")
+    save(fig, "sleepstudy_cluster", indexed=True)
+
+    for name, starts in [("delay", [26.75, 27.25, 27.0, 27.5]),
+                         ("advance", [18.75, 19.25, 19.0, 19.5])]:
+        fig, ax = axes("Clock time from evening to midday", "Free day")
+        for day, start in enumerate(starts, 1):
+            ax.broken_barh([(start, 8)], (day - .28, .56), facecolors=COLORS[0])
+        times = [18, 21, 24, 27, 30, 33, 36]
+        ax.set(xlim=(18, 36), xticks=times, xticklabels=[f"{h % 24:02d}:00" for h in times],
+               ylim=(4.6, .4), yticks=[1, 2, 3, 4], title="Sleep diary · bars show time asleep")
+        save(fig, "sleepstudy_" + name, indexed=True)
+
+    for name, labels, rates, outcome, title in [
+        ("absence", ["Ethosuximide", "Valproate", "Lamotrigine"], [53, 58, 29],
+         "Freedom from treatment failure (%)", "Childhood absence epilepsy trial"),
+        ("oxygen", ["Oxygen", "Air"], [78, 20], "Attacks meeting endpoint (%)",
+         "Cluster headache trial · relief at 15 minutes"),
+    ]:
+        fig, ax = axes("Randomized treatment", outcome)
+        bars = ax.bar(labels, rates, color=COLORS[0], width=.6)
+        ax.bar_label(bars, labels=[f"{v}%" for v in rates], padding=3)
+        ax.set(ylim=(0, 100), title=title)
+        save(fig, "sleepstudy_" + name, indexed=True)
+
+    fig, ax = plt.subplots(figsize=(4.8, 2.0), layout="constrained")
+    ax.axis("off")
+    ax.set_title("Recall of a new list · simulated experiment")
+    table = ax.table(cellText=[["A", "30", "20"], ["B", "24", "8"]],
+                     colLabels=["Group", "Old-list intrusions", "Participants"],
+                     cellLoc="center", colWidths=[.19, .48, .33], loc="center")
+    table.auto_set_font_size(False)
+    table.set_fontsize(10)
+    table.scale(1, 1.6)
+    save(fig, "sleepstudy_intrusions", indexed=True)
+
+
 def trauma_and_neural_signals():
     """Draw simulated contusions, CSF pathways and cell recordings, plus the PENS trial result."""
     for name, volumes in [("contstable", [6, 6, 6]), ("contgrow", [4, 11, 22])]:
@@ -5703,6 +5770,7 @@ def main():
     vascular_flow_studies()
     prenatal_visit_studies()
     occupational_lung_studies()
+    sleep_and_headache_studies()
     trauma_and_neural_signals()
     mood_course_and_arousal()
     immunodeficiency_and_learning()
