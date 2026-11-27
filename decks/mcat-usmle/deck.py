@@ -515,7 +515,10 @@ def verify(folder):
     sound_records = table(ROOT/"heart-sounds.tsv")
     clips = {r["Clip"]: r for r in sound_records}
     assert len(clips) == len(sound_records)
-    assert set(clips) == {p.stem for p in (ROOT/"media").glob("*.wav")}
+    tones = {"med_pitch_pair_a", "med_pitch_pair_b"}
+    assert tones.isdisjoint(clips)
+    assert tones | clips.keys() == {p.stem for p in (ROOT/"media").glob("*.wav")}
+    assert tones <= {Path(c["Figure"]).stem for c in expected if c["Exam"] == "MCAT"}
     for card in expected:
         stem = Path(card["Figure"]).stem
         if stem in clips:

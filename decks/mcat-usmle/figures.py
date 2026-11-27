@@ -6921,7 +6921,49 @@ def bph_trial():
                  ["Doxazosin + finasteride", "1.5"]], source="MTOPS", indexed=True)
 
 
+def sensory_and_fluid_studies():
+    import wave
+
+    for name, frequencies in (("pair_a", (400, 800)), ("pair_b", (900, 450))):
+        rate = 16000
+        t = np.arange(5600) / rate
+        envelope = np.ones(t.size)
+        fade = np.linspace(0, 1, 240)
+        envelope[:240], envelope[-240:] = fade, fade[::-1]
+        tones = [0.15 * envelope * np.sin(2 * np.pi * hz * t) for hz in frequencies]
+        samples = np.concatenate([tones[0], np.zeros(2400), tones[1]])
+        with wave.open(str(MEDIA / f"med_pitch_{name}.wav"), "wb") as clip:
+            clip.setparams((1, 2, rate, 0, "NONE", "not compressed"))
+            clip.writeframes(np.rint(32767 * samples).astype("<i2").tobytes())
+
+    for name, dx, dy in (("columns", 1.6, .55), ("rows", .55, 1.6)):
+        fig, ax = plt.subplots(figsize=(4.0, 3.0), layout="constrained")
+        x, y = np.meshgrid(np.arange(4) * dx, np.arange(4) * dy)
+        ax.scatter(x, y, s=70, color="#202831")
+        ax.set_aspect("equal")
+        ax.set(xlim=(x.min() - .6, x.max() + .6), ylim=(y.min() - .6, y.max() + .6))
+        ax.axis("off")
+        save(fig, "sensory_" + name, indexed=True)
+
+    columns = ["Session", "Hits / 100 tones", "False alarms / 100 blanks"]
+    study_table("sensory_report", "Tone detection", columns,
+                [["Baseline", "55", "10"], ["Report faint tones", "85", "38"]], indexed=True)
+    study_table("sensory_training", "Tone detection", columns,
+                [["Before training", "55", "10"], ["After training", "84", "10"]], indexed=True)
+    study_table("sensory_divers", "Mean words recalled", ["Learned", "Test on land", "Test underwater"],
+                [["On land", "13.5", "8.6"], ["Underwater", "8.4", "11.4"]],
+                source="Godden & Baddeley", indexed=True)
+    for name, ph, co2, bicarbonate in (("dka", "7.28", "26", "12"), ("diarrhea", "7.31", "29", "14")):
+        study_table("fluid_acid_" + name, "Arterial blood gas", ["Measurement", "Result", "Reference"],
+                    [["pH", ph, "7.35–7.45"], ["PaCO₂ (mm Hg)", co2, "35–45"],
+                     ["HCO₃⁻ (mmol/L)", bicarbonate, "22–26"]], indexed=True)
+    study_table("fluid_smart", "Major adverse kidney events", ["Crystalloid", "Events", "Patients", "Risk"],
+                [["Balanced", "1,139", "7,942", "14.3%"], ["Saline", "1,211", "7,860", "15.4%"]],
+                source="SMART", indexed=True)
+
+
 def main():
+    sensory_and_fluid_studies()
     bph_trial()
     mcat_changed_evidence()
     MEDIA.mkdir(exist_ok=True)
