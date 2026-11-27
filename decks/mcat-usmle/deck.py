@@ -268,6 +268,44 @@ def mcat_detail_coverage(blueprint, science):
     return report
 
 
+def mcat_source_audit(science, details, inventory):
+    """Compare an outline-first inventory with the evidence for each editorial decision."""
+    categories = {topic["Subtopic"].partition(" · ")[0] for topic in science}
+    decisions = {(d["Category"], d["Detail"]): d for d in details}
+    by_category = defaultdict(list)
+    seen = set()
+    for row in inventory:
+        category, checkpoint = row["Category"], row["Checkpoint"]
+        if category not in categories or not checkpoint or (category, checkpoint) in seen:
+            raise ValueError(f"Unknown category or duplicate or empty source checkpoint: {category} {checkpoint}")
+        if row["Inventory"] not in {"Reviewed", "In progress"} or not row["Outline"].startswith("https://"):
+            raise ValueError(f"Invalid source review status or locator for {checkpoint}")
+        seen.add((category, checkpoint))
+        by_category[category].append(row)
+
+    result = []
+    for category in sorted(categories):
+        rows = by_category[category]
+        if len({r["Inventory"] for r in rows}) > 1:
+            raise ValueError(f"Conflicting inventory statuses for {category}")
+        if not rows:
+            result.append(dict(Category=category, Inventory="Awaiting source review", Outline="", Checkpoint="",
+                               LinkedDecisions="", PairedDecisions="", TwoPairDecisions="", Details="",
+                               AllDecisionsPaired=""))
+        for row in rows:
+            names = row["Details"].split(" | ") if row["Details"] else []
+            if len(names) != len(set(names)) or any((category, n) not in decisions for n in names):
+                raise ValueError(f"Unrecognized or repeated detail for {row['Checkpoint']}")
+            evidence = [decisions[category, n] for n in names]
+            paired = sum(int(d["ChangedPairs"]) > 0 for d in evidence)
+            second = sum(bool(d["TwoIndependentPairIDs"]) for d in evidence)
+            result.append(dict(Category=category, Inventory=row["Inventory"], Outline=row["Outline"],
+                               Checkpoint=row["Checkpoint"], LinkedDecisions=str(len(names)),
+                               PairedDecisions=str(paired), TwoPairDecisions=str(second), Details=row["Details"],
+                               AllDecisionsPaired="yes" if names and paired == len(names) else "no"))
+    return result
+
+
 def reviewed_mcat_science(cards, blueprint):
     return mcat_science_coverage(blueprint, cards, table(ROOT/"mcat-transfer.tsv"))
 
@@ -351,6 +389,8 @@ def make(folder, prior):
     write_table(folder/"mcat-science-coverage.tsv", list(science[0]), science)
     details = mcat_detail_coverage(blueprint, science)
     write_table(folder/"mcat-outline-details.tsv", list(details[0]), details)
+    audit = mcat_source_audit(science, details, table(ROOT/"mcat-source-audit.tsv"))
+    write_table(folder/"mcat-source-audit.tsv", list(audit[0]), audit)
     named = named_measurements()
     write_table(folder/"step-item-coverage.tsv", list(named[0]), named)
     visuals = visual_source_coverage(rows, blueprint, named)
@@ -459,7 +499,9 @@ def verify(folder):
         assert all(k in keyed and keyed[k]["Exam"]==row["Exam"] for k in ids), row
     science = reviewed_mcat_science(expected, blueprint)
     assert table(folder/"mcat-science-coverage.tsv") == science
-    assert table(folder/"mcat-outline-details.tsv") == mcat_detail_coverage(blueprint, science)
+    details = mcat_detail_coverage(blueprint, science)
+    assert table(folder/"mcat-outline-details.tsv") == details
+    assert table(folder/"mcat-source-audit.tsv") == mcat_source_audit(science, details, table(ROOT/"mcat-source-audit.tsv"))
     assert table(folder/"mcat-cars-coverage.tsv") == mcat_cars_coverage(expected, blueprint)
     report, practice_tags = step_measurements(expected)
     assert table(folder/"step-coverage.tsv") == report
@@ -527,7 +569,7 @@ def file_hash(path):
 
 
 def build_inputs(lock):
-    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "mcat-transfer.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step-items.tsv", "step_coverage.py", "intrapartum.py", "ptbxl.py", "ptbxl.tsv", "figures.py", "heart-sounds.tsv", "heart_sounds.py", "protein-coordinates.tsv")]
+    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "mcat-transfer.tsv", "mcat-source-audit.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step-items.tsv", "step_coverage.py", "intrapartum.py", "ptbxl.py", "ptbxl.tsv", "figures.py", "heart-sounds.tsv", "heart_sounds.py", "protein-coordinates.tsv")]
     paths.extend(sorted(p for p in (ROOT / "media").iterdir() if p.suffix in MEDIA_SUFFIXES))
     return {"sources": lock, "files": {p.relative_to(ROOT).as_posix(): file_hash(p) for p in paths}}
 
@@ -652,7 +694,16 @@ def main():
             cards, _ = deduplicate(records(RELEASE), alias_map(RELEASE))
             blueprint = table(ROOT/"blueprint.tsv")
             science = reviewed_mcat_science(cards, blueprint)
-            display_gaps(named_measurements(), science, mcat_detail_coverage(blueprint, science))
+            details = mcat_detail_coverage(blueprint, science)
+            audit = mcat_source_audit(science, details, table(ROOT/"mcat-source-audit.tsv"))
+            reviewed = {r["Category"] for r in audit if r["Inventory"] == "Reviewed"}
+            categories = {r["Category"] for r in audit}
+            print(f"MCAT categories checked from the AAMC outline: {len(reviewed)}/{len(categories)}")
+            open_checkpoints = [r for r in audit if r["AllDecisionsPaired"] == "no"]
+            print(f"Inventoried source checkpoints without a case pair for every linked decision: {len(open_checkpoints)}")
+            for row in open_checkpoints[:3]:
+                print(f"  {row['Category']} — {row['Checkpoint']}")
+            display_gaps(named_measurements(), science, details)
             return
         if args.action=="coverage":
             cards, _ = deduplicate(records(RELEASE), alias_map(RELEASE))

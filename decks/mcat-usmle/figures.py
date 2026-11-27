@@ -596,6 +596,51 @@ def reproductive():
         save(fig, "repro_uterus_" + code)
 
 
+def developmental_studies():
+    """Plot the published screening and memory outcomes plus simulated practice data."""
+    for name, label, counts in [("a", "A", [[40, 30], [10, 120]]),
+                                 ("b", "B", [[16, 36], [4, 144]])]:
+        rows = [[result, *cells] for result, cells in zip(["Positive", "Negative"], counts)]
+        study_table("childscreen_" + name, "Validation cohort " + label,
+                    ["Index test", "Condition present", "Condition absent"], rows, indexed=True)
+
+    study_table("childscreen_autism", "Outcomes after a positive two-stage screen",
+                ["Outcome at evaluation", "Children"],
+                [["Autism", 105], ["Other developmental delay", 79],
+                 ["Concern without a diagnosis", 25], ["Typical development", 12]],
+                source="Robins et al.", indexed=True)
+
+    fig, ax = plt.subplots(figsize=(6, 3.5), layout="constrained")
+    x = np.arange(3)
+    for offset, label, vals, color, hatch in [
+            (-.19, "5 minutes", [83, 78, 71], COLORS[0], ""),
+            (.19, "1 week", [40, 56, 61], COLORS[1], "//")]:
+        bars = ax.bar(x + offset, vals, width=.36, label=label, color=color, hatch=hatch)
+        ax.bar_label(bars, fontsize=9)
+    ax.set(xticks=x, xticklabels=["4 study", "3 study, 1 test", "1 study, 3 tests"],
+           ylabel="Idea units recalled (%)", ylim=(0, 105), title="Final free recall · experiment 2")
+    ax.legend(title="Final test delay", ncol=2, loc="upper center", fontsize=9)
+    save(fig, "retrieval_delay", indexed=True)
+
+    for suffix, counts in [("lost", [3, 8, 15, 8, 2]), ("slow", [3, 5, 6, 7, 8])]:
+        fig, ax = plt.subplots(figsize=(5.2, 2.8), layout="constrained")
+        times = [18, 20, 22, 24, 26]
+        ax.plot(times, counts, marker="o", color=COLORS[0], lw=2)
+        ax.set(xticks=times, yticks=[0, 5, 10, 15], ylim=(-1, 17),
+               xlabel="Age (months)", ylabel="Distinct words used",
+               title="Simulated language record · same observation method")
+        save(fig, "childvocab_" + suffix, indexed=True)
+
+    for suffix, probe in [("return", 72), ("none", 12)]:
+        fig, ax = plt.subplots(figsize=(5.9, 3.1), layout="constrained")
+        labels = ["Light 1", "Light 2", "Light 3", "Light 4", "New tone", "Light 5"]
+        for i, value in enumerate([80, 55, 28, 12, 85, probe]):
+            ax.bar(i, value, color=COLORS[1] if i == 4 else COLORS[0], width=.65)
+        ax.set(xticks=range(6), xticklabels=labels, ylim=(0, 101),
+               ylabel="Trials with orienting (%)", title="Simulated orienting responses")
+        save(fig, "childorient_" + suffix, indexed=True)
+
+
 def organ_system_practice():
     """Draw cell morphology and matched oxygen-binding and growth scenarios."""
     from matplotlib.patches import Circle, FancyBboxPatch
@@ -6979,6 +7024,7 @@ def main():
     older_muscle()
     biomolecular_figures()
     organ_system_practice()
+    developmental_studies()
     plot("refeed", "Hours after starting nutrition", "Serum phosphate (mg/dL)",
          [0,12,24,36,48], {"Patient A": [3.2,2.9,2.4,1.8,1.6],
                             "Patient B": [3.1,3.2,3.0,3.1,3.1]})

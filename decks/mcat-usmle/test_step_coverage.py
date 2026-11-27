@@ -139,6 +139,22 @@ class MCATScienceCoverageTest(unittest.TestCase):
         self.assertEqual(overlap["TwoIndependentPairIDs"], "")
         self.assertEqual(independent["TwoIndependentPairIDs"], "a c | b d")
 
+    def test_source_audit_keeps_missing_categories_and_unpaired_components_visible(self):
+        from deck import mcat_source_audit
+
+        science = [{"Subtopic": "7C · Learning"}, {"Subtopic": "9B · Demography"}]
+        def component(name, links):
+            return dict(Category="7C", Inventory="In progress", Outline="https://example.org/p",
+                        Checkpoint=name, Details=links)
+        detail = dict(Category="7C", Detail="Decision", ChangedPairs="1", TwoIndependentPairIDs="")
+        uncovered, paired, pending = mcat_source_audit(science, [detail], [
+            component("One", ""), component("Two", "Decision")])
+        self.assertEqual(uncovered["AllDecisionsPaired"], "no")
+        self.assertEqual((paired["AllDecisionsPaired"], paired["TwoPairDecisions"]), ("yes", "0"))
+        self.assertEqual((pending["Inventory"], pending["AllDecisionsPaired"]), ("Awaiting source review", ""))
+        with self.assertRaises(ValueError):
+            mcat_source_audit(science, [detail], [component("Wrong", "Unlisted")])
+
     def test_detail_in_one_topic_does_not_cover_neighbors(self):
         from deck import MCAT_SCIENCE_SKILLS, mcat_topics_without_indexed_pairs
 
