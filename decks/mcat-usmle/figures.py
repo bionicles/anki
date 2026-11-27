@@ -7241,7 +7241,27 @@ def human_genetics_studies():
                     source="*DNA-normalized · Eloy et al.", indexed=True)
 
 
+def endocrine_response_experiments():
+    """Draw independent, simulated secretion and gonadotropin-response experiments."""
+    calcium = [0.85, 1.05, 1.25, 1.45]
+    for name, release in [("chief", [90, 65, 28, 12]),
+                          ("parafollicular", [8, 15, 43, 82])]:
+        fig, ax = axes("Extracellular ionized calcium (mmol/L)",
+                       "Hormone release (arbitrary units)")
+        ax.plot(calcium, release, marker="o", lw=2.4, color=COLORS[0])
+        ax.set(xticks=calcium, ylim=(0, 100), title="Isolated gland cells  •  simulated")
+        save(fig, "endo_" + name, indexed=True)
+
+    for name, response in [("lh", [1.0, 1.1, 4.8]), ("fsh", [1.0, 4.6, 1.1])]:
+        fig, ax = axes("Stimulus", "Intracellular cAMP (fold of baseline)")
+        ax.bar(["Vehicle", "FSH", "LH"], response, color=COLORS[0], width=.55)
+        ax.set(ylim=(0, 5.5), title="Isolated testicular cells  •  simulated")
+        save(fig, "endo_" + name, indexed=True)
+
+
+
 def main():
+    endocrine_response_experiments()
     microbial_motion()
     human_genetics_studies()
     adult_and_cell_studies()
