@@ -552,3 +552,9 @@ original:casecourse-orient-preg-opening	Therapy
 original:casecourse-orient-preg-repeat	Therapy
 original:casecourse-orient-preg-toxic	Therapy
 original:casecourse-orient-preg-delivery	Sequencing
+original:endocases-shock-course-opening	Therapy Timing Sequencing
+original:endocases-shock-course-first	Diagnosis Timing Sequencing
+original:endocases-shock-course-changed	Diagnosis Therapy Timing
+original:endocases-critical-sample-opening	Diagnosis Timing
+original:endocases-critical-sample-first	Diagnosis Timing
+original:endocases-critical-sample-changed	Diagnosis Location Sequencing

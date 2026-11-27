@@ -4587,6 +4587,79 @@ def upper_respiratory_records():
                 ["Personal best", "Yesterday", "Today"], [["400 L/min", "330 L/min", "200 L/min"]])
 
 
+def endocrine_transfer_figures():
+    """Simulated physiology and clinical time courses, plus observed DAPA-CKD counts."""
+    hours = [0, 2, 4, 6]
+    fig, (blood, urine) = plt.subplots(2, 1, figsize=(5.3, 4), sharex=True, layout="constrained")
+    blood.plot(hours, [6.8, 4.2, 2.1, .8], "o-", color=COLORS[0])
+    blood.set(ylabel="Blood β-hydroxybutyrate\n(mmol/L)", ylim=(0, 8), yticks=[0, 2, 4, 6, 8])
+    urine.step(hours, [1, 2, 3, 3], where="mid", color=COLORS[1], lw=2)
+    urine.plot(hours, [1, 2, 3, 3], "s", color=COLORS[1])
+    urine.set(xlabel="Hours on treatment", ylabel="Urine strip grade", xticks=hours,
+              yticks=[0, 1, 2, 3], yticklabels=["Negative", "1+", "2+", "3+"], ylim=(-.25, 3.3))
+    fig.suptitle("Paired ketone measurements • simulated")
+    save_lossless(fig, "endocases_ketone_shift")
+
+    time = [0, 30, 60, 90, 120]
+    fig, ax = axes("Minutes after matched oral glucose load", "Insulin (arbitrary units)")
+    ax.plot(time, [8, 42, 32, 18, 9], "o-", label="A", color=COLORS[0])
+    ax.plot(time, [21, 91, 74, 41, 24], "s--", label="B", color=COLORS[1])
+    ax.set(xticks=time, title="Insulin at comparable plasma glucose • simulated")
+    ax.legend()
+    save_lossless(fig, "endocases_insulin_response")
+
+    fig, ax = axes("Hours after meal and insulin bolus", "Glucose (mg/dL)")
+    ax.plot([0, .5, 1, 2, 3, 4], [118, 83, 61, 115, 206, 247], "o-", color=COLORS[0])
+    ax.axhline(70, ls=":", color="#555555")
+    ax.set(xticks=range(5), yticks=[50, 70, 100, 150, 200, 250],
+           title="Postprandial glucose • simulated")
+    save_lossless(fig, "endocases_meal_delay")
+
+    fig, ax = plt.subplots(figsize=(4.9, 3.2), layout="constrained")
+    x = np.arange(2)
+    for xs, ys, label, color in [
+        (x - .18, [240, 300], "O₂ consumed", COLORS[0]),
+        (x + .18, [180, 270], "CO₂ produced", COLORS[1]),
+    ]:
+        bars = ax.bar(xs, ys, width=.36, color=color, label=label)
+        ax.bar_label(bars, padding=3)
+    ax.set(xticks=x, xticklabels=["A", "B"], ylim=(0, 370), ylabel="Steady-state flow (mL/min)",
+           title="Whole-body gas exchange • simulated")
+    ax.legend(ncol=2, loc="upper center")
+    save_lossless(fig, "endocases_fuel_gas")
+
+    fig, ax = plt.subplots(figsize=(5.1, 3.5), layout="constrained")
+    for y, count, name, color in [(1, 197, "Dapagliflozin", COLORS[0]), (0, 312, "Placebo", COLORS[1])]:
+        percent = 100 * count / 2152
+        ax.barh(y, percent, height=.48, color=color)
+        ax.text(percent + .25, y, f"{count} / 2,152", va="center")
+    ax.set(yticks=[1, 0], yticklabels=["Dapagliflozin", "Placebo"], xlim=(0, 20), ylim=(-.55, 1.55),
+           xlabel="Participants with a primary composite event (%)",
+           title="DAPA-CKD • median follow-up 2.4 years")
+    save_lossless(fig, "endocases_dapa")
+
+    fig, ax = axes("Hours after start of HHS treatment", "Serum osmolality (mOsm/kg)")
+    ax.plot([0, 1, 2, 3, 4], [338, 333, 328, 323, 318], "o-", color=COLORS[0])
+    ax.axhline(300, linestyle=":", color="#555555")
+    ax.set(xticks=range(5), yticks=[290, 300, 310, 320, 330, 340],
+           ylim=(288, 342), title="Treatment trajectory • simulated")
+    save_lossless(fig, "endocases_hhs_course")
+
+    fig, ax = axes("Days after starting an ACE inhibitor", "Serum creatinine (mg/dL)")
+    ax.plot([0, 4, 8, 14], [1, 1.1, 1.2, 1.2], "o-", color=COLORS[0])
+    ax.set(xticks=[0, 4, 8, 14], yticks=[.8, .9, 1, 1.1, 1.2, 1.3], ylim=(.78, 1.32),
+           title="Kidney function during treatment • simulated")
+    save_lossless(fig, "endocases_creatinine")
+
+    fig, ax = plt.subplots(figsize=(5, 3.15), layout="constrained")
+    ax.barh([1, 0], [120, 42], color=[COLORS[0], COLORS[1]], height=.5)
+    for y, v in [(1, 120), (0, 42)]:
+        ax.text(v + 2, y, str(v), va="center")
+    ax.set(yticks=[1, 0], yticklabels=["Brachial", "Great toe"], xlim=(0, 145),
+           xlabel="Systolic pressure (mm Hg)", title="Vascular laboratory • simulated")
+    save_lossless(fig, "endocases_toe_pressure")
+
+
 def chemistry_transfer_figures():
     """Simulated assay data and standard carbohydrate projections for MCAT 5D."""
     fig, ax = axes("Strong base added (equivalents)", "pH")
@@ -7627,6 +7700,7 @@ def main():
     rheumatic_af_outcomes()
     acute_airway_records()
     upper_respiratory_records()
+    endocrine_transfer_figures()
     chemistry_transfer_figures()
     organic_reasoning_studies()
     severe_cap_trial()
