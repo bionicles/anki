@@ -5251,6 +5251,10 @@ def social_access_studies():
 
 
 def reproductive_diagnosis_studies():
+    study_table("reprolearn_birth", "Live births over up to five cycles",
+                ["Treatment", "Live births", "Patients assigned"],
+                [["Letrozole", "103", "374"], ["Clomiphene", "72", "376"]],
+                source="Legro et al. (2014)", indexed=True)
     for name, values in [("flat", [420, 422, 417, 421]), ("fall", [420, 290, 180, 110])]:
         fig, ax = axes("Weeks after first sample", "Serum hCG (IU/L)")
         ax.plot(range(4), values, marker="o", color=COLORS[0], lw=2.5)

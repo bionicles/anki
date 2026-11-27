@@ -391,7 +391,7 @@ def verify_imaging(cards):
     for row in images:
         assert re.fullmatch(r"[0-9a-f]{40}", row["SourceSHA1"]), row
         assert (row["Source"].startswith("https://commons.wikimedia.org/wiki/File:")
-                or re.fullmatch(r"https://pmc\.ncbi\.nlm\.nih\.gov/articles/PMC[0-9]+/#(?:(?:F(?:IG|ig)?|f(?:ig)?)[0-9]+(?:-[0-9]+)?|[a-zA-Z][a-zA-Z0-9_-]*-(?:fig-[0-9]+|[fg][0-9]+))", row["Source"])), row
+                or re.fullmatch(r"https://pmc\.ncbi\.nlm\.nih\.gov/articles/PMC[0-9]+/#(?:(?:F(?:IG|ig)?|f(?:ig)?)[0-9]+(?:-[0-9]+)?|f[0-9]+-usg-[0-9]+|[a-zA-Z][a-zA-Z0-9_-]*-(?:fig-[0-9]+|[fg][0-9]+))", row["Source"])), row
         assert row["LicenseURL"].startswith("https://creativecommons.org/"), row
     for card in cards:
         if card["Figure"] in credits:
