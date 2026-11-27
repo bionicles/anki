@@ -6962,7 +6962,30 @@ def sensory_and_fluid_studies():
                 source="SMART", indexed=True)
 
 
+def research_and_social_studies():
+    columns = ["Analysis", "Nominal p", "Efficacy cutoff"]
+    study_table("ethics_early", "Primary outcome", columns,
+                [["Interim", "0.018", "0.005"]], indexed=True)
+    study_table("ethics_final", "Primary outcome", columns,
+                [["Final", "0.018", "0.048"]], indexed=True)
+    study_table("ethics_odds", "Case-control sample", ["Sample", "Exposed", "Unexposed"],
+                [["Cases", "12", "24"], ["Controls", "24", "48"]], indexed=True)
+    study_table("ethics_hazards", "Hazards per person-year", ["Interval", "Treatment", "Control"],
+                [["First year", "0.02", "0.04"], ["Second year", "0.04", "0.08"]], indexed=True)
+    study_table("social_bystanders", "Reporting by the end of the episode",
+                ["Other bystanders", "Participants", "Reported"],
+                [["0", "13", "85%"], ["1", "26", "62%"], ["4", "13", "31%"]],
+                source="Darley & Latané", indexed=True)
+    study_table("social_hurry", "Offered help", ["Assigned time pressure", "Offered help"],
+                [["Low", "63%"], ["Intermediate", "45%"], ["High", "10%"]],
+                source="Darley & Batson", indexed=True)
+    study_table("social_callbacks", "Employer callbacks", ["Name association", "Applications", "Callback rate"],
+                [["White-associated", "2,435", "9.65%"], ["Black-associated", "2,435", "6.45%"]],
+                source="Bertrand & Mullainathan", indexed=True)
+
+
 def main():
+    research_and_social_studies()
     sensory_and_fluid_studies()
     bph_trial()
     mcat_changed_evidence()

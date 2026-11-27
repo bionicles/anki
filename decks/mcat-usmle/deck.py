@@ -669,18 +669,21 @@ def display_gaps(items, science, details=()):
                 groups[category].append(f"{topic} ({skill})")
     show(groups)
 
-    steps_without_cards = defaultdict(set)
-    for row in items:
-        if not int(row["MappedCards"]):
-            steps_without_cards[row["Family"], row["Item"]].add(row["Exam"])
-    groups = defaultdict(list)
-    all_steps = set(STEPS)
-    for (family, item), missing_steps in steps_without_cards.items():
-        if missing_steps == all_steps:
-            groups[family].append(item)
-    total = sum(len(topics) for topics in groups.values())
-    print(f"Named topics without a linked card on any USMLE Step • {total}")
-    show(groups)
+    for column, description in (
+        ("ThreeLevelObjectives", "Named topics lacking a full sequence on all three USMLE Steps"),
+        ("MappedCards", "Named topics without a linked card on any USMLE Step"),
+    ):
+        missing = defaultdict(set)
+        for row in items:
+            if not int(row[column]):
+                missing[row["Family"], row["Item"]].add(row["Exam"])
+        groups = defaultdict(list)
+        for (family, item), exams in missing.items():
+            if exams == set(STEPS):
+                groups[family].append(item)
+        total = sum(len(topics) for topics in groups.values())
+        print(f"{description} • {total}")
+        show(groups)
 
 
 def main():
@@ -702,6 +705,8 @@ def main():
             reviewed = {r["Category"] for r in audit if r["Inventory"] == "Reviewed"}
             categories = {r["Category"] for r in audit}
             print(f"MCAT categories checked from the AAMC outline: {len(reviewed)}/{len(categories)}")
+            if categories - reviewed:
+                print("  Categories awaiting a completed source review: " + ", ".join(sorted(categories - reviewed)))
             open_checkpoints = [r for r in audit if r["AllDecisionsPaired"] == "no"]
             print(f"Inventoried source checkpoints without a case pair for every linked decision: {len(open_checkpoints)}")
             for row in open_checkpoints[:3]:
