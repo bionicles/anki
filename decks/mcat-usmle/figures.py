@@ -641,6 +641,24 @@ def developmental_studies():
         save(fig, "childorient_" + suffix, indexed=True)
 
 
+def pituitary_accuracy():
+    # Equal pulse size isolates the effect of clearance on transmitter duration.
+    time_ms = np.linspace(0, 24, 161)
+    for name, time_constant in [("slow", 9), ("fast", 2)]:
+        fig, ax = plt.subplots(figsize=(4.9, 3.0), layout="constrained")
+        for label, tau, style in [("Reference", 5, "-"), ("Treated", time_constant, "--")]:
+            ax.plot(time_ms, np.exp(-time_ms/tau), style, lw=2, label=label)
+        ax.set(xlabel="Time after release (ms)", ylabel="Cleft concentration (relative)",
+               title="Simulated response to a single transmitter pulse", ylim=(0, 1.05))
+        ax.legend()
+        save(fig, "pit_decay_" + name, indexed=True)
+    study_table("pit_accuracy", "Diagnostic classification in adults with hypotonic polyuria",
+                ["Protocol", "Correct classifications"],
+                [["Indirect water deprivation", "108 of 141"],
+                 ["Hypertonic saline–stimulated copeptin", "136 of 141"]],
+                source="Fenske et al., 2018 · same participants", indexed=True)
+
+
 def organ_system_practice():
     """Draw cell morphology and matched oxygen-binding and growth scenarios."""
     from matplotlib.patches import Circle, FancyBboxPatch
@@ -7024,6 +7042,7 @@ def main():
     older_muscle()
     biomolecular_figures()
     organ_system_practice()
+    pituitary_accuracy()
     developmental_studies()
     plot("refeed", "Hours after starting nutrition", "Serum phosphate (mg/dL)",
          [0,12,24,36,48], {"Patient A": [3.2,2.9,2.4,1.8,1.6],
