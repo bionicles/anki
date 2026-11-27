@@ -655,6 +655,8 @@ def display_gaps(items, science, details=()):
     for exam in STEPS:
         breadth = defaultdict(list)
         depth = defaultdict(list)
+        second = defaultdict(list)
+        audited = independent = 0
         for row in items:
             if row["Exam"] != exam:
                 continue
@@ -662,10 +664,20 @@ def display_gaps(items, science, details=()):
                 breadth[row["Family"]].append(row["Item"])
             elif not int(row["ThreeLevelObjectives"]):
                 depth[row["Family"]].append(row["Item"])
+            elif "TwoObjectiveCardIDs" in row:
+                audited += 1
+                if row["TwoObjectiveCardIDs"]:
+                    independent += 1
+                else:
+                    second[row["Family"]].append(row["Item"])
         print(f"{exam} • named topics without a linked card, by family")
         show(breadth)
         print(f"{exam} • linked topics without a three-card sequence, by family")
         show(depth)
+        if audited:
+            print(f"{exam} • full-sequence topics with two independent objectives: {independent}/{audited}")
+            print(f"{exam} • full-sequence topics awaiting a second objective, by family")
+            show(second)
     print("MCAT science • represented topic–skill combinations without a reviewed changed case")
     groups = defaultdict(list)
     for row in science:

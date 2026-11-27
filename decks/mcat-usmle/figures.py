@@ -7260,7 +7260,51 @@ def endocrine_response_experiments():
 
 
 
+def trauma_and_mechanics():
+    """Show force geometry, measured moments, signed work and scoliosis trial outcomes."""
+    for direction, end in [("h", (.64, .30)), ("v", (.40, .49))]:
+        fig, ax = axes("Horizontal position (m)", "Vertical position (m)")
+        ax.plot([0, .40], [0, .30], color="#56636b", lw=4)
+        ax.scatter([0, .40], [0, .30], color="#17272f", zorder=4)
+        ax.annotate("O", (0, 0), xytext=(5, 6), textcoords="offset points")
+        if direction == "h":
+            ax.axhline(.30, linestyle="--", color=COLORS[1], alpha=.55)
+        else:
+            ax.axvline(.40, linestyle="--", color=COLORS[1], alpha=.55)
+        ax.annotate("", xy=end, xytext=(.40, .30),
+                    arrowprops=dict(arrowstyle="-|>", color=COLORS[1], lw=3))
+        ax.set(xlim=(-.05, .70), ylim=(-.05, .56), aspect="equal",
+               title="Force applied to a rigid arm", xticks=[0, .20, .40, .60],
+               yticks=[0, .10, .20, .30, .40, .50])
+        save(fig, "mxt_arm_" + direction, indexed=True)
+
+    for key, force, offset in [("a", 8, .4), ("b", 12, 0)]:
+        arm = np.array([.10, .20, .30])
+        fig, ax = axes("Perpendicular moment arm (m)", "Measured torque (N·m)")
+        ax.plot(arm, force * arm + offset, color=COLORS[0], marker="o", lw=2)
+        ax.set(title="Torque calibration  •  simulated", xticks=arm,
+               yticks=np.arange(0, 4.01, .4), ylim=(0, 4.1))
+        save(fig, "mxt_slope_" + key, indexed=True)
+
+    for key, position, force in [("a", [0, 2, 2, 3], [4, 4, -2, -2]),
+                                 ("b", [0, 1, 2, 3, 4], [0, 3, 0, -3, 0])]:
+        fig, ax = axes("Position (m)", "Force along motion (N)")
+        ax.axhline(0, color="#363e40", lw=1)
+        ax.fill_between(position, force, 0, color=COLORS[0], alpha=.16)
+        ax.plot(position, force, color=COLORS[0], lw=2)
+        ax.set(title="Force during forward travel  •  simulated",
+               xticks=range(max(position) + 1), yticks=range(-4, 6))
+        save(fig, "mxt_work_" + key, indexed=True)
+
+    study_table("mxt_brace", "Reached maturity with curve below 50°",
+                ["Analysis", "Bracing", "Observation"],
+                [["Randomized groups", "75%", "42%"], ["Combined cohorts", "72%", "48%"]],
+                "BrAIST", indexed=True)
+
+
+
 def main():
+    trauma_and_mechanics()
     endocrine_response_experiments()
     microbial_motion()
     human_genetics_studies()

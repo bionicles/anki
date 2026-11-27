@@ -240,6 +240,27 @@ class GapSummaryTest(unittest.TestCase):
         self.assertIn("cv.valve (1) — Linked", lines[5])
         self.assertNotIn("cv.valve (1) — Full", output.getvalue())
 
+    def test_second_objective_workload_requires_a_first_sequence_and_distinct_evidence(self):
+        from contextlib import redirect_stdout
+        from io import StringIO
+        from deck import display_gaps
+
+        rows = [
+            dict(Exam="USMLE Step 1", Family="msk.trauma", Item=name, MappedCards="6",
+                 ThreeLevelObjectives=str(count), TwoObjectiveCardIDs=evidence)
+            for name, count, evidence in [
+                ("No sequence", 0, ""), ("Shared cards", 2, ""),
+                ("Independent", 2, "a b c | d e f"),
+            ]
+        ]
+        output = StringIO()
+        with redirect_stdout(output):
+            display_gaps(rows, [])
+        lines = output.getvalue().splitlines()
+        self.assertIn("USMLE Step 1 • full-sequence topics with two independent objectives: 1/2", lines)
+        index = lines.index("USMLE Step 1 • full-sequence topics awaiting a second objective, by family")
+        self.assertEqual(lines[index + 1].strip(), "msk.trauma (1) — Shared cards")
+
     def test_unmapped_on_every_step_requires_three_explicit_zeroes(self):
         from contextlib import redirect_stdout
         from io import StringIO
