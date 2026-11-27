@@ -5018,6 +5018,47 @@ def kinetic_equilibrium_studies():
     save(fig, "cvdrug_rates", indexed=True)
 
 
+def pain_and_sensation():
+    fig, ax = axes("Vibration amplitude (µm)", "Trials detected (%)")
+    ax.plot([0, 2, 4, 6, 8, 10, 12], [0, 5, 20, 50, 80, 95, 100], "o-", color=COLORS[0])
+    ax.set(xticks=range(0, 13, 2), yticks=[0, 25, 50, 75, 100], title="Simulated vibration detection")
+    save(fig, "sensory_vibration", indexed=True)
+
+    for i, rates in enumerate(([48, 26, 8, 25], [23, 51, 22, 7])):
+        fig, ax = axes("Bar orientation (degrees)", "Mean firing rate (spikes/s)")
+        angles = [0, 45, 90, 135]
+        ax.bar(angles, rates, width=19, color=COLORS[0])
+        ax.set(xticks=angles, ylim=(0, 60), title=f"Simulated recording · unit {'XY'[i]}")
+        save(fig, f"sensory_orient{i}", indexed=True)
+
+    for example in ("closure", "continuation"):
+        fig, ax = plt.subplots(figsize=(3.3, 2.4), layout="constrained")
+        if example == "closure":
+            for start in np.arange(0, 360, 72):
+                t = np.deg2rad(np.linspace(start, start + 48, 80))
+                ax.plot(np.cos(t), np.sin(t), lw=3, color="#243745")
+        else:
+            t = np.linspace(-1.3, 1.3, 120)
+            ax.plot(t, .55 * np.sin(t), lw=3, color="#243745")
+            ax.plot(t, -.55 * np.sin(t), lw=3, color="#243745")
+        ax.set(xlim=(-1.5, 1.5), ylim=(-1.16, 1.16), aspect="equal")
+        ax.axis("off")
+        save(fig, "sensory_" + example, indexed=True)
+
+    fig, ax = axes("", "Patients correctly classified (%)")
+    positions = np.arange(2)
+    for offset, values, title, hatch in [
+        (-.18, [100, 41], "Earlier IASP", ""),
+        (.18, [99, 68], "Budapest clinical", "//"),
+    ]:
+        ax.bar(positions + offset, values, width=.36, label=title,
+               color=COLORS[int(offset > 0)], hatch=hatch)
+    ax.set(xticks=positions, xticklabels=["With CRPS", "Other neuropathic pain"],
+           ylim=(0, 127), yticks=[0, 25, 50, 75, 100], title="CRPS diagnostic validation cohort")
+    ax.legend(loc="upper right", ncol=2, fontsize=8)
+    save(fig, "sensory_budapest", indexed=True)
+
+
 def neuroendocrine_measurements():
     for name, times in [("close", [10, 14, 18]), ("apart", [10, 35, 60])]:
         fig, ax = axes("Time (ms)", "Membrane potential (mV)")
@@ -6183,6 +6224,7 @@ def main():
     cardiovascular_drug_studies()
     myocardial_and_bonding_studies()
     demographic_and_ulcer_studies()
+    pain_and_sensation()
     neuroendocrine_measurements()
     spine_and_separation_studies()
     abdominal_wall_and_equity_studies()
