@@ -44,6 +44,32 @@ def plot(name, xname, yname, x, curves):
     save(fig, name)
 
 
+def shock_and_circulation_studies():
+    """Render paired clinical records and published trial and physiology measurements."""
+    for key, labels, pressures in [
+        ("a", ["A", "B"], [(70, 20, 5), (90, 30, 3)]),
+        ("b", ["X", "Y"], [(55, 15, 2), (60, 40, 2)]),
+    ]:
+        study_table("shockflow_resist_" + key, "Perfused vascular bed",
+                    ["Run", "Inlet (mm Hg)", "Outlet (mm Hg)", "Flow (L/min)"],
+                    [[label, *values] for label, values in zip(labels, pressures)], indexed=True)
+    for key, label, values in [
+        ("stand", "Standing up", [["Stroke volume (mL)", "58.1", "43.9"],
+                                 ["Heart rate (/min)", "69.0", "81.3"], ["MAP (mm Hg)", "88.5", "97.0"]]),
+        ("raise", "Passive leg raise", [["Stroke volume (mL)", "53.5", "60.8"],
+                                       ["MAP (mm Hg)", "93.6", "89.6"]]),
+    ]:
+        study_table("shockflow_" + key, label, ["Group mean", "Baseline", "1 minute"],
+                    values, "PWTT volunteer study", indexed=True)
+    study_table("shockflow_clovers", "Death before discharge home by day 90",
+                ["Comparison", "Reported outcome"], [["Restrictive fluids", "14.0%"],
+                ["Liberal fluids", "14.9%"], ["Difference (95% CI), pp", "−0.9 (−4.4 to +2.6)"]],
+                "CLOVERS", indexed=True)
+    study_table("shockflow_andromeda", "Death by day 28", ["Guided by", "Reported mortality"],
+                [["Capillary refill", "34.9%"], ["Lactate", "43.4%"],
+                 ["Difference (95% CI), pp", "−8.5 (−18.2 to +1.2)"]], "ANDROMEDA-SHOCK", indexed=True)
+
+
 def behavioral_health_studies():
     """Show simulated clinical and sampling records alongside published study comparisons."""
     study_table("behavioral_phos", "Early nutritional rehabilitation", ["Blood draw", "Phosphate (mg/dL)"],
@@ -1036,7 +1062,9 @@ def endocrine():
         ax.set_title(f"Simulated thyroid study • 24-hour uptake {uptake}%",fontsize=11)
         ax.set_xlabel("Local reference interval 10–30%",fontsize=9)
         ax.set(xticks=[],yticks=[])
-        save(fig, "endo_uptake_" + case)
+        fig.savefig(MEDIA / f"med_endo_uptake_{case}.webp", dpi=145, facecolor="white",
+                    pil_kwargs={"lossless": True, "method": 6, "exact": True})
+        plt.close(fig)
 
     for case, values in [("a",[105,115,120,420,600]),("b",[112,119,125,128,134])]:
         fig, ax = axes("Time relative to desmopressin (hours)", "Urine osmolality (mOsm/kg)")
@@ -7133,6 +7161,7 @@ def main():
     mcat_changed_evidence()
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
+    shock_and_circulation_studies()
     behavioral_health_studies()
     organ_and_skin_studies()
     mcat_protein_structures()
