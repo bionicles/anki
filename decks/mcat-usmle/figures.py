@@ -7028,7 +7028,30 @@ def heme_and_skin_figures():
                 source="PAD-UFES-20, Table 2", indexed=True)
 
 
+def adult_and_cell_studies():
+    """Plot simulated photobleaching data and reported crossover blood pressure means."""
+    for name, fitted, regular in [("small", 119.6, 116.0), ("xlarge", 124.5, 144.0)]:
+        size = "small" if name == "small" else "extra-large"
+        study_table("cuff_" + name, f"Participants requiring a {size} cuff",
+                    ["Cuff used", "Mean systolic pressure (mm Hg)"],
+                    [["Correctly fitted", f"{fitted:.1f}"], ["Regular", f"{regular:.1f}"]],
+                    source="Cuff(SZ), Table 2", indexed=True)
+    for name, plateaus, half_times in [("speed", (90, 90), (4, 16)),
+                                        ("fraction", (90, 50), (8, 8))]:
+        fig, ax = axes("Time after bleaching (s)", "Fluorescence (% of prebleach)")
+        time = np.linspace(0, 120, 241)
+        for i, (plateau, half_time) in enumerate(zip(plateaus, half_times)):
+            intensity = 10 + (plateau - 10) * (1 - 2 ** (-time / half_time))
+            ax.plot(time, intensity, STYLES[i], color=COLORS[i], lw=2.4,
+                    label=["Region A", "Region B"][i])
+        ax.set(title="Membrane probe recovery · simulated", ylim=(0, 105),
+               xlim=(0, 120), yticks=range(0, 101, 10))
+        ax.legend(loc="lower right")
+        save(fig, "frap_" + name, indexed=True)
+
+
 def main():
+    adult_and_cell_studies()
     heme_and_skin_figures()
     research_and_social_studies()
     sensory_and_fluid_studies()
