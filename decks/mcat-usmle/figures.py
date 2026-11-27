@@ -5018,6 +5018,23 @@ def kinetic_equilibrium_studies():
     save(fig, "cvdrug_rates", indexed=True)
 
 
+def reproductive_drug_studies():
+    # Aljazaf et al., 2003: both means are from the same eight participants.
+    fig, ax = axes("Study period", "24-hour milk volume (mL)")
+    bars = ax.bar(["Placebo", "Pseudoephedrine"], [784, 623], color=COLORS, width=.58)
+    ax.bar_label(bars, padding=3)
+    ax.set(ylim=(0, 900), title="Mean output in a crossover study")
+    save(fig, "drugstudy_milk", indexed=True)
+
+    # Fogari et al., 2004: changes in mean questionnaire scores from baseline.
+    fig, ax = axes("Randomized treatment", "Change from baseline (%)")
+    bars = ax.bar(["Atenolol", "Valsartan"], [-18, 38], color=COLORS, width=.58)
+    ax.axhline(0, color="black", lw=1)
+    ax.bar_label(bars, labels=["−18%", "+38%"], padding=3)
+    ax.set(ylim=(-30, 50), title="Reported sexual desire after 16 weeks")
+    save(fig, "drugstudy_desire", indexed=True)
+
+
 def social_decision_tables():
     records = [
         ("patcha", "Simulated patch returns", ["Patch", "Net gain (kJ)", "Total time (min)"],
@@ -6384,6 +6401,7 @@ def main():
     cardiovascular_drug_studies()
     myocardial_and_bonding_studies()
     demographic_and_ulcer_studies()
+    reproductive_drug_studies()
     social_decision_tables()
     social_access_studies()
     reproductive_diagnosis_studies()

@@ -853,28 +853,28 @@ repro.sexual	Orgasmic dysfunction	original:rg-desire-which	original:rg-ssri-new	
 repro.sexual	Sexual interest or arousal disorder		original:rg-desire-des	
 repro.sexual	Involuntary pelvic floor tightening with penetration	original:rg-sex-guard	original:rg-sex-entrance	
 repro.trauma	Intrauterine adhesions	original:rg-adh-basal	original:rg-adh-scope	original:rg-cycle-uterus
-repro.trauma	Chronic uterine inversion			
-repro.trauma	Chronic pelvic pain syndrome			
+repro.trauma	Chronic uterine inversion	original:outlinefinish-invert-1-rule original:outlinefinish-invert-1-case original:outlinefinish-invert-1-changed	original:outlinefinish-invert-2-rule original:outlinefinish-invert-2-case original:outlinefinish-invert-2-changed	original:outlinefinish-invert-3-rule original:outlinefinish-invert-3-case original:outlinefinish-invert-3-changed
+repro.trauma	Chronic pelvic pain syndrome	original:outlinefinish-pain-1-rule original:outlinefinish-pain-1-case original:outlinefinish-pain-1-changed	original:outlinefinish-pain-2-rule original:outlinefinish-pain-2-case original:outlinefinish-pain-2-changed	original:outlinefinish-pain-3-rule original:outlinefinish-pain-3-case original:outlinefinish-pain-3-changed
 repro.trauma	Anterior vaginal wall prolapse involving the bladder	original:rg-support-front	original:rg-support-void	
 repro.trauma	Imperforate hymen	original:rg-outflow-blood	original:rg-outflow-bulge	original:rg-outflow-avoid
-repro.trauma	Reproductive tract injuries, wounds and burns			
+repro.trauma	Reproductive tract injuries, wounds and burns	original:outlinefinish-injury-1-rule original:outlinefinish-injury-1-case original:outlinefinish-injury-1-changed	original:outlinefinish-injury-2-rule original:outlinefinish-injury-2-case original:outlinefinish-injury-2-changed	original:outlinefinish-injury-3-rule original:outlinefinish-injury-3-case original:outlinefinish-injury-3-changed
 repro.trauma	Adnexal torsion	original:rg-tors-supply original:rg-tors-pedicle	original:rg-tors-present original:rg-tors-nomass	original:rg-tors-dark original:rg-tors-fall original:rg2-add-tor
 repro.trauma	Pelvic support defects			original:rg-support-device original:rg-support-observe original:rg2-add-prol
 repro.trauma	Posterior vaginal wall prolapse involving the rectum	original:rg-support-back	original:rg-support-stool	
-repro.trauma	Urethrocele			
+repro.trauma	Urethrocele	original:outlinefinish-ureth-1-rule original:outlinefinish-ureth-1-case original:outlinefinish-ureth-1-changed	original:outlinefinish-ureth-2-rule original:outlinefinish-ureth-2-case original:outlinefinish-ureth-2-changed	original:outlinefinish-ureth-3-rule original:outlinefinish-ureth-3-case original:outlinefinish-ureth-3-changed
 repro.congenital	Müllerian agenesis	original:rg-dev-ovaries original:rg-dev-mrkh original:rg-dev-androgen	original:rg-dev-dx original:rg-dev-other original:rg2-add-dev	original:rg-dev-renal original:rg-dev-dilate
 repro.congenital	Uterus didelphys	original:gynpath-double-1-rule original:gynpath-double-1-case original:gynpath-double-1-changed	original:gynpath-double-2-rule original:gynpath-double-2-case original:gynpath-double-2-changed	original:gynpath-double-3-rule original:gynpath-double-3-case original:gynpath-double-3-changed
 repro.congenital	Bicornuate uterus	original:rg-shape-outer original:rg-shape-cleft original:rg-shape-smooth	original:rg-shape-scan original:rg-shape-interpret original:rg-shape-partition original:rg2-add-shape	original:rg-shape-surgery
 repro.congenital	Short cervix	original:per-cerv-why original:obcomp-cervix-1-case original:obcomp-cervix-1-transfer	original:obcomp-cervix-2-rule original:obcomp-cervix-2-case original:obcomp-cervix-2-transfer	original:obcomp-cervix-3-rule original:per-cerv-treat original:obcomp-cervix-3-transfer
-repro.drug	Antihistamine effects			
-repro.drug	H2-receptor blocker effects			
-repro.drug	Benzodiazepine effects			
-repro.drug	Beta-blocker effects			
+repro.drug	Antihistamine effects	original:outlinefinish-h1-1-rule original:outlinefinish-h1-1-case original:outlinefinish-h1-1-changed	original:outlinefinish-h1-2-rule original:outlinefinish-h1-2-case original:outlinefinish-h1-2-changed	original:outlinefinish-h1-3-rule original:outlinefinish-h1-3-case original:outlinefinish-h1-3-changed
+repro.drug	H2-receptor blocker effects	original:outlinefinish-h2-1-rule original:outlinefinish-h2-1-case original:outlinefinish-h2-1-changed	original:outlinefinish-h2-2-rule original:outlinefinish-h2-2-case original:outlinefinish-h2-2-changed	original:outlinefinish-h2-3-rule original:outlinefinish-h2-3-case original:outlinefinish-h2-3-changed
+repro.drug	Benzodiazepine effects	original:outlinefinish-benzo-1-rule original:outlinefinish-benzo-1-case original:outlinefinish-benzo-1-changed	original:outlinefinish-benzo-2-rule original:outlinefinish-benzo-2-case original:outlinefinish-benzo-2-changed	original:outlinefinish-benzo-3-rule original:outlinefinish-benzo-3-case original:outlinefinish-benzo-3-changed
+repro.drug	Beta-blocker effects	original:outlinefinish-beta-1-rule original:outlinefinish-beta-1-case original:outlinefinish-beta-1-changed	original:outlinefinish-beta-2-rule original:outlinefinish-beta-2-case original:outlinefinish-beta-2-changed	original:outlinefinish-beta-3-rule original:outlinefinish-beta-3-case original:outlinefinish-beta-3-changed original:outlinefinish-beta-score original:outlinefinish-beta-denom
 repro.drug	Menopausal hormone therapy effects	original:rg-hormone-why	original:rg-hormone-with original:rg-hormone-without	original:rg-hormone-local original:rg-hormone-system original:rg-est-hot
-repro.drug	Opioid effects			
-repro.drug	Spironolactone effects			
+repro.drug	Opioid effects	original:outlinefinish-opioid-1-rule original:outlinefinish-opioid-1-case original:outlinefinish-opioid-1-changed	original:outlinefinish-opioid-2-rule original:outlinefinish-opioid-2-case original:outlinefinish-opioid-2-changed	original:outlinefinish-opioid-3-rule original:outlinefinish-opioid-3-case original:outlinefinish-opioid-3-changed
+repro.drug	Spironolactone effects	original:outlinefinish-spiro-1-rule original:outlinefinish-spiro-1-case original:outlinefinish-spiro-1-changed	original:outlinefinish-spiro-2-rule original:outlinefinish-spiro-2-case original:outlinefinish-spiro-2-changed	original:outlinefinish-spiro-3-rule original:outlinefinish-spiro-3-case original:outlinefinish-spiro-3-changed
 repro.drug	SSRI effects	original:rg-ssri-effect	original:rg-ssri-new	original:rg-ssri-baseline original:rg-ssri-before original:rg2-add-drug
-repro.drug	Tricyclic antidepressant effects			
+repro.drug	Tricyclic antidepressant effects	original:outlinefinish-tca-1-rule original:outlinefinish-tca-1-case original:outlinefinish-tca-1-changed	original:outlinefinish-tca-2-rule original:outlinefinish-tca-2-case original:outlinefinish-tca-2-changed	original:outlinefinish-tca-3-rule original:outlinefinish-tca-3-case original:outlinefinish-tca-3-changed
 endo.pancreas	Type 1 diabetes	bank:usmle-step1:endocrine-type-1-beta-cell:v1 bank:usmle-step1:endo-diabetes-types:v1 original:eh-type-slow	original:eh-screen-type1	original:ex-glucosecare-npo
 endo.pancreas	Slowly progressive adult-onset autoimmune diabetes	original:eh-type-slow	original:eh-type-adult	original:eh-type-insulin
 endo.pancreas	Type 2 diabetes	original:eh-screen-latency	original:eh-screen-type2	original:ex-glucosecare-kid
@@ -1062,11 +1062,11 @@ cv.vascular	Varicose veins	original:vlegs-varix-1-rule original:vlegs-varix-1-ca
 cv.vascular	Chronic venous insufficiency	original:vlegs-pressure-1-rule original:vlegs-pressure-1-case original:vlegs-pressure-1-transfer original:vlegs-stasedema-1-rule original:vlegs-stasedema-1-case original:vlegs-stasedema-1-transfer	original:vlegs-pressure-2-rule original:vlegs-pressure-2-case original:vlegs-pressure-2-transfer	original:vlegs-pressure-3-rule original:vlegs-pressure-3-case original:vlegs-pressure-3-transfer
 cv.vascular	Venous stasis ulcers	original:vlegs-ulcer-1-rule original:vlegs-ulcer-1-case original:vlegs-ulcer-1-transfer	original:vlegs-ulcer-2-rule original:vlegs-ulcer-2-case original:vlegs-ulcer-2-transfer	original:vlegs-ulcer-3-rule original:vlegs-ulcer-3-case original:vlegs-ulcer-3-transfer original:vlegs-earlyvein-3-rule original:vlegs-earlyvein-3-case original:vlegs-earlyvein-3-transfer
 cv.vascular	Stasis dermatitis	original:vlegs-skin-1-rule original:vlegs-skin-1-case original:vlegs-skin-1-transfer original:vlegs-stasedema-1-rule original:vlegs-stasedema-1-case original:vlegs-stasedema-1-transfer	original:vlegs-skin-2-rule original:vlegs-skin-2-case original:vlegs-skin-2-transfer	original:vlegs-skin-3-rule original:vlegs-skin-3-case original:vlegs-skin-3-transfer
-cv.trauma	Penetrating ventricular injury			
+cv.trauma	Penetrating ventricular injury	original:outlinefinish-vent-1-rule original:outlinefinish-vent-1-case original:outlinefinish-vent-1-changed	original:outlinefinish-vent-2-rule original:outlinefinish-vent-2-case original:outlinefinish-vent-2-changed	original:outlinefinish-vent-3-rule original:outlinefinish-vent-3-case original:outlinefinish-vent-3-changed
 cv.trauma	Blunt myocardial injury	original:cv-blunt-marker original:cv-blunt-rhythm	original:cv-blunt-indication original:cv-blunt-window original:cv-blunt-pair	original:cv-blunt-rule original:cv-blunt-isolated original:cv-blunt-discordant
-cv.trauma	Traumatic myocardial rupture			
-cv.trauma	Blunt aortic injury			
-cv.trauma	Traumatic tamponade			
+cv.trauma	Traumatic myocardial rupture	original:outlinefinish-rupt-1-rule original:outlinefinish-rupt-1-case original:outlinefinish-rupt-1-changed	original:outlinefinish-rupt-2-rule original:outlinefinish-rupt-2-case original:cv-blunt-window	original:outlinefinish-rupt-3-rule original:outlinefinish-rupt-3-case original:outlinefinish-rupt-3-changed
+cv.trauma	Blunt aortic injury	original:outlinefinish-aorta-1-rule original:outlinefinish-aorta-1-case original:outlinefinish-aorta-1-changed	original:outlinefinish-aorta-2-rule original:outlinefinish-aorta-2-case original:outlinefinish-aorta-2-changed original:outlinefinish-aorta-flap	original:outlinefinish-aorta-3-rule original:outlinefinish-aorta-3-case original:outlinefinish-aorta-3-changed
+cv.trauma	Traumatic tamponade	original:outlinefinish-tam-1-rule original:outlinefinish-tam-1-case original:outlinefinish-tam-1-changed	original:outlinefinish-tam-2-rule original:outlinefinish-tam-2-case original:outlinefinish-tam-2-changed	original:outlinefinish-tam-3-rule original:outlinefinish-tam-3-case original:outlinefinish-tam-3-changed
 cv.congenital	Anomalous origin of the left coronary artery	original:cv1-alcapa-steal	original:cv2-alcapa-origin	original:cv3-alcapa-repair
 cv.congenital	Atrial septal defect	original:cv1-shunt-atrium original:cv1-asd-volume original:cv1-asd-reverse	original:cv2-shunt-asd original:cv2-asd-flow	original:cv3-asd-rule original:cv3-asd-close original:cv3-asd-keep
 cv.congenital	Coarctation of the aorta	original:cv-coarc-pressure	original:cv-coarc-pulses	original:cv-coarc-repaired
