@@ -2964,7 +2964,7 @@ def visual_function_studies():
     ax.plot(0, 0, "ko", ms=4)
     ax.set(aspect="equal", title="Patient's monocular grid drawing")
     ax.axis("off")
-    save(fig, "eye_grid")
+    save_lossless(fig, "eye_grid")
 
     for name, center_seen in [("island", True), ("centralmap", False)]:
         fig, ax = plt.subplots(figsize=(4.3, 3.7), layout="constrained")
@@ -3000,19 +3000,19 @@ def visual_function_studies():
     ax.scatter(x, [3.48, 3.04, 2.47, 2.03, 1.49, 1.01], color=COLORS[1], label="Measurements")
     ax.set(title="Converging lens bench  •  simulated", xlim=(0, 3.3), ylim=(0, 4.5))
     ax.legend()
-    save(fig, "eye_bench")
+    save_lossless(fig, "eye_bench")
 
     fig, ax = axes("Flash intensity (arbitrary units)", "Trials reported seen (of 40)")
     ax.plot([1, 2, 3, 4, 5, 6, 7], [1, 3, 9, 20, 32, 37, 39], "o-", color=COLORS[0])
     ax.set(title="Monocular flash detection  •  simulated", yticks=[0, 10, 20, 30, 40])
-    save(fig, "eye_half")
+    save_lossless(fig, "eye_half")
     fig, ax = axes("Flash intensity (arbitrary units)", "Trials reported seen (%)")
     x = np.linspace(0, 10, 160)
     for j, (label, mid) in enumerate([("Session A", 6), ("Session B", 3)]):
         ax.plot(x, 100 / (1 + np.exp(-(x - mid) * 1.3)), STYLES[j], color=COLORS[j], label=label)
     ax.set(title="Detection across sessions  •  simulated", yticks=[0, 25, 50, 75, 100])
     ax.legend()
-    save(fig, "eye_sensshift")
+    save_lossless(fig, "eye_sensshift")
 
     for name, delay in [("darkrod", 8), ("darkcross", 5)]:
         fig, ax = axes("Time in darkness (minutes)", "Detection threshold (relative units)")
@@ -3571,7 +3571,7 @@ def postpartum_studies():
     ax.set(yticks=[1, 0], yticklabels=labels, ylim=(-.5, 1.5), xlim=(.45, 1.16),
            xlabel="Risk ratio for tranexamic acid vs placebo (95% CI)",
            title="WOMAN trial  •  published estimates")
-    save(fig, "postpartum_woman")
+    save_lossless(fig, "postpartum_woman")
 
     record("polar", "Secondary oocytes in culture", ["Condition", "Second polar body", "Total oocytes"],
            [["No sperm", "4", "40"], ["Sperm exposure", "30", "40"]])
@@ -3595,7 +3595,7 @@ def postpartum_studies():
     for x in [-.44, .44]:
         panels[2].add_patch(Circle((x, 0), .49, fc="#b4cfc8", ec=COLORS[0]))
     fig.suptitle("Mammalian embryonic stages  •  schematics")
-    save(fig, "postpartum_stages")
+    save_lossless(fig, "postpartum_stages")
     record("fate", "Transcripts per matched cell sample", ["Transcript", "Culture A", "Culture B"],
            [["Muscle marker", "2", "44"], ["Reference", "20", "20"]])
     fig, ax = axes("Minutes after ligand added", "Intracellular cAMP (relative units)")
@@ -3605,7 +3605,7 @@ def postpartum_studies():
     ax.set_xticks(x)
     ax.legend()
     ax.set_title("Gland-cell response  •  simulated")
-    save(fig, "postpartum_camp")
+    save_lossless(fig, "postpartum_camp")
     record("ox", "Hormone measurements", ["Normalized signal", "Tissue A", "Tissue B"],
            [["Precursor mRNA", "95", "2"], ["Stored peptide", "32", "91"]])
 
@@ -3690,7 +3690,7 @@ def neonatal_and_mechanics_studies():
         ax.plot(x, vals, style, lw=2, label=label)
     ax.set_title("Model lung inflation over a limited pressure range")
     ax.legend()
-    save(fig, "neonatal_compliance")
+    save_lossless(fig, "neonatal_compliance")
     fig, panels = plt.subplots(1, 2, figsize=(6.2, 2.9), layout="constrained")
     for ax, label in zip(panels, ["One sphere • radius r", "Eight spheres • radius r/2"]):
         ax.set(xlim=(-2.2, 2.2), ylim=(-1.35, 1.35), aspect="equal", title=label)
@@ -3700,7 +3700,7 @@ def neonatal_and_mechanics_studies():
         for x in [-1.56, -.52, .52, 1.56]:
             panels[1].add_patch(Circle((x, y), .5, fc="#d8e9ed", ec=COLORS[0], lw=1.5))
     fig.suptitle("Equal total gas volume • spherical model")
-    save(fig, "neonatal_alveoli")
+    save_lossless(fig, "neonatal_alveoli")
     record("esctime", "ESC-NOW trial, infants born at ≥36 weeks",
            ["Care approach", "Birth to medical readiness"], [["Usual care", "14.9 days"], ["Eat, Sleep, Console", "8.2 days"]],
            source="published means")
@@ -3752,7 +3752,7 @@ def neonatal_and_mechanics_studies():
     t = np.linspace(0,6,181)
     ax.plot(t, 2*np.cos(np.pi*t), color=COLORS[0], lw=2)
     ax.set(xticks=range(7), yticks=[-2,-1,0,1,2])
-    save(fig, "neonatal_wave")
+    save_lossless(fig, "neonatal_wave")
 
 
 def nursery_studies():
@@ -4476,7 +4476,7 @@ def valve_lesion_studies():
             ls="--", label="Left ventricle", color=COLORS[1])
     ax.set(title="Simultaneous pressures after valve opening • simulated", ylim=(0, 24))
     ax.legend(loc="best")
-    save(fig, "valves_inflow")
+    save_lossless(fig, "valves_inflow")
     study_table("valves_gradients", "Mean diastolic pressures at the same flow",
                 ["Chamber", "Atrium (mm Hg)", "Ventricle (mm Hg)"],
                 [["Right heart", "12", "4"], ["Left heart", "9", "8"]])
@@ -4498,7 +4498,7 @@ def valve_lesion_studies():
     ax.axhline(0, color="#555555", lw=.8)
     ax.set(title="Main pulmonary artery • simulated flow")
     ax.legend(title="Profile")
-    save(fig, "valves_pulmflow")
+    save_lossless(fig, "valves_pulmflow")
     fig, panels = plt.subplots(1, 2, figsize=(6.5, 3.1), layout="constrained", sharey=True)
     for ax, name, left in zip(panels, ["A", "B"], [[120, 100, 120], [120, 126, 120]]):
         ax.plot([0, 1, 2], left, "o-", color=COLORS[0], label="LV")
@@ -4508,7 +4508,7 @@ def valve_lesion_studies():
         ax.legend(fontsize=8, loc="center left")
     panels[0].set_ylabel("Systolic pressure (mm Hg)")
     fig.suptitle("Simultaneous ventricular pressures • simulated")
-    save(fig, "valves_resp")
+    save_lossless(fig, "valves_resp")
     fig, ax = axes("Pericardial fluid volume (mL)", "Pericardial pressure (mm Hg)")
     vol = np.linspace(0, 210, 101)
     for name, scale, style, color in [("A", 62, "-", COLORS[0]), ("B", 124, "--", COLORS[1])]:
@@ -4516,7 +4516,7 @@ def valve_lesion_studies():
     ax.axvline(180, ls=":", color="#555555", lw=.8)
     ax.set(title="Two pericardial pressure responses • illustrative", ylim=(0, 30))
     ax.legend(title="Patient")
-    save(fig, "valves_reserve")
+    save_lossless(fig, "valves_reserve")
     fig, ax = axes("Assigned add-on treatment", "Patients meeting endpoint (%)")
     bars = ax.bar(["Colchicine", "Placebo"], [16.7, 37.5], color=COLORS, width=.55)
     ax.bar_label(bars, labels=["16.7%", "37.5%"], padding=3)
@@ -4585,6 +4585,82 @@ def upper_respiratory_records():
     save(fig, "upperair_sinus")
     study_table("upperair_peak", "Peak expiratory flow during a cold",
                 ["Personal best", "Yesterday", "Today"], [["400 L/min", "330 L/min", "200 L/min"]])
+
+
+def chemistry_transfer_figures():
+    """Simulated assay data and standard carbohydrate projections for MCAT 5D."""
+    fig, ax = axes("Strong base added (equivalents)", "pH")
+    fraction = np.linspace(.1, .9, 121)
+    ax.plot(fraction, 4.6 + np.log10(fraction / (1 - fraction)), color=COLORS[0], lw=2)
+    ax.set(xticks=[.1, .3, .5, .7, .9], yticks=np.arange(3.6, 5.7, .2),
+           title="Buffer region of a weak-acid titration")
+    save_lossless(fig, "chemview_titration")
+
+    fig, ax = axes("Time (min)", "Product released (µmol)")
+    time = np.arange(5)
+    ax.plot(time, 4 * time, "o-", label="Complete", color=COLORS[0])
+    ax.plot(time, time, "s--", label="Without enzyme", color=COLORS[1])
+    ax.set(xticks=time, yticks=range(0, 17, 2), title="Ester cleavage • simulated")
+    ax.legend()
+    save_lossless(fig, "chemview_release_rate")
+
+    fig, ax = axes("Temperature (°C)", "Fraction folded")
+    temp = np.linspace(42, 66, 161)
+    ax.plot(temp, 1 / (1 + np.exp((temp - 54) / 2.2)), color=COLORS[0], lw=2)
+    ax.set(xticks=range(42, 67, 3), yticks=[0, .25, .5, .75, 1],
+           title="Thermal scan • simulated")
+    save_lossless(fig, "chemview_folded")
+
+    fig, ax = axes("Free ligand (µM)", "Bound ligand (pmol)")
+    ligand = np.geomspace(.01, 1000, 240)
+    for maximum, label, color, style in [(60, "A", COLORS[0], "-"), (30, "B", COLORS[1], "--")]:
+        ax.semilogx(ligand, maximum * ligand / (1 + ligand), style,
+                    color=color, lw=2, label=label)
+    ax.set(yticks=range(0, 61, 10), title="One-site equilibrium binding • simulated")
+    ax.legend(title="Preparation")
+    save_lossless(fig, "chemview_capacity")
+
+    for filename, patterns in [("four", ("RR", "LR")), ("six", ("RLRR", "RLLR"))]:
+        fig, panels = plt.subplots(1, 2, figsize=(4.5, 3.25), layout="constrained")
+        for ax, pattern, label in zip(panels, patterns, ("A", "B")):
+            count = len(pattern)
+            ax.plot([0, 0], [.28, count + .7], color="#333333")
+            ax.text(0, count + .95, "CHO", ha="center", va="center")
+            ax.text(0, .03, "CH₂OH", ha="center", va="center")
+            for y, side in zip(range(count, 0, -1), pattern):
+                ax.plot([-.46, .46], [y, y], color="#333333")
+                ax.text(-.54, y, "HO" if side == "L" else "H", ha="right", va="center")
+                ax.text(.54, y, "OH" if side == "R" else "H", ha="left", va="center")
+            ax.set(xlim=(-1.15, 1.15), ylim=(-.35, count + 1.35), title=label)
+            ax.axis("off")
+        save_lossless(fig, "chemview_fischer_" + filename)
+
+    # C1 through C5, then the ring oxygen. The heavy lower edge faces the reader.
+    ring = np.array([(1.4, 0), (.72, -.61), (-.72, -.61), (-1.4, 0),
+                     (-.72, .61), (.72, .61)])
+    for filename, rings, orientation in [
+        ("ring_epimer", [(1, -1), (1, 1)], 1),
+        ("single_beta", [(1, -1)], 1),
+        ("two_anomers", [(1, -1), (-1, -1)], -1),
+    ]:
+        fig, panels = plt.subplots(1, len(rings), figsize=(3.45 * len(rings), 2.65),
+                                   layout="constrained", squeeze=False)
+        vertices = ring * orientation
+        for index, (ax, (c1, c4)) in enumerate(zip(panels[0], rings)):
+            ax.plot(*np.vstack([vertices, vertices[0]]).T, color="#222222", lw=1.6)
+            ax.plot(*vertices[1:3].T, color="#222222", lw=3)
+            ax.text(*vertices[5], "O", ha="center", va="center", fontsize=13,
+                    bbox=dict(facecolor="white", edgecolor="none", pad=.3))
+            for (x, y), direction, group in zip(vertices[:5], (c1, -1, 1, c4, 1),
+                                                ("OH", "OH", "OH", "OH", "CH₂OH")):
+                sign = direction * orientation
+                ax.plot([x, x], [y, y + .4 * sign], color="#222222", lw=1.4)
+                ax.text(x, y + .54 * sign, group, ha="center", va="center", fontsize=12,
+                        bbox=dict(facecolor="white", edgecolor="none", pad=.2))
+            ax.set(aspect="equal", xlim=(-1.85, 1.85), ylim=(-1.43, 1.43),
+                   title=chr(65 + index) if len(rings) > 1 else "")
+            ax.axis("off")
+        save_lossless(fig, "chemview_" + filename)
 
 
 def organic_reasoning_studies():
@@ -7551,6 +7627,7 @@ def main():
     rheumatic_af_outcomes()
     acute_airway_records()
     upper_respiratory_records()
+    chemistry_transfer_figures()
     organic_reasoning_studies()
     severe_cap_trial()
     pneumonia_distributions()

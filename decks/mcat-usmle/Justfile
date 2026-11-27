@@ -14,6 +14,7 @@ test:
 figures:
     uv run --no-project --with matplotlib==3.10.8 python -B figures.py
     uv run --no-project --with matplotlib==3.10.8 python -B intrapartum.py
+    uv run --no-project --with rdkit==2025.9.6 python -B chemistry_figures.py
 
 coverage:
     python3 -B deck.py coverage
