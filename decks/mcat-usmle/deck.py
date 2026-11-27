@@ -297,6 +297,25 @@ def named_measurements():
                               table(ROOT/"step-depth.tsv"))
 
 
+def visual_source_coverage(cards, blueprint, named):
+    """Inventory the front images on explicitly mapped questions, including topics with none."""
+    figures = {r["ID"]: r["Figure"] for r in cards if r["Figure"].endswith(IMAGE_SUFFIXES)}
+    credited = {r["Figure"] for ledger in ("imaging.tsv", "specimens.tsv") for r in table(ROOT / ledger)}
+    topics = [("MCAT", r["Domain"].split(" · ")[0], r["Domain"], r["ReviewedCardIDs"])
+              for r in blueprint if r["Exam"] == "MCAT" and r["Axis"] == "Subtopic"]
+    topics.extend((r["Exam"], r["Family"], r["Item"], r["CardIDs"]) for r in named)
+    report = []
+    for exam, area, topic, ids in topics:
+        pictured = sorted(set(ids.split()).intersection(figures))
+        registered = [i for i in pictured if figures[i] in credited]
+        sources = sorted({figures[i] for i in registered})
+        report.append(dict(Exam=exam, Area=area, Topic=topic, VisualCards=str(len(pictured)),
+                           DistinctFigures=str(len({figures[i] for i in pictured})),
+                           LedgerFigures=str(len(sources)), LedgerFiles=" ".join(sources),
+                           LedgerCardIDs=" ".join(registered), VisualCardIDs=" ".join(pictured)))
+    return report
+
+
 def make(folder, prior):
     import genanki
     model=package_model()
@@ -316,6 +335,8 @@ def make(folder, prior):
     write_table(folder/"mcat-outline-details.tsv", list(details[0]), details)
     named = named_measurements()
     write_table(folder/"step-item-coverage.tsv", list(named[0]), named)
+    visuals = visual_source_coverage(rows, blueprint, named)
+    write_table(folder/"visual-source-coverage.tsv", list(visuals[0]), visuals)
     systems = measure_system_depth(named)
     write_table(folder/"step-system-coverage.tsv", list(systems[0]), systems)
     decks={}; media=set(); objectives=defaultdict(list)
@@ -426,6 +447,7 @@ def verify(folder):
     assert table(folder/"step-coverage.tsv") == report
     named = named_measurements()
     assert table(folder/"step-item-coverage.tsv") == named
+    assert table(folder/"visual-source-coverage.tsv") == visual_source_coverage(expected, blueprint, named)
     assert table(folder/"step-system-coverage.tsv") == measure_system_depth(named)
     assert {r["Family"] for r in table(ROOT/"step-families.tsv")} == {r["Family"] for r in table(ROOT/"step-items.tsv")}, "A Step family is missing from the named-topic inventory"
     verify_imaging(expected)

@@ -5018,6 +5018,30 @@ def kinetic_equilibrium_studies():
     save(fig, "cvdrug_rates", indexed=True)
 
 
+def neuroendocrine_measurements():
+    for name, times in [("close", [10, 14, 18]), ("apart", [10, 35, 60])]:
+        fig, ax = axes("Time (ms)", "Membrane potential (mV)")
+        t = np.linspace(0, 85, 851)
+        v = np.full_like(t, -70.0)
+        for onset in times:
+            dt = np.maximum(t - onset, 0)
+            v += 8.5 * (1 - np.exp(-dt / 0.7)) * np.exp(-dt / 13)
+            ax.plot(onset, -72, "^", color=COLORS[1], ms=5)
+        ax.plot(t, v, color=COLORS[0], lw=2.3)
+        ax.axhline(-55, color="#494f54", ls="--", label="Threshold")
+        ax.set(ylim=(-74, -48), title="Simulated graded response to three inputs")
+        ax.legend(loc="upper right")
+        save(fig, "neuroend_" + name, indexed=True)
+
+    fig, ax = axes("", "Defined daily doses")
+    ax.errorbar([0, 1], [3, 3], yerr=[[2, 1.9], [2, 2.9]], fmt="o", color=COLORS[0],
+                capsize=6, lw=2.3, label="Median and interquartile range")
+    ax.set(xticks=[0, 1], xticklabels=["CT strategy", "AVS strategy"], xlim=(-0.6, 1.6),
+           ylim=(0, 7.2), title="SPARTACUS · treatment at one year")
+    ax.legend(loc="upper left")
+    save(fig, "neuroend_spartacus", indexed=True)
+
+
 def demographic_and_ulcer_studies():
     for name, left, right in [
         ("young", [27, 23, 18, 14, 10, 6], [26, 22, 18, 14, 11, 7]),
@@ -6159,6 +6183,7 @@ def main():
     cardiovascular_drug_studies()
     myocardial_and_bonding_studies()
     demographic_and_ulcer_studies()
+    neuroendocrine_measurements()
     spine_and_separation_studies()
     abdominal_wall_and_equity_studies()
     congenital_and_identity_studies()
