@@ -7050,7 +7050,40 @@ def adult_and_cell_studies():
         save(fig, "frap_" + name, indexed=True)
 
 
+def microbial_motion():
+    """Show how a sign convention distinguishes motion from directional drift."""
+    for suffix, means, direction in [("right", (8, 0), "right"), ("left", (-7, 0), "left")]:
+        fig, ax = axes("Observation condition", "Mean signed displacement (µm)")
+        ax.bar(["Gradient", "Uniform"], means, width=.5, color=COLORS)
+        ax.scatter([1], [0], marker="o", color=COLORS[1], zorder=4)
+        ax.axhline(0, color="#444", lw=1)
+        ax.set(ylim=(-11, 11), yticks=[-10, -5, 0, 5, 10],
+               title=f"Simulated motion · concentration rises to the {direction}")
+        save(fig, "micro_motion_" + suffix, indexed=True)
+
+
+def human_genetics_studies():
+    """Display reported outcomes of two human studies in independently readable tables."""
+    for name, endpoint, counts in [
+            ("symptoms", "Symptomatic HSV-2", (4, 16)),
+            ("acquisition", "Any HSV-2 acquisition", (14, 27))]:
+        study_table("hsv_" + name, endpoint + " over 8 months",
+                    ["Source partner received", "Susceptible partners", "Cases"],
+                    [["Valacyclovir", "743", str(counts[0])],
+                     ["Placebo", "741", str(counts[1])]],
+                    source="Corey et al.", indexed=True)
+    for family, rows in [("f7", [["1", "Maternal", "2.27"], ["2", "Paternal", "0.69"],
+                                  ["3", "Paternal", "0.62"]]),
+                         ("f6", [["1", "Paternal", "0.69"], ["2", "Paternal", "0.46"],
+                                  ["3", "Paternal", "0.40"]])]:
+        study_table("rb1_" + family, "RB1 expression in family " + family.upper(),
+                    ["Individual", "Variant inherited from", "Variant / reference RNA*"], rows,
+                    source="*DNA-normalized · Eloy et al.", indexed=True)
+
+
 def main():
+    microbial_motion()
+    human_genetics_studies()
     adult_and_cell_studies()
     heme_and_skin_figures()
     research_and_social_studies()
