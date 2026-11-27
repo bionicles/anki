@@ -4958,6 +4958,58 @@ def occupational_lung_studies():
         save(fig, "dustlung_" + name, indexed=True)
 
 
+
+def respiratory_injury_studies():
+    """Draw simulated clinical and behavioral records and the NoPAC trial estimate."""
+    for name, sinus, ambient in (("squeeze", 110, 125), ("reverse", 120, 110)):
+        study_table("airinj_" + name, "Sinus pressure at symptom onset",
+                    ["Location", "Absolute pressure (kPa)"], [["Sinus", sinus], ["Ambient", ambient]])
+    for name, flows in (("room", (2, 1, 0)), ("oxygen", (0, 2, 4))):
+        study_table("airinj_" + name, "Observation after submersion",
+                    ["Hour", "Nasal O₂ (L/min)", "SpO₂ (%)"],
+                    [[str(i), str(flow), str(sat)] for i, flow, sat in zip((1, 3, 5), flows, (94, 96, 97))])
+    study_table("airinj_nopaceffect", "Anterior packing at index ED visit",
+                ["Comparison", "Odds ratio", "95% CI"],
+                [["Topical TXA vs placebo", "1.107", "0.769–1.594"]], source="NoPAC")
+    study_table("airinj_nopacrates", "Anterior packing after study treatment",
+                ["Randomized arm", "Packed", "Participants"],
+                [["Topical TXA", "111", "254"], ["Placebo", "100", "242"]], source="NoPAC")
+    study_table("airinj_frame", "Mean score by test framing",
+                ["Group", "Neutral", "Identity cue"], [["A", "76", "72"], ["B", "82", "78"]])
+    fig, ax = axes("Respiratory phase", "Regional gas volume (arbitrary units)")
+    ax.plot([0, 1], [90, 49], "o-", color=COLORS[0], lw=2, label="Left lung")
+    ax.plot([0, 1], [94, 89], "s--", color=COLORS[1], lw=2, label="Right lung")
+    ax.set(xticks=[0, 1], xticklabels=["End inspiration", "End expiration"],
+           ylim=(35, 105), xlim=(-.15, 1.15), title="Paired lung volumes • simplified model")
+    ax.legend(loc="lower left")
+    save(fig, "airinj_trap", indexed=True)
+
+    study_table("airinj_hot", "90-day mortality • lower vs higher target",
+                ["Effect measure", "Estimate"], [["Adjusted risk ratio", "1.02"],
+                ["95% confidence interval", "0.94–1.11"]], source="HOT-ICU")
+    study_table("airinj_hotcounts", "90-day outcomes by oxygenation target",
+                ["Target PaO₂", "Deaths", "Assessed"], [["60 mm Hg", "618", "1,441"],
+                ["90 mm Hg", "613", "1,447"]], source="HOT-ICU")
+    study_table("airinj_induction", "Atelectasis on one basal CT slice",
+                ["O₂ at induction", "Mean area after induction and apnea"],
+                [["60%", "0.3 cm²"], ["80%", "1.3 cm²"], ["100%", "9.8 cm²"]],
+                source="Edmark et al.")
+    fig, ax = plt.subplots(figsize=(5.5, 3), layout="constrained")
+    for y, label, color in ((1.2, "A", COLORS[0]), (-.75, "B", COLORS[1])):
+        ax.plot([1, 1.7, 4.4, 5], [0, y, y, 0], color=color, lw=3)
+        ax.annotate("", (3.6, y), (2.7, y), arrowprops=dict(arrowstyle="->", lw=2))
+        ax.text(2.25, y+.16, label, fontweight="bold")
+    ax.plot([.2, 1], [0, 0], color="#555555", lw=2)
+    ax.plot([5, 5.8], [0, 0], color="#555555", lw=2)
+    ax.text(.12, -.24, "Pulmonary\nartery", ha="left", va="top")
+    ax.text(5.98, -.24, "Pulmonary\nvein", ha="right", va="top")
+    ax.text(3.2, 1.65, "Ventilated alveolus", ha="center")
+    ax.annotate("", (3.2, 1.28), (3.2, 1.58), arrowprops=dict(arrowstyle="<->"))
+    ax.set(xlim=(-.1, 6.15), ylim=(-1.3, 2.3), title="Two routes for pulmonary blood flow")
+    ax.axis("off")
+    save(fig, "airinj_bypass", indexed=True)
+
+
 def main():
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
@@ -5053,6 +5105,7 @@ def main():
     vascular_flow_studies()
     prenatal_visit_studies()
     occupational_lung_studies()
+    respiratory_injury_studies()
     hypothesis_error_regions()
     agreement_figures()
     population_and_decision_figures()

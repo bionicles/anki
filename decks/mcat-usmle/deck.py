@@ -16,7 +16,7 @@ import subprocess
 import tempfile
 from zipfile import ZIP_DEFLATED, ZipFile
 
-from step_coverage import STEPS, display, measure, measure_item_depth
+from step_coverage import STEPS, display, measure, measure_item_depth, measure_system_depth
 from extract import ROOT, FIELDS, cohort, openstax, read
 
 RELEASE = ROOT / "release"
@@ -316,6 +316,8 @@ def make(folder, prior):
     write_table(folder/"mcat-outline-details.tsv", list(details[0]), details)
     named = named_measurements()
     write_table(folder/"step-item-coverage.tsv", list(named[0]), named)
+    systems = measure_system_depth(named)
+    write_table(folder/"step-system-coverage.tsv", list(systems[0]), systems)
     decks={}; media=set(); objectives=defaultdict(list)
     with (folder/(FILE+".tsv")).open("w",newline="",encoding="utf-8") as f:
         f.write(f"#separator:Tab\n#html:true\n#notetype:{model.name}\n#deck column:2\n#guid column:1\n#tags column:11\n#columns:")
@@ -421,7 +423,9 @@ def verify(folder):
     assert table(folder/"mcat-cars-coverage.tsv") == mcat_cars_coverage(expected, blueprint)
     report, practice_tags = step_measurements(expected)
     assert table(folder/"step-coverage.tsv") == report
-    assert table(folder/"step-item-coverage.tsv") == named_measurements()
+    named = named_measurements()
+    assert table(folder/"step-item-coverage.tsv") == named
+    assert table(folder/"step-system-coverage.tsv") == measure_system_depth(named)
     assert {r["Family"] for r in table(ROOT/"step-families.tsv")} == {r["Family"] for r in table(ROOT/"step-items.tsv")}, "A Step family is missing from the named-topic inventory"
     verify_imaging(expected)
     verify_ptbxl(expected)

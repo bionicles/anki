@@ -1,7 +1,7 @@
 """A named condition earns depth only within one Step, family and objective."""
 import unittest
 
-from step_coverage import STEPS, measure_item_depth, practice_bands
+from step_coverage import STEPS, measure_item_depth, measure_system_depth, practice_bands
 
 
 class NamedDepthTest(unittest.TestCase):
@@ -62,6 +62,32 @@ class NamedDepthTest(unittest.TestCase):
 
         rows = [topic(0, 0, 0), topic(2, 0, 0), topic(3, 1, 0), topic(7, 3, 2)]
         self.assertEqual(practice_bands(rows), (1, 1, 1, 1))
+
+    def test_system_counts_intersect_matching_topics_across_steps(self):
+        rows = []
+        # The two families use the same item label. Only A qualifies on Step 1,
+        # and only B qualifies on Step 2, although both qualify on Step 3.
+        for family, full in (("resp.a", (True, False, True)), ("resp.b", (False, True, True))):
+            for exam, qualifies in zip(STEPS, full):
+                rows.append(dict(System="Respiratory", Family=family, Item="Example", Exam=exam,
+                                 MappedCards="3", ThreeLevelObjectives=str(int(qualifies)),
+                                 TwoObjectiveCardIDs=""))
+        for exam in STEPS:
+            rows.append(dict(System="Respiratory", Family="resp.c", Item="Common", Exam=exam,
+                             MappedCards="6", ThreeLevelObjectives="2",
+                             TwoObjectiveCardIDs="f a t | g b u"))
+        system, = measure_system_depth(rows)
+        self.assertEqual(system["NamedTopics"], "3")
+        self.assertEqual(system["AllStepsLinked"], "3")
+        self.assertEqual([system[k+"FullSequence"] for k in ("Step1", "Step2CK", "Step3")],
+                         ["2", "2", "3"])
+        self.assertEqual(system["AllStepsFullSequence"], "1")
+        self.assertEqual(system["AllStepsTwoObjectives"], "1")
+        with self.assertRaises(ValueError):
+            measure_system_depth(rows[:-1])
+        with self.assertRaises(ValueError):
+            measure_system_depth(rows + rows[:1])
+
 
 
 class MCATCARSCoverageTest(unittest.TestCase):

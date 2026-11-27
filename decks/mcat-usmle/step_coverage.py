@@ -164,6 +164,37 @@ def measure_item_depth(families, items, objectives):
     return report
 
 
+
+def measure_system_depth(item_report):
+    """Count the same indexed topics across Steps, including intersections."""
+    grouped = defaultdict(lambda: defaultdict(dict))
+    for row in item_report:
+        topic = (row["Family"], row["Item"])
+        exam = row["Exam"]
+        steps = grouped[row["System"]][topic]
+        if exam not in STEPS or exam in steps:
+            raise ValueError(f"Unexpected or duplicate Step for {topic}: {exam}")
+        steps[exam] = (
+            int(row["MappedCards"]) > 0,
+            int(row["ThreeLevelObjectives"]) > 0,
+            bool(row["TwoObjectiveCardIDs"]),
+        )
+
+    report = []
+    for system, topics in sorted(grouped.items()):
+        result = {"System": system, "NamedTopics": str(len(topics))}
+        if any(set(steps) != set(STEPS) for steps in topics.values()):
+            raise ValueError(f"Incomplete named-topic Step inventory for {system}")
+        for index, measure_name in enumerate(("Linked", "FullSequence", "TwoObjectives")):
+            for exam, prefix in zip(STEPS, ("Step1", "Step2CK", "Step3")):
+                count = sum(steps[exam][index] for steps in topics.values())
+                result[prefix + measure_name] = str(count)
+            common = sum(all(steps[exam][index] for exam in STEPS) for steps in topics.values())
+            result["AllSteps" + measure_name] = str(common)
+        report.append(result)
+    return report
+
+
 def practice_bands(rows):
     """Place each named topic in its deepest documented practice band."""
     total = len(rows)
@@ -203,6 +234,11 @@ def display(report, item_report=()):
                 else:
                     print(f"{system:45}  Named topics not yet inventoried")
         print("¹ Linked to a card, with no documented application and changed case for the same objective.")
+        print("Named topics meeting the same threshold on each of the three Steps")
+        print(f"{'System':45}{'Linked':>8}{'Sequence':>10}{'Two objectives':>16}{'Total':>8}")
+        for system in measure_system_depth(item_report):
+            print(f"{system['System']:45}{system['AllStepsLinked']:>8}{system['AllStepsFullSequence']:>10}"
+                  f"{system['AllStepsTwoObjectives']:>16}{system['NamedTopics']:>8}")
         print("Named items across inventoried systems (mapped / paired cases / three levels / two objectives with six distinct cards)")
         for exam in STEPS:
             rows = [r for r in item_report if r["Exam"] == exam]
