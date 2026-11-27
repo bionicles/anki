@@ -4959,6 +4959,38 @@ def occupational_lung_studies():
 
 
 
+def renal_pathology_and_inheritance():
+    """Schematic tumor depth and simulated genotype/phenotype observations."""
+    for name, depth, shoulder in [("bl1", 1.4, .95), ("bl2", 2.55, 1.55)]:
+        fig, ax = plt.subplots(figsize=(5.3, 2.65), layout="constrained")
+        ax.set(xlim=(0, 6), ylim=(3.55, -.65)); ax.axis("off")
+        for top, bottom, color, label in [
+            (0, .55, "#e6c2be", "Urothelium"),
+            (.55, 1.65, "#f9dfbc", "Lamina propria"),
+            (1.65, 3, "#dda6a5", "Detrusor muscle"),
+            (3, 3.55, "#f5eed6", "Perivesical tissue"),
+        ]:
+            ax.axhspan(top, bottom, facecolor=color)
+            ax.text(.18, (top+bottom)/2, label, va="center", fontsize=11)
+        ax.axhline(3, ls=":", color="#474747", lw=1.7)
+        ax.fill([3.0, 3.0, 3.25, 3.48, 3.65, 3.85, 4.05, 4.25, 4.45, 4.65,
+                 4.65, 4.32, 4.16, 3.96, 3.75, 3.58, 3.30],
+                [0, -.25, -.38, -.23, -.48, -.30, -.52, -.22, -.36, -.21,
+                 .12, .38, shoulder, depth, shoulder, shoulder+.1, .34],
+                color="#653d72", zorder=3)
+        ax.text(5.0, -.23, "Tumor", color="#653d72", va="center", ha="center")
+        save(fig, "nephrstudy_" + name, indexed=True)
+
+    fig, ax = plt.subplots(figsize=(4.2, 1.85), layout="constrained")
+    ax.axis("off")
+    grid = ax.table(cellText=[["Rr", "36", "24"], ["rr", "0", "60"]],
+                    colLabels=["Genotype", "Trait present", "Trait absent"], loc="center",
+                    cellLoc="center")
+    grid.auto_set_font_size(False); grid.set_fontsize(11); grid.scale(1, 1.7)
+    ax.set_title("Adult offspring assessed at the same age")
+    save(fig, "nephrstudy_cohort", indexed=True)
+
+
 def renal_vascular_studies():
     """Renal arterial anatomy, two trial readouts and a simulated antibody response."""
     for name in ("beads", "plaque"):
@@ -5199,6 +5231,7 @@ def main():
     vascular_flow_studies()
     prenatal_visit_studies()
     occupational_lung_studies()
+    renal_pathology_and_inheritance()
     renal_vascular_studies()
     renal_filtration_and_obstruction()
     respiratory_injury_studies()
