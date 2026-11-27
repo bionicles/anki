@@ -50,6 +50,52 @@ def plot(name, xname, yname, x, curves):
     save(fig, name)
 
 
+def nephron_experiments():
+    """Render a simplified countercurrent model and measurements from isolated tubules."""
+    descending = np.full(4, 300.0)
+    ascending = descending.copy()
+    for cycle in range(1, 19):
+        # Equal-volume compartments. Each local transport step conserves total solute.
+        middle = (descending + ascending) / 2
+        descending, ascending = middle + 60, middle - 60
+        if cycle in (1, 18):
+            fig, ax = axes("Model depth (1 = shallowest)", "Osmolality (mOsm/kg)")
+            for label, values, color in [("Descending", descending, COLORS[0]),
+                                         ("Ascending", ascending, COLORS[1])]:
+                ax.plot(range(1, 5), values, "o-", label=label, color=color, lw=2)
+            ax.set(xticks=range(1, 5), ylim=(150, 710),
+                   title=f"Two-limb model after transport step {cycle}")
+            ax.legend(loc="upper left")
+            save_lossless(fig, f"nephron_loop_{cycle}")
+        # Advance equal aliquots in opposite directions around the bend.
+        descending, ascending = np.r_[300, descending[:-1]], np.r_[ascending[1:], descending[-1]]
+
+    fig, ax = axes("Depth in medulla (arbitrary units)", "Interstitial osmolality (mOsm/kg)")
+    for name, values, color in [("A", [300, 400, 500, 600], COLORS[0]),
+                                ("B", [300, 325, 350, 375], COLORS[1])]:
+        ax.plot(range(4), values, "o-", label=name, color=color, lw=2)
+    ax.set(xticks=range(4), title="Two simulated perfusion conditions")
+    ax.legend()
+    save_lossless(fig, "nephron_depth")
+
+    fig, ax = axes("Ion", "Outlet / inlet concentration")
+    bars = ax.bar(["Sodium", "Chloride"], [.79, .77], width=.52, color=COLORS)
+    ax.bar_label(bars, fmt="%.2f", padding=3)
+    ax.axhline(1, color="#555", ls="--")
+    ax.set(ylim=(0, 1.13), title="Rabbit thick ascending limb · mean ratios")
+    save_lossless(fig, "nephron_tal")
+
+    fig, ax = axes("Solute omitted from tubular perfusate", "Phosphate flux (pmol/mm/min)")
+    for pos, values, name, color in [(-.18, [5.51, 6.55], "Before omission", COLORS[0]),
+                                      (.18, [8.32, 9.00], "After omission", COLORS[1])]:
+        bars = ax.bar(np.arange(2)+pos, values, .34, label=name, color=color)
+        ax.bar_label(bars, fmt="%.2f", padding=2)
+    ax.set(xticks=[0, 1], xticklabels=["Glucose", "Alanine"], ylim=(0, 12.5),
+           title="Rabbit proximal tubule · lumen-to-bath flux")
+    ax.legend(loc="upper left")
+    save_lossless(fig, "nephron_pct")
+
+
 def dietary_sodium_studies():
     """Draw fictional label excerpts and original plots of published trial estimates."""
     for key, foods, portions, servings, sodium in [
@@ -1211,7 +1257,7 @@ def endocrine():
         ax.set(xlim=(-2.25,2.3),ylim=(0,710),xticks=[-2,-1,0,1,2],
                title="Supervised concentrating test")
         ax.text(.04,665,"Dose after hour 0 sample",size=8)
-        save(fig, "endo_water_" + case)
+        save_lossless(fig, "endo_water_" + case)
 
     for case, levels in [("a", [2.1, .84, .32, .11, .16]), ("b", [6.8, 6.1, 5.9, 6.4, 6.6])]:
         times = [0, 30, 60, 90, 120]
@@ -1410,7 +1456,7 @@ def renal_studies():
                 cell.set_facecolor("#e5eff3")
                 cell.set_text_props(weight="bold")
         ax.set_title("Blood and urine · simultaneous samples", fontsize=13)
-        save(fig, "kidney_acid_" + case)
+        save_lossless(fig, "kidney_acid_" + case)
 
     outputs = {"a": [21, 28, 20, 27, 19, 25, 30, 28],
                "b": [18, 24, 20, 75, 74, 77, 70, 68]}
@@ -1421,7 +1467,7 @@ def renal_studies():
         for hour, value in zip(hours, volumes):
             ax.text(hour, value + 1.1, str(value), ha="center", fontsize=9)
         ax.set(xticks=hours, ylim=(0, 90), title="Eight-hour bedside record · 70-kg adult")
-        save(fig, "kidney_output_" + case)
+        save_lossless(fig, "kidney_output_" + case)
 
 
 def renal_anatomy():
@@ -1463,7 +1509,7 @@ def renal_anatomy():
         if case in ("a", "b"):
             ax.text(0, -.12, "Blue = urine pathway     Burgundy = lesion",
                     ha="center", va="top", fontsize=9)
-        save(fig, "kidney_tract_" + case)
+        save_lossless(fig, "kidney_tract_" + case)
 
 
 def perinatal_studies():
@@ -7360,6 +7406,7 @@ def main():
     mcat_changed_evidence()
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
+    nephron_experiments()
     dietary_sodium_studies()
     clinical_distribution_examples()
     lipid_and_skin_studies()

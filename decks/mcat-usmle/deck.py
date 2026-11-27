@@ -210,6 +210,18 @@ def reasoning_evidence(card_ids, inventory):
     return result
 
 
+def mcat_case_evidence(card):
+    """Identify an exact repeated front, shared passage or shared visual stimulus."""
+    prompt = card["Prompt"]
+    passage = prompt.rpartition("\n\n")[0]
+    evidence = {("front", " ".join(prompt.casefold().split()))}
+    if passage:
+        evidence.add(("passage", " ".join(passage.casefold().split())))
+    if card["Figure"]:
+        evidence.add(("figure", card["Figure"]))
+    return evidence
+
+
 def mcat_science_coverage(blueprint, cards=(), transfers=()):
     """Cross-reference reviewed topics, skills and independently authored changed cases."""
     inventory = reasoning_inventory(blueprint, MCAT_SCIENCE_SKILLS)
@@ -227,12 +239,7 @@ def mcat_science_coverage(blueprint, cards=(), transfers=()):
             raise ValueError(f"Invalid MCAT transfer evidence for {topic}, {skill}: {first}, {second}")
         group = pairs[topic, column]
         a, b = card_by_id[first], card_by_id[second]
-        def normalized(value):
-            return " ".join(value.split()).casefold()
-        passage = normalized(a["Prompt"].rpartition("\n\n")[0])
-        if (ids in group or normalized(a["Prompt"]) == normalized(b["Prompt"])
-                or (a["Figure"] and a["Figure"] == b["Figure"])
-                or (passage and passage == normalized(b["Prompt"].rpartition("\n\n")[0]))):
+        if ids in group or mcat_case_evidence(a) & mcat_case_evidence(b):
             raise ValueError(f"Repeated MCAT transfer evidence: {first}, {second}")
         group[ids] = f"{first} {second}"
 
@@ -249,7 +256,7 @@ def mcat_science_coverage(blueprint, cards=(), transfers=()):
     return report
 
 
-def mcat_detail_coverage(blueprint, science):
+def mcat_detail_coverage(blueprint, science, cards):
     """Credit an outline detail only for reviewed IDs and complete same-category case pairs."""
     pairs = defaultdict(set)
     categories = {row["Subtopic"].partition(" · ")[0] for row in science}
@@ -260,6 +267,9 @@ def mcat_detail_coverage(blueprint, science):
                 if pair:
                     pairs[category].add(pair)
     report = []
+    case_evidence = {r["ID"]: mcat_case_evidence(r) for r in cards if r["Exam"] == "MCAT"}
+    pair_evidence = {pair: set.union(*(case_evidence[i] for i in pair.split()))
+                     for category_pairs in pairs.values() for pair in category_pairs}
     for row in blueprint:
         if (row["Exam"], row["Axis"]) != ("MCAT", "Outline detail"):
             continue
@@ -268,9 +278,9 @@ def mcat_detail_coverage(blueprint, science):
             raise ValueError(f"Unknown category or empty MCAT detail: {row['Domain']}")
         ids = set(row["ReviewedCardIDs"].split())
         matched = sorted(pair for pair in pairs[category] if set(pair.split()) <= ids)
-        # Two rows that reuse the same case cannot supply four retrieval opportunities.
+        # Four cards need four distinct stimuli, including passages and figures.
         independent = next((f"{left} | {right}" for left, right in combinations(matched, 2)
-                            if set(left.split()).isdisjoint(right.split())), "")
+                            if pair_evidence[left].isdisjoint(pair_evidence[right])), "")
         report.append(dict(Category=category, Detail=detail, Outline=row["Outline"],
                            MappedCards=str(len(ids)), CardIDs=" ".join(sorted(ids)),
                            ChangedPairs=str(len(matched)), PairIDs=" | ".join(matched),
@@ -468,7 +478,7 @@ def make(folder, prior):
                  for card_id in passage[field + "IDs"].split()}
     science = reviewed_mcat_science(rows, blueprint)
     write_table(folder/"mcat-science-coverage.tsv", list(science[0]), science)
-    details = mcat_detail_coverage(blueprint, science)
+    details = mcat_detail_coverage(blueprint, science, rows)
     write_table(folder/"mcat-outline-details.tsv", list(details[0]), details)
     audit = mcat_source_audit(science, details, table(ROOT/"mcat-source-audit.tsv"))
     write_table(folder/"mcat-source-audit.tsv", list(audit[0]), audit)
@@ -583,7 +593,7 @@ def verify(folder):
     assert table(folder/"step-nutrition-coverage.tsv") == nutrition_coverage(expected, blueprint)[0]
     science = reviewed_mcat_science(expected, blueprint)
     assert table(folder/"mcat-science-coverage.tsv") == science
-    details = mcat_detail_coverage(blueprint, science)
+    details = mcat_detail_coverage(blueprint, science, expected)
     assert table(folder/"mcat-outline-details.tsv") == details
     assert table(folder/"mcat-source-audit.tsv") == mcat_source_audit(science, details, table(ROOT/"mcat-source-audit.tsv"))
     assert table(folder/"mcat-cars-coverage.tsv") == mcat_cars_coverage(expected, blueprint)
@@ -807,7 +817,7 @@ def main():
             cards, _ = deduplicate(records(RELEASE), alias_map(RELEASE))
             blueprint = table(ROOT/"blueprint.tsv")
             science = reviewed_mcat_science(cards, blueprint)
-            details = mcat_detail_coverage(blueprint, science)
+            details = mcat_detail_coverage(blueprint, science, cards)
             audit = mcat_source_audit(science, details, table(ROOT/"mcat-source-audit.tsv"))
             reviewed = {r["Category"] for r in audit if r["Inventory"] == "Reviewed"}
             categories = {r["Category"] for r in audit}
@@ -818,6 +828,10 @@ def main():
             print(f"Inventoried source checkpoints without a case pair for every linked decision: {len(open_checkpoints)}")
             for row in open_checkpoints[:3]:
                 print(f"  {row['Category']} — {row['Checkpoint']}")
+            indexed = [r for r in audit if r["LinkedDecisions"]]
+            twice = sum(bool(int(r["LinkedDecisions"])) and r["LinkedDecisions"] == r["TwoPairDecisions"]
+                        for r in indexed)
+            print(f"Source checkpoints with two independent pairs for every linked decision: {twice}/{len(indexed)}")
             display_gaps(named_measurements(), science, details)
             return
         if args.action=="coverage":
@@ -853,7 +867,7 @@ def main():
             for skill, column in MCAT_SCIENCE_SKILLS.items():
                 represented = sum(int(row[column + "Pairs"]) > 0 for row in science)
                 print(f"  {skill}: {represented}/{len(science)}")
-            details = mcat_detail_coverage(blueprint, science)
+            details = mcat_detail_coverage(blueprint, science, cards)
             print("MCAT detailed outline review by indexed category")
             for category in sorted({row["Category"] for row in details}):
                 rows = [row for row in details if row["Category"] == category]

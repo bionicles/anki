@@ -159,6 +159,10 @@ class MCATCARSCoverageTest(unittest.TestCase):
 
 
 class MCATScienceCoverageTest(unittest.TestCase):
+    @staticmethod
+    def case_cards():
+        return [dict(Exam="MCAT", ID=key, Prompt="Question " + key, Figure="") for key in "abcd"]
+
     def test_outline_detail_requires_both_partners_in_the_same_category(self):
         from deck import MCAT_SCIENCE_SKILLS, mcat_detail_coverage
 
@@ -172,7 +176,7 @@ class MCATScienceCoverageTest(unittest.TestCase):
 
         reviewed = [science("1D", "a b | c d"), science("5E", "a c")]
         rows = mcat_detail_coverage([detail("Paired", "a b c"), detail("Split", "a c"),
-                                     detail("Open", "")], reviewed)
+                                     detail("Open", "")], reviewed, self.case_cards())
         self.assertEqual([row["MappedCards"] for row in rows], ["3", "2", "0"])
         self.assertEqual([row["PairIDs"] for row in rows], ["a b", "", ""])
 
@@ -184,9 +188,17 @@ class MCATScienceCoverageTest(unittest.TestCase):
         rows = [dict(Exam="MCAT", Axis="Outline detail", Domain="3B · " + detail,
                      ReviewedCardIDs=ids, Outline="source", NextAudit="review")
                 for detail, ids in [("Overlapping", "a b c"), ("Independent", "a b c d")]]
-        overlap, independent = mcat_detail_coverage(rows, [topic])
+        cards = self.case_cards()
+        overlap, independent = mcat_detail_coverage(rows, [topic], cards)
         self.assertEqual(overlap["TwoIndependentPairIDs"], "")
         self.assertEqual(independent["TwoIndependentPairIDs"], "a c | b d")
+        for changes in [({"Figure": "same.png"}, {"Figure": "same.png"}),
+                        ({"Prompt": "Shared   data\n\nFirst?"}, {"Prompt": "shared data\n\nSecond?"})]:
+            cards = self.case_cards()
+            cards[0].update(changes[0])
+            cards[1].update(changes[1])
+            self.assertFalse(mcat_detail_coverage(rows, [topic], cards)[1]["TwoIndependentPairIDs"])
+
 
     def test_source_audit_keeps_missing_categories_and_unpaired_components_visible(self):
         from deck import mcat_source_audit
