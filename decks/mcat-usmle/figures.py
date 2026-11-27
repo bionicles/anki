@@ -596,7 +596,40 @@ def reproductive():
         save(fig, "repro_uterus_" + code)
 
 
+def aqueous_chemistry():
+    """Draw water orientation around a single ion and a simulated solubility experiment."""
+    from matplotlib.patches import Circle
+
+    for name, turn in [("cation", 0), ("anion", np.pi - np.deg2rad(52.25))]:
+        fig, ax = plt.subplots(figsize=(4, 3.6), layout="constrained")
+        ax.set(aspect="equal", xlim=(-1.8, 1.8), ylim=(-1.7, 1.7), title="Hydration shell · schematic")
+        ax.axis("off")
+
+        def atom(x, y, symbol, radius, color):
+            ax.add_patch(Circle((x, y), radius, facecolor=color, edgecolor="#344550", zorder=2))
+            ax.text(x, y, symbol, ha="center", va="center", fontsize=10, zorder=3)
+
+        atom(0, 0, "?", .24, "#f8d58d")
+        for angle in np.linspace(0, 2 * np.pi, 5, endpoint=False):
+            ox, oy = 1.03 * np.array([np.cos(angle), np.sin(angle)])
+            for half_angle in [-52.25, 52.25]:
+                direction = angle + turn + np.deg2rad(half_angle)
+                hx, hy = (ox, oy) + .44 * np.array([np.cos(direction), np.sin(direction)])
+                ax.plot([ox, hx], [oy, hy], color="#475563", lw=2, zorder=1)
+                atom(hx, hy, "H", .12, "#e6f1f6")
+            atom(ox, oy, "O", .15, "#efac98")
+        save(fig, "aqueous_" + name, indexed=True)
+
+    study_table("aqueous_calcium", "Saturated suspensions · concentrations in µM",
+                ["Condition", "Free Ca²⁺", "Free C₂O₄²⁻", "Total dissolved Ca"],
+                [["Reference", "50", "40", "50"], ["Acidified", "100", "20", "100"],
+                 ["Ligand added", "25", "80", "100"]], indexed=True)
+
+
 def endocrine():
+    study_table("thyroid_tablet", "Live birth at ≥34 completed weeks", ["Assigned group", "Live births", "With outcome data"],
+                [["Levothyroxine", "176", "470"], ["Placebo", "178", "470"]],
+                source="TABLET (2019)", indexed=True)
     study_table("fold_wisdm", "Median time below 70 mg/dL", ["Assigned group", "Baseline", "Follow-up"],
                 [["CGM", "5.1%", "2.7%"], ["Standard monitoring", "4.7%", "4.9%"]],
                 source="WISDM (2020)", indexed=True)
@@ -6736,6 +6769,7 @@ def main():
     quality_and_communication()
     reproductive()
     endocrine()
+    aqueous_chemistry()
     plot("refeed", "Hours after starting nutrition", "Serum phosphate (mg/dL)",
          [0,12,24,36,48], {"Patient A": [3.2,2.9,2.4,1.8,1.6],
                             "Patient B": [3.1,3.2,3.0,3.1,3.1]})
