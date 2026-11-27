@@ -596,6 +596,21 @@ def reproductive():
         save(fig, "repro_uterus_" + code)
 
 
+def population_health():
+    """Draw NCHS population tables and a simulated education study."""
+    study_table("structure_ratings", "Mean evaluator score (10-point scale)",
+                ["Video", "High-potential label", "Neutral label"],
+                [["Patient interview", "8.1", "7.3"], ["Team handoff", "7.4", "7.4"]],
+                indexed=True)
+    study_table("population_maternal", "US maternal mortality", ["Year", "Live births", "Maternal deaths"],
+                [["2022", "3,667,758", "817"], ["2023", "3,596,017", "669"],
+                 ["2024", "3,628,934", "649"]], source="NCHS", indexed=True)
+    study_table("population_age", "US maternal mortality by age, 2024",
+                ["Age (years)", "Live births", "Maternal deaths"],
+                [["Under 25", "750,800", "103"], ["25–39", "2,725,743", "451"],
+                 ["40 or older", "152,391", "95"]], source="NCHS", indexed=True)
+
+
 def aqueous_chemistry():
     """Draw water orientation around a single ion and a simulated solubility experiment."""
     from matplotlib.patches import Circle
@@ -6770,6 +6785,7 @@ def main():
     reproductive()
     endocrine()
     aqueous_chemistry()
+    population_health()
     plot("refeed", "Hours after starting nutrition", "Serum phosphate (mg/dL)",
          [0,12,24,36,48], {"Patient A": [3.2,2.9,2.4,1.8,1.6],
                             "Patient B": [3.1,3.2,3.0,3.1,3.1]})
