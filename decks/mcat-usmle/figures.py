@@ -4959,6 +4959,53 @@ def occupational_lung_studies():
 
 
 
+def mood_course_and_arousal():
+    """Independent clinical timelines, a trial outcome and a simulated physiology study."""
+    for name, xlabel, end, ticks, tracks in [
+        ("brief", "Days since onset", 30, [0, 5, 10, 15, 20, 25, 30],
+         [("Delusions and\ndisorganized speech", 0, 12), ("Usual functioning", 12, 30)]),
+        ("long", "Months since first disturbance", 8, list(range(9)),
+         [("Functional decline and\ncontinuous disturbance", 0, 8),
+          ("Delusions and\ndisorganized speech", 4, 5.5)]),
+    ]:
+        fig, ax = plt.subplots(figsize=(5.7, 2.15), layout="constrained")
+        for i, (label, start, finish) in enumerate(tracks):
+            ax.barh(i, finish-start, left=start, height=.43, color=COLORS[i])
+        ax.set(yticks=[0,1], yticklabels=[t[0] for t in tracks], xticks=ticks,
+               xlim=(0,end), ylim=(1.55,-.55), xlabel=xlabel, title="Collateral history")
+        ax.grid(axis="x", alpha=.22)
+        save(fig, "bhmood_"+name, indexed=True)
+
+    for name, alternating in [("low", False), ("both", True)]:
+        fig, ax = plt.subplots(figsize=(5.4, 2.5), layout="constrained")
+        months = np.arange(36)
+        levels = np.tile([-1,-1,-1,0,-1,-1], 6)
+        if alternating:
+            levels = np.tile([-1,-1,0,1,1,0], 6)
+        ax.step(months, levels, where="mid", color=COLORS[0], lw=1.9)
+        ax.set(xlim=(0,35), xticks=[0,6,12,18,24,30,35], xlabel="Month of follow-up",
+               ylim=(-1.45,1.45), yticks=[-1,0,1], yticklabels=["Low", "Usual", "Elevated"],
+               title="Monthly predominant mood")
+        ax.grid(alpha=.18)
+        save(fig, "bhmood_"+name, indexed=True)
+
+    fig, ax = axes("Randomized continuation treatment", "Relapsed within 36 weeks (%)")
+    bars = ax.bar(["Olanzapine", "Placebo"], [20.3,54.8], width=.5, color=COLORS)
+    ax.bar_label(bars, labels=["13/64 (20.3%)","34/62 (54.8%)"], padding=4)
+    ax.set(ylim=(0,70), title="STOP-PD II: both groups continued sertraline")
+    save(fig, "bhmood_trial", indexed=True)
+
+    fig, ax = axes("Observation", "Mean heart rate (beats/min)")
+    for i, (name, means) in enumerate([("Fear reported", [71, 96, 77]),
+                                      ("Joy reported", [70, 95, 76])]):
+        ax.plot(range(3), means, STYLES[i], color=COLORS[i], marker=["o","s"][i],
+                lw=2, label=name)
+    ax.set(xticks=[0,1,2], xticklabels=["Before","During","After"], ylim=(60,110),
+           title="Two contexts in a simulated study")
+    ax.legend(loc="upper center", ncol=2)
+    save(fig, "bhmood_arousal", indexed=True)
+
+
 def immunodeficiency_and_learning():
     """Draw immune test results, two illustrative tissue patterns and study outcomes."""
     from matplotlib.patches import Circle, Ellipse
@@ -5602,6 +5649,7 @@ def main():
     vascular_flow_studies()
     prenatal_visit_studies()
     occupational_lung_studies()
+    mood_course_and_arousal()
     immunodeficiency_and_learning()
     hiv_and_circuit_studies()
     immunotherapy_and_electricity()
