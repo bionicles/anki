@@ -210,7 +210,7 @@ def reasoning_evidence(card_ids, inventory):
     return result
 
 
-def mcat_case_evidence(card):
+def case_stimuli(card):
     """Identify an exact repeated front, shared passage or shared visual stimulus."""
     prompt = card["Prompt"]
     passage = prompt.rpartition("\n\n")[0]
@@ -239,7 +239,7 @@ def mcat_science_coverage(blueprint, cards=(), transfers=()):
             raise ValueError(f"Invalid MCAT transfer evidence for {topic}, {skill}: {first}, {second}")
         group = pairs[topic, column]
         a, b = card_by_id[first], card_by_id[second]
-        if ids in group or mcat_case_evidence(a) & mcat_case_evidence(b):
+        if ids in group or case_stimuli(a) & case_stimuli(b):
             raise ValueError(f"Repeated MCAT transfer evidence: {first}, {second}")
         group[ids] = f"{first} {second}"
 
@@ -267,7 +267,7 @@ def mcat_detail_coverage(blueprint, science, cards):
                 if pair:
                     pairs[category].add(pair)
     report = []
-    case_evidence = {r["ID"]: mcat_case_evidence(r) for r in cards if r["Exam"] == "MCAT"}
+    case_evidence = {r["ID"]: case_stimuli(r) for r in cards if r["Exam"] == "MCAT"}
     pair_evidence = {pair: set.union(*(case_evidence[i] for i in pair.split()))
                      for category_pairs in pairs.values() for pair in category_pairs}
     for row in blueprint:
@@ -494,6 +494,77 @@ def display_nutrition_competencies(report):
               + ", ".join(r["Number"] for r in rows if not r["CardIDs"]))
 
 
+CCS_DOMAINS = ("Diagnosis", "Therapy", "Monitoring", "Timing", "Sequencing", "Location")
+
+
+def ccs_coverage(cards, reviews, pathways):
+    """Measure the six CCS domains and retain the evidence for every case heading."""
+    by_id = {r["ID"]: r for r in cards if r["Exam"] == "USMLE Step 3" and r["Section"] == "CCS Cases"}
+    domains = {}
+    tags = defaultdict(list)
+    for review in reviews:
+        cid = review["CardID"]
+        values = review["Domains"].split()
+        if (cid not in by_id or cid in domains or not values or len(values) != len(set(values))
+                or (values != ["Background"] and not set(values) <= set(CCS_DOMAINS))):
+            raise ValueError(f"Invalid CCS domain evidence: {review}")
+        domains[cid] = values
+        tags[cid].extend("ccs::" + value.lower() for value in values)
+
+    linked = defaultdict(list)
+    seen = set()
+    for row in pathways:
+        name, decision = row["Presentation"], row["Decision"]
+        ids = [row[k] for k in ("OpeningID", "FirstOutcomeID", "ChangedOutcomeID")]
+        if (not name.strip() or not decision.strip() or (name, decision) in seen
+                or len(set(ids)) != 3 or any(i not in domains for i in ids)
+                or not row["ChangedEvidence"].strip()):
+            raise ValueError(f"Invalid CCS pathway: {name}, {decision}")
+        if case_stimuli(by_id[ids[1]]) & case_stimuli(by_id[ids[2]]):
+            raise ValueError(f"CCS outcomes reuse the same stimulus: {decision}")
+        seen.add((name, decision))
+        for cid in ids:
+            tag = "ccs_case::" + label(name).lower()
+            if tag not in tags[cid]:
+                tags[cid].append(tag)
+        for topic in {by_id[cid]["Topic"] for cid in ids}:
+            linked[topic].append(row)
+
+    grouped = defaultdict(list)
+    for cid, card in by_id.items():
+        grouped[card["Topic"]].append(cid)
+    report = []
+    for topic, ids in sorted(grouped.items()):
+        row = dict(Topic=topic, Cards=str(len(ids)), CardIDs=" ".join(sorted(ids)))
+        for domain in (*CCS_DOMAINS, "Background"):
+            row[domain + "IDs"] = " ".join(sorted(i for i in ids if domain in domains.get(i, ())))
+        row["UnreviewedIDs"] = " ".join(sorted(set(ids) - domains.keys()))
+        row["RelatedDecisions"] = " | ".join(p["Decision"] for p in linked[topic])
+        row["PathwayCardIDs"] = " | ".join(" ".join(p[k] for k in ("OpeningID", "FirstOutcomeID", "ChangedOutcomeID"))
+                                            for p in linked[topic])
+        report.append(row)
+    return report, tags
+
+
+def ccs_measurements(cards):
+    return ccs_coverage(cards, table(ROOT / "ccs-review.tsv"), table(ROOT / "ccs-pathways.tsv"))
+
+
+def display_ccs(rows):
+    print(f"Step 3 CCS • {sum(int(r['Cards']) for r in rows)} cards across {len(rows)} study topics")
+    for domain in CCS_DOMAINS:
+        represented = sum(bool(r[domain + "IDs"]) for r in rows)
+        print(f"  {domain}: {represented}/{len(rows)} topics have a reviewed example")
+    short = [r["Topic"] for r in rows if int(r["Cards"]) < 3]
+    print(f"  Topics with fewer than three cards: {len(short)}")
+    for name in short[:3]:
+        print("   ", name)
+    decisions = {d for r in rows for d in r["PathwayCardIDs"].split(" | ") if d}
+    missing = sum(len(r["UnreviewedIDs"].split()) for r in rows)
+    print(f"  Reviewed opening decisions with two changed outcomes: {len(decisions)}")
+    print(f"  Cards awaiting domain review: {missing}")
+
+
 def make(folder, prior):
     import genanki
     model=package_model()
@@ -505,6 +576,8 @@ def make(folder, prior):
     report, practice_tags = step_measurements(rows)
     write_table(folder/"step-coverage.tsv", list(report[0]), report)
     blueprint = table(ROOT/"blueprint.tsv")
+    ccs_rows, ccs_tags = ccs_measurements(rows)
+    write_table(folder/"step-ccs-coverage.tsv", list(ccs_rows[0]), ccs_rows)
     detailed_nutrition, competency_tags = nutrition_competency_coverage(rows, table(ROOT/"nutrition-competencies.tsv"))
     write_table(folder/"step-nutrition-competencies.tsv", list(detailed_nutrition[0]), detailed_nutrition)
     nutrition, nutrition_tags = nutrition_coverage(rows, blueprint)
@@ -544,6 +617,7 @@ def make(folder, prior):
             tags.extend(sorted(practice_tags[r["ID"]]))
             tags.extend(nutrition_tags[r["ID"]])
             tags.extend(competency_tags[r["ID"]])
+            tags.extend(ccs_tags[r["ID"]])
             if r["ID"] in cars_tags:
                 tags.append(cars_tags[r["ID"]])
             fields=render(r);guid=genanki.guid_for("mcat-usmle/v1",r["ID"])
@@ -629,6 +703,7 @@ def verify(folder):
         assert row["Status"] in {"Partial","Unmapped","Verified"}
         assert bool(ids)==(row["Status"]!="Unmapped")
         assert all(k in keyed and keyed[k]["Exam"]==row["Exam"] for k in ids), row
+    assert table(folder/"step-ccs-coverage.tsv") == ccs_measurements(expected)[0]
     assert table(folder/"step-nutrition-competencies.tsv") == nutrition_competency_coverage(expected, table(ROOT/"nutrition-competencies.tsv"))[0]
     assert table(folder/"step-nutrition-coverage.tsv") == nutrition_coverage(expected, blueprint)[0]
     science = reviewed_mcat_science(expected, blueprint)
@@ -706,7 +781,7 @@ def file_hash(path):
 
 
 def build_inputs(lock):
-    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "mcat-transfer.tsv", "mcat-source-audit.tsv", "nutrition-competencies.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step-items.tsv", "step_coverage.py", "intrapartum.py", "sleep_studies.py", "ptbxl.py", "ptbxl.tsv", "figures.py", "heart-sounds.tsv", "heart_sounds.py", "protein-coordinates.tsv")]
+    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "mcat-transfer.tsv", "mcat-source-audit.tsv", "nutrition-competencies.tsv", "ccs-review.tsv", "ccs-pathways.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step-items.tsv", "step_coverage.py", "intrapartum.py", "sleep_studies.py", "ptbxl.py", "ptbxl.tsv", "figures.py", "heart-sounds.tsv", "heart_sounds.py", "protein-coordinates.tsv")]
     paths.extend(sorted(p for p in (ROOT / "media").iterdir() if p.suffix in MEDIA_SUFFIXES))
     return {"sources": lock, "files": {p.relative_to(ROOT).as_posix(): file_hash(p) for p in paths}}
 
@@ -864,6 +939,7 @@ def main():
         fcntl.flock(lock,fcntl.LOCK_EX if args.action in {"update","build"} else fcntl.LOCK_SH)
         if args.action in {"gaps", "coverage"}:
             cards, _ = deduplicate(records(RELEASE), alias_map(RELEASE))
+            display_ccs(ccs_measurements(cards)[0])
             display_nutrition_competencies(nutrition_competency_coverage(cards, table(ROOT/"nutrition-competencies.tsv"))[0])
         if args.action=="gaps":
             blueprint = table(ROOT/"blueprint.tsv")

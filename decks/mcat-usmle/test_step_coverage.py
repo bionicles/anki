@@ -41,6 +41,29 @@ class NutritionCoverageTest(unittest.TestCase):
             nutrition_competency_coverage(cards, rows)
 
 
+class CCSTest(unittest.TestCase):
+    def test_cross_topic_course_and_unreviewed_cards(self):
+        from deck import ccs_coverage
+        cards = [dict(ID=str(i), Exam=STEPS[2], Section="CCS Cases", Topic=topic, Prompt=str(i), Figure="")
+                 for i, topic in enumerate(("Start", "Start", "Return", "Return"))]
+        reviews = [dict(CardID=str(i), Domains=d) for i, d in enumerate(("Sequencing", "Therapy", "Location Timing"))]
+        course = dict(Presentation="Fever", Decision="Where to treat", OpeningID="0", FirstOutcomeID="1",
+                      ChangedOutcomeID="2", ChangedEvidence="Follow-up access changes.")
+        report, tags = ccs_coverage(cards, reviews, [course])
+        self.assertEqual(report[0]["UnreviewedIDs"], "3")
+        self.assertEqual(report[0]["LocationIDs"], "2")
+        self.assertEqual(report[1]["LocationIDs"], "")
+        self.assertEqual(report[1]["PathwayCardIDs"], "0 1 2")
+        self.assertIn("ccs_case::fever", tags["2"])
+        with self.assertRaises(ValueError):
+            ccs_coverage(cards, reviews, [dict(course, ChangedOutcomeID="0")])
+        cards[1]["Figure"] = cards[2]["Figure"] = "shared.webp"
+        with self.assertRaises(ValueError):
+            ccs_coverage(cards, reviews, [course])
+        with self.assertRaises(ValueError):
+            ccs_coverage(cards, [dict(CardID="0", Domains="Background Therapy")], [])
+
+
 class NamedDepthTest(unittest.TestCase):
     def test_matching_all_three_layers(self):
         family = {"Family": "blood.clot", "System": "Hematology"}

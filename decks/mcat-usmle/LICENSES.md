@@ -266,3 +266,7 @@ George Moody deposited version 1.0.0 of the MIT-BIH Polysomnographic Database in
 ## Meal timing and iron absorption
 
 The original bar chart in `med_nutrition_tea.webp` plots three published group means from Table 3 of Ahmad Fuzi and colleagues’ stable-isotope study. The figure labels the outcome as mean fractional iron absorption. The two `med_gut_uptake_*.webp` comparisons use simulated intestinal preparations and mark them as simulated. All three figures can be regenerated with `figures.py`. [Primary meal study](https://doi.org/10.3945/ajcn.117.161364)
+
+## Bedside decisions and vascular flow
+
+The original chart `med_ccs_albumin_trial.webp` plots the renal impairment and hospital mortality counts for the two 63-patient arms in Table 2 of Sort and colleagues. The two `med_ccs_flow_*.webp` diagrams are original teaching models with specified pressures or volume flows. The clinical cards using the existing echocardiogram and blood film retain their asset credits on the back. [Albumin study](https://doi.org/10.1056/NEJM199908053410603) · [Clinical image ledger](imaging.tsv)

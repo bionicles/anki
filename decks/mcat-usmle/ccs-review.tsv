@@ -1,0 +1,554 @@
+CardID	Domains
+original:ccs-sepsis-culture	Diagnosis Sequencing
+original:ccs-sepsis-pressor	Therapy
+original:ccs-sepsis-map	Monitoring
+original:ccs-sepsis-focus	Therapy
+original:ccs-sepsis-tailor	Therapy
+original:ccs-dka-potassium	Therapy Sequencing
+original:ccs-dka-sugar	Therapy
+original:ccs-dka-trend	Monitoring
+original:ccs-dka-discharge	Therapy
+original:ccs-dka-bridge	Sequencing
+original:eh-dka-ongoing	Monitoring
+original:eh-dka-done	Monitoring
+original:ccs-ana-recognize	Diagnosis
+original:ccs-ana-route	Therapy
+original:ccs-ana-adjunct	Therapy
+original:ccs-ana-observe	Background
+original:ccs-asthma-silent	Diagnosis
+original:ccs-asthma-recheck	Monitoring
+original:ccs-asthma-steroid	Therapy
+original:ccs-asthma-plan	Therapy
+original:ccs-af-unstable	Therapy
+original:ccs-af-risk	Therapy
+original:ccs-af-aspirin	Therapy
+original:ccs-stroke-clock	Timing
+original:ccs-stroke-mimic	Diagnosis
+original:ccs-stroke-image	Diagnosis Sequencing
+original:ccs-stroke-vessel	Location
+original:ccs-adrenal-treat	Therapy Sequencing
+original:ccs-adrenal-fluid	Therapy
+original:ccs-adrenal-vomit	Therapy
+original:ccs-adrenal-teach	Therapy
+original:ccs-ectopic-risk	Diagnosis
+original:ccs-ectopic-unstable	Therapy
+original:ccs-ectopic-trend	Monitoring
+original:ccs-ectopic-return	Diagnosis
+original:ccs-pph-tone	Diagnosis
+original:ccs-pph-massage	Therapy
+original:ccs-pph-trauma	Diagnosis
+original:ccs-neonatal-age	Timing
+original:ccs-neonatal-confirm	Diagnosis
+original:ccs-neonatal-hemolysis	Therapy
+original:ccs-neonatal-gap	Monitoring Timing
+original:ccs-hit-timing	Diagnosis
+original:ccs-hit-flush	Therapy
+original:ccs-hit-choice	Therapy Sequencing
+original:ccs-hit-warfarin	Sequencing
+original:ccs-blood-stop	Therapy
+original:ccs-blood-identity	Diagnosis
+original:ccs-blood-unit	Diagnosis
+original:ccs-liver-sample	Diagnosis
+original:ccs-liver-pmn	Diagnosis
+original:ccs-liver-negative	Therapy
+original:ccs-leg-passive	Diagnosis
+original:ccs-leg-pulse	Diagnosis
+original:ccs-leg-definitive	Therapy
+original:ccs-renal-acute	Diagnosis Timing
+original:ccs-renal-uacr	Diagnosis
+original:ccs-renal-repeat	Monitoring Sequencing
+original:ccs-renal-trend	Monitoring
+original:ccs-mood-identify	Diagnosis
+original:ccs-mood-setting	Location
+original:ccs-mood-safety	Therapy
+original:ccs-joint-aspirate	Diagnosis
+original:ccs-joint-unstable	Therapy Sequencing
+original:ccs-joint-response	Diagnosis Monitoring
+original:ccs-nutrition-act	Therapy
+original:ccs-nutrition-follow	Diagnosis
+original:ccs-falls-injury	Diagnosis Sequencing
+original:ccs-falls-gait	Therapy
+original:ccs-falls-taper	Therapy
+original:ccs-falls-follow	Monitoring
+original:ccs-breast-mass-next	Diagnosis
+original:ccs-breast-mass-match	Diagnosis Sequencing
+original:ccs-testicular-before	Diagnosis Sequencing
+original:ccs-testicular-fertile	Therapy Sequencing
+original:ccs-testicular-trend	Monitoring
+original:ccs-melanoma-staging	Diagnosis
+original:ccs-melanoma-local	Therapy
+original:ccs-melanoma-nodes	Diagnosis
+original:axis-pit-sequence	Therapy Sequencing
+original:axis-pit-sample	Diagnosis Timing
+original:axis-pit-polyuria	Diagnosis
+original:axis-aldo-side	Diagnosis
+original:axis-aldo-bilateral	Therapy
+original:axis-aldo-surveil	Monitoring
+original:axis-gh-locate	Diagnosis Sequencing
+original:axis-gh-field	Diagnosis
+original:axis-gh-airway	Diagnosis
+original:axis-ppgl-before	Therapy Sequencing
+original:axis-ppgl-after	Background
+original:nut-refeed-baseline	Monitoring
+original:nut-refeed-vitamin	Therapy Sequencing
+original:nut-refeed-trend	Therapy Monitoring
+original:bh-safety-immediate	Location
+original:bh-safety-plan	Therapy
+original:bh-safety-contract	Background
+original:bh-alcohol-first	Therapy
+original:bh-alcohol-scale	Monitoring
+original:bh-alcohol-after	Therapy
+original:ctg-act-pressure	Diagnosis
+original:ctg-act-oxygen	Therapy
+original:ctg-act-delivery	Therapy
+original:ctg-act-stop	Therapy
+original:ctg-act-persist	Therapy
+original:born-resus-mask	Diagnosis
+original:born-resus-compress	Therapy Sequencing
+original:born-resus-recover	Therapy Monitoring
+original:ob-cord-decompress	Therapy Sequencing
+original:ob-cord-delivery	Therapy
+original:cv-tamp-unstable	Therapy
+original:pul-niv-improve	Therapy Monitoring
+original:pul-niv-decline	Therapy Monitoring
+original:gut-adh-safe	Therapy
+original:gut-adh-urgent	Therapy
+original:gut-uc-initial	Therapy
+original:gut-uc-time	Therapy Sequencing
+original:gut-uc-perforation	Therapy
+original:gut-mes-peritoneum	Therapy
+original:gut-var-early	Therapy Sequencing
+original:gut-var-antibiotic	Background
+original:gut-var-band	Therapy
+original:gut-hydrate-oral	Therapy
+original:gut-hydrate-iv	Therapy
+original:gut-fluidrule-negative	Therapy
+original:nstatus-persist	Therapy Sequencing
+original:nstatus-escalate	Location
+original:httpur-draw	Diagnosis Sequencing
+original:httpur-treat	Therapy
+original:hapl-start	Therapy Sequencing
+original:hapl-change	Therapy
+original:hanc-first	Therapy
+original:hanc-wait	Location
+original:rg2-heavy-basis	Diagnosis
+original:rg2-heavy-stable	Therapy
+original:rg2-heavy-shock	Therapy Sequencing
+original:rg2-heavy-fail	Therapy
+original:rg2-heavy-future	Therapy
+original:rg2-heavy-after	Therapy Sequencing
+original:rg2-cervix-history	Diagnosis
+original:rg2-cervix-cotest	Monitoring Timing
+original:rg2-cervix-paponly	Diagnosis
+original:rg2-pregcervix-rule	Diagnosis
+original:rg2-pregcervix-cin3	Therapy
+original:rg2-pregcervix-progress	Diagnosis Monitoring
+original:rg2-pregcervix-postpartum	Monitoring Timing
+original:eh-ins-local	Diagnosis Sequencing
+original:eh-ins-hold	Diagnosis Sequencing
+original:eh-withdraw-mid	Therapy Monitoring
+original:eh-withdraw-clear	Therapy Monitoring
+original:eh-withdraw-stress	Therapy
+original:eh-cah-add	Therapy
+original:eh-cah-ill	Therapy
+original:eh-cah-vomit	Therapy
+original:eh-apop-bp	Therapy
+original:eh-apop-vision	Therapy
+original:eh-sodium-seizure	Therapy
+original:eh-sodium-stop	Therapy Monitoring
+original:eh-sodium-diuresis	Monitoring
+original:eh-airway-voice	Diagnosis
+original:eh-airway-stridor	Therapy Sequencing
+original:cv3-ali-heparin	Therapy Sequencing
+original:cv3-ali-rescue	Timing
+original:cv3-ali-after	Therapy
+original:ku-ob-finish	Timing Sequencing
+original:ku-ob-culture	Diagnosis
+original:per-rom-wait	Location
+original:per-rom-infect	Therapy
+original:hepatobiliary-acute-3-rule	Monitoring
+original:hepatobiliary-acute-3-case	Therapy
+original:hepatobiliary-acute-3-transfer	Therapy Monitoring
+original:hepatobiliary-cholang-3-rule	Therapy
+original:hepatobiliary-cholang-3-case	Therapy
+original:hepatobiliary-cholang-3-transfer	Therapy Sequencing
+original:hepatobiliary-hrs-3-rule	Therapy
+original:hepatobiliary-hrs-3-case	Therapy
+original:hepatobiliary-hrs-3-transfer	Therapy Monitoring
+original:postbirth-sepsis-3-rule	Therapy
+original:postbirth-sepsis-3-case	Therapy
+original:postbirth-sepsis-3-transfer	Therapy Sequencing
+original:postbirth-tissue-3-rule	Therapy
+original:postbirth-tissue-3-case	Therapy
+original:postbirth-tissue-3-transfer	Timing
+original:postbirth-atony-3-rule	Sequencing
+original:postbirth-atony-3-case	Therapy
+original:postbirth-atony-3-transfer	Therapy
+original:gestexposure-opio-3-rule	Therapy
+original:gestexposure-opio-3-case	Therapy
+original:gestexposure-opio-3-transfer	Therapy
+original:gestexposure-ace-3-rule	Background
+original:gestexposure-ace-3-transfer	Monitoring
+original:newborncare-mecon-3-rule	Therapy Sequencing
+original:newborncare-mecon-3-transfer	Therapy Sequencing
+original:newborncare-brue-3-rule	Location
+original:newborncare-brue-3-case	Diagnosis
+original:newborncare-abo-3-rule	Background
+original:newborncare-abo-3-case	Monitoring
+original:newborncare-abo-3-transfer	Therapy
+original:newborncare-seiz-3-rule	Diagnosis
+original:newborncare-seiz-3-case	Therapy
+original:newborncare-seiz-3-transfer	Therapy
+original:nursery-hsv-3-rule	Timing
+original:nursery-hsv-3-case	Timing
+original:nursery-hsv-3-transfer	Therapy Monitoring Sequencing
+original:nursery-gbs-3-rule	Monitoring
+original:nursery-gbs-3-case	Monitoring Location
+original:nursery-gbs-3-transfer	Therapy
+original:nursery-eye-3-rule	Therapy
+original:nursery-eye-3-case	Therapy
+original:nursery-eye-3-transfer	Therapy Location
+original:nursery-tet-3-rule	Background
+original:nursery-tet-3-case	Background
+original:nursery-tet-3-transfer	Therapy
+original:transfusion-acute-3-case	Therapy Monitoring
+original:transfusion-acute-3-transfer	Therapy
+original:transfusion-sepsis-3-case	Therapy Sequencing
+original:transfusion-sepsis-3-transfer	Therapy
+original:transfusion-dic-3-rule	Therapy
+original:transfusion-dic-3-case	Therapy Monitoring
+original:transfusion-dic-3-transfer	Therapy
+original:transfusion-hit-3-rule	Therapy Sequencing
+original:transfusion-hit-3-case	Therapy
+original:transfusion-hit-3-transfer	Therapy Monitoring
+original:bloodcell-sickle-3-rule	Therapy
+original:bloodcell-sickle-3-case	Therapy
+original:bloodcell-sickle-3-transfer	Therapy Sequencing
+original:bloodcell-neut-3-rule	Timing
+original:bloodcell-agran-3-rule	Therapy Sequencing
+original:bloodcell-agran-3-transfer	Therapy
+original:bloodcell-pan-3-case	Diagnosis
+original:bloodcell-pan-3-transfer	Therapy Sequencing
+original:bloodcell-qplt-3-rule	Background
+original:bloodcell-qplt-3-case	Therapy
+original:bloodcell-qplt-3-transfer	Location
+original:bloodinjury-infar-3-rule	Diagnosis
+original:bloodinjury-infar-3-case	Therapy
+original:bloodinjury-infar-3-transfer	Therapy
+original:bloodinjury-abs-3-rule	Therapy
+original:bloodinjury-abs-3-case	Therapy
+original:bloodinjury-abs-3-transfer	Therapy
+original:bloodinjury-aspl-3-rule	Location
+original:bloodinjury-aspl-3-transfer	Timing
+original:blooddrug-acqmet-3-rule	Therapy
+original:blooddrug-acqmet-3-case	Therapy
+original:blooddrug-war-3-rule	Therapy
+original:blooddrug-war-3-case	Therapy Monitoring
+original:blooddrug-war-3-transfer	Therapy
+original:onco-wm-3-rule	Therapy
+original:onco-wm-3-case	Therapy
+original:onco-wm-3-transfer	Monitoring
+original:onco-apl-3-rule	Sequencing
+original:onco-apl-3-transfer	Therapy
+original:onco-burk-3-case	Therapy
+original:onco-burk-3-transfer	Therapy
+original:bloodimmune-ttp-3-rule	Sequencing
+original:bloodimmune-ttp-3-transfer	Diagnosis
+original:bloodimmune-hus-3-rule	Monitoring
+original:bloodimmune-hus-3-transfer	Therapy
+original:bloodimmune-sab-3-rule	Monitoring
+original:bloodimmune-sab-3-case	Diagnosis Monitoring
+original:bloodimmune-sab-3-transfer	Diagnosis
+original:bloodimmune-nodes-3-rule	Monitoring
+original:bloodimmune-nodes-3-case	Therapy
+original:bloodimmune-nodes-3-transfer	Diagnosis
+original:bloodimmune-bubo-3-rule	Sequencing
+original:bloodimmune-bubo-3-case	Therapy
+original:bloodimmune-bubo-3-transfer	Therapy
+original:bloodimmune-deng-3-rule	Monitoring
+original:bloodimmune-deng-3-case	Diagnosis Monitoring
+original:bloodimmune-deng-3-transfer	Therapy
+original:bloodimmune-vhf-3-rule	Location
+original:bloodimmune-vhf-3-case	Location
+original:bloodimmune-vhf-3-transfer	Therapy
+original:bloodimmune-mal-3-rule	Therapy
+original:bloodimmune-mal-3-case	Therapy
+original:bloodimmune-mal-3-transfer	Therapy Sequencing
+original:bloodimmune-bab-3-transfer	Therapy
+original:depthcase-aplds-3-rule	Diagnosis
+original:depthcase-aplds-3-transfer	Therapy
+original:depthcase-malrel-3-rule	Diagnosis Sequencing
+original:depthcase-malrel-3-case	Therapy
+original:depthcase-malrel-3-transfer	Background
+original:rhevidence-avccs-3-rule	Diagnosis
+original:rhevidence-avccs-3-case	Diagnosis
+original:rhevidence-avccs-3-transfer	Monitoring
+original:rhevidence-preccs-3-rule	Diagnosis
+original:rhevidence-preccs-3-case	Therapy
+original:rhevidence-preccs-3-transfer	Therapy
+original:rhevidence-postccs-3-rule	Background
+original:rhevidence-postccs-3-case	Therapy
+original:rhevidence-postccs-3-transfer	Therapy Monitoring
+original:valvefollow-my-3-rule	Location
+original:valvefollow-my-3-case	Therapy
+original:valvefollow-my-3-transfer	Location
+original:valvefollow-met-3-rule	Diagnosis
+original:valvefollow-met-3-case	Therapy Sequencing
+original:valvefollow-met-3-transfer	Therapy
+original:valvefollow-postcase-3-rule	Diagnosis
+original:valvefollow-postcase-3-case	Therapy
+original:valvefollow-postcase-3-transfer	Diagnosis
+original:airwaycase-croup-3-rule	Therapy
+original:airwaycase-croup-3-case	Location
+original:airwaycase-croup-3-transfer	Location
+original:airwaycase-trach-3-rule	Location
+original:airwaycase-trach-3-case	Therapy
+original:airwaycase-trach-3-transfer	Therapy Sequencing
+original:upperair-sinus-3-rule	Diagnosis
+original:upperair-sinus-3-case	Monitoring
+original:upperair-sinus-3-transfer	Location
+original:upperair-pta-3-rule	Diagnosis Sequencing
+original:upperair-pta-3-case	Therapy
+original:upperair-pta-3-transfer	Location
+original:upperair-pert-3-rule	Background
+original:upperair-pert-3-case	Therapy
+original:upperair-pert-3-transfer	Therapy
+original:lungfocus-vap-3-rule	Timing
+original:lungfocus-vap-3-case	Therapy Monitoring
+original:lungfocus-vap-3-transfer	Diagnosis
+original:lungfocus-flu-3-rule	Therapy
+original:lungfocus-flu-3-case	Timing
+original:lungfocus-flu-3-transfer	Therapy
+original:lungfocus-rsv-3-rule	Therapy
+original:lungfocus-rsv-3-case	Location
+original:lungfocus-rsv-3-transfer	Location
+original:lungbreadth-inv-3-rule	Therapy
+original:lungbreadth-inv-3-case	Sequencing
+original:lungbreadth-inv-3-transfer	Monitoring
+original:lungbreadth-ball-3-rule	Diagnosis
+original:lungbreadth-ball-3-case	Monitoring
+original:lungbreadth-ball-3-transfer	Therapy
+original:lungbreadth-ulcer-3-rule	Therapy
+original:lungbreadth-ulcer-3-case	Diagnosis
+original:lungbreadth-ulcer-3-transfer	Location
+original:enteric-ecoli-3-rule	Therapy
+original:enteric-ecoli-3-case	Therapy
+original:enteric-chol-3-rule	Therapy Sequencing
+original:enteric-chol-3-case	Therapy
+original:enteric-chol-3-transfer	Monitoring
+original:gutimmune-list-3-rule	Therapy
+original:gutimmune-list-3-case	Therapy
+original:gutimmune-list-3-transfer	Location
+original:gutimmune-toxic-3-rule	Therapy
+original:gutimmune-toxic-3-case	Therapy
+original:gutimmune-toxic-3-transfer	Therapy
+original:gilocal-labs-3-rule	Therapy
+original:gilocal-labs-3-case	Therapy
+original:gilocal-labs-3-transfer	Monitoring
+original:gilocal-subabs-3-rule	Background
+original:gilocal-subabs-3-case	Therapy
+original:gilocal-subabs-3-transfer	Diagnosis
+original:gilocal-rota-3-rule	Background
+original:gilocal-rota-3-case	Therapy
+original:gilocal-rota-3-transfer	Therapy
+original:gilocal-parot-3-rule	Timing
+original:gilocal-parot-3-case	Timing
+original:gimass-cpol-3-rule	Diagnosis
+original:gimass-cpol-3-case	Monitoring Timing
+original:gimass-cpol-3-transfer	Monitoring Timing
+original:gimass-perit-3-rule	Diagnosis
+original:gimass-perit-3-case	Diagnosis
+original:gimass-perit-3-transfer	Diagnosis
+original:gimass-met-3-rule	Diagnosis
+original:gimass-met-3-case	Therapy
+original:gimass-met-3-transfer	Diagnosis
+original:skinblister-pyo-3-rule	Background
+original:skinblister-pyo-3-transfer	Timing
+original:skinblister-urt-3-rule	Diagnosis
+original:skinblister-urt-3-case	Therapy
+original:skinblister-sjs-3-rule	Diagnosis
+original:skinblister-sjs-3-transfer	Diagnosis
+original:skinblister-ten-3-rule	Therapy
+original:skinblister-ten-3-case	Monitoring
+original:gynex-ccs-preg	Diagnosis
+original:gynex-ccs-image	Diagnosis
+original:gynex-ccs-setting	Location
+original:gynex-ccs-culture	Diagnosis
+original:gynex-ccs-partners	Therapy
+original:nvas-ccs-venogram	Diagnosis
+original:nvas-ccs-seizure	Therapy
+original:nvas-ccs-heparin	Therapy
+original:nvas-ccs-vision	Monitoring
+original:nvas-ccs-decline	Therapy
+original:obcomp-ccs-admit	Therapy
+original:obcomp-ccs-culture	Therapy
+original:obcomp-ccs-penetrate	Background
+original:obcomp-ccs-duration	Timing
+original:obcomp-ccs-nonresponse	Diagnosis
+original:vlegs-ccs-observe	Diagnosis
+original:vlegs-ccs-confirm	Diagnosis
+original:vlegs-ccs-image	Diagnosis
+original:vlegs-ccs-lesion	Therapy
+original:vlegs-ccs-recheck	Monitoring
+original:previsit-ccs-identify	Diagnosis
+original:previsit-ccs-history	Diagnosis
+original:previsit-ccs-antigen	Monitoring
+original:previsit-ccs-doppler	Monitoring
+original:previsit-ccs-escalate	Location
+original:dustlung-ccs-remove	Diagnosis
+original:dustlung-ccs-observe	Monitoring Location
+original:dustlung-ccs-support	Therapy
+original:dustlung-ccs-recheck	Monitoring
+original:dustlung-ccs-pft	Diagnosis
+original:airinj-ccs-lower-history	Diagnosis
+original:airinj-ccs-lower-support	Monitoring
+original:airinj-ccs-lower-film	Background
+original:airinj-ccs-lower-scope	Diagnosis Sequencing
+original:airinj-ccs-lower-review	Diagnosis Monitoring
+original:airinj-ccs-sept-inspect	Diagnosis
+original:airinj-ccs-sept-urgency	Diagnosis
+original:airinj-ccs-sept-change	Diagnosis
+original:airinj-ccs-sept-late	Background
+original:lungcourse-ccs-airway	Therapy
+original:lungcourse-ccs-decompress	Therapy
+original:lungcourse-ccs-echo	Diagnosis
+original:lungcourse-ccs-timing	Timing Sequencing
+original:lungcourse-ccs-follow	Monitoring
+original:renalmap-duplex-source	Diagnosis
+original:renalmap-duplex-now	Sequencing
+original:renalmap-duplex-function	Diagnosis
+original:renalmap-duplex-reflux	Diagnosis
+original:renalpath-extra-pressure	Diagnosis
+original:renalpath-extra-weight	Monitoring
+original:renalpath-extra-diuretic	Therapy
+original:renalpath-extra-urgent	Location
+original:renalpath-extra-strep	Background
+original:renalmed-extra-lith-history	Diagnosis
+original:renalmed-extra-lith-measure	Diagnosis
+original:renalmed-extra-lith-volume	Therapy
+original:renalmed-extra-lith-seizure	Therapy
+original:renalmed-extra-lith-rebound	Monitoring
+original:urostudy-extra-initial	Diagnosis
+original:urostudy-extra-branch	Therapy
+original:urostudy-extra-drain	Background
+original:urostudy-extra-check	Monitoring Sequencing
+original:renalinfect-extra-review	Diagnosis
+original:renalinfect-extra-sample	Diagnosis
+original:renalinfect-extra-narrow	Therapy
+original:renalinfect-extra-follow	Monitoring
+original:immunelearn-extra-airway	Diagnosis Monitoring
+original:immunelearn-extra-volume	Therapy
+original:immunelearn-extra-residual	Therapy
+original:immunelearn-extra-home	Monitoring
+original:immunerx-extra-medlog	Diagnosis
+original:immunerx-extra-counts	Diagnosis
+original:immunerx-extra-handback	Monitoring
+original:hivstudy-extra-pressure	Diagnosis
+original:hivstudy-extra-relief	Therapy
+original:hivstudy-extra-titer	Monitoring
+original:defstudy-extra-blood	Therapy
+original:defstudy-extra-leuko	Therapy Sequencing
+original:defstudy-extra-fever	Location
+original:bhmood-extra-workup	Diagnosis
+original:bhmood-extra-interact	Therapy
+original:bhmood-extra-follow	Monitoring
+original:neurotrauma-shunt-image	Diagnosis
+original:neurotrauma-shunt-stable	Diagnosis
+original:neurotrauma-shunt-infect	Diagnosis
+original:sleepstudy-feb-witness	Diagnosis
+original:sleepstudy-feb-repeat	Diagnosis
+original:sleepstudy-feb-home	Therapy
+original:motortrial-mci-hist	Diagnosis
+original:motortrial-mci-intervene	Therapy
+original:motortrial-mci-response	Monitoring
+original:congenstudy-ccs-sac	Therapy
+original:congenstudy-ccs-head	Diagnosis
+original:congenstudy-ccs-bladder	Background
+original:wallstudy-ccs-local	Diagnosis
+original:wallstudy-ccs-remove	Timing Sequencing
+original:wallstudy-ccs-bleed	Diagnosis
+original:spinestudy-ccs-bg	Diagnosis
+original:spinestudy-ccs-cath	Diagnosis Sequencing
+original:spinestudy-ccs-low	Monitoring
+original:cvdrug-ccs-pressure	Monitoring
+original:cvdrug-ccs-recur	Diagnosis Monitoring
+original:cvdrug-ccs-med	Therapy
+original:gipresentation-para-rule	Background
+original:gipresentation-para-case	Therapy
+original:gipresentation-para-changed	Therapy
+original:maternalmed-app-3-case	Therapy
+original:maternalmed-app-3-changed	Therapy
+original:maternalmed-app-ccs-1	Monitoring
+original:maternalmed-app-ccs-2	Diagnosis
+original:maternalmed-stone-3-case	Therapy
+original:maternalmed-stone-3-changed	Therapy
+original:maternalmed-stone-ccs-1	Monitoring
+original:maternalmed-stone-ccs-2	Timing Sequencing
+original:skintumor-9-3-rule	Diagnosis
+original:skintumor-9-3-transfer	Diagnosis
+original:circulation-ccs-repeat	Monitoring
+original:circulation-ccs-site	Diagnosis
+original:circulation-ccs-deficit	Therapy
+original:circulation-ccs-course	Diagnosis
+original:jointtumor-ccs-0	Diagnosis
+original:jointtumor-ccs-1	Diagnosis
+original:jointtumor-ccs-2	Diagnosis
+original:jointtumor-ccs-3	Diagnosis
+original:cutaneous-vaccine-ccs-0	Therapy
+original:cutaneous-vaccine-ccs-1	Therapy
+original:cutaneous-vaccine-ccs-2	Location
+original:cutaneous-vaccine-ccs-3	Diagnosis
+original:casecourse-tam-image	Diagnosis
+original:casecourse-tam-urgent	Sequencing
+original:casecourse-tam-alt	Therapy
+original:casecourse-tam-stable	Monitoring
+original:casecourse-tam-vent	Sequencing
+original:casecourse-tam-loc	Location
+original:casecourse-mes-cta	Diagnosis Timing
+original:casecourse-mes-ven	Therapy
+original:casecourse-mes-exam	Monitoring
+original:casecourse-mes-op	Therapy
+original:casecourse-mes-second	Timing
+original:casecourse-mes-dead	Therapy
+original:casecourse-mes-nonocc	Therapy
+original:casecourse-sbp-retap	Diagnosis Monitoring
+original:casecourse-sbp-clear	Therapy
+original:casecourse-sbp-rise	Therapy
+original:casecourse-sbp-secondary	Diagnosis
+original:casecourse-sbp-albumin	Therapy
+original:casecourse-sbp-prevention	Therapy
+original:casecourse-neut-risk	Diagnosis
+original:casecourse-neut-observe	Timing
+original:casecourse-neut-home	Location
+original:casecourse-neut-stay	Location
+original:casecourse-neut-return	Timing
+original:casecourse-neut-persistent	Monitoring
+original:casecourse-bab-confirm	Diagnosis
+original:casecourse-bab-thin	Diagnosis
+original:casecourse-bab-during	Monitoring
+original:casecourse-bab-immune	Monitoring
+original:casecourse-bab-deplete	Monitoring
+original:casecourse-bab-recheck	Diagnosis
+original:casecourse-orient-chest-opening	Diagnosis
+original:casecourse-orient-chest-shock	Sequencing Therapy
+original:casecourse-orient-chest-stable	Diagnosis Sequencing
+original:casecourse-orient-chest-recheck	Monitoring
+original:casecourse-orient-joints-opening	Monitoring
+original:casecourse-orient-joints-active	Therapy
+original:casecourse-orient-joints-quiet	Diagnosis
+original:casecourse-orient-aorta-opening	Diagnosis
+original:casecourse-orient-aorta-ascending	Therapy
+original:casecourse-orient-aorta-descending	Therapy
+original:casecourse-orient-aorta-order	Sequencing
+original:casecourse-orient-wheeze-opening	Diagnosis
+original:casecourse-orient-wheeze-home	Location
+original:casecourse-orient-wheeze-icu	Location
+original:casecourse-orient-wheeze-device	Monitoring
+original:casecourse-orient-ket-opening	Monitoring
+original:casecourse-orient-ket-shock	Therapy
+original:casecourse-orient-ket-ketones	Therapy
+original:casecourse-orient-ket-focus	Diagnosis
+original:casecourse-orient-preg-opening	Therapy
+original:casecourse-orient-preg-repeat	Therapy
+original:casecourse-orient-preg-toxic	Therapy
+original:casecourse-orient-preg-delivery	Sequencing

@@ -4228,7 +4228,7 @@ def coronary_ischemia_studies():
         ax.plot(range(5), values, "o-", label=label, color=color)
     ax.set(title="Coronary response to exercise • simulated", xticks=range(5), ylim=(0, 3.6))
     ax.legend()
-    save(fig, "coronary_reserve")
+    save_lossless(fig, "coronary_reserve")
     for suffix, final in [("a", ["Two flights", "3 min with rest"]), ("b", ["At rest", "25 min, ongoing"])]:
         study_table("coronary_diary_" + suffix, "Chest pressure diary", ["When", "Onset", "Duration"],
                     [["4 weeks ago", "Two flights", "3 min with rest"],
@@ -4243,7 +4243,7 @@ def coronary_ischemia_studies():
         for i, value in enumerate(values):
             ax.annotate(f"{value}%", (i, value), xytext=(0, 7), textcoords="offset points", ha="center")
         ax.set(ylim=(50, 95), title="Catheter oximetry • simulated")
-        save(fig, "coronary_sat_" + suffix)
+        save_lossless(fig, "coronary_sat_" + suffix)
     for suffix, late in [("a", ["78/50", "Larger collection", "Present"]),
                          ("b", ["120/76", "Small, unchanged", "Absent"])]:
         study_table("coronary_tam_" + suffix, "Postinfarction observations", ["Observation", "Earlier", "Now"],
@@ -4256,14 +4256,14 @@ def coronary_ischemia_studies():
     bars = ax.bar(["Culprit only", "Immediate multivessel"], [45.9, 55.4], width=.56, color=COLORS[:2])
     ax.bar_label(bars, fmt="%.1f%%", padding=3)
     ax.set(ylim=(0, 70), title="Death or renal-replacement therapy at 30 days\nCULPRIT-SHOCK")
-    save(fig, "coronary_culprit")
+    save_lossless(fig, "coronary_culprit")
     fig, ax = axes("Relative risk of renal-replacement therapy", "")
     ax.axvline(1, color="#555555", linestyle="--", label="Equal risks")
     ax.errorbar(.71, 0, xerr=[[.22], [.32]], fmt="o", capsize=5, color=COLORS[0])
     ax.text(.71, .25, "0.71 (95% CI 0.49–1.03)", ha="center")
     ax.set(xlim=(.35, 1.2), ylim=(-.8, .8), yticks=[], title="Renal replacement at 30 days • CULPRIT-SHOCK")
     ax.legend(loc="lower right")
-    save(fig, "coronary_renal")
+    save_lossless(fig, "coronary_renal")
     for suffix, rest in [("a", "Normal"), ("b", "Reduced")]:
         study_table("coronary_perfusion_" + suffix, "Relative tracer uptake", ["Region", "Stress", "Rest"],
                     [["Anterior", "Reduced", rest], ["Inferior", "Normal", "Normal"],
@@ -7422,7 +7422,51 @@ def intestinal_uptake_figures():
         save_lossless(fig, "gut_uptake_" + code)
 
 
+def ccs_flow_figures():
+    from matplotlib.patches import FancyArrowPatch
+
+    fig, ax = plt.subplots(figsize=(6, 2.5), layout="constrained")
+    ax.set(xlim=(0, 10), ylim=(-.6, 2))
+    ax.axis("off")
+    for y, label, outlet in [(1.45, "A", 15), (.35, "B", 45)]:
+        ax.text(.1, y, f"State {label}", va="center", weight="bold")
+        ax.plot([2, 8.3], [y, y], color="#466978", lw=7, solid_capstyle="round")
+        ax.text(2, y+.21, "90 mm Hg", ha="center")
+        ax.text(8.3, y+.21, f"{outlet} mm Hg", ha="center")
+    ax.text(2, -.35, "Inlet", ha="center")
+    ax.text(8.3, -.35, "Outlet", ha="center")
+    save_lossless(fig, "ccs_flow_gradient")
+
+    fig, ax = plt.subplots(figsize=(5.8, 2.8), layout="constrained")
+    ax.set(xlim=(-.2, 4.5), ylim=(-1.5, 1.5))
+    ax.axis("off")
+    for start, end, label, tx, ty in [
+        ((0, 0), (2, 0), "11 mL/s", .85, .22),
+        ((2, 0), (3.85, .9), "7 mL/s", 3.05, 1.08),
+        ((2, 0), (3.85, -.9), "? mL/s", 3.05, -1.16),
+    ]:
+        ax.add_patch(FancyArrowPatch(start, end, arrowstyle="-|>", mutation_scale=18,
+                                     lw=3, color="#315f72"))
+        ax.text(tx, ty, label, ha="center", va="center")
+    save_lossless(fig, "ccs_flow_split")
+
+    fig, ax = plt.subplots(figsize=(5.7, 3.1), layout="constrained")
+    positions = np.arange(2)
+    for offset, counts, name, color in [
+        (-.18, [21, 18], "Antibiotic", "#467282"),
+        (.18, [6, 6], "Antibiotic + albumin", "#ab632f"),
+    ]:
+        bars = ax.bar(positions + offset, counts, width=.32, label=name, color=color)
+        ax.bar_label(bars, padding=2)
+    ax.set(xticks=positions, xticklabels=["Renal impairment", "In-hospital death"],
+           ylim=(0, 30), ylabel="Patients with outcome (of 63 per arm)")
+    ax.legend(frameon=False, loc="upper right", fontsize=9)
+    ax.spines[["right", "top"]].set_visible(False)
+    save_lossless(fig, "ccs_albumin_trial")
+
+
 def main():
+    ccs_flow_figures()
     meal_iron_figure()
     intestinal_uptake_figures()
     trauma_and_mechanics()
