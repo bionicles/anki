@@ -2,7 +2,7 @@
 import argparse
 from collections import Counter, defaultdict
 from contextlib import closing
-from itertools import combinations
+from itertools import combinations, count
 import csv
 import fcntl
 import gzip
@@ -15,6 +15,7 @@ import shutil
 import sqlite3
 import subprocess
 import tempfile
+import time
 from zipfile import ZIP_DEFLATED, ZipFile
 
 from step_coverage import STEPS, display, measure, measure_item_depth, measure_system_depth
@@ -420,24 +421,23 @@ def make(folder, prior):
     write_table(folder/"coverage.tsv",["Exam","Section","Topic","Cards","CardIDs"],
                 [dict(Exam=e,Section=s,Topic=t,Cards=len(ids),CardIDs=" ".join(ids))
                  for (e,s,t),ids in sorted(objectives.items())])
-    # genanki stores every member uncompressed, including the Anki database and audio.
-    package = genanki.Package(list(decks.values()), media_files=sorted(media))
-    with tempfile.TemporaryFile() as raw:
-        package.write_to_file(raw)
-        with ZipFile(raw) as source, ZipFile(folder / (FILE + ".apkg"), "w", ZIP_DEFLATED) as output:
-            # Longer notes and passages span fewer SQLite pages at this size.
-            # Repack the generated database before ZIP compression.
-            with tempfile.TemporaryDirectory() as scratch:
-                db_path = source.extract("collection.anki2", scratch)
-                with closing(sqlite3.connect(db_path)) as database:
-                    database.execute("PRAGMA page_size = 16384")
-                    database.execute("VACUUM")
-                output.write(db_path, "collection.anki2", compresslevel=9)
-            for name in source.namelist():
-                if name == "collection.anki2":
-                    continue
-                with source.open(name) as entry, output.open(name, "w") as target:
-                    shutil.copyfileobj(entry, target)
+    # genanki.write_to_file leaves its intermediate SQLite database in the system temp directory.
+    # Write the collection in managed scratch space and compress each archive member directly.
+    media_paths = sorted(Path(path) for path in media)
+    timestamp = time.time()
+    with tempfile.TemporaryDirectory(dir=folder) as scratch:
+        db_path = Path(scratch) / "collection.anki2"
+        with closing(sqlite3.connect(db_path)) as database:
+            genanki.Package(list(decks.values())).write_to_db(
+                database.cursor(), timestamp, count(int(timestamp * 1000)))
+            database.commit()
+            database.execute("PRAGMA page_size = 16384")
+            database.execute("VACUUM")
+        with ZipFile(folder / (FILE + ".apkg"), "w", ZIP_DEFLATED) as output:
+            output.write(db_path, "collection.anki2", compresslevel=9)
+            output.writestr("media", json.dumps({i: path.name for i, path in enumerate(media_paths)}))
+            for i, path in enumerate(media_paths):
+                output.write(path, str(i))
     return rows
 
 
