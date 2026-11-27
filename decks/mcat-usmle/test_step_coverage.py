@@ -4,6 +4,26 @@ import unittest
 from step_coverage import STEPS, measure_item_depth, measure_system_depth, practice_bands
 
 
+class NutritionCoverageTest(unittest.TestCase):
+    def test_theme_overlap_and_empty_cells(self):
+        from deck import NUTRITION_THEMES, nutrition_coverage
+        cards = [dict(ID="c", Exam=STEPS[2], Section="CCS Cases", Figure="graph.webp")]
+        blueprint = [dict(Exam=exam, Axis="Nutrition practice", Domain=theme,
+                          ReviewedCardIDs="", NextAudit="Review another case")
+                     for exam in STEPS for theme in NUTRITION_THEMES]
+        blueprint[-1]["ReviewedCardIDs"] = blueprint[-2]["ReviewedCardIDs"] = "c"
+        rows, tags = nutrition_coverage(cards, blueprint)
+        self.assertEqual(len(rows), 18)
+        self.assertEqual(rows[0]["Cards"], "0")
+        self.assertEqual((rows[-1]["CCSIDs"], rows[-1]["VisualIDs"]), ("c", "c"))
+        self.assertEqual(set(tags["c"]), {"nutrition::referral", "nutrition::treatment"})
+        with self.assertRaises(ValueError):
+            nutrition_coverage(cards, blueprint[1:])
+        blueprint[0]["ReviewedCardIDs"] = "c"
+        with self.assertRaises(ValueError):
+            nutrition_coverage(cards, blueprint)
+
+
 class NamedDepthTest(unittest.TestCase):
     def test_matching_all_three_layers(self):
         family = {"Family": "blood.clot", "System": "Hematology"}

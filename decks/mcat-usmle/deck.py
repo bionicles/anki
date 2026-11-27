@@ -414,6 +414,40 @@ def visual_source_coverage(cards, blueprint, named):
     return report
 
 
+NUTRITION_THEMES = {
+    "Foundations of nutrition": "foundations",
+    "Nutritional assessment and diagnosis": "assessment",
+    "Communication about food and weight": "communication",
+    "Nutrition and public health": "publichealth",
+    "Planning and adjusting nutrition treatment": "treatment",
+    "Referral for nutrition services": "referral",
+}
+
+
+def nutrition_coverage(cards, blueprint):
+    by_id = {r["ID"]: r for r in cards}
+    rows = []
+    tags = defaultdict(list)
+    for exam in STEPS:
+        mappings = [r for r in blueprint if r["Exam"] == exam and r["Axis"] == "Nutrition practice"]
+        if len(mappings) != len(NUTRITION_THEMES) or {r["Domain"] for r in mappings} != NUTRITION_THEMES.keys():
+            raise ValueError(f"Missing or repeated nutrition theme for {exam}")
+        for mapping in mappings:
+            theme = mapping["Domain"]
+            ids = mapping["ReviewedCardIDs"].split()
+            if len(set(ids)) != len(ids) or any(i not in by_id or by_id[i]["Exam"] != exam for i in ids):
+                raise ValueError(f"Invalid nutrition evidence for {exam}, {theme}")
+            sections = sorted({by_id[i]["Section"] for i in ids})
+            visual = [i for i in ids if by_id[i]["Figure"].endswith(IMAGE_SUFFIXES)]
+            ccs = [i for i in ids if by_id[i]["Section"] == "CCS Cases"]
+            rows.append(dict(Exam=exam, Theme=theme, Cards=str(len(ids)), CardIDs=" ".join(ids),
+                             Sections=" | ".join(sections), VisualIDs=" ".join(visual),
+                             CCSIDs=" ".join(ccs), NextAudit=mapping["NextAudit"]))
+            for i in ids:
+                tags[i].append("nutrition::" + NUTRITION_THEMES[theme])
+    return rows, tags
+
+
 def make(folder, prior):
     import genanki
     model=package_model()
@@ -425,6 +459,8 @@ def make(folder, prior):
     report, practice_tags = step_measurements(rows)
     write_table(folder/"step-coverage.tsv", list(report[0]), report)
     blueprint = table(ROOT/"blueprint.tsv")
+    nutrition, nutrition_tags = nutrition_coverage(rows, blueprint)
+    write_table(folder/"step-nutrition-coverage.tsv", list(nutrition[0]), nutrition)
     cars = mcat_cars_coverage(rows, blueprint)
     write_table(folder/"mcat-cars-coverage.tsv", list(cars[0]), cars)
     cars_tags = {card_id: "cars::" + field.lower()
@@ -458,6 +494,7 @@ def make(folder, prior):
                 media.add(str(ROOT/"media"/r["Figure"]))
                 tags.append("listening::question" if r["Figure"].endswith(".wav") else "visual::question")
             tags.extend(sorted(practice_tags[r["ID"]]))
+            tags.extend(nutrition_tags[r["ID"]])
             if r["ID"] in cars_tags:
                 tags.append(cars_tags[r["ID"]])
             fields=render(r);guid=genanki.guid_for("mcat-usmle/v1",r["ID"])
@@ -543,6 +580,7 @@ def verify(folder):
         assert row["Status"] in {"Partial","Unmapped","Verified"}
         assert bool(ids)==(row["Status"]!="Unmapped")
         assert all(k in keyed and keyed[k]["Exam"]==row["Exam"] for k in ids), row
+    assert table(folder/"step-nutrition-coverage.tsv") == nutrition_coverage(expected, blueprint)[0]
     science = reviewed_mcat_science(expected, blueprint)
     assert table(folder/"mcat-science-coverage.tsv") == science
     details = mcat_detail_coverage(blueprint, science)
@@ -786,6 +824,13 @@ def main():
             cards, _ = deduplicate(records(RELEASE), alias_map(RELEASE))
             blueprint = table(ROOT/"blueprint.tsv")
             cars = [r for r in mcat_cars_coverage(cards, blueprint) if int(r["PassageWords"])]
+            nutrition, _ = nutrition_coverage(cards, blueprint)
+            print("Nutrition practice across reviewed themes")
+            for exam in STEPS:
+                subset = [r for r in nutrition if r["Exam"] == exam]
+                ids = {i for r in subset for i in r["CardIDs"].split()}
+                themes = sum(bool(r["CardIDs"]) for r in subset)
+                print(f"  {exam}: {themes}/{len(subset)} themes, {len(ids)} distinct reviewed cards")
             print("CARS passages with reviewed evidence for each reasoning skill")
             for skill, column in MCAT_CARS_SKILLS.items():
                 represented = sum(int(row[column + "Cards"]) > 0 for row in cars)

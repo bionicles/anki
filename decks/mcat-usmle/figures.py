@@ -50,6 +50,50 @@ def plot(name, xname, yname, x, curves):
     save(fig, name)
 
 
+def dietary_sodium_studies():
+    """Draw fictional label excerpts and original plots of published trial estimates."""
+    for key, foods, portions, servings, sodium in [
+        ("soup", ["Soup A", "Soup B"], ["½ cup", "1 cup"], [4, 2], [180, 300]),
+        ("beans", ["Beans C", "Beans D"], ["½ cup", "¼ cup"], [3, 6], [210, 130]),
+    ]:
+        fig, ax = plt.subplots(figsize=(5.2, 2.4), layout="constrained")
+        ax.axis("off")
+        ax.set_title("Food label excerpts", loc="left", weight="bold")
+        rows = [["Serving size", *portions], ["Servings per container", *servings],
+                ["Sodium per serving", *(f"{v} mg" for v in sodium)]]
+        table = ax.table(cellText=rows, colLabels=["", *foods], cellLoc="left",
+                         colLoc="left", colWidths=[.48, .26, .26], bbox=[.01, .09, .98, .86])
+        table.auto_set_font_size(False)
+        table.set_fontsize(11)
+        for (row, _), cell in table.get_celld().items():
+            cell.set_edgecolor("#999999")
+            cell.set_linewidth(.6)
+            if row == 0:
+                cell.set_facecolor("#deebef")
+                cell.set_text_props(weight="bold")
+        save_lossless(fig, "dietlabels_" + key)
+
+    fig, ax = axes("Sodium reduction within the same diet", "Mean SBP reduction (mm Hg)")
+    positions = np.arange(2)
+    for shift, values, label, color in [(-.19, [2.1, 4.6], "Control diet", COLORS[0]),
+                                        (.19, [1.3, 1.7], "DASH diet", COLORS[1])]:
+        bars = ax.bar(positions + shift, values, .36, label=label, color=color)
+        ax.bar_label(bars, fmt="%.1f", padding=2)
+    ax.set(xticks=positions, xticklabels=["High to intermediate", "Intermediate to low"],
+           ylim=(0, 5.4), title="DASH-Sodium feeding trial")
+    ax.legend(loc="upper left")
+    save_lossless(fig, "dietdash_sbp")
+
+    fig, ax = axes("Rate ratio with 95% confidence interval", "")
+    for y, estimate, low, high in [(1, .86, .77, .96), (0, 1.04, .80, 1.37)]:
+        ax.errorbar(estimate, y, xerr=[[estimate-low], [high-estimate]], fmt="o",
+                    capsize=5, color=COLORS[0], lw=2)
+    ax.axvline(1, ls="--", color="#555")
+    ax.set(yticks=[1, 0], yticklabels=["Stroke", "Serious hyperkalemia"],
+           ylim=(-.65, 1.65), xlim=(.7, 1.43), title="Potassium-enriched salt vs regular salt")
+    save_lossless(fig, "dietsalt_events")
+
+
 def clinical_distribution_examples():
     """Plot stated five-number summaries and two contrasting simulated scatterplots."""
     for key, labels, summaries in [
@@ -7316,6 +7360,7 @@ def main():
     mcat_changed_evidence()
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
+    dietary_sodium_studies()
     clinical_distribution_examples()
     lipid_and_skin_studies()
     musculoskeletal_measurements()
