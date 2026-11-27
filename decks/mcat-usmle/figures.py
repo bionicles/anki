@@ -641,6 +641,35 @@ def developmental_studies():
         save(fig, "childorient_" + suffix, indexed=True)
 
 
+def physical_outline_figures():
+    study_table("audit_marfan", "Aortic-root z score", ["Group", "Annual change (mean ± SE)"],
+                [["Atenolol", "−0.139 ± 0.013"], ["Losartan", "−0.107 ± 0.013"]],
+                source="Lacro et al., 2014", indexed=True)
+    for slug, arm, weight, pull_arm, angle in [("a", .50, 12, .20, 90), ("b", .30, 10, .30, 30)]:
+        fig, ax = plt.subplots(figsize=(5.5, 3.2), layout="constrained")
+        ax.plot([0, arm], [0, 0], color="#303c49", lw=5, zorder=1)
+        ax.plot(0, -.015, marker="^", markersize=13, color="#394655")
+        # Opposing arrows share the right side of a frictionless pivot.
+        ax.annotate("", (arm, -.17), (arm, 0), arrowprops=dict(arrowstyle="-|>", lw=2, color=COLORS[1]))
+        rise=.17*np.sin(np.deg2rad(angle));run=.17*np.cos(np.deg2rad(angle))
+        ax.annotate("", (pull_arm+run, rise), (pull_arm, 0), arrowprops=dict(arrowstyle="-|>", lw=2, color=COLORS[0]))
+        ax.text(arm, -.19, f"{weight} N at {arm:.2f} m", ha="center", va="top")
+        ax.text(pull_arm+run, rise+.014, f"Pull at {pull_arm:.2f} m, {angle}°", ha="center")
+        ax.text(0, -.05, "Pivot", ha="center", va="top")
+        ax.set(xlim=(-.10, .68), ylim=(-.25, .26), aspect="equal", title="Stationary horizontal lever")
+        ax.axis("off");save(fig,"audit_lever_"+slug,indexed=True)
+    for slug, origin, spot, front in [("a", 1, 4, 7), ("b", 2, 5, 6)]:
+        fig, ax = plt.subplots(figsize=(3.5, 3.1), layout="constrained")
+        ax.fill_between([0,1],0,8,color="#f7f3e8",edgecolor="#5d6269")
+        for y,lab,style in [(origin,"Origin","-"),(front,"Front","--")]:
+            ax.plot([0,1],[y,y],style,color="#45535c")
+            ax.text(1.08,y,lab,va="center",fontsize=10)
+        ax.scatter([.5],[spot],s=100,color=COLORS[0])
+        ax.set(ylim=(0,8),xlim=(-.08,1.55),xticks=[],yticks=range(9),ylabel="Height (cm)",title="Planar chromatogram")
+        for spine in ("top","right","bottom"):ax.spines[spine].set_visible(False)
+        save(fig,"audit_tlc_"+slug,indexed=True)
+
+
 def pituitary_accuracy():
     # Equal pulse size isolates the effect of clearance on transmitter duration.
     time_ms = np.linspace(0, 24, 161)
@@ -7043,6 +7072,7 @@ def main():
     biomolecular_figures()
     organ_system_practice()
     pituitary_accuracy()
+    physical_outline_figures()
     developmental_studies()
     plot("refeed", "Hours after starting nutrition", "Serum phosphate (mg/dL)",
          [0,12,24,36,48], {"Patient A": [3.2,2.9,2.4,1.8,1.6],
