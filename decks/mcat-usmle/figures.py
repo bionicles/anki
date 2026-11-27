@@ -4959,6 +4959,50 @@ def occupational_lung_studies():
 
 
 
+def abdominal_wall_and_equity_studies():
+    """Show groin landmarks, reported INCA outcomes and simulated population comparisons."""
+    from matplotlib.patches import Ellipse
+
+    for name, neck in [("indirect", (3.15, 1.80)), ("direct", (1.55, 1.14))]:
+        fig, ax = plt.subplots(figsize=(5.6, 3.5), layout="constrained")
+        ax.set(xlim=(-.15, 4.6), ylim=(-.40, 3.10), aspect="equal",
+               title="Groin landmarks • X marks the hernia neck")
+        ax.axis("off")
+        ax.plot([.25, 4.30], [.12, 1.88], color="#555", lw=4, solid_capstyle="round")
+        ax.text(2.9, .82, "Inguinal ligament", ha="center", rotation=23, color="#454545")
+        ax.plot([2.83, 2.48, 1.72], [1.22, 1.92, 2.69], lw=3, color=COLORS[1])
+        ax.annotate("Inferior epigastric vessels", (2.03, 2.38), xytext=(2.45, 2.82),
+                    arrowprops=dict(arrowstyle="-", color="#555"), fontsize=9)
+        ax.add_patch(Ellipse((3.15, 1.80), .54, .26, angle=20, fill=False, ec="#444", lw=2))
+        ax.annotate("Deep ring", (3.29, 1.94), xytext=(3.55, 2.25),
+                    arrowprops=dict(arrowstyle="-", color="#555"), fontsize=9)
+        ax.plot(*neck, marker="X", markersize=11, color=COLORS[0])
+        ax.text(.10, -.24, "Medial", weight="bold")
+        ax.text(4.42, -.24, "Lateral", ha="right", weight="bold")
+        save(fig, "wallstudy_" + name, indexed=True)
+
+    for name, values in [("even", [50, 50, 50, 50]), ("sorted", [90, 90, 10, 10])]:
+        fig, ax = axes("Neighborhood (equal population sizes)", "Residents in group A (%)")
+        bars = ax.bar(["North", "South", "East", "West"], values, width=.60, color=COLORS[0])
+        ax.bar_label(bars, labels=[f"{v}%" for v in values], padding=3)
+        ax.set(ylim=(0, 109), yticks=range(0,101,20), title="Neighborhood composition")
+        save(fig, "wallstudy_" + name, indexed=True)
+
+    for name, values in [("gradient", [16, 12, 8, 4]), ("threshold", [16, 6, 6, 6])]:
+        fig, ax = axes("Income group", "Residents with illness (%)")
+        bars = ax.bar(["Lowest", "Lower middle", "Upper middle", "Highest"], values,
+                      width=.60, color=COLORS[0])
+        ax.bar_label(bars, labels=[f"{v}%" for v in values], padding=3)
+        ax.set(ylim=(0, 20), title="Observed prevalence by income group")
+        save(fig, "wallstudy_" + name, indexed=True)
+
+    fig, ax = axes("Symptoms at entry to observation", "Estimated crossover to surgery (%)")
+    bars = ax.bar(["Asymptomatic", "Mildly symptomatic"], [60.4, 71.7], width=.55, color=COLORS)
+    ax.bar_label(bars, labels=["60.4%", "71.7%"], padding=3)
+    ax.set(ylim=(0, 100), title="INCA trial • 12-year follow-up")
+    save(fig, "wallstudy_inca", indexed=True)
+
+
 def congenital_and_identity_studies():
     """Draw original spinal schematics, longitudinal studies and the MOMS trial comparison."""
     from matplotlib.patches import Ellipse
@@ -5917,6 +5961,7 @@ def main():
     vascular_flow_studies()
     prenatal_visit_studies()
     occupational_lung_studies()
+    abdominal_wall_and_equity_studies()
     congenital_and_identity_studies()
     motor_and_inheritance_studies()
     sleep_and_headache_studies()

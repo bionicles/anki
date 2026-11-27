@@ -369,7 +369,8 @@ def verify_imaging(cards):
     assert set(credits) == {p.name for p in (ROOT / "media").glob("med_rad_*")}
     for row in images:
         assert re.fullmatch(r"[0-9a-f]{40}", row["SourceSHA1"]), row
-        assert row["Source"].startswith("https://commons.wikimedia.org/wiki/File:"), row
+        assert (row["Source"].startswith("https://commons.wikimedia.org/wiki/File:")
+                or re.fullmatch(r"https://pmc\.ncbi\.nlm\.nih\.gov/articles/PMC[0-9]+/#F[0-9]+", row["Source"])), row
         assert row["LicenseURL"].startswith("https://creativecommons.org/"), row
     for card in cards:
         if card["Figure"] in credits:
