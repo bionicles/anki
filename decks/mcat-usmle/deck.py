@@ -180,6 +180,16 @@ MCAT_CARS_SKILLS = {
 }
 
 
+MCAT_CARS_COMPONENTS = {
+    "Identify the thesis and explicit details": ("BasicMeaning", "Comprehension"),
+    "Infer meaning from wording or structure": ("Rhetoric", "Comprehension"),
+    "Connect separate parts of the passage": ("Connections", "WithinText"),
+    "Evaluate an argument using passage evidence": ("Argument", "WithinText"),
+    "Apply passage ideas to a different situation": ("Application", "BeyondText"),
+    "Revise an inference when new evidence is introduced": ("NewEvidence", "BeyondText"),
+}
+
+
 def reasoning_inventory(blueprint, skills):
     rows = {r["Domain"]: set(r["ReviewedCardIDs"].split()) for r in blueprint
             if r["Exam"] == "MCAT" and r["Axis"] == "Reasoning" and r["Domain"] in skills}
@@ -319,6 +329,18 @@ def mcat_cars_coverage(cards, blueprint):
         if card["Exam"] == "MCAT" and card["Section"] == "Critical Analysis and Reasoning Skills":
             passage, _, _ = card["Prompt"].rpartition("\n\n")
             passages[passage.strip()].append(card)
+    question_ids = {card["ID"] for group in passages.values() for card in group}
+    components = {field: set() for field, _ in MCAT_CARS_COMPONENTS.values()}
+    reviewed = set()
+    for row in blueprint:
+        if (row["Exam"], row["Axis"]) != ("MCAT", "CARS component"):
+            continue
+        field, parent = MCAT_CARS_COMPONENTS[row["Domain"]]
+        ids = set(row["ReviewedCardIDs"].split())
+        if not ids <= (question_ids & inventory[parent]) or ids & reviewed:
+            raise ValueError(f"Invalid CARS component mapping: {row['Domain']}")
+        components[field].update(ids)
+        reviewed.update(ids)
     report = []
     for passage, questions in passages.items():
         ids = {card["ID"] for card in questions}
@@ -327,6 +349,25 @@ def mcat_cars_coverage(cards, blueprint):
         result = dict(Passage=name, PassageWords=str(len(passage.split())),
                       Questions=str(len(ids)), QuestionIDs=" ".join(sorted(ids)))
         result.update(reasoning_evidence(ids, inventory))
+        detail = reasoning_evidence(ids, components)
+        detail["UnclassifiedComponentIDs"] = detail.pop("UnclassifiedIDs")
+        result.update(detail)
+        multiple, longest, shortest = [], [], []
+        for card in questions:
+            options = card.get("Choices", "").splitlines()
+            if not options:
+                continue
+            if len(options) < 2 or len(set(options)) != len(options) or card["Answer"] not in options:
+                raise ValueError(f"Invalid CARS answer choices: {card['ID']}")
+            multiple.append(card["ID"])
+            length = len(card["Answer"].split())
+            other_lengths = [len(option.split()) for option in options if option != card["Answer"]]
+            if length > max(other_lengths):
+                longest.append(card["ID"])
+            elif length < min(other_lengths):
+                shortest.append(card["ID"])
+        result.update(MultipleChoiceCards=str(len(multiple)),
+                      LongestKeyIDs=" ".join(sorted(longest)), ShortestKeyIDs=" ".join(sorted(shortest)))
         report.append(result)
     return sorted(report, key=lambda r: (r["Passage"], r["QuestionIDs"]))
 
@@ -386,6 +427,9 @@ def make(folder, prior):
     blueprint = table(ROOT/"blueprint.tsv")
     cars = mcat_cars_coverage(rows, blueprint)
     write_table(folder/"mcat-cars-coverage.tsv", list(cars[0]), cars)
+    cars_tags = {card_id: "cars::" + field.lower()
+                 for passage in cars for field, _ in MCAT_CARS_COMPONENTS.values()
+                 for card_id in passage[field + "IDs"].split()}
     science = reviewed_mcat_science(rows, blueprint)
     write_table(folder/"mcat-science-coverage.tsv", list(science[0]), science)
     details = mcat_detail_coverage(blueprint, science)
@@ -414,6 +458,8 @@ def make(folder, prior):
                 media.add(str(ROOT/"media"/r["Figure"]))
                 tags.append("listening::question" if r["Figure"].endswith(".wav") else "visual::question")
             tags.extend(sorted(practice_tags[r["ID"]]))
+            if r["ID"] in cars_tags:
+                tags.append(cars_tags[r["ID"]])
             fields=render(r);guid=genanki.guid_for("mcat-usmle/v1",r["ID"])
             decks[name].add_note(genanki.Note(model=model,fields=fields,guid=guid,tags=tags,due=n))
             w.writerow([guid,name,*fields," ".join(tags)])
@@ -744,6 +790,15 @@ def main():
             for skill, column in MCAT_CARS_SKILLS.items():
                 represented = sum(int(row[column + "Cards"]) > 0 for row in cars)
                 print(f"  {skill}: {represented}/{len(cars)}")
+            print("CARS component practice across distinct passages")
+            for name, (field, _) in MCAT_CARS_COMPONENTS.items():
+                counts = [int(row[field + "Cards"]) for row in cars]
+                print(f"  {name}: {sum(counts)} questions across {sum(bool(n) for n in counts)} passages")
+            multiple = sum(int(row["MultipleChoiceCards"]) for row in cars)
+            longest = sum(len(row["LongestKeyIDs"].split()) for row in cars)
+            shortest = sum(len(row["ShortestKeyIDs"].split()) for row in cars)
+            print(f"CARS multiple-choice keys by word count: {longest}/{multiple} uniquely longest, "
+                  f"{shortest}/{multiple} uniquely shortest")
             science = reviewed_mcat_science(cards, blueprint)
             print("MCAT science subtopics with reviewed evidence for each reasoning skill")
             for skill, column in MCAT_SCIENCE_SKILLS.items():

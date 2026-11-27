@@ -109,6 +109,35 @@ class MCATCARSCoverageTest(unittest.TestCase):
         self.assertEqual((second["PassageWords"], second["UnclassifiedIDs"]), ("3", "c"))
 
 
+    def test_component_membership_and_answer_length_ties(self):
+        from deck import MCAT_CARS_SKILLS, mcat_cars_coverage
+
+        blueprint = [dict(Exam="MCAT", Axis="Reasoning", Domain=skill,
+                          ReviewedCardIDs="a b c d" if column == "Comprehension" else "")
+                     for skill, column in MCAT_CARS_SKILLS.items()]
+        component = dict(Exam="MCAT", Axis="CARS component",
+                         Domain="Infer meaning from wording or structure", ReviewedCardIDs="a b c")
+        cards = [dict(ID=key, Exam="MCAT", Section="Critical Analysis and Reasoning Skills",
+                      Topic="Passage", Prompt="A passage.\n\nQuestion " + key,
+                      Choices=options, Answer=answer)
+                 for key, options, answer in [
+                     ("a", "Short\nTwo words\nThree full words", "Three full words"),
+                     ("b", "Also brief\nTwo words\nShort", "Two words"),
+                     ("c", "One\nTwo words\nThree full words", "One"),
+                     ("d", "", "Free response"),
+                 ]]
+        report, = mcat_cars_coverage(cards, blueprint + [component])
+        self.assertEqual(report["RhetoricIDs"], "a b c")
+        self.assertEqual(report["UnclassifiedComponentIDs"], "d")
+        self.assertEqual(report["MultipleChoiceCards"], "3")
+        self.assertEqual((report["LongestKeyIDs"], report["ShortestKeyIDs"]), ("a", "c"))
+        for invalid in [dict(component, Domain="Evaluate an argument using passage evidence"),
+                        dict(component, ReviewedCardIDs="missing"),
+                        dict(component, Domain="Identify the thesis and explicit details")]:
+            with self.assertRaises(ValueError):
+                mcat_cars_coverage(cards, blueprint + [component, invalid])
+
+
 class MCATScienceCoverageTest(unittest.TestCase):
     def test_outline_detail_requires_both_partners_in_the_same_category(self):
         from deck import MCAT_SCIENCE_SKILLS, mcat_detail_coverage
