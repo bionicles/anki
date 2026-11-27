@@ -398,6 +398,11 @@ def visual_source_coverage(cards, blueprint, named):
     credited = {r["Figure"] for ledger in ("imaging.tsv", "specimens.tsv") for r in table(ROOT / ledger)}
     for card in cards:
         filename = card["Figure"]
+        if filename.startswith("med_sleep_slp"):
+            record = Path(filename).stem.removeprefix("med_sleep_")
+            assert record in card["Source"] and "https://physionet.org/content/slpdb/1.0.0/" in card["Source"], card["ID"]
+            assert "ODC Attribution 1.0" in card["License"], card["ID"]
+            credited.add(filename)
         if filename.startswith("med_phil_"):
             match = re.fullmatch(r"med_phil_([0-9]+)\.(?:png|webp)", filename)
             assert match and f"https://wwwn.cdc.gov/phil/Details.aspx?pid={match[1]}" in card["Source"].split(" · "), card["ID"]
@@ -666,7 +671,7 @@ def file_hash(path):
 
 
 def build_inputs(lock):
-    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "mcat-transfer.tsv", "mcat-source-audit.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step-items.tsv", "step_coverage.py", "intrapartum.py", "ptbxl.py", "ptbxl.tsv", "figures.py", "heart-sounds.tsv", "heart_sounds.py", "protein-coordinates.tsv")]
+    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "mcat-transfer.tsv", "mcat-source-audit.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step-items.tsv", "step_coverage.py", "intrapartum.py", "sleep_studies.py", "ptbxl.py", "ptbxl.tsv", "figures.py", "heart-sounds.tsv", "heart_sounds.py", "protein-coordinates.tsv")]
     paths.extend(sorted(p for p in (ROOT / "media").iterdir() if p.suffix in MEDIA_SUFFIXES))
     return {"sources": lock, "files": {p.relative_to(ROOT).as_posix(): file_hash(p) for p in paths}}
 
@@ -768,6 +773,15 @@ def display_gaps(items, science, details=()):
         show(breadth)
         print(f"{exam} • linked topics without a three-card sequence, by family")
         show(depth)
+        shared = defaultdict(list)
+        for row in items:
+            if (row["Exam"] == exam and row.get("PairedObjectives", "0") != "0"
+                    and row.get("ExclusivePairIDs") == ""):
+                shared[row["Family"]].append(row["Item"])
+        if shared:
+            print(f"{exam} • topics whose case pairs rely on cards linked to other topics: "
+                  f"{sum(map(len, shared.values()))}")
+            show(shared)
         if audited:
             print(f"{exam} • full-sequence topics with two independent objectives: {independent}/{audited}")
             print(f"{exam} • full-sequence topics awaiting a second objective, by family")

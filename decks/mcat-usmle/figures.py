@@ -481,7 +481,7 @@ def respiratory():
         ax.plot(x*fvc, np.maximum(inspired, -insp_limit), color=COLORS[1], ls="--", label="Inspiration")
         ax.set(xlim=(-.1,5),ylim=(-6,8.5),title="Simulated maximal flow–volume loop")
         ax.legend(loc="upper right", fontsize=8)
-        save(fig, f"lung_loop_{case}")
+        save_lossless(fig, f"lung_loop_{case}")
 
     # Identical axes allow direct comparison when studying separate fictional patients.
     for case, volumes in [("a", [0, .90, 1.50, 2.25, 2.70, 3.00, 3.00]),
@@ -505,7 +505,7 @@ def respiratory():
             ax.set(ylabel=label, ylim=(-1.4, 1.4), yticks=[])
         axs[0].set_title("Simulated adult sleep study")
         axs[-1].set(xlabel="Time (s)", xlim=(0, 34))
-        save(fig, f"lung_sleep_{case}")
+        save_lossless(fig, f"lung_sleep_{case}")
 
     for case, peak, plateau in [("a", 38, 18), ("b", 39, 33)]:
         fig, ax = axes("Time within one breath (s)", "Airway pressure (cm H₂O)")
@@ -516,7 +516,7 @@ def respiratory():
         for x, y in [(.82,peak),(1.08,plateau)]:
             ax.annotate(str(y),(x,y),xytext=(0,5),textcoords="offset points",ha="center")
         ax.set(ylim=(0,46),title="Simulated passive volume-controlled breath")
-        save(fig, f"lung_hold_{case}")
+        save_lossless(fig, f"lung_hold_{case}")
 
     for case, perfusion, ventilation in [("a", 0, 1.2), ("b", 1.4, 0)]:
         fig, ax = axes("One lung region", "Flow (L/min)")

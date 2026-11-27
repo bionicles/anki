@@ -249,3 +249,16 @@ Figure 397 is a panel from the ear keloid series (CC BY-NC-SA 4.0). Figures 398�
 The hip dislocation radiograph series and postreduction CT (med_rad_407–409) are from the [inferior-anterior hip dislocation case](https://pmc.ncbi.nlm.nih.gov/articles/PMC11986529/). The thigh radiograph, CT panel and histology (med_rad_410–412) are from the [vastus intermedius myositis ossificans case](https://pmc.ncbi.nlm.nih.gov/articles/PMC13311238/). Both publications use CC BY 4.0. The individual creator names, image anchors, source hashes, panel crops and dimensions are recorded in [the image register](imaging.tsv).
 
 The four mammography and ultrasound panels (med_rad_413–416) are cropped from the [male breast imaging comparison, Figure 5](https://pmc.ncbi.nlm.nih.gov/articles/PMC7028902/#Fig5), published under CC BY 4.0. The [image register](imaging.tsv) attributes each panel and records its crop.
+
+## MIT-BIH sleep recordings
+
+Four figures plot nasal airflow alongside one chest or abdominal effort belt. The highlighted interval identifies the portion to inspect. The two channels have separate vertical scales. Each figure uses 75 seconds of native 250 Hz data, averaged in groups of ten samples for display. Card credits give time from the start of each source record. [Database and license](https://physionet.org/content/slpdb/1.0.0/) · [Open Data Commons Attribution License 1.0](https://opendatacommons.org/licenses/by/1-0/)
+
+| Figure | Record | Seconds from record start | Effort channel |
+| --- | --- | ---: | --- |
+| med_sleep_slp32.webp | slp32 | 5635–5710 | Chest |
+| med_sleep_slp37.webp | slp37 | 4980–5055 | Abdominal |
+| med_sleep_slp60.webp | slp60 | 2745–2820 | Abdominal |
+| med_sleep_slp59.webp | slp59 | 6465–6540 | Abdominal |
+
+George Moody deposited version 1.0.0 of the MIT-BIH Polysomnographic Database in 1999. Ichimaru and Moody describe the recordings in *Development of the polysomnographic database on CD-ROM*. With WFDB and matplotlib installed, run `python sleep_studies.py DIRECTORY` against the four source record/header pairs to regenerate the figures. [Dataset DOI](https://doi.org/10.13026/C23K5S) · [Original publication](https://ecg.mit.edu/george/publications/slpdb-pcn-1999.pdf) · [PhysioNet platform](https://doi.org/10.1038/s44360-026-00096-z)

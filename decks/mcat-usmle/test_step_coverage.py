@@ -52,6 +52,21 @@ class NamedDepthTest(unittest.TestCase):
         self.assertEqual(first["ThreeLevelObjectiveNames"], "One linked sequence")
         self.assertEqual(first["PairedObjectives"], "2")
 
+    def test_exclusive_cases_must_share_an_objective_and_be_unique_across_families(self):
+        families = [dict(Family="a", System="A"), dict(Family="b", System="B")]
+        items = [dict(Family="a", Item="One", Step1IDs="a b c d e f", Step2CKIDs="", Step3IDs=""),
+                 dict(Family="b", Item="One", Step1IDs="b c", Step2CKIDs="", Step3IDs="")]
+        def objective(name, a, b):
+            return dict(Exam=STEPS[0], Family="a", Objective=name, ReviewState="Documented",
+                        FoundationIDs="", ApplicationIDs=a, TransferIDs=b)
+        depth = [objective("First", "a", "b"), objective("Second", "c", "d")]
+        row = measure_item_depth(families, items, depth)[0]
+        self.assertEqual((row["PairedObjectives"], row["ExclusivePairIDs"]), ("2", ""))
+        self.assertEqual((row["SharedApplicationIDs"], row["SharedTransferIDs"]), ("c", "b"))
+        depth.append(objective("Third", "e", "f"))
+        row = measure_item_depth(families, items, depth)[0]
+        self.assertEqual((row["ExclusiveObjectiveNames"], row["ExclusivePairIDs"]), ("Third", "e f"))
+
     def test_distinct_objectives_need_six_usable_cards(self):
         family = {"Family": "blood.cells", "System": "Hematology"}
         item = {"Family": "blood.cells", "Item": "Example", "Step1IDs": "f a t f2 a2 t2",

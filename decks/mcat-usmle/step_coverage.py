@@ -137,24 +137,42 @@ def measure_item_depth(families, items, objectives):
             grouped[row["Exam"], row["Family"]].append((row["Objective"], layers))
 
     report = []
+    columns = ("Step1IDs", "Step2CKIDs", "Step3IDs")
+    item_links = defaultdict(set)
+    for item in items:
+        for exam, column in zip(STEPS, columns):
+            for card_id in item[column].split():
+                item_links[exam, card_id].add((item["Family"], item["Item"]))
+
     for item in items:
         family = item["Family"]
-        for exam, column in zip(STEPS, ("Step1IDs", "Step2CKIDs", "Step3IDs")):
+        for exam, column in zip(STEPS, columns):
             cited = set(item[column].split())
             row = dict(Exam=exam, System=systems[family], Family=family, Item=item["Item"],
                        MappedCards=str(len(cited)), CardIDs=" ".join(sorted(cited)))
             linked = [set() for level in LEVELS]
             paired, complete = [], {}
+            exclusive = {i for i in cited if len(item_links[exam, i]) == 1}
+            exclusive_pairs = {}
             for objective, layers in grouped[exam, family]:
                 overlaps = [cited & layer for layer in layers]
                 for matched, overlap in zip(linked, overlaps):
                     matched.update(overlap)
                 if overlaps[1] and overlaps[2]:
                     paired.append(objective)
+                    own_application = overlaps[1] & exclusive
+                    own_transfer = overlaps[2] & exclusive
+                    if own_application and own_transfer:
+                        exclusive_pairs[objective] = f"{min(own_application)} {min(own_transfer)}"
                     if overlaps[0]:
                         complete[objective] = overlaps
             for level, matched in zip(LEVELS, linked):
                 row[level+"IDs"] = " ".join(sorted(matched))
+            row["ExclusivePairedObjectives"] = str(len(exclusive_pairs))
+            row["ExclusiveObjectiveNames"] = " | ".join(exclusive_pairs)
+            row["ExclusivePairIDs"] = " | ".join(exclusive_pairs.values())
+            row["SharedApplicationIDs"] = " ".join(sorted(linked[1] - exclusive))
+            row["SharedTransferIDs"] = " ".join(sorted(linked[2] - exclusive))
             row["PairedObjectives"] = str(len(paired))
             row["ThreeLevelObjectives"] = str(len(complete))
             row["PairedObjectiveNames"] = " | ".join(paired)
@@ -218,6 +236,11 @@ def display(report, item_report=()):
             line("  " + system, [r for r in rows if r["System"] == system])
 
     if item_report:
+        print("Named topics with both cases of an objective mapped only to that topic on the Step")
+        for exam in STEPS:
+            rows = [r for r in item_report if r["Exam"] == exam]
+            count = sum(bool(r["ExclusivePairIDs"]) for r in rows)
+            print(f"  {exam}: {count}/{len(rows)}")
         print("Named topics by deepest documented practice; each topic is counted once per Step")
         systems = list(dict.fromkeys(r["System"] for r in report))
         grouped = defaultdict(list)
