@@ -5089,6 +5089,50 @@ def mcat_mechanics_details():
     save(fig, "mechdetail_compress", indexed=True)
 
 
+def pregnancy_and_binding_studies():
+    fig, ax = axes("Sampling period", "Mean serum creatinine (μmol/L)")
+    bars = ax.bar(["Prepregnancy", "16–32 weeks\n(nadir)", "Early postpartum\n(peak)"],
+                  [60, 47, 64], color=[COLORS[0], COLORS[1], COLORS[0]])
+    ax.bar_label(bars, padding=3)
+    ax.set(ylim=(0, 75), title="Ontario outpatient cohort")
+    save(fig, "maternalstudy_creatinine", indexed=True)
+
+    # CHAP complete-case estimates. Both endpoints are plotted as risk ratios.
+    fig, ax = axes("Risk ratio, active treatment / control (95% CI)", "")
+    estimates = np.array([.82, 1.07])
+    bounds = np.array([[.73, .85], [.92, 1.36]])
+    ax.errorbar(estimates, [1, 0], xerr=[estimates - bounds[0], bounds[1] - estimates],
+                fmt="o", color=COLORS[0], capsize=4)
+    ax.axvline(1, color="black", ls="--", lw=1)
+    ax.set(yticks=[1, 0], yticklabels=["Primary composite", "Birth weight\n<10th percentile"],
+           xlim=(.65, 1.45), ylim=(-.5, 1.5), title="CHAP complete-case analysis")
+    save(fig, "maternalstudy_chap", indexed=True)
+
+    ligand = np.linspace(0, 24, 241)
+    fig, ax = axes("Free ligand (μM)", "Fraction of sites occupied")
+    for label, kd, color, style in zip(("X", "Y"), (10, 2), COLORS, STYLES):
+        ax.plot(ligand, ligand / (ligand + kd), style, color=color, label=label, lw=2)
+    ax.axhline(.5, color="gray", lw=.8)
+    ax.set(ylim=(0, 1), xticks=[0, 2, 6, 10, 14, 18, 22])
+    ax.legend(title="Carrier")
+    save(fig, "maternalstudy_binding", indexed=True)
+
+    fig, ax = plt.subplots(figsize=(4.8, 3.4), layout="constrained")
+    for x, label, sides in ((0, "X", "RLRR"), (3.6, "Y", "RLLR")):
+        ax.text(x, 5.6, label, ha="center", weight="bold")
+        ax.text(x, 5.05, "CHO", ha="center")
+        ax.text(x, -.04, "CH₂OH", ha="center", va="top")
+        ax.plot([x, x], [.13, 4.85], color="black")
+        for y, side in zip((4, 3, 2, 1), sides):
+            ax.plot([x-.48, x+.48], [y, y], color="black")
+            left, right = ("H", "OH") if side == "R" else ("OH", "H")
+            ax.text(x-.52, y, left, ha="right", va="center")
+            ax.text(x+.52, y, right, ha="left", va="center")
+    ax.set(xlim=(-1.4, 5), ylim=(-.55, 6))
+    ax.axis("off")
+    save(fig, "maternalstudy_sugar", indexed=True)
+
+
 def light_and_sound_detail():
     depth = np.linspace(0, 5, 60)
     fig, ax = axes("Depth (cm)", "Transmitted intensity / incident intensity")
@@ -6521,6 +6565,7 @@ def main():
     demographic_and_ulcer_studies()
     cuff_size_trial()
     mcat_mechanics_details()
+    pregnancy_and_binding_studies()
     light_and_sound_detail()
     reproductive_drug_studies()
     social_decision_tables()
