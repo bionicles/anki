@@ -652,11 +652,11 @@ def pituitary_accuracy():
                title="Simulated response to a single transmitter pulse", ylim=(0, 1.05))
         ax.legend()
         save(fig, "pit_decay_" + name, indexed=True)
-    study_table("pit_accuracy", "Diagnostic classification in adults with hypotonic polyuria",
+    study_table("pit_accuracy", "Hypotonic polyuria",
                 ["Protocol", "Correct classifications"],
                 [["Indirect water deprivation", "108 of 141"],
                  ["Hypertonic saline–stimulated copeptin", "136 of 141"]],
-                source="Fenske et al., 2018 · same participants", indexed=True)
+                source="Fenske et al., 2018", indexed=True)
 
 
 def organ_system_practice():
