@@ -4959,6 +4959,68 @@ def occupational_lung_studies():
 
 
 
+def renal_vascular_studies():
+    """Renal arterial anatomy, two trial readouts and a simulated antibody response."""
+    for name in ("beads", "plaque"):
+        fig, ax = plt.subplots(figsize=(4.2, 2.2), layout="constrained")
+        ax.set(xlim=(0, 5), ylim=(0, 2)); ax.axis("off")
+        ax.fill_betweenx([0.12, 1.85], .33, .96, color="#dbebed")
+        x = np.linspace(.8, 4.75, 240)
+        radius = np.full_like(x, .22)
+        if name == "beads":
+            envelope = np.exp(-((x - 3.25) / .93) ** 4)
+            radius += .105 * np.cos(8 * (x - 3.25)) * envelope
+        ax.fill_between(x, 1-radius, 1+radius, color="#dbebed")
+        ax.plot(x, 1-radius, color=COLORS[0], lw=2)
+        ax.plot(x, 1+radius, color=COLORS[0], lw=2)
+        ax.plot([.33, .33], [.12, 1.85], color=COLORS[0], lw=2)
+        for lo, hi in [(.12, .78), (1.22, 1.85)]:
+            ax.plot([.96, .96], [lo, hi], color=COLORS[0], lw=2)
+        if name == "plaque":
+            ax.fill([.88, .88, 1.03, 1.18, 1.45, 1.82, 1.35, .96],
+                    [1.81, 1.08, .99, .94, 1.09, 1.22, 1.22, 1.22],
+                    color=COLORS[1])
+        ax.text(.33, .02, "Aorta", va="bottom", fontsize=10)
+        ax.text(3.65, .42, "Renal artery", ha="center", fontsize=10)
+        save(fig, "renalmap_" + name, indexed=True)
+
+    for name, cross in [("main", (1.35, 2)), ("segment", (2.48, 2.75))]:
+        fig, ax = plt.subplots(figsize=(3.6, 2.8), layout="constrained")
+        ax.set(xlim=(0, 4.3), ylim=(.3, 3.65), aspect="equal"); ax.axis("off")
+        ax.add_patch(plt.matplotlib.patches.Ellipse((2.95, 2), 2.1, 2.9,
+                     facecolor="#edf4f5", edgecolor=COLORS[0], linewidth=1.5))
+        ax.plot([.36, 2.1], [2, 2], color=COLORS[0], lw=4)
+        for end in [.95, 2.0, 3.05]:
+            ax.plot([2.1, 2.63, 3.38], [2, end, end], color=COLORS[0], lw=3)
+        ax.plot(*cross, marker="x", markersize=12, markeredgewidth=3, color=COLORS[1])
+        ax.text(.28, 1.52, "Inflow", fontsize=10)
+        ax.text(.28, .45, "×   Site of occlusion", color=COLORS[1], fontsize=10)
+        save(fig, "renalmap_" + name, indexed=True)
+
+    fig, ax = axes("", "Patients with primary event (%)")
+    bars = ax.bar(["Stent + medical", "Medical alone"], [35.1, 35.8], color=COLORS)
+    ax.bar_label(bars, fmt="%.1f%%", padding=3); ax.set_ylim(0, 46)
+    ax.set_title("CORAL composite outcome")
+    save(fig, "renalmap_coral", indexed=True)
+
+    fig, ax = plt.subplots(figsize=(4.3, 1.9), layout="constrained")
+    ax.axis("off")
+    table = ax.table(cellText=[["Prophylaxis", 39, 302], ["Placebo", 72, 305]],
+                     colLabels=["Group", "With recurrence", "Assigned"], loc="center",
+                     cellLoc="center", colWidths=[.32, .39, .26])
+    table.auto_set_font_size(False); table.set_fontsize(10); table.scale(1, 1.65)
+    ax.set_title("RIVUR: children with recurrent UTI")
+    save(fig, "renalmap_rivur", indexed=True)
+
+    fig, ax = axes("Study visit", "Median A-binding antibody (units/mL)")
+    for values, label, style, color in [([3, 24, 18], "A booster", "-", COLORS[0]),
+                                        ([3, 4, 3], "Other vaccine", "--", COLORS[1])]:
+        ax.plot([0, 7, 28], values, marker="o", ls=style, color=color, lw=2, label=label)
+    ax.set(xticks=[0, 7, 28], xticklabels=["Baseline", "Day 7", "Day 28"], ylim=(0, 28))
+    ax.legend()
+    save(fig, "renalmap_antibody", indexed=True)
+
+
 def renal_filtration_and_obstruction():
     """Simulated traces and ureter diagrams used for paired localization questions."""
     hours = np.arange(25)
@@ -5137,6 +5199,7 @@ def main():
     vascular_flow_studies()
     prenatal_visit_studies()
     occupational_lung_studies()
+    renal_vascular_studies()
     renal_filtration_and_obstruction()
     respiratory_injury_studies()
     hypothesis_error_regions()
