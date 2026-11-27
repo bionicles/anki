@@ -34,6 +34,12 @@ def save(fig, name, *, indexed=False):
     plt.close(fig)
 
 
+def save_lossless(fig, name):
+    fig.savefig(MEDIA / f"med_{name}.webp", dpi=145, facecolor="white",
+                pil_kwargs={"lossless": True, "method": 6, "exact": True})
+    plt.close(fig)
+
+
 def plot(name, xname, yname, x, curves):
     fig, ax = axes(xname, yname)
     for i, (label, y) in enumerate(curves.items()):
@@ -42,6 +48,50 @@ def plot(name, xname, yname, x, curves):
     if len(curves) > 1:
         ax.legend()
     save(fig, name)
+
+
+def musculoskeletal_measurements():
+    """Draw measurement and free-body diagrams from explicit teaching dimensions."""
+    from matplotlib.patches import Ellipse
+
+    for key, width, lateral in [("a", 20, 8), ("b", 24, 6)]:
+        fig, ax = plt.subplots(figsize=(4.4, 2.7), layout="constrained")
+        edge = width - lateral
+        ax.add_patch(Ellipse((width / 2, 0), width, 7, facecolor="#dae7eb", edgecolor=COLORS[0]))
+        ax.axvline(edge, color=COLORS[1], linestyle="--")
+        ax.text(edge, 5.2, "Acetabular edge", ha="center", color=COLORS[1])
+        for start, end, height in [(0, width, -5), (edge, width, 0)]:
+            ax.annotate("", (end, height), (start, height), arrowprops=dict(arrowstyle="<->"))
+            ax.text((start + end) / 2, height + .45, f"{end - start} mm", ha="center")
+        ax.set(xlim=(-3, width + 4), ylim=(-7, 7), title="Ossified femoral head  •  lateral to the right")
+        ax.axis("off")
+        save(fig, "jointcare_migrate_" + key, indexed=True)
+
+    for key, knee, ankle in [("a", 1.3, .13), ("b", .13, 1.3)]:
+        fig, ax = plt.subplots(figsize=(3.9, 3.3), layout="constrained")
+        for side in [-1, 1]:
+            ax.plot([side * .85, side * knee, side * ankle], [2, 1, 0], "-o",
+                    color=COLORS[0], lw=6, markersize=8, solid_capstyle="round")
+        for y, label in enumerate(["Ankles", "Knees", "Hips"]):
+            ax.text(1.7, y, label, va="center")
+        ax.set(xlim=(-1.7, 2.6), ylim=(-.2, 2.2), title="Standing alignment  •  anterior view")
+        ax.axis("off")
+        save(fig, "jointcare_align_" + key, indexed=True)
+
+    for key, tendon, loads in [("a", 4, [(24, 20)]), ("b", 3.6, [(15, 8), (20, 12)])]:
+        fig, ax = plt.subplots(figsize=(5, 2.8), layout="constrained")
+        ax.plot([0, max(x for x, _ in loads) + 1], [0, 0], color="#52656c", lw=6)
+        ax.plot(0, 0, "o", color="black")
+        ax.text(0, -.58, "Elbow", ha="center")
+        for x, force, height in [(tendon, "Tendon", 1.4)] + [(x, f"{f} N", -1.4) for x, f in loads]:
+            ax.annotate("", (x, height), (x, 0), arrowprops=dict(arrowstyle="-|>", color=COLORS[1], lw=2))
+            ax.text(x, height + (.1 if height > 0 else -.1), force, ha="center",
+                    va="bottom" if height > 0 else "top")
+            ax.text(x, -.40 if height > 0 else .22, f"{x:g} cm", ha="center")
+        ax.set(xlim=(-2, max(x for x, _ in loads) + 3), ylim=(-2.4, 2.1),
+               title="Static forearm  •  distances from elbow pivot")
+        ax.axis("off")
+        save(fig, "jointcare_lever_" + key, indexed=True)
 
 
 def shock_and_circulation_studies():
@@ -606,7 +656,7 @@ def reproductive():
                     arrowprops={"arrowstyle":"-", "color":"#34434a"})
         ax.text(1.07,.73,"Stroma",fontsize=9)
         ax.text(-1.44,-1.15,"Dotted circles = atypical epithelial cells",fontsize=8)
-        save(fig, "repro_duct_" + code)
+        save_lossless(fig, "repro_duct_" + code)
 
     # Contrast outlines the lumen. Patient side is explicit in radiographic orientation.
     for code, tubes in [("a", ("spill","spill")), ("b", ("spill","closed")), ("c", ("proximal","proximal"))]:
@@ -1062,9 +1112,7 @@ def endocrine():
         ax.set_title(f"Simulated thyroid study • 24-hour uptake {uptake}%",fontsize=11)
         ax.set_xlabel("Local reference interval 10–30%",fontsize=9)
         ax.set(xticks=[],yticks=[])
-        fig.savefig(MEDIA / f"med_endo_uptake_{case}.webp", dpi=145, facecolor="white",
-                    pil_kwargs={"lossless": True, "method": 6, "exact": True})
-        plt.close(fig)
+        save_lossless(fig, "endo_uptake_" + case)
 
     for case, values in [("a",[105,115,120,420,600]),("b",[112,119,125,128,134])]:
         fig, ax = axes("Time relative to desmopressin (hours)", "Urine osmolality (mOsm/kg)")
@@ -7161,6 +7209,7 @@ def main():
     mcat_changed_evidence()
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
+    musculoskeletal_measurements()
     shock_and_circulation_studies()
     behavioral_health_studies()
     organ_and_skin_studies()
