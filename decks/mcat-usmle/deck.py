@@ -301,6 +301,13 @@ def visual_source_coverage(cards, blueprint, named):
     """Inventory the front images on explicitly mapped questions, including topics with none."""
     figures = {r["ID"]: r["Figure"] for r in cards if r["Figure"].endswith(IMAGE_SUFFIXES)}
     credited = {r["Figure"] for ledger in ("imaging.tsv", "specimens.tsv") for r in table(ROOT / ledger)}
+    for card in cards:
+        filename = card["Figure"]
+        if filename.startswith("med_phil_"):
+            match = re.fullmatch(r"med_phil_([0-9]+)\.(?:png|webp)", filename)
+            assert match and f"https://wwwn.cdc.gov/phil/Details.aspx?pid={match[1]}" in card["Source"].split(" · "), card["ID"]
+            assert "public domain" in card["License"].lower(), card["ID"]
+            credited.add(filename)
     for pdb in {row["PDB"] for row in table(ROOT / "protein-coordinates.tsv")}:
         filename = f"med_fold_{pdb.lower()}.png"
         references = [card for card in cards if card["Figure"] == filename]

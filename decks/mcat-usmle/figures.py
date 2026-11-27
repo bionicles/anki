@@ -596,6 +596,45 @@ def reproductive():
         save(fig, "repro_uterus_" + code)
 
 
+def biomolecular_figures():
+    """Draw the oxygen substituents at the tested center and reported study endpoints."""
+    for suffix, top in [("hemi", "OH"), ("acetal", "OCH₃")]:
+        fig, ax = plt.subplots(figsize=(4.4, 2.5), layout="constrained")
+        ax.set(aspect="equal", xlim=(-1.8, 1.8), ylim=(-1.25, 1.25))
+        ax.axis("off")
+        ax.text(0, 0, "C", ha="center", va="center", fontsize=16)
+        for x, y, label in [(-1.25, 0, "CH₃"), (1.25, 0, "OCH₃"),
+                            (0, .95, top), (0, -.95, "H")]:
+            ax.plot([.18*x, .70*x], [.23*y, .73*y], color="#303030", lw=2)
+            ax.text(x, y, label, ha="center", va="center", fontsize=15)
+        save(fig, "org_" + suffix, indexed=True)
+
+    for suffix, direction in [("alpha", -1), ("beta", 1)]:
+        fig, ax = plt.subplots(figsize=(4.6, 2.8), layout="constrained")
+        ax.set(aspect="equal", xlim=(-1.7, 1.7), ylim=(-1.25, 1.55))
+        ax.axis("off")
+        ring = np.array([(1, 0), (.56, -.48), (-.56, -.48), (-1, 0),
+                         (-.56, .48), (.56, .48), (1, 0)])
+        ax.plot(ring[:, 0], ring[:, 1], color="#303030", lw=2)
+        ax.text(.56, .48, "O", ha="center", va="center", backgroundcolor="white", fontsize=15)
+        ax.plot([-.56, -.56], [.48, 1.04], color=COLORS[0], lw=2)
+        ax.text(-.56, 1.19, "CH₂OH", ha="center", va="center", fontsize=13)
+        ax.plot([1, 1], [0, direction*.54], color=COLORS[0], lw=2)
+        ax.text(1, direction*.74, "OH", ha="center", va="center", fontsize=13)
+        ax.set_title("D-glucopyranose · other substituents omitted", fontsize=10)
+        save(fig, "org_" + suffix, indexed=True)
+
+    study_table("org_rotation", "Specific rotation of aqueous D-glucose",
+                ["Starting sample", "Initial", "At equilibrium"],
+                [["Pure α", "+112.2°", "+52.6°"], ["Pure β", "+18.7°", "+52.6°"]],
+                source="OpenStax", indexed=True)
+    study_table("tox_engagement", "Engaged in addiction treatment on day 30",
+                ["ED strategy", "Engaged / assessed", "Percent"],
+                [["Buprenorphine + follow-up", "89 / 114", "78%"],
+                 ["Brief intervention + referral", "50 / 111", "45%"],
+                 ["Referral alone", "38 / 102", "37%"]], source="D’Onofrio et al.", indexed=True)
+
+
 def older_muscle():
     """Show filament overlap and primary-study measurements of muscle and mobility."""
     fig, ax = plt.subplots(figsize=(6, 3), layout="constrained")
@@ -6898,6 +6937,7 @@ def main():
     atomic_evidence()
     child_development()
     older_muscle()
+    biomolecular_figures()
     plot("refeed", "Hours after starting nutrition", "Serum phosphate (mg/dL)",
          [0,12,24,36,48], {"Patient A": [3.2,2.9,2.4,1.8,1.6],
                             "Patient B": [3.1,3.2,3.0,3.1,3.1]})
