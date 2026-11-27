@@ -5018,6 +5018,38 @@ def kinetic_equilibrium_studies():
     save(fig, "cvdrug_rates", indexed=True)
 
 
+def membrane_recovery_records():
+    for label, after, plateau in [("a", 20, 80), ("b", 40, 70)]:
+        fig, ax = axes("Time relative to bleaching (s)", "Fluorescence (% of prebleach level)")
+        t = np.linspace(0, 40, 101)
+        signal = after + (plateau - after) * (1 - np.exp(-t / 4))
+        ax.plot([-8, 0, 0], [100, 100, after], color=COLORS[0], lw=2.4)
+        ax.plot(t, signal, color=COLORS[0], lw=2.4)
+        ax.set(xticks=[-8, 0, 10, 20, 30, 40], yticks=range(0, 101, 10),
+               ylim=(-3, 105), title="Simulated membrane photobleaching")
+        save(fig, "cellcheck_recovery_" + label, indexed=True)
+
+
+def consciousness_assessments():
+    # Wannez et al., Table 1, six-assessment reference (123 participants).
+    fig, ax = axes("Number of assessments included", "Patients below reference category")
+    counts = [44, 30, 21, 11, 6]
+    bars = ax.bar(range(1, 6), counts, color=COLORS[0], width=.62)
+    ax.bar_label(bars, padding=3)
+    ax.set(xticks=range(1, 6), ylim=(0, 52), title="Repeated behavioral assessments (n = 123)")
+    save(fig, "neurocheck_study", indexed=True)
+
+    for name, crossing in [("early", 6), ("late", 16)]:
+        fig, ax = axes("Hours since monitoring began", "Core temperature (°C)")
+        hours = [0, crossing, 24, 32]
+        ax.plot(hours, [34, 36, 36.4, 36.4], color=COLORS[0], marker="o", lw=2.5)
+        ax.axhline(36, ls="--", lw=1, color="#555555")
+        ax.set(xticks=sorted(set([0, crossing, 8, 16, 24, 32])),
+               yticks=[34, 35, 36, 37], ylim=(33.6, 37.1),
+               title="Simulated continuous temperature record")
+        save(fig, "neurocheck_" + name, indexed=True)
+
+
 def tumor_and_gene_evidence():
     fig, ax = axes("", "Median survival (months)")
     values = [15.3, 21.7]
@@ -6272,6 +6304,8 @@ def main():
     cardiovascular_drug_studies()
     myocardial_and_bonding_studies()
     demographic_and_ulcer_studies()
+    membrane_recovery_records()
+    consciousness_assessments()
     tumor_and_gene_evidence()
     pain_and_sensation()
     neuroendocrine_measurements()
