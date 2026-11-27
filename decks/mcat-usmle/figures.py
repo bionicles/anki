@@ -596,6 +596,61 @@ def reproductive():
         save(fig, "repro_uterus_" + code)
 
 
+def atomic_evidence():
+    """Render teaching spectra, orbital occupancies and radioactive tracer decay."""
+    from matplotlib.patches import Rectangle
+
+    for name, half_life in [("fast", 2), ("slow", 4)]:
+        fig, ax = axes("Elapsed time (h)", "Activity (arbitrary units)")
+        hours = np.linspace(0, 8, 81)
+        ax.plot(hours, 80 * 2 ** (-hours / half_life), color=COLORS[0], lw=2.2)
+        ax.set_yscale("log", base=2)
+        ax.set(xticks=range(0, 9, 2), yticks=[5, 10, 20, 40, 80],
+               yticklabels=["5", "10", "20", "40", "80"], title="Tracer decay · simulated")
+        save(fig, "atomic_" + name, indexed=True)
+
+    for name, occupancy in [("open", [2, 1, 1]), ("closed", [2, 2, 2])]:
+        fig, ax = plt.subplots(figsize=(4, 2.2), layout="constrained")
+        ax.axis("off")
+        ax.set(xlim=(0, 3), ylim=(0, 1.4), title="Outer p subshell · orbital occupancy")
+        for col, count in enumerate(occupancy):
+            ax.add_patch(Rectangle((col + .06, .25), .88, .72, fill=False, ec="#334450", lw=1.5))
+            for k in range(count):
+                x = col + (.35 if k == 0 else .65)
+                start, end = (.37, .85) if k == 0 else (.85, .37)
+                ax.annotate("", xy=(x, end), xytext=(x, start),
+                            arrowprops={"arrowstyle": "-|>", "color": COLORS[0], "lw": 2})
+        save(fig, "atomic_" + name, indexed=True)
+
+    for name, masses, percentages in [
+        ("mg", [24, 25, 26], [78.99, 10.00, 11.01]),
+        ("si", [28, 29, 30], [92.223, 4.685, 3.092]),
+    ]:
+        fig, ax = axes("Nominal m/z (singly charged ions)", "Fraction of ions (%)")
+        ax.vlines(masses, 0, percentages, lw=4, color=COLORS[0])
+        for mass, value in zip(masses, percentages):
+            ax.text(mass, value + 2, f"{value:g}%", ha="center")
+        ax.set(xticks=masses, xlim=(masses[0] - .5, masses[-1] + .5), ylim=(0, 103),
+               title="Idealized isotope spectrum · NIST abundances")
+        save(fig, "atomic_" + name, indexed=True)
+
+
+def musculoskeletal_recovery():
+    """Plot published post-rehabilitation minus baseline mean differences and 95% CIs."""
+    fig, ax = plt.subplots(figsize=(6.4, 3.1), layout="constrained")
+    muscles = ["Quadriceps", "Hamstrings", "Medial gastrocnemius", "Soleus"]
+    estimates = np.array([-3.74, -2.30, -.62, -1.85])
+    lower = np.array([-7.36, -4.07, -1.10, -2.90])
+    upper = np.array([-.12, -.54, -.14, -.81])
+    ax.errorbar(estimates, range(4), xerr=[estimates - lower, upper - estimates],
+                fmt="o", color=COLORS[0], capsize=4)
+    ax.axvline(0, color="#454545", ls="--")
+    ax.set(yticks=range(4), yticklabels=muscles, xlabel="Post-rehabilitation minus baseline area (cm²)",
+           title="Mean muscle area change with 95% CI · Scott et al.")
+    ax.invert_yaxis()
+    save(fig, "bonejoint_rehab", indexed=True)
+
+
 def population_health():
     """Draw NCHS population tables and a simulated education study."""
     study_table("structure_ratings", "Mean evaluator score (10-point scale)",
@@ -6786,6 +6841,8 @@ def main():
     endocrine()
     aqueous_chemistry()
     population_health()
+    musculoskeletal_recovery()
+    atomic_evidence()
     plot("refeed", "Hours after starting nutrition", "Serum phosphate (mg/dL)",
          [0,12,24,36,48], {"Patient A": [3.2,2.9,2.4,1.8,1.6],
                             "Patient B": [3.1,3.2,3.0,3.1,3.1]})
