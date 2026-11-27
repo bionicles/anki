@@ -4959,6 +4959,58 @@ def occupational_lung_studies():
 
 
 
+def urinary_trauma_and_filling():
+    """Teaching cystograms and pressure-volume curves, plus bladder CT study counts."""
+    from matplotlib.patches import Ellipse
+
+    for name, intraperitoneal in [("low", False), ("high", True)]:
+        fig, ax = plt.subplots(figsize=(5.0, 3.1), layout="constrained")
+        ax.set(xlim=(0, 6.6), ylim=(0, 4.3), aspect="equal")
+        ax.axis("off")
+        contrast = "#087991"
+        ax.add_patch(Ellipse((2.4, 1.22), 2.0, 1.55,
+                             facecolor=contrast, edgecolor="#313b42", linewidth=2))
+        ax.text(2.4, 1.05, "Bladder", color="white", ha="center")
+        x = np.linspace(.1, 4.7, 100)
+        reflection = 1.53 + .54 * np.exp(-((x - 2.4) / 1.2) ** 2)
+        ax.plot(x, reflection, ls="--", color="#555555", lw=1.6, zorder=4)
+        ax.text(4.8, 1.55, "Peritoneal\nreflection", va="center", fontsize=9)
+        for bx, by in [(1.35, 3.04), (2.54, 3.33), (3.72, 2.94)]:
+            ax.add_patch(Ellipse((bx, by), 1.03, .69, angle=15,
+                                 edgecolor="#804f3c", facecolor="#f0ddcb", lw=1.6))
+        ax.text(4.8, 3.05, "Bowel loops", va="center", fontsize=9)
+        if intraperitoneal:
+            ax.plot([2.4, 2.4, 2.08, 1.96, 2.0], [1.88, 2.34, 2.79, 3.14, 3.4],
+                    lw=4, color=contrast)
+            ax.plot([2.42, 2.91, 3.17, 3.06], [2.28, 2.52, 2.86, 3.19],
+                    lw=3, color=contrast)
+        else:
+            ax.plot([3.23, 3.52, 3.88, 4.24], [1.12, 1.21, .99, 1.11],
+                    lw=5, color=contrast)
+            ax.plot([3.66, 3.9, 4.27], [1.11, .79, .67], lw=3, color=contrast)
+        ax.text(.12, .04, "Blue-green = bladder contrast", fontsize=10)
+        save(fig, "urostudy_" + name, indexed=True)
+
+    fig, ax = axes("Volume added (mL)", "Detrusor pressure (cm H₂O)")
+    for mark, end, color in [("A", 10, COLORS[0]), ("B", 25, COLORS[1])]:
+        ax.plot([0, 200], [5, end], color=color, lw=2.5, marker="o")
+        ax.text(204, end, mark, color=color, va="center", fontweight="bold")
+    ax.set(xticks=[0, 50, 100, 150, 200], yticks=[0, 5, 10, 15, 20, 25],
+           xlim=(-8, 225), ylim=(0, 28), title="Two quiet bladder-filling studies")
+    save(fig, "urostudy_fill", indexed=True)
+
+    fig, ax = plt.subplots(figsize=(4.9, 2.1), layout="constrained")
+    ax.axis("off")
+    grid = ax.table(cellText=[["Rupture", "42", "2"], ["No rupture", "0", "272"]],
+                    colLabels=["Final diagnosis", "CT positive", "CT negative"],
+                    loc="center", cellLoc="center")
+    grid.auto_set_font_size(False)
+    grid.set_fontsize(11)
+    grid.scale(1, 1.65)
+    ax.set_title("CT cystography in 316 blunt trauma patients", fontsize=11)
+    save(fig, "urostudy_ct", indexed=True)
+
+
 def renal_medication_studies():
     """Clinical sampling times, published kidney outcomes and simulated ion data."""
     fig, ax = axes("Hours from first infusion start", "")
@@ -5271,6 +5323,7 @@ def main():
     vascular_flow_studies()
     prenatal_visit_studies()
     occupational_lung_studies()
+    urinary_trauma_and_filling()
     renal_medication_studies()
     renal_pathology_and_inheritance()
     renal_vascular_studies()
