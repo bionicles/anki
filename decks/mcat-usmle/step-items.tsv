@@ -1751,16 +1751,16 @@ skin.tumor	Basal cell carcinoma	original:derm-bcc-1 original:skintumor-7-1-case 
 skin.tumor	Cutaneous squamous cell carcinoma	original:derm-scc-1 original:skintumor-8-1-rule original:skintumor-8-1-transfer	original:derm-scc-2 original:skintumor-8-2-rule original:skintumor-8-2-case original:skintumor-8-2-transfer	original:derm-scc-3 original:skintumor-8-3-rule original:skintumor-8-3-transfer
 skin.tumor	Melanoma including genital sites	original:s1-skin-mel-evolve original:s1-skin-mel-asym original:s1-skin-mel-size original:derm-mel-1 original:skintumor-9-1-case original:skintumor-9-1-transfer	original:ck-mel-biopsy-sample original:ck-mel-biopsy-depth original:derm-mel-2 original:skintumor-9-2-rule original:skintumor-9-2-transfer	original:ccs-melanoma-staging original:ccs-melanoma-local original:ccs-melanoma-nodes original:derm-mel-3 original:skintumor-9-3-rule original:skintumor-9-3-transfer
 skin.tumor	Cutaneous T-cell lymphoma and mycosis fungoides	original:derm-ctcl-1 original:skintumor-10-1-case original:skintumor-10-1-transfer	original:derm-ctcl-2 original:skintumor-10-2-rule original:skintumor-10-2-transfer	original:derm-ctcl-3 original:skintumor-10-3-rule original:skintumor-10-3-case
-skin.appendage	Alopecia	original:derm-alo-1	original:derm-alo-2	original:derm-alo-3
-skin.appendage	Seborrheic dermatitis	original:derm-seb-1	original:derm-seb-2	original:derm-seb-3
-skin.appendage	Tinea barbae	original:derm-barb-1	original:derm-barb-2	original:derm-barb-3
-skin.appendage	Tinea capitis	original:derm-cap-1	original:derm-cap-2	original:derm-cap-3
-skin.appendage	Nail disorders including ingrown nails	original:derm-nail-1	original:derm-nail-2	original:derm-nail-3
-skin.appendage	Acne vulgaris	original:derm-acne-1	original:derm-acne-2	original:derm-acne-3
-skin.appendage	Hidradenitis suppurativa	original:derm-hs-1	original:derm-hs-2	original:derm-hs-3
-skin.appendage	Hyperhidrosis	original:derm-sweat-1	original:derm-sweat-2	original:derm-sweat-3
-skin.appendage	Ichthyosis	original:derm-ich-1	original:derm-ich-2	original:derm-ich-3
-skin.appendage	Rosacea	original:derm-ros-1	original:derm-ros-2	original:derm-ros-3
+skin.appendage	Alopecia	original:derm-alo-1 original:appendage-0-1-1 original:appendage-0-1-2	original:derm-alo-2 original:appendage-0-2-0 original:appendage-0-2-2	original:derm-alo-3 original:appendage-0-3-0 original:appendage-0-3-2
+skin.appendage	Seborrheic dermatitis	original:derm-seb-1 original:appendage-1-1-1 original:appendage-1-1-2	original:derm-seb-2 original:appendage-1-2-0 original:appendage-1-2-2	original:derm-seb-3 original:appendage-1-3-0 original:appendage-1-3-2
+skin.appendage	Tinea barbae	original:derm-barb-1 original:appendage-2-1-1 original:appendage-2-1-2	original:derm-barb-2 original:appendage-2-2-0 original:appendage-2-2-1 original:appendage-2-2-2	original:derm-barb-3 original:appendage-2-3-0 original:appendage-2-3-2
+skin.appendage	Tinea capitis	original:derm-cap-1 original:appendage-3-1-1 original:appendage-3-1-2	original:derm-cap-2 original:appendage-3-2-0 original:appendage-3-2-2 original:appendage-kerion-prognosis	original:derm-cap-3 original:appendage-3-3-0 original:appendage-3-3-2
+skin.appendage	Nail disorders including ingrown nails	original:derm-nail-1 original:appendage-4-1-1 original:appendage-4-1-2	original:derm-nail-2 original:appendage-4-2-0 original:appendage-4-2-2	original:derm-nail-3 original:appendage-4-3-0 original:appendage-4-3-1 original:appendage-4-3-2
+skin.appendage	Acne vulgaris	original:derm-acne-1 original:appendage-5-1-1 original:appendage-5-1-2	original:derm-acne-2 original:appendage-5-2-0 original:appendage-5-2-2	original:derm-acne-3 original:appendage-5-3-0 original:appendage-5-3-2
+skin.appendage	Hidradenitis suppurativa	original:derm-hs-1 original:appendage-6-1-1 original:appendage-6-1-2	original:derm-hs-2 original:appendage-6-2-0 original:appendage-6-2-2	original:derm-hs-3 original:appendage-6-3-0 original:appendage-6-3-2 original:appendage-trial-effect original:appendage-trial-first original:appendage-trial-second original:appendage-trial-endpoint original:appendage-trial-duration
+skin.appendage	Hyperhidrosis	original:derm-sweat-1 original:appendage-7-1-1 original:appendage-7-1-2	original:derm-sweat-2 original:appendage-7-2-0 original:appendage-7-2-2	original:derm-sweat-3 original:appendage-7-3-0 original:appendage-7-3-2
+skin.appendage	Ichthyosis	original:derm-ich-1 original:appendage-8-1-1 original:appendage-8-1-2	original:derm-ich-2 original:appendage-8-2-0 original:appendage-8-2-1 original:appendage-8-2-2	original:derm-ich-3 original:appendage-8-3-0 original:appendage-8-3-2
+skin.appendage	Rosacea	original:derm-ros-1 original:appendage-9-1-1 original:appendage-9-1-2	original:derm-ros-2 original:appendage-9-2-0 original:appendage-9-2-1 original:appendage-9-2-2	original:derm-ros-3 original:appendage-9-3-0 original:appendage-9-3-2
 skin.oral	Aphthous ulcers	original:derm-apht-1	original:derm-apht-2	original:derm-apht-3
 skin.oral	Oral leukoplakia	original:derm-leuk-1	original:derm-leuk-2 original:derm-leuk-rule original:derm-leuk-wipe	original:derm-leuk-3
 skin.pigment	Albinism	original:derm-alb-1	original:derm-alb-2	original:derm-alb-3

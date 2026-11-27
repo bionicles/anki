@@ -44,6 +44,29 @@ def plot(name, xname, yname, x, curves):
     save(fig, name)
 
 
+def organ_and_skin_studies():
+    """Display published thermal and clinical outcomes and two simulated urine collections."""
+    for key, label, values in [
+        ("young", "Younger adults", [("Pulse (beats/min)", "−2", "−8 to +3"),
+                                    ("Core temp. (°C)", "+0.05", "−0.13 to +0.23"),
+                                    ("Sweat loss (kg)", "+0.2", "−0.2 to +0.6")]),
+        ("older", "Older adults", [("Pulse (beats/min)", "+5", "0 to +10"),
+                                  ("Core temp. (°C)", "+0.20", "0.00 to +0.41"),
+                                  ("Sweat loss (kg)", "0.0", "−0.2 to +0.2")]),
+    ]:
+        study_table("heatfan_" + key, label + " at 42 °C", ["Measurement", "Fan minus control", "95% CI"],
+                    values, "Gagnon et al.", indexed=True)
+
+    for name, active, control in [("I", "41.8%", "26.0%"), ("II", "58.9%", "27.6%")]:
+        study_table("pioneer_" + name.lower(), "Week 12 response", ["Group", "Met lesion-count endpoint"],
+                    [["Adalimumab", active], ["Placebo", control]], "PIONEER " + name, indexed=True)
+
+    for name, ammonium, acid, bicarbonate in [("a", 42, 20, 2), ("b", 10, 6, 28)]:
+        study_table("netacid_" + name, "24-hour urine collection", ["Urine component", "mEq/day"],
+                    [["Ammonium", ammonium], ["Titratable acid", acid], ["Bicarbonate", bicarbonate]],
+                    indexed=True)
+
+
 def mcat_protein_structures():
     """Show deposited Cα traces and disulfides identified by sulfur–sulfur distance."""
     import csv
@@ -7092,6 +7115,7 @@ def main():
     mcat_changed_evidence()
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
+    organ_and_skin_studies()
     mcat_protein_structures()
     cardiovascular()
     renal_studies()
