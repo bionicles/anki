@@ -5089,6 +5089,53 @@ def mcat_mechanics_details():
     save(fig, "mechdetail_compress", indexed=True)
 
 
+def light_and_sound_detail():
+    depth = np.linspace(0, 5, 60)
+    fig, ax = axes("Depth (cm)", "Transmitted intensity / incident intensity")
+    for label, coefficient, color, style in zip(("A", "B"), (.6, .2), COLORS, STYLES):
+        ax.plot(depth, np.exp(-coefficient * depth), style, color=color, label=label, lw=2)
+    ax.legend(title="Medium")
+    save(fig, "opticsdetail_atten", indexed=True)
+
+    position = np.linspace(0, .6, 181)
+    fig, ax = axes("Position on string (m)", "Displacement (arbitrary units)")
+    ax.axhline(0, lw=.8, color="gray")
+    ax.plot(position, np.sin(3 * np.pi * position / .6), lw=2, color=COLORS[0])
+    ax.scatter([0, .6], [0, 0], marker="s", color="black", zorder=3)
+    save(fig, "opticsdetail_string", indexed=True)
+
+    wn = np.linspace(1900, 1500, 301)
+    fig, ax = axes("Wavenumber (cm⁻¹)", "Transmittance (%)")
+    for label, amplitude, color, style in zip(("X", "Y"), (18, 64), COLORS, STYLES):
+        ax.plot(wn, 94 - amplitude * np.exp(-((wn - 1715) / 20) ** 2),
+                style, color=color, label=label, lw=2)
+    ax.set(xlim=(1900, 1500), ylim=(0, 102))
+    ax.legend(title="Liquid")
+    save(fig, "opticsdetail_ir", indexed=True)
+
+    fig, ax = axes("Reciprocal object distance (m⁻¹)", "Reciprocal image distance (m⁻¹)")
+    ax.plot([0, 7], [8, 1], color=COLORS[0])
+    ax.scatter([1, 2, 4, 6], [7, 6, 4, 2], color=COLORS[1], zorder=3)
+    ax.set(xlim=(0, 8), ylim=(0, 9), yticks=range(0, 10, 2))
+    save(fig, "opticsdetail_bench", indexed=True)
+
+    angle = np.linspace(0, 180, 181)
+    fig, ax = axes("Analyzer angle (degrees)", "Fraction of incident intensity")
+    ax.plot(angle, np.cos(np.deg2rad(angle)) ** 2, color=COLORS[0], label="A")
+    ax.plot([0, 180], [.5, .5], "--", color=COLORS[1], label="B")
+    ax.set(xticks=[0, 45, 90, 135, 180], ylim=(-.04, 1.06))
+    ax.legend(title="Trace")
+    save(fig, "opticsdetail_polar", indexed=True)
+
+    fig, ax = plt.subplots(figsize=(5.2, 2.7), layout="constrained")
+    for label, count, offset in (("A", 6, 0), ("B", 11, 1.4)):
+        ax.vlines(np.linspace(0, 1, count), offset, offset + .8, color=COLORS[0], lw=2)
+        ax.text(-.08, offset + .4, label, ha="right", va="center")
+    ax.set(xlim=(-.2, 1.1), ylim=(-.2, 2.5), title="Gratings shown at the same scale")
+    ax.axis("off")
+    save(fig, "opticsdetail_grating", indexed=True)
+
+
 def reproductive_drug_studies():
     # Aljazaf et al., 2003: both means are from the same eight participants.
     fig, ax = axes("Study period", "24-hour milk volume (mL)")
@@ -6474,6 +6521,7 @@ def main():
     demographic_and_ulcer_studies()
     cuff_size_trial()
     mcat_mechanics_details()
+    light_and_sound_detail()
     reproductive_drug_studies()
     social_decision_tables()
     social_access_studies()
