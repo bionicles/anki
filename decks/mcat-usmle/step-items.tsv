@@ -776,10 +776,10 @@ repro.breastinf	Inflammatory breast disorders	original:rg-mast-swelling original
 repro.breastinf	Breast fat necrosis	original:rg-fat-oil	original:rg-fat-scar	
 repro.breastinf	Mastitis	original:rg-mast-swelling original:rg-mast-pump	bank:cohort:obs:q-931316265fb1:v1 original:rg-mast-local original:rg-mast-drain	original:rg-mast-milk original:rg-mast-nonresp original:rg-mast-pus
 repro.breastinf	Nipple discharge		original:bh-prolactin-amenorrhea	
-repro.breasttumor	Solitary breast cyst			
-repro.breasttumor	Fibrocystic breast changes		original:rg-lumps-cyclic	
+repro.breasttumor	Solitary breast cyst	original:gynpath-cyst-1-rule original:gynpath-cyst-1-case original:gynpath-cyst-1-changed	original:gynpath-cyst-2-rule original:gynpath-cyst-2-case original:gynpath-cyst-2-changed	original:gynpath-cyst-3-rule original:gynpath-cyst-3-case original:gynpath-cyst-3-changed
+repro.breasttumor	Fibrocystic breast changes	original:gynpath-fib-1-rule original:gynpath-fib-1-case original:gynpath-fib-1-changed	original:rg-lumps-cyclic original:gynpath-fib-2-rule original:gynpath-fib-2-changed	original:gynpath-fib-3-rule original:gynpath-fib-3-case original:gynpath-fib-3-changed
 repro.breasttumor	Fibroadenoma	original:rg-micro-tissue	original:rg-lumps-move	original:rg-fel-observe
-repro.breasttumor	Breast hypertrophy			
+repro.breasttumor	Breast hypertrophy	original:gynpath-large-1-rule original:gynpath-large-1-case original:gynpath-large-1-changed	original:gynpath-large-2-rule original:gynpath-large-2-case original:gynpath-large-2-changed	original:gynpath-large-3-rule original:gynpath-large-3-case original:gynpath-large-3-changed
 repro.breasttumor	Intraductal papilloma		original:rg-lumps-paper	
 repro.breasttumor	Breast malignancy and screening	original:s1-breast-marker-her original:s1-breast-marker-er original:s1-breast-marker-triple original:rg-lumps-outside original:rg-skin-lymph	original:ck-breast-mass-discord original:rg-skin-peau	original:ccs-breast-mass-next original:ccs-breast-mass-match original:acm-breast-biology-target original:rg-skin-rapid
 repro.breasttumor	Ductal carcinoma in situ	original:rg-lumps-duct original:rg-lumps-inside original:rg-lumps-outside		
@@ -806,9 +806,9 @@ repro.inf	Trichomoniasis	original:gynex-trich-1-rule original:gynex-trich-1-case
 repro.inf	Urethritis	original:gynex-gc-1-rule original:gynex-gc-1-case original:gynex-gc-1-transfer	original:gynex-ureth-2-rule original:ku-ureth original:gynex-ureth-2-transfer	original:gynex-ureth-3-rule original:gynex-ureth-3-case original:gynex-ureth-3-transfer
 repro.inf	Vaginitis and vulvovaginitis	original:rg-vag-clue original:rg-vag-hypha original:rg-vag-odor original:gynex-bv-1-case original:gynex-bv-1-transfer original:gynex-erosion-1-rule original:gynex-lichen-1-transfer original:gynex-erosion-1-transfer	original:rg-vag-motile original:rg-vag-neg original:gynex-bv-2-rule original:gynex-bv-2-case original:gynex-bv-2-transfer original:gynex-erosion-2-rule original:gynex-erosion-2-case original:gynex-erosion-2-transfer original:gynex-vagmed-2-rule original:gynex-vagmed-2-case original:gynex-vagmed-2-transfer	original:gynex-bv-3-rule original:gynex-bv-3-case original:gynex-bv-3-transfer original:gynex-erosion-3-rule original:gynex-erosion-3-case original:gynex-erosion-3-transfer
 repro.tumor	Abnormal cervical cytology	original:rg-hpv-cytol original:rg-hpv-virus	original:rg2-cervix-basis original:rg2-cervix-unknown original:rg2-cervix-prior	original:rg2-cervix-history original:rg2-cervix-cotest original:rg2-cervix-paponly
-repro.tumor	Benign ovarian neoplasm			
-repro.tumor	Endocervical polyp			
-repro.tumor	Endometrial polyp			
+repro.tumor	Benign ovarian neoplasm	original:gynpath-derm-1-rule original:gynpath-derm-1-case original:gynpath-derm-1-changed original:gynpath-derm-1-classify	original:gynpath-derm-2-rule original:gynpath-derm-2-case original:gynpath-derm-2-changed	original:gynpath-derm-3-rule original:gynpath-derm-3-case original:gynpath-derm-3-changed
+repro.tumor	Endocervical polyp	original:gynpath-cerv-1-rule original:gynpath-cerv-1-case original:gynpath-cerv-1-changed	original:gynpath-cerv-2-rule original:gynpath-cerv-2-case original:gynpath-cerv-2-changed	original:gynpath-cerv-3-rule original:gynpath-cerv-3-case original:gynpath-cerv-3-changed
+repro.tumor	Endometrial polyp	original:gynpath-endo-1-rule original:gynpath-endo-1-case original:gynpath-endo-1-changed original:gynpath-endo-1-classify	original:gynpath-endo-2-rule original:gynpath-endo-2-case original:gynpath-endo-2-changed	original:gynpath-endo-3-rule original:gynpath-endo-3-case original:gynpath-endo-3-changed
 repro.tumor	Uterine leiomyoma	original:rg-fib-origin	original:rg-fib-distor	original:rg-fib-cavity original:rg-fib-outside
 repro.tumor	Ovarian cyst	original:rg-ovimage-echo	original:rg-ovimage-suspect	
 repro.tumor	Cervical carcinoma	original:rg-hpv-time	original:rg-hpv-cancer	
@@ -816,9 +816,9 @@ repro.tumor	Oncogenic HPV infection	original:rg-hpv-time original:rg-hpv-virus	o
 repro.tumor	Cervical dysplasia		original:rg2-cervix-basis original:rg2-cervix-unknown original:rg2-cervix-prior original:rg2-pregcervix-curette	original:rg2-pregcervix-rule original:rg2-pregcervix-cin3 original:rg2-pregcervix-progress original:rg2-pregcervix-postpartum
 repro.tumor	Endometrial hyperplasia	original:rg-ein-precursor	original:rg-ein-tissue	original:rg-ein-def original:rg-ein-pres original:rg-ein-check original:rg2-add-ein
 repro.tumor	Endometrial malignancy	original:rg-ein-precursor	original:rg-ein-tissue	
-repro.tumor	Gestational trophoblastic disease			
+repro.tumor	Gestational trophoblastic disease	original:gynpath-mole-1-rule original:gynpath-mole-1-case original:gynpath-mole-1-changed original:gynpath-mole2-1-rule original:gynpath-mole2-1-case original:gynpath-mole2-1-changed	original:gynpath-mole-2-rule original:gynpath-mole-2-case original:gynpath-mole-2-changed original:gynpath-mole-2-classify original:gynpath-mole2-2-rule original:gynpath-mole2-2-case original:gynpath-mole2-2-changed	original:gynpath-mole-3-rule original:gynpath-mole-3-case original:gynpath-mole-3-changed original:gynpath-mole2-3-rule original:gynpath-mole2-3-case original:gynpath-mole2-3-changed
 repro.tumor	Ovarian malignancy	original:rg-screen-harm	original:rg-screen-well original:rg-screen-mass	original:rg-screen-family
-repro.tumor	Vulvar dysplasia and malignancy			
+repro.tumor	Vulvar dysplasia and malignancy	original:gynpath-vulva-1-rule original:gynpath-vulva-1-case original:gynpath-vulva-1-changed	original:gynpath-vulva-2-rule original:gynpath-vulva-2-case original:gynpath-vulva-2-changed	original:gynpath-vulva-3-rule original:gynpath-vulva-3-case original:gynpath-vulva-3-changed
 repro.fertility	Assisted reproduction			
 repro.fertility	Oral contraception	original:rg-contra-type	original:rg-contra-noaura original:rg-contra-aura original:rg2-add-mig	original:rg-contra-switch original:rg-em-upa original:rg-em-lng
 repro.fertility	Intrauterine contraception		original:rg-em-copper	
@@ -843,11 +843,11 @@ repro.cycle	Anovulation	original:rg-pcos-cycles		original:rg-pcos-induce
 repro.cycle	Dysmenorrhea		original:rg-endo-recognize	
 repro.cycle	Endometriosis	original:rg-endo-where original:rg-ovimage-echo	original:rg-sex-deep original:rg-endo-recognize original:rg-endo-scan original:rg-ovimage-suspect	original:rg-endo-normal original:rg-endo-empiric
 repro.cycle	Hirsutism and virilization		original:rg-pcos-dx original:rg-pcos-rapid	
-repro.cycle	Midcycle ovulatory pain			
+repro.cycle	Midcycle ovulatory pain	original:gynpath-mid-1-rule original:gynpath-mid-1-case original:gynpath-mid-1-changed	original:gynpath-mid-2-rule original:gynpath-mid-2-case original:gynpath-mid-2-changed	original:gynpath-mid-3-rule original:gynpath-mid-3-case original:gynpath-mid-3-changed
 repro.cycle	Pelvic pain		original:rg-endo-recognize	
 repro.cycle	Polycystic ovary syndrome	original:rg-pcos-cycles	original:rg-pcos-dx original:rg-pcos-rapid	original:rg-pcos-induce
-repro.cycle	Postcoital bleeding			
-repro.cycle	Premenstrual syndrome			
+repro.cycle	Postcoital bleeding	original:gynpath-post-1-rule original:gynpath-post-1-case original:gynpath-post-1-changed	original:gynpath-post-2-rule original:gynpath-post-2-case original:gynpath-post-2-changed	original:gynpath-post-3-rule original:gynpath-post-3-case original:gynpath-post-3-changed
+repro.cycle	Premenstrual syndrome	original:behavior-cycle-rule original:behavior-cycle-off original:behavior-cycle-on original:behavior-pms-1	original:bhmood-pms-2-rule original:behavior-pms-2 original:behavior-cycle-base	original:behavior-cycle-eval original:behavior-pms-3 original:bhmood-pms-3-changed
 repro.sexual	Pain with intercourse	original:rg-sex-guard	original:rg-est-atro original:rg-sex-entrance original:rg-sex-deep	original:rg-sex-lube
 repro.sexual	Orgasmic dysfunction	original:rg-desire-which	original:rg-ssri-new	original:rg-ssri-before
 repro.sexual	Sexual interest or arousal disorder		original:rg-desire-des	
@@ -863,9 +863,9 @@ repro.trauma	Pelvic support defects			original:rg-support-device original:rg-sup
 repro.trauma	Posterior vaginal wall prolapse involving the rectum	original:rg-support-back	original:rg-support-stool	
 repro.trauma	Urethrocele			
 repro.congenital	Müllerian agenesis	original:rg-dev-ovaries original:rg-dev-mrkh original:rg-dev-androgen	original:rg-dev-dx original:rg-dev-other original:rg2-add-dev	original:rg-dev-renal original:rg-dev-dilate
-repro.congenital	Uterus didelphys			
+repro.congenital	Uterus didelphys	original:gynpath-double-1-rule original:gynpath-double-1-case original:gynpath-double-1-changed	original:gynpath-double-2-rule original:gynpath-double-2-case original:gynpath-double-2-changed	original:gynpath-double-3-rule original:gynpath-double-3-case original:gynpath-double-3-changed
 repro.congenital	Bicornuate uterus	original:rg-shape-outer original:rg-shape-cleft original:rg-shape-smooth	original:rg-shape-scan original:rg-shape-interpret original:rg-shape-partition original:rg2-add-shape	original:rg-shape-surgery
-repro.congenital	Short cervix			
+repro.congenital	Short cervix	original:per-cerv-why original:obcomp-cervix-1-case original:obcomp-cervix-1-transfer	original:obcomp-cervix-2-rule original:obcomp-cervix-2-case original:obcomp-cervix-2-transfer	original:obcomp-cervix-3-rule original:per-cerv-treat original:obcomp-cervix-3-transfer
 repro.drug	Antihistamine effects			
 repro.drug	H2-receptor blocker effects			
 repro.drug	Benzodiazepine effects			

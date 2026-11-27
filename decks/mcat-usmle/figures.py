@@ -5018,6 +5018,33 @@ def kinetic_equilibrium_studies():
     save(fig, "cvdrug_rates", indexed=True)
 
 
+def reproductive_diagnosis_studies():
+    for name, values in [("flat", [420, 422, 417, 421]), ("fall", [420, 290, 180, 110])]:
+        fig, ax = axes("Weeks after first sample", "Serum hCG (IU/L)")
+        ax.plot(range(4), values, marker="o", color=COLORS[0], lw=2.5)
+        for week, value in enumerate(values):
+            ax.annotate(str(value), (week, value), xytext=(0, 8),
+                        textcoords="offset points", ha="center")
+        ax.set(xticks=range(4), ylim=(0, 500), title="Simulated post-evacuation measurements")
+        save(fig, "gynstudy_" + name, indexed=True)
+
+    # Consensus classification of complete moles, Vang et al., Table 2.
+    fig, ax = axes("Diagnostic reading round", "Sensitivity (%)")
+    bars = ax.bar(["Morphology 1", "Morphology 2", "With p57"], [70, 81, 96], color=COLORS[0])
+    ax.bar_label(bars, padding=3)
+    ax.set(ylim=(0, 108), title="Detection of genotype-confirmed complete moles")
+    save(fig, "gynstudy_readers", indexed=True)
+
+    fig, ax = axes("Time (ms)", "Signal (% of own peak)")
+    time = [0, 10, 25, 45, 75, 100, 130]
+    for i, (label, values) in enumerate([("Cytosolic calcium", [0, 40, 100, 35, 0, 0, 0]),
+                                        ("Force", [0, 0, 20, 100, 65, 25, 0])]):
+        ax.plot(time, values, STYLES[i], marker="o", color=COLORS[i], label=label)
+    ax.legend()
+    ax.set(title="Simulated skeletal muscle twitch")
+    save(fig, "gynstudy_twitch", indexed=True)
+
+
 def membrane_recovery_records():
     for label, after, plateau in [("a", 20, 80), ("b", 40, 70)]:
         fig, ax = axes("Time relative to bleaching (s)", "Fluorescence (% of prebleach level)")
@@ -6304,6 +6331,7 @@ def main():
     cardiovascular_drug_studies()
     myocardial_and_bonding_studies()
     demographic_and_ulcer_studies()
+    reproductive_diagnosis_studies()
     membrane_recovery_records()
     consciousness_assessments()
     tumor_and_gene_evidence()
