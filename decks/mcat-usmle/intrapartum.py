@@ -18,7 +18,8 @@ def pulse(time, center, half_width):
 
 
 def save(fig, code):
-    fig.savefig(MEDIA / f"med_ob_{code}.png", dpi=145, facecolor="white")
+    fig.savefig(MEDIA / f"med_ob_{code}.webp", dpi=145, facecolor="white",
+                pil_kwargs={"lossless": True, "method": 6, "exact": True})
     plt.close(fig)
 
 

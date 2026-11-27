@@ -50,6 +50,49 @@ def plot(name, xname, yname, x, curves):
     save(fig, name)
 
 
+def clinical_distribution_examples():
+    """Plot stated five-number summaries and two contrasting simulated scatterplots."""
+    for key, labels, summaries in [
+        ("a", ["A", "B"], [(1, 3, 5, 7, 10), (1, 3, 5, 7, 19)]),
+        ("b", ["C", "D"], [(1, 5, 6, 7, 12), (1, 3, 6, 9, 12)]),
+    ]:
+        fig, ax = plt.subplots(figsize=(5.3, 2.6), layout="constrained")
+        stats = [dict(label=label, whislo=lo, q1=q1, med=med, q3=q3, whishi=hi, fliers=[])
+                 for label, (lo, q1, med, q3, hi) in zip(labels, summaries)]
+        ax.bxp(stats, orientation="horizontal", patch_artist=True,
+               boxprops={"facecolor": "#cadfe4"}, medianprops={"color": COLORS[1], "lw": 2})
+        ax.set(title="Length of stay  •  simulated wards", xlabel="Days  •  whiskers show min and max",
+               xticks=range(0, max(s[-1] for s in summaries) + 2, 2))
+        ax.grid(axis="x", alpha=.2)
+        save(fig, "cutstats_box_" + key, indexed=True)
+    x = np.arange(1, 10)
+    for key, xs, ys in [
+        ("a", [1, 2, 2, 3, 3, 4, 4, 5, 12], [4, 2, 5, 3, 5, 2, 4, 3, 12]),
+        ("b", x, (x - 5) ** 2 + 1),
+    ]:
+        fig, ax = axes("Dose (arbitrary units)", "Response (arbitrary units)")
+        ax.scatter(xs, ys, color=COLORS[0], s=50)
+        ax.set_title("Independent observations  •  simulated")
+        save(fig, "cutstats_scatter_" + key, indexed=True)
+
+
+def lipid_and_skin_studies():
+    """Display published domain and cohort measurements alongside original peptide exercises."""
+    for key, chain, products in [
+        ("a", "Ala–Gly–Ser–Phe", ["Ala–Gly", "Ser–Phe"]),
+        ("b", "Gly–Leu–Ala–Tyr–Val", ["Gly–Leu–Ala", "Tyr–Val"]),
+    ]:
+        study_table("cutaneous_cut_" + key, "One peptide bond hydrolyzed",
+                    ["Sample", "Sequence (N → C)"], [["Intact", chain], ["Product 1", products[0]],
+                    ["Product 2", products[1]]], "simulated digest", indexed=True)
+    study_table("cutaneous_domains", "Probe motion at 20 mol% cholesterol",
+                ["Lipid mixture", "Bright D", "Dark D"], [["DOPC / DPPC", "5.2", "0.44"],
+                ["DOPC / DSPC", "0.13", "5.1"]], "D in µm²/s • Scherfeld et al.", indexed=True)
+    study_table("cutaneous_ear", "Auricular hematoma recurrence",
+                ["Specialty consult", "Recurred", "No recurrence"], [["Yes", "8", "24"],
+                ["No", "10", "6"]], "retrospective cohort • Table 2", indexed=True)
+
+
 def musculoskeletal_measurements():
     """Draw measurement and free-body diagrams from explicit teaching dimensions."""
     from matplotlib.patches import Ellipse
@@ -7209,6 +7252,8 @@ def main():
     mcat_changed_evidence()
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
+    clinical_distribution_examples()
+    lipid_and_skin_studies()
     musculoskeletal_measurements()
     shock_and_circulation_studies()
     behavioral_health_studies()
