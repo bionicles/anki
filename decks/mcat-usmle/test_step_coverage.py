@@ -24,6 +24,23 @@ class NutritionCoverageTest(unittest.TestCase):
             nutrition_coverage(cards, blueprint)
 
 
+    def test_numbered_nutrition_skills_keep_step_and_empty_cells(self):
+        from deck import nutrition_competency_coverage
+        rows = [dict(Number=str(i), LearningTask="Task", TrainingLevel="UME", Priority="No",
+                     Step1IDs="", Step2CKIDs="", Step3IDs="", Source="source") for i in range(1, 37)]
+        rows[2]["Step2CKIDs"] = rows[5]["Step2CKIDs"] = "c"
+        cards = [{"ID": "c", "Exam": STEPS[1]}]
+        report, tags = nutrition_competency_coverage(cards, rows)
+        self.assertEqual(len(report), 108)
+        self.assertEqual({r["Exam"] for r in report if r["CardIDs"]}, {STEPS[1]})
+        self.assertEqual(tags["c"], ["nutrition_skill::03", "nutrition_skill::06"])
+        with self.assertRaises(ValueError):
+            nutrition_competency_coverage(cards, rows[:-1])
+        rows[0]["Step1IDs"] = "c"
+        with self.assertRaises(ValueError):
+            nutrition_competency_coverage(cards, rows)
+
+
 class NamedDepthTest(unittest.TestCase):
     def test_matching_all_three_layers(self):
         family = {"Family": "blood.clot", "System": "Hematology"}

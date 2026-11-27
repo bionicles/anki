@@ -262,3 +262,7 @@ Four figures plot nasal airflow alongside one chest or abdominal effort belt. Th
 | med_sleep_slp59.webp | slp59 | 6465–6540 | Abdominal |
 
 George Moody deposited version 1.0.0 of the MIT-BIH Polysomnographic Database in 1999. Ichimaru and Moody describe the recordings in *Development of the polysomnographic database on CD-ROM*. With WFDB and matplotlib installed, run `python sleep_studies.py DIRECTORY` against the four source record/header pairs to regenerate the figures. [Dataset DOI](https://doi.org/10.13026/C23K5S) · [Original publication](https://ecg.mit.edu/george/publications/slpdb-pcn-1999.pdf) · [PhysioNet platform](https://doi.org/10.1038/s44360-026-00096-z)
+
+## Meal timing and iron absorption
+
+The original bar chart in `med_nutrition_tea.webp` plots three published group means from Table 3 of Ahmad Fuzi and colleagues’ stable-isotope study. The figure labels the outcome as mean fractional iron absorption. The two `med_gut_uptake_*.webp` comparisons use simulated intestinal preparations and mark them as simulated. All three figures can be regenerated with `figures.py`. [Primary meal study](https://doi.org/10.3945/ajcn.117.161364)

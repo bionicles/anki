@@ -7393,7 +7393,38 @@ def trauma_and_mechanics():
 
 
 
+def meal_iron_figure():
+    # Published condition means from Ahmad Fuzi et al., AJCN 2017, Table 3.
+    fig, ax = plt.subplots(figsize=(5.4, 3), layout="constrained")
+    ax.set_title("Iron absorption after a standardized meal", fontsize=12)
+    bars = ax.bar(["Water with meal", "Tea with meal", "Tea 1 h later"],
+                  [5.7, 3.6, 5.7], color=["#527d89", "#a55e31", "#406c55"])
+    ax.bar_label(bars, fmt="%.1f", padding=3)
+    ax.set(ylabel="Mean fractional absorption (%)", ylim=(0, 7))
+    ax.spines[["right", "top"]].set_visible(False)
+    save_lossless(fig, "nutrition_tea")
+
+
+def intestinal_uptake_figures():
+    experiments = [
+        ("ab", ["A", "B"], [2, 5], [12, 20]),
+        ("cd", ["C", "D"], [3, 6], [9, 18]),
+    ]
+    for code, groups, areas, amounts in experiments:
+        fig, axes = plt.subplots(1, 2, figsize=(5.6, 3.0), layout="constrained")
+        fig.suptitle("Simulated intestinal uptake over one minute", fontsize=12)
+        for ax, values, label in zip(axes, (areas, amounts),
+                                     ("Epithelial area (cm²)", "Net uptake (nmol)")):
+            bars = ax.bar(groups, values, color=["#24596a", "#ad633c"], width=.62)
+            ax.bar_label(bars, padding=3)
+            ax.set(ylabel=label, ylim=(0, max(values) * 1.32), xlabel="Preparation")
+            ax.spines[["right", "top"]].set_visible(False)
+        save_lossless(fig, "gut_uptake_" + code)
+
+
 def main():
+    meal_iron_figure()
+    intestinal_uptake_figures()
     trauma_and_mechanics()
     endocrine_response_experiments()
     microbial_motion()

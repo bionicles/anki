@@ -463,6 +463,37 @@ def nutrition_coverage(cards, blueprint):
     return rows, tags
 
 
+def nutrition_competency_coverage(cards, competencies):
+    """Expose per-Step evidence for the numbered UME/GME consensus curriculum."""
+    steps_by_id = {card["ID"]: card["Exam"] for card in cards}
+    if [r["Number"] for r in competencies] != [str(i) for i in range(1, 37)]:
+        raise ValueError("Expected Table 2 competencies numbered 1 through 36 in order")
+    report, tags = [], defaultdict(list)
+    for row in competencies:
+        for exam, column in zip(STEPS, ("Step1IDs", "Step2CKIDs", "Step3IDs")):
+            ids = row[column].split()
+            if len(set(ids)) != len(ids) or any(steps_by_id.get(i) != exam for i in ids):
+                raise ValueError(f"Invalid evidence for nutrition competency {row['Number']} on {exam}")
+            tag = "nutrition_skill::" + row["Number"].zfill(2)
+            for i in ids:
+                tags[i].append(tag)
+            report.append(dict(Exam=exam, Number=row["Number"], LearningTask=row["LearningTask"],
+                               Priority=row["Priority"], TrainingLevel=row["TrainingLevel"],
+                               Cards=str(len(ids)), CardIDs=" ".join(ids), Source=row["Source"]))
+    return report, tags
+
+
+def display_nutrition_competencies(report):
+    for exam in STEPS:
+        rows = [r for r in report if r["Exam"] == exam]
+        priorities = [r for r in rows if r["Priority"] == "Yes"]
+        print(f"{exam} • numbered nutrition competencies with reviewed examples: "
+              f"{sum(bool(r['CardIDs']) for r in rows)}/{len(rows)}; priority competencies: "
+              f"{sum(bool(r['CardIDs']) for r in priorities)}/{len(priorities)}")
+        print("  Awaiting a reviewed example: "
+              + ", ".join(r["Number"] for r in rows if not r["CardIDs"]))
+
+
 def make(folder, prior):
     import genanki
     model=package_model()
@@ -474,6 +505,8 @@ def make(folder, prior):
     report, practice_tags = step_measurements(rows)
     write_table(folder/"step-coverage.tsv", list(report[0]), report)
     blueprint = table(ROOT/"blueprint.tsv")
+    detailed_nutrition, competency_tags = nutrition_competency_coverage(rows, table(ROOT/"nutrition-competencies.tsv"))
+    write_table(folder/"step-nutrition-competencies.tsv", list(detailed_nutrition[0]), detailed_nutrition)
     nutrition, nutrition_tags = nutrition_coverage(rows, blueprint)
     write_table(folder/"step-nutrition-coverage.tsv", list(nutrition[0]), nutrition)
     cars = mcat_cars_coverage(rows, blueprint)
@@ -510,6 +543,7 @@ def make(folder, prior):
                 tags.append("listening::question" if r["Figure"].endswith(".wav") else "visual::question")
             tags.extend(sorted(practice_tags[r["ID"]]))
             tags.extend(nutrition_tags[r["ID"]])
+            tags.extend(competency_tags[r["ID"]])
             if r["ID"] in cars_tags:
                 tags.append(cars_tags[r["ID"]])
             fields=render(r);guid=genanki.guid_for("mcat-usmle/v1",r["ID"])
@@ -595,6 +629,7 @@ def verify(folder):
         assert row["Status"] in {"Partial","Unmapped","Verified"}
         assert bool(ids)==(row["Status"]!="Unmapped")
         assert all(k in keyed and keyed[k]["Exam"]==row["Exam"] for k in ids), row
+    assert table(folder/"step-nutrition-competencies.tsv") == nutrition_competency_coverage(expected, table(ROOT/"nutrition-competencies.tsv"))[0]
     assert table(folder/"step-nutrition-coverage.tsv") == nutrition_coverage(expected, blueprint)[0]
     science = reviewed_mcat_science(expected, blueprint)
     assert table(folder/"mcat-science-coverage.tsv") == science
@@ -671,7 +706,7 @@ def file_hash(path):
 
 
 def build_inputs(lock):
-    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "mcat-transfer.tsv", "mcat-source-audit.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step-items.tsv", "step_coverage.py", "intrapartum.py", "sleep_studies.py", "ptbxl.py", "ptbxl.tsv", "figures.py", "heart-sounds.tsv", "heart_sounds.py", "protein-coordinates.tsv")]
+    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "mcat-transfer.tsv", "mcat-source-audit.tsv", "nutrition-competencies.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step-items.tsv", "step_coverage.py", "intrapartum.py", "sleep_studies.py", "ptbxl.py", "ptbxl.tsv", "figures.py", "heart-sounds.tsv", "heart_sounds.py", "protein-coordinates.tsv")]
     paths.extend(sorted(p for p in (ROOT / "media").iterdir() if p.suffix in MEDIA_SUFFIXES))
     return {"sources": lock, "files": {p.relative_to(ROOT).as_posix(): file_hash(p) for p in paths}}
 
@@ -827,8 +862,10 @@ def main():
     if local.keys()-{c["id"] for c in configs}:parser.error("Unknown checkout ID")
     with (ROOT/"Justfile").open() as lock:
         fcntl.flock(lock,fcntl.LOCK_EX if args.action in {"update","build"} else fcntl.LOCK_SH)
-        if args.action=="gaps":
+        if args.action in {"gaps", "coverage"}:
             cards, _ = deduplicate(records(RELEASE), alias_map(RELEASE))
+            display_nutrition_competencies(nutrition_competency_coverage(cards, table(ROOT/"nutrition-competencies.tsv"))[0])
+        if args.action=="gaps":
             blueprint = table(ROOT/"blueprint.tsv")
             science = reviewed_mcat_science(cards, blueprint)
             details = mcat_detail_coverage(blueprint, science, cards)
@@ -849,7 +886,6 @@ def main():
             display_gaps(named_measurements(), science, details)
             return
         if args.action=="coverage":
-            cards, _ = deduplicate(records(RELEASE), alias_map(RELEASE))
             blueprint = table(ROOT/"blueprint.tsv")
             cars = [r for r in mcat_cars_coverage(cards, blueprint) if int(r["PassageWords"])]
             nutrition, _ = nutrition_coverage(cards, blueprint)
