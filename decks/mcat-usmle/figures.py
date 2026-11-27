@@ -3249,7 +3249,7 @@ def coagulation_studies():
            [["H", "40", "$24,000"], ["L", "80", "$24,000"]])
 
 
-def study_table(name, title, columns, rows, source="simulated"):
+def study_table(name, title, columns, rows, source="simulated", *, indexed=False):
     fig, ax = plt.subplots(figsize=(6.1, 2.65), layout="constrained")
     ax.axis("off")
     ax.set_title(f"{title}  •  {source}")
@@ -3259,7 +3259,7 @@ def study_table(name, title, columns, rows, source="simulated"):
     table.set_fontsize(10)
     for col in range(len(columns)):
         table[0, col].set_facecolor("#e2edf1")
-    save(fig, name)
+    save(fig, name, indexed=indexed)
 
 
 def blood_cell_studies():
@@ -4959,6 +4959,86 @@ def occupational_lung_studies():
 
 
 
+def motor_and_inheritance_studies():
+    """Draw clinical records, inheritance diagrams and the Clarity AD and ENDEAR results."""
+    for name, durations in [("qrsrecover", [158, 138, 106, 92]),
+                            ("qrsworse", [116, 138, 162, 180])]:
+        fig, ax = axes("Minutes of monitored treatment", "QRS duration (ms)")
+        ax.plot([0, 10, 20, 30], durations, "o-", color=COLORS[0])
+        ax.set(title="Serial ECG measurements", ylim=(70, 205), xticks=[0, 10, 20, 30])
+        save(fig, "neuromus_" + name, indexed=True)
+
+    for name, rows in [
+        ("independent", [["Bills", "Pays accurately using a checklist"],
+                         ["Medicines", "Fills pillbox without help"],
+                         ["Shopping", "Uses own list independently"]]),
+        ("dependent", [["Six months ago", "Managed own medicines"],
+                       ["Last month", "Forgot doses, then repeated them"],
+                       ["Now", "Needs another person to give doses"]]),
+    ]:
+        study_table("neuromus_" + name, "Collateral functional record",
+                    ["Task or interval", "Observation"], rows, indexed=True)
+
+    fig, ax = axes("Seconds from start of grip", "Grip force (% of initial hold)")
+    ax.plot([0, 1.9, 2, 2.3, 3, 4, 5, 6], [100, 100, 100, 78, 52, 27, 9, 0],
+            "o-", color=COLORS[0], label="Patient")
+    ax.plot([0, 1.9, 2, 2.3, 3, 4, 5, 6], [100, 100, 100, 2, 0, 0, 0, 0],
+            "--", color=COLORS[1], label="Comparison")
+    ax.axvline(2, color="#555", linestyle=":")
+    ax.set(ylim=(-6, 112), title="Instruction to release the grip at 2 seconds")
+    ax.legend()
+    save(fig, "neuromus_grip", indexed=True)
+
+    for name, rows in [
+        ("peak", [["07:00", "Levodopa dose", "Stiff, slow"],
+                  ["08:00", "Best mobility", "Excess flowing movements"],
+                  ["10:45", "Benefit waning", "Excess movements gone"]]),
+        ("off", [["08:00", "Levodopa dose", "Slow before dose"],
+                 ["09:00", "Usual walking speed", "No stiffness"],
+                 ["11:45", "Before next dose", "Slow and stiff again"]]),
+    ]:
+        study_table("neuromus_" + name, "Patient motor diary",
+                    ["Time", "Medication or function", "Observation"], rows, indexed=True)
+
+    fig, ax = plt.subplots(figsize=(4.7, 3.1), layout="constrained")
+    ax.set(xlim=(-.2, 3.2), ylim=(-.3, 2.9), title="Paired replicated homologs in prophase I")
+    ax.axis("off")
+    for center, labels, group, color in [(.6, "AB", "Homolog 1", COLORS[0]),
+                                         (2.4, "CD", "Homolog 2", COLORS[1])]:
+        for sign, letter in zip([-1, 1], labels):
+            outer = center + .30 * sign
+            ax.plot([outer, center + .045 * sign, outer], [.35, 1.3, 2.3],
+                    color=color, linewidth=5, solid_capstyle="round")
+            ax.text(outer, 2.48, letter, ha="center", weight="bold")
+        ax.plot(center, 1.3, "o", color=color, markersize=6)
+        ax.text(center, 0, group, ha="center")
+    save(fig, "neuromus_tetrad", indexed=True)
+
+    study_table("neuromus_double", "Three-marker testcross",
+                ["Parental haplotypes", "Rare reciprocal products"],
+                [["ABC", "AbC"], ["abc", "aBc"]], indexed=True)
+
+    for name, counts in [("deficit", [40, 20, 40]), ("hw", [25, 50, 25])]:
+        fig, ax = axes("Observed genotype", "Number of plants")
+        bars = ax.bar(["AA", "Aa", "aa"], counts, color=COLORS[0], width=.6)
+        ax.bar_label(bars, padding=3)
+        ax.set(ylim=(0, 65), title="Diploid population sample · 100 plants")
+        save(fig, "neuromus_" + name, indexed=True)
+
+    for name, title, ylabel, groups, values, upper, labels in [
+        ("clarity", "Clarity AD · 18 months", "Adjusted mean change in CDR-SB",
+         ["Lecanemab", "Placebo"], [1.21, 1.66], 2, ["+1.21", "+1.66"]),
+        ("endear", "ENDEAR · final analysis", "Motor milestone responders (%)",
+         ["Nusinersen", "Sham procedure"], [100 * 37 / 73, 0], 65,
+         ["37/73 (51%)", "0/37 (0%)"]),
+    ]:
+        fig, ax = axes("Randomized group", ylabel)
+        bars = ax.bar(groups, values, color=COLORS, width=.55)
+        ax.bar_label(bars, labels=labels, padding=4)
+        ax.set(ylim=(0, upper), title=title)
+        save(fig, "neuromus_" + name, indexed=True)
+
+
 def sleep_and_headache_studies():
     """Render original patient diaries, a cognition experiment and two published comparisons."""
     for name, responses in [("ltp", [99, 101, 100, 164, 154, 151, 150]),
@@ -5770,6 +5850,7 @@ def main():
     vascular_flow_studies()
     prenatal_visit_studies()
     occupational_lung_studies()
+    motor_and_inheritance_studies()
     sleep_and_headache_studies()
     trauma_and_neural_signals()
     mood_course_and_arousal()

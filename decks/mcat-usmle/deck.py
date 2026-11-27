@@ -558,6 +558,19 @@ def display_gaps(items, science, details=()):
                 groups[category].append(f"{topic} ({skill})")
     show(groups)
 
+    steps_without_cards = defaultdict(set)
+    for row in items:
+        if not int(row["MappedCards"]):
+            steps_without_cards[row["Family"], row["Item"]].add(row["Exam"])
+    groups = defaultdict(list)
+    all_steps = set(STEPS)
+    for (family, item), missing_steps in steps_without_cards.items():
+        if missing_steps == all_steps:
+            groups[family].append(item)
+    total = sum(len(topics) for topics in groups.values())
+    print(f"Named topics without a linked card on any USMLE Step • {total}")
+    show(groups)
+
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)

@@ -198,3 +198,24 @@ class GapSummaryTest(unittest.TestCase):
         self.assertIn("cv.valve (1) — Unlinked", lines[3])
         self.assertIn("cv.valve (1) — Linked", lines[5])
         self.assertNotIn("cv.valve (1) — Full", output.getvalue())
+
+    def test_unmapped_on_every_step_requires_three_explicit_zeroes(self):
+        from contextlib import redirect_stdout
+        from io import StringIO
+        from deck import STEPS, display_gaps
+
+        rows = []
+        for exam in STEPS:
+            for family, item, linked in [("neuro.spine", "Myelopathy", False),
+                                         ("neuro.drug", "Myelopathy", exam == STEPS[-1])]:
+                rows.append(dict(Exam=exam, Family=family, Item=item,
+                                 MappedCards=str(int(linked)), ThreeLevelObjectives="0"))
+        rows.append(dict(Exam=STEPS[0], Family="neuro.spine", Item="Partial inventory",
+                         MappedCards="0", ThreeLevelObjectives="0"))
+        output = StringIO()
+        with redirect_stdout(output):
+            display_gaps(rows, [])
+        self.assertEqual(output.getvalue().splitlines()[-2:], [
+            "Named topics without a linked card on any USMLE Step • 1",
+            "  neuro.spine (1) — Myelopathy",
+        ])
