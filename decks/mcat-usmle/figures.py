@@ -5018,6 +5018,32 @@ def kinetic_equilibrium_studies():
     save(fig, "cvdrug_rates", indexed=True)
 
 
+def social_access_studies():
+    fig, ax = plt.subplots(figsize=(5.2, 3.3), layout="constrained")
+    positions = {"A": (1, 2), "B": (1, 0), "C": (0, 1),
+                 "D": (3, 2), "E": (3, 0), "F": (4, 1)}
+    for start, end in ["AB", "AC", "BC", "DE", "DF", "EF", "AD", "BE"]:
+        ax.plot(*zip(positions[start], positions[end]), color="#666", lw=2, zorder=1)
+    for label, (x, y) in positions.items():
+        ax.scatter(x, y, s=650, color=COLORS[int(x > 2)], zorder=2)
+        ax.text(x, y, label, color="white", weight="bold", va="center", ha="center")
+    for x, label in [(0.6, "Team 1"), (3.4, "Team 2")]:
+        ax.text(x, 2.6, label, ha="center", weight="bold")
+    ax.set(xlim=(-0.6, 4.6), ylim=(-0.5, 3), title="Reported contacts between team members")
+    ax.set_aspect("equal")
+    ax.axis("off")
+    save(fig, "socialaccess_network", indexed=True)
+
+    # Bisgaier and Rhodes, 2011. Each clinic received a call in each condition.
+    fig, ax = axes("Insurance described by caller", "Appointments denied (%)")
+    denied = [179, 29]
+    bars = ax.bar(["Medicaid or CHIP", "Private"], [100 * n / 273 for n in denied],
+                  color=COLORS, width=0.56)
+    ax.bar_label(bars, labels=[f"{n}/273" for n in denied], padding=4)
+    ax.set(ylim=(0, 100), title="Pediatric specialty clinic calls, Cook County, 2010")
+    save(fig, "socialaccess_denials", indexed=True)
+
+
 def reproductive_diagnosis_studies():
     for name, values in [("flat", [420, 422, 417, 421]), ("fall", [420, 290, 180, 110])]:
         fig, ax = axes("Weeks after first sample", "Serum hCG (IU/L)")
@@ -6331,6 +6357,7 @@ def main():
     cardiovascular_drug_studies()
     myocardial_and_bonding_studies()
     demographic_and_ulcer_studies()
+    social_access_studies()
     reproductive_diagnosis_studies()
     membrane_recovery_records()
     consciousness_assessments()

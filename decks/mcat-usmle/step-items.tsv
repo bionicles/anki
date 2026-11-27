@@ -670,11 +670,11 @@ social.relationship	Confidentiality and privacy including HIPAA	original:scfamil
 social.relationship	Truth telling and information preferences	original:s1-comm-info-family original:s1-comm-info-delegate original:s1-comm-info-pace		
 social.relationship	Autonomy	original:stepeth-refusal	original:sccap-unpopular	original:fip-consent-refuse
 social.relationship	Justice	original:scjustice-principle	original:scjustice-donor	original:scjustice-tie
-social.relationship	Beneficence and nonmaleficence			
+social.relationship	Beneficence and nonmaleficence	original:socialaccess-benef-1-rule original:socialaccess-benef-1-case original:socialaccess-benef-1-changed	original:socialaccess-benef-2-rule original:socialaccess-benef-2-case original:socialaccess-benef-2-changed	original:socialaccess-benef-3-rule original:socialaccess-benef-3-case original:socialaccess-benef-3-changed
 social.impairment	Recognizing and responding to physician impairment	original:scimp-ability	original:scimp-imminent original:scimp-stable	original:scimp-return
 social.impairment	Duty to report a physician whose impairment endangers patients			original:scimp-report
 social.negligence	Professional negligence or malpractice	original:scneg-care	original:scneg-outcome	original:scneg-causation
-social.negligence	Reporting negligence under applicable requirements			
+social.negligence	Reporting negligence under applicable requirements	original:socialaccess-report-1-rule original:socialaccess-report-1-case original:socialaccess-report-1-changed	original:socialaccess-report-2-rule original:socialaccess-report-2-case original:socialaccess-report-2-changed	original:socialaccess-report-3-rule original:socialaccess-report-3-case original:socialaccess-report-3-changed
 social.conduct	Professional misconduct and the duty to report	original:scconduct-scope	original:scconduct-falsify	original:scconduct-persists
 social.referral	Referral ethics and financial interests	original:screfer-interest	original:screfer-alternate	original:screfer-noneed
 social.culture	Individual cultural beliefs and preferences	original:scculture-ask	original:scculture-fast original:scculture-declines	original:scculture-team
@@ -755,18 +755,18 @@ social.safety	Closed-loop communication	original:safecare-loop-1-rule original:s
 social.safety	Teamwork and communication across professions	original:scsbar-rec original:safesys-teamwork-1-rule original:safesys-teamwork-1-case original:safesys-teamwork-1-transfer	original:scsbar-urgency original:safesys-speak-2-rule original:safesys-speak-2-case original:safesys-speak-2-transfer	original:scsbar-dismissed original:safesys-speak-3-rule original:scsite-junior
 social.safety	Case management and communication between teams	original:safesys-casecoord-1-rule original:safesys-casecoord-1-case original:safesys-casecoord-1-transfer	original:safesys-casecoord-2-rule original:safesys-casecoord-2-case original:safesys-casecoord-2-transfer	original:schandoff-outpatient original:safecare-handoff-3-rule original:safecare-handoff-3-transfer
 social.policy	Disparities in access and outcomes	original:scequity-stratify original:scequity-gap original:scequity-smaller	original:scequity-harm original:scequity-compare	original:scequity-rate original:scequity-act original:scequity-next
-social.policy	Race and ethnicity			
-social.policy	Numeracy and literacy as access barriers			
+social.policy	Race and ethnicity	original:socialaccess-race-1-rule original:socialaccess-race-1-case original:socialaccess-race-1-changed	original:socialaccess-race-2-rule original:socialaccess-race-2-case original:socialaccess-race-2-changed	original:socialaccess-race-3-rule original:socialaccess-race-3-case original:socialaccess-race-3-changed
+social.policy	Numeracy and literacy as access barriers	original:scteach-purpose original:scteach-words original:scteach-action	original:socialaccess-literacy-2-rule original:scteach-repeat original:socialaccess-literacy-2-changed	original:socialaccess-literacy-3-rule original:socialaccess-literacy-3-case original:socialaccess-literacy-3-changed
 social.policy	Socioeconomic status and barriers to care			original:scteach-barrier original:sccost-network
-social.policy	Gender and sexual diversity or identity			
-social.policy	Immigration status			
+social.policy	Gender and sexual diversity or identity	original:socialaccess-identity-1-rule original:socialaccess-identity-1-case original:socialaccess-identity-1-changed	original:socialaccess-identity-2-rule original:socialaccess-identity-2-case original:socialaccess-identity-2-changed	original:socialaccess-identity-3-rule original:socialaccess-identity-3-case original:socialaccess-identity-3-changed
+social.policy	Immigration status	original:scemtala-purpose original:socialaccess-immig-1-case original:socialaccess-immig-1-changed	original:socialaccess-immig-2-rule original:socialaccess-immig-2-case original:socialaccess-immig-2-changed	original:socialaccess-immig-3-rule original:socialaccess-immig-3-case original:socialaccess-immig-3-changed
 social.policy	English proficiency and language access	original:sclang-language	original:sclang-family original:scequity-harm	original:sclang-verify
-social.policy	Incarcerated populations			
+social.policy	Incarcerated populations	original:socialaccess-custody-1-rule original:socialaccess-custody-1-case original:socialaccess-custody-1-changed	original:socialaccess-custody-2-rule original:socialaccess-custody-2-case original:socialaccess-custody-2-changed	original:socialaccess-custody-3-rule original:socialaccess-custody-3-case original:socialaccess-custody-3-changed
 social.policy	Disability and effective communication		original:scinterp-mismatch	original:scinterp-access
 social.policy	Rural access and critical access hospitals		original:scrural-local	original:scrural-delay
 social.policy	Social justice and allocation	original:scjustice-principle	original:scjustice-donor	original:scjustice-tie
 social.finance	Medicare and Medicaid	original:scins-difference	original:scins-dual	original:scins-verify
-social.finance	Private insurance and self-pay			
+social.finance	Private insurance and self-pay	original:sccost-ded original:socialaccess-finance-1-case original:socialaccess-finance-1-changed	original:sccost-basis original:sccost-co original:sccost-fixed	original:socialaccess-finance-3-rule original:sccost-network original:socialaccess-finance-3-changed
 social.finance	Deductibles, copayments and coinsurance	original:sccost-ded	original:sccost-basis original:sccost-co original:sccost-fixed	original:sccost-near
 social.finance	Out-of-network, in-network and preferred provider costs			original:sccost-network original:sccost-cap
 social.finance	Emergency services and EMTALA	original:scemtala-purpose	original:scemtala-pay original:scemtala-positive	original:scemtala-transfer original:scemtala-screenneg
@@ -819,10 +819,10 @@ repro.tumor	Endometrial malignancy	original:rg-ein-precursor	original:rg-ein-tis
 repro.tumor	Gestational trophoblastic disease	original:gynpath-mole-1-rule original:gynpath-mole-1-case original:gynpath-mole-1-changed original:gynpath-mole2-1-rule original:gynpath-mole2-1-case original:gynpath-mole2-1-changed	original:gynpath-mole-2-rule original:gynpath-mole-2-case original:gynpath-mole-2-changed original:gynpath-mole-2-classify original:gynpath-mole2-2-rule original:gynpath-mole2-2-case original:gynpath-mole2-2-changed	original:gynpath-mole-3-rule original:gynpath-mole-3-case original:gynpath-mole-3-changed original:gynpath-mole2-3-rule original:gynpath-mole2-3-case original:gynpath-mole2-3-changed
 repro.tumor	Ovarian malignancy	original:rg-screen-harm	original:rg-screen-well original:rg-screen-mass	original:rg-screen-family
 repro.tumor	Vulvar dysplasia and malignancy	original:gynpath-vulva-1-rule original:gynpath-vulva-1-case original:gynpath-vulva-1-changed	original:gynpath-vulva-2-rule original:gynpath-vulva-2-case original:gynpath-vulva-2-changed	original:gynpath-vulva-3-rule original:gynpath-vulva-3-case original:gynpath-vulva-3-changed
-repro.fertility	Assisted reproduction			
+repro.fertility	Assisted reproduction	original:reproaccess-art-1-rule original:reproaccess-art-1-case original:reproaccess-art-1-changed	original:reproaccess-art-2-rule original:reproaccess-art-2-case original:reproaccess-art-2-changed	original:reproaccess-art-3-rule original:reproaccess-art-3-case original:reproaccess-art-3-changed
 repro.fertility	Oral contraception	original:rg-contra-type	original:rg-contra-noaura original:rg-contra-aura original:rg2-add-mig	original:rg-contra-switch original:rg-em-upa original:rg-em-lng
 repro.fertility	Intrauterine contraception		original:rg-em-copper	
-repro.fertility	Diaphragm, cap and contraceptive sponge			
+repro.fertility	Diaphragm, cap and contraceptive sponge	original:reproaccess-barrier-1-rule original:reproaccess-barrier-1-case original:reproaccess-barrier-1-changed	original:reproaccess-barrier-2-rule original:reproaccess-barrier-2-case original:reproaccess-barrier-2-changed	original:reproaccess-barrier-3-rule original:reproaccess-barrier-3-case original:reproaccess-barrier-3-changed
 repro.fertility	Contraceptive implant		original:ckcontr-remove	original:rg-contra-switch
 repro.fertility	Emergency contraception	original:rg-em-receptor	original:rg-em-copper original:rg-em-late	original:rg-em-upa original:rg-em-lng original:rg2-add-em
 repro.fertility	External and internal condoms			original:rg-ster-barrier
@@ -831,8 +831,8 @@ repro.fertility	Turner syndrome	original:gen-turner-syndrome-gonads	original:gen
 repro.fertility	Permanent contraception		original:rg-ster-immediate original:rg-ster-later original:rg2-add-ster	original:rg-ster-barrier
 repro.fertility	Tubal-factor infertility	original:rg-pid-scar original:rg-spill-rule original:rg-spill-both original:rg-spill-one	original:rg-spill-distal original:rg-spill-prox original:rg-actualhsg-interpret	original:rg-fer-risk original:rg-spill-hist original:rg-spill-confirm original:rg-actualhsg-limits
 repro.menopause	Primary ovarian insufficiency	original:rg-cycle-ovary original:rg-poi-age	original:rg-cycle-high original:rg-poi-persist original:rg-poi-repeat	original:rg-poi-therapy original:rg-poi-protect
-repro.menopause	Perimenopause			
-repro.menopause	Heavy menstrual bleeding before menopause			
+repro.menopause	Perimenopause	original:reproaccess-peri-1-rule original:reproaccess-peri-1-case original:reproaccess-peri-1-changed	original:reproaccess-peri-2-rule original:reproaccess-peri-2-case original:reproaccess-peri-2-changed	original:reproaccess-peri-3-rule original:reproaccess-peri-3-case original:reproaccess-peri-3-changed
+repro.menopause	Heavy menstrual bleeding before menopause	original:reproaccess-heavy-1-rule original:reproaccess-heavy-1-case original:reproaccess-heavy-1-changed	original:reproaccess-heavy-2-rule original:reproaccess-heavy-2-case original:reproaccess-heavy-2-changed	original:reproaccess-heavy-3-rule original:reproaccess-heavy-3-case original:reproaccess-heavy-3-changed
 repro.menopause	Genitourinary atrophy after menopause	original:rg-est-dry	original:rg-est-atro	original:rg-hormone-local
 repro.menopause	Postmenopausal bleeding		original:rg-meno-rule original:rg-meno-thin original:rg-meno-again	original:rg-meno-access original:rg-meno-incomplete
 repro.menopause	Vasomotor symptoms	original:rg-est-night		original:rg-hormone-system original:rg-est-hot
