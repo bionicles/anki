@@ -3228,7 +3228,7 @@ def neuroinfection_studies():
             "s--", label="Force")
     ax.set(title="Single muscle twitch  •  simulated")
     ax.legend()
-    save(fig, "neuroinf_twitch")
+    save_lossless(fig, "neuroinf_twitch")
 
 
 def pleural_and_gas_exchange_studies():
@@ -3372,7 +3372,7 @@ def abdominal_emergency_studies():
         ax.plot(times, vals, style, label=label, lw=2)
     ax.set_title("Sequential pertechnetate activity  •  simulated")
     ax.legend()
-    save(fig, "abdomen_meckcurve")
+    save_lossless(fig, "abdomen_meckcurve")
     for name, diameters in [("onepoint", [3.4, 3.4, 3.4, .65, .8, .8, .8]),
                             ("twopoint", [1.0, .55, 3.3, 3.4, 3.3, .55, 1.0])]:
         fig, ax = plt.subplots(figsize=(5.3, 2.8), layout="constrained")
@@ -3391,7 +3391,7 @@ def abdominal_emergency_studies():
         ax.plot([0, 1, 2, 3], vals, marker, label=label, lw=2)
     ax.set(title="Lipase assay  •  simulated", xticks=range(4), yticks=range(0, 17, 2))
     ax.legend()
-    save(fig, "abdomen_lipcurve")
+    save_lossless(fig, "abdomen_lipcurve")
     record("blankrate", "Product in an enzyme assay", ["Condition", "At 0 min", "At 4 min"],
            [["Active enzyme", "2 µmol", "18 µmol"], ["No active enzyme", "2 µmol", "6 µmol"]])
     fig, ax = axes("Substrate concentration (mM)", "Initial rate (µmol/min)")
@@ -3402,7 +3402,7 @@ def abdominal_emergency_studies():
     ax.axhline(5, color="0.65", ls="-.", label="Half-maximum")
     ax.set(title="Initial-rate curves  •  simulated", ylim=(0, 11), xticks=[0, 1, 4, 10, 15, 20])
     ax.legend(loc="lower right")
-    save(fig, "abdomen_km")
+    save_lossless(fig, "abdomen_km")
     record("glucose", "Apical glucose uptake in a model",
            ["Sodium gradient", "Uptake (nmol/min)"], [["Present", 9], ["Removed", 2]])
     record("buff", "Response to a matched acid challenge",
@@ -3454,7 +3454,7 @@ def hepatobiliary_studies():
     ax.plot(range(8), [0, 0, 0, 0, 0, .25, .4, .42], "s--", label="Left atrium")
     ax.set_title("Agitated-saline study  •  schematic")
     ax.legend()
-    save(fig, "hepatobiliary_bubble")
+    save_lossless(fig, "hepatobiliary_bubble")
 
     for name, distal in [("cystblock", False), ("distblock", True)]:
         fig, ax = plt.subplots(figsize=(5, 3.6), layout="constrained")
@@ -3888,7 +3888,7 @@ def coagulation_studies():
     ax.plot(times, [3,10,29,56,41,21], "s--", label="Golgi")
     ax.set_title("Secretory protein pulse–chase • simulated")
     ax.legend()
-    save(fig, "coag_pulse")
+    save_lossless(fig, "coag_pulse")
     record("cilia", "Ciliary motion", ["Measurement", "Control", "Treated"],
            [["Cilia per cell", "42", "42"], ["Mean beats per second", "12", "3"]])
     record("committee", "Committee decisions", ["Group", "Seats", "Submitted", "Adopted"],
@@ -4532,7 +4532,7 @@ def atomic_measurement_studies():
     ax.axhline(20, ls="--", color=COLORS[1], label="Empty holder")
     ax.set(title="Tracer counting experiment • simulated", xticks=hours, ylim=(0, 202))
     ax.legend()
-    save(fig, "atomic_decay")
+    save_lossless(fig, "atomic_decay")
     study_table("atomic_photo", "Photoelectrons at a fixed photon energy",
                 ["Subshell", "Photon energy (eV)", "Kinetic energy (eV)"],
                 [["X", "100", "25"], ["Y", "100", "80"]])
@@ -7614,7 +7614,51 @@ def ccs_flow_figures():
     save_lossless(fig, "ccs_albumin_trial")
 
 
+def nutrition_practice():
+    fig, ax = axes("Hospital day", "Enteral volume (mL)")
+    x = np.arange(4)
+    ax.bar(x - .19, [1400]*4, .38, color=COLORS[0], label="Ordered")
+    ax.bar(x + .19, [1350, 620, 1380, 550], .38, color=COLORS[1], label="Delivered")
+    ax.set(xticks=x, xticklabels=["1", "2\nProcedure", "3", "4\nProcedure"],
+           ylim=(0, 1800), title="Simulated feeding record")
+    ax.legend(ncol=2)
+    save_lossless(fig, "nutritionlab_feed_days")
+
+    fig, ax = axes("Hours since first IV nutrition", "Serum phosphate (mmol/L)")
+    ax.plot([0, 12, 24, 48], [1.05, .9, .6, .4], "o-", lw=2, color=COLORS[0])
+    ax.set(xticks=[0, 12, 24, 36, 48], ylim=(0, 1.2), title="Simulated serial laboratory findings")
+    save_lossless(fig, "nutritionlab_refeed_course")
+
+    fig, ax = plt.subplots(figsize=(3.3, 3.3), layout="constrained")
+    ax.set(xlim=(-1, 1), ylim=(-1, 1), aspect="equal")
+    ax.axis("off")
+    ax.plot([-.52, .52], [0, 0], color="#222", lw=2)
+    ax.plot([0, 0], [-.52, .52], color="#222", lw=2)
+    for x, y, group in [(-.72, 0, "H"), (.74, 0, "OH"), (0, .68, "CHO"), (0, -.68, "CH₂OH")]:
+        ax.text(x, y, group, ha="center", va="center", fontsize=16)
+    ax.set_title("Fischer projection")
+    save_lossless(fig, "nutritionlab_glyceraldehyde")
+
+    fig, ax = axes("Time after pulse (min)", "Original label remaining (%)")
+    t = np.linspace(0, 20, 81)
+    for i, tau in enumerate((10, 3)):
+        ax.plot(t, 100*np.exp(-t/tau), STYLES[i], lw=2.3, color=COLORS[i], label=["Pool A", "Pool B"][i])
+    ax.set(title="Simulated tracer washout")
+    ax.legend()
+    save_lossless(fig, "nutritionlab_tracer")
+
+    fig, ax = axes("Mean intake difference (kcal/day)", "")
+    names = ["Total energy", "Carbohydrate", "Fat", "Protein"]
+    y = np.arange(len(names))
+    ax.errorbar([508, 280, 230, -2], y, xerr=[106, 54, 53, 12], fmt="o", capsize=4, color=COLORS[0])
+    ax.axvline(0, ls="--", lw=1, color="#555")
+    ax.set(yticks=y, yticklabels=names, title="Ultra-processed minus unprocessed diet\nHall et al. · 20 participants · mean ± SEM")
+    ax.invert_yaxis()
+    save_lossless(fig, "nutritionlab_hall")
+
+
 def main():
+    nutrition_practice()
     ccs_flow_figures()
     meal_iron_figure()
     intestinal_uptake_figures()

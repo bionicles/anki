@@ -41,6 +41,28 @@ class NutritionCoverageTest(unittest.TestCase):
             nutrition_competency_coverage(cards, rows)
 
 
+    def test_nutrition_changed_cases_require_two_independent_reviewed_cards(self):
+        from deck import nutrition_competency_coverage
+        rows = [dict(Number=str(i), LearningTask="Task", TrainingLevel="UME", Priority="No",
+                     Step1IDs="", Step2CKIDs="", Step3IDs="", Source="source") for i in range(1, 37)]
+        rows[0]["Step2CKIDs"] = "a b"
+        cards = [dict(ID=i, Exam=STEPS[1], Prompt=f"Observation {i}", Figure="") for i in ("a", "b")]
+        pair = dict(Exam=STEPS[1], Number="1", FirstID="a", TransferID="b",
+                    Decision="Interpret the observation", ChangedEvidence="Different measured response")
+        report, _ = nutrition_competency_coverage(cards, rows, [pair])
+        self.assertEqual([(r["Exam"], r["Number"], r["PairIDs"]) for r in report if r["PairIDs"]],
+                         [(STEPS[1], "1", "a b")])
+        for bad in (dict(pair, Number="2"), dict(pair, Exam=STEPS[0]), dict(pair, ChangedEvidence="")):
+            with self.assertRaises(ValueError):
+                nutrition_competency_coverage(cards, rows, [bad])
+        with self.assertRaises(ValueError):
+            nutrition_competency_coverage(cards, rows, [pair, dict(pair, FirstID="b", TransferID="a")])
+        for c in cards:
+            c["Figure"] = "same.webp"
+        with self.assertRaises(ValueError):
+            nutrition_competency_coverage(cards, rows, [pair])
+
+
 class CCSTest(unittest.TestCase):
     def test_cross_topic_course_and_unreviewed_cards(self):
         from deck import ccs_coverage

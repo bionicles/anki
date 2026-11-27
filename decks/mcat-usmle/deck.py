@@ -463,24 +463,50 @@ def nutrition_coverage(cards, blueprint):
     return rows, tags
 
 
-def nutrition_competency_coverage(cards, competencies):
-    """Expose per-Step evidence for the numbered UME/GME consensus curriculum."""
-    steps_by_id = {card["ID"]: card["Exam"] for card in cards}
+def nutrition_competency_coverage(cards, competencies, transfers=()):
+    """Count a changed case only when both cards were reviewed for this skill and Step."""
+    by_id = {card["ID"]: card for card in cards}
     if [r["Number"] for r in competencies] != [str(i) for i in range(1, 37)]:
         raise ValueError("Expected Table 2 competencies numbered 1 through 36 in order")
+    numbers = {r["Number"] for r in competencies}
+    reviewed_pairs = defaultdict(list)
+    seen = set()
+    for transfer in transfers:
+        exam, number = transfer["Exam"], transfer["Number"]
+        first, second = transfer["FirstID"], transfer["TransferID"]
+        key = (exam, number, frozenset((first, second)))
+        if (key in seen or first == second or first not in by_id or second not in by_id
+                or exam not in STEPS or number not in numbers
+                or not transfer["Decision"].strip() or not transfer["ChangedEvidence"].strip()):
+            raise ValueError(f"Invalid nutrition case pair: {key}")
+        if case_stimuli(by_id[first]) & case_stimuli(by_id[second]):
+            raise ValueError(f"Repeated nutrition case stimulus: {first}, {second}")
+        seen.add(key)
+        reviewed_pairs[exam, number].append((first, second))
+
     report, tags = [], defaultdict(list)
     for row in competencies:
         for exam, column in zip(STEPS, ("Step1IDs", "Step2CKIDs", "Step3IDs")):
             ids = row[column].split()
-            if len(set(ids)) != len(ids) or any(steps_by_id.get(i) != exam for i in ids):
+            if len(set(ids)) != len(ids) or any(i not in by_id or by_id[i]["Exam"] != exam for i in ids):
                 raise ValueError(f"Invalid evidence for nutrition competency {row['Number']} on {exam}")
+            pairs = reviewed_pairs[exam, row["Number"]]
+            if any(first not in ids or second not in ids for first, second in pairs):
+                raise ValueError(f"Nutrition pair outside reviewed skill {row['Number']} on {exam}")
             tag = "nutrition_skill::" + row["Number"].zfill(2)
             for i in ids:
                 tags[i].append(tag)
             report.append(dict(Exam=exam, Number=row["Number"], LearningTask=row["LearningTask"],
                                Priority=row["Priority"], TrainingLevel=row["TrainingLevel"],
-                               Cards=str(len(ids)), CardIDs=" ".join(ids), Source=row["Source"]))
+                               Cards=str(len(ids)), CardIDs=" ".join(ids), Source=row["Source"],
+                               ChangedPairs=str(len(pairs)),
+                               PairIDs=" | ".join(f"{a} {b}" for a, b in pairs)))
     return report, tags
+
+
+def reviewed_nutrition_competencies(cards):
+    return nutrition_competency_coverage(cards, table(ROOT / "nutrition-competencies.tsv"),
+                                         table(ROOT / "nutrition-transfer.tsv"))
 
 
 def display_nutrition_competencies(report):
@@ -490,8 +516,11 @@ def display_nutrition_competencies(report):
         print(f"{exam} • numbered nutrition competencies with reviewed examples: "
               f"{sum(bool(r['CardIDs']) for r in rows)}/{len(rows)}; priority competencies: "
               f"{sum(bool(r['CardIDs']) for r in priorities)}/{len(priorities)}")
-        print("  Awaiting a reviewed example: "
-              + ", ".join(r["Number"] for r in rows if not r["CardIDs"]))
+        print(f"  Competencies with a reviewed changed case: {sum(bool(r['PairIDs']) for r in rows)}/{len(rows)}")
+        for field, label in (("CardIDs", "a reviewed example"), ("PairIDs", "a reviewed changed case")):
+            missing = [r["Number"] for r in rows if not r[field]]
+            if missing:
+                print(f"  Awaiting {label}: " + ", ".join(missing))
 
 
 CCS_DOMAINS = ("Diagnosis", "Therapy", "Monitoring", "Timing", "Sequencing", "Location")
@@ -578,7 +607,7 @@ def make(folder, prior):
     blueprint = table(ROOT/"blueprint.tsv")
     ccs_rows, ccs_tags = ccs_measurements(rows)
     write_table(folder/"step-ccs-coverage.tsv", list(ccs_rows[0]), ccs_rows)
-    detailed_nutrition, competency_tags = nutrition_competency_coverage(rows, table(ROOT/"nutrition-competencies.tsv"))
+    detailed_nutrition, competency_tags = reviewed_nutrition_competencies(rows)
     write_table(folder/"step-nutrition-competencies.tsv", list(detailed_nutrition[0]), detailed_nutrition)
     nutrition, nutrition_tags = nutrition_coverage(rows, blueprint)
     write_table(folder/"step-nutrition-coverage.tsv", list(nutrition[0]), nutrition)
@@ -704,7 +733,7 @@ def verify(folder):
         assert bool(ids)==(row["Status"]!="Unmapped")
         assert all(k in keyed and keyed[k]["Exam"]==row["Exam"] for k in ids), row
     assert table(folder/"step-ccs-coverage.tsv") == ccs_measurements(expected)[0]
-    assert table(folder/"step-nutrition-competencies.tsv") == nutrition_competency_coverage(expected, table(ROOT/"nutrition-competencies.tsv"))[0]
+    assert table(folder/"step-nutrition-competencies.tsv") == reviewed_nutrition_competencies(expected)[0]
     assert table(folder/"step-nutrition-coverage.tsv") == nutrition_coverage(expected, blueprint)[0]
     science = reviewed_mcat_science(expected, blueprint)
     assert table(folder/"mcat-science-coverage.tsv") == science
@@ -781,7 +810,7 @@ def file_hash(path):
 
 
 def build_inputs(lock):
-    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "mcat-transfer.tsv", "mcat-source-audit.tsv", "nutrition-competencies.tsv", "ccs-review.tsv", "ccs-pathways.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step-items.tsv", "step_coverage.py", "intrapartum.py", "sleep_studies.py", "ptbxl.py", "ptbxl.tsv", "figures.py", "chemistry_figures.py", "chemistry-figures.tsv", "heart-sounds.tsv", "heart_sounds.py", "protein-coordinates.tsv")]
+    paths = [ROOT / name for name in ("deck.py", "extract.py", "terms.txt", "Justfile", "originals.tsv", "sources.json", "blueprint.tsv", "mcat-transfer.tsv", "mcat-source-audit.tsv", "nutrition-competencies.tsv", "nutrition-transfer.tsv", "ccs-review.tsv", "ccs-pathways.tsv", "specimens.tsv", "imaging.tsv", "step-families.tsv", "step-depth.tsv", "step-weights.tsv", "step-items.tsv", "step_coverage.py", "intrapartum.py", "sleep_studies.py", "ptbxl.py", "ptbxl.tsv", "figures.py", "chemistry_figures.py", "chemistry-figures.tsv", "heart-sounds.tsv", "heart_sounds.py", "protein-coordinates.tsv")]
     paths.extend(sorted(p for p in (ROOT / "media").iterdir() if p.suffix in MEDIA_SUFFIXES))
     return {"sources": lock, "files": {p.relative_to(ROOT).as_posix(): file_hash(p) for p in paths}}
 
@@ -940,7 +969,7 @@ def main():
         if args.action in {"gaps", "coverage"}:
             cards, _ = deduplicate(records(RELEASE), alias_map(RELEASE))
             display_ccs(ccs_measurements(cards)[0])
-            display_nutrition_competencies(nutrition_competency_coverage(cards, table(ROOT/"nutrition-competencies.tsv"))[0])
+            display_nutrition_competencies(reviewed_nutrition_competencies(cards)[0])
         if args.action=="gaps":
             blueprint = table(ROOT/"blueprint.tsv")
             science = reviewed_mcat_science(cards, blueprint)
