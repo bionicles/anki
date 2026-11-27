@@ -5018,6 +5018,52 @@ def kinetic_equilibrium_studies():
     save(fig, "cvdrug_rates", indexed=True)
 
 
+def myocardial_and_bonding_studies():
+    for name, values in [("low", [200, 150]), ("athlete", [200, 80])]:
+        fig, ax = axes("", "Left ventricular volume (mL)")
+        bars = ax.bar(["End diastole", "End systole"], values, color=COLORS)
+        ax.bar_label(bars, padding=4)
+        ax.set_ylim(0, 235)
+        ax.set_title("Ventricular volumes in a simulated study")
+        save(fig, "myostudy_" + name, indexed=True)
+
+    fig, ax = axes("", "Participants meeting relapse criteria (%)")
+    bars = ax.bar(["Phased withdrawal", "Continued therapy"], [44, 0], color=COLORS)
+    ax.bar_label(bars, labels=["11 / 25", "0 / 26"], padding=5)
+    ax.set(ylim=(0, 55), title="TRED-HF · first six months after randomization")
+    save(fig, "myostudy_tred", indexed=True)
+
+    for name, top_right, bottom_right in [("same", "Cl", "F"), ("opposite", "F", "Cl")]:
+        fig, ax = plt.subplots(figsize=(4.5, 2.8), layout="constrained")
+        ax.set(xlim=(-1.8, 1.8), ylim=(-1.1, 1.1), aspect="equal")
+        ax.axis("off")
+        for y in [-0.06, 0.06]:
+            ax.plot([-0.43, 0.43], [y, y], color="#20252b", lw=2.3)
+        for x, side, upper, lower in [(-0.52, -1, "Br", "H"), (0.52, 1, top_right, bottom_right)]:
+            ax.text(x, 0, "C", va="center", ha="center", fontsize=20, backgroundcolor="white")
+            for sign, atom in [(1, upper), (-1, lower)]:
+                ax.plot([x + side*0.12, x + side*0.52], [sign*0.13, sign*0.59], color="#20252b", lw=2)
+                ax.text(x + side*0.68, sign*0.75, atom, ha="center", va="center", fontsize=18)
+        save(fig, "bondstudy_" + name, indexed=True)
+
+
+    # Newman projections along butane C2–C3, looking from front carbon to back.
+    for name, back_methyl in [("anti", 270), ("gauche", 30)]:
+        fig, ax = plt.subplots(figsize=(3.8, 3.3), layout="constrained")
+        ax.set(xlim=(-1.6, 1.6), ylim=(-1.5, 1.5), aspect="equal")
+        ax.axis("off")
+        ax.add_patch(plt.Circle((0, 0), 0.38, fill=False, color="#425461", lw=2))
+        for is_front, angles, methyl in [(False, (30, 150, 270), back_methyl), (True, (90, 210, 330), 90)]:
+            for angle in angles:
+                x, y = np.cos(np.deg2rad(angle)), np.sin(np.deg2rad(angle))
+                start = 0 if is_front else 0.38
+                ax.plot([start*x, 0.99*x], [start*y, 0.99*y], color="#253843", lw=2)
+                ax.text(1.22*x, 1.22*y, "CH₃" if angle == methyl else "H",
+                        ha="center", va="center", fontsize=17)
+        ax.plot(0, 0, "o", color="#253843", ms=5)
+        save(fig, "bondstudy_" + name, indexed=True)
+
+
 def cardiovascular_drug_studies():
     """Draw simulated clinical measurements and observed STOP-CA trial outcomes."""
     for name, systolic, diastolic in [
@@ -6088,6 +6134,7 @@ def main():
     thermodynamics_outline_studies()
     kinetic_equilibrium_studies()
     cardiovascular_drug_studies()
+    myocardial_and_bonding_studies()
     spine_and_separation_studies()
     abdominal_wall_and_equity_studies()
     congenital_and_identity_studies()
