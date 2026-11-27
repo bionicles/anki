@@ -4959,6 +4959,56 @@ def occupational_lung_studies():
 
 
 
+def hiv_and_circuit_studies():
+    """Display serial observations, paired laboratory findings, trial risks and a circuit."""
+    fig, ax = axes("Month", "CD4 cells/µL")
+    ax.plot([0, 3, 6, 9], [620, 490, 350, 230], marker="o", lw=2.4, color=COLORS[0])
+    ax.set(xticks=[0, 3, 6, 9], ylim=(0, 700),
+           title="HIV-2 follow-up")
+    ax.text(.03, .09, "HIV-2 RNA below detection at all four visits",
+            transform=ax.transAxes, fontsize=10)
+    save(fig, "hivstudy_cd4", indexed=True)
+
+    fig, ax = plt.subplots(figsize=(5.3, 2.6), layout="constrained")
+    ax.axis("off")
+    ax.set_title("Paired blood and urine tests", fontsize=14)
+    table = ax.table(cellText=[["Plasma glucose", "92 mg/dL", "70–99"],
+                               ["Urine glucose", "2+", "Negative"],
+                               ["Serum phosphate", "1.6 mg/dL", "2.5–4.5"],
+                               ["Phosphate excretion*", "26%", "<5% when low"]],
+                     colLabels=["Measurement", "Result", "Reference"],
+                     cellLoc="center", colWidths=[.38,.27,.35], bbox=[0, .14, 1, .76])
+    table.auto_set_font_size(False)
+    table.set_fontsize(10)
+    ax.text(.01, .035, "*Fractional excretion during hypophosphatemia", transform=ax.transAxes)
+    save(fig, "hivstudy_renal", indexed=True)
+
+    fig, ax = axes("Timing of ART after cryptococcal meningitis diagnosis",
+                   "Deaths by week 26 (%)")
+    bars = ax.bar(["1–2 weeks", "About 5 weeks"], [45, 30], color=COLORS, width=.5)
+    ax.bar_label(bars, labels=["45% (40/88)", "30% (27/89)"], padding=3)
+    ax.set(ylim=(0, 56), title="COAT randomized trial")
+    save(fig, "hivstudy_trial", indexed=True)
+
+    fig, ax = plt.subplots(figsize=(4.8, 2.4), layout="constrained")
+    ax.axis("off")
+    ax.set(xlim=(-.9, 4.2), ylim=(-.4, 2.6), aspect="equal")
+    ax.plot([0, 3.2], [0, 0], color="black")
+    ax.plot([0, 3.2], [2, 2], color="black")
+    for x, value in [(1.45, "3 Ω"), (3.2, "6 Ω")]:
+        ax.plot([x, x], [0, .56], color="black")
+        ax.plot([x, x], [1.40, 2], color="black")
+        ax.add_patch(plt.Rectangle((x-.14, .56), .28, .84,
+                                   facecolor="#e0eef2", edgecolor=COLORS[0], lw=2))
+        ax.text(x+.24, 1, value, va="center")
+    for y, halfwidth, end in [(.83, .20, 0), (1.15, .38, 2)]:
+        ax.plot([0, 0], [end, y], color="black")
+        ax.plot([-halfwidth, halfwidth], [y, y], color="black", lw=2)
+    ax.text(-.55, 1.25, "+")
+    ax.set_title("Circuit before the branch opens")
+    save(fig, "hivstudy_branches", indexed=True)
+
+
 def immunotherapy_and_electricity():
     """Independent review stimuli for drug safety and electric or magnetic fields."""
     fig, ax = axes("", "Platelets (thousands/µL)")
@@ -5488,6 +5538,7 @@ def main():
     vascular_flow_studies()
     prenatal_visit_studies()
     occupational_lung_studies()
+    hiv_and_circuit_studies()
     immunotherapy_and_electricity()
     immune_reaction_and_fuel_studies()
     renal_inflammation_studies()
