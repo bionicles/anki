@@ -5018,6 +5018,77 @@ def kinetic_equilibrium_studies():
     save(fig, "cvdrug_rates", indexed=True)
 
 
+def cuff_size_trial():
+    # Ishigami et al., Table 2. Values are regular minus correctly sized cuff.
+    fig, ax = axes("Cuff size required", "Systolic difference (mm Hg)")
+    means = [-3.6, 4.8, 19.5]
+    lower = [-5.6, 3.0, 16.1]
+    upper = [-1.7, 6.6, 22.9]
+    errors = [[m - lo for m, lo in zip(means, lower)],
+              [hi - m for m, hi in zip(means, upper)]]
+    ax.axhline(0, color="black", lw=1)
+    ax.errorbar(range(3), means, yerr=errors, fmt="o", ms=7, capsize=5, color=COLORS[0])
+    ax.set(xticks=range(3), xticklabels=["Small", "Large", "Extra-large"], xlim=(-.5, 2.5),
+           ylim=(-8, 26), title="Regular cuff minus correct cuff (mean and 95% CI)")
+    save(fig, "cuffstudy_bias", indexed=True)
+
+
+def mcat_mechanics_details():
+    for name, start, end in [("veca", (1, 1), (4, 3)), ("vecb", (4, 1), (1, 3))]:
+        fig, ax = axes("Horizontal position (m)", "Vertical position (m)")
+        ax.annotate("", end, start, arrowprops=dict(arrowstyle="-|>", color=COLORS[0], lw=3))
+        ax.scatter(*start, color="black", zorder=3)
+        ax.annotate("Start", start, xytext=(0, -16), textcoords="offset points", ha="center")
+        ax.set(xlim=(0, 5), ylim=(0, 4), xticks=range(6), yticks=range(5),
+               title="Displacement on a calibrated grid", aspect="equal")
+        save(fig, "mechdetail_" + name, indexed=True)
+
+    fig, ax = plt.subplots(figsize=(5.2, 2.1), layout="constrained")
+    ax.add_patch(plt.Rectangle((-0.7, -0.5), 1.4, 1, fill=False, lw=2))
+    ax.text(0, 0, "2 kg", ha="center", va="center")
+    for start, end, label in [(-0.7, -3.9, "8 N"), (0.7, 1.5, "2 N")]:
+        ax.annotate("", (end, 0), (start, 0), arrowprops=dict(arrowstyle="-|>", lw=3, color=COLORS[0]))
+        ax.text((start + end) / 2, 0.3, label, ha="center")
+    ax.set(xlim=(-4.3, 2.4), ylim=(-0.9, 1.1), title="Horizontal forces on cart")
+    ax.axis("off")
+    save(fig, "mechdetail_cart", indexed=True)
+
+    fig, ax = axes("Position (m)", "Force component (N)")
+    ax.axhline(0, color="black", lw=1)
+    ax.plot(range(5), [0, 4, 0, -4, 0], color=COLORS[0], marker="o", lw=2)
+    ax.set(xticks=range(5), yticks=[-4, -2, 0, 2, 4], title="Force along the displacement")
+    save(fig, "mechdetail_work", indexed=True)
+
+    for name, period, lag in [("freq", 0.5, None), ("phasea", 4, 1), ("phaseb", 4, 2)]:
+        fig, ax = axes("Time (s)", "Displacement (cm)")
+        t = np.linspace(0, 2 * period, 401)
+        ax.plot(t, np.cos(2 * np.pi * t / period), color=COLORS[0], lw=2, label="Reference")
+        if lag is not None:
+            ax.plot(t, np.cos(2 * np.pi * (t - lag) / period), "--", color=COLORS[1],
+                    lw=2, label="Comparison")
+            ax.legend(loc="upper center", ncols=2)
+        ax.set(xticks=np.arange(0, 2.01 * period, period / 4), yticks=[-1, 0, 1],
+               ylim=(-1.2, 1.65) if lag else (-1.2, 1.2), title="Sensor displacement over time")
+        if lag is None:
+            ax.set_xticks(np.arange(0, 1.01, .25))
+        save(fig, "mechdetail_" + name, indexed=True)
+
+    fig, ax = axes("Position along string (m)", "Displacement (cm)")
+    x = np.linspace(0, 6, 361)
+    ax.plot(x, np.cos(np.pi * x), lw=2, color=COLORS[0])
+    ax.set(xticks=range(7), yticks=[-1, 0, 1], title="String at one instant")
+    save(fig, "mechdetail_space", indexed=True)
+
+    fig, ax = plt.subplots(figsize=(5.2, 2.2), layout="constrained")
+    x = np.linspace(0, 8, 110)
+    displaced = x - 0.38 * np.sin(2 * np.pi * (x - 1) / 3)
+    for y in [-0.16, 0, 0.16]:
+        ax.scatter(displaced, np.full_like(x, y), s=7, color=COLORS[0])
+    ax.set(xlim=(0, 8), ylim=(-.5, .5), xticks=range(9), yticks=[],
+           xlabel="Position along medium (m)", title="Particle spacing at one instant")
+    save(fig, "mechdetail_compress", indexed=True)
+
+
 def reproductive_drug_studies():
     # Aljazaf et al., 2003: both means are from the same eight participants.
     fig, ax = axes("Study period", "24-hour milk volume (mL)")
@@ -6401,6 +6472,8 @@ def main():
     cardiovascular_drug_studies()
     myocardial_and_bonding_studies()
     demographic_and_ulcer_studies()
+    cuff_size_trial()
+    mcat_mechanics_details()
     reproductive_drug_studies()
     social_decision_tables()
     social_access_studies()
