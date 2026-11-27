@@ -5018,6 +5018,33 @@ def kinetic_equilibrium_studies():
     save(fig, "cvdrug_rates", indexed=True)
 
 
+def social_decision_tables():
+    records = [
+        ("patcha", "Simulated patch returns", ["Patch", "Net gain (kJ)", "Total time (min)"],
+         [["A", "18", "3"], ["B", "30", "6"]]),
+        ("patchb", "Simulated patch returns", ["Patch", "Net gain (kJ)", "Total time (min)"],
+         [["A", "18", "6"], ["B", "24", "4"]]),
+        ("gamea", "Payoff to focal bird (points)", ["Focal action", "Partner searches", "Partner waits"],
+         [["Search", "2", "5"], ["Wait", "4", "1"]]),
+        ("gameb", "Payoff to focal bird (points)", ["Focal action", "Partner searches", "Partner waits"],
+         [["Search", "3", "4"], ["Wait", "6", "2"]]),
+    ]
+    for name, title, headers, rows in records:
+        fig, ax = plt.subplots(figsize=(5.4, 2.2), layout="constrained")
+        ax.axis("off")
+        ax.set_title(title)
+        grid = ax.table(cellText=rows, colLabels=headers, cellLoc="center",
+                        bbox=[0.02, 0.06, 0.96, 0.86])
+        grid.auto_set_font_size(False)
+        grid.set_fontsize(10)
+        for (r, _), cell in grid.get_celld().items():
+            cell.set_edgecolor("#73828a")
+            if r == 0:
+                cell.set_facecolor(COLORS[0])
+                cell.get_text().set_color("white")
+        save(fig, "socialdecision_" + name, indexed=True)
+
+
 def social_access_studies():
     fig, ax = plt.subplots(figsize=(5.2, 3.3), layout="constrained")
     positions = {"A": (1, 2), "B": (1, 0), "C": (0, 1),
@@ -6357,6 +6384,7 @@ def main():
     cardiovascular_drug_studies()
     myocardial_and_bonding_studies()
     demographic_and_ulcer_studies()
+    social_decision_tables()
     social_access_studies()
     reproductive_diagnosis_studies()
     membrane_recovery_records()
