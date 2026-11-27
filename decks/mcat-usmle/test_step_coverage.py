@@ -127,6 +127,19 @@ class MCATScienceCoverageTest(unittest.TestCase):
         self.assertEqual([row["MappedCards"] for row in rows], ["3", "2", "0"])
         self.assertEqual([row["PairIDs"] for row in rows], ["a b", "", ""])
 
+    def test_detail_in_one_topic_does_not_cover_neighbors(self):
+        from deck import MCAT_SCIENCE_SKILLS, mcat_topics_without_indexed_pairs
+
+        def topic(name, pairs):
+            row = {col + "PairIDs": "" for col in MCAT_SCIENCE_SKILLS.values()}
+            return dict(row, Subtopic=name, ResearchDesignPairIDs=pairs)
+
+        science = [topic("3B · Bone", "a b | c d"), topic("3B · Skin", "a d"),
+                   topic("2A · Membranes", "a b"), topic("2A · Nucleus", "")]
+        details = [dict(Category="3B", PairIDs="a b"), dict(Category="2A", PairIDs="")]
+        self.assertEqual(mcat_topics_without_indexed_pairs(science, details),
+                         ["3B · Skin", "2A · Membranes", "2A · Nucleus"])
+
     def test_only_shared_evidence_counts_for_each_skill(self):
         from deck import MCAT_SCIENCE_SKILLS, mcat_science_coverage
 

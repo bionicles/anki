@@ -596,6 +596,33 @@ def reproductive():
         save(fig, "repro_uterus_" + code)
 
 
+def older_muscle():
+    """Show filament overlap and primary-study measurements of muscle and mobility."""
+    fig, ax = plt.subplots(figsize=(6, 3), layout="constrained")
+    ax.set(xlim=(-1.9, 1.9), ylim=(-.5, 1.55), yticks=[1, 0],
+           yticklabels=["Longer", "Shorter"], xticks=[], title="Filament overlap during shortening · schematic")
+    for y, half_length in [(1, 1.6), (0, 1.3)]:
+        ax.hlines(y, -.88, .88, color=COLORS[1], lw=7)
+        for sign in (-1, 1):
+            start = sign * half_length
+            ax.vlines(start, y - .24, y + .24, color="#222222", lw=2)
+            end = sign * (half_length - 1.08)
+            ax.hlines([y - .12, y + .12], min(start, end), max(start, end), color=COLORS[0], lw=3)
+    ax.plot([], [], color=COLORS[1], lw=6, label="Thick filament")
+    ax.plot([], [], color=COLORS[0], lw=3, label="Thin filament")
+    ax.legend(loc="upper center", ncol=2, frameon=False, fontsize=8)
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+    save(fig, "older_sarcomere", indexed=True)
+    study_table("older_fibers", "Unloaded shortening (fiber lengths/s)",
+                ["Group", "Type I", "Type IIa"], [["Younger", "1.42", "4.04"], ["Older", "1.31", "4.30"]],
+                source="Trappe et al.", indexed=True)
+    study_table("older_life", "Incident major mobility disability",
+                ["Assigned group", "Events / enrolled", "Observed risk"],
+                [["Physical activity", "246 / 818", "30.1%"], ["Health education", "290 / 817", "35.5%"]],
+                source="LIFE trial", indexed=True)
+
+
 def child_development():
     """Plot measured newborn weight loss and windows of motor milestone attainment."""
     fig, ax = axes("Age after delivery (hours)", "Median loss from birth weight (%)")
@@ -6870,6 +6897,7 @@ def main():
     musculoskeletal_recovery()
     atomic_evidence()
     child_development()
+    older_muscle()
     plot("refeed", "Hours after starting nutrition", "Serum phosphate (mg/dL)",
          [0,12,24,36,48], {"Patient A": [3.2,2.9,2.4,1.8,1.6],
                             "Patient B": [3.1,3.2,3.0,3.1,3.1]})

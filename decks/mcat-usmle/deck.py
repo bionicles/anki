@@ -532,6 +532,21 @@ def current_build(folder, inputs):
     return info["inputs"] == inputs and info["outputs"] == files_in_release(folder)
 
 
+def mcat_topics_without_indexed_pairs(science, details):
+    """Find topic groups with no reviewed pair shared with their category's detail register."""
+    indexed = defaultdict(set)
+    for detail in details:
+        indexed[detail["Category"]].update(filter(None, detail["PairIDs"].split(" | ")))
+    missing = []
+    for topic in science:
+        name = topic["Subtopic"]
+        registered = indexed[name.partition(" · ")[0]]
+        if not any(pair in registered for column in MCAT_SCIENCE_SKILLS.values()
+                   for pair in topic[column + "PairIDs"].split(" | ")):
+            missing.append(name)
+    return missing
+
+
 def display_gaps(items, science, details=()):
     """Show the largest outstanding editorial workloads, with concrete examples."""
     def show(groups):
@@ -553,9 +568,17 @@ def display_gaps(items, science, details=()):
         listed = {row["Category"] for row in details}
         all_categories = {row["Subtopic"].partition(" · ")[0] for row in science}
         missing = sorted(all_categories - listed)
-        print(f"MCAT outline detail inventory covers {len(listed)} of {len(all_categories)} categories")
+        print(f"MCAT outline detail inventory has entries in {len(listed)} of {len(all_categories)} categories")
         if missing:
             print("  Categories awaiting detailed inventory: " + ", ".join(missing))
+        missing_topics = mcat_topics_without_indexed_pairs(science, details)
+        print(f"MCAT topic groups with a pair linked to an indexed detail: {len(science)-len(missing_topics)}/{len(science)}")
+        groups = defaultdict(list)
+        for name in missing_topics:
+            category, _, topic = name.partition(" · ")
+            groups[category].append(topic)
+        print("MCAT topic groups awaiting a pair linked to an indexed detail")
+        show(groups)
         for field, description in (("MappedCards", "a specifically linked question"),
                                    ("ChangedPairs", "a linked changed-case pair")):
             groups = defaultdict(list)
