@@ -4959,6 +4959,70 @@ def occupational_lung_studies():
 
 
 
+def immune_reaction_and_fuel_studies():
+    """Sample compartments, paired clinical observations and simulated chemistry data."""
+    from matplotlib.patches import Ellipse, FancyBboxPatch
+
+    for name, cells in [("cells", True), ("plasma", False)]:
+        fig, ax = plt.subplots(figsize=(5.0, 2.7), layout="constrained")
+        ax.set(xlim=(0, 6.1), ylim=(-.12, 3.15), aspect="equal")
+        ax.axis("off")
+        ax.add_patch(FancyBboxPatch((.42, .26), 1.12, 2.49,
+                     boxstyle="round,pad=0.02,rounding_size=0.12",
+                     facecolor="#f3e3a8", edgecolor="#494648", lw=1.7))
+        ax.fill_between([.45, 1.51], .35, 1.29, color="#ab4b4f")
+        for x, y in [(.66, .61), (1.14, .67), (.87, 1.03)]:
+            ax.add_patch(Ellipse((x, y), .28, .16, angle=-18,
+                                 facecolor="#efad9f", edgecolor="#80393d"))
+        ax.text(.98, 2.98, "Patient sample", ha="center", va="center", fontsize=10)
+        ax.text(1.78, 2.44, "Plasma", fontsize=10)
+        ax.text(1.78, .30, "Red cells", fontsize=10)
+        y = .88 if cells else 1.94
+        ax.annotate("", xy=(2.85, y), xytext=(1.58, y),
+                    arrowprops={"arrowstyle": "->", "color": COLORS[0], "lw": 2})
+        question = ("Already coated in\nthe circulation?" if cells else
+                    "Antibody that binds\nreagent red cells?")
+        ax.text(2.95, y, question, va="center", fontsize=11)
+        save(fig, "immunelearn_" + name, indexed=True)
+
+    for name, labels, values, ylabel, title in [
+        ("trial", ["Omalizumab", "Placebo"], [67, 7], "Met endpoint (%)",
+         "Peanut challenge after treatment"),
+        ("tryptase", ["Acute (1 hour)", "Baseline after recovery"], [14, 5],
+         "Tryptase (ng/mL)", "Paired serum samples"),
+    ]:
+        fig, ax = axes("", ylabel)
+        bars = ax.bar(labels, values, color=COLORS, width=.55)
+        ax.set_ylim(0, 100 if name == "trial" else 20)
+        ax.set_title(title)
+        ax.bar_label(bars, padding=3)
+        if name == "trial":
+            ax.set_xlabel("Single dose ≥600 mg peanut protein without dose-limiting symptoms",
+                          fontsize=8)
+        save(fig, "immunelearn_" + name, indexed=True)
+
+    fig, ax = plt.subplots(figsize=(2.5, 3.1), layout="constrained")
+    ax.set(xlim=(-1.1, 1.1), ylim=(-.5, 4.5), aspect="equal")
+    ax.axis("off")
+    ax.plot([0, 0], [.25, 3.77], color="#303030", lw=1.7)
+    ax.text(0, 4, "CHO", ha="center", va="center")
+    ax.text(0, 0, "CH₂OH", ha="center", va="center")
+    for y in (1, 2, 3):
+        ax.plot([-.55, .55], [y, y], color="#303030", lw=1.6)
+        ax.text(-.62, y, "H", ha="right", va="center")
+        ax.text(.62, y, "OH", ha="left", va="center")
+    save(fig, "immunelearn_fischer", indexed=True)
+
+    fig, ax = axes("Time (min)", "Released fatty acids (µmol)")
+    for label, values, style, color in [("A", [0, 4, 8, 12], "-", COLORS[0]),
+                                          ("B", [3, 5, 7, 9], "--", COLORS[1])]:
+        ax.plot(range(4), values, style, color=color, lw=2.4, marker="o", label=label)
+    ax.set(xticks=range(4), yticks=[0, 3, 5, 7, 9, 12], ylim=(-.6, 13),
+           title="Two model fat-digestion vessels")
+    ax.legend()
+    save(fig, "immunelearn_lip", indexed=True)
+
+
 def renal_inflammation_studies():
     """Simplified compartments for abscess localization and comparison of GBM widths."""
     from matplotlib.patches import Ellipse
@@ -5374,6 +5438,7 @@ def main():
     vascular_flow_studies()
     prenatal_visit_studies()
     occupational_lung_studies()
+    immune_reaction_and_fuel_studies()
     renal_inflammation_studies()
     urinary_trauma_and_filling()
     renal_medication_studies()
