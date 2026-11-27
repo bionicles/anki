@@ -4959,6 +4959,96 @@ def occupational_lung_studies():
 
 
 
+def thermodynamics_outline_studies():
+    """Illustrate work, phase transitions and activation barriers for named outline objectives."""
+    for name, clockwise in [("engine", True), ("reversed", False)]:
+        fig, ax = axes("Volume (L)", "Pressure (kPa)")
+        corners = [(1, 100), (1, 300), (3, 300), (3, 100), (1, 100)]
+        if not clockwise:
+            corners.reverse()
+        ax.plot(*zip(*corners), color=COLORS[0], lw=2)
+        for a, b in zip(corners, corners[1:]):
+            start = tuple(.6*x + .4*y for x, y in zip(a, b))
+            end = tuple(.4*x + .6*y for x, y in zip(a, b))
+            ax.annotate("", xy=end, xytext=start,
+                        arrowprops={"arrowstyle": "->", "color": COLORS[0], "lw": 2})
+        ax.set(xlim=(.5, 3.5), ylim=(40, 360), xticks=[1, 2, 3], yticks=[100, 200, 300],
+               title="One cycle of an idealized gas")
+        save(fig, "cvdrug_" + name, indexed=True)
+
+    for name, energies in [("barrier", [10, 70, -10]), ("reversebar", [10, 55, 30])]:
+        fig, ax = axes("Reaction coordinate", "Enthalpy (kJ/mol)")
+        for i, (left, right) in enumerate(zip(energies, energies[1:])):
+            u = np.linspace(0, 1, 101)
+            ax.plot(i+u, left+(right-left)*(1-np.cos(np.pi*u))/2, lw=2.4, color=COLORS[0])
+        for i, energy in enumerate(energies):
+            ax.annotate(str(energy), (i, energy), xytext=(0, 8), textcoords="offset points", ha="center")
+        ax.set(xticks=[0, 1, 2], xticklabels=["Reactants", "Peak", "Products"],
+               ylim=(-22, 88), title="Single-step reaction • schematic")
+        save(fig, "cvdrug_" + name, indexed=True)
+
+    for name, pressure, begin, end in [("boil", 2, 1.65, 3.6), ("sublime", .4, .3, 2.0)]:
+        fig, ax = axes("Temperature (arbitrary units)", "Pressure (arbitrary units)")
+        ax.plot([.1, .6, 1.1, 1.4], [.08, .32, .7, 1], color=COLORS[0])
+        ax.plot([1.4, 1.9, 2.5, 3.1, 3.65], [1, 1.2, 1.65, 2.35, 3.25], color=COLORS[0])
+        ax.plot([1.4, 1.8], [1, 3.5], color=COLORS[0])
+        ax.scatter([begin], [pressure], s=24, color=COLORS[1])
+        ax.annotate("", xy=(end, pressure), xytext=(begin, pressure),
+                    arrowprops={"arrowstyle": "->", "lw": 2.6, "color": COLORS[1]})
+        for x, y, label in [(.65, 2.6, "Solid"), (2.2, 2.8, "Liquid"), (2.85, .6, "Gas")]:
+            ax.text(x, y, label, ha="center")
+        ax.set(xlim=(0, 4), ylim=(0, 3.5), title="Heating path • schematic phase diagram")
+        save(fig, "cvdrug_" + name, indexed=True)
+
+
+def kinetic_equilibrium_studies():
+    """Draw simulated standard free energies and rates for independent MCAT cases."""
+    fig, ax = axes("Temperature (K)", "Standard Gibbs energy (kJ/mol)")
+    ax.axhline(0, color="#777", linewidth=1)
+    ax.plot([280, 340, 400], [-3, 0, 3], "o-", color=COLORS[0])
+    ax.set(xticks=[280, 340, 400], yticks=[-3, 0, 3], ylim=(-4.5, 4.5),
+           title="Simulated free-energy measurements")
+    save(fig, "cvdrug_thermo", indexed=True)
+
+    fig, ax = axes("Time (s)", "Product concentration (mmol/L)")
+    for label, slope, color in [("A", .2, COLORS[0]), ("B", .3, COLORS[1])]:
+        ax.plot([0, 2, 4], [0, 2*slope, 4*slope], "o-", label=label, color=color)
+    ax.set(xticks=[0, 2, 4], ylim=(0, 1.4), title="Initial product formation • simulated samples")
+    ax.legend()
+    save(fig, "cvdrug_rates", indexed=True)
+
+
+def cardiovascular_drug_studies():
+    """Draw simulated clinical measurements and observed STOP-CA trial outcomes."""
+    for name, systolic, diastolic in [
+        ("postural", [132, 103, 102], [76, 63, 62]),
+        ("stable", [132, 125, 124], [76, 74, 73]),
+    ]:
+        fig, ax = axes("Position and time", "Blood pressure (mm Hg)")
+        for values, label, color in [(systolic, "Systolic", COLORS[0]), (diastolic, "Diastolic", COLORS[1])]:
+            ax.plot(["Supine", "Standing 1 min", "Standing 3 min"], values, "o-", label=label, color=color)
+            for i, value in enumerate(values):
+                ax.annotate(str(value), (i, value), xytext=(0, 7), textcoords="offset points", ha="center")
+        ax.set(ylim=(45, 155), title="Postural blood pressures • simulated readings")
+        ax.legend(loc="lower left", ncol=2)
+        save(fig, "cvdrug_" + name, indexed=True)
+
+    for name, end in [("strain20", 16), ("strain5", 19)]:
+        fig, ax = axes("Study", "GLS magnitude (%)")
+        ax.plot(["Baseline", "Follow-up"], [20, end], "o-", color=COLORS[0], lw=2.5)
+        for i, value in enumerate((20, end)):
+            ax.annotate(str(value), (i, value), xytext=(0, 8), textcoords="offset points", ha="center")
+        ax.set(xlim=(-.3, 1.3), ylim=(12, 24), title="Simulated longitudinal strain")
+        save(fig, "cvdrug_" + name, indexed=True)
+
+    fig, ax = axes("", "Participants meeting the LVEF endpoint (%)")
+    counts = (13, 33)
+    bars = ax.bar(["Atorvastatin", "Placebo"], [100 * n / 150 for n in counts], color=COLORS)
+    ax.bar_label(bars, labels=[f"{n}/150" for n in counts], padding=4)
+    ax.set(ylim=(0, 30), title="STOP-CA • 12-month primary outcome")
+    save(fig, "cvdrug_stopca", indexed=True)
+
+
 def spine_and_separation_studies():
     """Plot simulated blood pressure and chromatography records and the Nordsten-DS estimate."""
     for name, context, values in [
@@ -5995,6 +6085,9 @@ def main():
     vascular_flow_studies()
     prenatal_visit_studies()
     occupational_lung_studies()
+    thermodynamics_outline_studies()
+    kinetic_equilibrium_studies()
+    cardiovascular_drug_studies()
     spine_and_separation_studies()
     abdominal_wall_and_equity_studies()
     congenital_and_identity_studies()
