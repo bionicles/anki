@@ -6463,7 +6463,58 @@ def respiratory_injury_studies():
     save(fig, "airinj_bypass", indexed=True)
 
 
+def mcat_changed_evidence():
+    """Six simulated datasets and results from Philpot et al. on bystander intervention."""
+    fig, ax = axes("Temperature (°C)", "Unfolded fraction")
+    temperature = np.linspace(25, 90, 250)
+    for label, midpoint, color, style in zip(("A", "B"), (50, 65), COLORS, STYLES):
+        unfolded = 1 / (1 + np.exp(-(temperature - midpoint) / 4))
+        ax.plot(temperature, unfolded, style, label=label, color=color, lw=2.4)
+    ax.axhline(.5, color="0.5", ls=":", lw=1)
+    ax.set(xticks=range(30, 91, 5), yticks=[0, .25, .5, .75, 1])
+    ax.legend(title="Preparation")
+    save(fig, "changed_melt", indexed=True)
+
+    fig, ax = axes("Time (s)", "Corrected position (µm)")
+    ax.plot([0, 1, 2, 3, 4, 5], [2, 3, 4, 4, 2, 1], "o-", color=COLORS[0])
+    ax.set(xticks=range(6), yticks=range(6))
+    save(fig, "changed_bead", indexed=True)
+
+    fig, ax = axes("Time (min)", "Product (µmol)")
+    t = np.arange(5)
+    ax.plot(t, 1 + 3*t, "o-", color=COLORS[0], label="Complete mixture")
+    ax.plot(t, 1 + t, "s--", color=COLORS[1], label="No active enzyme")
+    ax.set(yticks=[0, 1, 3, 5, 7, 9, 11, 13], xticks=t)
+    ax.legend()
+    save(fig, "changed_blank", indexed=True)
+
+    fig, ax = axes("Substrate (mM)", "Initial rate (units/min)")
+    substrate = np.linspace(0, 12, 200)
+    for label, vmax, color, style in zip(("A", "B"), (100, 60), COLORS, STYLES):
+        ax.plot(substrate, vmax*substrate/(2 + substrate), style, color=color,
+                label=f"{label} (maximum {vmax})", lw=2.4)
+    ax.set(xticks=range(0, 13, 2), yticks=range(0, 101, 10), ylim=(0, 103))
+    ax.legend()
+    save(fig, "changed_rates", indexed=True)
+
+    study_table("changed_witness", "Help during public conflicts",
+                ["Study measure", "Reported result"],
+                [["Recorded conflicts", "219"],
+                 ["One or more interveners", "90.9% of conflicts"],
+                 ["Odds ratio per additional bystander", "1.10 (95% CI 1.03–1.18)"]],
+                source="Philpot et al. (2020)", indexed=True)
+    study_table("changed_audience", "Accuracy by task and audience",
+                ["Task", "Alone", "Observed"],
+                [["Practiced", "80%", "85%"], ["Unfamiliar", "55%", "60%"]],
+                indexed=True)
+    study_table("changed_equilibrium", "Two closed mixtures at the same temperature",
+                ["Starting mixture", "Final [A]", "Final [B]"],
+                [["A only", "8 mM", "2 mM"], ["B only", "8 mM", "2 mM"]],
+                indexed=True)
+
+
 def main():
+    mcat_changed_evidence()
     MEDIA.mkdir(exist_ok=True)
     mcat_chemistry()
     cardiovascular()
