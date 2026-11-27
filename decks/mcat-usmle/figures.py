@@ -4959,6 +4959,56 @@ def occupational_lung_studies():
 
 
 
+def immunotherapy_and_electricity():
+    """Independent review stimuli for drug safety and electric or magnetic fields."""
+    fig, ax = axes("", "Platelets (thousands/µL)")
+    bars = ax.bar(["EDTA", "Citrate", "Heparin"], [18, 212, 215],
+                  color=[COLORS[1], COLORS[0], COLORS[0]], width=.55)
+    ax.bar_label(bars, padding=3)
+    ax.set(title="Simultaneous platelet measurements", xlabel="Collection tube",
+           ylim=(0, 255))
+    save(fig, "immunerx_tubes", indexed=True)
+
+    fig, ax = axes("", "Observed reactivation (%)")
+    counts = [(1, 41), (7, 39)]
+    bars = ax.bar(["Preventive entecavir", "Treat on reactivation"],
+                  [100 * x / n for x, n in counts], color=COLORS, width=.5)
+    ax.bar_label(bars, labels=[f"{x} of {n}" for x, n in counts], padding=5)
+    ax.set(title="HBV reactivation during follow-up", ylim=(0, 23))
+    save(fig, "immunerx_trial", indexed=True)
+
+    fig, ax = plt.subplots(figsize=(5.4, 2.0), layout="constrained")
+    ax.axis("off")
+    ax.set_title("Home medication record", fontsize=14)
+    grid = ax.table(cellText=[["15 mg", "15 mg", "15 mg", "15 mg", "—"]],
+                    colLabels=["Mon", "Tue", "Wed", "Thu", "Fri"],
+                    cellLoc="center", bbox=[.02, .10, .96, .58])
+    grid.set_fontsize(11)
+    ax.text(.02, .81, "Prescription: methotrexate 15 mg every Monday for arthritis",
+            transform=ax.transAxes, fontsize=10)
+    save(fig, "immunerx_log", indexed=True)
+
+    fig, ax = axes("Time from discharge onset (ms)", "Capacitor voltage (V)")
+    time = np.linspace(0, 65, 200)
+    ax.plot(time, 6 * 2 ** (-time / 20), color=COLORS[0], lw=2.5)
+    ax.set(xlim=(0, 65), ylim=(0, 6.4), xticks=range(0, 61, 10),
+           yticks=range(7))
+    save(fig, "immunerx_discharge", indexed=True)
+
+    fig, ax = plt.subplots(figsize=(4.8, 2.6), layout="constrained")
+    ax.set(aspect="equal", xlim=(-1.5, 3.1), ylim=(-2.0, .8))
+    ax.axis("off")
+    xx, yy = np.meshgrid(np.arange(.1, 3, .4), np.arange(-1.9, .6, .4))
+    ax.scatter(xx, yy, s=13, color="#82959d")
+    angle = np.linspace(0, np.pi / 2, 100)
+    ax.plot(1.6 * np.sin(angle), 1.6 * (np.cos(angle) - 1), lw=3, color=COLORS[1])
+    ax.annotate("", xy=(.05, 0), xytext=(-1.25, 0),
+                arrowprops={"arrowstyle": "->", "lw": 2, "color": COLORS[1]})
+    ax.text(-1.4, .22, "Entry velocity", fontsize=10)
+    ax.set_title("Uniform magnetic field out of the page")
+    save(fig, "immunerx_track", indexed=True)
+
+
 def immune_reaction_and_fuel_studies():
     """Sample compartments, paired clinical observations and simulated chemistry data."""
     from matplotlib.patches import Ellipse, FancyBboxPatch
@@ -5438,6 +5488,7 @@ def main():
     vascular_flow_studies()
     prenatal_visit_studies()
     occupational_lung_studies()
+    immunotherapy_and_electricity()
     immune_reaction_and_fuel_studies()
     renal_inflammation_studies()
     urinary_trauma_and_filling()
