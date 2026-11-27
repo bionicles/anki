@@ -4959,6 +4959,57 @@ def occupational_lung_studies():
 
 
 
+def renal_inflammation_studies():
+    """Simplified compartments for abscess localization and comparison of GBM widths."""
+    from matplotlib.patches import Ellipse
+
+    for name, site in [("inside", (2.1, 2.15)), ("outside", (3.54, 2.20))]:
+        fig, ax = plt.subplots(figsize=(5.2, 2.8), layout="constrained")
+        ax.set(xlim=(0, 6.3), ylim=(0, 3.6), aspect="equal")
+        ax.axis("off")
+        ax.add_patch(Ellipse((2.14, 1.81), 3.75, 3.2, facecolor="#f3e6c9",
+                             edgecolor="#705c43", linewidth=2.1))
+        ax.add_patch(Ellipse((2.04, 1.75), 2.48, 2.34, facecolor="#d8a898",
+                             edgecolor="#783d37", linewidth=2.2))
+        ax.add_patch(Ellipse((2.1, 1.42), .8, .40, angle=12,
+                             facecolor="#eeeeeb", edgecolor="#827c75"))
+        ax.add_patch(Ellipse(site, .50, .45, facecolor="#185e75",
+                             edgecolor="#133b4b", linewidth=1.4))
+        for title, boundary, label in [
+            ("Renal fascia", (3.64, 2.77), (4.24, 3.12)),
+            ("Renal capsule", (3.11, 1.18), (4.24, 1.08)),
+        ]:
+            ax.annotate(title, xy=boundary, xytext=label, va="center",
+                        arrowprops={"arrowstyle": "-", "color": "#454545"})
+        ax.text(4.24, .47, "●  Collection", color="#185e75", fontsize=10)
+        ax.set_title("Renal cross-section (schematic)", fontsize=11)
+        save(fig, "renalinfect_" + name, indexed=True)
+
+    fig, ax = plt.subplots(figsize=(5.3, 2.7), layout="constrained")
+    ax.set(xlim=(0, 5.9), ylim=(0, 3.5))
+    ax.axis("off")
+    x = np.linspace(1.45, 5.65, 160)
+    for label, y, thickness in [("Reference", 2.75, .34), ("A", 1.68, .62),
+                                ("B", .65, .13)]:
+        center = y + .06 * np.sin(2.1 * x)
+        ax.fill_between(x, center-thickness/2, center+thickness/2, color="#475369")
+        ax.text(.12, y, label, va="center", fontsize=11)
+    ax.set_title("Glomerular basement membrane profiles at equal scale", fontsize=11)
+    save(fig, "renalinfect_gbm", indexed=True)
+
+
+    for name, start, end in [("assaya", (0, 0), (12, 6)),
+                             ("assayb", (4, 0), (12, 8))]:
+        fig, ax = axes("Time (min)", "NADH in assay (nmol)")
+        for i, label in enumerate(("A", "B")):
+            ax.plot([0, 2], [start[i], end[i]], STYLES[i], color=COLORS[i],
+                    label=label, lw=2.5, marker="o")
+        ax.set(xlim=(-.1, 2.1), ylim=(-.6, 13), xticks=[0, 1, 2],
+               yticks=np.arange(0, 13, 2), title="Isocitrate dehydrogenase assay")
+        ax.legend()
+        save(fig, "renalinfect_" + name, indexed=True)
+
+
 def urinary_trauma_and_filling():
     """Teaching cystograms and pressure-volume curves, plus bladder CT study counts."""
     from matplotlib.patches import Ellipse
@@ -5323,6 +5374,7 @@ def main():
     vascular_flow_studies()
     prenatal_visit_studies()
     occupational_lung_studies()
+    renal_inflammation_studies()
     urinary_trauma_and_filling()
     renal_medication_studies()
     renal_pathology_and_inheritance()
