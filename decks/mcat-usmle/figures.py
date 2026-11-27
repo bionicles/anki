@@ -6984,7 +6984,52 @@ def research_and_social_studies():
                 source="Bertrand & Mullainathan", indexed=True)
 
 
+def heme_and_skin_figures():
+    """Compare measured heme coordinates and the sampling units in a clinical image study."""
+    import csv
+
+    with (MEDIA.parent / "protein-coordinates.tsv").open() as handle:
+        records = list(csv.DictReader(handle, delimiter="\t"))
+    for pdb in ("1HHO", "2HHB"):
+        atoms = {r["Atom"]: np.array([float(r[k]) for k in ("X", "Y", "Z")])
+                 for r in records if r["PDB"] == pdb}
+        ring = np.array([atoms[name] for name in ("NA", "NB", "NC", "ND")])
+        center = ring.mean(axis=0)
+        normal = np.linalg.svd(ring - center)[2][-1]
+        normal *= np.sign((atoms["NE2"] - center) @ normal)
+        fig, ax = axes("Atom group", "Height from heme N plane (Å)")
+        for x, names in enumerate([("NA", "NB", "NC", "ND"), ("FE",), ("NE2",), ("O1", "O2")]):
+            heights = [(atoms[k] - center) @ normal for k in names if k in atoms]
+            if heights:
+                ax.scatter(x + np.linspace(-.09, .09, len(heights)) if len(heights) > 1 else [x],
+                           heights, s=46, color=COLORS[x % 2], zorder=3)
+            if x == 1:
+                ax.annotate(f"{heights[0]:+.2f} Å", (x, heights[0]),
+                            xytext=(0, 9), textcoords="offset points", ha="center")
+        ax.axhline(0, color="#444", lw=.8)
+        ax.set(xticks=range(4), xticklabels=["Ring N", "Fe", "His N", "O₂"], ylim=(-3.2, 3.2),
+               xlim=(-.4, 3.4), title=f"Human hemoglobin · α chain · PDB {pdb}")
+        save(fig, "fold_" + pdb.lower(), indexed=True)
+
+    for name, slope, intercept in [("competitive", 1, .5), ("noncompetitive", 1, 1)]:
+        fig, ax = axes("1 / substrate concentration (mM⁻¹)", "1 / initial velocity (s/µM)")
+        for i, (m, b) in enumerate([(.5, .5), (slope, intercept)]):
+            x = np.linspace(-b / m, 2)
+            ax.plot(x, m*x + b, STYLES[i], lw=2.3, color=COLORS[i],
+                    label=["Control", "With inhibitor"][i])
+        ax.axvline(0, color="#555", lw=.8)
+        ax.set(xlim=(-1.2, 2.1), ylim=(-.12, 3.25), title="Reciprocal initial rates · simulated")
+        ax.legend()
+        save(fig, "inhibition_" + name, indexed=True)
+
+    study_table("derm_reference", "Selected clinical image labels",
+                ["Recorded label", "Images", "Biopsied"], [["Melanoma", "52", "100%"],
+                ["Melanocytic nevus", "244", "24.6%"], ["Seborrheic keratosis", "235", "6.4%"]],
+                source="PAD-UFES-20, Table 2", indexed=True)
+
+
 def main():
+    heme_and_skin_figures()
     research_and_social_studies()
     sensory_and_fluid_studies()
     bph_trial()
